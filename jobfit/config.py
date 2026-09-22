@@ -7,16 +7,6 @@ self-contained, independently runnable project with no cross-repo coupling.
 
 from pathlib import Path
 
-# --- Personal inputs ---
-CV_DEFAULT = Path(r"C:\Users\user\Documents\Job\2026\Dan_Hanegbi_Resume.docx")
-CV_INFRA = Path(r"C:\Users\user\Documents\Job\2026\Infra\Dan_Hanegbi_Resume.docx")
-CONNECTIONS_CSV = Path(r"C:\Users\user\Code\linkedin-match\Connections.csv")
-
-# --- Control-panel CV profile registry (Task 5 relocates these next to the
-# other personal-input constants and removes CV_DEFAULT/CV_INFRA above) ---
-CV_PROFILES_DIR = Path(__file__).parent / "data" / "cvs"
-CV_PROFILES_REGISTRY = Path(__file__).parent / "data" / "profiles.json"
-
 # --- Local cache/output ---
 ROOT = Path(__file__).parent
 TECHMAP_CACHE_DIR = ROOT / "cache" / "techmap"
@@ -30,7 +20,15 @@ CONNECTIONS_CACHE = ROOT / "cache" / "connections_index.json"
 JOBS_OUTPUT_JSON = ROOT / "data" / "jobs_v2.json"
 OUTPUT_HTML = ROOT.parent / "jobfit.html"
 
+# --- Personal inputs (uploaded through the control panel, gitignored) ---
+CONNECTIONS_CSV = ROOT / "data" / "connections.csv"
+CV_PROFILES_DIR = ROOT / "data" / "cvs"
+CV_PROFILES_REGISTRY = ROOT / "data" / "profiles.json"
+REFERRAL_UPLOADS_DIR = ROOT / "data" / "referrals"
+
 COMPANY_JOBS_TTL_HOURS = 24
+COMPANY_RECHECK_TTL_HOURS = 12
+RUN_HISTORY_PATH = ROOT / "data" / "run_history.json"
 
 # --- Techmap source ---
 TECHMAP_RAW_BASE = "https://raw.githubusercontent.com/mluggy/techmap/main/jobs/{category}.csv"
@@ -53,10 +51,11 @@ TARGET_ROLES: list[str] = [
     "machine learning infrastructure engineer", "ml systems engineer",
 ]
 
-# Two CVs, same person/experience, different ATS-facing emphasis: "default" leans
-# AI/software, "infra" leans platform/SRE/MLOps. Role-title weighting is the real
-# differentiator between them (the CV text itself only differs in a few phrases).
-ROLE_WEIGHTS_DEFAULT: dict[str, int] = {
+# One shared role/title weighting for every CV profile. Profiles no longer get
+# their own hand-tuned table - what differentiates them is the skill vocabulary
+# extracted from each CV's own text (see cv.py), and coverage against a job's
+# real description already dominates the score (see scoring.FULL_WEIGHTS).
+ROLE_WEIGHTS: dict[str, int] = {
     "software engineer": 58, "python engineer": 55, "backend engineer": 54,
     "ai engineer": 53, "ml engineer": 52, "machine learning engineer": 52,
     "ai infrastructure": 52, "backend developer": 50, "software developer": 50,
@@ -66,23 +65,6 @@ ROLE_WEIGHTS_DEFAULT: dict[str, int] = {
     "data engineer": 38, "mlops engineer": 56, "ml infrastructure engineer": 56,
     "ml platform engineer": 55, "ai platform engineer": 55, "llm infrastructure engineer": 57,
     "inference engineer": 55, "machine learning infrastructure engineer": 56, "ml systems engineer": 53,
-}
-
-ROLE_WEIGHTS_INFRA: dict[str, int] = {
-    "site reliability engineer": 58, "platform engineer": 56, "infrastructure engineer": 55,
-    "devops engineer": 54, "ai infrastructure": 54, "distributed systems engineer": 50,
-    "data engineer": 48, "backend engineer": 47, "python engineer": 46,
-    "software engineer": 45, "backend developer": 44, "software developer": 44,
-    "ml engineer": 40, "machine learning engineer": 40, "ai engineer": 38,
-    "full stack engineer": 35, "full-stack engineer": 35, "fullstack engineer": 35,
-    "full stack developer": 33, "mlops engineer": 60, "ml infrastructure engineer": 60,
-    "ml platform engineer": 59, "ai platform engineer": 58, "llm infrastructure engineer": 60,
-    "inference engineer": 58, "machine learning infrastructure engineer": 60, "ml systems engineer": 56,
-}
-
-ROLE_WEIGHTS_BY_PROFILE: dict[str, dict[str, int]] = {
-    "default": ROLE_WEIGHTS_DEFAULT,
-    "infra": ROLE_WEIGHTS_INFRA,
 }
 
 TITLE_INCLUDE_KEYWORDS: list[str] = [
