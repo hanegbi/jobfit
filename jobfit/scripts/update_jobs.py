@@ -1,8 +1,9 @@
 """Incremental job update: fetch each company's career page, diff against its
-saved companies/<name>.json, mark new/seen/closed jobs, and only rescore when
-the CVs themselves have changed. Safe to run anytime, as often as you like -
-each run is cheap after the first (existing jobs aren't re-scraped or
-re-scored, only checked for whether they're still listed).
+saved companies/<name>.json, and mark new/seen/closed jobs (scrape_stage);
+then rescore every stored job against the current CV profiles, reaggregate,
+and rebuild jobfit.html (recompute_stage). Safe to run anytime, as often as
+you like - a company checked within COMPANY_RECHECK_TTL_HOURS is skipped
+unless --force is passed, and the fetch itself runs concurrently.
 
 Source of companies: jobfit/companies_career_pages.json ({company: url}),
 your own curated list - copied into the repo so this isn't a fragile
@@ -26,6 +27,8 @@ import logging
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -81,9 +84,14 @@ def compute_job_id(company: str, title: str, location: str | None, url: str | No
 
 
 def cv_hash() -> str:
+    """Kept for meta.json bookkeeping only - no longer gates rescoring
+    (recompute_stage always rescores everything, unconditionally)."""
     h = hashlib.sha1()
-    for path in (config.CV_DEFAULT, config.CV_INFRA):
-        h.update(path.read_bytes())
+    registry = cv.load_registry()
+    for profile_id in sorted(registry):
+        path = config.CV_PROFILES_DIR / registry[profile_id]["filename"]
+        if path.exists():
+            h.update(path.read_bytes())
     return h.hexdigest()
 
 
@@ -214,8 +222,15 @@ async def fetch_company_jobs_async(
     return jobs
 
 
-def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict, rescore_all: bool) -> tuple[dict, int, int]:
-    """Returns (updated_company_record, new_count, closed_count)."""
+def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict) -> tuple[dict, int, int]:
+    """Returns (updated_company_record, new_count, closed_count).
+
+    Only newly-seen jobs get scored here (so they have a sane score
+    immediately). Existing jobs' scores are left alone - recompute_stage()
+    is the single place that rescands and rescores every stored job, on
+    every trigger that could change a score (a new CV, a removed profile,
+    or just periodically), not just when the CV hash changes.
+    """
     record = load_company_file(company)
     existing_by_id = {j["id"]: j for j in record["jobs"]}
     fetched_ids: set[str] = set()
@@ -234,9 +249,6 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
             existing["last_seen"] = now
             if existing.get("status") in ("new", "closed"):
                 existing["status"] = "seen"  # a job that was "new" last run has now been seen again
-            if rescore_all:
-                scores = scoring.score_job_both(job, profiles)
-                existing.update(scores)
         else:
             scores = scoring.score_job_both(job, profiles)
             new_job = {
@@ -266,36 +278,107 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
     return record, new_count, closed_count
 
 
-def run(companies: dict[str, str], rescore_all: bool) -> None:
-    profiles = cv.load_profiles()
+WORKERS = 8
+
+
+@dataclass
+class RunStats:
+    companies_checked: int = 0
+    companies_skipped: int = 0
+    new_jobs: int = 0
+    closed_jobs: int = 0
+    failures: list[str] = field(default_factory=list)
+
+
+def _should_skip_company(record: dict, force: bool) -> bool:
+    if force:
+        return False
+    last_checked = record.get("last_checked")
+    if not last_checked:
+        return False
+    try:
+        checked_at = datetime.strptime(last_checked, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return False
+    age_hours = (datetime.now(timezone.utc) - checked_at).total_seconds() / 3600
+    return age_hours < config.COMPANY_RECHECK_TTL_HOURS
+
+
+def _process_company(company, url, session, profiles, techmap_index, force):
+    """Runs in a worker thread. Returns (company, new_count, closed_count, skipped, error)."""
+    record = load_company_file(company)
+    if _should_skip_company(record, force):
+        return company, 0, 0, True, None
+    try:
+        fetched = asyncio.run(fetch_company_jobs_async(company, url, session, profiles, techmap_index))
+        updated, new_count, closed_count = diff_and_update(company, url, fetched, profiles)
+        save_company_file(company, updated)
+        return company, new_count, closed_count, False, None
+    except Exception as error:  # noqa: BLE001 - one bad company must never abort the run
+        return company, 0, 0, False, error
+
+
+def scrape_stage(companies: dict[str, str], profiles: dict, force: bool = False) -> RunStats:
+    """The network-bound half of an update: fetch + diff every company,
+    concurrently, skipping anything checked within COMPANY_RECHECK_TTL_HOURS
+    unless force=True."""
     session = ats_fetchers.make_session()
     logger.info("loading techmap data (fallback source for companies whose own site can't be parsed)...")
     techmap_index = load_techmap_index()
 
-    checked = failures = total_new = total_closed = 0
-    failed_companies: list[str] = []
+    stats = RunStats()
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = [
+            pool.submit(_process_company, company, url, session, profiles, techmap_index, force)
+            for company, url in companies.items()
+        ]
+        for future in as_completed(futures):
+            company, new_count, closed_count, skipped, error = future.result()
+            if skipped:
+                stats.companies_skipped += 1
+                continue
+            if error is not None:
+                stats.failures.append(company)
+                logger.warning("%s: FAILED - %s: %s", company, type(error).__name__, error)
+                continue
+            stats.companies_checked += 1
+            stats.new_jobs += new_count
+            stats.closed_jobs += closed_count
+            logger.info("%s: %d new, %d closed", company, new_count, closed_count)
 
-    for company, url in companies.items():
-        try:
-            fetched = asyncio.run(fetch_company_jobs_async(company, url, session, profiles, techmap_index))
-            record, new_count, closed_count = diff_and_update(company, url, fetched, profiles, rescore_all)
-            save_company_file(company, record)
-            checked += 1
-            total_new += new_count
-            total_closed += closed_count
-            logger.info("%s: %d jobs (%d new, %d closed)", company, len(record["jobs"]), new_count, closed_count)
-        except Exception as error:  # noqa: BLE001 - one company's failure must never abort the run
-            failures += 1
-            failed_companies.append(company)
-            logger.warning("%s: FAILED - %s: %s", company, type(error).__name__, error)
+    logger.info(
+        "scrape done: %d checked, %d skipped (recently checked), %d new, %d closed, %d failures",
+        stats.companies_checked, stats.companies_skipped, stats.new_jobs, stats.closed_jobs, len(stats.failures),
+    )
+    return stats
+
+
+def recompute_stage() -> None:
+    """The local-only half of an update: rescore every stored job against the
+    *current* profile registry, drop any score fields for profiles that no
+    longer exist, reaggregate, and rebuild jobfit.html. Cheap (pure regex
+    scoring over already-fetched text) - safe to call after any admin edit,
+    not just after a scrape."""
+    profiles = cv.load_profiles()
+    profile_ids = set(profiles)
+    stale_prefixes = ("score_", "matched_", "coverage_", "confidence_", "requirements_")
+
+    for path in sorted(COMPANIES_DIR.glob("*.json")):
+        if path.name == "_meta.json":
             continue
+        record = json.loads(path.read_text(encoding="utf-8"))
+        for job in record["jobs"]:
+            job.update(scoring.score_job_both(job, profiles))
+            for key in list(job):
+                for prefix in stale_prefixes:
+                    if key.startswith(prefix) and key[len(prefix):] not in profile_ids:
+                        del job[key]
+        save_company_file(record["name"], record)
 
-    print()
-    print("=== Update summary ===")
-    print(f"companies checked: {checked}")
-    print(f"new jobs: {total_new}")
-    print(f"closed jobs: {total_closed}")
-    print(f"failures: {failures}" + (f" ({', '.join(failed_companies)})" if failed_companies else ""))
+    count = aggregate_to_jobs_v2()
+    logger.info("recompute: rescored against %d profile(s), aggregated %d jobs", len(profiles), count)
+    from jobfit import build_html
+    build_html.build()
 
 
 def merge_referral_jobs(profiles: dict) -> dict[str, int]:
@@ -434,8 +517,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="only process the first N companies (testing)")
     parser.add_argument("--company", type=str, default=None, help="only process this one company (exact name match)")
-    parser.add_argument("--force-rescore", action="store_true", help="rescore existing jobs even if the CV hash hasn't changed")
-    parser.add_argument("--skip-aggregate", action="store_true", help="don't regenerate jobs_v2.json after updating")
+    parser.add_argument("--force", action="store_true", help="re-check companies even if checked recently")
+    parser.add_argument("--skip-aggregate", action="store_true", help="don't rescore/rebuild after updating")
     args = parser.parse_args()
 
     all_companies = json.loads(config.ROOT.joinpath("companies_career_pages.json").read_text(encoding="utf-8"))
@@ -449,19 +532,21 @@ def main() -> None:
     elif args.limit:
         companies = dict(list(companies.items())[: args.limit])
 
-    meta = load_meta()
-    current_cv_hash = cv_hash()
-    rescore_all = args.force_rescore or meta.get("cv_hash") != current_cv_hash
-    if rescore_all:
-        logger.info("CV hash changed (or --force-rescore) - existing jobs will be rescored too")
-
     started = time.time()
-    run(companies, rescore_all)
+    profiles = cv.load_profiles()
+    stats = scrape_stage(companies, profiles, force=args.force)
+
+    print()
+    print("=== Update summary ===")
+    print(f"companies checked: {stats.companies_checked}")
+    print(f"companies skipped (recently checked): {stats.companies_skipped}")
+    print(f"new jobs: {stats.new_jobs}")
+    print(f"closed jobs: {stats.closed_jobs}")
+    print(f"failures: {len(stats.failures)}" + (f" ({', '.join(stats.failures)})" if stats.failures else ""))
 
     if args.company or args.limit:
         logger.info("skipping referral-jobs merge (scoped run via --company/--limit)")
     else:
-        profiles = cv.load_profiles()
         referral_stats = merge_referral_jobs(profiles)
         logger.info(
             "referral jobs: %d matched to existing companies, %d new companies, "
@@ -470,13 +555,12 @@ def main() -> None:
             referral_stats["merged_into_existing_job"], referral_stats["added_new_job"],
         )
 
-    meta["cv_hash"] = current_cv_hash
+    meta = load_meta()
     meta["last_run"] = _now_iso()
     save_meta(meta)
 
     if not args.skip_aggregate:
-        count = aggregate_to_jobs_v2()
-        logger.info("aggregated %d jobs from companies/*.json into %s", count, config.JOBS_OUTPUT_JSON)
+        recompute_stage()
 
     logger.info("done in %.1fs", time.time() - started)
 
