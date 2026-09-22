@@ -12,6 +12,11 @@ CV_DEFAULT = Path(r"C:\Users\user\Documents\Job\2026\Dan_Hanegbi_Resume.docx")
 CV_INFRA = Path(r"C:\Users\user\Documents\Job\2026\Infra\Dan_Hanegbi_Resume.docx")
 CONNECTIONS_CSV = Path(r"C:\Users\user\Code\linkedin-match\Connections.csv")
 
+# --- Control-panel CV profile registry (Task 5 relocates these next to the
+# other personal-input constants and removes CV_DEFAULT/CV_INFRA above) ---
+CV_PROFILES_DIR = Path(__file__).parent / "data" / "cvs"
+CV_PROFILES_REGISTRY = Path(__file__).parent / "data" / "profiles.json"
+
 # --- Local cache/output ---
 ROOT = Path(__file__).parent
 TECHMAP_CACHE_DIR = ROOT / "cache" / "techmap"

@@ -1,6 +1,9 @@
 """Extract CV text and a skills-based profile from a .docx resume."""
 
+import json
 import re
+from datetime import datetime, timezone
+from pathlib import Path
 
 import docx
 
@@ -35,9 +38,62 @@ def build_profile(cv_path) -> dict:
     return {"must_have_keywords": extract_skills(text), "text": text}
 
 
+def _slugify(name: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "_", name.strip().lower()).strip("_")
+    return slug or "profile"
+
+
+def _unique_id(base: str, existing: set[str]) -> str:
+    if base not in existing:
+        return base
+    n = 2
+    while f"{base}_{n}" in existing:
+        n += 1
+    return f"{base}_{n}"
+
+
+def load_registry() -> dict[str, dict]:
+    if config.CV_PROFILES_REGISTRY.exists():
+        return json.loads(config.CV_PROFILES_REGISTRY.read_text(encoding="utf-8"))
+    return {}
+
+
+def save_registry(registry: dict[str, dict]) -> None:
+    config.CV_PROFILES_REGISTRY.parent.mkdir(parents=True, exist_ok=True)
+    config.CV_PROFILES_REGISTRY.write_text(json.dumps(registry, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def register_profile(name: str, source_path: Path) -> str:
+    """Copy source_path's CV into the registry under a new profile id. Returns that id."""
+    source_path = Path(source_path)
+    registry = load_registry()
+    profile_id = _unique_id(_slugify(name), set(registry))
+    config.CV_PROFILES_DIR.mkdir(parents=True, exist_ok=True)
+    dest = config.CV_PROFILES_DIR / f"{profile_id}{source_path.suffix}"
+    dest.write_bytes(source_path.read_bytes())
+    registry[profile_id] = {
+        "name": name,
+        "filename": dest.name,
+        "uploaded_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    }
+    save_registry(registry)
+    return profile_id
+
+
+def remove_profile(profile_id: str) -> None:
+    registry = load_registry()
+    entry = registry.pop(profile_id, None)
+    if entry is None:
+        return
+    file_path = config.CV_PROFILES_DIR / entry["filename"]
+    if file_path.exists():
+        file_path.unlink()
+    save_registry(registry)
+
+
 def load_profiles() -> dict[str, dict]:
-    """Load both the default and infra CV profiles."""
+    """Build {must_have_keywords, text} for every registered CV profile."""
     return {
-        "default": build_profile(config.CV_DEFAULT),
-        "infra": build_profile(config.CV_INFRA),
+        profile_id: build_profile(config.CV_PROFILES_DIR / entry["filename"])
+        for profile_id, entry in load_registry().items()
     }
