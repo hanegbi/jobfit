@@ -8,10 +8,10 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 
-from jobfit2 import ats_fetchers, config, connections, cv, referral_source, scoring, techmap_source
-from jobfit2 import linkedin_match_bridge as lm_bridge
+from jobfit import ats_fetchers, config, connections, cv, referral_source, scoring, techmap_source
+from jobfit import linkedin_match_bridge as lm_bridge
 
-logger = logging.getLogger("jobfit2.pipeline")
+logger = logging.getLogger("jobfit.pipeline")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 WORKERS = 8

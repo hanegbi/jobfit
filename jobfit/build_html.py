@@ -3,7 +3,7 @@
 import json
 from datetime import datetime, timezone
 
-from jobfit2 import config
+from jobfit import config
 
 PAGE_TEMPLATE = r"""<!doctype html>
 <html lang="en">
@@ -340,11 +340,11 @@ function saveIdSet(key, set) {
     localStorage.setItem(key, JSON.stringify(Array.from(set)));
   } catch (e) { /* private mode / storage blocked - liked/hidden just won't persist */ }
 }
-const likedIds = loadIdSet("jobfit2_liked");
-const hiddenIds = loadIdSet("jobfit2_hidden");
-const sentIds = loadIdSet("jobfit2_sent");
-const reachedIds = loadIdSet("jobfit2_reached");
-const hiddenCompanies = loadIdSet("jobfit2_hidden_companies");
+const likedIds = loadIdSet("jobfit_liked");
+const hiddenIds = loadIdSet("jobfit_hidden");
+const sentIds = loadIdSet("jobfit_sent");
+const reachedIds = loadIdSet("jobfit_reached");
+const hiddenCompanies = loadIdSet("jobfit_hidden_companies");
 
 function uniqueSorted(field) {
   return Array.from(new Set(JOBS.map(j => j[field]).filter(Boolean))).sort((a, b) => a.localeCompare(b));
@@ -395,7 +395,7 @@ const TITLE_WORD_STOPWORDS = new Set([
   "and", "or", "the", "a", "an", "of", "for", "to", "in", "on", "at", "with", "&",
   "i", "ii", "iii", "iv", "v", "new", "team", "role",
 ]);
-const dismissedSuggestions = loadIdSet("jobfit2_dismissed_suggestions");
+const dismissedSuggestions = loadIdSet("jobfit_dismissed_suggestions");
 const titleWordCounts = (() => {
   const counts = new Map();
   for (const job of JOBS) {
@@ -432,7 +432,7 @@ document.getElementById("excludeSuggestions").addEventListener("click", (e) => {
     render();
   } else if (target.classList.contains("dismiss")) {
     dismissedSuggestions.add(word);
-    saveIdSet("jobfit2_dismissed_suggestions", dismissedSuggestions);
+    saveIdSet("jobfit_dismissed_suggestions", dismissedSuggestions);
     refreshExcludeSuggestions();
   }
 });
@@ -445,8 +445,8 @@ function syncScopeBtn() {
   btn.classList.toggle("scope-narrow", state.qScope !== "both");
 }
 
-const FILTER_STATE_KEY = "jobfit2_filters";
-const SAVED_FILTERS_KEY = "jobfit2_saved_filters";
+const FILTER_STATE_KEY = "jobfit_filters";
+const SAVED_FILTERS_KEY = "jobfit_saved_filters";
 
 function captureFilterSnapshot() {
   const allCompaniesSelected = state.companies.size >= allCompanies.length;
@@ -817,20 +817,20 @@ function render() {
       const id = btn.dataset.id;
       if (btn.dataset.action === "like") {
         likedIds.has(id) ? likedIds.delete(id) : likedIds.add(id);
-        saveIdSet("jobfit2_liked", likedIds);
+        saveIdSet("jobfit_liked", likedIds);
       } else if (btn.dataset.action === "sent") {
         sentIds.has(id) ? sentIds.delete(id) : sentIds.add(id);
-        saveIdSet("jobfit2_sent", sentIds);
+        saveIdSet("jobfit_sent", sentIds);
       } else if (btn.dataset.action === "reached") {
         reachedIds.has(id) ? reachedIds.delete(id) : reachedIds.add(id);
-        saveIdSet("jobfit2_reached", reachedIds);
+        saveIdSet("jobfit_reached", reachedIds);
       } else if (btn.dataset.action === "hide") {
         hiddenIds.has(id) ? hiddenIds.delete(id) : hiddenIds.add(id);
-        saveIdSet("jobfit2_hidden", hiddenIds);
+        saveIdSet("jobfit_hidden", hiddenIds);
       } else if (btn.dataset.action === "hide-company") {
         const company = btn.dataset.company;
         hiddenCompanies.has(company) ? hiddenCompanies.delete(company) : hiddenCompanies.add(company);
-        saveIdSet("jobfit2_hidden_companies", hiddenCompanies);
+        saveIdSet("jobfit_hidden_companies", hiddenCompanies);
       }
       updateStatBlock();
       render();

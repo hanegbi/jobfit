@@ -2,7 +2,7 @@
 that reject HEAD), concurrent, short timeout. Reports broken links so they can
 be reviewed/dropped; does not modify the dataset itself.
 
-Usage: uv run python -m jobfit2.scripts.check_urls [--limit N] [--workers N]
+Usage: uv run python -m jobfit.scripts.check_urls [--limit N] [--workers N]
 """
 
 import argparse
@@ -16,7 +16,7 @@ import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit2 import ats_fetchers, config  # noqa: E402
+from jobfit import ats_fetchers, config  # noqa: E402
 
 TIMEOUT = 10
 OUTPUT_PATH = config.ROOT / "cache" / "url_check_report.json"

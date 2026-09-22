@@ -16,7 +16,7 @@ import json
 import re
 from pathlib import Path
 
-from jobfit2.connections import normalize_company
+from jobfit.connections import normalize_company
 
 _TITLE_STRIP_RE = re.compile(r"[^a-z0-9 ]")
 _DUPLICATE_THRESHOLD = 0.75

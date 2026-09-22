@@ -1,5 +1,5 @@
 """One-off import of Workday-sourced job dumps (from scrape_workday_jobs.py at
-the repo root) into jobfit2's companies/*.json store, using update_jobs.py's
+the repo root) into jobfit's companies/*.json store, using update_jobs.py's
 own diff/score/save logic so the result is indistinguishable from a normal
 incremental update - then re-aggregates jobs_v2.json.
 
@@ -7,7 +7,7 @@ Existing jobs no longer present in the Workday dump are marked "closed" (not
 deleted), matching the rest of the app's diff semantics.
 
 Usage:
-    uv run python -m jobfit2.scripts.import_workday_sources
+    uv run python -m jobfit.scripts.import_workday_sources
 """
 import json
 import sys
@@ -15,8 +15,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit2 import config, cv  # noqa: E402
-from jobfit2.scripts import update_jobs as uj  # noqa: E402
+from jobfit import config, cv  # noqa: E402
+from jobfit.scripts import update_jobs as uj  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 

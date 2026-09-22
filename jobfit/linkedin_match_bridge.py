@@ -16,10 +16,10 @@ import subprocess
 import sys
 from pathlib import Path
 
-from jobfit2 import config
-from jobfit2.connections import normalize_company
+from jobfit import config
+from jobfit.connections import normalize_company
 
-logger = logging.getLogger("jobfit2.lm_bridge")
+logger = logging.getLogger("jobfit.lm_bridge")
 
 LM_DIR = Path(r"C:\Users\user\Code\linkedin-match")
 LM_CACHE_PATH = LM_DIR / "data" / "jobs_cache.json"

@@ -22,7 +22,7 @@ length + a denylist of nav/footer boilerplate words). The pipeline's own
 title-length cap and title_is_relevant filter catch most of what slips
 through; this script does not try to be perfect on its own.
 
-Usage: uv run python -m jobfit2.scripts.playwright_listings [--limit N] [--concurrency N]
+Usage: uv run python -m jobfit.scripts.playwright_listings [--limit N] [--concurrency N]
 """
 
 import argparse
@@ -37,15 +37,15 @@ from playwright.async_api import async_playwright
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit2 import config  # noqa: E402
-from jobfit2.ats_fetchers import COOKIE_WIDGET_MARKERS, looks_like_boilerplate  # noqa: E402
-from jobfit2.listing_heuristics import (  # noqa: E402
+from jobfit import config  # noqa: E402
+from jobfit.ats_fetchers import COOKIE_WIDGET_MARKERS, looks_like_boilerplate  # noqa: E402
+from jobfit.listing_heuristics import (  # noqa: E402
     clean as _clean,
     drop_category_prefix_links,
     looks_like_job_title as _looks_like_job_title,
 )
 
-logger = logging.getLogger("jobfit2.playwright_listings")
+logger = logging.getLogger("jobfit.playwright_listings")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 NAV_TIMEOUT_MS = 15000

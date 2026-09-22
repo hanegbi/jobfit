@@ -10,7 +10,7 @@ Output: cache/company_career_pages.json, {company: [{title, url, description}]}
 - pipeline.py's highest-priority tier (these are real, user-verified company
 career pages, not a techmap fallback or a guessed domain).
 
-Usage: uv run python -m jobfit2.scripts.company_career_scrape <input.json> [--limit N] [--workers N]
+Usage: uv run python -m jobfit.scripts.company_career_scrape <input.json> [--limit N] [--workers N]
 """
 
 import argparse
@@ -23,9 +23,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit2 import ats_fetchers, config  # noqa: E402
+from jobfit import ats_fetchers, config  # noqa: E402
 
-logger = logging.getLogger("jobfit2.company_career_scrape")
+logger = logging.getLogger("jobfit.company_career_scrape")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 WORKERS = 10
@@ -84,7 +84,7 @@ def run_phase2_playwright(companies: dict[str, str]) -> dict[str, list[dict]]:
     logger.info("phase2 (Playwright): %d companies need JS rendering, launching...", len(companies))
 
     result = subprocess.run(
-        [sys.executable, "-m", "jobfit2.scripts.playwright_listings", "--concurrency", "4"],
+        [sys.executable, "-m", "jobfit.scripts.playwright_listings", "--concurrency", "4"],
         cwd=str(config.ROOT.parent),
         capture_output=True,
         text=True,

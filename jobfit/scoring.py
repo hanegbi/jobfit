@@ -3,12 +3,12 @@
 Ported from linkedin-match's backend/core/matching.py, trimmed to operate on
 plain job dicts and a single must_have_keywords list per CV (no nice-to-have
 list — the CV's own extracted skills already cover that ground) plus a
-shared exclude/title-relevance/location config (jobfit2.config).
+shared exclude/title-relevance/location config (jobfit.config).
 """
 
 import re
 
-from jobfit2 import config
+from jobfit import config
 
 ROLE_WEIGHT = 50
 SENIORITY_PENALTY = 30

@@ -4,7 +4,7 @@ the CVs themselves have changed. Safe to run anytime, as often as you like -
 each run is cheap after the first (existing jobs aren't re-scraped or
 re-scored, only checked for whether they're still listed).
 
-Source of companies: jobfit2/companies_career_pages.json ({company: url}),
+Source of companies: jobfit/companies_career_pages.json ({company: url}),
 your own curated list - copied into the repo so this isn't a fragile
 dependency on a Downloads-folder file.
 
@@ -13,9 +13,9 @@ A full run (no --company/--limit) also merges WhatsApp-referral-sourced jobs
 jobs as referrals or adding new referral-only ones - see merge_referral_jobs().
 
 Usage:
-  uv run python -m jobfit2.scripts.update_jobs                # all companies
-  uv run python -m jobfit2.scripts.update_jobs --limit 5       # test on a few
-  uv run python -m jobfit2.scripts.update_jobs --company Wiz   # just one
+  uv run python -m jobfit.scripts.update_jobs                # all companies
+  uv run python -m jobfit.scripts.update_jobs --limit 5       # test on a few
+  uv run python -m jobfit.scripts.update_jobs --company Wiz   # just one
 """
 
 import argparse
@@ -31,9 +31,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit2 import ats_fetchers, config, connections, cv, scoring, techmap_source  # noqa: E402
+from jobfit import ats_fetchers, config, connections, cv, scoring, techmap_source  # noqa: E402
 
-logger = logging.getLogger("jobfit2.update_jobs")
+logger = logging.getLogger("jobfit.update_jobs")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 COMPANIES_DIR = config.ROOT / "companies"
@@ -138,7 +138,7 @@ def _any_job_scores_positive(jobs: list[dict], profiles: dict) -> bool:
 
 
 async def _fetch_via_playwright(company: str, url: str) -> list[dict]:
-    from jobfit2.scripts.playwright_listings import _scrape_company_inner  # noqa: E402
+    from jobfit.scripts.playwright_listings import _scrape_company_inner  # noqa: E402
     from playwright.async_api import async_playwright
 
     async with async_playwright() as p:
@@ -308,7 +308,7 @@ def merge_referral_jobs(profiles: dict) -> dict[str, int]:
     (by title similarity) gets that existing record tagged as a referral
     instead of duplicated; otherwise it's added as a new, already-scored job.
     """
-    from jobfit2 import referral_source  # noqa: E402
+    from jobfit import referral_source  # noqa: E402
 
     stats = {"matched_existing_company": 0, "new_company": 0, "merged_into_existing_job": 0, "added_new_job": 0}
     if not config.REFERRAL_JOBS_PATH.exists():
@@ -388,7 +388,7 @@ def aggregate_to_jobs_v2() -> int:
     expects, and write it to config.JOBS_OUTPUT_JSON - so build_html needs no
     changes at all, it just picks up whatever's there.
     """
-    from jobfit2 import pipeline as _pipeline  # reuse its already-debugged location-inference logic, not a copy
+    from jobfit import pipeline as _pipeline  # reuse its already-debugged location-inference logic, not a copy
 
     conn_index = connections.load_connections_index()
     techmap_index = load_techmap_index()

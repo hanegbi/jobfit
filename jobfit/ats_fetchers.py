@@ -17,7 +17,7 @@ from typing import Optional
 import requests
 from bs4 import BeautifulSoup
 
-logger = logging.getLogger("jobfit2.ats")
+logger = logging.getLogger("jobfit.ats")
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -419,7 +419,7 @@ def fetch_listing_links(session: requests.Session, url: str, max_links: int = 8)
     """
     from urllib.parse import urljoin
 
-    from jobfit2.listing_heuristics import drop_category_prefix_links, looks_like_job_title
+    from jobfit.listing_heuristics import drop_category_prefix_links, looks_like_job_title
 
     if not url or any(host in url.lower() for host in _SKIP_GENERIC_FETCH_HOSTS):
         return []

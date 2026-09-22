@@ -7,9 +7,9 @@ from pathlib import Path
 
 import requests
 
-from jobfit2 import config
+from jobfit import config
 
-logger = logging.getLogger("jobfit2.techmap")
+logger = logging.getLogger("jobfit.techmap")
 
 
 def download_category(category: str, session: requests.Session, force: bool = False) -> str:

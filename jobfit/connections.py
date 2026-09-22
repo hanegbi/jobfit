@@ -4,7 +4,7 @@ import csv
 import re
 from pathlib import Path
 
-from jobfit2 import config
+from jobfit import config
 
 _HEADER_TOKENS = {"first name", "last name", "company"}
 _SUFFIXES = re.compile(

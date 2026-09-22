@@ -4,7 +4,7 @@ import re
 
 import docx
 
-from jobfit2 import config
+from jobfit import config
 
 
 def extract_text(path) -> str:

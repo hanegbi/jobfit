@@ -7,7 +7,7 @@ lightweight HEAD requests hard during the earlier URL-validity check (429 on
 browsing rather than a bot, and treats "blocked/429/error" as inconclusive
 (left alone, not removed) rather than guessing.
 
-Usage: uv run python -m jobfit2.scripts.check_linkedin_closed [--limit N] [--delay SECONDS]
+Usage: uv run python -m jobfit.scripts.check_linkedin_closed [--limit N] [--delay SECONDS]
 """
 
 import argparse
@@ -20,9 +20,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit2 import ats_fetchers, config  # noqa: E402
+from jobfit import ats_fetchers, config  # noqa: E402
 
-logger = logging.getLogger("jobfit2.check_linkedin_closed")
+logger = logging.getLogger("jobfit.check_linkedin_closed")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 TIMEOUT = 15
