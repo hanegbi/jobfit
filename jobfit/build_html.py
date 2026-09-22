@@ -201,9 +201,7 @@ PAGE_TEMPLATE = r"""<!doctype html>
     <div>
       <div class="field-label">Score against</div>
       <select id="cvSelect">
-        <option value="best">Best of both CVs</option>
-        <option value="default">Default CV</option>
-        <option value="infra">Infra CV</option>
+        <option value="best">Best of all CVs</option>
       </select>
     </div>
 
@@ -314,7 +312,16 @@ PAGE_TEMPLATE = r"""<!doctype html>
 
 <script>
 const JOBS = __JOBS_JSON__;
+const PROFILES = __PROFILES_JSON__;
 const GENERATED_AT = __GENERATED_AT_JSON__;
+
+const cvSelectEl = document.getElementById("cvSelect");
+for (const p of PROFILES) {
+  const opt = document.createElement("option");
+  opt.value = p.id;
+  opt.textContent = p.name;
+  cvSelectEl.appendChild(opt);
+}
 
 const PAGE_SIZE = 100;
 let visibleCount = PAGE_SIZE;
@@ -574,13 +581,16 @@ function yearsBucket(job) {
 JOBS.forEach(j => { j._yearsBucket = yearsBucket(j); });
 
 function scoreFor(job) {
-  if (state.cv === "default") return job.score_default;
-  if (state.cv === "infra") return job.score_infra;
-  return job.best_score;
+  if (state.cv === "best") return job.best_score;
+  return job[`score_${state.cv}`];
 }
 function cvLabelFor(job) {
   if (state.cv === "best") return job.best_cv;
   return state.cv;
+}
+function profileName(id) {
+  const p = PROFILES.find(p => p.id === id);
+  return p ? p.name : id;
 }
 
 function shortDescription(text, limit) {
@@ -693,7 +703,7 @@ function jobCardHtml(job, showCompany) {
   const qTerms = parseTerms(state.q);
   const titleTerm = firstMatchingTerm(job.title, qTerms);
   const descTerm = firstMatchingTerm(job.description, qTerms);
-  const matched = (state.cv === "infra" ? job.matched_infra : state.cv === "default" ? job.matched_default : job[`matched_${job.best_cv}`]) || [];
+  const matched = (state.cv === "best" ? job[`matched_${job.best_cv}`] : job[`matched_${state.cv}`]) || [];
   const skillChips = matched.filter(m => !m.startsWith("-") && !m.includes("(") && !m.includes(":")).slice(0, 10)
     .map(m => `<span class="tag">${escapeHtml(m)}</span>`).join("");
   const connButtons = (job.connections || []).map(c =>
@@ -732,8 +742,7 @@ function jobCardHtml(job, showCompany) {
       </div>
       ${banner}
       <div class="score-both">
-        ${cvPillHtml("default", "Default", job.score_default, job.confidence_default, job.coverage_default, job.best_cv === "default")}
-        ${cvPillHtml("infra", "Infra", job.score_infra, job.confidence_infra, job.coverage_infra, job.best_cv === "infra")}
+        ${PROFILES.map(p => cvPillHtml(p.id, p.name, job[`score_${p.id}`], job[`confidence_${p.id}`], job[`coverage_${p.id}`], job.best_cv === p.id)).join("")}
       </div>
       <div class="job-meta">${jobMetaTags(job)}</div>
       <div class="job-detail">
@@ -1052,16 +1061,23 @@ render();
 """
 
 
-def render(dataset: list[dict]) -> str:
+def render(dataset: list[dict], profiles: list[dict]) -> str:
     jobs_json = json.dumps(dataset, ensure_ascii=False).replace("</", "<\\/")
+    profiles_json = json.dumps(profiles, ensure_ascii=False)
     generated_at = json.dumps(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"))
-    return PAGE_TEMPLATE.replace("__JOBS_JSON__", jobs_json).replace("__GENERATED_AT_JSON__", generated_at)
+    return (
+        PAGE_TEMPLATE.replace("__JOBS_JSON__", jobs_json)
+        .replace("__PROFILES_JSON__", profiles_json)
+        .replace("__GENERATED_AT_JSON__", generated_at)
+    )
 
 
 def build(dataset: list[dict] | None = None) -> None:
     if dataset is None:
         dataset = json.loads(config.JOBS_OUTPUT_JSON.read_text(encoding="utf-8"))
-    html = render(dataset)
+    from jobfit import cv
+    profiles = [{"id": pid, "name": entry["name"]} for pid, entry in cv.load_registry().items()]
+    html = render(dataset, profiles)
     config.OUTPUT_HTML.write_text(html, encoding="utf-8")
     print(f"wrote {config.OUTPUT_HTML} ({len(dataset)} jobs)")
 
