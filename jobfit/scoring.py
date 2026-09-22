@@ -180,7 +180,7 @@ def score_job(job: dict, must_have_keywords: list[str], role_weights: dict[str, 
       - matched: the job's own requirement terms your CV covers (for chips/UI).
       - requirements: the full requirement list extracted from the job text.
     """
-    role_weights = role_weights or config.ROLE_WEIGHTS_DEFAULT
+    role_weights = role_weights or config.ROLE_WEIGHTS
     title = job.get("title") or ""
     description = job.get("description") or ""
     haystack = f"{title}\n{description}\n{job.get('department') or ''}"
@@ -225,11 +225,10 @@ def score_job(job: dict, must_have_keywords: list[str], role_weights: dict[str, 
 
 
 def score_job_both(job: dict, profiles: dict[str, dict]) -> dict:
-    """Return score/coverage fields for both CV profiles plus a best-of pick."""
+    """Return score/coverage fields for every profile plus a best-of pick."""
     result = {}
     for name, profile in profiles.items():
-        role_weights = config.ROLE_WEIGHTS_BY_PROFILE.get(name, config.ROLE_WEIGHTS_DEFAULT)
-        outcome = score_job(job, profile["must_have_keywords"], role_weights)
+        outcome = score_job(job, profile["must_have_keywords"])
         result[f"score_{name}"] = outcome["score"]
         result[f"matched_{name}"] = outcome["matched"] + outcome["notes"]
         result[f"coverage_{name}"] = outcome["coverage_pct"]
