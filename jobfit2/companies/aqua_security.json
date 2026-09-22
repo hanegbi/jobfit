@@ -1,0 +1,561 @@
+{
+  "name": "Aqua Security",
+  "career_url": "https://www.aquasec.com/careers/",
+  "last_checked": "2026-09-15T18:17:56Z",
+  "jobs": [
+    {
+      "id": "12ef9f44f2808bef14b8",
+      "title": "How Did Aqua Catch a Cryptomining Attack Hiding in Memory?",
+      "location": null,
+      "url": "https://www.aquasec.com/blog/how-did-aqua-catch-a-cryptomining-attack-hiding-in-memory/",
+      "description": "How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Aqua Blog How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Aqua Nautilus August 4, 2026 TLDR: The attacks most likely to go undetected are the ones that never touch disk. They leave no files, trigger no signatures and are specifically engineered to evade the scanners and sensors most organizations depend on. Aqua’s runtime behavioral detection engine identified a multistage fileless cryptojacking campaign in a customer environment and surfaced malicious activity across process execution, container drift, persistence and outbound mining communication. The telemetry also showed the precise execution points where Aqua runtime enforcement can break the attack chain before unauthorized code runs, persistence takes hold or mining traffic leaves the workload. This is a walkthrough of that campaign and the runtime depth that made it visible. Why Do Scanners and Sensors Fail When the Attack Lives in Memory? Security teams have invested heavily in scanning, posture management and shift left practices. These controls matter, but they are built to catch known problems before deployment. They were not built to stop an attacker who is already inside a running workload, executing in memory, and moving faster than a human-driven response can follow. Most tools that claim runtime coverage use eBPF to observe kernel activity and surface alerts after the action has already been permitted. That is visibility, not control. By the time an alert reaches a queue, the binary has run, the payload has been written and the attacker has established persistence. Image scanning has no visibility into payloads introduced after a container starts running. EDR tools lack the workload-level context to understand what is actually happening inside a container. Perimeter controls cannot enforce outbound egress at the process level, which means a miner communicating with a known mining pool over a standard port looks identical to legitimate application traffic. Stopping sophisticated runtime attacks requires a fundamentally different level of depth: process, file, network and memory activity collected from inside the running workload, combined with the ability to act on that telemetry before an unauthorized action completes. Aqua uses runtime visibility plus patented inline enforcement to block unauthorized actions before they complete. Most runtime tools use eBPF to observe what happens and respond after the kernel allows it. Aqua acts before the kernel does. That means dropped binaries do not run, fileless malware is stopped at the execution point, and attack chains are broken in real time. Runtime is not just where Aqua looks, it is where it acts. How Did Aqua See What Other Tools Missed? Aqua’s runtime behavioral detection engine surfaced a multistage fileless XMRig cryptojacking campaign affecting containerized Node.js applications built with Next.js (React). The available telemetry showed malicious code executing through Node.js processes, but it did not provide enough evidence to identify the exact exploit used. Every observed stage of the campaign was designed to avoid conventional tooling. Here is what Aqua saw and where runtime enforcement can apply. Initial access and execution: Execution began in memory through the Next.js exploit. The attacker then used wget -O- | sh to pull and run a first stage script directly from a remote location – nothing saved to disk. That script fetched a packed loader, which unpacked directly into memory ( memfd:upX ). This was the fileless-execution artifact Aqua’s runtime detection keyed on before dropping the cryptominer to disk. This sequence reduced the attacker’s reliance on a conventional executable during the early stages of the attack, limiting opportunities for file-based scanners to inspect the loader. Aqua’s Block Fileless Execution policy targets this behavior by identifying execution from memfd: and /dev/shm/ paths. When configured in enforcement mode, Aqua can block the in-memory execution inline without needing to recognize the specific payload. The in-memory execution inline without needing to recognize the specific payload. Drift and implant deployment : Aqua observed hidden file execution along with guard and watchdog processes used to maintain the miner. Aqua’s behavioral detection identified newly introduced binaries that were not present in the original image. When Drift Prevention is operating in enforcement mode, those binaries are blocked before execution, preventing the implant from establishing a foothold in the workload. Persistence: The attacker established persistence through cron jobs, init scripts in rc.d and shell profile modifications. The attacker also installed an SSH key as a backdoor on the compromised hosts. The miner and companion processes used names that resembled legitimate system services, but Aqua’s process lineage tracking exposed the relationship between the web application process and the unexpected child processes. Aqua found no evidence that the attacker accessed customer secrets, tokens or keys. Anti removal behavior: In a later phase of the campaign, the attacker used chattr +i to set immutable flags on key files, preventing deletion even by processes running as root. The behavior shows that the attacker anticipated eventual discovery and attempted to make cleanup more difficult. Aqua’s runtime behavioral engine had already surfaced the campaign before this step became relevant. Active mining: The XMRig miner communicated outbound to a known Monero mining pool over a standard port. Without process level context, that traffic scan be difficult to distinguish from legitimate application traffic. Aqua’s Cryptomining Detection policy identified the mining behavior at the process and network level and associated the outbound connection with the exact process generating it. When en",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 8,
+      "matched_default": [
+        "react",
+        "node",
+        "node.js",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 75,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "react",
+        "node",
+        "node.js"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "react",
+        "node",
+        "node.js"
+      ],
+      "best_cv": "default",
+      "best_score": 8,
+      "best_confidence": "full"
+    },
+    {
+      "id": "53b8d5a56ad08b7e6d1b",
+      "title": "All Open Positions",
+      "location": null,
+      "url": "https://www.aquasec.com/about-us/careers/",
+      "description": "Careers at Aqua - Aqua Security Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Let your talent run free With many open positions worldwide, find the right position in the right location for you! Every Aquarian makes an impact in our highly collaborative and friendly culture. We thrive by constantly being challenged to deliver the best, most innovative technology solutions to our customers. Join our team of cloud native experts for a world of global opportunities, continuous career development, and driving new ideas! If you thrive in environments that value team work, creativity and quality results, while having fun in the process – Aqua is the place for you! All Departments IT & Security Operations Finance & Operations WW Sales Engineering All Locations Hyderabad, India London, UK Ramat-Gan, Israel Tampa, FL, US Ramat-Gan, Israel IT & Security Operations IT Support Engineer Aqua Security is the leading pure-play cloud-native security company, protecting modern applications across containers, Kubernetes, serverless, and cloud environments.We're looking for a proactive and customer-focused IT Support Engineer to join our Global IT team and… More info Ramat-Gan, Israel Finance & Operations Office & Operations Manager Office & Operations ManagerAbout the RoleAqua Security is a global leader in cloud-native security, helping some of the world’s largest organizations protect their applications and infrastructure across cloud, containers, Kubernetes, and serverless environments.We’re looking for… More info Tampa, FL, US WW Sales Regional Sales Manager Aqua is looking for a motivated Regional Sales Manager to join our growing team to “hunt big game”. In this remote position, you will use your experience and Aqua’s unique market position to generate new customer… More info London, UK WW Sales Regional Sales Manager Aqua is looking for an enthusiastic and motivated Regional Sales Manager to join our growing team. In this remote position, you will use your sales skills and strong relationship building capabilities to generate new customer… More info Ramat-Gan, Israel Engineering Senior Linux Kernel Engineer – Runtime Security Aqua Security is a global leader in cloud-native security, protecting modern applications and workloads across containers, Kubernetes, serverless, and cloud environments.We are looking for an experienced Senior Linux Kernel Engineer to join our Runtime Security… More info Ramat-Gan, Israel Engineering Senior Security Researcher We are looking for an exceptional Security Researcher to join Aqua’s world-class security research organization. Looking for an experienced researcher in the cybersecurity world with depth, and excellence in cloud-native security research. As a Security… More info Ramat-Gan, Israel Engineering Senior Software Architect, AI Products Aqua Security is a global leader in cloud-native security, helping organizations secure modern applications across containers, Kubernetes, cloud, and on-premises environments.As AI transforms how organizations build, operate, and secure software, Aqua is investing in the… More info Hyderabad, India Engineering Tech Lead-Software Engineering Aqua Security enables enterprises to secure their container-based and cloud-native applications from development to production, accelerating container adoption and bridging the gap between DevOps and IT security. We are building a state-of-the-art security platform for… More info Need to secure enterprise workloads? Aqua Cloud Native Application Protection Platform (CNAPP) Go cloud native with the experts! Get Demo",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "83038f0a526263219dba",
+      "title": "All open positions",
+      "location": null,
+      "url": "https://www.aquasec.com/about-us/careers",
+      "description": "Careers at Aqua - Aqua Security Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Let your talent run free With many open positions worldwide, find the right position in the right location for you! Every Aquarian makes an impact in our highly collaborative and friendly culture. We thrive by constantly being challenged to deliver the best, most innovative technology solutions to our customers. Join our team of cloud native experts for a world of global opportunities, continuous career development, and driving new ideas! If you thrive in environments that value team work, creativity and quality results, while having fun in the process – Aqua is the place for you! All Departments IT & Security Operations Finance & Operations WW Sales Engineering All Locations Hyderabad, India London, UK Ramat-Gan, Israel Tampa, FL, US Ramat-Gan, Israel IT & Security Operations IT Support Engineer Aqua Security is the leading pure-play cloud-native security company, protecting modern applications across containers, Kubernetes, serverless, and cloud environments.We're looking for a proactive and customer-focused IT Support Engineer to join our Global IT team and… More info Ramat-Gan, Israel Finance & Operations Office & Operations Manager Office & Operations ManagerAbout the RoleAqua Security is a global leader in cloud-native security, helping some of the world’s largest organizations protect their applications and infrastructure across cloud, containers, Kubernetes, and serverless environments.We’re looking for… More info Tampa, FL, US WW Sales Regional Sales Manager Aqua is looking for a motivated Regional Sales Manager to join our growing team to “hunt big game”. In this remote position, you will use your experience and Aqua’s unique market position to generate new customer… More info London, UK WW Sales Regional Sales Manager Aqua is looking for an enthusiastic and motivated Regional Sales Manager to join our growing team. In this remote position, you will use your sales skills and strong relationship building capabilities to generate new customer… More info Ramat-Gan, Israel Engineering Senior Linux Kernel Engineer – Runtime Security Aqua Security is a global leader in cloud-native security, protecting modern applications and workloads across containers, Kubernetes, serverless, and cloud environments.We are looking for an experienced Senior Linux Kernel Engineer to join our Runtime Security… More info Ramat-Gan, Israel Engineering Senior Security Researcher We are looking for an exceptional Security Researcher to join Aqua’s world-class security research organization. Looking for an experienced researcher in the cybersecurity world with depth, and excellence in cloud-native security research. As a Security… More info Ramat-Gan, Israel Engineering Senior Software Architect, AI Products Aqua Security is a global leader in cloud-native security, helping organizations secure modern applications across containers, Kubernetes, cloud, and on-premises environments.As AI transforms how organizations build, operate, and secure software, Aqua is investing in the… More info Hyderabad, India Engineering Tech Lead-Software Engineering Aqua Security enables enterprises to secure their container-based and cloud-native applications from development to production, accelerating container adoption and bridging the gap between DevOps and IT security. We are building a state-of-the-art security platform for… More info Need to secure enterprise workloads? Aqua Cloud Native Application Protection Platform (CNAPP) Go cloud native with the experts! Get Demo",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "b93163e275b6c6be9d87",
+      "title": "Hyderabad, India 1 Positions",
+      "location": null,
+      "url": "https://www.aquasec.com/about-us/careers/#hyderabad-india",
+      "description": "Careers at Aqua - Aqua Security Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Let your talent run free With many open positions worldwide, find the right position in the right location for you! Every Aquarian makes an impact in our highly collaborative and friendly culture. We thrive by constantly being challenged to deliver the best, most innovative technology solutions to our customers. Join our team of cloud native experts for a world of global opportunities, continuous career development, and driving new ideas! If you thrive in environments that value team work, creativity and quality results, while having fun in the process – Aqua is the place for you! All Departments IT & Security Operations Finance & Operations WW Sales Engineering All Locations Hyderabad, India London, UK Ramat-Gan, Israel Tampa, FL, US Ramat-Gan, Israel IT & Security Operations IT Support Engineer Aqua Security is the leading pure-play cloud-native security company, protecting modern applications across containers, Kubernetes, serverless, and cloud environments.We're looking for a proactive and customer-focused IT Support Engineer to join our Global IT team and… More info Ramat-Gan, Israel Finance & Operations Office & Operations Manager Office & Operations ManagerAbout the RoleAqua Security is a global leader in cloud-native security, helping some of the world’s largest organizations protect their applications and infrastructure across cloud, containers, Kubernetes, and serverless environments.We’re looking for… More info Tampa, FL, US WW Sales Regional Sales Manager Aqua is looking for a motivated Regional Sales Manager to join our growing team to “hunt big game”. In this remote position, you will use your experience and Aqua’s unique market position to generate new customer… More info London, UK WW Sales Regional Sales Manager Aqua is looking for an enthusiastic and motivated Regional Sales Manager to join our growing team. In this remote position, you will use your sales skills and strong relationship building capabilities to generate new customer… More info Ramat-Gan, Israel Engineering Senior Linux Kernel Engineer – Runtime Security Aqua Security is a global leader in cloud-native security, protecting modern applications and workloads across containers, Kubernetes, serverless, and cloud environments.We are looking for an experienced Senior Linux Kernel Engineer to join our Runtime Security… More info Ramat-Gan, Israel Engineering Senior Security Researcher We are looking for an exceptional Security Researcher to join Aqua’s world-class security research organization. Looking for an experienced researcher in the cybersecurity world with depth, and excellence in cloud-native security research. As a Security… More info Ramat-Gan, Israel Engineering Senior Software Architect, AI Products Aqua Security is a global leader in cloud-native security, helping organizations secure modern applications across containers, Kubernetes, cloud, and on-premises environments.As AI transforms how organizations build, operate, and secure software, Aqua is investing in the… More info Hyderabad, India Engineering Tech Lead-Software Engineering Aqua Security enables enterprises to secure their container-based and cloud-native applications from development to production, accelerating container adoption and bridging the gap between DevOps and IT security. We are building a state-of-the-art security platform for… More info Need to secure enterprise workloads? Aqua Cloud Native Application Protection Platform (CNAPP) Go cloud native with the experts! Get Demo",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "8f0324fbfb9cdedcc7dc",
+      "title": "London, UK 1 Positions",
+      "location": null,
+      "url": "https://www.aquasec.com/about-us/careers/#london-uk",
+      "description": "Careers at Aqua - Aqua Security Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Let your talent run free With many open positions worldwide, find the right position in the right location for you! Every Aquarian makes an impact in our highly collaborative and friendly culture. We thrive by constantly being challenged to deliver the best, most innovative technology solutions to our customers. Join our team of cloud native experts for a world of global opportunities, continuous career development, and driving new ideas! If you thrive in environments that value team work, creativity and quality results, while having fun in the process – Aqua is the place for you! All Departments IT & Security Operations Finance & Operations WW Sales Engineering All Locations Hyderabad, India London, UK Ramat-Gan, Israel Tampa, FL, US Ramat-Gan, Israel IT & Security Operations IT Support Engineer Aqua Security is the leading pure-play cloud-native security company, protecting modern applications across containers, Kubernetes, serverless, and cloud environments.We're looking for a proactive and customer-focused IT Support Engineer to join our Global IT team and… More info Ramat-Gan, Israel Finance & Operations Office & Operations Manager Office & Operations ManagerAbout the RoleAqua Security is a global leader in cloud-native security, helping some of the world’s largest organizations protect their applications and infrastructure across cloud, containers, Kubernetes, and serverless environments.We’re looking for… More info Tampa, FL, US WW Sales Regional Sales Manager Aqua is looking for a motivated Regional Sales Manager to join our growing team to “hunt big game”. In this remote position, you will use your experience and Aqua’s unique market position to generate new customer… More info London, UK WW Sales Regional Sales Manager Aqua is looking for an enthusiastic and motivated Regional Sales Manager to join our growing team. In this remote position, you will use your sales skills and strong relationship building capabilities to generate new customer… More info Ramat-Gan, Israel Engineering Senior Linux Kernel Engineer – Runtime Security Aqua Security is a global leader in cloud-native security, protecting modern applications and workloads across containers, Kubernetes, serverless, and cloud environments.We are looking for an experienced Senior Linux Kernel Engineer to join our Runtime Security… More info Ramat-Gan, Israel Engineering Senior Security Researcher We are looking for an exceptional Security Researcher to join Aqua’s world-class security research organization. Looking for an experienced researcher in the cybersecurity world with depth, and excellence in cloud-native security research. As a Security… More info Ramat-Gan, Israel Engineering Senior Software Architect, AI Products Aqua Security is a global leader in cloud-native security, helping organizations secure modern applications across containers, Kubernetes, cloud, and on-premises environments.As AI transforms how organizations build, operate, and secure software, Aqua is investing in the… More info Hyderabad, India Engineering Tech Lead-Software Engineering Aqua Security enables enterprises to secure their container-based and cloud-native applications from development to production, accelerating container adoption and bridging the gap between DevOps and IT security. We are building a state-of-the-art security platform for… More info Need to secure enterprise workloads? Aqua Cloud Native Application Protection Platform (CNAPP) Go cloud native with the experts! Get Demo",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "b6ba51088dba7e23056b",
+      "title": "Ramat-Gan, Israel 5 Positions",
+      "location": null,
+      "url": "https://www.aquasec.com/about-us/careers/#ramat-gan-israel",
+      "description": "Careers at Aqua - Aqua Security Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Let your talent run free With many open positions worldwide, find the right position in the right location for you! Every Aquarian makes an impact in our highly collaborative and friendly culture. We thrive by constantly being challenged to deliver the best, most innovative technology solutions to our customers. Join our team of cloud native experts for a world of global opportunities, continuous career development, and driving new ideas! If you thrive in environments that value team work, creativity and quality results, while having fun in the process – Aqua is the place for you! All Departments IT & Security Operations Finance & Operations WW Sales Engineering All Locations Hyderabad, India London, UK Ramat-Gan, Israel Tampa, FL, US Ramat-Gan, Israel IT & Security Operations IT Support Engineer Aqua Security is the leading pure-play cloud-native security company, protecting modern applications across containers, Kubernetes, serverless, and cloud environments.We're looking for a proactive and customer-focused IT Support Engineer to join our Global IT team and… More info Ramat-Gan, Israel Finance & Operations Office & Operations Manager Office & Operations ManagerAbout the RoleAqua Security is a global leader in cloud-native security, helping some of the world’s largest organizations protect their applications and infrastructure across cloud, containers, Kubernetes, and serverless environments.We’re looking for… More info Tampa, FL, US WW Sales Regional Sales Manager Aqua is looking for a motivated Regional Sales Manager to join our growing team to “hunt big game”. In this remote position, you will use your experience and Aqua’s unique market position to generate new customer… More info London, UK WW Sales Regional Sales Manager Aqua is looking for an enthusiastic and motivated Regional Sales Manager to join our growing team. In this remote position, you will use your sales skills and strong relationship building capabilities to generate new customer… More info Ramat-Gan, Israel Engineering Senior Linux Kernel Engineer – Runtime Security Aqua Security is a global leader in cloud-native security, protecting modern applications and workloads across containers, Kubernetes, serverless, and cloud environments.We are looking for an experienced Senior Linux Kernel Engineer to join our Runtime Security… More info Ramat-Gan, Israel Engineering Senior Security Researcher We are looking for an exceptional Security Researcher to join Aqua’s world-class security research organization. Looking for an experienced researcher in the cybersecurity world with depth, and excellence in cloud-native security research. As a Security… More info Ramat-Gan, Israel Engineering Senior Software Architect, AI Products Aqua Security is a global leader in cloud-native security, helping organizations secure modern applications across containers, Kubernetes, cloud, and on-premises environments.As AI transforms how organizations build, operate, and secure software, Aqua is investing in the… More info Hyderabad, India Engineering Tech Lead-Software Engineering Aqua Security enables enterprises to secure their container-based and cloud-native applications from development to production, accelerating container adoption and bridging the gap between DevOps and IT security. We are building a state-of-the-art security platform for… More info Need to secure enterprise workloads? Aqua Cloud Native Application Protection Platform (CNAPP) Go cloud native with the experts! Get Demo",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "e66531ad0998279ebe9b",
+      "title": "Tampa, FL, US 1 Positions",
+      "location": null,
+      "url": "https://www.aquasec.com/about-us/careers/#tampa-fl-us",
+      "description": "Careers at Aqua - Aqua Security Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Let your talent run free With many open positions worldwide, find the right position in the right location for you! Every Aquarian makes an impact in our highly collaborative and friendly culture. We thrive by constantly being challenged to deliver the best, most innovative technology solutions to our customers. Join our team of cloud native experts for a world of global opportunities, continuous career development, and driving new ideas! If you thrive in environments that value team work, creativity and quality results, while having fun in the process – Aqua is the place for you! All Departments IT & Security Operations Finance & Operations WW Sales Engineering All Locations Hyderabad, India London, UK Ramat-Gan, Israel Tampa, FL, US Ramat-Gan, Israel IT & Security Operations IT Support Engineer Aqua Security is the leading pure-play cloud-native security company, protecting modern applications across containers, Kubernetes, serverless, and cloud environments.We're looking for a proactive and customer-focused IT Support Engineer to join our Global IT team and… More info Ramat-Gan, Israel Finance & Operations Office & Operations Manager Office & Operations ManagerAbout the RoleAqua Security is a global leader in cloud-native security, helping some of the world’s largest organizations protect their applications and infrastructure across cloud, containers, Kubernetes, and serverless environments.We’re looking for… More info Tampa, FL, US WW Sales Regional Sales Manager Aqua is looking for a motivated Regional Sales Manager to join our growing team to “hunt big game”. In this remote position, you will use your experience and Aqua’s unique market position to generate new customer… More info London, UK WW Sales Regional Sales Manager Aqua is looking for an enthusiastic and motivated Regional Sales Manager to join our growing team. In this remote position, you will use your sales skills and strong relationship building capabilities to generate new customer… More info Ramat-Gan, Israel Engineering Senior Linux Kernel Engineer – Runtime Security Aqua Security is a global leader in cloud-native security, protecting modern applications and workloads across containers, Kubernetes, serverless, and cloud environments.We are looking for an experienced Senior Linux Kernel Engineer to join our Runtime Security… More info Ramat-Gan, Israel Engineering Senior Security Researcher We are looking for an exceptional Security Researcher to join Aqua’s world-class security research organization. Looking for an experienced researcher in the cybersecurity world with depth, and excellence in cloud-native security research. As a Security… More info Ramat-Gan, Israel Engineering Senior Software Architect, AI Products Aqua Security is a global leader in cloud-native security, helping organizations secure modern applications across containers, Kubernetes, cloud, and on-premises environments.As AI transforms how organizations build, operate, and secure software, Aqua is investing in the… More info Hyderabad, India Engineering Tech Lead-Software Engineering Aqua Security enables enterprises to secure their container-based and cloud-native applications from development to production, accelerating container adoption and bridging the gap between DevOps and IT security. We are building a state-of-the-art security platform for… More info Need to secure enterprise workloads? Aqua Cloud Native Application Protection Platform (CNAPP) Go cloud native with the experts! Get Demo",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "7bb673c2dcc8fdac7e9a",
+      "title": "Engineering 4 Positions",
+      "location": null,
+      "url": "https://www.aquasec.com/about-us/careers/#engineering",
+      "description": "Careers at Aqua - Aqua Security Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Let your talent run free With many open positions worldwide, find the right position in the right location for you! Every Aquarian makes an impact in our highly collaborative and friendly culture. We thrive by constantly being challenged to deliver the best, most innovative technology solutions to our customers. Join our team of cloud native experts for a world of global opportunities, continuous career development, and driving new ideas! If you thrive in environments that value team work, creativity and quality results, while having fun in the process – Aqua is the place for you! All Departments IT & Security Operations Finance & Operations WW Sales Engineering All Locations Hyderabad, India London, UK Ramat-Gan, Israel Tampa, FL, US Ramat-Gan, Israel IT & Security Operations IT Support Engineer Aqua Security is the leading pure-play cloud-native security company, protecting modern applications across containers, Kubernetes, serverless, and cloud environments.We're looking for a proactive and customer-focused IT Support Engineer to join our Global IT team and… More info Ramat-Gan, Israel Finance & Operations Office & Operations Manager Office & Operations ManagerAbout the RoleAqua Security is a global leader in cloud-native security, helping some of the world’s largest organizations protect their applications and infrastructure across cloud, containers, Kubernetes, and serverless environments.We’re looking for… More info Tampa, FL, US WW Sales Regional Sales Manager Aqua is looking for a motivated Regional Sales Manager to join our growing team to “hunt big game”. In this remote position, you will use your experience and Aqua’s unique market position to generate new customer… More info London, UK WW Sales Regional Sales Manager Aqua is looking for an enthusiastic and motivated Regional Sales Manager to join our growing team. In this remote position, you will use your sales skills and strong relationship building capabilities to generate new customer… More info Ramat-Gan, Israel Engineering Senior Linux Kernel Engineer – Runtime Security Aqua Security is a global leader in cloud-native security, protecting modern applications and workloads across containers, Kubernetes, serverless, and cloud environments.We are looking for an experienced Senior Linux Kernel Engineer to join our Runtime Security… More info Ramat-Gan, Israel Engineering Senior Security Researcher We are looking for an exceptional Security Researcher to join Aqua’s world-class security research organization. Looking for an experienced researcher in the cybersecurity world with depth, and excellence in cloud-native security research. As a Security… More info Ramat-Gan, Israel Engineering Senior Software Architect, AI Products Aqua Security is a global leader in cloud-native security, helping organizations secure modern applications across containers, Kubernetes, cloud, and on-premises environments.As AI transforms how organizations build, operate, and secure software, Aqua is investing in the… More info Hyderabad, India Engineering Tech Lead-Software Engineering Aqua Security enables enterprises to secure their container-based and cloud-native applications from development to production, accelerating container adoption and bridging the gap between DevOps and IT security. We are building a state-of-the-art security platform for… More info Need to secure enterprise workloads? Aqua Cloud Native Application Protection Platform (CNAPP) Go cloud native with the experts! Get Demo",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "252567f6e5aaba76935d",
+      "title": "Finance & Operations 1 Positions",
+      "location": null,
+      "url": "https://www.aquasec.com/about-us/careers/#finance-operations",
+      "description": "Careers at Aqua - Aqua Security Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Let your talent run free With many open positions worldwide, find the right position in the right location for you! Every Aquarian makes an impact in our highly collaborative and friendly culture. We thrive by constantly being challenged to deliver the best, most innovative technology solutions to our customers. Join our team of cloud native experts for a world of global opportunities, continuous career development, and driving new ideas! If you thrive in environments that value team work, creativity and quality results, while having fun in the process – Aqua is the place for you! All Departments IT & Security Operations Finance & Operations WW Sales Engineering All Locations Hyderabad, India London, UK Ramat-Gan, Israel Tampa, FL, US Ramat-Gan, Israel IT & Security Operations IT Support Engineer Aqua Security is the leading pure-play cloud-native security company, protecting modern applications across containers, Kubernetes, serverless, and cloud environments.We're looking for a proactive and customer-focused IT Support Engineer to join our Global IT team and… More info Ramat-Gan, Israel Finance & Operations Office & Operations Manager Office & Operations ManagerAbout the RoleAqua Security is a global leader in cloud-native security, helping some of the world’s largest organizations protect their applications and infrastructure across cloud, containers, Kubernetes, and serverless environments.We’re looking for… More info Tampa, FL, US WW Sales Regional Sales Manager Aqua is looking for a motivated Regional Sales Manager to join our growing team to “hunt big game”. In this remote position, you will use your experience and Aqua’s unique market position to generate new customer… More info London, UK WW Sales Regional Sales Manager Aqua is looking for an enthusiastic and motivated Regional Sales Manager to join our growing team. In this remote position, you will use your sales skills and strong relationship building capabilities to generate new customer… More info Ramat-Gan, Israel Engineering Senior Linux Kernel Engineer – Runtime Security Aqua Security is a global leader in cloud-native security, protecting modern applications and workloads across containers, Kubernetes, serverless, and cloud environments.We are looking for an experienced Senior Linux Kernel Engineer to join our Runtime Security… More info Ramat-Gan, Israel Engineering Senior Security Researcher We are looking for an exceptional Security Researcher to join Aqua’s world-class security research organization. Looking for an experienced researcher in the cybersecurity world with depth, and excellence in cloud-native security research. As a Security… More info Ramat-Gan, Israel Engineering Senior Software Architect, AI Products Aqua Security is a global leader in cloud-native security, helping organizations secure modern applications across containers, Kubernetes, cloud, and on-premises environments.As AI transforms how organizations build, operate, and secure software, Aqua is investing in the… More info Hyderabad, India Engineering Tech Lead-Software Engineering Aqua Security enables enterprises to secure their container-based and cloud-native applications from development to production, accelerating container adoption and bridging the gap between DevOps and IT security. We are building a state-of-the-art security platform for… More info Need to secure enterprise workloads? Aqua Cloud Native Application Protection Platform (CNAPP) Go cloud native with the experts! Get Demo",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "be19783160fafc28fe2d",
+      "title": "IT & Security Operations 1 Positions",
+      "location": null,
+      "url": "https://www.aquasec.com/about-us/careers/#it-security-operations",
+      "description": "Careers at Aqua - Aqua Security Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Let your talent run free With many open positions worldwide, find the right position in the right location for you! Every Aquarian makes an impact in our highly collaborative and friendly culture. We thrive by constantly being challenged to deliver the best, most innovative technology solutions to our customers. Join our team of cloud native experts for a world of global opportunities, continuous career development, and driving new ideas! If you thrive in environments that value team work, creativity and quality results, while having fun in the process – Aqua is the place for you! All Departments IT & Security Operations Finance & Operations WW Sales Engineering All Locations Hyderabad, India London, UK Ramat-Gan, Israel Tampa, FL, US Ramat-Gan, Israel IT & Security Operations IT Support Engineer Aqua Security is the leading pure-play cloud-native security company, protecting modern applications across containers, Kubernetes, serverless, and cloud environments.We're looking for a proactive and customer-focused IT Support Engineer to join our Global IT team and… More info Ramat-Gan, Israel Finance & Operations Office & Operations Manager Office & Operations ManagerAbout the RoleAqua Security is a global leader in cloud-native security, helping some of the world’s largest organizations protect their applications and infrastructure across cloud, containers, Kubernetes, and serverless environments.We’re looking for… More info Tampa, FL, US WW Sales Regional Sales Manager Aqua is looking for a motivated Regional Sales Manager to join our growing team to “hunt big game”. In this remote position, you will use your experience and Aqua’s unique market position to generate new customer… More info London, UK WW Sales Regional Sales Manager Aqua is looking for an enthusiastic and motivated Regional Sales Manager to join our growing team. In this remote position, you will use your sales skills and strong relationship building capabilities to generate new customer… More info Ramat-Gan, Israel Engineering Senior Linux Kernel Engineer – Runtime Security Aqua Security is a global leader in cloud-native security, protecting modern applications and workloads across containers, Kubernetes, serverless, and cloud environments.We are looking for an experienced Senior Linux Kernel Engineer to join our Runtime Security… More info Ramat-Gan, Israel Engineering Senior Security Researcher We are looking for an exceptional Security Researcher to join Aqua’s world-class security research organization. Looking for an experienced researcher in the cybersecurity world with depth, and excellence in cloud-native security research. As a Security… More info Ramat-Gan, Israel Engineering Senior Software Architect, AI Products Aqua Security is a global leader in cloud-native security, helping organizations secure modern applications across containers, Kubernetes, cloud, and on-premises environments.As AI transforms how organizations build, operate, and secure software, Aqua is investing in the… More info Hyderabad, India Engineering Tech Lead-Software Engineering Aqua Security enables enterprises to secure their container-based and cloud-native applications from development to production, accelerating container adoption and bridging the gap between DevOps and IT security. We are building a state-of-the-art security platform for… More info Need to secure enterprise workloads? Aqua Cloud Native Application Protection Platform (CNAPP) Go cloud native with the experts! Get Demo",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "b4957fb523c571831782",
+      "title": "WW Sales 2 Positions",
+      "location": null,
+      "url": "https://www.aquasec.com/about-us/careers/#ww-sales",
+      "description": "Careers at Aqua - Aqua Security Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Let your talent run free With many open positions worldwide, find the right position in the right location for you! Every Aquarian makes an impact in our highly collaborative and friendly culture. We thrive by constantly being challenged to deliver the best, most innovative technology solutions to our customers. Join our team of cloud native experts for a world of global opportunities, continuous career development, and driving new ideas! If you thrive in environments that value team work, creativity and quality results, while having fun in the process – Aqua is the place for you! All Departments IT & Security Operations Finance & Operations WW Sales Engineering All Locations Hyderabad, India London, UK Ramat-Gan, Israel Tampa, FL, US Ramat-Gan, Israel IT & Security Operations IT Support Engineer Aqua Security is the leading pure-play cloud-native security company, protecting modern applications across containers, Kubernetes, serverless, and cloud environments.We're looking for a proactive and customer-focused IT Support Engineer to join our Global IT team and… More info Ramat-Gan, Israel Finance & Operations Office & Operations Manager Office & Operations ManagerAbout the RoleAqua Security is a global leader in cloud-native security, helping some of the world’s largest organizations protect their applications and infrastructure across cloud, containers, Kubernetes, and serverless environments.We’re looking for… More info Tampa, FL, US WW Sales Regional Sales Manager Aqua is looking for a motivated Regional Sales Manager to join our growing team to “hunt big game”. In this remote position, you will use your experience and Aqua’s unique market position to generate new customer… More info London, UK WW Sales Regional Sales Manager Aqua is looking for an enthusiastic and motivated Regional Sales Manager to join our growing team. In this remote position, you will use your sales skills and strong relationship building capabilities to generate new customer… More info Ramat-Gan, Israel Engineering Senior Linux Kernel Engineer – Runtime Security Aqua Security is a global leader in cloud-native security, protecting modern applications and workloads across containers, Kubernetes, serverless, and cloud environments.We are looking for an experienced Senior Linux Kernel Engineer to join our Runtime Security… More info Ramat-Gan, Israel Engineering Senior Security Researcher We are looking for an exceptional Security Researcher to join Aqua’s world-class security research organization. Looking for an experienced researcher in the cybersecurity world with depth, and excellence in cloud-native security research. As a Security… More info Ramat-Gan, Israel Engineering Senior Software Architect, AI Products Aqua Security is a global leader in cloud-native security, helping organizations secure modern applications across containers, Kubernetes, cloud, and on-premises environments.As AI transforms how organizations build, operate, and secure software, Aqua is investing in the… More info Hyderabad, India Engineering Tech Lead-Software Engineering Aqua Security enables enterprises to secure their container-based and cloud-native applications from development to production, accelerating container adoption and bridging the gap between DevOps and IT security. We are building a state-of-the-art security platform for… More info Need to secure enterprise workloads? Aqua Cloud Native Application Protection Platform (CNAPP) Go cloud native with the experts! Get Demo",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "devops"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "c75d4f94e8bca854a4a8",
+      "title": "Get Demo",
+      "location": null,
+      "url": "https://www.aquasec.com/demo",
+      "description": "Aqua Security Live Demo Skip to content How Did Aqua Catch a Cryptomining Attack Hiding in Memory? Secure Every Cloud Native App Everywhere with Aqua CNAPP Secure cloud native apps from code commit to runtime, keeping bad out and protecting in real time by uniting Dev, Sec, and Ops with a single, integrated platform. Your personalized demo will cover: Secure Dev, Prevent Bad Code: Embed security early in development to catch vulnerabilities before they become costly issues. Scan and Fix Issues Fast: Quickly identify and remediate risks across your code, containers, and cloud infrastructure with Aqua Trivy. Protect Runtime, Stop Attacks: Defend your applications in production with real-time threat detection and automatic policy enforcement. Trusted by major global brands See Aqua in Action Sign up for a live product demo with a cloud security expert",
+      "first_seen": "2026-09-15T18:17:56Z",
+      "last_seen": "2026-09-15T18:17:56Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "aqua_security:26.07D",
+      "title": "Senior Linux Kernel Engineer - Runtime Security",
+      "location": "Ramat Gan",
+      "url": "https://www.comeet.com/jobs/aquasec/91.001/senior-linux-kernel-engineer--runtime-security/26.07D?location=Ramat-Gan%2C%2520Israel&coref=1.10.r34_F1B",
+      "description": "Requires 10+ years of experience. 10+ years of software development experience with strong expertise in C/C++ or Go on Linux 6+ years of hands-on Linux OS-level programming 6+ years of Linux kernel development experience, including kernel modules, syscall interfaces, and kernel/user-space interaction",
+      "first_seen": "2026-09-15T21:02:04Z",
+      "last_seen": "2026-09-15T21:02:04Z",
+      "status": "new",
+      "is_referral": true,
+      "referral_contact": "055-948-8695",
+      "score_default": 0,
+      "matched_default": [
+        "linux",
+        "exp:10y(-100)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go",
+        "linux"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "aqua_security:1D.F68",
+      "title": "Senior Software Architect, AI Products",
+      "location": "Ramat Gan",
+      "url": "https://www.comeet.com/jobs/aquasec/91.001/senior-software-architect-ai-products/1D.F68?location=Ramat-Gan%2C%2520Israel&coref=1.10.r34_F1B",
+      "description": "Requires 8+ years of experience. 8+ years of experience designing and building backend systems, including large-scale or distributed production systems Strong hands-on backend development experience, preferably with Python and Go Proven experience designing scalable APIs, services, data pipelines, and data-processing systems",
+      "first_seen": "2026-09-15T21:02:04Z",
+      "last_seen": "2026-09-15T21:02:04Z",
+      "status": "new",
+      "is_referral": true,
+      "referral_contact": "055-948-8695",
+      "score_default": 4,
+      "matched_default": [
+        "python",
+        "exp:8y(-75)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "python",
+        "go"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "python",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "go"
+      ],
+      "best_cv": "default",
+      "best_score": 4,
+      "best_confidence": "title_only"
+    }
+  ]
+}

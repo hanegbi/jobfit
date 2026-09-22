@@ -1,0 +1,522 @@
+{
+  "name": "OX Security",
+  "career_url": "https://www.ox.security/careers/",
+  "last_checked": "2026-09-15T19:50:11Z",
+  "jobs": [
+    {
+      "id": "ed609d650724947acee3",
+      "title": "Read the Report",
+      "location": null,
+      "url": "https://www.ox.security/blog/technical-analysis-netty-cve-2026-75595-next-js-cve-2026-75604-ghsa-2xp9-vwfh-vxw4-gitpython-cve-2026-78676/",
+      "description": "Technical Analysis: Netty CVE-2026-75595, Next.js CVE-2026-75604, GHSA-2xp9-vwfh-vxw4 & GitPython CVE-2026-78676 | OX Security Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More Technical Analysis: Netty CVE-2026-75595, Next.js CVE-2026-75604, GHSA-2xp9-vwfh-vxw4 & GitPython CVE-2026-78676 Nir Zadok & Moshe Siman Tov Bustan September 14, 2026 12 min read Listen to Article Share In this blog we’re breaking down each CVE separately, including the root cause, technical overview and patch details. Read our analysis of these 4 critical CVEs Netty CVE-2026-75595 Root Cause A TLS record begins with a 5-byte header, and the handshake message inside it begins with its own 4-byte header: one byte of handshake type, three bytes of length. `SslClientHelloHandler` has to read both before it knows how much ClientHello to expect, and the standard permits a handshake message to be split across several records, so it must be prepared for the header to arrive incomplete. The guard for that case, as quoted in the advisory: Copy Code Copied Use a different Browser if (handshakeLength == -1) { if (readerIndex + 4 > endOffset) { // Need more data to read HandshakeType and handshakeLength (4 bytes) return; } Now count what the next lines actually read. The handshake type comes from `readerIndex + SSL_RECORD_HEADER_LENGTH`, which is `readerIndex + 5`. The three-byte length comes from `readerIndex + SSL_RECORD_HEADER_LENGTH + 1`, so bytes six, seven and eight past `readerIndex`. Completing that read requires nine readable bytes. The guard requires four. The comment is right about the intent and the expression is five bytes short of it, because the reads include the record header and the check does not. Both lines are individually sensible; they simply disagree about whether `readerIndex` is before or after the record header. The consequence needs no unusual input, only a legal one. A first record with a one to three byte payload passes the guard and then addresses past the readable region, raising an `IndexOutOfBoundsException`. What catches it is not specific to this case: Copy Code Copied Use a different Browser } catch (Exception e) { // unexpected encoding, ignore sni and use default if (logger.isDebugEnabled()) { logger.debug(\"Unexpected client hello packet: \" + ByteBufUtil.hexDump(in), e); } select(ctx, null); } `select(ctx, null)` is the default `SslContext`. So a handshake the parser could not read is not rejected and not deferred; it is granted the fallback, and the comment says so plainly. In a deployment where the fallback is the permissive one, an exception in a bounds check has become an authentication decision. There was a second defect in the same method with the same effect. `handshakeLength` was a local variable, reset to `-1` on every invocation of `decode`, so partial parsing progress could not survive across reads even when no exception occurred. The Patch The bounds check is corrected to include the record header, and inverted so the parse proceeds only when the full header is present: Copy Code Copied Use a different Browser - if (readerIndex + 4 > endOffset) { - // Need more data to read HandshakeType and handshakeLength (4 bytes) - return; + if (handshakeBuffer == null && + readerIndex + SslUtils.SSL_RECORD_HEADER_LENGTH + 4 <= endOffset) { An incomplete header now falls through to the aggregation path, which buffers record payloads until the whole ClientHello has arrived, rather than reaching a read it cannot satisfy. The parser’s state moves out of local variables and onto the handler: Copy Code Copied Use a different Browser + private int aggregatedBytes; + private int handshakeLength = -1; with `handshakeLength` reset when the handshake buffer is released, so a fragmented ClientHello is reassembled across reads instead of being reparsed from the start each time. One thing the patch does not change is the exception handler. `select(ctx, null)` on a parse failure remains, at debug logging, with the same comment. The fix removes this route to it, and the advisory names the underlying design as the reason the bug mattered: fallback to default on parse failure is a problem when per-SNI selection is the sole gate. GitPython CVE-2026-78676 Root Cause GitPython’s reader is correct. `_read()` supports quoted values that continue across physical lines, and `string_decode()` applies `unicode_escape` so that a literal `\\n` sequence inside such a value becomes a newline in the resulting Python string. Given this file: Copy Code Copied Use a different Browser [core] zzz = \"A\\nhooksPath = ../evil-hooks\\ \" both `git config –get core.zzz` and GitPython return the string `A\\nhooksPath = ../evil-hooks`, and `git config –get core.hooksPath` returns nothing. The value is one option, and it is inert. The writer is where the two implementations part company: Copy Code Copied Use a different Browser fp.write((\"\\t%s = %s\\n\" % (key, self._value_to_string(v).replace(\"\\n\", \"\\n\\t\"))).encode(defenc)) The embedded newline is emitted as a real newline, followed by a tab, unquoted and with no continuation backslash. That encoding assumes indentation continues a value. Git’s rule is that a value continues only when the previous physical line ends in a literal backslash immediately before the newline, so what git reads back is not one value spanning two lines. It is two options: Copy Code Copied Use a different Browser [core] zzz = A hooksPath = ../evil-hooks `core.hooksPath` now exists, created by GitPython, in a section it inherited from wherever the dormant value was sitting. What makes this more than an encoding bug is that GitPython already had a guard for exactly this class of problem, and the writer did not use it. Four earlier config-injection",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "python",
+        "git"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "git"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "11f03126545779187a9e",
+      "title": "Read the full report",
+      "location": null,
+      "url": "https://www.ox.security/blog/ox-security-is-a-leader-in-the-gartner-magic-quadrant-for-software-supply-chain-security/",
+      "description": "OX Security: Gartner® Magic Quadrant™ Supply Chain Leader Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ for Software Supply Chain Security OX Security June 18, 2026 4 mins read Share The inaugural Gartner® Magic Quadrant™ for Software Supply Chain Security recognizes OX Security as a Leader We’re proud of this recognition. We’re more interested in what it means for the security teams who have spent five years defending an attack surface that didn’t have a name yet. A market that had to exist The software supply chain has been the defining attack surface of the last five years. SolarWinds. Log4Shell. XZ Utils. And now Shai-Hulud, the self-propagating malicious package campaign tearing through developer toolchains. Each one exposed the same gap: organizations had reasonable visibility into their own code and almost none into the pipeline, the dependencies, and the tooling that produced it. If you’re still treating supply chain security as a subset of AppSec or a compliance checkbox, that’s a signal worth paying attention to. What sets OX apart (according to us) A new category demands a different kind of platform. Three things define how OX is built for it. End-to-end pipeline lineage with PBOM. Most tools tell you what’s in your code. OX tells you where every artifact came from, what touched it, and whether it can be trusted by the time it reaches production. The Pipeline Bill of Materials (PBOM) , our proprietary extension of the SBOM , provides dynamic, end-to-end lineage across the SDLC: pipeline activity, provenance, artifact integrity, and configuration changes from first commit to runtime. We’ve extended it to include AI-BOM , so the models and agents entering your pipeline are governed with the same rigor as everything else. Prioritization over accumulation. The teams we work with aren’t failing to find issues. They’re drowning in them. OX correlates findings with runtime context to determine what’s actually reachable and exploitable, turning an endless vulnerability list into a ranked, workable risk posture. That’s the difference between knowing you have a problem and knowing which one to fix first, before runtime rather than after. Innovation that anticipates the next attack surface. AI has rewritten what the software supply chain is . Code is written by agents, packages are pulled by autonomous tools, and prompts have become an input that can compromise a build. OX VibeSec secures this AI software supply chain directly inside AI code-generation workflows: Code Output Security validates code before it’s committed and blocks risky packages in real time, prompt authorization governs the inputs driving AI coding tools, and AI coding agent governance and toolchain control enforce policy on autonomous agents and the tools they reach for. Securing AI-generated code is table stakes. Governing the agents writing it is where the next several years of risk will be decided, and it’s where OX already operates. Built for how security teams actually work OX understands that supply chain security needs to operate as part of a single platform. That is why the platform includes a rich reporting and analytics layer, with built-in and fully customizable reports, dashboards, and views tailored to different roles and programs, plus extended data retention of up to 18 months , so teams can track trends, show progress, and meet audit requirements over a meaningful time horizon. Best-in-class supply chain security should be the baseline every software-driven organization can reach, not a budget reserved for the few. OX’s subscription pricing is designed with that in mind, and is available as SaaS or on-premises. What this means for your security program If you’re building or revisiting your program in 2026, evaluate vendors on the questions that will define the next five years. Can the platform trace every artifact end to end? Does it prioritize on real exploitability, or just pile up alerts? And is it securing the AI that now writes and ships your software, or just the code that comes out the other end? We built OX to answer all three. Learn more about OX Security’s Software Supply Chain Security Solution → _________________________________________________________ Gartner® Magic Quadrant™ for Software Supply Chain Security, By Aaron Lord, Johnny Walters, Jason Gross, June 17, 2026, ID G00843814 . Gartner does not endorse any company, vendor, product or service depicted in its publications, and does not advise technology users to select only those vendors with the highest ratings or other designation. Gartner publications consist of the opinions of Gartner’s business and technology insights organization and should not be construed as statements of fact. Gartner disclaims all warranties, expressed or implied, with respect to this publication, including any warranties of merchantability or fitness for a particular purpose. GARTNER and MAGIC QUADRANT are trademarks of Gartner, Inc. and/or its affiliates. Tags: Analyst Report Gartner Learn how artificial intelligence impacts software supply chain risks and how DevSecOps teams can protect their code. Watch On-Demand Table of Contents Related Content June 4, 2026 OX Security Named a Sample Vendor in the Gartner® Hype Cycle™ for Secure Software Engineering, 2026 OX Security July 28, 2026 OX Security Named a Sample Vendor Across Three Categories in the Gartner® Hype Cycle™ for Application Security, 2026 OX Security Subscribe to Our Newsletter Stay updated with the latest SaaS insights, tips, and news delivered straight to your inbox. Add OX as a preferred source on Google × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "dace25ac52c7401709d5",
+      "title": "AI Security Team Leader (Backend Focus) Engineering Ramat Gan",
+      "location": null,
+      "url": "https://www.ox.security/careers-position/co/ramat-gan/B4.074/ai-security-team-leader-backend-focus/all",
+      "description": "Job opportunity: AI Security Team Leader (Backend Focus) Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More ← All Jobs AI Security Team Leader (Backend Focus) Ramat Gan · Full-time About The Position Ox Security secures the AI-driven SDLC from prompt to production. We eliminate critical, real-time risks from AI code generation through cloud runtime by doing what conventional tools can’t: unifying development and cloud context to stop vulnerabilities right at the source. At OX, we’re building the future of cybersecurity for the AI era. If you’re looking to work on disruptive technology with an amazing team, you belong here. We’re growing fast and looking for an AI Security Team Leader to join our Engineering Team and play a key role in leading the development of our cutting-edge AI security products (VIBESEC). This is a high-impact, cross-functional role where you’ll work closely with Product, Design, and other Engineering teams , helping us deliver high-quality, customer-centric security solutions in a fast-evolving domain. If you’re highly accountable, adaptable, and business-value driven , and excited about cybersecurity, cutting-edge AI, and fast-paced startup challenges , we’d love to meet you. Responsibilities What You’ll Be Doing Lead & Mentor: Lead a high-performing engineering team developing next-gen AI security products in a dynamic, rapidly changing domain. Drive Value: Work closely with Product and customers to understand business requirements and transform them into robust, high-quality technical solutions. Cross-Functional Ownership: Collaborate end-to-end with Product, Design, and other R&D teams to execute complex cross-company projects. Technical Guidance: Provide architectural overview and technical mentorship to your team, stepping in when necessary to guide proper technical decisions and implementations. Delivery & Quality: Own the execution, quality, and delivery of products running on endpoints and cloud environments in a high-velocity startup environment. Requirements What We’re Looking For 2+ years of experience in leading software development teams. 5+ years of hands-on experience in backend development using high-level programming languages. Strong ownership (accountability), high independence, and ability to manage multiple stakeholders. Proven ability to guide technical decisions and solutions for complex systems. Nice to Have: Proven experience with microservices architecture. Background in cybersecurity / Endpoint Agent development. experience delivering customer-value-driven products in fast-paced startup environments. Apply for this position × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "microservices",
+        "gen ai"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "microservices",
+        "gen ai"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "4b21c37f7ace5d87d529",
+      "title": "Backend Team Lead Engineering EMEA",
+      "location": null,
+      "url": "https://www.ox.security/careers-position/co/emea/03.17E/backend-team-lead/all",
+      "description": "Job opportunity: Backend Team Lead Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More ← All Jobs Backend Team Lead EMEA · Full-time About The Position Ox Security secures the AI-driven SDLC from prompt to production. We eliminate critical, real-time risks from AI code generation through cloud runtime by doing what conventional tools can’t: unifying development and cloud context to stop vulnerabilities right at the source. At OX, we’re building the future of cybersecurity for the AI era. If you’re looking to work on disruptive technology with an amazing team, you belong here. We’re growing fast and looking for a Backend Team Lead to join our Engineering team and play a key role in leading technical execution, driving engineering excellence, and helping our team deliver scalable, high-quality products. This is a high-impact, hands-on leadership role where you’ll work closely with Engineering, Product, Customer Success, and customers, owning execution across multiple workstreams while helping shape technical decisions from initial design through production. If you’re hands-on, technically strong, AI-driven, and passionate about developing people and building scalable systems, we’d love to meet you. Responsibilities What You’ll Be Doing Leadership & Sprint Execution Ownership: Lead the team’s execution across several workstreams, ensuring high-quality delivery within every sprint. Strategic Planning: Own the Sprint Planning process Coordination: Act as the primary bridge between your team and other departments to remove blockers and support cross-team dependencies. Growth & Velocity: Continuously improve team velocity and individual capabilities through coaching, mentoring, and identifying skill gaps. Technical Excellence & Design Robust Architecture: Own the technical design of team features, ensuring they are scalable, reliable, and \"clean.\" Hands-on Contribution: Lead by example by participating in high-scale, cloud-based development (AWS, MongoDB) and conducting rigorous code reviews. Product Collaboration: Work closely with Product Managers to shape features from initial concept through to production. Customers Facing Own Customers Facing Activities: Participate in technical sessions with customers. Lead Domain: Be a focal point for your domain related discussions, own the communication with OX internal Customer Success teammates. Product Focus: Lead discussions and technical decisions related to the enhancements and new features planning. AI-First & Performance Mentality AI-First Mentality: Integrate AI tools and workflows into the daily development lifecycle (e.g., AI-assisted coding, automated testing, and prompt-driven prototyping) to act as a force multiplier for the team. Efficiency & Quality: Drive a \"Get Things Done\" culture where speed does not sacrifice stability. You are responsible for ensuring the team uses the best modern tools to work smarter, not harder. Requirements What We’re Looking For Experience: 6+ years of hands-on development experience, with at least 3–5 years in a leadership role. Technical Stack: Deep expertise in Node.js (must-have) and React (preferred). Familiarity with AWS (must-have). Python experience is a plus. The \"AI-First\" Spark: You are an early adopter of AI technologies and are passionate about finding ways to use AI to improve developer experience and system performance. Outcome-Driven: A proven track record of managing project execution and delivering end-to-end features in a fast-paced environment. Communication: Strong interpersonal skills with the ability to lead a global team and communicate complex technical decisions to non-technical stakeholders. Apply for this position × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 2,
+      "matched_default": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "mongodb",
+        "aws",
+        "exp:6y",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_default": 86,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "mongodb",
+        "aws",
+        "spark"
+      ],
+      "score_infra": 2,
+      "matched_infra": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "mongodb",
+        "aws",
+        "exp:6y",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": 86,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "mongodb",
+        "aws",
+        "spark"
+      ],
+      "best_cv": "default",
+      "best_score": 2,
+      "best_confidence": "full"
+    },
+    {
+      "id": "466bee94b0bd8c183518",
+      "title": "Engineering Director Engineering Ramat Gan",
+      "location": null,
+      "url": "https://www.ox.security/careers-position/co/ramat-gan/3A.276/engineering-director/all",
+      "description": "Job opportunity: Engineering Director Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More ← All Jobs Engineering Director Ramat Gan · Full-time About The Position Ox Security is the pioneer of Active ASPM, purpose-built to secure the modern software supply chain in the age of AI. While traditional tools overwhelm teams with endless alerts, Ox cuts through the noise to identify the critical 5% of risks those that are truly reachable and exploitable. From GenAI-generated code to cloud runtime, we give developers and security teams the visibility and automation needed to ship secure software faster. We're growing fast and looking for an Engineering Director to lead a core engineering group and the product pillars at the heart of what we do. This is a high-impact, cross-functional role where you'll work closely with product, architecture, security, and product marketing, owning a new initiative in our core cyber products. If you're a hands-on leader who takes ownership before the problem is fully defined, and you're energized by building a team and a product at the same time, we'd love to meet you. Responsibilities What You’ll Be Doing Become a company leader in the new product pillars that fall under your scope Build a high-performing core engineering group by hiring top talent and fostering a culture of excellence, ownership, and collaboration Drive the planning, execution, and delivery of key projects that impact the foundation of our product Collaborate closely with product, architecture, security, product marketing, and other engineering teams to align technical vision and execution Mentor and develop engineers, providing guidance and support for their growth Help us continuously improve by bringing strategic thinking, hands-on leadership, and an agile mindset Requirements What We’re Looking For 7+ years of experience in software engineering, with 3+ years in a managerial role Proven managerial experience in developing, incubating, and releasing a product from the ground up Proven experience in leading and growing engineering teams in dynamic environments Strong technical background with the ability to dive deep and make high-level architectural decisions Excellent collaboration and communication skills Comfortable working in a fast-paced, hybrid startup environment A proactive, hands-on leader who thrives on impact and accountability Passion for building scalable, secure, and high-performing products Bonus Points For Experience leading teams in cybersecurity Familiarity with cloud-native environments and modern development workflows Familiarity with startups Apply for this position × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "genai",
+        "exp:7y(-50)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation",
+        "genai"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "genai",
+        "exp:7y(-50)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation",
+        "genai"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "82734718a84eaa8b4348",
+      "title": "IT Support Specialist Engineering Ramat Gan",
+      "location": null,
+      "url": "https://www.ox.security/careers-position/co/ramat-gan/E9.277/it-support-specialist/all",
+      "description": "Job opportunity: IT Support Specialist Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More ← All Jobs IT Support Specialist Ramat Gan · Full-time About The Position Ox Security secures the AI-driven SDLC from prompt to production. We eliminate critical, real-time risks from AI code generation through cloud runtime by doing what conventional tools can’t: unifying development and cloud context to stop vulnerabilities right at the source. At OX, we’re building the future of cybersecurity for the AI era. If you’re looking to work on disruptive technology with an amazing team, you belong here. We are looking for a highly motivated, service-oriented IT Support Specialist with 2-3 years of experience to join our team. In this role, you will be the primary point of contact for internal help desk requests, ensuring our employees have the seamless technology experience they need to do their best work. This is a fantastic opportunity for a tech-savvy professional who is a natural problem-solver, thrives in a fast-paced environment, and is eager to take ownership of IT operations while continuously expanding their technical skill set. Responsibilities What You’ll Be Doing Serve as the primary point of contact for internal IT help desk requests, providing friendly, timely, and effective support to our team. Configure, deploy, and troubleshoot employee hardware in a predominantly Mac environment, alongside Windows systems. Administer the full lifecycle of employee onboarding and offboarding, managing user identities, access rights, and SaaS provisioning through JumpCloud and Google Workspace. Manage, monitor, and secure our corporate device fleet utilizing JumpCloud's MDM capabilities. Deploy, monitor, and troubleshoot our endpoint security software, specifically SentinelOne. Maintain clear, accurate, and organized IT documentation and knowledge-base articles for both end-users and the IT team. Autonomously research and implement solutions for emerging technical issues and help improve daily IT workflows. Requirements What We’re Looking For Experience: 2-3 years of proven experience in an IT Help Desk, Technical Support, or similar IT operations role. Platform Expertise: Strong administration and troubleshooting skills for macOS, supported by a solid working knowledge of Windows. Core Systems: Hands-on experience administrating Google Workspace and cloud directory/identity platforms (experience with JumpCloud is a major advantage). Security & MDM: Familiarity with deploying and managing endpoint security agents (SentinelOne) and using MDM solutions to enforce device policies. Basic Networking: Understanding of core networking concepts relevant to end-user support (e.g., VPNs, Wi-Fi, DNS, basic TCP/IP). Self-Learner: You have strong troubleshooting instincts and a proven ability to independently research, learn, and master new technologies. Service-Oriented: You bring a customer-first mindset, patience, and a positive, helpful attitude to every interaction. Excellent Communicator: You possess excellent English skills (both written and spoken) to effectively support team members and write clear technical documentation. Nice to Have: Basic scripting skills (e.g., Bash for macOS, PowerShell for Windows) for automating repetitive tasks. Experience with zero-trust network access solutions. Previous experience supporting engineering or R&D teams. Apply for this position × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "bash",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "bash"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "bash",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "bash"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "75edf5718f06db841f84",
+      "title": "Senior Backend Engineer - Agentic Pentest Engineering Canada",
+      "location": null,
+      "url": "https://www.ox.security/careers-position/co/canada/CC.56A/senior-backend-engineer-agentic-pentest/all",
+      "description": "Job opportunity: Senior Backend Engineer - Agentic Pentest Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More ← All Jobs Senior Backend Engineer - Agentic Pentest Canada · Full-time About The Position About the Position Ox Security secures the AI-driven SDLC from prompt to production. We eliminate critical, real-time risks from AI code generation through cloud runtime by doing what conventional tools can’t: unifying development and cloud context to stop vulnerabilities right at the source. At OX, we’re building the future of cyber security for the AI era. If you’re looking to work on disruptive technology with an amazing team, you belong here. We’re growing fast and looking for a Senior Backend Engineer to join our Engineering team and help build the infrastructure that powers our platform at scale. This is a high-impact role where you’ll work alongside top-tier engineers, designing and building secure, high-performance systems in a fast-paced environment. If you enjoy solving complex technical challenges and want your work to have real impact - we’d love to meet you. Responsibilities What You’ll Be Doing Design and implement scalable backend systems and APIs Collaborate with Product, Frontend, and other engineering teams on system architecture and requirements Optimize performance, scalability, and security of applications Troubleshoot and resolve production issues with minimal downtime Lead code reviews and promote best engineering practices Mentor and support junior engineers Continuously improve system design, reliability, and development processes Requirements What We’re Looking For Bachelor’s degree in Computer Science or a related field 5+ years of experience in backend development AI-First Approach – Active and proficient use of AI tools (e.g., Copilot, LLMs) to streamline coding practices, accelerate learning curves, and optimize workflows. Strong experience building scalable, production-grade systems Proficiency in Node.js Experience with SQL and NoSQL databases Familiarity with cloud platforms and microservices architecture Strong problem-solving skills and attention to detail Passion for writing clean, maintainable, and efficient code Bonus Points for : Experience in the cybersecurity, SaaS, or Cloud Security domain. Hands-on experience with modern cloud environments (AWS/GCP), Docker, and Kubernetes. Benefits Package (via Vensure) We partner with Vensure to provide top-tier benefits for our Canada-based team members: Comprehensive Health Coverage: Medical, Dental, and Vision plans to keep you and your family healthy. Unlimited Paid Time Off (PTO): We offer unlimited vacation because we trust you to take time when you need it and to manage your time effectively. We value work-life balance and want you to recharge. Gifts on your birthday & anniversary & Holidays. Apply for this position × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 60,
+      "matched_default": [
+        "node",
+        "node.js",
+        "docker",
+        "aws",
+        "backend engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 44,
+      "confidence_default": "full",
+      "requirements_default": [
+        "node",
+        "node.js",
+        "sql",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "scalability"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "node",
+        "node.js",
+        "docker",
+        "aws",
+        "backend engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 44,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "node",
+        "node.js",
+        "sql",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "scalability"
+      ],
+      "best_cv": "default",
+      "best_score": 60,
+      "best_confidence": "full"
+    },
+    {
+      "id": "8e4de8c0342c577f790f",
+      "title": "Senior Backend Engineer – Remote (Buenos Aires, Argentina) Engineering Argentina",
+      "location": null,
+      "url": "https://www.ox.security/careers-position/co/argentina/41.076/senior-backend-engineer-remote-buenos-aires-argentina/all",
+      "description": "Job opportunity: Senior Backend Engineer – Remote (Buenos Aires, Argentina) Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More ← All Jobs Senior Backend Engineer – Remote (Buenos Aires, Argentina) Argentina · Full-time About The Position About the Position Ox Security secures the AI-driven SDLC from prompt to production. We eliminate critical, real-time risks from AI code generation through cloud runtime by doing what conventional tools can’t: unifying development and cloud context to stop vulnerabilities right at the source. At OX, we’re building the future of cyber security for the AI era. If you’re looking to work on disruptive technology with an amazing team, you belong here. We’re growing fast and looking for a Senior Backend Engineer to join our Engineering team and help build the infrastructure that powers our platform at scale. This is a high-impact role where you’ll work alongside top-tier engineers, designing and building secure, high-performance systems in a fast-paced environment. If you enjoy solving complex technical challenges and want your work to have real impact - we’d love to meet you. Responsibilities What You’ll Be Doing Design and implement scalable backend systems and APIs Collaborate with Product, Frontend, and other engineering teams on system architecture and requirements Optimize performance, scalability, and security of applications Troubleshoot and resolve production issues with minimal downtime Lead code reviews and promote best engineering practices Mentor and support junior engineers Continuously improve system design, reliability, and development processes Requirements What We’re Looking For Bachelor’s degree in Computer Science or a related field 5+ years of experience in backend development AI-First Approach – Active and proficient use of AI tools (e.g., Copilot, LLMs) to streamline coding practices, accelerate learning curves, and optimize workflows. Strong experience building scalable, production-grade systems Proficiency in Node.js Experience with SQL and NoSQL databases Familiarity with cloud platforms and microservices architecture Strong problem-solving skills and attention to detail Passion for writing clean, maintainable, and efficient code Bonus Points for : Experience in the cybersecurity, SaaS, or Cloud Security domain. Hands-on experience with modern cloud environments (AWS/GCP), Docker, and Kubernetes. Employment & Benefits Package (via Commit) We partner with Commit offshore , who acts as our official local Employer of Record, to manage payroll, local compliance, and provide top-tier benefits for our Argentina-based team members: USD-Based Salary: Receive your salary directly in USD, with full flexibility to manage your funds and convert to local currency on your own terms. 100% Remote: Full-time position based anywhere in Argentina, requiring standard daily availability and reasonable working hours overlap with our Israel and EU teams. Paid Time Off (PTO): 20 Days Annual Leave & 5 Sick Days to support your health and work-life balance. Gifts & Events: Gifts on your birthday & Holidays along with company events to keep you connected and appreciated. Apply for this position × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 60,
+      "matched_default": [
+        "node",
+        "node.js",
+        "docker",
+        "aws",
+        "backend engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 44,
+      "confidence_default": "full",
+      "requirements_default": [
+        "node",
+        "node.js",
+        "sql",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "scalability"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "node",
+        "node.js",
+        "docker",
+        "aws",
+        "backend engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 44,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "node",
+        "node.js",
+        "sql",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "scalability"
+      ],
+      "best_cv": "default",
+      "best_score": 60,
+      "best_confidence": "full"
+    },
+    {
+      "id": "cebaec2e39415a1e2bba",
+      "title": "VP Finance G&A Ramat Gan",
+      "location": null,
+      "url": "https://www.ox.security/careers-position/co/ramat-gan/B4.D6E/vp-finance/all",
+      "description": "Job opportunity: VP Finance Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More ← All Jobs VP Finance Ramat Gan · Full-time About The Position Ox Security secures the AI-driven SDLC from prompt to production. We eliminate critical, real-time risks from AI code generation through cloud runtime by doing what conventional tools can’t: unifying development and cloud context to stop vulnerabilities right at the source. At OX, we’re building the future of cyber security for the AI era. If you’re looking to work on disruptive technology with an amazing team, you belong here. We're looking for a strategic, commercially minded, AI-forward VP Finance to join our executive leadership team, reporting directly to the CEO, as our top finance leader. This is a pivotal, high-impact role where you will take end-to-end ownership of OX's financial architecture, capital strategy, and SaaS economics. Working in direct partnership with the CEO and other VPs, your goal is to drive efficient growth, architect the AI-native systems and scalable processes that fuel our next stage, and position OX for the strategic optionality that comes with scale & fundraising. Responsibilities What You'll Be Doing Strategic Partnership & Capital Allocation: Partner with the CEO and executive team on capital allocation, pricing strategy, and the financial narrative for our next chapter. Own investor relations, board reporting, and end-to-end support of fundraising processes. SaaS Economics & GTM Partnership: Own our core B2B SaaS metrics (ARR, NRR, CAC, LTV, payback) as live operating metrics, not board-deck decoration. Partner closely with GTM leadership on pricing, packaging, commission design, and commercial deal economics. FP&A, Planning & Capital Efficiency: Lead FP&A and the annual planning cycle. Build the models, dashboards, and forecasts the business actually runs on. Drive Rule of 40 posture, burn multiples, and efficient growth planning across the executive team. Corporate Development: Lead financial diligence, build-vs-buy modeling, valuation work, and post-deal integration finance for inorganic growth opportunities and partnership structures. Team & Financial Leadership: Lead, mentor, and scale the existing finance team for the next stage of the company. Hold full P&L accountability, budgeting, and cash flow management. Revenue Accounting & Audit Readiness: Own SaaS revenue recognition policy across multi-year, ramp, and usage-based deals. Lead audit readiness. AI-Native Finance Operations & Systems: OX is an AI-forward company. Reshape how the finance function operates by shipping workflows that use AI agents — you'll have access to our internal agent pipeline. Own the finance tech stack: ERP, billing, RevRec tooling, equity management, and Salesforce-to-finance integration. Treasury, Banking & FX: Manage cash, banking relationships, and foreign exchange exposure across global entities. Optimize working capital, intercompany flows, and currency risk. Global Operations & Admin: Oversee global financial operations including payroll, insurance, ESOP and equity processes, subsidiary management, and strategic relationships with external partners (auditors, banks). Compliance & Tax: Ensure US regulatory compliance and carefully navigate international tax laws across our global entities. Commercial & Legal: Partner with external & Internal counsels on financial and legal review of customer contracts and commercial negotiations. Requirements What We're Looking For Experience: 5+ years of experience as a VP of Finance with a proven track record in a scaling high-tech / startup environment. Education: Bachelor’s degree in Economics or Business Administration; CPA certification is mandatory. Leadership & Management: Proven experience managing, leading, and developing a finance team within a growing organization. Process & Tech Driven: Strong passion for operational excellence and a \"hands-on\" approach to implementing processes and leveraging AI/automation tools. Financial & Commercial Acumen: Proven ability to manage end-to-end financial operations, combined with strong commercial experience in managing contractual aspects. Familiarity with US regulatory frameworks and international tax laws. Startup DNA: Comfortable working in fast-paced environments. You are a strategic thinker who is equally comfortable rolling up your sleeves to get things done. Communication: Exceptional communication skills with the ability to influence at all levels - from board decks to cross-functional alignment. Bonus Points For Master’s degree (MBA) or advanced relevant degree. Experience with advanced ERP systems (e.g., NetSuite) and AI-driven financial platforms. Prior hands-on experience overseeing corporate legal operations. Experience in the Cybersecurity industry. Apply for this position × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "7564f85c110c75ad189c",
+      "title": "Customer & Partner Marketing Manager Marketing USA - EAST COAST",
+      "location": null,
+      "url": "https://www.ox.security/careers-position/co/usa-east-coast/93.27C/customer-partner-marketing-manager/all",
+      "description": "Job opportunity: Customer & Partner Marketing Manager Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More ← All Jobs Customer & Partner Marketing Manager USA - EAST COAST · Full-time About The Position About the Position OX Security secures the AI-driven SDLC from prompt to production. We eliminate critical, real-time risks from AI code generation through cloud runtime by doing what conventional tools can’t: unifying development and cloud context to stop vulnerabilities right at the source. At OX, we’re building the future of cybersecurity for the AI era. As the Customer & Partner Marketing Manager , you’ll own programs that elevate OX’s voice through our customers and partners. You’ll transform relationships into advocacy, create co-marketing opportunities with strategic partners, and deliver impactful campaigns that drive pipeline and brand visibility. This role blends storytelling, relationship management, and program execution. Responsibilities What You'll Be Doing Customer Marketing & Advocacy Build and lead OX’s customer advocacy program. Develop case studies, testimonials, videos, and success stories that showcase customer outcomes. Partner with Customer Success to identify champions and convert them into advocates. Drive reference programs, ensuring Sales has a steady pipeline of customer proof points. Partner Marketing Manage joint marketing initiatives with technology and channel partners. Create partner campaigns, solution briefs, webinars, and event activations that highlight OX’s value in the ecosystem. Collaborate with Sales and Alliances teams to support partner enablement and demand generation. Campaigns & Events Drive customer and partner presence in OX global events (panels, roundtables, speaking opportunities). Create scalable campaigns to increase awareness, engagement, and joint pipeline. Track performance, optimize campaigns, and report on customer and partner marketing KPIs. Requirements What We’re Looking For 5+ years of experience in customer marketing, partner marketing, or field marketing (preferably in cybersecurity or B2B SaaS). Strong storytelling and content creation skills (case studies, videos, campaigns). Proven ability to manage multiple stakeholders and build relationships across teams. Experience building and scaling advocacy programs. Comfortable working in a fast-paced startup environment where creativity and execution matter equally. Apply for this position × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "52e5496cc647e920ae70",
+      "title": "Marketing Operations Manager Marketing USA - EAST COAST",
+      "location": null,
+      "url": "https://www.ox.security/careers-position/co/usa-east-coast/41.F6B/marketing-operations-manager/all",
+      "description": "Job opportunity: Marketing Operations Manager Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More ← All Jobs Marketing Operations Manager USA - EAST COAST · Full-time About The Position OX Security secures the AI-driven SDLC from prompt to production. We eliminate critical, real-time risks from AI code generation through cloud runtime by doing what conventional tools can't: unifying development and cloud context to stop vulnerabilities right at the source. At OX, we're building the future of cybersecurity for the AI era. If you're looking to work on disruptive technology with an amazing team, you belong here. We're growing rapidly and looking for a Marketing Operations Manager to join our Marketing team and help scale our marketing engine through data, systems, automation, and operational excellence. This is a highly cross-functional role where you'll partner closely with Marketing, Sales, and Revenue Operations to optimize marketing processes, manage our marketing technology stack, improve lead lifecycle management, and drive operational efficiency across the entire funnel. If you're analytical, detail-oriented, hands-on, and passionate about building scalable marketing operations, optimizing processes, and turning data into actionable insights, we'd love to meet you. Responsibilities What you’ll do: Own and optimize the marketing tech stack (CRM, marketing automation, attribution, ABM tools, analytics). Build and manage lead scoring, routing, and lifecycle processes , ensuring tight alignment with Sales. Develop dashboards and reporting frameworks for campaign performance, funnel health, and pipeline impact. Partner with demand gen to design, execute, and measure campaigns across digital, events, and ABM. Ensure data quality and governance , including database hygiene, enrichment, and segmentation. Streamline campaign operations : calendars, workflows, templates, and process documentation. Drive conversion optimization across landing pages, forms, nurture flows, and funnel stages. Collaborate with finance and leadership on budget tracking and ROI measurement . Requirements What We’re Looking For 2-3 years in marketing operations, revenue operations, or demand gen operations in B2B SaaS (cybersecurity a plus). Strong expertise in HubSpot (or Marketo/Pardot/Eloqua) and Salesforce CRM. Experience with ABM platforms (e.g., 6sense, Demandbase) and analytics tools (e.g., Looker, Tableau, PowerBI). Proven track record in campaign measurement, attribution models, and funnel reporting . Strong project management and communication skills. Analytical thinker with attention to detail — but also pragmatic in execution. Comfortable in a fast-paced startup environment , balancing strategic thinking with tactical execution. Apply for this position × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "eb7b30e17bb5eb51e689",
+      "title": "Marketing Operations Manager Marketing New York",
+      "location": null,
+      "url": "https://www.ox.security/careers-position/co/new-york/41.F6B-62.508/marketing-operations-manager/all",
+      "description": "Job opportunity: Marketing Operations Manager Breaking News: Dive into OX Security's technical breakdown of recent vulnerabilities in Netty Read the Report OX Security is recognized as a Leader in the 2026 Gartner® Magic Quadrant™ Read the full report OX Security Named a Sample Vendor Across 3 Categories in the Gartner® Hype Cycle™ for Application Security Read More ← All Jobs Marketing Operations Manager New York · Full-time About The Position OX Security secures the AI-driven SDLC from prompt to production. We eliminate critical, real-time risks from AI code generation through cloud runtime by doing what conventional tools can't: unifying development and cloud context to stop vulnerabilities right at the source. At OX, we're building the future of cybersecurity for the AI era. If you're looking to work on disruptive technology with an amazing team, you belong here. We're growing rapidly and looking for a Marketing Operations Manager to join our Marketing team and help scale our marketing engine through data, systems, automation, and operational excellence. This is a highly cross-functional role where you'll partner closely with Marketing, Sales, and Revenue Operations to optimize marketing processes, manage our marketing technology stack, improve lead lifecycle management, and drive operational efficiency across the entire funnel. If you're analytical, detail-oriented, hands-on, and passionate about building scalable marketing operations, optimizing processes, and turning data into actionable insights, we'd love to meet you. Responsibilities What you’ll do: Own and optimize the marketing tech stack (CRM, marketing automation, attribution, ABM tools, analytics). Build and manage lead scoring, routing, and lifecycle processes , ensuring tight alignment with Sales. Develop dashboards and reporting frameworks for campaign performance, funnel health, and pipeline impact. Partner with demand gen to design, execute, and measure campaigns across digital, events, and ABM. Ensure data quality and governance , including database hygiene, enrichment, and segmentation. Streamline campaign operations : calendars, workflows, templates, and process documentation. Drive conversion optimization across landing pages, forms, nurture flows, and funnel stages. Collaborate with finance and leadership on budget tracking and ROI measurement . Requirements What We’re Looking For 2-3 years in marketing operations, revenue operations, or demand gen operations in B2B SaaS (cybersecurity a plus). Strong expertise in HubSpot (or Marketo/Pardot/Eloqua) and Salesforce CRM. Experience with ABM platforms (e.g., 6sense, Demandbase) and analytics tools (e.g., Looker, Tableau, PowerBI). Proven track record in campaign measurement, attribution models, and funnel reporting . Strong project management and communication skills. Analytical thinker with attention to detail — but also pragmatic in execution. Comfortable in a fast-paced startup environment , balancing strategic thinking with tactical execution. Apply for this position × ▶ ⏸ ⛶ ⛶",
+      "first_seen": "2026-09-15T19:50:11Z",
+      "last_seen": "2026-09-15T19:50:11Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "25c4b7119f62b63c1c88",
+      "title": "IT Support Specialist",
+      "location": "Ramat Gan",
+      "url": "https://www.linkedin.com/jobs/view/4465660205",
+      "description": "Requires 2+ years of experience. 2-3 years of experience in an IT Help Desk, Technical Support, or similar IT operations role Strong administration and troubleshooting skills for macOS, with working knowledge of Windows Hands-on administration of Google Workspace and cloud directory/identity platforms (JumpCloud experience is a major advantage)",
+      "first_seen": "2026-09-15T21:02:04Z",
+      "last_seen": "2026-09-15T21:02:04Z",
+      "status": "new",
+      "is_referral": true,
+      "referral_contact": null,
+      "score_default": 0,
+      "matched_default": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    }
+  ]
+}

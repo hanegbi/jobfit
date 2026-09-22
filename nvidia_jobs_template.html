@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NVIDIA Jobs Explorer (Israel · Engineering)</title>
+<style>
+  :root {
+    --bg: #0b0e11;
+    --panel: #12161b;
+    --panel2: #171c22;
+    --border: #232a32;
+    --text: #e6e9ec;
+    --text-dim: #9aa4ad;
+    --accent: #76b900; /* nvidia green */
+    --accent-dim: #4d7a00;
+    --chip-bg: #1d2b12;
+    --chip-border: #3a5a16;
+    --danger: #ff6b6b;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .app { display: grid; grid-template-columns: 320px 1fr; height: 100vh; }
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; }
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    padding: 20px 18px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .brand { display: flex; align-items: baseline; gap: 8px; }
+  .brand h1 { font-size: 17px; margin: 0; font-weight: 700; letter-spacing: 0.2px; }
+  .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .subtitle { color: var(--text-dim); font-size: 12.5px; line-height: 1.5; margin-top: -12px; }
+
+  .field-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  input[type="search"], input[type="text"] {
+    width: 100%;
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+  }
+  input[type="search"]:focus, input[type="text"]:focus { border-color: var(--accent-dim); }
+
+  .loc-search { margin-bottom: 8px; }
+  .loc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .loc-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13.5px;
+    user-select: none;
+  }
+  .loc-item:hover { background: var(--panel2); }
+  .loc-item input { accent-color: var(--accent); cursor: pointer; }
+  .loc-item .count { margin-left: auto; color: var(--text-dim); font-size: 12px; }
+
+  select {
+    width: 100%;
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 9px 10px;
+    border-radius: 8px;
+    font-size: 13.5px;
+  }
+
+  .btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 8px 12px;
+    border-radius: 7px;
+    font-size: 12.5px;
+    cursor: pointer;
+  }
+  .btn:hover { color: var(--text); border-color: var(--text-dim); }
+
+  .stat-block { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 12px; }
+
+  /* Main */
+  .main { display: flex; flex-direction: column; overflow: hidden; }
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+  }
+  .result-count { font-size: 14px; color: var(--text-dim); white-space: nowrap; }
+  .result-count b { color: var(--text); }
+
+  .content { flex: 1; overflow-y: auto; padding: 18px 24px 40px; }
+  .job-list { display: flex; flex-direction: column; gap: 10px; max-width: 900px; margin: 0 auto; }
+
+  .job-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: border-color 0.12s ease;
+  }
+  .job-card:hover { border-color: var(--accent-dim); }
+  .job-card.open { border-color: var(--accent); }
+
+  .job-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+  .job-title { font-size: 15.5px; font-weight: 600; margin: 0 0 4px; }
+  .job-id { color: var(--text-dim); font-size: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag {
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
+    color: #b7e08a;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    white-space: nowrap;
+  }
+  .tag.muted { background: var(--panel2); border-color: var(--border); color: var(--text-dim); }
+  .job-date { font-size: 12px; color: var(--text-dim); white-space: nowrap; flex-shrink: 0; }
+
+  .job-detail {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #d3d8dc;
+    display: none;
+  }
+  .job-card.open .job-detail { display: block; }
+  .job-detail p { margin: 0 0 10px; }
+  .job-detail a.apply {
+    display: inline-block;
+    margin-top: 6px;
+    background: var(--accent);
+    color: #06170a;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 7px;
+    font-size: 13px;
+  }
+  .job-detail a.apply:hover { background: #8ed11f; }
+
+  mark { background: #4d7a00; color: #fff; border-radius: 2px; padding: 0 1px; }
+
+  .empty-state { text-align: center; color: var(--text-dim); padding: 60px 20px; }
+
+  ::-webkit-scrollbar { width: 9px; height: 9px; }
+  ::-webkit-scrollbar-thumb { background: #2a323a; border-radius: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span><h1>NVIDIA Jobs Explorer</h1></div>
+    <div class="subtitle">Unofficial local search tool built from public listings on jobs.nvidia.com — search title &amp; description, filter by one or more locations.</div>
+
+    <div>
+      <div class="field-label">Title contains</div>
+      <input type="search" id="qTitle" placeholder="e.g. architect, senior..." autocomplete="off">
+    </div>
+
+    <div>
+      <div class="field-label">Description contains</div>
+      <input type="search" id="qDesc" placeholder="e.g. python, kubernetes..." autocomplete="off">
+    </div>
+
+    <div>
+      <div class="field-label">Sort by</div>
+      <select id="sort">
+        <option value="date_desc">Newest posted</option>
+        <option value="date_asc">Oldest posted</option>
+        <option value="title_asc">Title A→Z</option>
+      </select>
+    </div>
+
+    <div>
+      <div class="field-label">Locations <span id="locSelCount" style="color:var(--accent)"></span></div>
+      <input type="text" id="locFilter" class="loc-search" placeholder="Filter location list...">
+      <div class="loc-list" id="locList"></div>
+      <div style="margin-top:8px;"><button class="btn" id="clearLocs">Clear locations</button></div>
+    </div>
+
+    <div>
+      <div class="field-label">Department</div>
+      <select id="deptFilter"><option value="">All departments</option></select>
+    </div>
+
+    <div>
+      <div class="field-label">Exclude titles containing <span id="blacklistCount" style="color:var(--danger)"></span></div>
+      <input type="text" id="blacklist" placeholder="e.g. intern, manager, sales">
+      <div style="color:var(--text-dim); font-size:11.5px; margin-top:6px;">Comma-separated words. Jobs whose title contains any of them are hidden.</div>
+    </div>
+
+    <div class="stat-block" id="statBlock"></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="result-count"><b id="countNum">0</b> jobs</div>
+      <button class="btn" id="exportBtn" style="margin-left:auto;">Export JSON</button>
+    </div>
+    <div class="content">
+      <div class="job-list" id="jobList"></div>
+      <div class="empty-state" id="emptyState" style="display:none;">No jobs match your filters.</div>
+    </div>
+  </main>
+</div>
+
+<script>
+const JOBS = /*__JOBS_DATA__*/[];
+
+const state = { qTitle: "", qDesc: "", locs: new Set(), dept: "", blacklist: [], sort: "date_desc", openId: null };
+
+function fmtDate(ts) {
+  if (!ts) return "";
+  const d = new Date(ts * 1000);
+  return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+}
+
+function escapeHtml(s) {
+  return (s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function highlight(text, q) {
+  if (!q) return escapeHtml(text);
+  const esc = escapeHtml(text);
+  const safeQ = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return esc.replace(new RegExp("(" + safeQ + ")", "ig"), "<mark>$1</mark>");
+}
+
+// Build location facet counts
+const locCounts = new Map();
+for (const j of JOBS) {
+  for (const loc of (j.locations || [])) {
+    locCounts.set(loc, (locCounts.get(loc) || 0) + 1);
+  }
+}
+const allLocs = Array.from(locCounts.entries()).sort((a, b) => b[1] - a[1]);
+
+const deptCounts = new Map();
+for (const j of JOBS) {
+  if (j.department) deptCounts.set(j.department, (deptCounts.get(j.department) || 0) + 1);
+}
+const allDepts = Array.from(deptCounts.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+
+function renderLocList(filterText) {
+  const locList = document.getElementById("locList");
+  const ft = (filterText || "").toLowerCase();
+  locList.innerHTML = "";
+  for (const [loc, count] of allLocs) {
+    if (ft && !loc.toLowerCase().includes(ft)) continue;
+    const row = document.createElement("label");
+    row.className = "loc-item";
+    const checked = state.locs.has(loc) ? "checked" : "";
+    row.innerHTML = `<input type="checkbox" data-loc="${escapeHtml(loc)}" ${checked}><span>${escapeHtml(loc)}</span><span class="count">${count}</span>`;
+    locList.appendChild(row);
+  }
+  locList.querySelectorAll("input[type=checkbox]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const loc = cb.getAttribute("data-loc");
+      if (cb.checked) state.locs.add(loc); else state.locs.delete(loc);
+      updateLocSelCount();
+      render();
+    });
+  });
+}
+
+function updateLocSelCount() {
+  const el = document.getElementById("locSelCount");
+  el.textContent = state.locs.size ? `(${state.locs.size} selected)` : "";
+}
+
+function populateDeptFilter() {
+  const sel = document.getElementById("deptFilter");
+  for (const [dept, count] of allDepts) {
+    const opt = document.createElement("option");
+    opt.value = dept;
+    opt.textContent = `${dept} (${count})`;
+    sel.appendChild(opt);
+  }
+}
+
+function matches(job) {
+  if (state.locs.size) {
+    const jobLocs = job.locations || [];
+    let hit = false;
+    for (const l of jobLocs) { if (state.locs.has(l)) { hit = true; break; } }
+    if (!hit) return false;
+  }
+  if (state.dept && job.department !== state.dept) return false;
+  if (state.blacklist.length) {
+    const title = (job.title || "").toLowerCase();
+    for (const w of state.blacklist) { if (w && title.includes(w)) return false; }
+  }
+  if (state.qTitle) {
+    const t = (job.title || "").toLowerCase();
+    if (!t.includes(state.qTitle.toLowerCase())) return false;
+  }
+  if (state.qDesc) {
+    const d = (job.descriptionText || "").toLowerCase();
+    if (!d.includes(state.qDesc.toLowerCase())) return false;
+  }
+  return true;
+}
+
+function sortJobs(list) {
+  const arr = list.slice();
+  if (state.sort === "date_desc") arr.sort((a, b) => (b.postedTs || 0) - (a.postedTs || 0));
+  else if (state.sort === "date_asc") arr.sort((a, b) => (a.postedTs || 0) - (b.postedTs || 0));
+  else if (state.sort === "title_asc") arr.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+  return arr;
+}
+
+function jobCardHtml(job) {
+  const isOpen = state.openId === job.id;
+  const tags = [];
+  if (job.category) tags.push(`<span class="tag">${escapeHtml(job.category)}</span>`);
+  if (job.timeType) tags.push(`<span class="tag muted">${escapeHtml(job.timeType)}</span>`);
+  if (job.workLocationOption) tags.push(`<span class="tag muted">${escapeHtml(job.workLocationOption)}</span>`);
+  if (job.locationFlexibility) tags.push(`<span class="tag muted">${escapeHtml(job.locationFlexibility.replace(/_/g, " "))}</span>`);
+
+  const locsHtml = (job.locations || []).map(l => `<span class="tag">${escapeHtml(l)}</span>`).join("");
+
+  const detail = isOpen ? `
+    <div class="job-detail">
+      ${job.descriptionHtml || "<p>No description available.</p>"}
+      ${job.url ? `<a class="apply" href="${escapeHtml(job.url)}" target="_blank" rel="noopener">View on jobs.nvidia.com →</a>` : ""}
+    </div>` : "";
+
+  return `
+    <div class="job-card ${isOpen ? "open" : ""}" data-id="${job.id}">
+      <div class="job-head">
+        <div>
+          <div class="job-title">${highlight(job.title, state.qTitle)}</div>
+          <div class="job-id">${escapeHtml(job.jobId || "")}</div>
+        </div>
+        <div class="job-date">${fmtDate(job.postedTs)}</div>
+      </div>
+      <div class="job-meta">${tags.join("")}${locsHtml}</div>
+      ${detail}
+    </div>`;
+}
+
+let lastFiltered = [];
+
+function render() {
+  const filtered = sortJobs(JOBS.filter(matches));
+  lastFiltered = filtered;
+  document.getElementById("countNum").textContent = filtered.length;
+  const listEl = document.getElementById("jobList");
+  const emptyEl = document.getElementById("emptyState");
+  if (!filtered.length) {
+    listEl.innerHTML = "";
+    emptyEl.style.display = "block";
+  } else {
+    emptyEl.style.display = "none";
+    listEl.innerHTML = filtered.map(jobCardHtml).join("");
+  }
+  listEl.querySelectorAll(".job-card").forEach(card => {
+    card.addEventListener("click", (e) => {
+      const id = Number(card.getAttribute("data-id"));
+      state.openId = state.openId === id ? null : id;
+      render();
+      if (state.openId === id) {
+        requestAnimationFrame(() => card.scrollIntoView({ behavior: "smooth", block: "nearest" }));
+      }
+    });
+  });
+}
+
+document.getElementById("qTitle").addEventListener("input", (e) => { state.qTitle = e.target.value.trim(); render(); });
+document.getElementById("qDesc").addEventListener("input", (e) => { state.qDesc = e.target.value.trim(); render(); });
+document.getElementById("sort").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
+document.getElementById("deptFilter").addEventListener("change", (e) => { state.dept = e.target.value; render(); });
+document.getElementById("exportBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(lastFiltered, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  const stamp = new Date().toISOString().slice(0, 10);
+  a.download = `nvidia_jobs_export_${stamp}.json`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("blacklist").addEventListener("input", (e) => {
+  state.blacklist = e.target.value.split(",").map(w => w.trim().toLowerCase()).filter(Boolean);
+  document.getElementById("blacklistCount").textContent = state.blacklist.length ? `(${state.blacklist.length})` : "";
+  render();
+});
+document.getElementById("locFilter").addEventListener("input", (e) => renderLocList(e.target.value));
+document.getElementById("clearLocs").addEventListener("click", () => {
+  state.locs.clear();
+  updateLocSelCount();
+  renderLocList(document.getElementById("locFilter").value);
+  render();
+});
+
+document.getElementById("statBlock").textContent =
+  `${JOBS.length} jobs loaded · ${allLocs.length} distinct locations · ${allDepts.length} departments`;
+
+renderLocList("");
+updateLocSelCount();
+populateDeptFilter();
+render();
+</script>
+</body>
+</html>

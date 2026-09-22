@@ -1,0 +1,478 @@
+{
+  "name": "Descope Technologies",
+  "career_url": "https://www.descope.com/careers",
+  "last_checked": "2026-09-15T18:41:03Z",
+  "jobs": [
+    {
+      "id": "cbcd6d6b98064482f1f6",
+      "title": "Learn more >",
+      "location": null,
+      "url": "https://www.descope.com/blog/post/xaa",
+      "description": "Announcing Cross-App Access Support in Agentic Identity Hub Skip to main content SSO for your agents: announcing Cross-App Access (XAA) support in Descope Agentic Identity Hub! Learn more > Log In Blog SSO For Your Agents: Cross-App Access Support in Agentic Identity Hub Company Updates September 1, 2026 Copy link Kevin Gao Head of AI Strategy and DX Share on: Share on LinkedIn Share on X Share on Blusky Table of Contents Table of Contents The identity gap between AI agents and enterprise buyers Cross-App Access 101 Cross-App Access in the Agentic Identity Hub Cross-App Access use cases Toward agent access without the second login Frequently asked questions about Cross-App Access Identity and auth news. Straight to your inbox. Summarize with AI Don't have the time to read the entire post? Our human writers will be sad, but we understand. Summarize the post with your preferred LLM here instead. Summarize with AI Hello Descopers! We're delighted to share that Cross-App Access (XAA) support is generally available as a part of the Agentic Identity Hub . XAA is a standards-based way of letting every enterprise customer manage and control AI agent access through the identity provider they already trust. Descope is among the first identity providers to support both: ID-JAG token validation , which enables SSO-like login for any AI agent accessing your MCP server. ID-JAG token issuance , which enables SSO-like login for your AI agents accessing any MCP server. You can read the Enterprise-Managed Authorization documentation to see how issuance and validation are configured in Descope, or try the flow yourself in the Cross-App Access developer playground . To learn more about the Why, What, and How of XAA support, keep on reading. The identity gap between AI agents and enterprise buyers AI agents are becoming the primary consumers of enterprise APIs, and B2B companies are building MCP servers so those agents can reach intended services and data. The identity patterns those servers inherit, though, were designed for humans and static services rather than for autonomous and “unpredictable” software like AI agents. What API keys and consent screens leave behind Most MCP servers in production today rely on one of two mechanisms, with both of them running into limits at enterprise scale. API keys are the default path. 2026 research from Gravitee found that only 22% of teams treat agents as independent identities, with most relying on shared API keys.However, API keys are often: Long-lived, since they do not expire unless somebody manually revokes them. Over-scoped, granting broad access rather than permissions for the task at hand. Decentralized, since they are spread across config files, environment variables, and local machines. OAuth consent flows improve on this with expiring tokens and explicit user permission, but they introduce a different set of problems once an organization connects more than a handful of applications. Users click through repeated consent prompts. IT has no single view of which applications can reach which data. Access management stays fragmented across each resource application. Security teams cannot approve safe integrations or block risky ones ahead of time, because every authorization decision happens at the level of an individual user. Neither mechanism suits an enterprise agent. What does suit enterprise agents is using their existing identity providers . When a B2B company exposes an MCP server, its enterprise customers now ask whether their own security team can control which agents reach the MCP server, using the identity provider they already run. Answering this request per customer means building token exchange, per-tenant issuer trust, claim mapping, and audience validation, then maintaining all of it as the MCP authorization specification changes. Cross-App Access 101 Cross-App Access is an open protocol that standardizes how an AI agent gets access to another application's APIs or MCP server. It is built on the Identity Assertion JWT Authorization Grant (ID-JAG) and was adopted as the Enterprise-Managed Authorization extension to the Model Context Protocol. Rather than a static API key or a consent screen, the identity provider that both applications already trust mints a short-lived, scoped assertion for each request. An agent signed in to one application reaches another application's API or MCP server with no second login. How it works Three parties take part in an XAA flow: the requesting app (the agent or MCP client), the enterprise IdP, and the resource app that owns the API or MCP server. The user authenticates with the IdP through SSO and receives an ID token. The requesting app exchanges that ID token for an ID-JAG at the IdP's token endpoint. The IdP validates the request against company policy, checking whether the requesting app is allowed to reach the resource app with the scopes it asked for. If the request is approved, the IdP issues a signed ID-JAG assertion back to the requesting app. The requesting app presents the assertion to the resource app's authorization server. The resource app validates the signature against the IdP's public keys and issues a short-lived access token. The requesting app calls the API with that token until it expires. Fig: How XAA works Also Read: What Is Cross-App Access (XAA) and How It Works Cross-App Access in the Agentic Identity Hub Descope supports both sides of the XAA exchange as an issuer and validator of ID-JAG tokens. Validating ID-JAG tokens Validation is for companies that sell an MCP server to enterprises. You can: Register a trusted issuer for each tenant so an assertion minted for one customer cannot be used against another. Accept assertions from Okta, Ping, and other standards-compliant providers. Apply per-organization scope policies based on user roles, tenant membership, and claims carried over from the customer's identity provider, so two customers on the same MCP server can receive different levels",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "llm",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "llm",
+        "api"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "86e749b9e11da54580e0",
+      "title": "joining Palo Alto Networks",
+      "location": null,
+      "url": "https://techcrunch.com/2019/02/19/palo-alto-networks-to-acquire-demisto-for-560m/",
+      "description": "Palo Alto Networks to acquire Demisto for $560M | TechCrunch Disrupt 2026: OpenAI, Anthropic, Replit, and more take over 6 industry stages. 25% off tickets now Back by popular demand: Save up to $300 on Disrupt Close Palo Alto Networks to acquire Demisto for $560M Ron Miller 7:31 AM PST · February 19, 2019 Palo Alto Networks announced today that it intends to acquire security startup Demisto for $560 million. The company sees a tool that can help enhance the Palo Alto security portfolio by adding a higher level of automation. “The addition of Demisto’s orchestration and automation technologies will accelerate Palo Alto Networks Application Framework strategy and serve as a critical step forward in the company’s aim to deliver immediate threat prevention and response for security teams,” the company explained in a statement. Palo Alto also hopes that Demisto’s automated solutions will help accelerate its AI and machine learning capabilities to bring intelligent automation across the platform. The company brings more than technology, of course. It also brings its 150 customers to Palo Alto, a quarter of which are in the Fortune 500. Prior to being acquired, Demisto had raised $69 million from Accel, Greylock, Stewart McClure and others. We covered the company’s $6 million Series A , and what the investors saw was a platform that enabled security professionals with a range of backgrounds and skill levels to communicate with one another, while automating security tasks across a variety of security tools. Here’s how Demisto CEO Slavik Markovich described his company in that funding article : “If you look at the security space, each company has its own API and UI to run their [product]. What customers don’t have is a cross-product workflow,” Demisto CEO and co-founder Slavik Markovich told TechCrunch. That’s what Demisto is attempting to solve with this product. With an acquisition price of $560 million after raising $69 million, it would appear that Demisto has given its investors a healthy return, although rumors prior to the sale had the price pegged higher. Its customers will have to wait and see what impact becoming part of a much larger organization will have on Demisto’s products and services. The larger company offers much greater resources, but also brings a level of uncertainty, as in any acquisition scenario. The acquisition is expected to close in the company’s third quarter, which should be some time in the next few months. As always, the acquisition is subject to regulatory approval. Demisto emerges from stealth with $6M Series A and smart bot to help automate security ops Topics AI , Demisto , palo alto networks , Security , Startups When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence. Ron Miller Enterprise Reporter Ron Miller was an enterprise reporter at TechCrunch. Previously, he was a long-time Contributing Editor at EContent Magazine. Past regular gigs included CITEworld, DaniWeb, TechTarget, Internet Evolution and FierceContentManagement. Disclosures: Ron was formerly corporate blogger for Intronis where he wrote once weekly on IT issues. He has contributed to various corporate blogs in the past including Ness, Novell and the IBM Mid-market Blogger Program. View Bio October 13 – 15 San Francisco Last day to book an exhibit table is September 18. Don’t miss out on high-impact leads, investor access, and a brand spotlight in Disrupt’s Expo Hall. BOOK NOW Most Popular Revolut confirms customer data breach through fake government requests Jagmeet Singh OpenAI puts Pro subscriptions on hold due to Astra demand Sarah Perez Bending Spoons to buy collaboration tools maker Miro for $1.36B, 90% less than its 2022 valuation Ram Iyer ID verification giant IDScan confirms data breach with more than 150 million driver’s licenses stolen Zack Whittaker Automattic’s board forces CEO Matt Mullenweg into leave of absence Julie Bort Sarah Perez Apple unveils its first foldable, the iPhone Duo Ivan Mehta ‘Gambling with our lives’: Anthropic researcher quits, warns against self-improving AI Rebecca Bellan Loading the next article Error loading the next article",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "machine learning",
+        "api",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "machine learning",
+        "api",
+        "automation"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "e2b01dc376a0c5db5cf0",
+      "title": "2011 Acquired by McAfee",
+      "location": null,
+      "url": "https://techcrunch.com/2011/03/23/intels-mcafee-acquires-sentrigo-to-boost-database-security-offerings/",
+      "description": "Intel's McAfee Acquires Sentrigo To Boost Database Security Offerings | TechCrunch Disrupt 2026: OpenAI, Anthropic, Replit, and more take over 6 industry stages. 25% off tickets now Back by popular demand: Save up to $300 on Disrupt Close Intel's McAfee Acquires Sentrigo To Boost Database Security Offerings Leena Rao 5:16 AM PDT · March 23, 2011 Intel-owned McAfee is announcing an acquisition this morning—database security company Sentrigo. Terms of the deal were not disclosed. Sentrigo, which has raised $19 million in venture funding from Benchmark Capital, Stata Venture Partners and Juniper Networks,, provides host-based software that protects enterprise databases by monitoring all activity in the database in real-time, providing alerts, audit trail, virtual patching and automatic intrusion prevention capabilities. Sentrigo’s solution, called Hedgehog, uses a very small footprint non-intrusive agent that has complete visibility into all database activity, whether it is originated by outsiders or privileged insiders, and does so without impacting database performance. McAfee actually partnered with Sentrigo in 2010, entering into an OEM agreement to support and offer McAfee’s own database security software, including McAfee Vulnerability Manager for Databases, McAfee Database Activity Monitoring, and McAfee Integrity Monitoring for Databases Dave DeWalt, president of McAfee said of the acquisition: McAfee is continuing to broaden its security portfolio to now-secure databases, as well as endpoints, networks, email and web. He added that the company is also announcing a “complete database security platform” which includes products across the McAfee portfolio. McAfee’s Vulnerability Manager for Databases will automatically discover all databases on the network, collect a full inventory of configuration details, and determine if the latest patches have been applied and scans for vulnerabilities. McAfee’s Database Activity Monitoring (DAM), not only tracks database changes, but also protects data from external threats and malicious insiders with real-time alerts and session termination. Intel just closed its $7.68 billion acquisition of McAfee, after the deal was cleared by the EU in January, and approved by the U.S. Federal Trade Commission in late December. Topics McAfee , TC When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence. Leena Rao Senior Writer Leena Rao is currently a Senior Writer at Fortune Magazine. Leena had a brief stint at Google Ventures as an Operating Partner. Leena’s first role out of journalism school was at TechCrunch which she joined in 2008. She rose through the ranks becoming the Managing Editor for TechCrunch and a voice at TechCrunch Disrupt. She recently finished graduate school at the Medill School of Journalism at Northwestern University, where she studied business journalism and videography. From 2004 to 2007, she helped lead Congresswoman Carloyn Maloney’s community outreach and relations efforts in New York City. She graduated from Columbia University in 2003, where she was the captain of the women’s varsity tennis team. She has also contributed technology content for Oprah.com. View Bio October 13 – 15 San Francisco Last day to book an exhibit table is September 18. Don’t miss out on high-impact leads, investor access, and a brand spotlight in Disrupt’s Expo Hall. BOOK NOW Most Popular Revolut confirms customer data breach through fake government requests Jagmeet Singh OpenAI puts Pro subscriptions on hold due to Astra demand Sarah Perez Bending Spoons to buy collaboration tools maker Miro for $1.36B, 90% less than its 2022 valuation Ram Iyer ID verification giant IDScan confirms data breach with more than 150 million driver’s licenses stolen Zack Whittaker Automattic’s board forces CEO Matt Mullenweg into leave of absence Julie Bort Sarah Perez Apple unveils its first foldable, the iPhone Duo Ivan Mehta ‘Gambling with our lives’: Anthropic researcher quits, warns against self-improving AI Rebecca Bellan Loading the next article Error loading the next article",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "fd11e48d26bbf1f5c4b4",
+      "title": "2023 Announced $53M seed funding",
+      "location": null,
+      "url": "https://techcrunch.com/2023/02/15/passwordless-authentication-startup-descope-lands-whopping-53m-seed-round/",
+      "description": "Passwordless authentication startup Descope lands whopping $53M seed round | TechCrunch Disrupt 2026: OpenAI, Anthropic, Replit, and more take over 6 industry stages. 25% off tickets now Back by popular demand: Save up to $300 on Disrupt Close Image Credits: metamorworks / Getty Images Startups Passwordless authentication startup Descope lands whopping $53M seed round Kyle Wiggers 5:00 AM PST · February 15, 2023 Capital might be harder to come by than it once was in startup land, but some firms are bucking the trend — hard. Take Descope , for example, which today announced that it raised a whopping $53 million in seed funding for its “developer-first” authentication and user management platform. The money came from Lightspeed Venture Partners and GGV Capital with additional funds contributed by Dell Technologies Capital, TechAviv, J Ventures, Cerca, Unusual Ventures, Silicon Valley CISO Investments and individual investors CrowdStrike CEO George Kurtz and Microsoft chairman John W. Thompson. It’ll be used, Descope co-founder and CEO Slavik Markovich says, to grow Descope’s product capabilities, invest in research and support open source initiatives around authentication, authorization and user management. “The Descope platform helps developers add authentication, user management and authorization capabilities to their business-to-consumer and business-to-business apps with just a few lines of code,” Markovich told TechCrunch in an email interview. “It helps apps accelerate their time to market, increase the efficiency of their engineering resources, reduce user friction and prevent a wide variety of identity-based cyberattacks.” Why the large cash infusion — particularly large for a seed round — in a dev-focused startup, you might ask? Markovich says that it came down to timing. In tight economies, organizations feel the pressure to shift software development efforts to initiatives that’ll move the needle for business. Descope enables them to achieve this, Markovich avers, by outsourcing many necessary — but not revenue-generating — authentication and user management app components, freeing up dev teams. Descope was founded last April by the members of the core team that built the security operations platform Demisto, which Palo Alto Networks acquired in March 2019. While at Demisto, the team says that they experienced the pain of building authentication and user management functionality — including password management, single sign-on, tenant management and roles and permissions — firsthand. It turned into a multiyear investment, Markovich says — not to mention a massive time sink. “With Descope, the team’s vision is to ‘descope’ (hence the name) authentication and user management from every app developer’s daily work, so that they can focus on business-critical initiatives without worrying about building, updating and maintaining authentication,” Markovich said. Markovich doesn’t deny that there’s a wealth of competition in the user authentication space, like ConductorOne , Stytch , Transmit Security and Okta-backed Auth0 . (In 2021, VC investment in identity management startups reached $3.2 billion, according to Crunchbase — a record at the time.) But he asserts that Descope is differentiated by its workflow and screen editor, which are drag-and-drop as opposed to code-based and intended to let developers customize authentication flows for apps without having to write any code. “This greatly speeds up time to market and also makes it easier to modify and update user journeys flows with time,” Markovich said. “These no-code workflows abstract away the complexity of building authentication while still giving app builders control over their user experience and user interface.” Beyond the editors, Descope offers a set of software development kits and APIs that allow customers to add passwordless authentication methods (think biometrics, risk-based authentication and multifactor authentication) to existing apps and services. Security teams get app security flows that they can review and audit for compliance. So why launch Descope now? There’s no shortage of rival apps, after all. But Markovich says that the team felt the industry had reached an inflection point. Over 66% of smartphone users are expected to use device-native biometrics instead of passwords by 2024, he noted, citing data from Mercator, while authentication protocols like FIDO2, WebAuthn and passkeys have set the foundation for a passwordless future. The next step, Markovich argues, is enabling developers to easily add passwordless authentication methods alongside others such as social logins, one-time passwords and magic links to their apps. There’s demand to be sure. According to a recent survey by Enterprise Strategy Group, 85% of IT and cybersecurity professionals agree the adoption of passwordless technology is among their top strategic initiatives. “Passwords are not only the leading cause of security breaches, but are also known to cause friction throughout a user journey — leading to churn and a negative experience for end customers,” Markovich continued. “The proliferation of cybersecurity attacks due to poor identity and authentication practices such as credential stuffing, bot attacks, session hijacking, brute force attacks and other types of password compromise. Authentication and user management are critical parts of any digital application.” It’s a tough time to launch a startup regardless, what with less access to capital and uncertainty around the wider economic landscape. Descope doesn’t have much traction to point to, either — the platform’s in private beta and Markovich declined to comment on revenue or the size of the company’s customer base. Still, Markovich claims that Descope is “well-positioned” to weather a slowdown in tech, and perhaps even uniquely positioned considering challenging economies are frequently accompanied by increased fraud and cyberattacks. “The Descope team is full of seasoned startup",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "fcc411448a1671125334",
+      "title": "Meet Nitzan",
+      "location": null,
+      "url": "https://www.descope.com/blog/post/developer-chat-nitzan-peretz",
+      "description": "Meet a Descoper: Developer Chat With Nitzan Peretz Skip to main content SSO for your agents: announcing Cross-App Access (XAA) support in Descope Agentic Identity Hub! Learn more > Log In Blog Meet a Descoper: Developer Chat With Nitzan Peretz Life @ Descope November 16, 2022 Copy link Team Descope Chief Login Officer Share on: Share on LinkedIn Share on X Share on Blusky Table of Contents Table of Contents How I got here Day in the life Looking back Identity and auth news. Straight to your inbox. Summarize with AI Don't have the time to read the entire post? Our human writers will be sad, but we understand. Summarize the post with your preferred LLM here instead. Summarize with AI Welcome to Meet a Descoper ! This interview series shines a spotlight on app builders – whether they are Descope employees, community members, or users of our service. In these chats, Descopers chronicle their daily work, highlight stuff they are proud of, and share advice for developers wishing to pursue similar careers. Today, we’re delighted to talk with full-stack whiz Nitzan Peretz. Nitzan spoke to us about his love for creation, looking behind the computer screen, and scaling literal mountain peaks. Take it away, Nitzan! How I got here Q. To start off, can you tell us something about yourself? Hello Internet, I’m Nitzan! I’ve had the good fortune of only working at a few places in my career so far and being happy at every place I worked. I started off with the Israel Defense Forces (IDF) for 7 years. After that, I was part of the Demisto engineering team and went through an unforgettable ride both before and after the acquisition by Palo Alto Networks. For the past six months or so, I’ve been at Descope and am loving every second of it. Q. Why did you decide to become a developer? The passion really came to me while I was doing it daily in the army. I realized that I loved many aspects of being a developer – using my head to solve analytical problems, working together with people I liked and respected, and creating things from scratch. The creation aspect is what calls out to me the most about being a developer. In the beginning, there’s nothing except ideas in our heads. After debates, discussions, coding, and testing, the ideas become reality (even though the reality is never as perfect as the ideas are!). Going through this process gives me a sense of meaning. Q. Why did you join Descope? I think the reasons are very similar to the reasons I enjoy being a developer! Creating things from scratch, working with people I like, and solving hard problems. I have worked with these people at Demisto before and count them as friends. I know from years of experience that we can come together to build something useful and meaningful. Additionally, the problem space around authentication that we are tackling is what drew me to Descope as well. It’s not often that ideas are big enough to potentially affect every online user in a positive way. For me, it’s very important that my work is a mission-driven story that I can share with myself, my family, and friends. The Descope story is certainly a compelling one! Day in the life Q. What’s your favorite part of your day-to-day work as a developer? Hmmm, I can’t choose between two different favorites so I will mention both. One is when I was a manager and the other is when I’ve been a developer responsible for execution as part of a team. When I was a manager at Palo Alto Networks, I really enjoyed planning projects with my team, guiding them, and unblocking them so that they could achieve their goals. Positive feedback for any of my team members was the best feedback I could receive. For everything you gain while being a manager, the one thing you lose is free time to do focused work since there are so many other things to handle. So I’d say that’s my other favorite thing about being a developer (which I’m doing now) – uninterrupted hours spent zeroing in on a task, thinking about how to tackle it, and being in the zone. Q. What’s one piece of work you are most proud of? I’ll share an example from Descope without giving too much away since we are still in stealth! I’m responsible for our admin console. It’s something that every Descoper will see. I’ve been there from the first lines of code to the state it’s in right now. I’ve lived and breathed this console and while I know there’s a long road still to travel, I’m really proud of how far it has come in a short period of time. Q. What do you do to unwind from work? I like to work hard and unwind hard! Before anything else, I’m a very family-oriented person and try to spend time with my loved ones whenever I can. Besides that, I’m passionate about hiking, traveling, and sports. On hiking, I’m really into mountain hikes. I’ve hiked on mountains across all five continents. I remember my hikes on Mt. Kilimanjaro and the Alps with particular fondness. I’m planning on hiking to the Mt. Everest base camp next April and am excited for it! Nitzan says hello from around the world! While hiking and traveling go hand in hand, I love to travel in general too. I just got back from a very interesting trip to Vietnam where I hiked in the north, had great food, met many nice people, and immersed myself in the culture. I have a beach volleyball group with my friends and we play every week. I also enjoy slacklining and frisbee. Looking back Q. What’s something you wished you knew when you started your career? Like most junior developers, I found that I was quite stressed from work when I started my career. The task list always seemed to grow longer and work never seemed to end. Reflecting on that period, I think it’s very important to spend some time looking behind the screen. This can mean many things – exploring new technologies, learning for yourself, connecting to your end users. But the common denominator connecting all of them is to not always be task-focused. Q. What advice do you have for developers who are just starting their jo",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "llm"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go",
+        "llm"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "93b8b66f34939518aee5",
+      "title": "Meet Kevin",
+      "location": null,
+      "url": "https://www.descope.com/blog/post/devrel-chat-kevin-gao",
+      "description": "Meet a Descoper: DevRel Chat With Kevin Gao Skip to main content SSO for your agents: announcing Cross-App Access (XAA) support in Descope Agentic Identity Hub! Learn more > Log In Blog Meet a Descoper: DevRel Chat With Kevin Gao Life @ Descope October 31, 2023 Copy link Team Descope Chief Login Officer Share on: Share on LinkedIn Share on X Share on Blusky Table of Contents Table of Contents How I got here Day in the life Looking back Identity and auth news. Straight to your inbox. Summarize with AI Don't have the time to read the entire post? Our human writers will be sad, but we understand. Summarize the post with your preferred LLM here instead. Summarize with AI Welcome to Meet a Descoper ! This interview series shines a spotlight on app builders – whether they are Descope employees, community members, or users of our service. In these chats, Descopers chronicle their daily work, highlight stuff they are proud of, and share advice for developers wishing to pursue similar careers. Today, we’re delighted to talk with developer relations wunderkind Kevin Gao. Kevin spoke to us about his childhood passion for building, being close to the customer, and the benefits of seeking “real-world” experiences while in college. Take it away, Kevin! How I got here Q. To start off, can you tell us something about yourself? Hi everyone, this is Kevin! I was born and raised in the Bay Area and started getting interested in computers from a very young age. My dad built hardware and had a factory in China that manufactured computer components and sold them to startups in Silicon Valley. I remember putting together computer components and installing and playing the Mickey Mouse Clubhouse game when I was little – there was no looking back after that! Some friends of my parents were car aficionados and I remember going to their house to help them customize their cars. Those experiences also kickstarted my interest in engineering. Q. How did you decide to become a developer? When I was in middle school and high school, I was actually more interested in physics. I was part of the rocketry club and wanted to become an aerospace engineer. But the more I went down that path, the more I realized that I wanted control over what I built and I also wanted the ability to rapidly experiment and “put things out there”. Software engineering seemed like a path much more aligned with those goals. My time as a developer so far has been very enriching. Being a developer lets me test out any idea I have, build the tool, and gather real feedback quickly. My work and personal projects over the years have only increased my passion for CS and software engineering. I enjoy doing things with lean teams, in less time, and with an experiment-focused mindset. Q. How and why did you make the switch to DevRel? I was a software engineer in my previous role at a sales and revenue ops company. My work involved lots of conversations with sales and customer success teams about what features need to be developed and prioritized. I also had lots of good conversations with customers. I enjoyed this level of interaction – learning how the software was being used, understanding common use cases, and getting a more holistic view of the product rather than just building the nuts and bolts was exciting. I researched the developer relations role and learned that – at the right company – this role contained a bit of everything and balanced my passion for building things with my interest in speaking with business-facing stakeholders. Q. Why did you join Descope? I was aware of Descope after the company launched from stealth. I had spent the last three years in engineering and was looking for a change of pace. Once I spoke with Rishi and learned more about what the day-to-day in this role would entail, saying yes was easy! Working in DevRel at Descope is creating strong foundations for me whether I continue in DevRel or do more core engineering work later in my career. I’m close to the product and its users, and I also have the freedom to build my own projects to help our customers. What I especially love about Descope is how knowledgeable and technical all the founders are. I have the opportunity to be very close to the founders – their input and guidance teaches me more in a day than I would otherwise learn in weeks. Kevin and friends say hello! Day in the life Q. What’s your favorite part of your day-to-day work in the DevRel team? I like that I do a wide variety of things. Every week or two, we work on new things because there are so many things to do. A typical month in Descope DevRel includes attending developer conferences, working on docs and tutorials, troubleshooting and assisting users on our AuthTown community, and building sample apps for new use cases. I think there are broadly two types of engineers – one type that likes hacking things together right away and the other type that thinks carefully (especially at the outset) about what they are building. The DevRel role lets me balance both these types of work while always executing with high quality. Q. What’s one piece of work you are most proud of? The work I’ve done with OpenID Connect (OIDC) at Descope over the past few months is something I’m really proud of. This project became important as we had to figure out how to integrate with other auth providers and systems of record for authentication to enable customers to add Descope as a federated IdP without changing their primary IdP. I learned a lot about OIDC and worked on the project end-to-end: Building out sample apps for testing and demonstration Writing tutorials for adding Descope to Auth0 , Amazon Cognito , Firebase , Retool , and Salesforce . Figuring out how to securely merge and link user identities across auth methods. Answering user questions on AuthTown. Building out docs. Evangelizing the capabilities to developers. I’m grateful to have learned a lot about OIDC through this process and feel happy whenever customers can",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "llm",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "llm"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "llm"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "c5472781969c71a52280",
+      "title": "Meet Asaf",
+      "location": null,
+      "url": "https://www.descope.com/blog/post/developer-chat-asaf-shen",
+      "description": "Meet a Descoper: Developer Chat With Asaf Shen Skip to main content SSO for your agents: announcing Cross-App Access (XAA) support in Descope Agentic Identity Hub! Learn more > Log In Blog Meet a Descoper: Developer Chat With Asaf Shen Life @ Descope February 13, 2023 Copy link Team Descope Chief Login Officer Share on: Share on LinkedIn Share on X Share on Blusky Table of Contents Table of Contents How I got here Day in the life Looking back Identity and auth news. Straight to your inbox. Summarize with AI Don't have the time to read the entire post? Our human writers will be sad, but we understand. Summarize the post with your preferred LLM here instead. Summarize with AI Welcome to Meet a Descoper ! This interview series shines a spotlight on app builders – whether they are Descope employees, community members, or users of our service. In these chats, Descopers chronicle their daily work, highlight stuff they are proud of, and share advice for folks wishing to pursue similar careers. Today, we’re delighted to talk with self-professed Lorem Ipsum Engineer Asaf Shen. Asaf spoke to us about the randomness of job titles, doing your best, and being very serious about not taking yourself too seriously. Over to you, Asaf! How I got here Q. To start off, can you tell us something about yourself? Hi, I’m Asaf and I’m here not to take myself too seriously! I’m 36 years old and live in Tel Aviv, although I’m originally from a small village in the north of Israel. I love what I do and try to approach things with passion. I am stimulated by solving problems, automating anything that detracts from the human experience, and doing what I can to meet the world’s needs. Q. Why did you decide to become a developer? I don’t even put myself strictly in the developer bucket! At every company I’ve worked at, I see my goal as solving problems and doing whatever possible in my power to help the company meet its stated mission and objectives. To more faithfully answer your question – I had a hunch around 15 years ago while selecting what to study at university that being a developer would bring me the closest to fulfilling my potential. Honestly, the hunch was all I had to go on at first, but I soon discovered that I actually loved doing everything a developer does. I’m lucky that it has worked out. Q. Why did you join Descope? While choosing a place to spend my days, I usually look for three things: Is there a big challenge? Is there a good chance to succeed in meeting the challenge? Will I enjoy being with the people I am shoulder-to-shoulder with? At Descope, the answer to all three is a resounding yes! It’s especially a privilege to work with this amazing group of people. Day in the life Q. Why do you call yourself a “Lorem Ipsum Engineer”? Ha, one of the many advantages of working at a startup is that you can make up your job titles! For those unfamiliar with Lorem Ipsum, it’s placeholder text that’s used before the final content is ready. Calling myself that is my attempt to highlight the randomness in everything – job titles, the daily work at early-stage companies, and life in general. It also relates to what I said earlier about not really thinking of myself strictly as a developer. If my job is to solve problems and the problems can randomly appear out of anywhere, then Lorem Ipsum is an apt moniker, don’t you think? Q. What’s your favorite part of your day-to-day work as a developer? I like the dynamic nature of the day-to-day work here. I could be writing code one day, speaking to customers the next, and tackling some performance challenges the next. It’s very diverse work that keeps me on my toes mentally. Another thing I like as much if not more is the collaborative nature of work. Dev teams that are working towards a shared goal need to always be communicating, debating, having healthy conflicts, and trusting each other to move in the same general direction even when we don’t agree exactly on the exact approach sometimes. Q. What’s one piece of work you are most proud of? I’m going to throw a curveball here and mention something not related to work at all. I’m most proud of something me and a few friends created for Midburn . We created a huge freestanding display of a pyramid with a piano keyboard inside, where the lights in the pyramid changed as you played the keyboard. It was a short and high-intensity project with unforeseen surprises along the way, but we were really happy with the end result. I also ended up heavily damaging my keyboard by the time we got back from Midburn, so this answer is partly me paying tribute to its spirit! A musical Midburn Q. What do you do to unwind from work? When you love what you do, you don’t really feel the need to unwind from work because work doesn’t wind you up. That said, I love frisbee and any other sport that pushes my adrenaline and serotonin up. I’m also a big space enthusiast and love looking at the stars – going back to Lorem Ipsum, there’s nothing like space to make you realize about the randomness of everything. Looking back Q. What’s something you wished you knew when you started your career? The thing I’d emphasize to my past self is to stick with the people. Give more weight to the people you work with rather than other factors. Another thing – at the risk of repeating myself – is not to take myself too seriously. Having this mindset is freeing and enables me to do my best work. Q. What advice do you have for developers who are just starting their journey? Three pieces of advice come to mind. Firstly, go out of your comfort zone. I guarantee that’s where you will learn the most and get closer to being the best version of yourself. Next, always do your best, as obvious as that sounds. Try not to have any regrets about a path you didn’t take, a thing you didn’t do, or a thing you wish you had done differently. Lastly, and probably most importantly, only learn FORTRAN. Everything else is garbage 🙂 Q. Anything else you’d like to share that we hav",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "llm"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go",
+        "llm"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "d5e4eaa037c4d408fd6e",
+      "title": "Meet Itai",
+      "location": null,
+      "url": "https://www.descope.com/blog/post/developer-chat-itai-hanski",
+      "description": "Meet a Descoper: Developer Chat With Itai Hanski Skip to main content SSO for your agents: announcing Cross-App Access (XAA) support in Descope Agentic Identity Hub! Learn more > Log In Blog Meet a Descoper: Developer Chat With Itai Hanski Life @ Descope May 30, 2023 Copy link Team Descope Chief Login Officer Share on: Share on LinkedIn Share on X Share on Blusky Table of Contents Table of Contents How I got here Day in the life Looking back Identity and auth news. Straight to your inbox. Summarize with AI Don't have the time to read the entire post? Our human writers will be sad, but we understand. Summarize the post with your preferred LLM here instead. Summarize with AI Welcome to Meet a Descoper ! This interview series shines a spotlight on app builders – whether they are Descope employees, community members, or users of our service. In these chats, Descopers chronicle their daily work, highlight stuff they are proud of, and share advice for developers wishing to pursue similar careers. Today, we’re delighted to talk with coder-founder-father-musician Itai Hanski. Itai spoke to us about the joy in embracing different experiences, the importance of putting yourself in the customer’s shoes, and the value of mentorship. Take it away, Itai! How I got here Q. To start off, can you tell us something about yourself? I’m 38 years old and the father to four-and-a-half year old twins (a boy and a girl). I live in Herzliya, right outside Tel Aviv. I’ve been a developer for over a decade and it has been quite a ride so far. I’ve experienced a wide array of fields in my career and am really happy with where I’ve ended up. Q. Why did you decide to become a developer? Like so many things in life, it happened kind of by accident. After finishing my time in the army and traveling for a bit, I didn’t know what I wanted to do next. My wife’s (then girlfriend’s) brother told me that I was going to learn computer science at Hebrew University. It wasn’t a question, it was more like he decided for me. I knew I liked video games and I also knew I didn’t have a better idea of what to do at the time, so I said okay! I quickly discovered a world that drew me in to both the love of being a developer as well as finding my passion for entrepreneurship. At the end of my degree, I had a course on entrepreneurship where teams had to create and pitch an idea. My team had a cool concept for a digital board game that ran on multiple phones at the same time. We had mockups and a working proof-of-concept but weren’t sure who would build the application. I tried it out and have been riding the entrepreneurial roller-coaster ever since. Q. You mentioned that you’ve done a bunch of different stuff in your career. Can you share some details? After finishing my studies, I joined a startup where I focused on Android development for a while. After that I spent a lot of time doing client-side development. I also started my own venture to build a company and had a life-enriching experience building a great product before eventually putting it aside. All these experiences led to me joining healthy.io, where I spent the last 6.5 years. At healthy.io, I learned a lot about different platforms, became adept at distilling ideas into requirements, and spent a lot of time problem-solving. I became the architect there and was responsible for building and rebuilding entire systems from the ground up. Q. Why did you join Descope? After many years at healthy.io, I felt it was time for a change. I realized that – as much as I enjoyed my time there – it had become too familiar and it was time to move on. I wanted to challenge myself to get out of my comfort zone in a new environment and look to solve a different market problem. Meir (one of the Co-Founders of Descope) and I knew each other from university. When he reached out to me about this opportunity, I was excited to say yes! My time at Descope so far has been unlike anything I’ve experienced before. I’m proud to be a part of a truly excellent team, both from a technical and character point of view. I also love how work and fun truly happen side-by-side here. The many avatars of Itai say hello! Day in the life Q. What’s your favorite part of your day-to-day work as a developer? I really enjoy the diversity of being a developer. Speaking about Descope specifically, since our product is meant for every type of developer, we really need to think both broadly and deeply about different frameworks, SDKs, and tech stacks without being too opinionated. This has been a great opportunity for me to expand my knowledge on new languages and tools. I enjoy the end-to-end responsibility of being a developer at the right company. At Descope, I have helped take features from inception to the backend to the frontend to an SDK. Looking at all my past experiences, I could easily have been a user of Descope had the product existed back then. I have felt the need for authentication and user management in the past. Looking at my work through this lens – as a potential customer – strongly reflects the importance of what I do back to me. I can also easily put myself in the customer’s shoes and give my take on product decisions as a result. Q. What’s one piece of work you are most proud of? Hmmm, I’d like to draw on something outside of work for this answer. I have been working on a solo music project for the past two years (on and off, on account of being a parent of twins). Recently, I’ve been able to devote more time to it and feel that I’m getting better at it. All that aside, we sometimes take self-improvement for granted in a professional context since we spend most of our lives doing these tasks. There have been many instances where I’ve written some code, looked at it some time later, felt it was horrible, and then rewritten it – getting better in the process. But getting better at a passion or hobby requires more discipline and consistency. What I’ve always felt with coding I now feel with my music too.",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "llm"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "llm"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "708059f8740a09edf6c8",
+      "title": "Meet Chris",
+      "location": null,
+      "url": "https://www.descope.com/blog/post/devrel-chat-chris-carper",
+      "description": "Meet a Descoper: DevRel Chat With Chris Carper Skip to main content SSO for your agents: announcing Cross-App Access (XAA) support in Descope Agentic Identity Hub! Learn more > Log In Blog Meet a Descoper: DevRel Chat With Chris Carper Life @ Descope August 25, 2023 Copy link Team Descope Chief Login Officer Share on: Share on LinkedIn Share on X Share on Blusky Table of Contents Table of Contents How I got here Day in the life Looking back Identity and auth news. Straight to your inbox. Summarize with AI Don't have the time to read the entire post? Our human writers will be sad, but we understand. Summarize the post with your preferred LLM here instead. Summarize with AI Welcome to Meet a Descoper ! This interview series shines a spotlight on app builders – whether they are Descope employees, community members, or users of our service. In these chats, Descopers chronicle their daily work, highlight stuff they are proud of, and share advice for developers wishing to pursue similar careers. Today, we’re delighted to talk with Chris Carper from the Descope developer relations team. Chris spoke to us about his wandering path to DevRel, his approach to building documentation, and the joys of being a car nerd. Take it away, Chris! How I got here Q. To start off, can you tell us something about yourself? This is Chris from the Descope DevRel team! I have three daughters under nine years old and three dogs as well. My sister and my parents both live 100 yards either side of me, which means a lot of my time is spent with family. I’m also a huge car nerd. Q. How did you end up in developer relations? I went to school to study computer science because my dad was passionate about technology. I’ve worked in a wide variety of fields over the years spanning basic IT operations, QA automation, customer support, and customer success. I also have a long history of writing code (Python) over 15 years. My current role at Descope seems like a culmination of my experience so far. It’s a mix of customer success, customer support, and developer relations. Q. Why did you join Descope? I had worked with this team extensively at Palo Alto Networks, so when a role opened up it was very easy to say yes! I’ve been with this team across companies for four years now. The founders and engineers are outstanding – they have top knowledge and expertise that they continually aim to improve by talking to customers. They also have a deep-rooted sense of community. Honestly, it’s like working with family. Getting things done and getting them done correctly is why I’m here. Chris says hello! Day in the life Q. What’s your favorite part of your day-to-day work in the DevRel team? I really enjoy the end-to-end nature of the role. I support our developer community both before and after they sign up for our product. An average week might involve interacting with developers at events, doing demos, running developer workshops, writing docs, monitoring the customer support chat, and answering questions on AuthTown . At Descope, I especially love the fact that if something needs to be done and someone has an idea, they have the freedom to implement it. As an example, we’ve been talking for a few weeks about putting together a migration plan for customers that want to move to Descope from another authentication provider. I took on the project because we didn’t have it and led it to completion because we needed it. Q. Can you share more about what you do on the docs site? We know you do a lot there! Before this role, I had never done “official” documentation work before. I had created a lot of internal docs and troubleshooting solutions in a QA capacity in the past, but this is my first experience of “jump in and own it” creation and management of a company documentation portal. Before Descope launched from stealth, I spent a good three months going over the documentation to ensure everything was up to snuff. Now, around 50% of my time each week is spent on documentation to add features and clarity. It’s very rewarding to see our docs grow and help developers work their way through our product. Q. What’s one piece of work you are most proud of? My favorite work-related project was when I led an end-to-end automated testing initiative of 40GB and 100GB network aggregators. We did RFC 2544 testing, automated all the network equipment, and constantly validated that everything was working as intended. What would have taken six months with manual testing got done in three days with this project. Closer to home, I’m also proud of how I’ve progressed in my mechanical prowess when working on my cars. I have four running cars including two diesel ones and a Golf R. I recently built a motor for my Audi TT and am planning to tinker a lot more in the weeks ahead! Looking back Q. What’s something you wished you knew when you started your career? I wish I wouldn’t have second guessed my frontend development skills. I always thought I wasn’t a full-stack developer. Before my time at Descope, I hadn’t written frontend code since college. I learned it quickly once I started, but I wish I had learned it earlier instead of having self-doubt. Q. What advice do you have for DevRel aspirants who are just starting their journey? A couple of points come to mind. Firstly, always play with new technology. Growing your knowledge is always good and you never know when it will come into use down the line. Even if you don’t end up using it in your work, simply learning new things keeps rewiring your brain and makes you better at work. Secondly, always be open to new opportunities. If you don’t spot a straight path to a developer relations role, search for roundabout paths. Transitioning into DevRel after working in other roles is always possible and even encouraged. Working in DevRel is working with people at the end of the day, so the more capacities in which you work with people, the better. We hope you enjoyed getting to know Chris a little better. For more DevRe",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "llm",
+        "automation",
+        "exp:15y(-100)",
+        "off-target title(-50)",
+        "-qa",
+        "-manual testing",
+        "-customer success"
+      ],
+      "coverage_default": 75,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "llm",
+        "automation",
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "llm",
+        "automation",
+        "exp:15y(-100)",
+        "off-target title(-50)",
+        "-qa",
+        "-manual testing",
+        "-customer success"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "llm",
+        "automation",
+        "qa"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "descope_technologies:4236846009",
+      "title": "Developer Experience Engineer, DevRel Team Los Altos, CA (HQ)",
+      "location": null,
+      "url": "https://job-boards.greenhouse.io/descope/jobs/4236846009",
+      "description": "",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 8,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 8,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "descope_technologies:4399414009",
+      "title": "Customer Success Engineer Tel Aviv, Israel",
+      "location": null,
+      "url": "https://job-boards.greenhouse.io/descope/jobs/4399414009",
+      "description": "Job Application for Customer Success Engineer at Descope Back to jobs New Customer Success Engineer Tel Aviv, Israel Apply Descope is a developer-first identity provider for customers, partners, and AI agents. Our drag & drop approach to identity enables developers to easily deploy authentication, MFA, SSO, and MCP / AI agent auth without writing custom code. Descope is trusted by over 1000 organizations in production including GoFundMe, Databricks, GoodRx, Linktree, and You.com. The company has $88M in seed funding led by Lightspeed and Notable Capital. We're \"descoping\" authentication plumbing from developers' daily lives while helping organizations turn identity into a business enabler. Come join us! The Role: You are the person developers call when auth gets complicated. You onboard new customers, help them get Flows working in their stack, debug gnarly SAML and OIDC edge cases, and make sure the \"just ship it\" mentality doesn't turn into \"we broke login for all our users.\" You also feed real-world pain back to our product team so the next customer doesn't hit the same wall. This isn't a ticket-queue job. You'll own customer relationships end-to-end, write code, build internal tools, contribute to docs, and help shape how we scale CS as the company grows. What You’ll do: Onboarding & Implementation Walk new customers from signed contract to live Descope integration, hands-on. Pair with their engineers on Flows setup, SDK wiring, and auth workflow design for their specific stack (React, Node, Next.js, mobile, or whatever they're running). Run technical kick-offs, set milestones, and stay in the room until things work. Technical Support & Troubleshooting Own the hard stuff: SAML misconfigurations, OIDC token edge cases, SCIM sync failures, MFA enrollment issues. Write code when it helps. Whether that's a minimal repro, feature showcases, or a quick script that saves a customer hours. Know when to escalate to engineering and how to translate \"it's broken\" into a issue report they can act on. Customer Health & Expansion Track adoption signals and check in before things go sideways. Run periodic reviews with customers to surface what's working, what's not, and where Descope can do more. Spot expansion opportunities and pass them to sales with context, not just a name. Product Feedback Loop Bring patterns from customer conversations into product reviews. Not once a quarter, regularly. Advocate for features that remove real friction, backed by specifics. Help QA new features before they ship to customers. What We’re looking for: Must-haves 4+ years in a customer-facing technical role: CSE, Solutions Engineer, Technical Account Manager, or similar. You can debug OAuth2, OIDC, SAML, and MFA integrations without Googling the basics. Solid working knowledge of JavaScript/TypeScript (React, Node.js, Next.js). Bonus if you've shipped mobile code in Swift or Kotlin. You write clearly. Docs, Slack messages, issue reports, and customer emails alike. You're comfortable holding a difficult conversation with a frustrated customer and coming out of it with a plan. Nice-to-haves Experience with CIAM or identity platforms (Auth0, Okta, Stytch, WorkOS, Frontegg). Familiarity with cloud platforms (AWS, GCP, Azure) and CI/CD pipelines. Knowledge of GDPR, CCPA, SOC 2, or other compliance standards your customers will ask you about. You've worked in a startup before and know that \"this is someone else's job\" isn't a thing here. Where You'll Be: Tel Aviv 🏙️ | Full-time, hybrid Please review the Job Candidate Privacy Notice Create a Job Alert Interested in building your career at Descope? Get future opportunities sent straight to your email. Create alert Apply for this job * indicates a required field",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "react",
+        "node",
+        "node.js",
+        "aws",
+        "ci/cd",
+        "exp:4y(fit)",
+        "off-target title(-50)",
+        "-qa",
+        "-customer success"
+      ],
+      "coverage_default": 42,
+      "confidence_default": "full",
+      "requirements_default": [
+        "javascript",
+        "typescript",
+        "go",
+        "react",
+        "node",
+        "node.js",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "databricks",
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "aws",
+        "ci/cd",
+        "exp:4y(fit)",
+        "off-target title(-50)",
+        "-qa",
+        "-customer success"
+      ],
+      "coverage_infra": 42,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "javascript",
+        "typescript",
+        "go",
+        "react",
+        "node",
+        "node.js",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "databricks",
+        "qa"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full"
+    },
+    {
+      "id": "descope_technologies:4381673009",
+      "title": "Product Designer (Parental Leave Replacement) Tel Aviv",
+      "location": null,
+      "url": "https://job-boards.greenhouse.io/descope/jobs/4381673009",
+      "description": "Job Application for Product Designer (Parental Leave Replacement) at Descope Back to jobs Product Designer (Parental Leave Replacement) Tel Aviv Apply Descope is a developer-first identity provider for customers, partners, and AI agents. Our drag & drop approach to identity enables developers to easily deploy authentication, MFA, SSO, and MCP / AI agent auth without writing custom code. Descope is trusted by over 1000 organizations in production including GoFundMe, Databricks, GoodRx, Linktree, and You.com. The company has $88M in seed funding led by Lightspeed and Notable Capital. We're \"descoping\" authentication plumbing from developers' daily lives while helping organizations turn identity into a business enabler. Come join us! The Role: We are looking for a Product Designer to join our team as a parental leave replacement for a period of 8 months. As a Product Designer, you will design end-to-end user interfaces for our SaaS platform's web application and work in close collaboration with product managers and R&D to make high-level strategic decisions and designs. In your day to day work you will map possible scenarios and create product flows, prototypes and designs, focusing on holistic user journeys. You’ll be working in a startup environment, which means high context-switching and effort, along with great and quick satisfaction. What We're Looking For: 5+ years of experience in end-to-end (UX/UI) product design, preferably within SaaS or developer-centric environments. Ability to work independently and as part of a team. Ability to collaborate with multiple teams and stakeholders, communicate efficiently and share ideas early on in the process. Strategic design thinking with a deep understanding of the product lifecycle- from research and rapid prototyping to high-fidelity design and usability testing. Strong fundamentals in visual design, including typography, color, layout, composition and attention to detail. Hands-on experience working with AI tools to enhance design workflows; experience with Claude is a plus. Proficiency with Figma. Being up-to-date with industry trends and best practices such as UI trends, UX conventions, techniques and technologies. This requires you to be open-minded and a constant learner. A high level of written and spoken English. Nice to Have: Bachelor’s degree in Visual Communication. Experience as a developer, or in designing developer-oriented SaaS products. Experience with Adobe Suite and other design tools. Experience creating and building a design system library. ***Submissions without an online portfolio will not be considered*** Where You'll Be: Tel Aviv 🏙️ | Full-time, hybrid By submitting your application, you acknowledge that Descope will process your personal data in accordance with Descope's Privacy Policy . Please review the Job Candidate Privacy Notice Create a Job Alert Interested in building your career at Descope? Get future opportunities sent straight to your email. Create alert Apply for this job * indicates a required field",
+      "first_seen": "2026-09-15T18:41:03Z",
+      "last_seen": "2026-09-15T18:41:03Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "databricks"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "databricks"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "69738647e501ecb1231b",
+      "title": "DevOps Engineer",
+      "location": "Tel Aviv",
+      "url": "https://www.linkedin.com/jobs/view/4431665949",
+      "description": "Requires 7+ years of experience. 7+ years of experience in a DevOps Engineer role Experience managing high-scale cloud environments Proven ability to support and monitor 99.999% SLA systems",
+      "first_seen": "2026-09-15T21:02:04Z",
+      "last_seen": "2026-09-15T21:02:04Z",
+      "status": "new",
+      "is_referral": true,
+      "referral_contact": null,
+      "score_default": 39,
+      "matched_default": [
+        "devops engineer",
+        "exp:7y(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 48,
+      "matched_infra": [
+        "devops engineer",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "infra",
+      "best_score": 48,
+      "best_confidence": "title_only"
+    }
+  ]
+}

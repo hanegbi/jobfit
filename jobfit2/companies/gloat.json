@@ -1,0 +1,401 @@
+{
+  "name": "Gloat",
+  "career_url": "https://gloat.com/careers/",
+  "last_checked": "2026-09-15T19:14:58Z",
+  "jobs": [
+    {
+      "id": "f6c49d75271cf8ea7842",
+      "title": "Overview",
+      "location": null,
+      "url": "https://gloat.com/platform/",
+      "description": "Gloat's Agentic HR Platform Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo Platform This is what agentic HR looks like. Build intelligent workforce agents that understand your people, respect your policies, and work where your teams already are. Get a demo Drag. Drop. Deploy. Wire together intelligent capabilities – matching, retrieval, skill analysis, career pathing – on a visual canvas powered by Loomra's semantic layer. Every component understands your workforce. Every connection carries context. Just describe what you need. Tell the platform what you are trying to solve in plain language. It provisions the right capabilities, wires the logic, and builds your agent. No drag-and-drop. No tickets. No waiting. Start with what works. Browse a library of pre-built, expert-validated agent templates – from Career Development Advisor to Retention Risk Analyzer. Each one battle-tested across hundreds of enterprises. Customize in minutes. Your HCM, understood – not just connected. Gloat does not just read your system of record. It ingests the data, the business logic, the workflows, the configurations – and keeps them in sync. When HR updates an approval chain in SuccessFactors, your agents know immediately. No retraining. No stale rules. One living semantic layer. Lives where your people live. Deploy agents directly into Microsoft Teams, Slack, Google Chat, or Copilot. No new portal. No change management. Your workforce gets intelligent guidance in the tools they already open 50 times a day. Every action. Every reason. Every time. Full audit trail for every agent decision. Which data was accessed, what reasoning was applied, what action was taken, and why. Model-agnostic – run on Anthropic, Google, IBM WatsonX, or your own infrastructure. Enterprise trust, built in. Built for the enterprise 100+ Enterprise customers 5M+ Employees empowered 112 Countries worldwide Ecosystem Microsoft Teams Agentic HR in Teams chat Microsoft Copilot Native Copilot skill SuccessFactors SAP HCM integration Workday Workday HCM integration Oracle HCM Oracle Cloud integration Get Started From idea to deployed agent. Minutes, not months. See how the agentic HR platform turns workforce intelligence into action. Get a demo Talk to an expert",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "3220321e77dfd8ee6560",
+      "title": "Microsoft Teams",
+      "location": null,
+      "url": "https://gloat.com/platform/gloat-for-microsoft-teams/",
+      "description": "Gloat for Microsoft Teams Agentic HR Integration Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo Platform / Microsoft Teams Agentic HR, delivered inside Teams An always-on career coach for every employee. Real-time workforce intelligence for every manager. Proactive signals for HR. All delivered inside the tool your organization already lives in. Get a demo What changes From HR portal to conversational intelligence. Your people don't live in your HCM. They live in Teams. The intelligence should meet them there — proactively, contextually, in the flow of work. CHALLENGE Discovery TODAY Employees search HR portals, read policy docs, submit tickets, wait for answers WITH GLOAT Natural conversation surfaces personalized, contextual answers in seconds CHALLENGE Career growth TODAY Annual review conversations. Static career pages. No visibility into internal opportunities WITH GLOAT Always-on career coaching. Opportunities surface proactively when they match your trajectory CHALLENGE Manager intelligence TODAY Quarterly talent reviews with stale data. Manual succession spreadsheets WITH GLOAT Real-time readiness scores, flight risk alerts, and development recommendations in Teams chat CHALLENGE Action TODAY Multi-step workflows across disconnected systems. Weeks of back-and-forth WITH GLOAT Express interest, draft dev plans, create nominations, trigger approvals — one conversation Not a chatbot. A workforce agent. Chatbots answer FAQs. Gloat agents reason across your entire workforce context — skills, relationships, governance, and opportunity — to deliver intelligence that actually changes outcomes. 01 Contextual, not generic Every response is grounded in the employee's actual skills, career history, team context, and your organization's specific opportunities. Not template answers — real intelligence. 02 Proactive, not reactive Agents don't wait to be asked. They surface opportunities when roles open, flag retention risks when signals change, and nudge managers when development conversations are overdue. 03 Action, not just answers Express interest in a role. Draft a development plan. Create a succession nomination. Trigger an approval workflow. Agents don't just inform — they do the work, governed by your business rules. Real conversations See it in action Real questions from employees, managers, and HRBPs — asked in Teams chat, answered with full workforce context. Individual contributor \"I'm thinking about my next career move. What fits my skills?\" People leader \"Who could backfill Sarah if she gets promoted?\" HR Business Partner \"Show me the retention risks in the engineering org\" Integration Architecture A native Teams app. Not a bolt-on widget. The Gloat agent runs as a native Teams application built on the Bot Framework v4. Users interact through natural language and Adaptive Cards. Behind the scenes, the agent queries Gloat's intelligence layer and respects your organization's governance configuration. Framework: Bot Framework v4 Native Teams app with Adaptive Cards 1.5 for rich, interactive responses Authentication: Azure AD SSO Single sign-on through your existing Azure AD tenant. No separate credentials Response format: Adaptive Cards Structured data, action buttons, and interactive forms — not just plain text Conversation state: Persistent context Maintains context across messages and sessions. Pick up where you left off Deployment: M365 Admin Center IT enables the app centrally. Scoped to user groups via Azure AD security groups Deployment Zero change management. No training sessions. No change management campaigns. Your people already know how to chat in Teams. Day 1 Admin enables the app IT adds the Gloat Teams app through the Microsoft 365 admin center. Configure which user groups get access via Azure AD security groups. Day 2 Users start chatting The app appears in Teams. Users ask questions the way they normally would. No onboarding needed — the agent adapts to how each person communicates. Week 2+ Intelligence compounds Employees discover career paths. Managers get succession insights. HRBPs receive proactive retention alerts. Usage grows organically as word spreads. FAQ Questions we hear Is this a chatbot or a full Teams app? It's a native Teams application — installed through the Microsoft 365 admin center, runs within the Teams client, and uses Adaptive Cards for rich interactive responses. It's not a simple chatbot. It's a full agentic experience that can take multi-step actions, display structured data, and maintain conversation context across sessions. What can employees see vs. managers vs. HRBPs? The Teams app respects your organization's permission model. Employees see their own skills, career paths, and relevant opportunities. Managers see aggregated team insights — readiness, flight risk signals, development recommendations — for their direct and indirect reports. HRBPs see org-level analytics and can take action across their population. Permissions are inherited from your HCM configuration. How is this different from the Copilot skill? The Teams app is a dedicated experience — a standalone agent you chat with directly in Teams for career exploration, learning recommendations, succession planning, and more. The Copilot skill embeds workforce intelligence into Copilot conversations across all M365 apps. They're complementary: Teams for the full agentic experience, Copilot for quick workforce answers in the flow of any conversation. What actions can the agent take? Beyond answering questions, the agent can express interest in roles on your behalf, draft development plans, create succession nominations",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "azure"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "azure"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "f4e5eac69f46b332064a",
+      "title": "Microsoft Copilot",
+      "location": null,
+      "url": "https://gloat.com/platform/gloat-for-microsoft-copilot/",
+      "description": "Gloat To Microsoft Copilot Agentic HR Integration Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo Platform / Microsoft Copilot Give Copilot a workforce brain Copilot is already where your people work. It summarizes meetings, drafts emails, searches documents. But ask it a workforce question—who's ready for promotion, who's at risk of leaving, what's my best career move—and it draws a blank. Gloat fixes that. Get a demo The gap Copilot is brilliant at productivity. Blind to talent. Copilot knows your emails, calendar, documents, and chats. It doesn't know your people—their skills, aspirations, readiness, or risk. That's a different kind of intelligence entirely. CHALLENGE Discovery TODAY Summarize a meeting WITH GLOAT Tell you which attendee is a flight risk CHALLENGE Career growth TODAY Draft a job description WITH GLOAT Find the best internal candidate for the role CHALLENGE Manager intelligence TODAY Search your emails and docs WITH GLOAT Surface an employee's real skills and career aspirations CHALLENGE Action TODAY Recap a Teams chat WITH GLOAT Recommend a development plan for an underperforming team member Every workforce question hits the same wall: Copilot doesn't have access to talent data, skills intelligence, or career context. Gloat gives it exactly that—as a native Copilot skill. One skill. Total transformation. The Gloat skill plugs into Microsoft 365 Copilot natively. No new app. No new interface. No change management. Your people just ask Copilot the questions they've always wanted to ask—and now they get real answers. 01 No new app to learn Employees already use Copilot. The Gloat skill works behind the scenes. When someone asks a workforce question, Copilot calls Gloat and returns the answer natively. Zero training required. 02 Real intelligence, not search This isn't keyword search over HR data. It's semantic workforce intelligence—understanding skills, inferring readiness, reasoning about career paths, and weighing multiple factors to give genuinely useful answers. 03 From answers to action Copilot + Gloat doesn't just answer questions. It proposes next steps: \"Want me to draft a development plan?\" \"Should I flag this to their manager?\" \"Here are three open roles that match.\" Intelligence that leads to action. Same question. Different answers. See what changes Real questions from managers, employees, and HRBPs. On the left, Copilot alone. On the right, Copilot with the Gloat skill. People leader \"Which of my direct reports are ready for a stretch assignment?\" COPILOT ALONE I can search your emails and documents for mentions of stretch assignments, but I don't have access to employee skills or readiness data. Individual contributor \"What should my next career move be?\" COPILOT ALONE I can help you update your resume or search for job postings. Would you like me to look at open positions on your company's career site? HR Business Partner \"Show me the retention risks in the engineering org\" COPILOT ALONE I can search for any documents or emails related to engineering retention. Would you like me to look for that? How it works A native Copilot skill. Not a bolted-on app. The Gloat skill registers as a native Microsoft 365 Copilot plugin. When a user asks a workforce-related question, Copilot recognizes the intent and routes it to the Gloat skill. The skill queries Gloat's Workforce Context Engine and returns a rich, contextual response—all within the Copilot interface. 1. User asks Copilot Any workforce question in natural language—via Teams, Word, or the Copilot sidebar 2. Copilot routes to Gloat skill Microsoft's skill routing recognizes workforce intent and calls the Gloat plugin 3. Gloat queries intelligence layer The skill calls the Workforce Context Engine—knowledge graph, embeddings, governance rules 4.Contextual response returned Rich, actionable answer appears natively in Copilot—with cards, recommendations, and next steps Deployment Zero change management. No training sessions. No change management campaigns. Your people already know how to chat in Teams.rn Day 1 Admin enables the skill IT adds the Gloat skill through the Microsoft 365 admin center. Configure which user groups get access. Done. Day 2 Users ask questions No announcement needed. Users ask Copilot the same questions they've always asked. When the question is about people, Copilot now has an answer. Week 2+ Intelligence compounds Managers discover they can ask about team readiness. Employees start exploring career paths. HRBPs get retention alerts. Word spreads organically. FAQ Questions we hear Is this a chatbot or a Copilot skill? It's a native Microsoft 365 Copilot skill—not a separate chatbot. Users don't switch apps or learn a new interface. They ask Copilot questions in the same way they already do. When a question involves workforce intelligence, Copilot calls the Gloat skill behind the scenes and returns the answer natively. What can employees see vs. managers vs. HRBPs? The skill respects your organization's permission model. Employees see their own skills, career paths, and relevant opportunities. Managers see aggregated team insights—readiness, flight risk signals, development recommendations—for their direct and indirect reports. HRBPs see org-level analytics and can take action across their population. No one sees data they wouldn't have access to in your HCM. Does this require Copilot for Microsoft 365 licenses? Yes. The Gloat skill runs inside Microsoft 365 Copilot, so users need active Copilot licenses. Deployment is handled through the Microsoft 365 admin center—your IT team adds the Gloat skill, configures permissions,",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "6a698a373edae83414f1",
+      "title": "SuccessFactors",
+      "location": null,
+      "url": "https://gloat.com/platform/gloat-for-successfactors/",
+      "description": "Gloat To SuccessFactors Agentic HR Integration Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo Platform / SuccessFactors Your governance, your data. Our intelligence. SuccessFactors holds your workforce data, org structure, and years of configured governance. Gloat agents put it to work—building succession pipelines, catching flight risks, coaching careers—delivered where your people already are. Get a demo The reality for most SuccessFactors customers SuccessFactors captures the data. It runs the transactions. But data sitting in a system of record doesn't prevent attrition, fill critical roles faster, or coach employees through transitions. 01 Once/year Succession reviews Annual calibration cycles. By the time data is reviewed, top talent has already moved on. 02 Too late Flight risk visibility Attrition signals exist in the data but nothing monitors them continuously. You learn when they resign. 03 At review time Career conversations Development discussions happen on a schedule, not when employees need them. The best don’t wait. 04 Manual Redeployment matching Restructuring relies on spreadsheets and memory. Good people end up on severance lists while matching roles sit open. What if your SuccessFactors data acted on itself? Intelligent agents that read your SuccessFactors data, respect your governance, and act—before problems become crises. CHALLENGE Succession reviews happen once a year TODAY By calibration time, two high-potentials have left. Critical roles sit open for months. WITH GLOAT Agents monitor readiness daily. When a role opens, you know who's ready—and who needs three months of development. CHALLENGE Flight risk surfaces too late TODAY You learn someone's leaving when they resign. Exit interviews reveal fixable problems. WITH GLOAT Agents detect disengagement weeks early. Managers get nudges while there's still time to act. CHALLENGE Career conversations wait for reviews TODAY Employees hear about growth annually. The best don't wait—they find opportunities elsewhere. WITH GLOAT Every employee gets an always-on career coach. Opportunities surface in the moment, not on a schedule. CHALLENGE Restructuring loses talent TODAY Good people land on severance lists because matching is manual and slow. WITH GLOAT Agents match displaced employees to open roles in hours. Talent stays. Severance costs drop. Governance Years of configuration. Now it powers agents. Your SuccessFactors environment isn't just data. It's years of decisions—approval chains, permissions, business rules, eligibility criteria. Gloat agents read this configuration and operate within it. No shadow processes. No end-runs. Approval workflows Promotions, transfers, compensation changes—each has approval chains you've configured over years. Agents inherit them. Every recommendation respects your routing rules. Permission boundaries Your SuccessFactors role-based permissions define who sees what. Agents honor them. Managers see their teams. Employees see their own data. No exceptions. Business rules Eligibility criteria, waiting periods, geographic constraints—all captured in SuccessFactors. Agents read them. Recommendations comply automatically. Outcomes The impact is measurable 01 23% reduction in regrettable attrition Proactive retention actions 02 40% faster time-to-fill for critical roles Always-current succession pipelines 03 3.2x increase in internal mobility Visible paths, actionable next steps 04 70% redeployment rate in restructuring Skills-based matching at speed Integration Architecture Native API integration. No data migration. Gloat connects to SuccessFactors through its native OData v4 APIs. We read your workforce data, org hierarchy, and governance configuration—then build a semantic layer on top. SuccessFactors remains your system of record. Gloat adds the intelligence layer. Protocol: OData v4 REST ANative SuccessFactors API—no middleware required Authentication: OAuth 2.0 / SAML Tenant-level service credentials, certificate-based auth Sync model: CDC + scheduled Change Data Capture for real-time updates, full sync on configurable schedule Data scope: Read + selective write-back Employee Central, Succession, Learning, Recruiting modules. Write-back to skills, development plans, succession nominations Hosting: Customer's region Deployed in the same cloud region as your SuccessFactors tenant. Data residency maintained FAQ Questions we hear We've invested heavily in SuccessFactors. Why add Gloat? SuccessFactors stores data, runs transactions, ensures compliance. It does that well. But data sitting in a system of record doesn't prevent attrition or fill critical roles faster. Gloat agents read SuccessFactors data, monitor signals continuously, and take action—delivered where employees already work. What about Joule? Joule answers questions and helps run SuccessFactors transactions. Gloat agents do something different: they work autonomously, monitoring signals around the clock and acting without being asked. Joule helps you use SuccessFactors better. Gloat agents solve workforce problems. They're complementary. How do agents respect our governance? Agents read your SuccessFactors configuration—approval workflows, role-based permissions, business rules, eligibility criteria. Every recommendation respects the governance you've built. No bypassing. No shadow processes. How fast can we see results? Most customers see impact within 90 days. SuccessFactors integration takes 1-2 weeks. Agent configuration takes 4-6 weeks. Then you're live. Start with Succession or Retention, expand from there. What does this mean for HR? Your team stops chasing",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "rest",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "rest",
+        "api"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "ac37f15ce9d230943b08",
+      "title": "Oracle HCM",
+      "location": null,
+      "url": "https://gloat.com/platform/gloat-for-oracle-hcm/",
+      "description": "Gloat To Oracle HCM Agentic HR Integration Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo Platform / Oracle HCM Dynamic Skills. ME. Grow. Now with real intelligence. Oracle HCM Cloud holds your workforce data. Gloat delivers intelligent agents where your people already work—Teams, Slack, email. Agents that coach careers, build succession pipelines, and flag retention risks proactively, without anyone opening Oracle. Get a demo The reality for most Oracle HCM customers Oracle HCM captures the data. Dynamic Skills and ME are real innovation. But your people don't live in Oracle—they live in Teams, Slack, and email. The intelligence needs to meet them there, proactively, in the flow of work. 01 Sparse Dynamic Skills profiles Oracle’s Dynamic Skills framework is sophisticated. But employee engagement with skill self-assessment is low, and the AI can only infer from Oracle-visible data. 02 Periodic Talent Review cycles Reviews follow HR calendars, not business reality. Critical talent shifts happen between cycles. By the next review, the landscape has changed. 03 Siloed Opportunity visibility Grow and ME surface Oracle-managed opportunities. But roles, projects, gigs, and mentorships in non-Oracle systems stay invisible to employees. 04 Reactive Retention response Flight risk indicators exist in the data but aren’t monitored continuously. Interventions happen after disengagement signals have compounded. What if ME, Grow, and Journeys could see everything? Oracle built powerful frameworks. Gloat agents fill them with data from every connected system — turning sparse profiles into rich intelligence and static journeys into personalized paths. CHALLENGE Dynamic Skills adoption is slow TODAY Oracle's Dynamic Skills capability is powerful in theory. In practice, employees engage minimally. Skill profiles stay sparse. The AI recommendations improve but the input data limits them. WITH GLOAT Agents infer skills continuously from every connected system—project outcomes, certifications, code repositories, collaboration tools. Dynamic Skills becomes the framework; Gloat ensures the data is comprehensive and current. CHALLENGE Talent Review is a point-in-time exercise TODAY Talent reviews happen on a cadence. Between reviews, readiness changes, people leave, new candidates emerge. The review deck is outdated before the meeting ends. WITH GLOAT Agents maintain continuous talent signals. Readiness scores update daily. When a review meeting happens, the data is current—and between meetings, agents flag critical changes that can't wait for the next cycle. CHALLENGE Journeys are static paths TODAY Oracle Journeys provides guided workflows—onboarding, role changes, life events. They're well-designed but predetermined. They can't adapt to individual employee context or cross-system signals. WITH GLOAT Agents personalize each employee's journey using data from every connected system. An onboarding journey adapts based on inferred skills, team dynamics, and relevant projects. No two paths are the same. CHALLENGE Grow recommends from a narrow pool TODAY Oracle Grow suggests learning and opportunities based on what it can see—Oracle data. Employees in mixed-vendor environments miss opportunities that live in other systems. WITH GLOAT Agents recommend opportunities from everywhere—internal gigs, projects, mentorships, courses across LMS platforms, stretch assignments—and connect them to a unified development plan that writes back to Oracle. Governance Your Oracle rules. Agents live inside them. Oracle HCM's governance isn't just configuration—it's institutional knowledge. Approval chains reflect organizational structure. Data roles encode information boundaries. Business rules capture compliance requirements. Gloat agents read this governance layer and operate strictly within it. No shortcuts, no workarounds, no shadow processes. Approval rules engine Oracle's approval rules—multi-level chains, delegation, conditional routing—have been refined over years. Gloat agents submit actions through these existing chains. A compensation change recommended by an agent follows the same approval path as one initiated by a manager. Data access security Oracle HCM's data role security defines precisely who sees what data. Agents authenticate as an integration user with scoped data roles. An agent serving a manager shows only their direct and indirect reports. An employee-facing agent shows only their own data and public opportunities. Audit and compliance Every agent action generates an audit record: what was accessed, what was recommended, what action was taken. These records integrate with Oracle's existing audit framework, giving compliance teams a single view of both human and agent-initiated actions. Outcomes Results you can point to 01 4.1x more internal candidates per open role Agents surface talent proactively in manager channels 02 47% faster leadership pipeline development Continuous signals, not annual review cycles 03 28% reduction in external hiring spend Agents match internal talent before reqs go external 04 90 days to first measurable impact Integration setup + agent configuration + live Integration Architecture Agents in the flow of work. Powered by Oracle data. Gloat reads your Oracle HCM data through native APIs, builds an intelligence layer, and delivers agents where employees already work—Teams, Slack, email. Employees get career coaching, managers get succession insights, HR gets proactive alerts. Oracle stays your system of record. Agents bring it to life. Protocol: REST + BICC Oracle REST APIs for real-time access; BICC extracts for bulk dat",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "rest"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go",
+        "rest"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "c3c6226b16445a257885",
+      "title": "Overview",
+      "location": null,
+      "url": "https://gloat.com/ai-technology/",
+      "description": "Loomra™: The AI Context Engine for Agentic HR | Gloat Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo Loomra™ Every AI vendor will tell you they are intelligent. But intelligence without context is just guessing. Loomra is the Context Engine that powers agentic HR – eight years of dedicated workforce AI research and billions of real career events, distilled into one foundational intelligence. Purpose-built from the ground up. Knowledge Graph 2.4M entities. 18.7M relationships per enterprise. Built from real workforce data, not the internet. Every system, one truth Your HCM, ATS, LMS, and project tools unified into a single living map of your organization Relationships, not records How skills connect to roles, roles to people, people to opportunities – the connections no single system can see Institutional memory Gets smarter with every hire, every move, every project. Your organization builds compounding intelligence automatically Deep dive Intelligent Tools 14 specialized capabilities refined through 200M+ real matches. Years of ML research, not LLM wrappers. Match with precision The right person for any role, project, or learning path – based on real capability and trajectory, not keyword overlap Predict before it happens Flight risks, succession gaps, AI disruption to your roles – surfaced while you still have time to act Automate the follow-through Trigger workflows, update records, manage pipelines. Decisions become actions without the bottleneck Deep dive Personalization Engine Trained on how 5M+ employees actually navigate their careers – not how job descriptions say they should. The whole person, not just the title Skills, aspirations, collaboration patterns, career momentum – context that no resume and no single system captures Every signal, unified Synthesizes data from across your HCM, LMS, ATS, and collaboration tools into one living profile Coach-quality guidance, for everyone The kind of personalized career support that was once reserved for executives – delivered to every employee at scale Retrieval & Embedding Proprietary embedding models trained on billions of workforce interactions. A different kind of AI. Semantic, not lexical \"Someone to lead our APAC expansion\" returns the right people – even when those words appear nowhere in their profile Where your people already work Teams, Slack, email. Intelligence delivered in context, not behind another login 90% matching accuracy Outperforms general-purpose models by over 30 points on workforce benchmarks. Purpose-built beats general-purpose, every time Deep dive Business Logic SOC 2 Type II. ISO 27001. GDPR. Designed for the security review, not just the sales demo. Governance at the core Approval workflows, eligibility criteria, RBAC – extracted from your systems and enforced in every single recommendation Only possible outcomes Every suggestion respects your policies. Managers never waste time on candidates or actions that were never going to be approved Show the reasoning What was considered. What was excluded. Why. Every decision is transparent and auditable Deep dive This is what workforce intelligence looks like. See the Context Engine behind agentic HR. Book a deep dive into Loomra™. Get a demo Talk to an expert",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "llm"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "llm"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "b8cfc41d914ae180dd88",
+      "title": "Intelligent Tools",
+      "location": null,
+      "url": "https://gloat.com/ai-technology/intelligent-tools/",
+      "description": "AI Tools Built for Workforce Intelligence | Gloat Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo AI Technology / Intelligent Tools An agent is only as capable as its tools. LLMs can chat. For matching, predicting, and taking action—you need specialized tools. Purpose-built for HR. Get a demo Comparison section — Generic AI vs Intelligent Tools Generic AI agent With intelligent tools Query “Who on my team is ready for a leadership role?” “Who on my team is ready for a leadership role?” Response “Based on their profiles, Sarah and Mike have leadership experience listed. You might consider discussing their career goals in your next 1:1…” “Sarah shows an 87% readiness score for Team Lead; Mike is at 72% . There are 2 matching Team Lead roles open internally…” Capabilities Read profiles Summarize text Score readiness Match to roles Predict outcomes Route careers Take action Tools used None Readiness Index Matching Engine Role Router The Toolkit Every tool an HR agent needs. Agents combine them on the fly—right intelligence, every query. Retrieve & Understand Finding data with meaning, not just keywords. Semantic search that understands intent and context. Semantic Retriever Searches by meaning, not keywords. Finds the right people, roles, and skills even when the words are different. Entity Retriever Structured search across every entity in your system. People, roles, skills, projects—filtered and returned in milliseconds. Match & Recommend Connecting people to opportunities. Personalized recommendations powered by deep skill understanding. Personalized Matching Engine Connects people to the right roles, learning, gigs, and mentors. Personalized to their skills, trajectory, and goals. Role Progression Router Maps every viable next step from any role. Replaces rigid ladders with paths that reflect how people actually move. Predict & Model Foresight and scenario planning. Machine learning models that see around corners. Predictive Attrition Modeler Spots flight risk before it becomes a resignation letter. Gives you time to act. AI Disruption Modeler Models how AI will reshape your roles—task by task. Turns disruption into a planning roadmap. Future-State Readiness Index Scores how ready each person is for their next role. Based on skills, trajectory, and gaps—not gut feel. Act & Automate Taking action in your systems. Not just insights—actual work getting done. Profile Builder Turns any resume into a structured, searchable profile. Skills extracted in seconds, not hours. Trigger Agent Sets rules that trigger actions. A readiness score crosses 80%? Workflow fires automatically. Entity Generator Creates new roles, jobs, projects, or profiles directly in the platform. No tickets, no waiting. Entity Updater Keeps records current. Updates propagate across employee, role, and learning data in real time. Talent Pipeline Manages internal and external talent pools in one place. No candidate falls through the cracks. Govern & Report Ensuring fairness and visibility. Every recommendation auditable, every decision explainable. Algorithmic Equity Layer Checks every recommendation for bias before it reaches a user. Equity built into the loop, not bolted on. Report Generator Generates workforce reports on demand. Any format, any stakeholder, any timeframe. Composability Tools combine. Use cases emerge. Agents do not use one tool at a time. They orchestrate multiple tools together, assembling the right combination for each task. Agentic Succession Identify and develop future leaders [Readiness Index] [Matching Engine] [Talent Pipeline] [Equity Layer] Agentic Redeployment Match affected employees to new roles [Semantic Retriever] [Matching Engine] [Role Router] [Entity Updater] Agentic Learning Personalized skill development paths [Readiness Index] [Role Router] [Matching Engine] [Trigger Agent] Agentic Mobility Surface internal movement opportunities [Matching Engine] [Role Router] [Talent Pipeline] [Trigger Agent] Agentic Sourcing Find best candidates for any role [Semantic Retriever] [Matching Engine] [Profile Builder] [Talent Pipeline] Workforce Planning Model future workforce needs [AI Disruption Modeler] [Readiness Index] [Report Generator] [Equity Layer] Not wrappers around LLMs. Real intelligence. These tools represent years of machine learning investment—trained on workforce data, refined through enterprise deployments, purpose-built for HR decisions. Now accessible to agents. Extensible New tools. New capabilities. The toolkit expands as HR challenges evolve. New models, new integrations, new capabilities—automatically available to agents without rebuilding workflows. SPECIFICATIONS Total Tools: 14 and growing Tool Categories: 5 types Avg Response: <100ms Composability: Unlimited PRODUCTION READY Battle-tested across 200+ enterprise deployments. Zero-downtime updates. Get Started Ready to run your workforce with intelligence? See how Gloat's agentic platform transforms workforce operations from reactive administration to autonomous orchestration. Get a demo Talk to an expert",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "machine learning"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "machine learning"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "de0e28ecc7fa5c3ba9a9",
+      "title": "Knowledge Graph",
+      "location": null,
+      "url": "https://gloat.com/ai-technology/knowledge-graph/",
+      "description": "Knowledge Graph Built for Workforce AI | Gloat Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo . Knowledge Graph A living map of your workforce. People, jobs, skills, and the context that connects them. The foundation for contextual enterprise AI that truly understands your organization. Get a demo An AI-native Knowledge Graph. Traditional graphs map connections. Ours understands what those connections mean—and what to do with them. Your workforce data is scattered across dozens of systems. HCM knows who works here. ATS knows who applied. LMS knows what they learned. Project tools know what they delivered. None of them know how it all connects—which skills led to which outcomes, which transitions succeeded, which teams actually collaborate. Without those connections, every AI answer is a guess. Every relationship, surfaced. Data from every system. Connections none of them could see alone. in practice Questions that used to take weeks. Answered in seconds. Every result explainable. ‣ \"Which roles are most exposed to GenAI automation?\" Instantly surfaces roles by task-level AI impact, with explainable reasoning. ‣ \"Find candidates similar to our top performers in Engineering.\" Matches on skill profiles, not keywords. Surfaces candidates others miss. ‣ \"What skills should Marketing develop for the 2027 strategy?\" Compares where you are to where you need to be. Prioritizes the gaps that matter most. ‣ \"Show me all paths from Analyst to Director in Finance.\" Maps every historical transition, reveals the skills that actually mattered. ‣ \"Who could backfill the VP of Sales if she leaves next quarter?\" Surfaces internal successors by skill match, readiness signals, and career trajectory. ‣ \"Which employees could transition to the new AI initiative?\" Surfaces people with adjacent skills who have made similar moves before. scale Millions of connections. Milliseconds to query. Each enterprise graph holds millions of entities and relationships. Complex queries return in under 50ms. Every change is versioned—query any point in time. SPECIFICATIONS Nodes: 2.4M per enterprise Relationships: 18.7M edges Query Latency: <50ms (6-hop) Availability: 99.9% SLA PRODUCTION READY Battle-tested across 200+ enterprise deployments. Zero-downtime updates. Get Started Ready to run your workforce with intelligence? See how Gloat's agentic platform transforms workforce operations from reactive administration to autonomous orchestration. Get a demo Talk to an expert",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation",
+        "genai"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation",
+        "genai"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "663b54b9875866770b62",
+      "title": "Governance Engine",
+      "location": null,
+      "url": "https://gloat.com/ai-technology/governance-engine/",
+      "description": "AI Governance Engine for Enterprise HR | Gloat Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo AI Technology / Governance Engine Governance Engine Enterprise AI that understands your business rules before it acts. Not after it fails. Get a demo AI agents without governance are useless in the enterprise. They recommend candidates who are not eligible. Suggest moves that violate policy. Surface opportunities employees cannot access. Every recommendation requires manual validation—defeating the purpose of automation. Your business logic is invisible to AI. Approval workflows. RBAC rules. Eligibility criteria. Mobility policies. Scattered across HCM configs and policy docs. Agents cannot see any of it. We extract the rules buried in your systems. Buried in HCM configs. Scattered across modules. Locked in policy docs. We extract it, normalize it, make it queryable. Agents reason before they act. Approval Workflows Who needs to approve what, and when. Multi-level chains, delegation rules, escalation paths. [Succession approvals] [Mobility requests] [Role changes] Access & Permissions Role-based access control synced from your HCM. Who can see, recommend, or action what data. [Candidate visibility] [Succession access] [Talent pool permissions] Eligibility Criteria The rules that determine who qualifies for what. Performance thresholds, certifications, readiness indicators. [Succession eligibility] [Promotion criteria] [Program enrollment] Org Hierarchy Rules Reporting structures, span of control limits, retention-critical flags, succession chains. [Reporting lines] [Critical roles] [Succession depth] Compensation Bands Salary ranges, bonus structures, equity guidelines. The guardrails around pay decisions. [Pay ranges] [Bonus caps] [Equity bands] Compliance Policies Regulatory requirements, data privacy rules, industry-specific constraints that shape talent decisions. [Data privacy] [Equal opportunity] [Industry regs] data security Agents inherit your access controls. AI agents should not become a backdoor to sensitive data. We sync RBAC rules directly from your HCM and enforce them at query time. A manager sees their team—not the entire organization. HR sees what their role permits. Every response is scoped to what that user is allowed to see. how it works Continuous sync. Instant reasoning. Governance rules change constantly. We keep agents in sync without manual updates. Extract Connect to your HCM, pull configurations, approval chains, RBAC rules, and policy documents. No manual mapping required. Normalize Transform vendor-specific rules into a universal governance schema. Different HCM configurations become one queryable structure. Enforce Make rules queryable at agent reasoning time. Before any action, agents check constraints and explain what is and is not possible. Agents that explain, not just execute. Agents that understand the rules can tell users why—and what alternatives exist. always current Rules change. Agents adapt. When HR updates an approval workflow or Finance changes headcount limits, agents know immediately. No retraining, no manual updates, no stale rules. SPECIFICATIONS Sync Frequency: Real-time sync Rule Types: 24 categories HCM Connectors: All major platforms Query Latency: <15ms PRODUCTION READY Battle-tested across 200+ enterprise deployments. Zero-downtime updates. Get Started Ready to run your workforce with intelligence? See how Gloat's agentic platform transforms workforce operations from reactive administration to autonomous orchestration. Get a demo Talk to an expert",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "d3f57b79cd632755624c",
+      "title": "Retrieval & Embedding",
+      "location": null,
+      "url": "https://gloat.com/ai-technology/retrieval-embedding/",
+      "description": "Retrieval & Embedding Built for Workforce Data | Gloat Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo AI Technology / Retrieval & Embedding Retrieval & Embedding Generic AI sees text. Gloat AI sees talent and work. Our purpose-built embedding models transform workforce data into semantic understanding—enabling agents to reason about skills, roles, and people with unprecedented precision. Get a demo Your agents are only as intelligent as your embeddings. Off-the-shelf models understand language—not workforce. Gloat's embeddings are trained on billions of workforce interactions to capture the semantic relationships that actually matter for talent decisions. gloat-embed-entity-v3 Entity Embedding Every person, role, and skill encoded in a shared semantic space. Encodes employees, roles, skills, and projects into a unified 768-dimensional vector space. Captures hundreds of attributes per entity—career history, skill trajectories, collaboration patterns, and latent potential—enabling agents to understand workforce entities the way humans do: in context. SPECIFICATIONS Architecture: Fine-tuned BERT Dimensions: 768 Attention Heads: 16 Training Data: 1B+ career events PRODUCTION READY Battle-tested across 200+ enterprise deployments. Zero-downtime updates. gloat-retriever-semantic Semantic Retrieval Find talent by capability, not keywords. The engine behind every talent search. Combines high-dimensional entity vectors with Gloat's harmonized ontologies and HyDE query expansion to surface results that understand intent. Search for 'someone to lead our APAC expansion' and find candidates whose career DNA matches—even if those words never appear in their profile. SPECIFICATIONS Retrieval: Dense + HyDE Reranker: Qwen3 cross-encoder Latency: <50ms p99 Similarity: Cosine PRODUCTION READY Battle-tested across 200+ enterprise deployments. Zero-downtime updates. Unified data from fragmented systems. Your HCM, ATS, and LMS all speak different languages. These models create a canonical vocabulary. gloat-harmonize-skill Skill Harmonization One skill, one truth—across every system. \"Python dev\", \"Python Developer\", \"Sr. Python Engineer\", \"Python programming\"—your systems have dozens of ways to say the same thing. This model resolves the chaos, mapping variations to canonical representations while preserving semantic nuance. Trained with contrastive learning on millions of skill pairs. SPECIFICATIONS Architecture: Contrastive BERT Ontology: 50K+ skills Languages: 19 supported Expansion: Dynamic PRODUCTION READY Battle-tested across 200+ enterprise deployments. Zero-downtime updates. gloat-harmonize-task Task Harmonization Compare roles by what people actually do. Job descriptions are written by humans—inconsistently. This model unifies responsibilities and task descriptions across your organization, enabling true apples-to-apples role comparison regardless of how different teams describe their work. The foundation for role consolidation and job architecture. SPECIFICATIONS Architecture: Fine-tuned BERT Attention: 16-head Task Types: 10K+ Accuracy: 94% PRODUCTION READY Battle-tested across 200+ enterprise deployments. Zero-downtime updates. gloat-match-skills-v2 Skills Compatibility Beyond keyword matching—true skill fit. Dual-layer semantic matching that evaluates alignment between talent and roles. First computes global similarity across the complete skill profile, then executes pairwise analysis between every source and target skill. The result: matching that understands that 'React' experience partially satisfies a 'Vue.js' requirement. SPECIFICATIONS Architecture: Fine-tuned Qwen3 Matching: Dual-layer Attention: 16-head Output: Weighted synthesis PRODUCTION READY Battle-tested across 200+ enterprise deployments. Zero-downtime updates. gloat-proximity-role Role Proximity Map the career landscape of your organization. Computes proximity scores between all roles by analyzing overlap in underlying skills and tasks. Surfaces which roles share enough DNA to warrant consolidation, identifies natural career pathways, and scores transferability. The intelligence layer for workforce planning and org design. SPECIFICATIONS Similarity: Cosine + Jaccard Profiling: Multi-dimensional Output: Proximity matrix Coverage: 100% role pairs PRODUCTION READY Battle-tested across 200+ enterprise deployments. Zero-downtime updates. Get Started Ready to run your workforce with intelligence? See how Gloat's agentic platform transforms workforce operations from reactive administration to autonomous orchestration. Get a demo Talk to an expert",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 2,
+      "matched_default": [
+        "python",
+        "react",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 67,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "react",
+        "vue"
+      ],
+      "score_infra": 2,
+      "matched_infra": [
+        "python",
+        "react",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "react",
+        "vue"
+      ],
+      "best_cv": "default",
+      "best_score": 2,
+      "best_confidence": "full"
+    },
+    {
+      "id": "66100f500e172b0a6703",
+      "title": "All Use Cases",
+      "location": null,
+      "url": "https://gloat.com/use-cases-agents/",
+      "description": "AI Agents For HR | Gloat Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo Gloat’s AI Agents for HR: Real Use Cases for Every Workforce Challenge Explore real scenarios where AI agents transform how your organization attracts, develops, and retains talent. Each use case showcases live agent interactions and the Gloat technology that powers them. Filter by role All roles CHRO HRBP IT L&D Recruiter Talent Management Career Coach Personalized, data-driven career paths with mentor matching, learning recommendations, and growth planning for every employee. CHRO HRBP L&D Learn more Career Readiness Evaluates how ready each employee is for their next role based on skills, trajectory, experience patterns, and identified gaps. HRBP Learn more Internal Mobility Fill roles faster with internal talent. AI surfaces qualified employees for open positions across the organization. HRBP L&D Recruiter Learn more Leadership Pipeline Identifies high-potential talent and guides them through structured leadership development journeys with measurable milestones. CHRO L&D Learn more Succession Management Identifies ready-now and future successors for critical roles. Continuously validates readiness and adjusts plans as your organization evolves. CHRO HRBP Learn more Talent Marketplace Surfaces relevant internal roles, projects, mentors, and learning to employees and managers in real time. HRBP L&D Learn more Talent Retention Detects flight risk signals early and triggers personalized retention interventions before your best people decide to leave. CHRO HRBP Learn more Learning & Development Development Plan Creates personalized development plans that connect skill gaps to learning content, stretch assignments, and mentors – tailored to each employee. L&D Learn more Upskilling & Reskilling Builds targeted upskilling programs, identifies the right employee populations, and guides them through completion with measurable outcomes. CHRO L&D Learn more Learning Program Builds targeted L&D programs from internal and third-party content, then matches them to the right employee populations based on skill gaps and business priorities. L&D Learn more Learning Content Curator Ingests internal courses, LXP and LMS catalogs, and third-party libraries. Deduplicates, tags by skill, retires stale content, and surfaces best-fit assets per learner. L&D Learn more Mentor Matching Pairs mentors and mentees on skills, goals, geography, and availability. Nudges cadence, tracks outcomes, and surfaces at-risk pairings before they stall. HRBP L&D Learn more Talent Acquisition Candidate Discovery Finds best-fit candidates using deep semantic skill matching across internal talent, past applicants, and silver medalists. Recruiter Learn more Intelligent Referral Matches employees to referral opportunities and identifies those most likely to refer strong candidates for open roles. HRBP Learn more Intelligent Requisition Refines job descriptions with tasks and skills, validates internal candidate availability and automation potential before approving requisitions. CHRO Recruiter Learn more Job Description Optimizer Rewrites job descriptions for clarity, inclusivity, and alignment with real skill requirements using market data. Recruiter Learn more Talent Insight Aggregates performance, skills, and experience data into actionable talent insights for managers and HR leaders. CHRO HRBP Recruiter Learn more Talent Pipeline Builds, nurtures, and continuously optimizes candidate pipelines for current and future hiring needs. Recruiter Learn more Skills Emerging Skills Radar Detects new and rising skills based on internal adoption patterns, market signals, and industry trends. CHRO L&D Learn more Skill Benchmarking Compares your internal skill capabilities against market standards, competitors, and industry benchmarks. CHRO Learn more Skill & Task Framework Maintains a unified, harmonized skills and tasks framework across all systems, teams, and geographies. CHRO L&D Learn more Skill Gap Resolver Identifies skill gaps and recommends targeted actions: learning paths, stretch projects, role rotations, and mentoring. HRBP L&D Learn more Skill Intelligence Engine Continuously builds and maintains a complete, dynamic view of every skill across your entire workforce. CHRO L&D Learn more Skill Portfolio Provides individuals and leaders with a clear, dynamic view of current and future skill portfolios across teams and the org. HRBP L&D Learn more Skill Validation Engine Validates and scores skill proficiency through employee engagement, assessments, and evidence-based verification. HRBP L&D Learn more Skills Profile Builds accurate, evidence-backed skill profiles for every employee using behavioral signals, contribution history, and multi-source assessments. HRBP L&D Learn more Workforce Planning AI Impact Analysis Models how AI will affect roles, tasks, and workforce structure over time with proactive transition plans. CHRO IT Learn more Critical Role Monitor Identifies roles with high business risk due to lack of successors, scarce skills, or single points of failure. CHRO HRBP Learn more Org Design Recommends optimal org structures, role definitions, and reporting lines based on strategy and workforce data. CHRO Learn more Pay & Compensation Uses market data, historical trends, skills, and task analysis to provide intelligent pay and compensation advice for any role. CHRO HRBP Learn more Scenario Simulator Runs what-if scenarios for growth, restructuring, AI adoption, and market shifts to predict workforce outcomes. CHRO Learn more Talent Redeployment Turn restructuring into opportunity. Match",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "off-target title(-50)",
+        "-recruiter"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)",
+        "-recruiter"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "f59bb16ae5c958184ec5",
+      "title": "Talent Management",
+      "location": null,
+      "url": "https://gloat.com/use-cases-agents/#uc-cat-talent-management",
+      "description": "AI Agents For HR | Gloat Skip to content Platform Overview Microsoft Teams Microsoft Copilot SuccessFactors Workday Oracle HCM AI Technology Overview Intelligent Tools Knowledge Graph Governance Engine Retrieval & Embedding Use cases All Use Cases Talent Management Talent Acquisition Skills Workforce Planning HR Operations Learning & Development Agentic HR Company About us Partners News and press Careers Ethical AI Blog Contact Get a demo Gloat’s AI Agents for HR: Real Use Cases for Every Workforce Challenge Explore real scenarios where AI agents transform how your organization attracts, develops, and retains talent. Each use case showcases live agent interactions and the Gloat technology that powers them. Filter by role All roles CHRO HRBP IT L&D Recruiter Talent Management Career Coach Personalized, data-driven career paths with mentor matching, learning recommendations, and growth planning for every employee. CHRO HRBP L&D Learn more Career Readiness Evaluates how ready each employee is for their next role based on skills, trajectory, experience patterns, and identified gaps. HRBP Learn more Internal Mobility Fill roles faster with internal talent. AI surfaces qualified employees for open positions across the organization. HRBP L&D Recruiter Learn more Leadership Pipeline Identifies high-potential talent and guides them through structured leadership development journeys with measurable milestones. CHRO L&D Learn more Succession Management Identifies ready-now and future successors for critical roles. Continuously validates readiness and adjusts plans as your organization evolves. CHRO HRBP Learn more Talent Marketplace Surfaces relevant internal roles, projects, mentors, and learning to employees and managers in real time. HRBP L&D Learn more Talent Retention Detects flight risk signals early and triggers personalized retention interventions before your best people decide to leave. CHRO HRBP Learn more Learning & Development Development Plan Creates personalized development plans that connect skill gaps to learning content, stretch assignments, and mentors – tailored to each employee. L&D Learn more Upskilling & Reskilling Builds targeted upskilling programs, identifies the right employee populations, and guides them through completion with measurable outcomes. CHRO L&D Learn more Learning Program Builds targeted L&D programs from internal and third-party content, then matches them to the right employee populations based on skill gaps and business priorities. L&D Learn more Learning Content Curator Ingests internal courses, LXP and LMS catalogs, and third-party libraries. Deduplicates, tags by skill, retires stale content, and surfaces best-fit assets per learner. L&D Learn more Mentor Matching Pairs mentors and mentees on skills, goals, geography, and availability. Nudges cadence, tracks outcomes, and surfaces at-risk pairings before they stall. HRBP L&D Learn more Talent Acquisition Candidate Discovery Finds best-fit candidates using deep semantic skill matching across internal talent, past applicants, and silver medalists. Recruiter Learn more Intelligent Referral Matches employees to referral opportunities and identifies those most likely to refer strong candidates for open roles. HRBP Learn more Intelligent Requisition Refines job descriptions with tasks and skills, validates internal candidate availability and automation potential before approving requisitions. CHRO Recruiter Learn more Job Description Optimizer Rewrites job descriptions for clarity, inclusivity, and alignment with real skill requirements using market data. Recruiter Learn more Talent Insight Aggregates performance, skills, and experience data into actionable talent insights for managers and HR leaders. CHRO HRBP Recruiter Learn more Talent Pipeline Builds, nurtures, and continuously optimizes candidate pipelines for current and future hiring needs. Recruiter Learn more Skills Emerging Skills Radar Detects new and rising skills based on internal adoption patterns, market signals, and industry trends. CHRO L&D Learn more Skill Benchmarking Compares your internal skill capabilities against market standards, competitors, and industry benchmarks. CHRO Learn more Skill & Task Framework Maintains a unified, harmonized skills and tasks framework across all systems, teams, and geographies. CHRO L&D Learn more Skill Gap Resolver Identifies skill gaps and recommends targeted actions: learning paths, stretch projects, role rotations, and mentoring. HRBP L&D Learn more Skill Intelligence Engine Continuously builds and maintains a complete, dynamic view of every skill across your entire workforce. CHRO L&D Learn more Skill Portfolio Provides individuals and leaders with a clear, dynamic view of current and future skill portfolios across teams and the org. HRBP L&D Learn more Skill Validation Engine Validates and scores skill proficiency through employee engagement, assessments, and evidence-based verification. HRBP L&D Learn more Skills Profile Builds accurate, evidence-backed skill profiles for every employee using behavioral signals, contribution history, and multi-source assessments. HRBP L&D Learn more Workforce Planning AI Impact Analysis Models how AI will affect roles, tasks, and workforce structure over time with proactive transition plans. CHRO IT Learn more Critical Role Monitor Identifies roles with high business risk due to lack of successors, scarce skills, or single points of failure. CHRO HRBP Learn more Org Design Recommends optimal org structures, role definitions, and reporting lines based on strategy and workforce data. CHRO Learn more Pay & Compensation Uses market data, historical trends, skills, and task analysis to provide intelligent pay and compensation advice for any role. CHRO HRBP Learn more Scenario Simulator Runs what-if scenarios for growth, restructuring, AI adoption, and market shifts to predict workforce outcomes. CHRO Learn more Talent Redeployment Turn restructuring into opportunity. Match",
+      "first_seen": "2026-09-15T19:14:58Z",
+      "last_seen": "2026-09-15T19:14:58Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "off-target title(-50)",
+        "-recruiter"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)",
+        "-recruiter"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    }
+  ]
+}

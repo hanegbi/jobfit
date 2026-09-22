@@ -1,0 +1,14 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# jobfit2 generated cache/output (rebuild via `uv run python -m jobfit2.scripts.update_jobs`)
+jobfit2/cache/
+jobfit2/data/

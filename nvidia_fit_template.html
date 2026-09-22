@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Fit Review (Dan Hanegbi)</title>
+<style>
+  :root {
+    --bg: #0b0e11;
+    --panel: #12161b;
+    --panel2: #171c22;
+    --border: #232a32;
+    --text: #e6e9ec;
+    --text-dim: #9aa4ad;
+    --accent: #76b900;
+    --accent-dim: #4d7a00;
+    --chip-bg: #1d2b12;
+    --chip-border: #3a5a16;
+    --danger: #ff6b6b;
+    --danger-bg: #2a1414;
+    --danger-border: #4a2323;
+    --warn: #e0b34d;
+    --warn-bg: #2a2414;
+    --warn-border: #4a3f23;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .app { display: grid; grid-template-columns: 320px 1fr; height: 100vh; }
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; }
+  }
+
+  .sidebar {
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    padding: 20px 18px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .brand { display: flex; align-items: baseline; gap: 8px; }
+  .brand h1 { font-size: 16px; margin: 0; font-weight: 700; letter-spacing: 0.2px; }
+  .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .subtitle { color: var(--text-dim); font-size: 12.5px; line-height: 1.5; margin-top: -12px; }
+
+  .field-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  input[type="search"], input[type="text"] {
+    width: 100%;
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+  }
+  input[type="search"]:focus, input[type="text"]:focus { border-color: var(--accent-dim); }
+
+  input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+  .loc-search { margin-bottom: 8px; }
+  .loc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .loc-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13.5px;
+    user-select: none;
+  }
+  .loc-item:hover { background: var(--panel2); }
+  .loc-item input { accent-color: var(--accent); cursor: pointer; }
+  .loc-item .count { margin-left: auto; color: var(--text-dim); font-size: 12px; }
+
+  select {
+    width: 100%;
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 9px 10px;
+    border-radius: 8px;
+    font-size: 13.5px;
+  }
+
+  .btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 8px 12px;
+    border-radius: 7px;
+    font-size: 12.5px;
+    cursor: pointer;
+  }
+  .btn:hover { color: var(--text); border-color: var(--text-dim); }
+
+  .stat-block { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 12px; line-height: 1.6; }
+
+  .main { display: flex; flex-direction: column; overflow: hidden; }
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+  }
+  .result-count { font-size: 14px; color: var(--text-dim); white-space: nowrap; }
+  .result-count b { color: var(--text); }
+
+  .content { flex: 1; overflow-y: auto; padding: 18px 24px 40px; }
+  .job-list { display: flex; flex-direction: column; gap: 10px; max-width: 920px; margin: 0 auto; }
+
+  .job-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: border-color 0.12s ease;
+    display: flex;
+    gap: 16px;
+  }
+  .job-card:hover { border-color: var(--accent-dim); }
+  .job-card.open { border-color: var(--accent); }
+
+  .score-badge {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1;
+  }
+  .score-badge .pct { font-size: 9px; font-weight: 600; opacity: 0.75; margin-top: 2px; }
+  .prev-score { font-size: 11px; color: var(--text-dim); margin-top: 4px; text-align: center; }
+  .score-good { background: var(--chip-bg); border: 1px solid var(--chip-border); color: #b7e08a; }
+  .score-mid { background: var(--warn-bg); border: 1px solid var(--warn-border); color: var(--warn); }
+  .score-low { background: var(--danger-bg); border: 1px solid var(--danger-border); color: var(--danger); }
+
+  .job-body { flex: 1; min-width: 0; }
+  .job-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+  .job-title { font-size: 15.5px; font-weight: 600; margin: 0 0 4px; }
+  .job-id { color: var(--text-dim); font-size: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .job-rationale { font-size: 13px; color: #c3c9ce; margin-top: 6px; }
+  .job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag {
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
+    color: #b7e08a;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    white-space: nowrap;
+  }
+  .tag.muted { background: var(--panel2); border-color: var(--border); color: var(--text-dim); }
+  .tag.gap { background: var(--danger-bg); border-color: var(--danger-border); color: #ff9b9b; }
+  .tag.pay { background: #14202a; border-color: #274056; color: #8fc4e8; }
+  .pay-note { font-size: 11px; color: var(--text-dim); margin-top: 10px; font-style: italic; }
+  .job-date { font-size: 12px; color: var(--text-dim); white-space: nowrap; flex-shrink: 0; }
+
+  .fit-section { margin-top: 12px; }
+  .fit-section .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim); font-weight: 600; margin-bottom: 6px; }
+  .fit-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .job-detail {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #d3d8dc;
+    display: none;
+  }
+  .job-card.open .job-detail { display: block; }
+  .job-detail p { margin: 0 0 10px; }
+  .job-detail a.apply {
+    display: inline-block;
+    margin-top: 6px;
+    background: var(--accent);
+    color: #06170a;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 7px;
+    font-size: 13px;
+  }
+  .job-detail a.apply:hover { background: #8ed11f; }
+
+  mark { background: #4d7a00; color: #fff; border-radius: 2px; padding: 0 1px; }
+
+  .empty-state { text-align: center; color: var(--text-dim); padding: 60px 20px; }
+
+  ::-webkit-scrollbar { width: 9px; height: 9px; }
+  ::-webkit-scrollbar-thumb { background: #2a323a; border-radius: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span><h1>Job Fit Review</h1></div>
+    <div class="subtitle">Fit scores assessed against Dan Hanegbi's background — a Python / AI-LLM software engineer at Hailo who built a Python framework executing vision + LLM models for inference on Hailo's AI accelerator chips, plus comprehensive test &amp; visibility tooling around it; also DevOps/automation, QA, and cybersecurity background. Each score has a one-line rationale plus matched skills and gaps — not a plain keyword count. Estimated pay per job (expand any card) is a market estimate by seniority tier — none of these companies disclose salary for Israel postings. The Palo Alto Networks (145 roles) and broader Google (100 roles) sets are unfiltered by job function and scored via a systematic title-based classifier informed by spot-checking representative postings, rather than reading each one individually.</div>
+
+    <div>
+      <div class="field-label">Company</div>
+      <div class="loc-list" id="companyList"></div>
+    </div>
+
+    <div id="levelFilterWrap">
+      <div class="field-label">Level <span id="levelSelCount" style="color:var(--accent)"></span></div>
+      <div class="loc-list" id="levelList"></div>
+      <div style="margin-top:8px;"><button class="btn" id="clearLevels">Clear levels</button></div>
+    </div>
+
+    <div>
+      <div class="field-label">Min fit score <span id="minScoreVal" style="color:var(--accent)">0</span></div>
+      <input type="range" id="minScore" min="0" max="100" step="5" value="0">
+    </div>
+
+    <div>
+      <div class="field-label">Title contains</div>
+      <input type="search" id="qTitle" placeholder="e.g. architect, senior..." autocomplete="off">
+    </div>
+
+    <div>
+      <div class="field-label">Description contains</div>
+      <input type="search" id="qDesc" placeholder="e.g. python, kubernetes..." autocomplete="off">
+    </div>
+
+    <div>
+      <div class="field-label">Sort by</div>
+      <select id="sort">
+        <option value="fit_desc">Best fit first</option>
+        <option value="fit_asc">Worst fit first</option>
+        <option value="pay_desc">Highest est. pay first</option>
+        <option value="pay_asc">Lowest est. pay first</option>
+        <option value="date_desc">Newest posted</option>
+        <option value="date_asc">Oldest posted</option>
+        <option value="title_asc">Title A→Z</option>
+      </select>
+    </div>
+
+    <div>
+      <div class="field-label">Locations <span id="locSelCount" style="color:var(--accent)"></span></div>
+      <input type="text" id="locFilter" class="loc-search" placeholder="Filter location list...">
+      <div class="loc-list" id="locList"></div>
+      <div style="margin-top:8px;"><button class="btn" id="clearLocs">Clear locations</button></div>
+    </div>
+
+    <div>
+      <div class="field-label">Department</div>
+      <select id="deptFilter"><option value="">All departments</option></select>
+    </div>
+
+    <div>
+      <div class="field-label">Exclude titles containing <span id="blacklistCount" style="color:var(--danger)"></span></div>
+      <input type="text" id="blacklist" placeholder="e.g. intern, manager, sales">
+      <div style="color:var(--text-dim); font-size:11.5px; margin-top:6px;">Comma-separated words. Jobs whose title contains any of them are hidden.</div>
+    </div>
+
+    <div class="stat-block" id="statBlock"></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="result-count"><b id="countNum">0</b> jobs · avg fit <b id="avgFit">0</b></div>
+      <button class="btn" id="exportBtn" style="margin-left:auto;">Export JSON</button>
+    </div>
+    <div class="content">
+      <div class="job-list" id="jobList"></div>
+      <div class="empty-state" id="emptyState" style="display:none;">No jobs match your filters.</div>
+    </div>
+  </main>
+</div>
+
+<script>
+const JOBS = /*__JOBS_DATA__*/[];
+
+const allCompanies = Array.from(new Set(JOBS.map(j => j.company).filter(Boolean))).sort();
+const allLevels = Array.from(new Set(JOBS.map(j => j.engLevel).filter(Boolean))).sort();
+const state = { qTitle: "", qDesc: "", locs: new Set(), dept: "", companies: new Set(allCompanies), levels: new Set(), blacklist: [], minScore: 0, sort: "fit_desc", openId: null };
+
+function fmtDate(ts) {
+  if (!ts) return "";
+  const d = new Date(ts * 1000);
+  return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+}
+
+function escapeHtml(s) {
+  return (s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function highlight(text, q) {
+  if (!q) return escapeHtml(text);
+  const esc = escapeHtml(text);
+  const safeQ = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return esc.replace(new RegExp("(" + safeQ + ")", "ig"), "<mark>$1</mark>");
+}
+
+function scoreClass(score) {
+  if (score >= 55) return "score-good";
+  if (score >= 30) return "score-mid";
+  return "score-low";
+}
+
+const locCounts = new Map();
+for (const j of JOBS) {
+  for (const loc of (j.locations || [])) {
+    locCounts.set(loc, (locCounts.get(loc) || 0) + 1);
+  }
+}
+const allLocs = Array.from(locCounts.entries()).sort((a, b) => b[1] - a[1]);
+
+const deptCounts = new Map();
+for (const j of JOBS) {
+  if (j.department) deptCounts.set(j.department, (deptCounts.get(j.department) || 0) + 1);
+}
+const allDepts = Array.from(deptCounts.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+
+function renderLocList(filterText) {
+  const locList = document.getElementById("locList");
+  const ft = (filterText || "").toLowerCase();
+  locList.innerHTML = "";
+  for (const [loc, count] of allLocs) {
+    if (ft && !loc.toLowerCase().includes(ft)) continue;
+    const row = document.createElement("label");
+    row.className = "loc-item";
+    const checked = state.locs.has(loc) ? "checked" : "";
+    row.innerHTML = `<input type="checkbox" data-loc="${escapeHtml(loc)}" ${checked}><span>${escapeHtml(loc)}</span><span class="count">${count}</span>`;
+    locList.appendChild(row);
+  }
+  locList.querySelectorAll("input[type=checkbox]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const loc = cb.getAttribute("data-loc");
+      if (cb.checked) state.locs.add(loc); else state.locs.delete(loc);
+      updateLocSelCount();
+      render();
+    });
+  });
+}
+
+function updateLocSelCount() {
+  const el = document.getElementById("locSelCount");
+  el.textContent = state.locs.size ? `(${state.locs.size} selected)` : "";
+}
+
+function populateDeptFilter() {
+  const sel = document.getElementById("deptFilter");
+  for (const [dept, count] of allDepts) {
+    const opt = document.createElement("option");
+    opt.value = dept;
+    opt.textContent = `${dept} (${count})`;
+    sel.appendChild(opt);
+  }
+}
+
+const companyCounts = new Map();
+for (const j of JOBS) {
+  if (j.company) companyCounts.set(j.company, (companyCounts.get(j.company) || 0) + 1);
+}
+
+const levelCounts = new Map();
+for (const j of JOBS) {
+  if (j.engLevel) levelCounts.set(j.engLevel, (levelCounts.get(j.engLevel) || 0) + 1);
+}
+
+function renderLevelList() {
+  const el = document.getElementById("levelList");
+  const wrap = document.getElementById("levelFilterWrap");
+  if (!allLevels.length) { wrap.style.display = "none"; return; }
+  el.innerHTML = "";
+  for (const lvl of allLevels) {
+    const row = document.createElement("label");
+    row.className = "loc-item";
+    const checked = state.levels.has(lvl) ? "checked" : "";
+    const label = (JOBS.find(j => j.engLevel === lvl) || {}).engLevelLabel || lvl;
+    row.innerHTML = `<input type="checkbox" data-level="${escapeHtml(lvl)}" ${checked}><span>${escapeHtml(label)}</span><span class="count">${levelCounts.get(lvl) || 0}</span>`;
+    el.appendChild(row);
+  }
+  el.querySelectorAll("input[type=checkbox]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const l = cb.getAttribute("data-level");
+      if (cb.checked) state.levels.add(l); else state.levels.delete(l);
+      updateLevelSelCount();
+      render();
+    });
+  });
+}
+
+function updateLevelSelCount() {
+  const el = document.getElementById("levelSelCount");
+  el.textContent = state.levels.size ? `(${state.levels.size} selected)` : "";
+}
+
+function renderCompanyList() {
+  const el = document.getElementById("companyList");
+  el.innerHTML = "";
+  for (const company of allCompanies) {
+    const row = document.createElement("label");
+    row.className = "loc-item";
+    const checked = state.companies.has(company) ? "checked" : "";
+    row.innerHTML = `<input type="checkbox" data-company="${escapeHtml(company)}" ${checked}><span>${escapeHtml(company)}</span><span class="count">${companyCounts.get(company) || 0}</span>`;
+    el.appendChild(row);
+  }
+  el.querySelectorAll("input[type=checkbox]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const c = cb.getAttribute("data-company");
+      if (cb.checked) state.companies.add(c); else state.companies.delete(c);
+      render();
+    });
+  });
+}
+
+function matches(job) {
+  if (!state.companies.has(job.company)) return false;
+  if (state.levels.size && !state.levels.has(job.engLevel)) return false;
+  if ((job.fitScore || 0) < state.minScore) return false;
+  if (state.locs.size) {
+    const jobLocs = job.locations || [];
+    let hit = false;
+    for (const l of jobLocs) { if (state.locs.has(l)) { hit = true; break; } }
+    if (!hit) return false;
+  }
+  if (state.dept && job.department !== state.dept) return false;
+  if (state.blacklist.length) {
+    const title = (job.title || "").toLowerCase();
+    for (const w of state.blacklist) { if (w && title.includes(w)) return false; }
+  }
+  if (state.qTitle) {
+    const t = (job.title || "").toLowerCase();
+    if (!t.includes(state.qTitle.toLowerCase())) return false;
+  }
+  if (state.qDesc) {
+    const d = (job.descriptionText || "").toLowerCase();
+    if (!d.includes(state.qDesc.toLowerCase())) return false;
+  }
+  return true;
+}
+
+function sortJobs(list) {
+  const arr = list.slice();
+  if (state.sort === "fit_desc") arr.sort((a, b) => (b.fitScore || 0) - (a.fitScore || 0));
+  else if (state.sort === "fit_asc") arr.sort((a, b) => (a.fitScore || 0) - (b.fitScore || 0));
+  else if (state.sort === "pay_desc") arr.sort((a, b) => ((b.payMonthlyILS||[0,0])[1]) - ((a.payMonthlyILS||[0,0])[1]));
+  else if (state.sort === "pay_asc") arr.sort((a, b) => ((a.payMonthlyILS||[0,0])[1]) - ((b.payMonthlyILS||[0,0])[1]));
+  else if (state.sort === "date_desc") arr.sort((a, b) => (b.postedTs || 0) - (a.postedTs || 0));
+  else if (state.sort === "date_asc") arr.sort((a, b) => (a.postedTs || 0) - (b.postedTs || 0));
+  else if (state.sort === "title_asc") arr.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+  return arr;
+}
+
+function fmtPay(job) {
+  const m = job.payMonthlyILS;
+  if (!m) return "";
+  return `₪${Math.round(m[0]/1000)}-${Math.round(m[1]/1000)}K/mo`;
+}
+
+function jobCardHtml(job) {
+  const isOpen = state.openId === String(job.id);
+  const tags = [];
+  if (job.company) {
+    const companyStyles = {
+      NVIDIA: "background:#14261a;border-color:#2a4a30;color:#9fe0b0;",
+      Google: "background:#1d2226;border-color:#3a4147;color:#c9cdd1;",
+      Amazon: "background:#2a1f0e;border-color:#4a3a1a;color:#f0b96a;",
+      "Palo Alto Networks": "background:#2a140f;border-color:#4a2318;color:#f0876a;",
+    };
+    const style = companyStyles[job.company] || "";
+    tags.push(`<span class="tag" style="${style}">${escapeHtml(job.company)}</span>`);
+  }
+  if (job.category) tags.push(`<span class="tag">${escapeHtml(job.category)}</span>`);
+  if (job.timeType) tags.push(`<span class="tag muted">${escapeHtml(job.timeType)}</span>`);
+  if (job.engLevelLabel) tags.push(`<span class="tag muted">${escapeHtml(job.engLevelLabel)}</span>`);
+  if (job.workLocationOption) tags.push(`<span class="tag muted">${escapeHtml(job.workLocationOption)}</span>`);
+  if (job.payMonthlyILS) tags.push(`<span class="tag pay">est. ${fmtPay(job)}</span>`);
+
+  const locsHtml = (job.locations || []).map(l => `<span class="tag">${escapeHtml(l)}</span>`).join("");
+
+  const matched = job.fitMatched || [];
+  const gaps = job.fitGaps || [];
+  const fitBlock = isOpen ? `
+    <div class="fit-section">
+      <div class="label">Matched</div>
+      <div class="fit-chips">${matched.length ? matched.map(m => `<span class="tag">${escapeHtml(m)}</span>`).join("") : '<span class="tag muted">none notable</span>'}</div>
+    </div>
+    <div class="fit-section">
+      <div class="label">Gaps</div>
+      <div class="fit-chips">${gaps.length ? gaps.map(g => `<span class="tag gap">${escapeHtml(g)}</span>`).join("") : '<span class="tag muted">none notable</span>'}</div>
+    </div>` : "";
+
+  const payDetail = (isOpen && job.payMonthlyILS) ? `
+    <div class="fit-section">
+      <div class="label">Estimated pay (base) — ${escapeHtml(job.payTierLabel || "")}</div>
+      <div class="fit-chips">
+        <span class="tag pay">₪${job.payMonthlyILS[0].toLocaleString()}–${job.payMonthlyILS[1].toLocaleString()}/mo</span>
+        <span class="tag pay">₪${job.payAnnualILS[0].toLocaleString()}–${job.payAnnualILS[1].toLocaleString()}/yr</span>
+        <span class="tag pay">~$${job.payAnnualUSD[0].toLocaleString()}–${job.payAnnualUSD[1].toLocaleString()}/yr</span>
+      </div>
+      <div class="pay-note">Estimate only — ${escapeHtml(job.company || "this company")} does not disclose salary on Israel postings (no pay-transparency requirement there). Based on general Israeli tech market knowledge for a company at this pay level, by seniority tier. Base salary only; total comp at companies like this typically runs higher with equity grants + bonus on top.</div>
+    </div>` : "";
+
+  const detail = isOpen ? `
+    <div class="job-detail">
+      ${fitBlock}
+      ${payDetail}
+      <div style="margin-top:14px; padding-top:14px; border-top:1px dashed var(--border);">
+        ${job.descriptionHtml || "<p>No description available.</p>"}
+      </div>
+      ${job.url ? `<a class="apply" href="${escapeHtml(job.url)}" target="_blank" rel="noopener">View on jobs.nvidia.com →</a>` : ""}
+    </div>` : "";
+
+  const score = job.fitScore || 0;
+  const prevScore = job.fitPrevScore;
+  const hasPrev = typeof prevScore === "number" && prevScore !== score;
+
+  return `
+    <div class="job-card ${isOpen ? "open" : ""}" data-id="${job.id}">
+      <div>
+        <div class="score-badge ${scoreClass(score)}">
+          <div>${score}</div>
+          <div class="pct">FIT</div>
+        </div>
+        ${hasPrev ? `<div class="prev-score">was ${prevScore}</div>` : ""}
+      </div>
+      <div class="job-body">
+        <div class="job-head">
+          <div>
+            <div class="job-title">${highlight(job.title, state.qTitle)}</div>
+            <div class="job-id">${escapeHtml(job.jobId || "")}</div>
+          </div>
+          <div class="job-date">${fmtDate(job.postedTs)}</div>
+        </div>
+        ${job.fitRationale ? `<div class="job-rationale">${escapeHtml(job.fitRationale)}</div>` : ""}
+        <div class="job-meta">${tags.join("")}${locsHtml}</div>
+        ${detail}
+      </div>
+    </div>`;
+}
+
+let lastFiltered = [];
+
+function render() {
+  const filtered = sortJobs(JOBS.filter(matches));
+  lastFiltered = filtered;
+  document.getElementById("countNum").textContent = filtered.length;
+  const avg = filtered.length ? Math.round(filtered.reduce((s, j) => s + (j.fitScore || 0), 0) / filtered.length) : 0;
+  document.getElementById("avgFit").textContent = avg;
+  const listEl = document.getElementById("jobList");
+  const emptyEl = document.getElementById("emptyState");
+  if (!filtered.length) {
+    listEl.innerHTML = "";
+    emptyEl.style.display = "block";
+  } else {
+    emptyEl.style.display = "none";
+    listEl.innerHTML = filtered.map(jobCardHtml).join("");
+  }
+  listEl.querySelectorAll(".job-card").forEach(card => {
+    card.addEventListener("click", (e) => {
+      const id = card.getAttribute("data-id");
+      state.openId = state.openId === id ? null : id;
+      render();
+      if (state.openId === id) {
+        requestAnimationFrame(() => card.scrollIntoView({ behavior: "smooth", block: "nearest" }));
+      }
+    });
+  });
+}
+
+document.getElementById("qTitle").addEventListener("input", (e) => { state.qTitle = e.target.value.trim(); render(); });
+document.getElementById("qDesc").addEventListener("input", (e) => { state.qDesc = e.target.value.trim(); render(); });
+document.getElementById("sort").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
+document.getElementById("deptFilter").addEventListener("change", (e) => { state.dept = e.target.value; render(); });
+document.getElementById("minScore").addEventListener("input", (e) => {
+  state.minScore = Number(e.target.value);
+  document.getElementById("minScoreVal").textContent = state.minScore;
+  render();
+});
+document.getElementById("exportBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(lastFiltered, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  const stamp = new Date().toISOString().slice(0, 10);
+  a.download = `jobs_fit_export_${stamp}.json`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("blacklist").addEventListener("input", (e) => {
+  state.blacklist = e.target.value.split(",").map(w => w.trim().toLowerCase()).filter(Boolean);
+  document.getElementById("blacklistCount").textContent = state.blacklist.length ? `(${state.blacklist.length})` : "";
+  render();
+});
+document.getElementById("locFilter").addEventListener("input", (e) => renderLocList(e.target.value));
+document.getElementById("clearLocs").addEventListener("click", () => {
+  state.locs.clear();
+  updateLocSelCount();
+  renderLocList(document.getElementById("locFilter").value);
+  render();
+});
+document.getElementById("clearLevels").addEventListener("click", () => {
+  state.levels.clear();
+  updateLevelSelCount();
+  renderLevelList();
+  render();
+});
+
+const overallAvg = JOBS.length ? Math.round(JOBS.reduce((s, j) => s + (j.fitScore || 0), 0) / JOBS.length) : 0;
+document.getElementById("statBlock").textContent =
+  `${JOBS.length} jobs scored · avg fit ${overallAvg} · ${allLocs.length} locations · ${allDepts.length} departments`;
+
+renderLocList("");
+updateLocSelCount();
+populateDeptFilter();
+renderCompanyList();
+renderLevelList();
+updateLevelSelCount();
+render();
+</script>
+</body>
+</html>
