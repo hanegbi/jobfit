@@ -1,6 +1,6 @@
 # Jobfit Control Panel Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Add a local FastAPI control panel to jobfit for managing CV profiles, the LinkedIn connections CSV, and referral job ads, plus an on-demand scrape trigger with a live log and a stats dashboard — without changing how `jobfit.html` itself is generated or opened.
 
@@ -31,7 +31,7 @@
 
 **Interfaces:** none (infrastructure only).
 
-- [ ] **Step 1: Append the new ignore rules**
+- [x] **Step 1: Append the new ignore rules**
 
 Add to the end of `.gitignore`:
 
@@ -44,7 +44,7 @@ jobfit/data/referrals/
 jobfit/data/profiles.json
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add .gitignore
@@ -63,7 +63,7 @@ git commit -m "chore: gitignore control-panel personal-data paths before they ex
 **Interfaces:**
 - Produces: `cv.load_registry() -> dict[str, dict]`, `cv.save_registry(registry: dict) -> None`, `cv.register_profile(name: str, source_path: Path) -> str`, `cv.remove_profile(profile_id: str) -> None`.
 
-- [ ] **Step 1: Add the new config constants**
+- [x] **Step 1: Add the new config constants**
 
 In `jobfit/config.py`, after the `CONNECTIONS_CSV` line, add:
 
@@ -72,7 +72,7 @@ CV_PROFILES_DIR = ROOT / "data" / "cvs"
 CV_PROFILES_REGISTRY = ROOT / "data" / "profiles.json"
 ```
 
-- [ ] **Step 2: Write the failing tests**
+- [x] **Step 2: Write the failing tests**
 
 Create `jobfit/server/tests/test_cv_registry.py`:
 
@@ -148,12 +148,12 @@ def test_remove_profile_is_a_noop_for_unknown_id():
     cv.remove_profile("does-not-exist")  # must not raise
 ```
 
-- [ ] **Step 3: Run tests to verify they fail**
+- [x] **Step 3: Run tests to verify they fail**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_cv_registry.py -v`
 Expected: FAIL — `AttributeError: module 'jobfit.cv' has no attribute 'load_registry'`
 
-- [ ] **Step 4: Implement the registry functions**
+- [x] **Step 4: Implement the registry functions**
 
 In `jobfit/cv.py`, add these imports at the top (alongside the existing `import re` / `import docx`):
 
@@ -220,12 +220,12 @@ def remove_profile(profile_id: str) -> None:
     save_registry(registry)
 ```
 
-- [ ] **Step 5: Run tests to verify they pass**
+- [x] **Step 5: Run tests to verify they pass**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_cv_registry.py -v`
 Expected: PASS (6 passed)
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add jobfit/cv.py jobfit/config.py jobfit/server/tests/test_cv_registry.py
@@ -244,7 +244,7 @@ git commit -m "feat: add CV profile registry (register/remove/load) to cv.py"
 - Consumes: `cv.load_registry()`, `cv.build_profile(cv_path) -> dict` (existing, unchanged) from Task 2.
 - Produces: `cv.load_profiles() -> dict[str, dict]` — now returns one entry per **registered** profile instead of exactly `{"default": ..., "infra": ...}`.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Append to `jobfit/server/tests/test_cv_registry.py`:
 
@@ -264,12 +264,12 @@ def test_load_profiles_is_empty_when_no_profiles_registered():
     assert cv.load_profiles() == {}
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_cv_registry.py::test_load_profiles_builds_one_entry_per_registered_cv -v`
 Expected: FAIL — old `load_profiles()` still reads `config.CV_DEFAULT`/`config.CV_INFRA`, which don't exist under the monkeypatched tmp_path.
 
-- [ ] **Step 3: Replace `load_profiles()`**
+- [x] **Step 3: Replace `load_profiles()`**
 
 In `jobfit/cv.py`, replace the existing `load_profiles` function (lines 38-43):
 
@@ -282,12 +282,12 @@ def load_profiles() -> dict[str, dict]:
     }
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_cv_registry.py -v`
 Expected: PASS (8 passed)
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add jobfit/cv.py jobfit/server/tests/test_cv_registry.py
@@ -302,7 +302,7 @@ This is a one-time data migration, run by hand now (not application code) — it
 
 **Files:** none changed — this only creates data files under `jobfit/data/`.
 
-- [ ] **Step 1: Register the two existing CVs under ids that match the scores already stored**
+- [x] **Step 1: Register the two existing CVs under ids that match the scores already stored**
 
 Run from the repo root (this must produce ids `default` and `infra` exactly, since ~780 files under `jobfit/companies/` already have `score_default`/`score_infra` fields keyed on those names):
 
@@ -316,7 +316,7 @@ print(cv.register_profile('infra', config.CV_INFRA))
 
 Expected output: `default` then `infra`.
 
-- [ ] **Step 2: Verify the registry and copied files**
+- [x] **Step 2: Verify the registry and copied files**
 
 ```bash
 uv run python -c "
@@ -329,7 +329,7 @@ print(list(config.CV_PROFILES_DIR.iterdir()))
 
 Expected: a registry with `default` and `infra` entries, and two `.docx` files under `jobfit/data/cvs/`.
 
-- [ ] **Step 3: Copy the connections CSV into its new location**
+- [x] **Step 3: Copy the connections CSV into its new location**
 
 ```bash
 mkdir -p jobfit/data
@@ -338,7 +338,7 @@ cp "/c/Users/user/Code/linkedin-match/Connections.csv" "jobfit/data/connections.
 
 (If that source path doesn't exist on this machine, skip this step — `jobfit/data/connections.csv` simply won't exist yet, and `connections.load_connections_index()` already returns `{}` for a missing file, so nothing breaks; you can upload connections later through the panel once Task 13 exists.)
 
-- [ ] **Step 4: Confirm none of the new data files are tracked by git**
+- [x] **Step 4: Confirm none of the new data files are tracked by git**
 
 ```bash
 git status --short jobfit/data/
@@ -359,7 +359,7 @@ No commit for this task — nothing it creates is meant to be tracked.
 - Consumes: nothing new.
 - Produces: `config.ROLE_WEIGHTS` (renamed from `ROLE_WEIGHTS_DEFAULT`), `config.COMPANY_RECHECK_TTL_HOURS`, `config.RUN_HISTORY_PATH`, `config.REFERRAL_UPLOADS_DIR`. Removes `config.CV_DEFAULT`, `config.CV_INFRA`, `config.ROLE_WEIGHTS_INFRA`, `config.ROLE_WEIGHTS_BY_PROFILE`.
 
-- [ ] **Step 1: Update the personal-inputs block**
+- [x] **Step 1: Update the personal-inputs block**
 
 Replace lines 10-13:
 
@@ -408,7 +408,7 @@ RUN_HISTORY_PATH = ROOT / "data" / "run_history.json"
 
 (`CV_PROFILES_DIR`/`CV_PROFILES_REGISTRY` already exist from Task 2 — this step is what relocates them next to the other personal-input constants and removes the now-dead `CV_DEFAULT`/`CV_INFRA`. If Task 2 already placed them elsewhere in the file, just make sure they end up matching this block and aren't duplicated.)
 
-- [ ] **Step 2: Drop the per-profile role-weight split**
+- [x] **Step 2: Drop the per-profile role-weight split**
 
 Replace lines 51-81 (the `ROLE_WEIGHTS_DEFAULT` / `ROLE_WEIGHTS_INFRA` / `ROLE_WEIGHTS_BY_PROFILE` block):
 
@@ -430,12 +430,12 @@ ROLE_WEIGHTS: dict[str, int] = {
 }
 ```
 
-- [ ] **Step 2: Verify nothing else in the module references the removed names**
+- [x] **Step 2: Verify nothing else in the module references the removed names**
 
 Run: `grep -n "CV_DEFAULT\|CV_INFRA\|ROLE_WEIGHTS_INFRA\|ROLE_WEIGHTS_BY_PROFILE\|ROLE_WEIGHTS_DEFAULT" jobfit/config.py`
 Expected: no matches.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 (This commit will show `config.py` as changed but the rest of the codebase still referencing the old names — that's expected and fixed in Tasks 6-7 next; commit anyway since this is a clean, reviewable unit.)
 
@@ -456,7 +456,7 @@ git commit -m "refactor: drop fixed CV_DEFAULT/CV_INFRA and per-profile role wei
 - Consumes: `config.ROLE_WEIGHTS` from Task 5.
 - Produces: `scoring.score_job(job, must_have_keywords, role_weights=None)` (default now `config.ROLE_WEIGHTS`), `scoring.score_job_both(job, profiles)` (drops the per-profile weights lookup).
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `jobfit/server/tests/test_scoring_shared_weights.py`:
 
@@ -481,12 +481,12 @@ def test_score_job_both_scores_every_profile_the_same_way_for_role_fit():
     assert result["score_a"] == result["score_b"]
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_scoring_shared_weights.py -v`
 Expected: FAIL — `AttributeError: module 'jobfit.config' has no attribute 'ROLE_WEIGHTS'` is already fixed by Task 5, so this should instead fail because `score_job_both` still calls `config.ROLE_WEIGHTS_BY_PROFILE.get(...)`, which no longer exists.
 
-- [ ] **Step 3: Update `scoring.py`**
+- [x] **Step 3: Update `scoring.py`**
 
 Replace line 183 (`role_weights = role_weights or config.ROLE_WEIGHTS_DEFAULT`) with:
 
@@ -514,17 +514,17 @@ def score_job_both(job: dict, profiles: dict[str, dict]) -> dict:
     return result
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_scoring_shared_weights.py -v`
 Expected: PASS (2 passed)
 
-- [ ] **Step 5: Run the full test suite so far**
+- [x] **Step 5: Run the full test suite so far**
 
 Run: `uv run python -m pytest jobfit/server/tests/ -v`
 Expected: all passing (Tasks 2, 3, 6's tests together).
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add jobfit/scoring.py jobfit/server/tests/test_scoring_shared_weights.py
@@ -545,7 +545,7 @@ This is the biggest single change in the plan. It also removes the CV-hash-based
 - Produces: `update_jobs.RunStats` (dataclass: `companies_checked`, `companies_skipped`, `new_jobs`, `closed_jobs`, `failures: list[str]`), `update_jobs._should_skip_company(record: dict, force: bool) -> bool`, `update_jobs.scrape_stage(companies: dict[str, str], profiles: dict, force: bool = False) -> RunStats`, `update_jobs.recompute_stage() -> None`, `update_jobs.diff_and_update(company, career_url, fetched, profiles) -> tuple[dict, int, int]` (drops the old `rescore_all` parameter), `update_jobs.merge_referral_jobs(profiles, path=None)` (adds `path`, addressed in Task 9 — leave its signature alone here).
 - Consumes: `cv.load_profiles()`, `cv.load_registry()` (Tasks 2-3), `scoring.score_job_both` (Task 6), `config.COMPANY_RECHECK_TTL_HOURS` (Task 5), `build_html.build()` (existing, unchanged).
 
-- [ ] **Step 1: Write the failing tests for the TTL-skip decision**
+- [x] **Step 1: Write the failing tests for the TTL-skip decision**
 
 Create `jobfit/server/tests/test_scrape_stage.py`:
 
@@ -580,12 +580,12 @@ def test_never_checked_company_is_not_skipped():
     assert update_jobs._should_skip_company({"last_checked": None}, force=False) is False
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_scrape_stage.py -v`
 Expected: FAIL — `AttributeError: module 'jobfit.scripts.update_jobs' has no attribute '_should_skip_company'`
 
-- [ ] **Step 3: Replace `cv_hash()` (lines 83-88)**
+- [x] **Step 3: Replace `cv_hash()` (lines 83-88)**
 
 ```python
 def cv_hash() -> str:
@@ -602,7 +602,7 @@ def cv_hash() -> str:
 
 (This keeps `cv_hash()` around in case something outside this plan still wants a fingerprint of the current CV set, but nothing in this plan reads it for gating anymore.)
 
-- [ ] **Step 4: Replace `diff_and_update` (lines 217-266) — drop `rescore_all`**
+- [x] **Step 4: Replace `diff_and_update` (lines 217-266) — drop `rescore_all`**
 
 ```python
 def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict) -> tuple[dict, int, int]:
@@ -660,7 +660,7 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
     return record, new_count, closed_count
 ```
 
-- [ ] **Step 5: Replace `run()` (lines 269-298) with `_should_skip_company`, `_process_company`, `scrape_stage`, and `recompute_stage`**
+- [x] **Step 5: Replace `run()` (lines 269-298) with `_should_skip_company`, `_process_company`, `scrape_stage`, and `recompute_stage`**
 
 Add these imports at the top of the file (alongside the existing ones):
 
@@ -774,7 +774,7 @@ def recompute_stage() -> None:
     build_html.build()
 ```
 
-- [ ] **Step 6: Update `main()` (lines 433-485) to use the two new stages**
+- [x] **Step 6: Update `main()` (lines 433-485) to use the two new stages**
 
 ```python
 def main() -> None:
@@ -831,12 +831,12 @@ def main() -> None:
 
 Note the CLI flags changed: `--force-rescore` is gone (superseded — `recompute_stage()` always rescands everything now), and `--force` is new (means "re-check companies even if recently checked", previously the default and only behavior). `--skip-aggregate` now also skips rescoring, since that's bundled into the same cheap step.
 
-- [ ] **Step 7: Run all tests to verify they pass**
+- [x] **Step 7: Run all tests to verify they pass**
 
 Run: `uv run python -m pytest jobfit/server/tests/ -v`
 Expected: all passing, including the 4 new tests from Step 1.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add jobfit/scripts/update_jobs.py jobfit/server/tests/test_scrape_stage.py
@@ -854,7 +854,7 @@ git commit -m "refactor: split update_jobs into scrape_stage/recompute_stage wit
 - Consumes: `cv.load_registry()` (Task 2).
 - Produces: `build_html.render(dataset, profiles)` (adds a `profiles` parameter), embeds a `PROFILES` JS array alongside `JOBS`.
 
-- [ ] **Step 1: Replace the hardcoded `cvSelect` options**
+- [x] **Step 1: Replace the hardcoded `cvSelect` options**
 
 In the `PAGE_TEMPLATE` string, replace:
 
@@ -876,7 +876,7 @@ with:
 
 (The per-profile `<option>`s are now added by JS at load time — see Step 4.)
 
-- [ ] **Step 2: Add a `PROFILES` constant next to `JOBS`**
+- [x] **Step 2: Add a `PROFILES` constant next to `JOBS`**
 
 Replace:
 
@@ -893,7 +893,7 @@ const PROFILES = __PROFILES_JSON__;
 const GENERATED_AT = __GENERATED_AT_JSON__;
 ```
 
-- [ ] **Step 3: Replace the hardcoded `scoreFor`/`cvLabelFor` functions**
+- [x] **Step 3: Replace the hardcoded `scoreFor`/`cvLabelFor` functions**
 
 Replace:
 
@@ -926,7 +926,7 @@ function profileName(id) {
 }
 ```
 
-- [ ] **Step 4: Populate `cvSelect`'s options from `PROFILES` at load**
+- [x] **Step 4: Populate `cvSelect`'s options from `PROFILES` at load**
 
 Add this near the top of the `<script>` block, right after the `PROFILES` constant is read (before `applyFilterState(loadFilterState())` is called, since a saved filter might reference a profile id that needs to already be a valid `<option>`):
 
@@ -940,7 +940,7 @@ for (const p of PROFILES) {
 }
 ```
 
-- [ ] **Step 5: Replace the hardcoded two-pill block in `jobCardHtml`**
+- [x] **Step 5: Replace the hardcoded two-pill block in `jobCardHtml`**
 
 Replace:
 
@@ -959,7 +959,7 @@ with:
       </div>
 ```
 
-- [ ] **Step 6: Update `render()`/`build()` to embed `PROFILES`**
+- [x] **Step 6: Update `render()`/`build()` to embed `PROFILES`**
 
 Replace:
 
@@ -1002,7 +1002,7 @@ def build(dataset: list[dict] | None = None) -> None:
     print(f"wrote {config.OUTPUT_HTML} ({len(dataset)} jobs)")
 ```
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add jobfit/build_html.py
@@ -1015,7 +1015,7 @@ git commit -m "feat: render CV profile pills/select dynamically from the profile
 
 No new files — this confirms Tasks 2-8 work together before any server code exists.
 
-- [ ] **Step 1: Run a small-scope update through the CLI**
+- [x] **Step 1: Run a small-scope update through the CLI**
 
 ```bash
 uv run python -m jobfit.scripts.update_jobs --company Wiz
@@ -1023,7 +1023,7 @@ uv run python -m jobfit.scripts.update_jobs --company Wiz
 
 Expected: completes without error, logs `Wiz: N new, M closed` (or `0, 0` if nothing changed), and the summary block prints `companies checked: 1`.
 
-- [ ] **Step 2: Run the recompute stage directly and confirm the page rebuilds**
+- [x] **Step 2: Run the recompute stage directly and confirm the page rebuilds**
 
 ```bash
 uv run python -c "
@@ -1034,7 +1034,7 @@ update_jobs.recompute_stage()
 
 Expected: prints `wrote .../jobfit.html (N jobs)`.
 
-- [ ] **Step 3: Confirm the rebuilt page shows two CV pills, now driven by the registry**
+- [x] **Step 3: Confirm the rebuilt page shows two CV pills, now driven by the registry**
 
 ```bash
 grep -o '"id": "[a-z_]*"' jobfit.html | sort -u
@@ -1042,7 +1042,7 @@ grep -o '"id": "[a-z_]*"' jobfit.html | sort -u
 
 Expected: `"id": "default"` and `"id": "infra"` (from the migrated registry in Task 4) — confirming `PROFILES` made it into the embedded JSON.
 
-- [ ] **Step 4: Re-run the same company immediately and confirm the TTL-skip fires**
+- [x] **Step 4: Re-run the same company immediately and confirm the TTL-skip fires**
 
 ```bash
 uv run python -m jobfit.scripts.update_jobs --company Wiz
@@ -1066,7 +1066,7 @@ Expected: the second run's summary shows `companies skipped (recently checked): 
 **Files:**
 - Modify: `pyproject.toml`
 
-- [ ] **Step 1: Add the new dependencies**
+- [x] **Step 1: Add the new dependencies**
 
 ```toml
 dependencies = [
@@ -1082,7 +1082,7 @@ dependencies = [
 ]
 ```
 
-- [ ] **Step 2: Install and verify**
+- [x] **Step 2: Install and verify**
 
 ```bash
 uv sync
@@ -1091,7 +1091,7 @@ uv run python -c "import fastapi, uvicorn, multipart; print('ok')"
 
 Expected: `ok`
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add pyproject.toml uv.lock
@@ -1111,7 +1111,7 @@ git commit -m "chore: add fastapi/uvicorn/python-multipart/pytest for the contro
 **Interfaces:**
 - Produces: `dashboard.get_dashboard_stats() -> dict`, FastAPI `app` object in `jobfit/server/app.py` with `GET /` and `GET /api/dashboard`.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `jobfit/server/tests/test_dashboard.py`:
 
@@ -1163,12 +1163,12 @@ def test_dashboard_stats_with_no_data_yet(tmp_path, monkeypatch):
     }
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_dashboard.py -v`
 Expected: FAIL — `ModuleNotFoundError: No module named 'jobfit.server'`
 
-- [ ] **Step 3: Implement `dashboard.py`**
+- [x] **Step 3: Implement `dashboard.py`**
 
 Create `jobfit/server/__init__.py` (empty file).
 
@@ -1219,12 +1219,12 @@ def get_dashboard_stats() -> dict:
     }
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_dashboard.py -v`
 Expected: PASS (2 passed)
 
-- [ ] **Step 5: Create the FastAPI app skeleton**
+- [x] **Step 5: Create the FastAPI app skeleton**
 
 Create `jobfit/server/app.py`:
 
@@ -1266,7 +1266,7 @@ Create `jobfit/server/static/panel.html` with a minimal placeholder (replaced fo
 <html><body><h1>jobfit control panel</h1><p>under construction</p></body></html>
 ```
 
-- [ ] **Step 6: Verify the server starts and responds**
+- [x] **Step 6: Verify the server starts and responds**
 
 ```bash
 uv run uvicorn jobfit.server.app:app --port 8787 &
@@ -1277,7 +1277,7 @@ kill %1
 
 Expected: a JSON dashboard payload (numbers will reflect whatever's currently in `jobfit/data/jobs_v2.json` and `jobfit/companies/`).
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add jobfit/server/__init__.py jobfit/server/dashboard.py jobfit/server/app.py jobfit/server/static/panel.html jobfit/server/tests/test_dashboard.py
@@ -1294,7 +1294,7 @@ git commit -m "feat: add FastAPI app skeleton with a dashboard-stats endpoint"
 **Interfaces:**
 - Consumes: `cv.load_registry()`, `cv.register_profile()`, `cv.remove_profile()` (Task 2), `update_jobs.recompute_stage()` (Task 7).
 
-- [ ] **Step 1: Add the routes**
+- [x] **Step 1: Add the routes**
 
 In `jobfit/server/app.py`, add imports:
 
@@ -1335,7 +1335,7 @@ def api_delete_profile(profile_id: str) -> dict:
     return dashboard.get_dashboard_stats()
 ```
 
-- [ ] **Step 2: Verify manually**
+- [x] **Step 2: Verify manually**
 
 ```bash
 uv run uvicorn jobfit.server.app:app --port 8787 &
@@ -1347,7 +1347,7 @@ kill %1
 
 Expected: the first call lists whatever profiles are currently registered (e.g. `default`, `infra` from Task 4's migration); the delete call returns dashboard stats without error (no-op delete, per `cv.remove_profile`'s tested behavior).
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add jobfit/server/app.py
@@ -1361,7 +1361,7 @@ git commit -m "feat: add /api/profiles list/add/delete routes"
 **Files:**
 - Modify: `jobfit/server/app.py`
 
-- [ ] **Step 1: Add the route**
+- [x] **Step 1: Add the route**
 
 ```python
 @app.post("/api/connections")
@@ -1374,7 +1374,7 @@ async def api_upload_connections(file: UploadFile = File(...)) -> dict:
     return dashboard.get_dashboard_stats()
 ```
 
-- [ ] **Step 2: Verify manually**
+- [x] **Step 2: Verify manually**
 
 ```bash
 uv run uvicorn jobfit.server.app:app --port 8787 &
@@ -1385,7 +1385,7 @@ kill %1
 
 Expected: JSON dashboard stats with a non-zero `connections` count (assuming Task 4's migration copied a real connections export).
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add jobfit/server/app.py
@@ -1404,7 +1404,7 @@ git commit -m "feat: add /api/connections upload route"
 **Interfaces:**
 - Produces: `update_jobs.merge_referral_jobs(profiles: dict, path: Path | None = None) -> dict[str, int]` (was: `merge_referral_jobs(profiles)`, hardcoded to `config.REFERRAL_JOBS_PATH`).
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `jobfit/server/tests/test_referral_merge.py`:
 
@@ -1478,12 +1478,12 @@ def test_merge_referral_jobs_returns_empty_stats_when_the_file_is_missing(tmp_pa
     }
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_referral_merge.py -v`
 Expected: FAIL — `TypeError: merge_referral_jobs() got an unexpected keyword argument 'path'`
 
-- [ ] **Step 3: Add the `path` parameter**
+- [x] **Step 3: Add the `path` parameter**
 
 In `jobfit/scripts/update_jobs.py`, replace the `merge_referral_jobs` signature and its body's two references to `config.REFERRAL_JOBS_PATH`:
 
@@ -1513,12 +1513,12 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
 
 (Everything below that `for` line stays exactly as it already is — only the function signature, the docstring, and the `path = path or config.REFERRAL_JOBS_PATH` / `load_referral_companies(path)` lines change.)
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_referral_merge.py -v`
 Expected: PASS (3 passed)
 
-- [ ] **Step 5: Add the `/api/referrals` route**
+- [x] **Step 5: Add the `/api/referrals` route**
 
 In `jobfit/server/app.py`, add:
 
@@ -1550,7 +1550,7 @@ async def api_upload_referral(file: UploadFile = File(...)) -> dict:
     return {**stats, **dashboard.get_dashboard_stats()}
 ```
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add jobfit/scripts/update_jobs.py jobfit/server/app.py jobfit/server/tests/test_referral_merge.py
@@ -1564,7 +1564,7 @@ git commit -m "feat: merge_referral_jobs takes an explicit path; add /api/referr
 **Files:**
 - Modify: `jobfit/server/static/panel.html` (replaces the Task 11 placeholder)
 
-- [ ] **Step 1: Write the panel page**
+- [x] **Step 1: Write the panel page**
 
 Replace `jobfit/server/static/panel.html` entirely:
 
@@ -1730,7 +1730,7 @@ refreshProfiles();
 </html>
 ```
 
-- [ ] **Step 2: Verify manually in a browser**
+- [x] **Step 2: Verify manually in a browser**
 
 ```bash
 uv run uvicorn jobfit.server.app:app --port 8787
@@ -1738,7 +1738,7 @@ uv run uvicorn jobfit.server.app:app --port 8787
 
 Open `http://127.0.0.1:8787/` — confirm the Dashboard tab shows real numbers, the CV Profiles tab lists the migrated `default`/`infra` profiles and can add/remove one, Connections and Referrals tabs accept an upload and show a result message. Stop the server (Ctrl+C) when done.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add jobfit/server/static/panel.html
@@ -1758,7 +1758,7 @@ git commit -m "feat: build the control panel UI for dashboard, CV profiles, conn
 **Interfaces:**
 - Produces: `logging_stream.QueueLogHandler(line_queue)`, `logging_stream.attach(line_queue, logger_names) -> list[tuple[Logger, QueueLogHandler]]`, `logging_stream.detach(attached) -> None`.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `jobfit/server/tests/test_logging_stream.py`:
 
@@ -1785,12 +1785,12 @@ def test_attach_forwards_log_lines_to_the_queue_and_detach_stops_it():
     assert line_queue.empty()
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_logging_stream.py -v`
 Expected: FAIL — `ModuleNotFoundError: No module named 'jobfit.server.logging_stream'`
 
-- [ ] **Step 3: Implement `logging_stream.py`**
+- [x] **Step 3: Implement `logging_stream.py`**
 
 ```python
 """In-memory log fan-out: attach a queue-backed handler to the jobfit loggers
@@ -1827,12 +1827,12 @@ def detach(attached: list[tuple[logging.Logger, QueueLogHandler]]) -> None:
         logger.removeHandler(handler)
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_logging_stream.py -v`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add jobfit/server/logging_stream.py jobfit/server/tests/test_logging_stream.py
@@ -1851,7 +1851,7 @@ git commit -m "feat: add queue-backed logging handler for streaming a run's log 
 - Consumes: `logging_stream.attach/detach` (Task 16), `update_jobs.scrape_stage`/`recompute_stage` (Task 7), `cv.load_profiles()` (Task 3), `config.RUN_HISTORY_PATH` (Task 5).
 - Produces: `runner.start_run(force: bool) -> str`, `runner.status() -> dict`, `runner.log_queue() -> queue.Queue | None`, `runner.get_history() -> list[dict]`, `runner.mark_orphaned_runs_crashed() -> None`, `runner.is_running() -> bool`.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Create `jobfit/server/tests/test_runner.py`:
 
@@ -1923,12 +1923,12 @@ def test_mark_orphaned_runs_crashed_flags_unfinished_entries(tmp_path, monkeypat
     assert history[1]["crashed"] is False
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_runner.py -v`
 Expected: FAIL — `ModuleNotFoundError: No module named 'jobfit.server.runner'`
 
-- [ ] **Step 3: Implement `runner.py`**
+- [x] **Step 3: Implement `runner.py`**
 
 ```python
 """Background execution of the on-demand scrape run, with live-log fan-out and history."""
@@ -2053,12 +2053,12 @@ def _finish_run(run_id: str, started: float, stats) -> None:
 
 Note `update_jobs.cv.load_profiles()` relies on `update_jobs.py` already importing `cv` at module level (it does — see its existing `from jobfit import ats_fetchers, config, connections, cv, scoring, techmap_source` import).
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `uv run python -m pytest jobfit/server/tests/test_runner.py -v`
 Expected: PASS (3 passed)
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add jobfit/server/runner.py jobfit/server/tests/test_runner.py
@@ -2072,7 +2072,7 @@ git commit -m "feat: add background run orchestration with history and crash det
 **Files:**
 - Modify: `jobfit/server/app.py`
 
-- [ ] **Step 1: Add the routes**
+- [x] **Step 1: Add the routes**
 
 ```python
 from fastapi.responses import StreamingResponse
@@ -2124,7 +2124,7 @@ def api_run_stream() -> StreamingResponse:
     return StreamingResponse(_stream(), media_type="text/event-stream")
 ```
 
-- [ ] **Step 2: Verify manually**
+- [x] **Step 2: Verify manually**
 
 ```bash
 uv run uvicorn jobfit.server.app:app --port 8787 &
@@ -2138,7 +2138,7 @@ kill %1
 
 Expected: first call shows `{"running": false, ...}`; the `POST /api/run` starts a run and returns a `run_id`; the SSE curl streams log lines for a few seconds; the second `POST /api/run` (while the first is likely still running against ~780 companies) returns HTTP 409.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add jobfit/server/app.py
@@ -2152,7 +2152,7 @@ git commit -m "feat: wire /api/run, /api/run/status, /api/run/stream, /api/run/h
 **Files:**
 - Modify: `jobfit/server/static/panel.html`
 
-- [ ] **Step 1: Add the tab button**
+- [x] **Step 1: Add the tab button**
 
 In the `.tabs` block, add:
 
@@ -2160,7 +2160,7 @@ In the `.tabs` block, add:
     <button class="tab-btn" data-tab="run">Run &amp; Logs</button>
 ```
 
-- [ ] **Step 2: Add the tab panel**
+- [x] **Step 2: Add the tab panel**
 
 Before the closing `</body>`'s `<script>` tag's content ends, add this new `<section>` alongside the existing ones (e.g. after `#tab-referrals`):
 
@@ -2176,7 +2176,7 @@ Before the closing `</body>`'s `<script>` tag's content ends, add this new `<sec
   </section>
 ```
 
-- [ ] **Step 3: Add the run/log/history JS**
+- [x] **Step 3: Add the run/log/history JS**
 
 Add before the final `refreshDashboard(); refreshProfiles();` lines:
 
@@ -2232,7 +2232,7 @@ refreshRunStatus();
 refreshRunHistory();
 ```
 
-- [ ] **Step 4: Verify manually in a browser**
+- [x] **Step 4: Verify manually in a browser**
 
 ```bash
 uv run uvicorn jobfit.server.app:app --port 8787
@@ -2240,7 +2240,7 @@ uv run uvicorn jobfit.server.app:app --port 8787
 
 Open `http://127.0.0.1:8787/`, go to "Run & Logs", click "Run update" with a small enough scope to watch end-to-end (see Task 20 for a way to point it at a tiny company set), confirm the log streams live and history/dashboard update when it finishes. Stop the server when done.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add jobfit/server/static/panel.html
@@ -2251,7 +2251,7 @@ git commit -m "feat: add Run & Logs tab with live SSE log and run history"
 
 ### Task 20: End-to-end manual verification of Phase 3
 
-- [ ] **Step 1: Point a throwaway `companies_career_pages.json` at 2-3 companies for a fast test run**
+- [x] **Step 1: Point a throwaway `companies_career_pages.json` at 2-3 companies for a fast test run**
 
 ```bash
 cp jobfit/companies_career_pages.json /tmp/companies_career_pages.full.json.bak
@@ -2264,7 +2264,7 @@ config.ROOT.joinpath('companies_career_pages.json').write_text(json.dumps(small)
 "
 ```
 
-- [ ] **Step 2: Start the server and trigger a run from the browser**
+- [x] **Step 2: Start the server and trigger a run from the browser**
 
 ```bash
 uv run uvicorn jobfit.server.app:app --port 8787
@@ -2272,7 +2272,7 @@ uv run uvicorn jobfit.server.app:app --port 8787
 
 In the browser: Run & Logs tab → "Run update" → confirm log lines stream for those 2-3 companies, the run finishes, history shows the new entry, and the Dashboard tab's numbers update.
 
-- [ ] **Step 3: Confirm `jobfit.html` was rebuilt**
+- [x] **Step 3: Confirm `jobfit.html` was rebuilt**
 
 ```bash
 ls -la jobfit.html
@@ -2280,14 +2280,14 @@ ls -la jobfit.html
 
 Expected: modification time matches when the run just finished.
 
-- [ ] **Step 4: Restore the full company list**
+- [x] **Step 4: Restore the full company list**
 
 ```bash
 cp /tmp/companies_career_pages.full.json.bak jobfit/companies_career_pages.json
 rm /tmp/companies_career_pages.full.json.bak
 ```
 
-- [ ] **Step 5: Run the full test suite one more time**
+- [x] **Step 5: Run the full test suite one more time**
 
 Run: `uv run python -m pytest jobfit/server/tests/ -v`
 Expected: all tests passing.
