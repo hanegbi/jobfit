@@ -101,6 +101,38 @@ def _run_worker(run_id: str, force: bool) -> None:
             _state.update(running=False, run_id=None, started_at=None, queue=None)
 
 
+def start_recompute() -> None:
+    """Run recompute_stage() in the background, sharing the same lock as
+    start_run (both write the same companies/*.json files, so they must
+    never run concurrently with each other either). Used after a CV/
+    connections/referral upload so the HTTP response returns immediately
+    instead of blocking on a full rescore - recompute_stage() over the
+    whole dataset can take anywhere from tens of seconds to a few minutes
+    depending on machine load, which is too slow to hold an upload open for.
+
+    If a run is already active (a scrape or another recompute), this
+    raises rather than queuing a second one - whatever's already running
+    will itself call recompute_stage() with the latest on-disk state, so
+    the just-uploaded data isn't lost, just picked up slightly later.
+    """
+    with _lock:
+        if _state["running"]:
+            raise RuntimeError(f"a run is already active ({_state['run_id']})")
+        _state.update(
+            running=True, run_id="recompute",
+            started_at=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), queue=None,
+        )
+
+    def _worker():
+        try:
+            update_jobs.recompute_stage()
+        finally:
+            with _lock:
+                _state.update(running=False, run_id=None, started_at=None, queue=None)
+
+    threading.Thread(target=_worker, daemon=True).start()
+
+
 def _finish_run(run_id: str, started: float, stats) -> None:
     history = _load_history()
     for entry in history:

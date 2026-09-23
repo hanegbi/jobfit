@@ -1,4 +1,4 @@
-"""Extract CV text and a skills-based profile from a .docx resume."""
+"""Extract CV text and a skills-based profile from a .docx or .pdf resume."""
 
 import json
 import re
@@ -6,12 +6,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import docx
+import pypdf
 
 from jobfit import config
 
 
-def extract_text(path) -> str:
-    """Return all paragraph and table-cell text from a .docx file."""
+def _extract_text_docx(path: Path) -> str:
     document = docx.Document(str(path))
     parts = [p.text for p in document.paragraphs if p.text.strip()]
     for table in document.tables:
@@ -20,6 +20,20 @@ def extract_text(path) -> str:
                 if cell.text.strip():
                     parts.append(cell.text)
     return "\n".join(parts)
+
+
+def _extract_text_pdf(path: Path) -> str:
+    reader = pypdf.PdfReader(str(path))
+    parts = [page.extract_text() or "" for page in reader.pages]
+    return "\n".join(p for p in parts if p.strip())
+
+
+def extract_text(path) -> str:
+    """Return the resume's text: .docx (paragraphs + table cells) or .pdf (page text)."""
+    path = Path(path)
+    if path.suffix.lower() == ".pdf":
+        return _extract_text_pdf(path)
+    return _extract_text_docx(path)
 
 
 def _word_in(term: str, text: str) -> bool:
