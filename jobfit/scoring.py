@@ -258,7 +258,15 @@ def score_job(job: dict, must_have_keywords: list[str], context: dict | None = N
 
 
 def score_job_both(job: dict, profiles: dict[str, dict]) -> dict:
-    """Return score/coverage fields for every profile plus a best-of pick."""
+    """Return score/coverage fields for every profile plus a best-of pick.
+
+    No registered profiles (e.g. a referral job uploaded before any CV
+    exists yet) is a real, reachable state, not an error - return a neutral
+    result rather than crash; recompute_stage() fills in real scores once a
+    profile exists.
+    """
+    if not profiles:
+        return {"best_cv": None, "best_score": 0, "best_confidence": None}
     context = _job_context(job)
     result = {}
     for name, profile in profiles.items():

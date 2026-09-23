@@ -1,6 +1,7 @@
 """FastAPI app for the jobfit control panel — localhost only, no auth."""
 
 import json
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -14,20 +15,18 @@ from jobfit.server import dashboard, runner, singleton_lock
 STATIC_DIR = Path(__file__).parent / "static"
 LOCK_PATH = config.ROOT / "data" / ".server.lock"
 
-app = FastAPI(title="jobfit control panel")
 
-
-@app.on_event("startup")
-def _on_startup() -> None:
+@asynccontextmanager
+async def _lifespan(app: FastAPI):
     # Two server processes writing companies/*.json and profiles.json at once
     # silently corrupt/lose data - see singleton_lock's own docstring.
     singleton_lock.acquire(LOCK_PATH)
     runner.mark_orphaned_runs_crashed()
-
-
-@app.on_event("shutdown")
-def _on_shutdown() -> None:
+    yield
     singleton_lock.release(LOCK_PATH)
+
+
+app = FastAPI(title="jobfit control panel", lifespan=_lifespan)
 
 
 @app.get("/")

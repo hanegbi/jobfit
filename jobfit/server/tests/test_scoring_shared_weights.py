@@ -41,3 +41,14 @@ def test_score_job_both_still_differentiates_profiles_by_their_own_skills():
     assert result["confidence_matches"] == "full"
     assert result["confidence_no_match"] == "full"
     assert result["best_cv"] == "matches"
+
+
+def test_score_job_both_handles_no_registered_profiles_without_crashing():
+    """Real bug this locks in: uploading a referral job before any CV profile
+    is registered called score_job_both(job, {}) and crashed with
+    ValueError: max() iterable argument is empty (max() over an empty dict)."""
+    job = {"title": "Backend Engineer", "description": "python", "department": None, "employment_type": None}
+
+    result = scoring.score_job_both(job, {})
+
+    assert result == {"best_cv": None, "best_score": 0, "best_confidence": None}
