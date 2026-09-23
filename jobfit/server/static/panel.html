@@ -27,6 +27,7 @@
     <button class="tab-btn" data-tab="profiles">CV Profiles</button>
     <button class="tab-btn" data-tab="connections">Connections</button>
     <button class="tab-btn" data-tab="referrals">Referrals</button>
+    <button class="tab-btn" data-tab="run">Run &amp; Logs</button>
   </div>
 
   <section id="tab-dashboard" class="panel">
@@ -58,6 +59,16 @@
       <button type="submit">Upload referral export</button>
     </form>
     <div class="msg" id="referralMsg"></div>
+  </section>
+
+  <section id="tab-run" class="panel" hidden>
+    <button id="runBtn">Run update</button>
+    <label><input type="checkbox" id="runForce"> force (ignore recently-checked skip)</label>
+    <div id="runStatus" class="msg"></div>
+    <h3>Live log</h3>
+    <pre id="runLog" style="background:#12161b;border:1px solid #232a32;border-radius:8px;padding:10px;height:260px;overflow-y:auto;font-size:12px;"></pre>
+    <h3>History</h3>
+    <div id="runHistory"></div>
   </section>
 
 <script>
@@ -151,6 +162,56 @@ document.getElementById("referralForm").addEventListener("submit", async (e) => 
     msg.classList.add("error");
   }
 });
+
+async function refreshRunStatus() {
+  const s = await (await fetch("/api/run/status")).json();
+  document.getElementById("runStatus").textContent = s.running ? `Running (started ${s.started_at})` : "Idle";
+  document.getElementById("runBtn").disabled = s.running;
+  return s.running;
+}
+
+async function refreshRunHistory() {
+  const history = await (await fetch("/api/run/history")).json();
+  document.getElementById("runHistory").innerHTML = history.slice().reverse().map(r => `
+    <div class="list-row">
+      <span>${r.started_at} ${r.crashed ? "(crashed)" : ""}</span>
+      <span>${r.new_jobs ?? 0} new, ${r.closed_jobs ?? 0} closed, ${(r.failures || []).length} failed</span>
+    </div>`).join("");
+}
+
+let runEventSource = null;
+function streamRunLog() {
+  if (runEventSource) runEventSource.close();
+  const logEl = document.getElementById("runLog");
+  runEventSource = new EventSource("/api/run/stream");
+  runEventSource.onmessage = (e) => {
+    logEl.textContent += e.data + "\n";
+    logEl.scrollTop = logEl.scrollHeight;
+  };
+  runEventSource.addEventListener("done", async () => {
+    runEventSource.close();
+    await refreshRunStatus();
+    await refreshRunHistory();
+    await refreshDashboard();
+  });
+}
+
+document.getElementById("runBtn").addEventListener("click", async () => {
+  const force = document.getElementById("runForce").checked;
+  document.getElementById("runLog").textContent = "";
+  const res = await fetch("/api/run", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ force }),
+  });
+  if (res.status === 409) {
+    document.getElementById("runStatus").textContent = "A run is already active.";
+    return;
+  }
+  await refreshRunStatus();
+  streamRunLog();
+});
+
+refreshRunStatus();
+refreshRunHistory();
 
 refreshDashboard();
 refreshProfiles();
