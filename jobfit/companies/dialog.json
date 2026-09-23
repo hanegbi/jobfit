@@ -27,6 +27,17 @@
       "requirements_default": [
         "deep learning",
         "computer vision"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "computer vision",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "deep learning",
+        "computer vision"
       ]
     },
     {
@@ -49,7 +60,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "91a55d44db8be69145d5",
@@ -71,7 +89,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "91aaa6252dbe26835a0e",
@@ -98,6 +123,23 @@
       "coverage_default": 60,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "django",
+        "flask",
+        "fastapi",
+        "rest"
+      ],
+      "score_infra": 69,
+      "matched_infra": [
+        "python",
+        "flask",
+        "fastapi",
+        "infrastructure engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "django",
         "flask",

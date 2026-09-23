@@ -25,6 +25,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "python"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -49,6 +58,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "machine learning",
+        "data science"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "machine learning",
         "data science"
       ]
@@ -79,6 +99,19 @@
         "deep learning",
         "pytorch",
         "tensorflow"
+      ],
+      "score_infra": 28,
+      "matched_infra": [
+        "python",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "deep learning",
+        "pytorch",
+        "tensorflow"
       ]
     },
     {
@@ -105,6 +138,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 56,
+      "matched_infra": [
+        "python",
+        "ai engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -129,6 +173,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "sql"
       ]
     },
@@ -156,6 +210,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:3y(fit)",
+        "-manual testing"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -179,7 +244,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 60,
+      "matched_infra": [
+        "software engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "33909aed7bff7317e14b",
@@ -203,6 +276,19 @@
       "coverage_default": 25,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "golang",
+        "aws",
+        "gcp"
+      ],
+      "score_infra": 28,
+      "matched_infra": [
+        "aws",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "golang",
         "aws",
@@ -244,6 +330,28 @@
         "node",
         "node.js",
         "llm"
+      ],
+      "score_infra": 67,
+      "matched_infra": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "llm",
+        "backend engineer",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": 62,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "javascript",
+        "typescript",
+        "go",
+        "react",
+        "node",
+        "node.js",
+        "llm"
       ]
     },
     {
@@ -266,7 +374,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "29d1291ea28eebd6b37b",
@@ -289,7 +404,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f7809ed79f1539ad52a2",
@@ -320,6 +443,22 @@
         "aws",
         "gcp",
         "azure"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "python",
+        "aws",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "go",
+        "golang",
+        "aws",
+        "gcp",
+        "azure"
       ]
     },
     {
@@ -343,7 +482,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:7y(-50)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "87f70891b2db5989b67f",
@@ -365,7 +512,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "e2d41eb97a7752d8b47e",
@@ -397,6 +551,23 @@
         "vue",
         "node",
         "node.js"
+      ],
+      "score_infra": 66,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "full stack engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "react",
+        "angular",
+        "vue",
+        "node",
+        "node.js"
       ]
     },
     {
@@ -421,6 +592,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "machine learning"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "machine learning"
       ]

@@ -25,6 +25,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "sql"
       ]
     },
     {
@@ -46,6 +55,13 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "sql"
+      ],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "sql"
       ]
     },
@@ -75,6 +91,19 @@
         "python",
         "spark",
         "etl"
+      ],
+      "score_infra": 46,
+      "matched_infra": [
+        "python",
+        "data engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "spark",
+        "etl"
       ]
     },
     {
@@ -101,6 +130,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "qa"
       ]
     },
     {
@@ -124,7 +164,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

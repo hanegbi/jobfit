@@ -19,7 +19,12 @@
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f75dddf2d20b1124be89",
@@ -41,6 +46,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "kubernetes",
+        "llm",
+        "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kubernetes",
         "llm",
         "scalability"
@@ -73,6 +90,22 @@
         "linux",
         "llm",
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "linux",
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "kubernetes",
+        "aws",
+        "linux",
+        "llm",
+        "api"
       ]
     },
     {
@@ -93,7 +126,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2fd332717048d68b56b2",
@@ -113,7 +153,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "4ec3a8e8554d596104ea",
@@ -133,7 +180,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "pentera:3C.179",
@@ -158,6 +212,19 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "aws",
+        "gcp",
+        "azure"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "aws",
         "gcp",
         "azure"

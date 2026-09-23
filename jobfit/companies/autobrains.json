@@ -27,6 +27,19 @@
         "linux",
         "machine learning",
         "deep learning"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "docker",
+        "linux"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "docker",
+        "linux",
+        "machine learning",
+        "deep learning"
       ]
     },
     {
@@ -51,6 +64,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -72,6 +96,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "machine learning"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "machine learning"
       ]
     },
@@ -119,6 +152,37 @@
         "observability",
         "prometheus",
         "grafana"
+      ],
+      "score_infra": 56,
+      "matched_infra": [
+        "python",
+        "docker",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "bash",
+        "observability",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 47,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "go",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "jenkins",
+        "github actions",
+        "bash",
+        "observability",
+        "prometheus",
+        "grafana"
       ]
     },
     {
@@ -140,6 +204,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "spark"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "spark"
       ]
     }

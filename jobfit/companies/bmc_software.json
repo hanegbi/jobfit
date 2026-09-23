@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "c1ecdb70d8de4f9fec44",
@@ -43,6 +50,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -63,7 +79,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "6660afff7b98eacb4bdc",
@@ -83,7 +106,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "8ee655eb296e0a205072",
@@ -104,6 +134,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "observability"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "observability"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "observability"
       ]
     },
@@ -127,6 +166,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "devops",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "devops",
         "automation"
       ]

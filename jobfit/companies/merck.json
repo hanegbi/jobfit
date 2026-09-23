@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "1c0e1e0d3e2fd980c5e3",
@@ -45,6 +52,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "machine learning"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "machine learning"
       ]
     }

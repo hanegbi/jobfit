@@ -24,6 +24,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "azure"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "azure"
       ]
     },
     {
@@ -47,6 +57,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -67,7 +87,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "6d01626b3b4d5ef3165c",
@@ -88,7 +115,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "7c60cc0e90d29986a00c",
@@ -109,7 +144,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "8e3cbec4adbb7f5e549d",
@@ -134,6 +177,26 @@
       "coverage_default": 38,
       "confidence_default": "full",
       "requirements_default": [
+        "javascript",
+        "react",
+        "angular",
+        "vue",
+        "node",
+        "node.js",
+        "sql",
+        "api"
+      ],
+      "score_infra": 46,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "full stack engineer",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "javascript",
         "react",
         "angular",
@@ -168,6 +231,19 @@
       "requirements_default": [
         "linux",
         "qa"
+      ],
+      "score_infra": 38,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:7y(-50)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux",
+        "qa"
       ]
     },
     {
@@ -189,7 +265,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

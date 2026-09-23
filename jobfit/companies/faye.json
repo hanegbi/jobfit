@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2a7c8b3cef746cb205c8",
@@ -42,7 +49,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "ea4c13cf6deb35a12b07",
@@ -63,7 +78,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "996ee4565eef0ec17abb",
@@ -87,6 +110,22 @@
       "coverage_default": 60,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "node",
+        "node.js",
+        "ci/cd",
+        "scalability"
+      ],
+      "score_infra": 44,
+      "matched_infra": [
+        "node",
+        "node.js",
+        "ci/cd",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "node",
         "node.js",
@@ -130,6 +169,31 @@
         "git",
         "observability",
         "qa"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "node",
+        "node.js",
+        "postgresql",
+        "aws",
+        "ci/cd",
+        "observability",
+        "backend engineer",
+        "exp:4y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "typescript",
+        "node",
+        "node.js",
+        "postgresql",
+        "aws",
+        "ci/cd",
+        "git",
+        "observability",
+        "qa"
       ]
     },
     {
@@ -151,7 +215,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "6565b135705a4a15544e",
@@ -172,7 +244,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "de06af2da367d71f1766",
@@ -193,7 +273,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:1y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "58d3e17867d715af4e72",
@@ -213,7 +301,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "9fd93df0d9897188ba1e",
@@ -233,7 +328,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "e158430f91cab68e9b73",
@@ -256,6 +358,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "qa"
       ]
     },
@@ -280,6 +393,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go",
         "api"
       ]

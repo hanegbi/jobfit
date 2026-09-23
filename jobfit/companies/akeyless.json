@@ -24,6 +24,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "aws"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "aws"
       ]
     },
     {
@@ -46,6 +56,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "kubernetes",
+        "ci/cd",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kubernetes",
         "ci/cd",
         "api"
@@ -81,6 +103,25 @@
         "devops",
         "api",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "ci/cd",
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "devops",
+        "api",
+        "automation"
       ]
     },
     {
@@ -103,6 +144,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "kubernetes",
+        "aws",
+        "azure"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kubernetes",
         "aws",
         "azure"
@@ -130,6 +183,17 @@
       "requirements_default": [
         "kubernetes",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "kubernetes",
+        "automation"
       ]
     },
     {
@@ -149,6 +213,15 @@
       "coverage_default": 0,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "kubernetes",
+        "api"
+      ],
+      "score_infra": 5,
+      "matched_infra": [],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "kubernetes",
         "api"

@@ -24,7 +24,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "673523b4a986360b7384",
@@ -73,6 +81,42 @@
         "grafana",
         "distributed systems",
         "automation"
+      ],
+      "score_infra": 58,
+      "matched_infra": [
+        "python",
+        "mongodb",
+        "docker",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "bash",
+        "observability",
+        "automation",
+        "devops engineer"
+      ],
+      "coverage_infra": 56,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "mongodb",
+        "kafka",
+        "rabbitmq",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "gcp",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "bash",
+        "observability",
+        "prometheus",
+        "grafana",
+        "distributed systems",
+        "automation"
       ]
     },
     {
@@ -95,6 +139,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "distributed systems"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "distributed systems"
       ]
     },
@@ -141,6 +195,38 @@
         "observability",
         "distributed systems",
         "genai"
+      ],
+      "score_infra": 42,
+      "matched_infra": [
+        "python",
+        "postgresql",
+        "mongodb",
+        "redis",
+        "aws",
+        "llm",
+        "observability",
+        "genai",
+        "exp:6y"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "go",
+        "postgresql",
+        "mongodb",
+        "redis",
+        "kafka",
+        "graphql",
+        "grpc",
+        "microservices",
+        "aws",
+        "azure",
+        "llm",
+        "observability",
+        "distributed systems",
+        "genai"
       ]
     },
     {
@@ -163,6 +249,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "linux",
+        "distributed systems"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "linux",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "linux",
         "distributed systems"
       ]
@@ -201,6 +298,29 @@
         "gcp",
         "azure",
         "distributed systems"
+      ],
+      "score_infra": 35,
+      "matched_infra": [
+        "python",
+        "node",
+        "node.js",
+        "aws",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 36,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "typescript",
+        "go",
+        "node",
+        "node.js",
+        "microservices",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "distributed systems"
       ]
     },
     {
@@ -220,6 +340,13 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "distributed systems"
+      ],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "distributed systems"
       ]
     },
@@ -248,6 +375,33 @@
       "coverage_default": 46,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "java",
+        "javascript",
+        "go",
+        "node",
+        "node.js",
+        "mongodb",
+        "redis",
+        "kafka",
+        "microservices",
+        "aws",
+        "azure",
+        "distributed systems"
+      ],
+      "score_infra": 37,
+      "matched_infra": [
+        "python",
+        "node",
+        "node.js",
+        "mongodb",
+        "redis",
+        "aws",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": 46,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "java",
         "javascript",
@@ -291,6 +445,23 @@
         "aws",
         "linux",
         "distributed systems"
+      ],
+      "score_infra": 53,
+      "matched_infra": [
+        "aws",
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kafka",
+        "kubernetes",
+        "aws",
+        "linux",
+        "distributed systems"
       ]
     },
     {
@@ -316,6 +487,25 @@
       "coverage_default": 43,
       "confidence_default": "full",
       "requirements_default": [
+        "javascript",
+        "typescript",
+        "react",
+        "node",
+        "node.js",
+        "distributed systems",
+        "selenium"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 43,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "javascript",
         "typescript",
         "react",
@@ -364,6 +554,34 @@
         "aws",
         "azure",
         "distributed systems"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "node",
+        "node.js",
+        "mongodb",
+        "redis",
+        "aws",
+        "software engineer",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": 46,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "javascript",
+        "go",
+        "node",
+        "node.js",
+        "mongodb",
+        "redis",
+        "kafka",
+        "microservices",
+        "aws",
+        "azure",
+        "distributed systems"
       ]
     },
     {
@@ -389,6 +607,24 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "go",
+        "rust",
+        "linux",
+        "distributed systems",
+        "genai"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "linux",
+        "genai",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "go",
         "rust",

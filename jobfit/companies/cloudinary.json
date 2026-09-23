@@ -31,6 +31,23 @@
         "api",
         "automation",
         "genai"
+      ],
+      "score_infra": 11,
+      "matched_infra": [
+        "aws",
+        "llm",
+        "automation",
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 80,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "aws",
+        "llm",
+        "api",
+        "automation",
+        "genai"
       ]
     },
     {
@@ -52,6 +69,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "api",
+        "automation"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "automation"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "api",
         "automation"
       ]
@@ -77,6 +104,19 @@
       "coverage_default": 67,
       "confidence_default": "full",
       "requirements_default": [
+        "api",
+        "automation",
+        "genai"
+      ],
+      "score_infra": 2,
+      "matched_infra": [
+        "automation",
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "api",
         "automation",
         "genai"
@@ -108,6 +148,21 @@
         "api",
         "automation",
         "genai"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "genai",
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "api",
+        "automation",
+        "genai"
       ]
     },
     {
@@ -132,6 +187,17 @@
       "requirements_default": [
         "go",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go",
+        "automation"
       ]
     },
     {
@@ -153,6 +219,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     }

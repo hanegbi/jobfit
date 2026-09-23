@@ -12,8 +12,8 @@
       "first_seen": "2026-09-15T19:42:26Z",
       "last_seen": "2026-09-15T19:42:26Z",
       "status": "new",
-      "best_cv": "default",
-      "best_score": 52,
+      "best_cv": "infra",
+      "best_score": 56,
       "best_confidence": "full",
       "score_default": 52,
       "matched_default": [
@@ -28,6 +28,36 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "helm",
+        "ci/cd",
+        "git",
+        "linux",
+        "machine learning",
+        "pytorch",
+        "rag",
+        "inference",
+        "vllm",
+        "gpu",
+        "model evaluation"
+      ],
+      "score_infra": 56,
+      "matched_infra": [
+        "python",
+        "docker",
+        "ci/cd",
+        "linux",
+        "inference",
+        "model evaluation",
+        "ai engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "microservices",
         "docker",
@@ -69,6 +99,19 @@
       "requirements_default": [
         "python",
         "linux"
+      ],
+      "score_infra": 46,
+      "matched_infra": [
+        "python",
+        "linux",
+        "backend developer",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "linux"
       ]
     },
     {
@@ -92,6 +135,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "go"
+      ],
+      "score_infra": 54,
+      "matched_infra": [
+        "python",
+        "software developer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "go"
       ]
@@ -120,6 +175,19 @@
         "java",
         "rust",
         "linux"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "python",
+        "linux"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "rust",
+        "linux"
       ]
     },
     {
@@ -141,7 +209,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2fa966a15814e2899b16",
@@ -164,6 +240,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "automation"
       ]
@@ -193,6 +281,20 @@
         "python",
         "sql",
         "automation"
+      ],
+      "score_infra": 7,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "automation"
       ]
     },
     {
@@ -216,6 +318,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "java"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "java"
       ]
@@ -251,6 +365,26 @@
         "elasticsearch",
         "llm",
         "observability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "elasticsearch",
+        "llm",
+        "observability",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 57,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "go",
+        "rust",
+        "elasticsearch",
+        "llm",
+        "observability"
       ]
     },
     {
@@ -278,6 +412,20 @@
         "python",
         "linux",
         "automation"
+      ],
+      "score_infra": 25,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "automation"
       ]
     },
     {
@@ -301,6 +449,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -322,6 +480,17 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "javascript",
+        "typescript"
+      ],
+      "score_infra": 28,
+      "matched_infra": [
+        "python"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "javascript",
         "typescript"

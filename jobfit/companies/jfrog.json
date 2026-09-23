@@ -26,6 +26,18 @@
         "devops",
         "scalability",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "devops",
+        "scalability",
+        "automation"
       ]
     },
     {
@@ -52,6 +64,19 @@
         "docker",
         "computer vision",
         "devops"
+      ],
+      "score_infra": 2,
+      "matched_infra": [
+        "docker",
+        "computer vision",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "docker",
+        "computer vision",
+        "devops"
       ]
     },
     {
@@ -74,6 +99,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -95,7 +129,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "a6d3506af1040c340ea5",
@@ -115,7 +157,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "9fc4c9948c71cc714438",
@@ -136,7 +185,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "4bd7107ca45f71c1f79b",
@@ -159,6 +216,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "rest"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "rest"
       ]
     },
@@ -184,6 +250,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "machine learning",
+        "data science"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "machine learning",
         "data science"
       ]

@@ -24,6 +24,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -44,7 +54,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "pango:CE.071",
@@ -66,7 +83,16 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-account executive",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "pango:B4.073",
@@ -92,6 +118,27 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "kafka",
+        "rabbitmq",
+        "microservices",
+        "aws",
+        "ci/cd",
+        "distributed systems",
+        "automation"
+      ],
+      "score_infra": 62,
+      "matched_infra": [
+        "python",
+        "aws",
+        "ci/cd",
+        "automation",
+        "backend developer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "kafka",
         "rabbitmq",
@@ -135,6 +182,28 @@
         "devops",
         "observability",
         "automation"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "postgresql",
+        "redis",
+        "aws",
+        "ci/cd",
+        "observability",
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "postgresql",
+        "redis",
+        "kubernetes",
+        "aws",
+        "ci/cd",
+        "devops",
+        "observability",
+        "automation"
       ]
     },
     {
@@ -158,6 +227,21 @@
       "coverage_default": 40,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "sql",
+        "microservices",
+        "aws",
+        "devops"
+      ],
+      "score_infra": 38,
+      "matched_infra": [
+        "python",
+        "aws",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "sql",
         "microservices",
@@ -192,6 +276,30 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "ci/cd",
+        "git",
+        "bash",
+        "devops",
+        "sre"
+      ],
+      "score_infra": 62,
+      "matched_infra": [
+        "python",
+        "docker",
+        "aws",
+        "ci/cd",
+        "bash",
+        "platform engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "docker",
         "kubernetes",

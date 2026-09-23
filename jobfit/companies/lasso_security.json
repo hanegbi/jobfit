@@ -46,6 +46,39 @@
         "inference",
         "api",
         "mlops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "fastapi",
+        "docker",
+        "aws",
+        "llm",
+        "inference",
+        "mlops",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 41,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "fastapi",
+        "sql",
+        "microservices",
+        "docker",
+        "aws",
+        "gcp",
+        "azure",
+        "machine learning",
+        "pytorch",
+        "scikit-learn",
+        "llm",
+        "data science",
+        "pandas",
+        "inference",
+        "api",
+        "mlops"
       ]
     },
     {
@@ -70,6 +103,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -81,8 +125,8 @@
       "first_seen": "2026-09-15T19:29:51Z",
       "last_seen": "2026-09-15T19:29:51Z",
       "status": "new",
-      "best_cv": "default",
-      "best_score": 55,
+      "best_cv": "infra",
+      "best_score": 59,
       "best_confidence": "full",
       "score_default": 55,
       "matched_default": [
@@ -99,6 +143,41 @@
       "coverage_default": 39,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "fastapi",
+        "sql",
+        "microservices",
+        "docker",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "machine learning",
+        "pytorch",
+        "scikit-learn",
+        "llm",
+        "data science",
+        "pandas",
+        "inference",
+        "api",
+        "mlops"
+      ],
+      "score_infra": 59,
+      "matched_infra": [
+        "python",
+        "fastapi",
+        "docker",
+        "aws",
+        "ci/cd",
+        "llm",
+        "inference",
+        "mlops",
+        "ml engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 44,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "fastapi",
         "sql",
@@ -144,6 +223,33 @@
       "coverage_default": 38,
       "confidence_default": "full",
       "requirements_default": [
+        "typescript",
+        "node",
+        "node.js",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "gcp",
+        "azure",
+        "linux",
+        "devops",
+        "observability",
+        "distributed systems",
+        "scalability"
+      ],
+      "score_infra": 22,
+      "matched_infra": [
+        "node",
+        "node.js",
+        "aws",
+        "linux",
+        "observability",
+        "exp:5y(fit)",
+        "-customer success"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "typescript",
         "node",
         "node.js",

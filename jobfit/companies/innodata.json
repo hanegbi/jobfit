@@ -12,8 +12,8 @@
       "first_seen": "2026-09-15T19:23:05Z",
       "last_seen": "2026-09-15T19:23:05Z",
       "status": "new",
-      "best_cv": "default",
-      "best_score": 0,
+      "best_cv": "infra",
+      "best_score": 11,
       "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
@@ -25,6 +25,23 @@
       "coverage_default": 60,
       "confidence_default": "full",
       "requirements_default": [
+        "llm",
+        "scalability",
+        "automation",
+        "genai",
+        "model evaluation"
+      ],
+      "score_infra": 11,
+      "matched_infra": [
+        "llm",
+        "automation",
+        "genai",
+        "model evaluation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 80,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "llm",
         "scalability",
         "automation",
@@ -52,6 +69,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "rest"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "rest"
       ]
     },
     {
@@ -72,7 +98,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "81635111570132e5237e",
@@ -94,6 +127,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "genai"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "genai"
       ]
     }

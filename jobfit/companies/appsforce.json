@@ -30,6 +30,20 @@
         "node",
         "node.js",
         "api"
+      ],
+      "score_infra": 7,
+      "matched_infra": [
+        "node",
+        "node.js",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "node",
+        "node.js",
+        "api"
       ]
     },
     {
@@ -54,6 +68,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "sql"
       ]
     }

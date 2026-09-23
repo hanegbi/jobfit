@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f1c4642419abf83265d9",
@@ -47,6 +54,26 @@
       "coverage_default": 71,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "go",
+        "ci/cd",
+        "linux",
+        "bash",
+        "devops",
+        "automation"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "linux",
+        "bash",
+        "automation",
+        "-customer success"
+      ],
+      "coverage_infra": 71,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "go",
         "ci/cd",
@@ -82,6 +109,21 @@
         "ci/cd",
         "devops",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "ci/cd",
+        "devops",
+        "automation"
       ]
     },
     {
@@ -107,6 +149,18 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:7y(-50)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -128,7 +182,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "dd6012b73efb81f589ac",
@@ -150,7 +212,16 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "77a6ae6e3b03927d2860",
@@ -170,7 +241,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "a266c89cc34384eaa5f4",
@@ -200,6 +278,23 @@
         "ci/cd",
         "devops",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "senior(-30)",
+        "-account executive",
+        "-customer success"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "ci/cd",
+        "devops",
+        "automation"
       ]
     },
     {
@@ -224,6 +319,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:10y(-100)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -250,6 +357,18 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -275,6 +394,22 @@
       "coverage_default": 75,
       "confidence_default": "full",
       "requirements_default": [
+        "node",
+        "node.js",
+        "automation",
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "node",
+        "node.js",
+        "automation",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "node",
         "node.js",
         "automation",
@@ -308,6 +443,36 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "react",
+        "angular",
+        "node",
+        "node.js",
+        "mysql",
+        "redis",
+        "elasticsearch",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "aws",
+        "deep learning",
+        "scalability",
+        "api"
+      ],
+      "score_infra": 62,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "redis",
+        "elasticsearch",
+        "docker",
+        "aws",
+        "backend developer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "react",
         "angular",
         "node",

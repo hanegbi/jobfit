@@ -25,6 +25,17 @@
       "requirements_default": [
         "computer vision",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "computer vision",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "computer vision",
+        "gpu"
       ]
     },
     {
@@ -48,6 +59,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "computer vision",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "computer vision",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "computer vision",
         "gpu"
       ]
@@ -79,6 +102,22 @@
         "aws",
         "computer vision",
         "gpu"
+      ],
+      "score_infra": 12,
+      "matched_infra": [
+        "python",
+        "aws",
+        "computer vision",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "aws",
+        "computer vision",
+        "gpu"
       ]
     },
     {
@@ -102,6 +141,19 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "deep learning",
+        "computer vision",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "computer vision",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "deep learning",
         "computer vision",
         "gpu"
@@ -129,6 +181,24 @@
       "coverage_default": 29,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "machine learning",
+        "deep learning",
+        "pytorch",
+        "tensorflow",
+        "computer vision",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "computer vision",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "machine learning",
         "deep learning",
@@ -167,6 +237,24 @@
         "tensorflow",
         "computer vision",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "computer vision",
+        "exp:1y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "machine learning",
+        "deep learning",
+        "pytorch",
+        "tensorflow",
+        "computer vision",
+        "gpu"
       ]
     },
     {
@@ -189,6 +277,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "computer vision",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "computer vision",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "computer vision",
         "gpu"
       ]
@@ -216,6 +315,18 @@
       "requirements_default": [
         "computer vision",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "computer vision",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "computer vision",
+        "gpu"
       ]
     },
     {
@@ -238,6 +349,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "computer vision",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "computer vision",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "computer vision",
         "gpu"
       ]
@@ -263,6 +385,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "computer vision",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "computer vision",
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "computer vision",
         "gpu"
       ]
@@ -291,6 +425,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 55,
+      "matched_infra": [
+        "automation",
+        "ai infrastructure",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -313,7 +458,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

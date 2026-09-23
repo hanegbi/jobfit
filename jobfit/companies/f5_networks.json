@@ -30,6 +30,21 @@
         "genai",
         "gpu",
         "inference infrastructure"
+      ],
+      "score_infra": 51,
+      "matched_infra": [
+        "inference",
+        "genai",
+        "ai infrastructure"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "rag",
+        "inference",
+        "genai",
+        "gpu",
+        "inference infrastructure"
       ]
     },
     {
@@ -54,6 +69,23 @@
       "coverage_default": 67,
       "confidence_default": "full",
       "requirements_default": [
+        "kubernetes",
+        "aws",
+        "observability",
+        "api",
+        "automation",
+        "genai"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "aws",
+        "observability",
+        "automation",
+        "genai"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kubernetes",
         "aws",
         "observability",
@@ -85,6 +117,18 @@
         "kubernetes",
         "ci/cd",
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "kubernetes",
+        "ci/cd",
+        "api"
       ]
     },
     {
@@ -106,6 +150,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "microservices"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "microservices"
       ]
     },
@@ -130,6 +183,16 @@
       "requirements_default": [
         "kubernetes",
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "kubernetes",
+        "api"
       ]
     },
     {
@@ -152,6 +215,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "inference"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "inference",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "inference"
       ]
     }

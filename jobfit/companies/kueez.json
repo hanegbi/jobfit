@@ -48,6 +48,40 @@
         "airflow",
         "devops",
         "api"
+      ],
+      "score_infra": 41,
+      "matched_infra": [
+        "python",
+        "react",
+        "redis",
+        "docker",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 44,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "typescript",
+        "react",
+        "angular",
+        "mysql",
+        "redis",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "airflow",
+        "devops",
+        "api"
       ]
     },
     {
@@ -69,7 +103,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "kueez:743999740857932",
@@ -89,7 +131,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

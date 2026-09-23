@@ -27,6 +27,19 @@
         "llm",
         "spark",
         "cuda"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "llm",
+        "spark",
+        "cuda"
       ]
     },
     {
@@ -56,6 +69,22 @@
         "scalability",
         "inference",
         "gpu"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "node",
+        "llm",
+        "inference"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "node",
+        "deep learning",
+        "llm",
+        "scalability",
+        "inference",
+        "gpu"
       ]
     },
     {
@@ -75,6 +104,13 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "machine learning"
+      ],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "machine learning"
       ]
     },
@@ -99,6 +135,21 @@
       "coverage_default": 40,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "docker",
+        "helm",
+        "linux",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "docker",
+        "linux",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "docker",
         "helm",
@@ -131,6 +182,20 @@
         "computer vision",
         "scalability",
         "gpu"
+      ],
+      "score_infra": 17,
+      "matched_infra": [
+        "computer vision"
+      ],
+      "coverage_infra": 17,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "kubernetes",
+        "helm",
+        "nlp",
+        "computer vision",
+        "scalability",
+        "gpu"
       ]
     },
     {
@@ -153,6 +218,19 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "microservices",
+        "inference",
+        "automation",
+        "gpu"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "inference",
+        "automation"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "microservices",
         "inference",
         "automation",
@@ -182,6 +260,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -204,7 +292,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "63a6de4ed115405af3c6",
@@ -228,6 +323,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "python",
+        "software engineer"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -253,6 +358,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "machine learning",
+        "rag"
+      ],
+      "score_infra": 45,
+      "matched_infra": [
+        "ai engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "machine learning",
         "rag"
       ]
@@ -283,6 +399,19 @@
         "microservices",
         "docker",
         "kubernetes"
+      ],
+      "score_infra": 47,
+      "matched_infra": [
+        "docker",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "microservices",
+        "docker",
+        "kubernetes"
       ]
     },
     {
@@ -305,7 +434,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "d9b2c26488af9a6e12a7",
@@ -327,7 +463,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "6fba291d48634593c48f",
@@ -353,6 +496,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "exp:4y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -375,7 +529,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "0654a6adf931d9b13c27",
@@ -400,6 +561,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "sql"
       ]
     },
     {
@@ -423,7 +594,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "bf26ef36a899904abb0d",
@@ -452,6 +631,20 @@
         "llm",
         "gpu",
         "cuda"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "pytorch",
+        "llm",
+        "gpu",
+        "cuda"
       ]
     },
     {
@@ -474,7 +667,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "8a97aab00b1bd5e6d208",
@@ -497,6 +697,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "azure"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "azure"
       ]
     },
@@ -522,6 +731,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:8y(-75)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "qa"
       ]
     },
@@ -550,6 +769,18 @@
       "requirements_default": [
         "rust",
         "linux"
+      ],
+      "score_infra": 54,
+      "matched_infra": [
+        "linux",
+        "software developer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "rust",
+        "linux"
       ]
     },
     {
@@ -574,6 +805,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "kubernetes",
+        "distributed systems"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "kubernetes",
         "distributed systems"
       ]
@@ -601,6 +843,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "python",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -631,6 +884,20 @@
         "python",
         "automation",
         "qa"
+      ],
+      "score_infra": 42,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:5y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "automation",
+        "qa"
       ]
     },
     {
@@ -656,6 +923,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 35,
+      "matched_infra": [
+        "automation",
+        "site reliability engineer",
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -683,6 +961,17 @@
       "requirements_default": [
         "go",
         "rust"
+      ],
+      "score_infra": 49,
+      "matched_infra": [
+        "software engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go",
+        "rust"
       ]
     },
     {
@@ -705,7 +994,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "3b45e57ebb2fafafbdbf",
@@ -727,7 +1023,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "dc99d0e67c7e0730a4fb",
@@ -749,7 +1052,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "b65bfd62cb90491a9bc1",
@@ -774,6 +1084,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "automation",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -796,7 +1116,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "aaa4c84935cf96daf3b0",
@@ -819,7 +1146,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 60,
+      "matched_infra": [
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "b5fd3b26617201f56f0f",
@@ -842,7 +1177,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 60,
+      "matched_infra": [
+        "software engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "a419d4d8ea3694ccb986",
@@ -862,7 +1205,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "5eacebb4473c254aa72e",
@@ -883,6 +1233,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "linux",
+        "gpu"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "linux"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "linux",
         "gpu"
       ]
@@ -911,6 +1271,23 @@
       "coverage_default": 75,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "automation",
+        "qa"
+      ],
+      "score_infra": 68,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "software engineer",
+        "exp:3y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "automation",
@@ -944,6 +1321,22 @@
         "linux",
         "automation",
         "qa"
+      ],
+      "score_infra": 48,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "exp:4y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "automation",
+        "qa"
       ]
     },
     {
@@ -966,6 +1359,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "gpu"
       ]
     },
     {
@@ -986,7 +1388,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f2e68f455c85f7587e0a",
@@ -1006,7 +1415,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:1y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "d405d5ea91c5d47c0594",
@@ -1026,7 +1442,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "c70bd019af2f441d1b83",
@@ -1048,6 +1471,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -1071,6 +1504,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "gpu"
       ]
     },
     {
@@ -1093,6 +1535,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "gpu"
       ]
     },
     {
@@ -1113,7 +1564,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "21f67be309bb113075b5",
@@ -1136,6 +1594,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "automation",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -1156,7 +1624,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:1y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "6b8fa55da8afd1dc4a66",
@@ -1176,7 +1651,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "3be7ba9010467a118bbc",
@@ -1199,6 +1681,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "automation",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -1219,7 +1711,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "8cd81715ff6601f6acf9",
@@ -1242,6 +1741,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "linux"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "linux"
       ]
@@ -1270,6 +1781,26 @@
       "coverage_default": 71,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "docker",
+        "kubernetes",
+        "jenkins",
+        "git",
+        "linux",
+        "automation"
+      ],
+      "score_infra": 69,
+      "matched_infra": [
+        "python",
+        "docker",
+        "jenkins",
+        "linux",
+        "automation",
+        "devops engineer"
+      ],
+      "coverage_infra": 71,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "docker",
         "kubernetes",
@@ -1315,6 +1846,31 @@
         "linux",
         "bash",
         "automation"
+      ],
+      "score_infra": 78,
+      "matched_infra": [
+        "python",
+        "docker",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "bash",
+        "automation",
+        "devops engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 78,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "docker",
+        "kubernetes",
+        "ci/cd",
+        "jenkins",
+        "git",
+        "linux",
+        "bash",
+        "automation"
       ]
     },
     {
@@ -1347,6 +1903,25 @@
         "devops",
         "automation",
         "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "linux",
+        "automation",
+        "exp:6y",
+        "off-target title(-50)",
+        "senior(-30)",
+        "-qa"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "ci/cd",
+        "linux",
+        "devops",
+        "automation",
+        "qa"
       ]
     },
     {
@@ -1371,6 +1946,20 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "llm",
+        "scalability",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "exp:8y(-75)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "llm",
         "scalability",
         "gpu"
@@ -1413,6 +2002,32 @@
         "inference",
         "automation",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "bash",
+        "llm",
+        "inference",
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 42,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "go",
+        "rust",
+        "kubernetes",
+        "ansible",
+        "bash",
+        "llm",
+        "distributed systems",
+        "scalability",
+        "inference",
+        "automation",
+        "gpu"
       ]
     },
     {
@@ -1433,7 +2048,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "25dfe79db5f2759e2f2e",
@@ -1453,7 +2075,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "02b82b9ab94364fb5fff",
@@ -1476,6 +2105,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "linux",
+        "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "linux",
+        "automation",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "linux",
         "automation"
       ]
@@ -1501,6 +2142,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -1524,6 +2175,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -1544,7 +2205,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "0e18751106850dd6b170",
@@ -1572,6 +2240,21 @@
         "linux",
         "bash",
         "gpu"
+      ],
+      "score_infra": 62,
+      "matched_infra": [
+        "python",
+        "linux",
+        "bash",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "bash",
+        "gpu"
       ]
     },
     {
@@ -1594,6 +2277,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "linux"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -1614,7 +2306,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "67a9540320e5bf72a1a6",
@@ -1634,7 +2333,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "22437c89c40e82fa7d2d",
@@ -1658,6 +2364,22 @@
       "coverage_default": 80,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "jenkins",
+        "git",
+        "linux",
+        "automation"
+      ],
+      "score_infra": 61,
+      "matched_infra": [
+        "python",
+        "jenkins",
+        "linux",
+        "automation"
+      ],
+      "coverage_infra": 80,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "jenkins",
         "git",
@@ -1690,6 +2412,20 @@
         "python",
         "bash",
         "automation"
+      ],
+      "score_infra": 80,
+      "matched_infra": [
+        "python",
+        "bash",
+        "automation",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "bash",
+        "automation"
       ]
     },
     {
@@ -1712,6 +2448,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "deep learning",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "deep learning",
         "gpu"
       ]
@@ -1737,6 +2484,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "scalability"
       ]
     },
     {
@@ -1761,6 +2518,19 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "inference"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "inference",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "inference"
       ]
@@ -1796,6 +2566,26 @@
         "inference",
         "automation",
         "cuda"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "python",
+        "linux",
+        "bash",
+        "inference",
+        "automation",
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 83,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "bash",
+        "inference",
+        "automation",
+        "cuda"
       ]
     },
     {
@@ -1817,6 +2607,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "python"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -1840,6 +2639,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "gpu"
       ]
     },
     {
@@ -1860,7 +2668,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "244fa2c356455fb1ca5f",
@@ -1883,6 +2698,19 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "docker",
+        "deep learning",
+        "gpu"
+      ],
+      "score_infra": 53,
+      "matched_infra": [
+        "docker",
+        "software engineer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "docker",
         "deep learning",
         "gpu"
@@ -1910,6 +2738,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -1934,6 +2773,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -1955,6 +2805,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "automation"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -1979,6 +2838,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "linux",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -1999,7 +2868,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2c0e044ce6cbbd81cd21",
@@ -2038,6 +2914,32 @@
         "cypress",
         "playwright",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "docker",
+        "ci/cd",
+        "linux",
+        "playwright",
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 55,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "django",
+        "rest",
+        "docker",
+        "ci/cd",
+        "linux",
+        "devops",
+        "selenium",
+        "cypress",
+        "playwright",
+        "automation"
       ]
     },
     {
@@ -2059,7 +2961,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "4074afc5602646345503",
@@ -2080,7 +2990,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "871533fceafcba9a7d8b",
@@ -2104,6 +3022,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -2126,6 +3055,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     },
@@ -2167,6 +3106,33 @@
         "observability",
         "automation",
         "infrastructure automation"
+      ],
+      "score_infra": 5,
+      "matched_infra": [
+        "python",
+        "docker",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "observability",
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 64,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "docker",
+        "kubernetes",
+        "ansible",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "devops",
+        "observability",
+        "automation",
+        "infrastructure automation"
       ]
     },
     {
@@ -2188,7 +3154,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "e0a0f1f2c3c688af89cb",
@@ -2210,6 +3184,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     },
@@ -2238,6 +3222,20 @@
         "docker",
         "jenkins",
         "git"
+      ],
+      "score_infra": 7,
+      "matched_infra": [
+        "docker",
+        "jenkins",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "docker",
+        "jenkins",
+        "git"
       ]
     },
     {
@@ -2259,7 +3257,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "204ebaf26d28d4e6aa63",
@@ -2283,6 +3289,21 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "docker",
+        "jenkins",
+        "git",
+        "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "docker",
+        "jenkins",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "docker",
         "jenkins",
         "git",
@@ -2311,6 +3332,19 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "linux"
       ]
@@ -2345,6 +3379,25 @@
         "grafana",
         "inference",
         "gpu"
+      ],
+      "score_infra": 7,
+      "matched_infra": [
+        "node",
+        "llm",
+        "observability",
+        "inference",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "node",
+        "llm",
+        "observability",
+        "grafana",
+        "inference",
+        "gpu"
       ]
     },
     {
@@ -2366,7 +3419,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "5b5c3cb8baefec117bde",
@@ -2389,6 +3450,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -2416,6 +3488,19 @@
       "requirements_default": [
         "python",
         "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "linux"
       ]
     },
     {
@@ -2440,6 +3525,20 @@
       "coverage_default": 67,
       "confidence_default": "full",
       "requirements_default": [
+        "linux",
+        "devops",
+        "automation"
+      ],
+      "score_infra": 7,
+      "matched_infra": [
+        "linux",
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "linux",
         "devops",
         "automation"
@@ -2481,6 +3580,32 @@
         "qa",
         "infrastructure automation",
         "ml infrastructure"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "linux",
+        "automation",
+        "ml infrastructure",
+        "exp:3y(fit)",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": 45,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "ci/cd",
+        "linux",
+        "machine learning",
+        "devops",
+        "distributed systems",
+        "scalability",
+        "automation",
+        "qa",
+        "infrastructure automation",
+        "ml infrastructure"
       ]
     },
     {
@@ -2505,6 +3630,24 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "linux",
+        "machine learning",
+        "devops",
+        "observability",
+        "distributed systems",
+        "ml infrastructure"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "observability",
+        "ml infrastructure",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "linux",
         "machine learning",
         "devops",
@@ -2536,6 +3679,24 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "jenkins",
+        "git",
+        "linux",
+        "devops",
+        "scalability",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "jenkins",
+        "linux",
+        "automation",
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "jenkins",
         "git",
         "linux",
@@ -2584,6 +3745,35 @@
         "pytest",
         "automation",
         "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "elasticsearch",
+        "docker",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "automation",
+        "exp:8y(-75)",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": 58,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "elasticsearch",
+        "docker",
+        "kubernetes",
+        "ci/cd",
+        "jenkins",
+        "git",
+        "linux",
+        "grafana",
+        "pytest",
+        "automation",
+        "qa"
       ]
     },
     {
@@ -2617,6 +3807,26 @@
         "github actions",
         "linux",
         "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "exp:3y(fit)",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "ci/cd",
+        "jenkins",
+        "github actions",
+        "linux",
+        "qa"
       ]
     },
     {
@@ -2639,6 +3849,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     },
@@ -2663,6 +3883,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "scalability"
       ]
     },
     {
@@ -2684,6 +3914,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -2710,6 +3949,23 @@
       "coverage_default": 80,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "ci/cd",
+        "llm",
+        "devops",
+        "automation"
+      ],
+      "score_infra": 66,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "llm",
+        "automation",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 80,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "ci/cd",
         "llm",
@@ -2742,6 +3998,20 @@
         "python",
         "distributed systems",
         "automation"
+      ],
+      "score_infra": 2,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:7y(-50)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "distributed systems",
+        "automation"
       ]
     },
     {
@@ -2763,7 +4033,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "51f222d2136fc84d4164",
@@ -2786,6 +4064,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "linux",
+        "exp:1y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -2807,6 +4095,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "deep learning",
+        "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "deep learning",
         "gpu"
       ]
@@ -2834,6 +4132,18 @@
       "requirements_default": [
         "python",
         "inference"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "inference",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "inference"
       ]
     },
     {
@@ -2855,7 +4165,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "8c8e77add79a14f4e802",
@@ -2875,7 +4193,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "36ffec36a9dc5bfccba6",
@@ -2895,7 +4220,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "5c46e7ca4415b825f40b",
@@ -2916,7 +4248,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "00f6e50cf47d9eb1f2c3",
@@ -2940,6 +4280,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -2961,7 +4312,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:1y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "c8696e915bc4cb3cf19d",
@@ -2982,6 +4341,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -3005,6 +4373,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -3032,6 +4410,19 @@
         "python",
         "deep learning",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "deep learning",
+        "gpu"
       ]
     },
     {
@@ -3053,7 +4444,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:1y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "a561bf1baf7f27f806ea",
@@ -3076,6 +4475,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -3101,6 +4511,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -3125,6 +4546,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -3147,6 +4579,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "qa"
       ]
     },
@@ -3173,6 +4615,18 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:15y(-100)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -3197,6 +4651,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:8y(-75)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -3218,7 +4683,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:8y(-75)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "6ef75e1fac3bd79fd273",
@@ -3240,6 +4713,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:15y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     },
@@ -3269,6 +4752,21 @@
         "llm",
         "distributed systems",
         "gpu"
+      ],
+      "score_infra": 5,
+      "matched_infra": [
+        "node",
+        "llm",
+        "exp:10y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "node",
+        "llm",
+        "distributed systems",
+        "gpu"
       ]
     },
     {
@@ -3290,7 +4788,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:15y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "abfa3665f4a71b798ade",
@@ -3313,6 +4819,20 @@
       "coverage_default": 0,
       "confidence_default": "full",
       "requirements_default": [
+        "kubernetes",
+        "distributed systems",
+        "scalability",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "software engineer",
+        "exp:15y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kubernetes",
         "distributed systems",
         "scalability",
@@ -3347,6 +4867,23 @@
         "distributed systems",
         "scalability",
         "gpu"
+      ],
+      "score_infra": 2,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:15y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 17,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "linux",
+        "deep learning",
+        "distributed systems",
+        "scalability",
+        "gpu"
       ]
     },
     {
@@ -3371,6 +4908,21 @@
       "coverage_default": 0,
       "confidence_default": "full",
       "requirements_default": [
+        "deep learning",
+        "scalability",
+        "qa",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "software engineer",
+        "exp:15y(-100)",
+        "senior(-30)",
+        "-qa"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "deep learning",
         "scalability",
         "qa",
@@ -3405,6 +4957,23 @@
         "distributed systems",
         "scalability",
         "gpu"
+      ],
+      "score_infra": 2,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:15y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 17,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "linux",
+        "deep learning",
+        "distributed systems",
+        "scalability",
+        "gpu"
       ]
     },
     {
@@ -3429,6 +4998,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:15y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -3450,7 +5030,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "ba605b8dae4d46c2f544",
@@ -3474,6 +5062,20 @@
       "coverage_default": 67,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "gpu"
@@ -3504,6 +5106,20 @@
         "python",
         "linux",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "gpu"
       ]
     },
     {
@@ -3530,6 +5146,19 @@
         "python",
         "bash",
         "gpu"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "bash",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "bash",
+        "gpu"
       ]
     },
     {
@@ -3553,6 +5182,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "automation",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -3573,7 +5212,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "9d3d503a2c9f3d2748e7",
@@ -3594,6 +5240,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -3621,6 +5276,19 @@
         "ci/cd",
         "git",
         "automation"
+      ],
+      "score_infra": 47,
+      "matched_infra": [
+        "ci/cd",
+        "automation",
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "ci/cd",
+        "git",
+        "automation"
       ]
     },
     {
@@ -3643,6 +5311,20 @@
       "coverage_default": 20,
       "confidence_default": "full",
       "requirements_default": [
+        "machine learning",
+        "deep learning",
+        "computer vision",
+        "gpu",
+        "cuda"
+      ],
+      "score_infra": 16,
+      "matched_infra": [
+        "computer vision",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "machine learning",
         "deep learning",
         "computer vision",
@@ -3674,6 +5356,19 @@
         "python",
         "distributed systems",
         "inference"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "inference",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "distributed systems",
+        "inference"
       ]
     },
     {
@@ -3697,6 +5392,19 @@
       "coverage_default": 67,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "distributed systems",
+        "inference"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "inference",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "distributed systems",
         "inference"
@@ -3728,6 +5436,21 @@
         "ci/cd",
         "devops",
         "scalability"
+      ],
+      "score_infra": 65,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "ci/cd",
+        "devops",
+        "scalability"
       ]
     },
     {
@@ -3751,6 +5474,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -3762,8 +5495,8 @@
       "first_seen": "2026-09-16T10:38:16Z",
       "last_seen": "2026-09-16T10:38:16Z",
       "status": "new",
-      "best_cv": "default",
-      "best_score": 36,
+      "best_cv": "infra",
+      "best_score": 45,
       "best_confidence": "full",
       "score_default": 36,
       "matched_default": [
@@ -3775,6 +5508,26 @@
       "coverage_default": 38,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "docker",
+        "kubernetes",
+        "pytorch",
+        "llm",
+        "rag",
+        "data science",
+        "mlops"
+      ],
+      "score_infra": 45,
+      "matched_infra": [
+        "python",
+        "docker",
+        "llm",
+        "mlops",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "docker",
         "kubernetes",
@@ -3811,6 +5564,21 @@
         "inference",
         "vllm",
         "gpu"
+      ],
+      "score_infra": 22,
+      "matched_infra": [
+        "inference",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 17,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "deep learning",
+        "rag",
+        "inference",
+        "vllm",
+        "gpu"
       ]
     },
     {
@@ -3833,6 +5601,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "machine learning",
+        "automation"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "automation",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "machine learning",
         "automation"
       ]
@@ -3864,6 +5643,22 @@
         "linux",
         "machine learning",
         "llm"
+      ],
+      "score_infra": 82,
+      "matched_infra": [
+        "python",
+        "linux",
+        "llm",
+        "software engineer",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "machine learning",
+        "llm"
       ]
     },
     {
@@ -3885,7 +5680,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "1b33fa9175b614acadaf",
@@ -3906,7 +5709,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "48c5250df4fa6816c09f",
@@ -3927,7 +5738,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:12y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "c3ca21a3e9c733459bc6",
@@ -3949,6 +5768,19 @@
       "coverage_default": 25,
       "confidence_default": "full",
       "requirements_default": [
+        "kubernetes",
+        "linux",
+        "deep learning",
+        "gpu"
+      ],
+      "score_infra": 20,
+      "matched_infra": [
+        "linux",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kubernetes",
         "linux",
         "deep learning",
@@ -3976,6 +5808,19 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "deep learning",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "deep learning",
         "gpu"
@@ -4011,6 +5856,25 @@
         "rag",
         "inference",
         "cuda"
+      ],
+      "score_infra": 29,
+      "matched_infra": [
+        "python",
+        "llm",
+        "inference",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "machine learning",
+        "deep learning",
+        "pytorch",
+        "llm",
+        "rag",
+        "inference",
+        "cuda"
       ]
     },
     {
@@ -4038,6 +5902,20 @@
         "sql",
         "llm",
         "rag"
+      ],
+      "score_infra": 35,
+      "matched_infra": [
+        "python",
+        "llm",
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "llm",
+        "rag"
       ]
     },
     {
@@ -4058,7 +5936,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "44d9564b97384598ac18",
@@ -4079,6 +5964,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -4101,6 +5995,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability",
+        "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability",
         "gpu"
       ]
@@ -4131,6 +6035,21 @@
         "c++",
         "linux",
         "gpu"
+      ],
+      "score_infra": 65,
+      "matched_infra": [
+        "python",
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "c++",
+        "linux",
+        "gpu"
       ]
     },
     {
@@ -4157,6 +6076,19 @@
         "go",
         "linux",
         "scalability"
+      ],
+      "score_infra": 53,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "linux",
+        "scalability"
       ]
     },
     {
@@ -4180,6 +6112,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "gpu"
       ]
     },
     {
@@ -4202,6 +6144,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "gpu"
       ]
     },
     {
@@ -4222,7 +6173,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "170fd3a596ce98e5a961",
@@ -4242,7 +6200,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "cd95318f77bd2d83066b",
@@ -4262,7 +6227,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "e5b7c5ebb58611db4565",
@@ -4282,7 +6254,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "02f6e1714feeeb5b2ce2",
@@ -4302,7 +6281,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2bda00d8553dc52ff842",
@@ -4322,7 +6308,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "22534555daf26b69e0d4",
@@ -4342,7 +6335,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "0ee6253e814038eb401c",
@@ -4362,7 +6362,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2b82b65021d151bbdef8",
@@ -4382,7 +6389,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "d841b7fc9b5d50fdf40a",
@@ -4402,7 +6416,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "c5a2acc1d844b40faf5c",
@@ -4422,7 +6443,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "9bd6c32c5effb0ef7f62",
@@ -4445,6 +6473,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -4472,6 +6511,19 @@
       "requirements_default": [
         "python",
         "automation"
+      ],
+      "score_infra": 54,
+      "matched_infra": [
+        "python",
+        "automation",
+        "software developer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "automation"
       ]
     },
     {
@@ -4492,7 +6544,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2967b841a5bae2ec4c10",
@@ -4512,7 +6571,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "01ab10b4b9f897727964",
@@ -4532,7 +6598,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "9e161730cc9898e91596",
@@ -4552,7 +6625,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "03a4dec63f5236b876a3",
@@ -4572,7 +6652,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "10854c2506c0941da349",
@@ -4594,6 +6681,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "gpu"
       ]
     },
     {
@@ -4614,7 +6710,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "45a5db6519bfdcf26597",
@@ -4634,7 +6737,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "59ed95043d5b960d0a70",
@@ -4654,7 +6764,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "950eb6ddf3628beaa901",
@@ -4676,6 +6793,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "gpu"
       ]
     },
     {
@@ -4696,7 +6822,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "d72ea88db8122c3355b5",
@@ -4716,7 +6849,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "7dfa74cfa7be2a56a8fe",
@@ -4736,7 +6876,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "6571cf2f0e692f870296",
@@ -4756,7 +6903,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "cbe1c814532028ff76c1",
@@ -4776,7 +6930,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "82c38dae1369569dcc26",
@@ -4798,6 +6959,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "gpu"
       ]
     },
     {
@@ -4818,7 +6988,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "231183a3c71acfe48092",
@@ -4838,7 +7015,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "7dba9923c1685c0441f0",
@@ -4861,6 +7045,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -4881,7 +7075,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "ad6f75c9d96f6ad9a7d7",
@@ -4901,7 +7102,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "092f6611fa740cc016c1",
@@ -4923,6 +7131,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "gpu"
       ]
@@ -4949,6 +7168,21 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "sql",
+        "rag",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:12y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "sql",
         "rag",
@@ -4984,6 +7218,24 @@
         "inference",
         "vllm",
         "gpu"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "python",
+        "llm",
+        "inference",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 43,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "deep learning",
+        "pytorch",
+        "llm",
+        "inference",
+        "vllm",
+        "gpu"
       ]
     },
     {
@@ -5006,6 +7258,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "deep learning"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "deep learning"
       ]
     },
     {
@@ -5027,6 +7288,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "deep learning"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "deep learning"
       ]
     },
@@ -5059,6 +7329,24 @@
         "inference",
         "vllm",
         "gpu"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "python",
+        "llm",
+        "inference",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 43,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "deep learning",
+        "pytorch",
+        "llm",
+        "inference",
+        "vllm",
+        "gpu"
       ]
     },
     {
@@ -5082,6 +7370,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -5104,6 +7402,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -5132,6 +7440,39 @@
       "coverage_default": 26,
       "confidence_default": "full",
       "requirements_default": [
+        "sql",
+        "mysql",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "ansible",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "git",
+        "linux",
+        "sre",
+        "prometheus",
+        "grafana",
+        "datadog",
+        "gpu",
+        "site reliability",
+        "reliability engineering"
+      ],
+      "score_infra": 42,
+      "matched_infra": [
+        "docker",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 26,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "sql",
         "mysql",
         "microservices",
@@ -5185,6 +7526,27 @@
         "linux",
         "automation",
         "gpu"
+      ],
+      "score_infra": 74,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "automation",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 71,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "ci/cd",
+        "jenkins",
+        "git",
+        "linux",
+        "automation",
+        "gpu"
       ]
     },
     {
@@ -5211,6 +7573,19 @@
       "requirements_default": [
         "python",
         "automation"
+      ],
+      "score_infra": 41,
+      "matched_infra": [
+        "python",
+        "automation",
+        "infrastructure engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "automation"
       ]
     },
     {
@@ -5231,7 +7606,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "e887b6e625326492ba3a",
@@ -5251,7 +7633,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "bc215995eadd27e2ed92",
@@ -5271,7 +7660,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "24ecf7a3d7b46822b98e",
@@ -5292,6 +7688,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -5317,6 +7722,17 @@
       "requirements_default": [
         "python",
         "machine learning"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "machine learning"
       ]
     },
     {
@@ -5337,7 +7753,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "362d37a475f93f8454f9",
@@ -5358,6 +7781,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     },
@@ -5380,6 +7812,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     },
@@ -5405,6 +7846,21 @@
       "coverage_default": 75,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "bash",
+        "gpu"
+      ],
+      "score_infra": 62,
+      "matched_infra": [
+        "python",
+        "linux",
+        "bash",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "bash",
@@ -5436,6 +7892,20 @@
         "python",
         "linux",
         "bash"
+      ],
+      "score_infra": 80,
+      "matched_infra": [
+        "python",
+        "linux",
+        "bash",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "bash"
       ]
     },
     {
@@ -5458,6 +7928,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -5488,6 +7968,22 @@
         "git",
         "linux",
         "automation"
+      ],
+      "score_infra": 61,
+      "matched_infra": [
+        "python",
+        "jenkins",
+        "linux",
+        "automation"
+      ],
+      "coverage_infra": 80,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "jenkins",
+        "git",
+        "linux",
+        "automation"
       ]
     },
     {
@@ -5508,7 +8004,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "71a3ab4231dc4e8c05b0",
@@ -5537,6 +8040,22 @@
         "git",
         "linux",
         "automation"
+      ],
+      "score_infra": 61,
+      "matched_infra": [
+        "python",
+        "jenkins",
+        "linux",
+        "automation"
+      ],
+      "coverage_infra": 80,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "jenkins",
+        "git",
+        "linux",
+        "automation"
       ]
     },
     {
@@ -5557,7 +8076,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "57052d78cea8780f2dd8",
@@ -5580,6 +8106,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "automation"
       ]
@@ -5607,6 +8145,18 @@
       "requirements_default": [
         "python",
         "linux"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "linux"
       ]
     },
     {
@@ -5630,6 +8180,21 @@
       "coverage_default": 40,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "deep learning",
+        "scalability",
+        "inference",
+        "gpu"
+      ],
+      "score_infra": 28,
+      "matched_infra": [
+        "python",
+        "inference",
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "deep learning",
         "scalability",
@@ -5661,6 +8226,29 @@
       "coverage_default": 40,
       "confidence_default": "full",
       "requirements_default": [
+        "kafka",
+        "kubernetes",
+        "ansible",
+        "aws",
+        "azure",
+        "ci/cd",
+        "jenkins",
+        "deep learning",
+        "automation",
+        "gpu"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "automation",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kafka",
         "kubernetes",
         "ansible",
@@ -5708,6 +8296,30 @@
         "linux",
         "bash",
         "deep learning"
+      ],
+      "score_infra": 53,
+      "matched_infra": [
+        "python",
+        "docker",
+        "aws",
+        "linux",
+        "bash",
+        "site reliability engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "ansible",
+        "aws",
+        "azure",
+        "linux",
+        "bash",
+        "deep learning"
       ]
     },
     {
@@ -5734,6 +8346,19 @@
       "requirements_default": [
         "llm",
         "inference"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "inference",
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "llm",
+        "inference"
       ]
     },
     {
@@ -5756,6 +8381,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "deep learning",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "deep learning",
         "gpu"
       ]
@@ -5782,6 +8418,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -5806,6 +8453,17 @@
       "requirements_default": [
         "scalability",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "scalability",
+        "gpu"
       ]
     },
     {
@@ -5828,6 +8486,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -5854,6 +8522,18 @@
       "requirements_default": [
         "go",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go",
+        "automation"
       ]
     },
     {
@@ -5875,7 +8555,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2b56bdfbbfd7ce24c4ba",
@@ -5898,6 +8586,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -5924,6 +8623,18 @@
       "requirements_default": [
         "automation",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation",
+        "gpu"
       ]
     },
     {
@@ -5945,6 +8656,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     },
@@ -5969,6 +8689,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -5992,6 +8722,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -6012,7 +8752,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "5a9b55420fcb5bb0721b",
@@ -6045,6 +8792,26 @@
         "inference",
         "gpu",
         "cuda"
+      ],
+      "score_infra": 38,
+      "matched_infra": [
+        "python",
+        "llm",
+        "observability",
+        "inference",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "pytorch",
+        "llm",
+        "rag",
+        "observability",
+        "inference",
+        "gpu",
+        "cuda"
       ]
     },
     {
@@ -6068,6 +8835,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -6088,7 +8865,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "36967a437e3f68036c5a",
@@ -6109,7 +8893,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:15y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "6abb6c89b7d61dec94fc",
@@ -6132,6 +8924,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability",
         "automation"
       ]
@@ -6157,6 +8961,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -6179,6 +8993,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -6206,6 +9030,19 @@
         "python",
         "deep learning",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "deep learning",
+        "gpu"
       ]
     },
     {
@@ -6228,6 +9065,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -6248,7 +9094,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "ad580e6b1280fe5baef0",
@@ -6276,6 +9129,21 @@
         "scalability",
         "automation",
         "gpu"
+      ],
+      "score_infra": 28,
+      "matched_infra": [
+        "docker",
+        "automation",
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "docker",
+        "kubernetes",
+        "scalability",
+        "automation",
+        "gpu"
       ]
     },
     {
@@ -6297,6 +9165,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -6323,6 +9200,18 @@
       "requirements_default": [
         "python",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "gpu"
       ]
     },
     {
@@ -6343,7 +9232,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2ee5baaab8060e74c4e1",
@@ -6367,6 +9263,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -6387,7 +9294,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "647069f30a1c89eaac8c",
@@ -6409,6 +9323,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "deep learning"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "deep learning"
       ]
@@ -6434,6 +9359,16 @@
       "requirements_default": [
         "deep learning",
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "deep learning",
+        "gpu"
       ]
     },
     {
@@ -6456,6 +9391,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "scalability"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "scalability"
       ]
     },
     {
@@ -6477,6 +9421,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     },
@@ -6502,6 +9455,25 @@
       "coverage_default": 38,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "bash",
+        "deep learning",
+        "pytorch",
+        "tensorflow",
+        "gpu",
+        "cuda"
+      ],
+      "score_infra": 36,
+      "matched_infra": [
+        "python",
+        "linux",
+        "bash",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "bash",
@@ -6544,6 +9516,26 @@
         "vllm",
         "gpu",
         "inference infrastructure"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "python",
+        "llm",
+        "inference",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "deep learning",
+        "pytorch",
+        "llm",
+        "scalability",
+        "inference",
+        "vllm",
+        "gpu",
+        "inference infrastructure"
       ]
     },
     {
@@ -6565,7 +9557,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "46cdabda3cf89ec67ab8",
@@ -6586,7 +9586,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2f0b6b4acfdc57f778f2",
@@ -6607,7 +9615,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "52f8ad7060dcbd68fac6",
@@ -6631,6 +9647,19 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "linux"
       ]
@@ -6657,6 +9686,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -6678,7 +9718,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "459e118db65e088ae0b9",
@@ -6698,7 +9746,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "19ee19e81bbaa62beb46",
@@ -6718,7 +9773,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "ca14658082ca055a9739",
@@ -6739,7 +9801,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "972d3f5eb7925814f8b8",
@@ -6764,6 +9834,18 @@
       "requirements_default": [
         "python",
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "automation"
       ]
     },
     {
@@ -6785,6 +9867,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -6813,6 +9904,20 @@
         "jenkins",
         "git",
         "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "jenkins",
+        "linux",
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "jenkins",
+        "git",
+        "linux"
       ]
     },
     {
@@ -6835,6 +9940,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -6862,6 +9977,23 @@
       "coverage_default": 100,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "bash",
+        "automation"
+      ],
+      "score_infra": 30,
+      "matched_infra": [
+        "python",
+        "linux",
+        "bash",
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "bash",
@@ -6900,6 +10032,27 @@
         "linux",
         "automation",
         "qa"
+      ],
+      "score_infra": 30,
+      "matched_infra": [
+        "react",
+        "ci/cd",
+        "linux",
+        "automation",
+        "exp:5y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "react",
+        "django",
+        "rest",
+        "ci/cd",
+        "git",
+        "linux",
+        "automation",
+        "qa"
       ]
     },
     {
@@ -6925,6 +10078,22 @@
       "coverage_default": 75,
       "confidence_default": "full",
       "requirements_default": [
+        "ci/cd",
+        "linux",
+        "automation",
+        "qa"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "ci/cd",
+        "linux",
+        "automation",
+        "exp:8y(-75)",
+        "-qa"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "ci/cd",
         "linux",
         "automation",
@@ -6966,6 +10135,30 @@
         "pytest",
         "automation",
         "qa"
+      ],
+      "score_infra": 68,
+      "matched_infra": [
+        "python",
+        "docker",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "automation",
+        "software engineer",
+        "exp:5y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "docker",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "pytest",
+        "automation",
+        "qa"
       ]
     },
     {
@@ -6999,6 +10192,26 @@
         "bash",
         "automation",
         "qa"
+      ],
+      "score_infra": 62,
+      "matched_infra": [
+        "python",
+        "linux",
+        "bash",
+        "automation",
+        "software engineer",
+        "exp:5y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "git",
+        "linux",
+        "bash",
+        "automation",
+        "qa"
       ]
     },
     {
@@ -7018,6 +10231,14 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability",
+        "gpu"
+      ],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability",
         "gpu"
       ]
@@ -7045,6 +10266,18 @@
       "requirements_default": [
         "python",
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "automation"
       ]
     },
     {
@@ -7056,8 +10289,8 @@
       "first_seen": "2026-09-16T10:38:16Z",
       "last_seen": "2026-09-16T10:38:16Z",
       "status": "new",
-      "best_cv": "default",
-      "best_score": 50,
+      "best_cv": "infra",
+      "best_score": 53,
       "best_confidence": "full",
       "score_default": 50,
       "matched_default": [
@@ -7074,6 +10307,42 @@
       "coverage_default": 37,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "jenkins",
+        "github actions",
+        "linux",
+        "machine learning",
+        "sre",
+        "observability",
+        "prometheus",
+        "grafana",
+        "mlops",
+        "gpu",
+        "cuda"
+      ],
+      "score_infra": 53,
+      "matched_infra": [
+        "python",
+        "docker",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "observability",
+        "mlops",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 42,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "docker",
         "kubernetes",
@@ -7116,6 +10385,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "automation",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -7137,6 +10416,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -7166,6 +10454,21 @@
         "python",
         "linux",
         "automation"
+      ],
+      "score_infra": 100,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "automation"
       ]
     },
     {
@@ -7189,6 +10492,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "linux"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "linux"
       ]
@@ -7215,6 +10530,17 @@
       "requirements_default": [
         "python",
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "gpu"
       ]
     },
     {
@@ -7239,6 +10565,17 @@
       "requirements_default": [
         "python",
         "gpu"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "gpu"
       ]
     },
     {
@@ -7261,6 +10598,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "deep learning",
+        "gpu"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "deep learning",
         "gpu"
@@ -7289,6 +10638,18 @@
         "python",
         "deep learning",
         "gpu"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "deep learning",
+        "gpu"
       ]
     },
     {
@@ -7311,6 +10672,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "deep learning",
+        "gpu"
+      ],
+      "score_infra": 28,
+      "matched_infra": [
+        "python",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "deep learning",
         "gpu"
@@ -7340,6 +10713,19 @@
         "deep learning",
         "api",
         "gpu"
+      ],
+      "score_infra": 22,
+      "matched_infra": [
+        "python",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "deep learning",
+        "api",
+        "gpu"
       ]
     },
     {
@@ -7362,6 +10748,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     },
@@ -7398,6 +10794,28 @@
         "observability",
         "scalability",
         "automation"
+      ],
+      "score_infra": 47,
+      "matched_infra": [
+        "python",
+        "linux",
+        "observability",
+        "automation",
+        "site reliability engineer",
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": 44,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "go",
+        "microservices",
+        "terraform",
+        "linux",
+        "sre",
+        "observability",
+        "scalability",
+        "automation"
       ]
     },
     {
@@ -7424,6 +10842,29 @@
       "coverage_default": 40,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "go",
+        "mysql",
+        "kubernetes",
+        "ci/cd",
+        "devops",
+        "sre",
+        "observability",
+        "automation",
+        "gpu"
+      ],
+      "score_infra": 46,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "observability",
+        "automation",
+        "site reliability engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "go",
         "mysql",
@@ -7476,6 +10917,34 @@
         "automation",
         "site reliability",
         "scalable infrastructure"
+      ],
+      "score_infra": 23,
+      "matched_infra": [
+        "python",
+        "docker",
+        "ci/cd",
+        "observability",
+        "automation",
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "go",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "ansible",
+        "ci/cd",
+        "devops",
+        "sre",
+        "observability",
+        "distributed systems",
+        "scalability",
+        "automation",
+        "site reliability",
+        "scalable infrastructure"
       ]
     },
     {
@@ -7498,6 +10967,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "pytorch",
+        "inference",
+        "gpu"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "inference",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "pytorch",
         "inference",
         "gpu"
@@ -7524,6 +11005,16 @@
       "requirements_default": [
         "deep learning",
         "gpu"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "deep learning",
+        "gpu"
       ]
     },
     {
@@ -7546,6 +11037,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "deep learning",
+        "inference"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "inference",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "deep learning",
         "inference"
       ]
@@ -7583,6 +11085,27 @@
         "gpu",
         "cuda",
         "inference infrastructure"
+      ],
+      "score_infra": 34,
+      "matched_infra": [
+        "python",
+        "node",
+        "llm",
+        "inference",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 44,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "node",
+        "deep learning",
+        "llm",
+        "distributed systems",
+        "inference",
+        "gpu",
+        "cuda",
+        "inference infrastructure"
       ]
     },
     {
@@ -7605,6 +11128,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "linux",
+        "deep learning",
+        "gpu"
+      ],
+      "score_infra": 23,
+      "matched_infra": [
+        "linux",
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "linux",
         "deep learning",
         "gpu"
@@ -7631,6 +11166,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "linux"
       ]
@@ -7661,6 +11208,21 @@
         "observability",
         "gpu",
         "cuda"
+      ],
+      "score_infra": 38,
+      "matched_infra": [
+        "linux",
+        "observability",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "kubernetes",
+        "linux",
+        "observability",
+        "gpu",
+        "cuda"
       ]
     },
     {
@@ -7685,6 +11247,17 @@
         "kubernetes",
         "deep learning",
         "gpu"
+      ],
+      "score_infra": 2,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "kubernetes",
+        "deep learning",
+        "gpu"
       ]
     },
     {
@@ -7703,7 +11276,12 @@
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f69bb57136a793886ee9",
@@ -7737,6 +11315,27 @@
         "devops",
         "automation",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "postgresql",
+        "linux",
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "postgresql",
+        "ansible",
+        "linux",
+        "deep learning",
+        "devops",
+        "automation",
+        "gpu"
       ]
     },
     {
@@ -7760,6 +11359,23 @@
       "coverage_default": 29,
       "confidence_default": "full",
       "requirements_default": [
+        "rust",
+        "linux",
+        "machine learning",
+        "scalability",
+        "inference",
+        "gpu",
+        "cuda"
+      ],
+      "score_infra": 42,
+      "matched_infra": [
+        "linux",
+        "inference",
+        "software developer"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "rust",
         "linux",
         "machine learning",
@@ -7799,6 +11415,25 @@
         "inference",
         "gpu",
         "cuda"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "linux",
+        "inference",
+        "software developer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 43,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "machine learning",
+        "scalability",
+        "inference",
+        "gpu",
+        "cuda"
       ]
     },
     {
@@ -7827,6 +11462,20 @@
         "inference",
         "gpu",
         "inference infrastructure"
+      ],
+      "score_infra": 24,
+      "matched_infra": [
+        "inference",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "deep learning",
+        "distributed systems",
+        "inference",
+        "gpu",
+        "inference infrastructure"
       ]
     },
     {
@@ -7850,6 +11499,23 @@
       "coverage_default": 14,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "microservices",
+        "kubernetes",
+        "linux",
+        "machine learning",
+        "scalability",
+        "gpu"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 14,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "microservices",
         "kubernetes",
@@ -7888,6 +11554,24 @@
         "bash",
         "machine learning",
         "data science"
+      ],
+      "score_infra": 65,
+      "matched_infra": [
+        "python",
+        "docker",
+        "bash",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "docker",
+        "kubernetes",
+        "bash",
+        "machine learning",
+        "data science"
       ]
     },
     {
@@ -7917,6 +11601,22 @@
         "jenkins",
         "git",
         "linux"
+      ],
+      "score_infra": 82,
+      "matched_infra": [
+        "python",
+        "jenkins",
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "jenkins",
+        "git",
+        "linux"
       ]
     },
     {
@@ -7940,6 +11640,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go",
+        "linux"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go",
         "linux"
       ]
@@ -7966,6 +11678,20 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "linux",
+        "qa",
+        "gpu"
+      ],
+      "score_infra": 28,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:10y(-100)",
+        "-qa"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "linux",
         "qa",
         "gpu"
@@ -7996,6 +11722,20 @@
         "distributed systems",
         "scalability",
         "gpu"
+      ],
+      "score_infra": 22,
+      "matched_infra": [
+        "software engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "distributed systems",
+        "scalability",
+        "gpu"
       ]
     },
     {
@@ -8019,6 +11759,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go",
+        "linux"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go",
         "linux"
       ]
@@ -8047,6 +11799,19 @@
       "requirements_default": [
         "python",
         "linux"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "python",
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "linux"
       ]
     },
     {
@@ -8071,6 +11836,27 @@
       "coverage_default": 20,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "c++",
+        "rest",
+        "git",
+        "linux",
+        "pytorch",
+        "tensorflow",
+        "numpy",
+        "gpu",
+        "cuda"
+      ],
+      "score_infra": 36,
+      "matched_infra": [
+        "python",
+        "linux",
+        "software engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "c++",
         "rest",
@@ -8109,6 +11895,21 @@
         "python",
         "linux",
         "automation"
+      ],
+      "score_infra": 100,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "automation"
       ]
     },
     {
@@ -8132,6 +11933,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "linux"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "python",
+        "linux",
+        "software engineer"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "linux"
       ]
@@ -8160,6 +11973,28 @@
       "coverage_default": 44,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "pytorch",
+        "tensorflow",
+        "observability",
+        "distributed systems",
+        "scalability",
+        "automation",
+        "gpu"
+      ],
+      "score_infra": 61,
+      "matched_infra": [
+        "python",
+        "linux",
+        "observability",
+        "automation",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 44,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "pytorch",
@@ -8207,6 +12042,31 @@
         "scalability",
         "inference",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "bash",
+        "llm",
+        "inference",
+        "automation",
+        "exp:12y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 45,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "go",
+        "rust",
+        "kubernetes",
+        "ansible",
+        "bash",
+        "llm",
+        "distributed systems",
+        "scalability",
+        "inference",
+        "automation"
       ]
     },
     {
@@ -8239,6 +12099,24 @@
         "api",
         "gpu",
         "scalable infrastructure"
+      ],
+      "score_infra": 50,
+      "matched_infra": [
+        "llm",
+        "inference",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "kubernetes",
+        "llm",
+        "distributed systems",
+        "inference",
+        "api",
+        "gpu",
+        "scalable infrastructure"
       ]
     },
     {
@@ -8250,8 +12128,8 @@
       "first_seen": "2026-09-16T10:38:16Z",
       "last_seen": "2026-09-16T10:38:16Z",
       "status": "new",
-      "best_cv": "default",
-      "best_score": 32,
+      "best_cv": "infra",
+      "best_score": 42,
       "best_confidence": "full",
       "score_default": 32,
       "matched_default": [
@@ -8262,6 +12140,24 @@
       "coverage_default": 14,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "rust",
+        "kubernetes",
+        "observability",
+        "distributed systems",
+        "mlops",
+        "gpu"
+      ],
+      "score_infra": 42,
+      "matched_infra": [
+        "observability",
+        "mlops",
+        "software engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "rust",
         "kubernetes",
@@ -8296,6 +12192,20 @@
         "linux",
         "observability",
         "gpu"
+      ],
+      "score_infra": 67,
+      "matched_infra": [
+        "linux",
+        "observability",
+        "software engineer",
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "linux",
+        "observability",
+        "gpu"
       ]
     },
     {
@@ -8319,6 +12229,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "linux"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "linux"
       ]
     },
@@ -8345,6 +12266,18 @@
       "requirements_default": [
         "linux",
         "gpu"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux",
+        "gpu"
       ]
     },
     {
@@ -8369,6 +12302,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 49,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -8392,6 +12336,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "linux"
+      ],
+      "score_infra": 49,
+      "matched_infra": [
+        "linux",
+        "software engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "linux"
       ]
     },
@@ -8426,6 +12381,26 @@
         "vllm",
         "gpu",
         "cuda"
+      ],
+      "score_infra": 56,
+      "matched_infra": [
+        "node",
+        "llm",
+        "inference",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "node",
+        "deep learning",
+        "pytorch",
+        "llm",
+        "inference",
+        "vllm",
+        "gpu",
+        "cuda"
       ]
     },
     {
@@ -8452,6 +12427,19 @@
       "requirements_default": [
         "linux",
         "automation"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "linux",
+        "automation",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux",
+        "automation"
       ]
     },
     {
@@ -8476,6 +12464,20 @@
       "coverage_default": 67,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "gpu"
+      ],
+      "score_infra": 77,
+      "matched_infra": [
+        "python",
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "gpu"
@@ -8517,6 +12519,31 @@
         "scalability",
         "inference",
         "automation"
+      ],
+      "score_infra": 54,
+      "matched_infra": [
+        "python",
+        "bash",
+        "llm",
+        "inference",
+        "automation",
+        "software engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 45,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "go",
+        "rust",
+        "kubernetes",
+        "ansible",
+        "bash",
+        "llm",
+        "distributed systems",
+        "scalability",
+        "inference",
+        "automation"
       ]
     },
     {
@@ -8541,6 +12568,22 @@
       "coverage_default": 40,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "deep learning",
+        "scalability",
+        "gpu"
+      ],
+      "score_infra": 58,
+      "matched_infra": [
+        "python",
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "deep learning",
@@ -8576,6 +12619,23 @@
         "ci/cd",
         "linux",
         "automation"
+      ],
+      "score_infra": 100,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "linux",
+        "automation",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "ci/cd",
+        "linux",
+        "automation"
       ]
     },
     {
@@ -8599,6 +12659,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -8621,6 +12691,22 @@
       "coverage_default": 14,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "go",
+        "microservices",
+        "kubernetes",
+        "devops",
+        "distributed systems",
+        "gpu"
+      ],
+      "score_infra": 12,
+      "matched_infra": [
+        "python",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 14,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "go",
         "microservices",
@@ -8659,6 +12745,24 @@
         "llm",
         "inference",
         "gpu"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "node",
+        "llm",
+        "inference",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "node",
+        "deep learning",
+        "llm",
+        "inference",
+        "gpu"
       ]
     },
     {
@@ -8689,6 +12793,23 @@
         "linux",
         "api",
         "automation"
+      ],
+      "score_infra": 45,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "rest",
+        "git",
+        "linux",
+        "api",
+        "automation"
       ]
     },
     {
@@ -8713,6 +12834,21 @@
       "coverage_default": 75,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "java",
+        "linux",
+        "automation"
+      ],
+      "score_infra": 62,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "java",
         "linux",
@@ -8756,6 +12892,32 @@
         "bash",
         "qa",
         "gpu"
+      ],
+      "score_infra": 23,
+      "matched_infra": [
+        "python",
+        "docker",
+        "aws",
+        "jenkins",
+        "linux",
+        "bash",
+        "exp:12y(-100)",
+        "-qa"
+      ],
+      "coverage_infra": 55,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "jenkins",
+        "linux",
+        "bash",
+        "qa",
+        "gpu"
       ]
     },
     {
@@ -8782,6 +12944,25 @@
       "coverage_default": 83,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "docker",
+        "jenkins",
+        "linux",
+        "devops",
+        "automation"
+      ],
+      "score_infra": 68,
+      "matched_infra": [
+        "python",
+        "docker",
+        "jenkins",
+        "linux",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 83,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "docker",
         "jenkins",
@@ -8823,6 +13004,28 @@
         "observability",
         "scalability",
         "automation"
+      ],
+      "score_infra": 68,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "linux",
+        "observability",
+        "automation",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 62,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "kubernetes",
+        "ci/cd",
+        "linux",
+        "observability",
+        "scalability",
+        "automation"
       ]
     },
     {
@@ -8846,6 +13049,23 @@
       "coverage_default": 29,
       "confidence_default": "full",
       "requirements_default": [
+        "grpc",
+        "rest",
+        "kubernetes",
+        "linux",
+        "observability",
+        "prometheus",
+        "grafana"
+      ],
+      "score_infra": 20,
+      "matched_infra": [
+        "linux",
+        "observability",
+        "exp:9y(-100)"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "grpc",
         "rest",
         "kubernetes",
@@ -8884,6 +13104,24 @@
         "ansible",
         "linux",
         "automation"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "docker",
+        "linux",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "docker",
+        "kubernetes",
+        "ansible",
+        "linux",
+        "automation"
       ]
     },
     {
@@ -8907,6 +13145,22 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "docker",
+        "kubernetes",
+        "ansible",
+        "linux",
+        "devops",
+        "distributed systems"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "docker",
+        "linux",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "docker",
         "kubernetes",
         "ansible",
@@ -8940,6 +13194,20 @@
         "python",
         "linux",
         "deep learning"
+      ],
+      "score_infra": 7,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "deep learning"
       ]
     },
     {
@@ -8961,6 +13229,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -8985,6 +13262,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "observability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "observability",
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "observability"
       ]
     },
     {
@@ -9008,6 +13295,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "linux"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "linux"
       ]
@@ -9035,6 +13334,18 @@
       "requirements_default": [
         "python",
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "automation"
       ]
     },
     {
@@ -9056,6 +13367,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gen ai"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gen ai"
       ]
     },
@@ -9079,6 +13399,18 @@
       "coverage_default": 0,
       "confidence_default": "full",
       "requirements_default": [
+        "machine learning",
+        "scalability",
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "machine learning",
         "scalability",
         "qa"
@@ -9107,6 +13439,18 @@
         "api",
         "qa",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "api",
+        "qa",
+        "gpu"
       ]
     },
     {
@@ -9129,6 +13473,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "api",
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:8y(-75)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "api",
         "qa"
       ]
@@ -9160,6 +13515,22 @@
         "rag",
         "data science",
         "automation"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "python",
+        "llm",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "llm",
+        "rag",
+        "data science",
+        "automation"
       ]
     },
     {
@@ -9183,6 +13554,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "llm"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "llm",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "llm"
       ]
     },
     {
@@ -9205,6 +13586,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "deep learning",
+        "inference",
+        "gpu"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "inference",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "deep learning",
         "inference",
         "gpu"
@@ -9241,6 +13634,26 @@
         "ci/cd",
         "devops",
         "gpu"
+      ],
+      "score_infra": 46,
+      "matched_infra": [
+        "python",
+        "aws",
+        "ci/cd",
+        "software engineer",
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "go",
+        "kubernetes",
+        "aws",
+        "ci/cd",
+        "devops",
+        "gpu"
       ]
     },
     {
@@ -9263,6 +13676,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -9287,6 +13710,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "linux"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "linux"
       ]
@@ -9315,6 +13750,19 @@
         "python",
         "scalability",
         "automation"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "scalability",
+        "automation"
       ]
     },
     {
@@ -9338,6 +13786,19 @@
       "coverage_default": 67,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "git",
+        "linux"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "git",
         "linux"
@@ -9368,6 +13829,29 @@
       "coverage_default": 56,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "java",
+        "mysql",
+        "mongodb",
+        "docker",
+        "git",
+        "linux",
+        "automation",
+        "qa"
+      ],
+      "score_infra": 24,
+      "matched_infra": [
+        "python",
+        "mongodb",
+        "docker",
+        "linux",
+        "automation",
+        "exp:12y(-100)",
+        "-qa"
+      ],
+      "coverage_infra": 56,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "java",
         "mysql",
@@ -9410,6 +13894,26 @@
         "inference",
         "automation",
         "model deployment"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "inference",
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "machine learning",
+        "pytorch",
+        "tensorflow",
+        "scikit-learn",
+        "inference",
+        "automation",
+        "model deployment"
       ]
     },
     {
@@ -9431,7 +13935,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "a2bde5a778b189e68034",
@@ -9459,6 +13971,21 @@
         "python",
         "bash",
         "automation"
+      ],
+      "score_infra": 25,
+      "matched_infra": [
+        "python",
+        "bash",
+        "automation",
+        "exp:7y(-50)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "bash",
+        "automation"
       ]
     },
     {
@@ -9481,6 +14008,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "scalability"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "scalability"
       ]
     },
     {
@@ -9501,7 +14037,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "7110ce72d0f4e664c9df",
@@ -9526,6 +14069,18 @@
       "requirements_default": [
         "python",
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "automation"
       ]
     },
     {
@@ -9547,6 +14102,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:25y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -9571,6 +14135,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "linux",
+        "exp:1y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -9592,6 +14166,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "llm"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "llm"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "llm"
       ]
     },
@@ -9627,6 +14210,27 @@
         "automation",
         "gpu",
         "reliability engineering"
+      ],
+      "score_infra": 31,
+      "matched_infra": [
+        "python",
+        "bash",
+        "llm",
+        "automation",
+        "exp:12y(-100)"
+      ],
+      "coverage_infra": 44,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "rust",
+        "kubernetes",
+        "bash",
+        "llm",
+        "distributed systems",
+        "automation",
+        "gpu",
+        "reliability engineering"
       ]
     },
     {
@@ -9649,6 +14253,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "linux"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "python",
+        "linux"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "linux"
       ]
@@ -9675,6 +14290,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 54,
+      "matched_infra": [
+        "python",
+        "software developer",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -9700,6 +14326,21 @@
       "coverage_default": 100,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "automation"
+      ],
+      "score_infra": 100,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "software engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "automation"
@@ -9732,6 +14373,22 @@
         "distributed systems",
         "inference",
         "gpu"
+      ],
+      "score_infra": 42,
+      "matched_infra": [
+        "inference",
+        "software engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 17,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "machine learning",
+        "deep learning",
+        "data science",
+        "distributed systems",
+        "inference",
+        "gpu"
       ]
     },
     {
@@ -9755,6 +14412,19 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "golang",
+        "kubernetes"
+      ],
+      "score_infra": 53,
+      "matched_infra": [
+        "python",
+        "software engineer",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "golang",
         "kubernetes"
@@ -9784,6 +14454,19 @@
         "python",
         "rust",
         "linux"
+      ],
+      "score_infra": 72,
+      "matched_infra": [
+        "python",
+        "linux",
+        "software engineer"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "rust",
+        "linux"
       ]
     },
     {
@@ -9809,6 +14492,22 @@
       "coverage_default": 75,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "git",
+        "linux",
+        "automation"
+      ],
+      "score_infra": 82,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "software engineer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "git",
         "linux",
@@ -9844,6 +14543,24 @@
         "linux",
         "automation",
         "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "git",
+        "linux",
+        "automation",
+        "qa"
       ]
     },
     {
@@ -9870,6 +14587,24 @@
       "coverage_default": 80,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "ci/cd",
+        "linux",
+        "devops",
+        "automation"
+      ],
+      "score_infra": 16,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "linux",
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 80,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "ci/cd",
         "linux",
@@ -9913,6 +14648,30 @@
         "devops",
         "automation",
         "scalable infrastructure"
+      ],
+      "score_infra": 7,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "llm",
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "ci/cd",
+        "jenkins",
+        "github actions",
+        "linux",
+        "llm",
+        "devops",
+        "automation",
+        "scalable infrastructure"
       ]
     },
     {
@@ -9944,6 +14703,24 @@
         "linux",
         "devops",
         "automation"
+      ],
+      "score_infra": 16,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "linux",
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 80,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "ci/cd",
+        "linux",
+        "devops",
+        "automation"
       ]
     },
     {
@@ -9969,6 +14746,18 @@
       "requirements_default": [
         "python",
         "linux"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "linux"
       ]
     },
     {
@@ -9989,7 +14778,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "21a1e9e9dc2be5278478",
@@ -10013,6 +14809,22 @@
       "coverage_default": 60,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "scalability",
+        "pytest",
+        "automation"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "scalability",
@@ -10046,6 +14858,32 @@
       "coverage_default": 64,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "node",
+        "docker",
+        "ci/cd",
+        "jenkins",
+        "git",
+        "linux",
+        "devops",
+        "distributed systems",
+        "scalability",
+        "automation"
+      ],
+      "score_infra": 55,
+      "matched_infra": [
+        "python",
+        "node",
+        "docker",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "automation",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 64,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "node",
         "docker",
@@ -10097,6 +14935,33 @@
         "distributed systems",
         "scalability",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "node",
+        "docker",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "automation",
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 64,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "node",
+        "docker",
+        "ci/cd",
+        "jenkins",
+        "git",
+        "linux",
+        "devops",
+        "distributed systems",
+        "scalability",
+        "automation"
       ]
     },
     {
@@ -10117,7 +14982,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f06ffbd5325f3a15bfcc",
@@ -10142,6 +15014,22 @@
       "coverage_default": 75,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "git",
+        "linux",
+        "automation"
+      ],
+      "score_infra": 82,
+      "matched_infra": [
+        "python",
+        "linux",
+        "automation",
+        "software engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "git",
         "linux",
@@ -10172,6 +15060,19 @@
         "python",
         "scalability",
         "automation"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "scalability",
+        "automation"
       ]
     },
     {
@@ -10196,6 +15097,20 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "machine learning",
+        "automation",
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:10y(-100)",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "machine learning",
         "automation",
         "qa"
@@ -10225,6 +15140,19 @@
         "python",
         "git",
         "linux"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "git",
+        "linux"
       ]
     },
     {
@@ -10245,7 +15173,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

@@ -22,7 +22,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "paragon:33.753",
@@ -49,6 +57,20 @@
         "python",
         "sql",
         "automation"
+      ],
+      "score_infra": 7,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "automation"
       ]
     },
     {
@@ -70,7 +92,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "paragon:AE.C65",
@@ -93,6 +123,20 @@
       "coverage_default": 25,
       "confidence_default": "full",
       "requirements_default": [
+        "kubernetes",
+        "linux",
+        "devops",
+        "sre"
+      ],
+      "score_infra": 12,
+      "matched_infra": [
+        "linux",
+        "exp:1y(fit)",
+        "-customer success"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kubernetes",
         "linux",
         "devops",
@@ -139,6 +183,35 @@
         "bash",
         "prometheus",
         "grafana"
+      ],
+      "score_infra": 47,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "bash",
+        "devops engineer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "go",
+        "sql",
+        "microservices",
+        "kubernetes",
+        "terraform",
+        "ansible",
+        "helm",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "bash",
+        "prometheus",
+        "grafana"
       ]
     },
     {
@@ -165,6 +238,32 @@
       "coverage_default": 31,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "java",
+        "go",
+        "microservices",
+        "kubernetes",
+        "terraform",
+        "ansible",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "devops",
+        "prometheus",
+        "grafana"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 31,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "java",
         "go",

@@ -40,6 +40,32 @@
         "distributed systems",
         "api",
         "automation"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "python",
+        "llm",
+        "observability",
+        "automation",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 31,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "grpc",
+        "rest",
+        "kubernetes",
+        "terraform",
+        "ansible",
+        "llm",
+        "rag",
+        "observability",
+        "distributed systems",
+        "api",
+        "automation"
       ]
     },
     {
@@ -58,7 +84,12 @@
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "548fa02a5de276a7c3f7",
@@ -76,7 +107,12 @@
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "d7f60eaf99463aa1c5c5",
@@ -102,6 +138,23 @@
       "coverage_default": 100,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "linux",
+        "llm",
+        "automation"
+      ],
+      "score_infra": 100,
+      "matched_infra": [
+        "python",
+        "linux",
+        "llm",
+        "automation",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "linux",
         "llm",
@@ -132,6 +185,19 @@
       "requirements_default": [
         "llm",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "automation",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "llm",
+        "automation"
       ]
     },
     {
@@ -153,6 +219,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     },
@@ -181,6 +256,19 @@
         "scalability",
         "automation",
         "scalable infrastructure"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "scalability",
+        "automation",
+        "scalable infrastructure"
       ]
     },
     {
@@ -204,6 +292,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -230,6 +329,24 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "pytorch",
+        "inference",
+        "qa",
+        "gpu",
+        "cuda"
+      ],
+      "score_infra": 38,
+      "matched_infra": [
+        "python",
+        "inference",
+        "software engineer",
+        "exp:5y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "pytorch",
         "inference",
@@ -266,6 +383,23 @@
         "llm",
         "scalability",
         "gpu"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "linux",
+        "llm",
+        "exp:10y(-100)",
+        "-customer success"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "kubernetes",
+        "linux",
+        "llm",
+        "scalability",
+        "gpu"
       ]
     },
     {
@@ -296,6 +430,33 @@
       "coverage_default": 73,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "azure",
+        "ci/cd",
+        "linux",
+        "bash",
+        "automation",
+        "scalable infrastructure"
+      ],
+      "score_infra": 68,
+      "matched_infra": [
+        "python",
+        "docker",
+        "aws",
+        "ci/cd",
+        "linux",
+        "bash",
+        "automation",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 64,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "docker",
         "kubernetes",
@@ -348,6 +509,33 @@
         "bash",
         "automation",
         "scalable infrastructure"
+      ],
+      "score_infra": 68,
+      "matched_infra": [
+        "python",
+        "docker",
+        "aws",
+        "ci/cd",
+        "linux",
+        "bash",
+        "automation",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 64,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "azure",
+        "ci/cd",
+        "linux",
+        "bash",
+        "automation",
+        "scalable infrastructure"
       ]
     },
     {
@@ -370,7 +558,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:15y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "drivenets:C8.45B",
@@ -392,7 +587,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "drivenets:02.F68",
@@ -417,6 +619,19 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "go",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:10y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "go",
         "devops"
@@ -451,6 +666,22 @@
         "vllm",
         "gpu",
         "cuda"
+      ],
+      "score_infra": 25,
+      "matched_infra": [
+        "llm",
+        "inference"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "kubernetes",
+        "helm",
+        "llm",
+        "inference",
+        "vllm",
+        "gpu",
+        "cuda"
       ]
     },
     {
@@ -474,7 +705,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "drivenets:F4.07C",
@@ -497,7 +736,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

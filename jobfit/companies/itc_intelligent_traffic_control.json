@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "d7f7e0dae3b825021771",
@@ -44,6 +51,20 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "java",
+        "sql",
+        "computer vision"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "computer vision",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "java",
         "sql",
@@ -73,6 +94,31 @@
       "coverage_default": 31,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "java",
+        "sql",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "git",
+        "linux",
+        "machine learning",
+        "computer vision",
+        "distributed systems",
+        "scalability",
+        "api"
+      ],
+      "score_infra": 47,
+      "matched_infra": [
+        "python",
+        "docker",
+        "linux",
+        "computer vision",
+        "software engineer"
+      ],
+      "coverage_infra": 31,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "java",
         "sql",

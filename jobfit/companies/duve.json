@@ -22,7 +22,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "6df0f9b0f6828b32a3f6",
@@ -46,6 +54,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)",
+        "-account executive",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -72,6 +92,18 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -94,6 +126,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -118,6 +160,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -158,6 +211,32 @@
         "distributed systems",
         "scalability",
         "automation"
+      ],
+      "score_infra": 67,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "mongodb",
+        "redis",
+        "automation",
+        "backend engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 55,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "react",
+        "node",
+        "node.js",
+        "mongodb",
+        "redis",
+        "kafka",
+        "rabbitmq",
+        "microservices",
+        "distributed systems",
+        "scalability",
+        "automation"
       ]
     },
     {
@@ -179,7 +258,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

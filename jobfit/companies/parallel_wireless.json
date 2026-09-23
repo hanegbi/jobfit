@@ -28,6 +28,18 @@
       "requirements_default": [
         "python",
         "automation"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "automation"
       ]
     },
     {
@@ -50,7 +62,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "parallel_wireless:51a23cf6-8341-49eb-8404-58e6bee73cf9",
@@ -74,6 +93,19 @@
       "coverage_default": 25,
       "confidence_default": "full",
       "requirements_default": [
+        "machine learning",
+        "llm",
+        "rag",
+        "data science"
+      ],
+      "score_infra": 28,
+      "matched_infra": [
+        "llm",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "machine learning",
         "llm",
         "rag",

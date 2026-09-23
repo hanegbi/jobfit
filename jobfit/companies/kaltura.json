@@ -30,6 +30,22 @@
         "llm",
         "rag",
         "observability"
+      ],
+      "score_infra": 71,
+      "matched_infra": [
+        "python",
+        "llm",
+        "observability",
+        "ai engineer",
+        "exp:15y(-100)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "llm",
+        "rag",
+        "observability"
       ]
     },
     {
@@ -55,6 +71,28 @@
       "coverage_default": 30,
       "confidence_default": "full",
       "requirements_default": [
+        "microservices",
+        "kubernetes",
+        "aws",
+        "ci/cd",
+        "rag",
+        "databricks",
+        "devops",
+        "observability",
+        "grafana",
+        "distributed systems"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "ci/cd",
+        "observability",
+        "exp:15y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 30,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "microservices",
         "kubernetes",
         "aws",
@@ -95,6 +133,44 @@
       "coverage_default": 38,
       "confidence_default": "full",
       "requirements_default": [
+        "postgres",
+        "mysql",
+        "redis",
+        "kafka",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "helm",
+        "aws",
+        "gcp",
+        "ci/cd",
+        "github actions",
+        "linux",
+        "sre",
+        "observability",
+        "prometheus",
+        "grafana",
+        "distributed systems",
+        "inference",
+        "automation",
+        "gpu"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "redis",
+        "docker",
+        "aws",
+        "ci/cd",
+        "linux",
+        "observability",
+        "inference",
+        "automation",
+        "devops engineer",
+        "exp:15y(-100)"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "postgres",
         "mysql",
         "redis",
@@ -162,6 +238,39 @@
         "inference",
         "gpu",
         "model deployment"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "node",
+        "aws",
+        "ci/cd",
+        "linux",
+        "observability",
+        "inference",
+        "exp:15y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "node",
+        "kubernetes",
+        "terraform",
+        "helm",
+        "aws",
+        "gcp",
+        "ci/cd",
+        "github actions",
+        "linux",
+        "devops",
+        "sre",
+        "observability",
+        "prometheus",
+        "grafana",
+        "distributed systems",
+        "inference",
+        "gpu",
+        "model deployment"
       ]
     },
     {
@@ -186,6 +295,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:15y(-100)",
+        "off-target title(-50)",
+        "-account executive",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -212,6 +333,19 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:15y(-100)",
+        "off-target title(-50)",
+        "-account executive",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -241,6 +375,21 @@
         "llm",
         "rag",
         "observability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "observability",
+        "exp:15y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "nlp",
+        "llm",
+        "rag",
+        "observability"
       ]
     },
     {
@@ -262,7 +411,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:15y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "218a5d3967bc3a412051",
@@ -283,7 +440,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:15y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "3bc62572ebd5bdbfe176",
@@ -304,7 +469,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:15y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "8d7cbdbfeff72bd081db",
@@ -326,6 +499,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:15y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -350,6 +533,19 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "scalability",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:15y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "scalability",
         "automation"

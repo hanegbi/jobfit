@@ -28,6 +28,20 @@
         "linux",
         "machine learning",
         "gpu"
+      ],
+      "score_infra": 45,
+      "matched_infra": [
+        "python",
+        "linux",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "machine learning",
+        "gpu"
       ]
     },
     {
@@ -56,6 +70,21 @@
         "machine learning",
         "automation",
         "gpu"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:8y(-75)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "machine learning",
+        "automation",
+        "gpu"
       ]
     },
     {
@@ -77,6 +106,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "machine learning",
+        "inference"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "inference"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "machine learning",
         "inference"
       ]
@@ -105,6 +144,17 @@
       "requirements_default": [
         "machine learning",
         "computer vision"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "computer vision",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "machine learning",
+        "computer vision"
       ]
     },
     {
@@ -128,6 +178,20 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "machine learning",
+        "pytorch",
+        "automation"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "python",
+        "automation",
+        "software engineer"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "machine learning",
         "pytorch",
@@ -159,6 +223,20 @@
         "machine learning",
         "pytorch",
         "automation"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "python",
+        "automation",
+        "software engineer"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "machine learning",
+        "pytorch",
+        "automation"
       ]
     },
     {
@@ -180,6 +258,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "machine learning",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "machine learning",
         "gpu"
       ]
@@ -208,6 +296,19 @@
         "machine learning",
         "pytorch",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "machine learning",
+        "pytorch",
+        "gpu"
       ]
     },
     {
@@ -232,6 +333,17 @@
       "requirements_default": [
         "machine learning",
         "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:9y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "machine learning",
+        "gpu"
       ]
     },
     {
@@ -253,7 +365,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-recruiter"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "4fc1453eea388d294f7a",
@@ -274,6 +394,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "machine learning",
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "machine learning",
         "gpu"
       ]
@@ -297,6 +427,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "gpu"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "gpu"
       ]
     }

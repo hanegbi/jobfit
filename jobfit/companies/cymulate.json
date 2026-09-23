@@ -24,6 +24,16 @@
       "requirements_default": [
         "go",
         "llm"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "llm"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go",
+        "llm"
       ]
     },
     {
@@ -47,6 +57,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "llm"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "llm"
       ]
     },
     {
@@ -69,6 +89,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "api",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "api",
         "automation"
@@ -96,6 +128,17 @@
       "requirements_default": [
         "go",
         "llm"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go",
+        "llm"
       ]
     },
     {
@@ -121,6 +164,18 @@
       "requirements_default": [
         "aws",
         "llm"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "aws",
+        "llm"
       ]
     },
     {
@@ -139,7 +194,12 @@
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

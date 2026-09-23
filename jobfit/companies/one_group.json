@@ -26,6 +26,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "sql"
       ]
     },
     {
@@ -48,7 +58,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "d4798d6e5b067a137ab0",
@@ -78,6 +95,21 @@
         "python",
         "linux",
         "bash"
+      ],
+      "score_infra": 30,
+      "matched_infra": [
+        "python",
+        "linux",
+        "bash",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "linux",
+        "bash"
       ]
     },
     {
@@ -100,7 +132,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "5d85acac1a2147b50836",
@@ -123,7 +162,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "65bb00351ccf1c2ba348",
@@ -145,7 +192,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "19c21a76b22652844137",
@@ -175,6 +229,21 @@
         "typescript",
         "rest",
         "microservices"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "typescript",
+        "rest",
+        "microservices"
       ]
     },
     {
@@ -198,7 +267,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "3d3223501ab737d581e5",
@@ -224,6 +301,20 @@
       "coverage_default": 100,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "bash",
+        "automation"
+      ],
+      "score_infra": 25,
+      "matched_infra": [
+        "python",
+        "bash",
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "bash",
         "automation"
@@ -253,6 +344,17 @@
       "requirements_default": [
         "python",
         "automation"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "python",
+        "automation"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "automation"
       ]
     },
     {
@@ -276,7 +378,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "cfa3c8b54c91c3b26e64",
@@ -300,6 +410,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "sql"
       ]
     }

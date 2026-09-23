@@ -27,6 +27,19 @@
         "machine learning",
         "snowflake",
         "databricks"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "sql",
+        "machine learning",
+        "snowflake",
+        "databricks"
       ]
     },
     {
@@ -50,6 +63,21 @@
       "coverage_default": 20,
       "confidence_default": "full",
       "requirements_default": [
+        "machine learning",
+        "llm",
+        "data science",
+        "snowflake",
+        "databricks"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "machine learning",
         "llm",
         "data science",
@@ -85,6 +113,23 @@
         "spark",
         "snowflake",
         "databricks"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": 14,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "machine learning",
+        "data science",
+        "spark",
+        "snowflake",
+        "databricks"
       ]
     },
     {
@@ -112,6 +157,20 @@
         "data science",
         "snowflake",
         "databricks"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "-customer success"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "sql",
+        "machine learning",
+        "data science",
+        "snowflake",
+        "databricks"
       ]
     },
     {
@@ -123,8 +182,8 @@
       "first_seen": "2026-09-15T19:56:58Z",
       "last_seen": "2026-09-15T19:56:58Z",
       "status": "new",
-      "best_cv": "default",
-      "best_score": 28,
+      "best_cv": "infra",
+      "best_score": 33,
       "best_confidence": "full",
       "score_default": 28,
       "matched_default": [
@@ -136,6 +195,32 @@
       "coverage_default": 14,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "java",
+        "microservices",
+        "docker",
+        "machine learning",
+        "scikit-learn",
+        "pandas",
+        "numpy",
+        "spark",
+        "airflow",
+        "snowflake",
+        "databricks",
+        "distributed systems",
+        "mlops"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "python",
+        "docker",
+        "mlops",
+        "ml engineer",
+        "exp:10y(-100)"
+      ],
+      "coverage_infra": 21,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "java",
         "microservices",
@@ -184,6 +269,27 @@
         "snowflake",
         "databricks",
         "inference"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "aws",
+        "inference",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "aws",
+        "machine learning",
+        "data science",
+        "spark",
+        "snowflake",
+        "databricks",
+        "inference"
       ]
     },
     {
@@ -212,6 +318,21 @@
         "machine learning",
         "data science",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "sql",
+        "machine learning",
+        "data science",
+        "automation"
       ]
     },
     {
@@ -233,6 +354,18 @@
       "coverage_default": 0,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "sql",
+        "machine learning",
+        "data science"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "sql",
         "machine learning",
@@ -264,6 +397,20 @@
         "databricks",
         "automation",
         "model deployment"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "data science",
+        "snowflake",
+        "databricks",
+        "automation",
+        "model deployment"
       ]
     },
     {
@@ -285,6 +432,17 @@
       "coverage_default": 0,
       "confidence_default": "full",
       "requirements_default": [
+        "sql",
+        "machine learning",
+        "data science"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "sql",
         "machine learning",
         "data science"
@@ -315,6 +473,20 @@
         "data science",
         "snowflake",
         "databricks"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "sql",
+        "machine learning",
+        "data science",
+        "snowflake",
+        "databricks"
       ]
     },
     {
@@ -336,6 +508,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go",
+        "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go",
         "sql"
       ]
@@ -362,6 +544,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "sql"
       ]
     }

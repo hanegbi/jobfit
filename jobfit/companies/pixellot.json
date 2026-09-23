@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "0122e18b247ddbce193f",
@@ -52,6 +59,24 @@
         "devops",
         "qa",
         "cuda"
+      ],
+      "score_infra": 27,
+      "matched_infra": [
+        "python",
+        "linux",
+        "software developer",
+        "-qa"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "c++",
+        "go",
+        "linux",
+        "devops",
+        "qa",
+        "cuda"
       ]
     },
     {
@@ -74,6 +99,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "api"
       ]
     },
     {
@@ -94,7 +128,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

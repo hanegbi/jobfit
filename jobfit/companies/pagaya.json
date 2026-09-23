@@ -22,7 +22,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "pagaya:7821404003",
@@ -45,6 +53,19 @@
       "coverage_default": 0,
       "confidence_default": "full",
       "requirements_default": [
+        "machine learning",
+        "data science",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "machine learning",
         "data science",
         "api"
@@ -73,6 +94,28 @@
       "coverage_default": 30,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "go",
+        "sql",
+        "microservices",
+        "aws",
+        "machine learning",
+        "llm",
+        "etl",
+        "scalability",
+        "api"
+      ],
+      "score_infra": 51,
+      "matched_infra": [
+        "python",
+        "aws",
+        "llm",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 30,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "go",
         "sql",
@@ -128,6 +171,38 @@
         "datadog",
         "api",
         "automation"
+      ],
+      "score_infra": 54,
+      "matched_infra": [
+        "python",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "bash",
+        "observability",
+        "automation",
+        "devops engineer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 44,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "go",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "github actions",
+        "bash",
+        "machine learning",
+        "observability",
+        "prometheus",
+        "grafana",
+        "datadog",
+        "api",
+        "automation"
       ]
     },
     {
@@ -148,7 +223,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "pagaya:7764760003",
@@ -171,6 +253,21 @@
       "coverage_default": 20,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "go",
+        "sql",
+        "machine learning",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "go",
         "sql",
@@ -202,6 +299,19 @@
         "go",
         "machine learning",
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:12y(-100)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "machine learning",
+        "api"
       ]
     },
     {
@@ -224,6 +334,18 @@
       "coverage_default": 0,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "machine learning",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "machine learning",
         "api"
@@ -254,6 +376,31 @@
       "coverage_default": 45,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "go",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "bash",
+        "machine learning",
+        "api",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "docker",
+        "aws",
+        "bash",
+        "automation",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 45,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "go",
         "docker",
@@ -301,6 +448,29 @@
         "data science",
         "api",
         "automation"
+      ],
+      "score_infra": 47,
+      "matched_infra": [
+        "python",
+        "llm",
+        "automation",
+        "ai engineer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 27,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "javascript",
+        "typescript",
+        "go",
+        "sql",
+        "machine learning",
+        "llm",
+        "rag",
+        "data science",
+        "api",
+        "automation"
       ]
     },
     {
@@ -324,6 +494,23 @@
       "coverage_default": 14,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "sql",
+        "machine learning",
+        "airflow",
+        "etl",
+        "api",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 14,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "sql",
         "machine learning",
@@ -357,6 +544,19 @@
         "go",
         "machine learning",
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:12y(-100)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "machine learning",
+        "api"
       ]
     },
     {
@@ -382,6 +582,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "terraform",
+        "aws"
+      ],
+      "score_infra": 46,
+      "matched_infra": [
+        "aws",
+        "devops engineer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "terraform",
         "aws"
       ]

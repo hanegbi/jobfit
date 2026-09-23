@@ -23,7 +23,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 46,
+      "matched_infra": [
+        "software developer"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "96bc3eeed241a2b34f25",
@@ -43,7 +50,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "e95a5a5a052ed6e61d63",
@@ -63,7 +77,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f05027a09f61dddec78d",
@@ -83,7 +104,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "3c8152df5724eb3f1099",
@@ -103,7 +131,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "29a9b48fdde91cba44d5",
@@ -125,7 +160,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "b60bbba834df62b3a691",
@@ -148,7 +190,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "7bbb1df0a74d57b4e7ce",
@@ -170,7 +220,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "7247ac706b092cbbdaf3",
@@ -190,7 +247,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "check_point_software_technologies:744000147687949",
@@ -221,6 +285,22 @@
         "node",
         "node.js",
         "devops"
+      ],
+      "score_infra": 80,
+      "matched_infra": [
+        "python",
+        "node",
+        "node.js",
+        "software developer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "node",
+        "node.js",
+        "devops"
       ]
     },
     {
@@ -246,6 +326,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -277,6 +368,21 @@
         "helm",
         "ci/cd",
         "automation"
+      ],
+      "score_infra": 38,
+      "matched_infra": [
+        "ci/cd",
+        "automation",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "kubernetes",
+        "terraform",
+        "helm",
+        "ci/cd",
+        "automation"
       ]
     },
     {
@@ -303,6 +409,20 @@
       "coverage_default": 67,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "fastapi",
+        "rest"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "python",
+        "fastapi",
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "fastapi",
         "rest"
@@ -339,6 +459,24 @@
         "gcp",
         "azure",
         "databricks"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "aws",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "aws",
+        "gcp",
+        "azure",
+        "databricks"
       ]
     },
     {
@@ -368,6 +506,20 @@
         "python",
         "fastapi",
         "rest"
+      ],
+      "score_infra": 4,
+      "matched_infra": [
+        "python",
+        "fastapi",
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "fastapi",
+        "rest"
       ]
     },
     {
@@ -393,6 +545,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "api"
       ]
     },
     {
@@ -415,7 +577,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "check_point_software_technologies:744000138045589",
@@ -438,7 +607,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "check_point_software_technologies:744000145957669",
@@ -461,7 +638,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "check_point_software_technologies:744000138055200",
@@ -486,6 +671,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)",
+        "-support engineer"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "sql"
       ]
@@ -520,6 +717,23 @@
         "aws",
         "observability",
         "distributed systems"
+      ],
+      "score_infra": 47,
+      "matched_infra": [
+        "aws",
+        "observability",
+        "backend engineer",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "java",
+        "kafka",
+        "microservices",
+        "aws",
+        "observability",
+        "distributed systems"
       ]
     },
     {
@@ -548,6 +762,24 @@
       "coverage_default": 80,
       "confidence_default": "full",
       "requirements_default": [
+        "postgresql",
+        "redis",
+        "kafka",
+        "elasticsearch",
+        "aws"
+      ],
+      "score_infra": 16,
+      "matched_infra": [
+        "postgresql",
+        "redis",
+        "elasticsearch",
+        "aws",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 80,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "postgresql",
         "redis",
         "kafka",

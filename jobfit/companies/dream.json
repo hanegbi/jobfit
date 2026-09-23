@@ -32,6 +32,22 @@
         "kubernetes",
         "bash",
         "automation"
+      ],
+      "score_infra": 49,
+      "matched_infra": [
+        "python",
+        "bash",
+        "automation",
+        "exp:6y"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "go",
+        "kubernetes",
+        "bash",
+        "automation"
       ]
     },
     {
@@ -55,6 +71,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "python"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -81,6 +106,19 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "aws",
+        "gcp",
+        "azure"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "aws",
+        "devops engineer",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "aws",
         "gcp",
         "azure"

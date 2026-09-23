@@ -23,6 +23,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -44,6 +53,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go",
+        "llm"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "llm"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go",
         "llm"
       ]
@@ -68,6 +87,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "qa"
       ]
     },
@@ -94,6 +123,18 @@
       "requirements_default": [
         "llm",
         "observability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "observability",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "llm",
+        "observability"
       ]
     },
     {
@@ -114,7 +155,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "4b52c667fbf9fa34ce52",
@@ -137,6 +185,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation",
+        "genai"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation",
         "genai"
       ]

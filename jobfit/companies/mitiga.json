@@ -24,6 +24,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "redis"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "redis",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "redis"
       ]
     },
     {
@@ -45,6 +55,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "snowflake",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "snowflake",
         "api"
       ]
@@ -72,6 +92,18 @@
         "go",
         "llm",
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "llm",
+        "api"
       ]
     },
     {
@@ -92,7 +124,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "mitiga:A5.271",
@@ -112,7 +151,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "mitiga:6C.D61",
@@ -132,7 +178,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "mitiga:F0.F6C",
@@ -152,7 +205,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "mitiga:4F.B67",
@@ -172,7 +232,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "7e046aa2c0e6996b41f9",
@@ -191,6 +258,14 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go",
+        "api"
+      ],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go",
         "api"
       ]
@@ -213,7 +288,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "864b9ad69a9b17aa7918",
@@ -235,6 +317,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -259,6 +351,25 @@
       "coverage_default": 22,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "mongodb",
+        "aws",
+        "gcp",
+        "azure",
+        "snowflake",
+        "databricks",
+        "datadog",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "mongodb",
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 22,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "mongodb",
         "aws",

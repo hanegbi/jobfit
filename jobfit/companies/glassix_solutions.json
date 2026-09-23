@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "b1dc483226d0402a06a1",
@@ -48,6 +55,30 @@
       "coverage_default": 60,
       "confidence_default": "full",
       "requirements_default": [
+        "react",
+        "sql",
+        "mongodb",
+        "redis",
+        "elasticsearch",
+        "aws",
+        "gcp",
+        "azure",
+        "nlp",
+        "automation"
+      ],
+      "score_infra": 32,
+      "matched_infra": [
+        "react",
+        "mongodb",
+        "redis",
+        "elasticsearch",
+        "aws",
+        "automation",
+        "-customer success"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "react",
         "sql",
         "mongodb",

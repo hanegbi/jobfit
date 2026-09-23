@@ -23,6 +23,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "rest"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "rest"
       ]
     },
     {
@@ -45,6 +54,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "genai"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "genai"
       ]
     },
@@ -69,6 +88,16 @@
       "requirements_default": [
         "rest",
         "automation"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "automation"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "rest",
+        "automation"
       ]
     },
     {
@@ -89,7 +118,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "6dd0e7e9f509d86d4ec6",
@@ -111,6 +147,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "aws",
+        "snowflake",
+        "databricks"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "aws",
         "snowflake",
         "databricks"
@@ -141,6 +189,20 @@
         "azure",
         "snowflake",
         "databricks"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "aws",
+        "gcp",
+        "azure",
+        "snowflake",
+        "databricks"
       ]
     },
     {
@@ -164,7 +226,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "cyera:03.173",
@@ -196,6 +266,23 @@
         "node",
         "node.js",
         "api"
+      ],
+      "score_infra": 54,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "full stack engineer"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "javascript",
+        "typescript",
+        "react",
+        "node",
+        "node.js",
+        "api"
       ]
     },
     {
@@ -221,6 +308,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 55,
+      "matched_infra": [
+        "python",
+        "ml engineer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     }

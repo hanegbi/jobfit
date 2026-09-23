@@ -23,6 +23,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -56,6 +65,26 @@
         "airflow",
         "snowflake",
         "automation"
+      ],
+      "score_infra": 44,
+      "matched_infra": [
+        "python",
+        "automation",
+        "ai engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 22,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "javascript",
+        "typescript",
+        "sql",
+        "rag",
+        "data science",
+        "airflow",
+        "snowflake",
+        "automation"
       ]
     },
     {
@@ -77,7 +106,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "2cd600e16c255d5b7575",
@@ -98,6 +135,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -121,6 +167,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "sql",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "sql",
         "api"
       ]
@@ -166,6 +223,36 @@
         "azure",
         "ci/cd",
         "grafana"
+      ],
+      "score_infra": 46,
+      "matched_infra": [
+        "react",
+        "postgresql",
+        "mongodb",
+        "redis",
+        "aws",
+        "ci/cd",
+        "fullstack engineer"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "java",
+        "typescript",
+        "react",
+        "vue",
+        "sql",
+        "postgresql",
+        "mysql",
+        "mongodb",
+        "redis",
+        "microservices",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "grafana"
       ]
     },
     {
@@ -187,7 +274,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "a0356cebfbb42b6b06fb",
@@ -207,7 +302,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

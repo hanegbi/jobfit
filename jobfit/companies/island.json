@@ -26,6 +26,18 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "cypress"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:10y(-100)",
+        "off-target title(-50)",
+        "-account executive",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "cypress"
       ]
     },
     {
@@ -55,6 +67,22 @@
         "datadog",
         "inference",
         "api"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "llm",
+        "inference",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "javascript",
+        "rest",
+        "llm",
+        "datadog",
+        "inference",
+        "api"
       ]
     },
     {
@@ -76,6 +104,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "cypress"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "software engineer"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "cypress"
       ]
     },
@@ -103,6 +140,27 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "javascript",
+        "go",
+        "azure",
+        "bash",
+        "observability",
+        "distributed systems",
+        "automation"
+      ],
+      "score_infra": 30,
+      "matched_infra": [
+        "python",
+        "bash",
+        "observability",
+        "automation",
+        "exp:5y(fit)",
+        "-customer success"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "javascript",
         "go",
@@ -144,6 +202,26 @@
         "aws",
         "ci/cd",
         "cypress"
+      ],
+      "score_infra": 50,
+      "matched_infra": [
+        "python",
+        "aws",
+        "ci/cd",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "typescript",
+        "go",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "ci/cd",
+        "cypress"
       ]
     },
     {
@@ -175,6 +253,24 @@
         "aws",
         "bash",
         "automation"
+      ],
+      "score_infra": 63,
+      "matched_infra": [
+        "python",
+        "docker",
+        "aws",
+        "bash",
+        "automation"
+      ],
+      "coverage_infra": 83,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "docker",
+        "kubernetes",
+        "aws",
+        "bash",
+        "automation"
       ]
     },
     {
@@ -197,6 +293,18 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "aws",
+        "gcp",
+        "azure"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "aws",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "aws",
         "gcp",
         "azure"
@@ -227,6 +335,20 @@
         "git",
         "automation",
         "qa"
+      ],
+      "score_infra": 3,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "-qa",
+        "-manual testing"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "git",
+        "automation",
+        "qa"
       ]
     },
     {
@@ -252,6 +374,18 @@
       "requirements_default": [
         "react",
         "linux"
+      ],
+      "score_infra": 10,
+      "matched_infra": [
+        "react",
+        "linux",
+        "exp:6y"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "react",
+        "linux"
       ]
     },
     {
@@ -272,7 +406,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 52,
+      "matched_infra": [
+        "software engineer"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "96a1b247ee2fc9b85dfc",
@@ -295,6 +436,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "react",
+        "linux"
+      ],
+      "score_infra": 10,
+      "matched_infra": [
+        "react",
+        "linux",
+        "exp:6y"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "react",
         "linux"
       ]
@@ -321,6 +474,25 @@
       "coverage_default": 25,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "sql",
+        "kubernetes",
+        "terraform",
+        "jenkins",
+        "github actions",
+        "devops",
+        "grafana"
+      ],
+      "score_infra": 44,
+      "matched_infra": [
+        "python",
+        "jenkins",
+        "platform engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "sql",
         "kubernetes",

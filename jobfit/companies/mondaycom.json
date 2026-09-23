@@ -23,7 +23,16 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:7y(-50)",
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "46c5fb93d64b6bbef435",
@@ -45,7 +54,16 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "74522bbba12ea051d319",
@@ -67,7 +85,16 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "4a5039f69aa1ea09821a",
@@ -89,7 +116,16 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "40305d1ddd380172e53e",
@@ -110,6 +146,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "llm",
+        "distributed systems"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "llm"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "llm",
         "distributed systems"
       ]
@@ -140,6 +186,21 @@
         "typescript",
         "llm",
         "observability"
+      ],
+      "score_infra": 76,
+      "matched_infra": [
+        "python",
+        "llm",
+        "observability",
+        "ai engineer"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "typescript",
+        "llm",
+        "observability"
       ]
     },
     {
@@ -164,6 +225,19 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "llm",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "llm",
         "automation"
       ]
@@ -198,6 +272,25 @@
         "tensorflow",
         "nlp",
         "inference"
+      ],
+      "score_infra": 36,
+      "matched_infra": [
+        "python",
+        "react",
+        "inference",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 38,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "react",
+        "machine learning",
+        "deep learning",
+        "pytorch",
+        "tensorflow",
+        "nlp",
+        "inference"
       ]
     },
     {
@@ -221,6 +314,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -260,6 +364,31 @@
         "ci/cd",
         "llm",
         "devops"
+      ],
+      "score_infra": 7,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "docker",
+        "aws",
+        "ci/cd",
+        "llm",
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 78,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "react",
+        "node",
+        "node.js",
+        "docker",
+        "kubernetes",
+        "aws",
+        "ci/cd",
+        "llm",
+        "devops"
       ]
     },
     {
@@ -279,6 +408,13 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -300,7 +436,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

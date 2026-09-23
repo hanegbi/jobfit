@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "d04eaffd6bbdccf9dd67",
@@ -41,7 +48,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "72cfc97f4de06b494c21",
@@ -62,6 +76,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -85,6 +108,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -107,6 +139,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -126,6 +167,16 @@
       "coverage_default": 0,
       "confidence_default": "full",
       "requirements_default": [
+        "kafka",
+        "graphql",
+        "rest",
+        "api"
+      ],
+      "score_infra": 5,
+      "matched_infra": [],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kafka",
         "graphql",
         "rest",
@@ -154,6 +205,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -180,6 +242,25 @@
       "coverage_default": 67,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "javascript",
+        "react",
+        "gcp",
+        "llm",
+        "automation"
+      ],
+      "score_infra": 77,
+      "matched_infra": [
+        "python",
+        "react",
+        "llm",
+        "automation",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "javascript",
         "react",

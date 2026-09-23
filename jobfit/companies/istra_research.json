@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "8681e99b61d0db919b15",
@@ -44,6 +51,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "api"
       ]
@@ -69,6 +88,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "ci/cd"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "ci/cd",
+        "software engineer"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "ci/cd"
       ]
     },
     {
@@ -90,7 +119,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "d65dbf30ec8ef6d5f82e",
@@ -110,7 +147,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "b977266f77f170121bdc",
@@ -130,7 +174,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f731f620950a9ca4206c",
@@ -153,6 +204,16 @@
       "requirements_default": [
         "machine learning",
         "deep learning"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "machine learning",
+        "deep learning"
       ]
     },
     {
@@ -171,7 +232,12 @@
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "cdba18c79bff827ad697",
@@ -197,6 +263,27 @@
       "coverage_default": 62,
       "confidence_default": "full",
       "requirements_default": [
+        "postgresql",
+        "mysql",
+        "redis",
+        "elasticsearch",
+        "linux",
+        "devops",
+        "automation",
+        "infrastructure automation"
+      ],
+      "score_infra": 46,
+      "matched_infra": [
+        "postgresql",
+        "redis",
+        "elasticsearch",
+        "linux",
+        "automation",
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": 62,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "postgresql",
         "mysql",
         "redis",

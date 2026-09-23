@@ -23,6 +23,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "api"
       ]
     },
     {
@@ -43,7 +52,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "5978ab120d26656824d4",
@@ -63,7 +79,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "0a5611ac48775e2ba342",
@@ -86,6 +109,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "aws"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "aws"
       ]
     },
     {
@@ -106,7 +139,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "e8623336c724a9f14be8",
@@ -126,7 +166,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "76a12cb6e0aaf4053c3c",
@@ -146,7 +193,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "orca_security:6135948004",
@@ -172,6 +226,28 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "gcp",
+        "azure",
+        "bash",
+        "devops",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "aws",
+        "bash",
+        "off-target title(-50)",
+        "-customer success",
+        "-support engineer"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "kubernetes",
         "terraform",
@@ -218,6 +294,30 @@
         "sre",
         "api",
         "automation"
+      ],
+      "score_infra": 13,
+      "matched_infra": [
+        "python",
+        "aws",
+        "ci/cd",
+        "automation",
+        "-customer success"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "kubernetes",
+        "terraform",
+        "helm",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "devops",
+        "sre",
+        "api",
+        "automation"
       ]
     },
     {
@@ -244,6 +344,32 @@
       "coverage_default": 31,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "postgres",
+        "redis",
+        "kafka",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "sre",
+        "observability",
+        "distributed systems",
+        "scalability",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "redis",
+        "aws",
+        "observability",
+        "exp:7y(-50)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 31,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "postgres",
         "redis",
@@ -296,6 +422,32 @@
         "observability",
         "prometheus",
         "api"
+      ],
+      "score_infra": 45,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "bash",
+        "observability",
+        "devops engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 31,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "golang",
+        "microservices",
+        "kubernetes",
+        "terraform",
+        "ansible",
+        "helm",
+        "ci/cd",
+        "bash",
+        "observability",
+        "prometheus",
+        "api"
       ]
     },
     {
@@ -323,6 +475,34 @@
       "coverage_default": 36,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "go",
+        "postgres",
+        "redis",
+        "kafka",
+        "elasticsearch",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "distributed systems",
+        "api"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "python",
+        "redis",
+        "elasticsearch",
+        "docker",
+        "aws",
+        "software engineer",
+        "exp:6y"
+      ],
+      "coverage_infra": 36,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "go",
         "postgres",

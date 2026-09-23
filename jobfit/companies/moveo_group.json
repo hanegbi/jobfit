@@ -34,6 +34,24 @@
         "rest",
         "llm",
         "rag"
+      ],
+      "score_infra": 50,
+      "matched_infra": [
+        "python",
+        "llm",
+        "software engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "javascript",
+        "typescript",
+        "rest",
+        "llm",
+        "rag"
       ]
     },
     {
@@ -56,7 +74,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "62185b8ff10abc93c370",
@@ -90,6 +115,25 @@
         "ci/cd",
         "jenkins",
         "bash"
+      ],
+      "score_infra": 68,
+      "matched_infra": [
+        "python",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "bash",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 83,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "aws",
+        "azure",
+        "ci/cd",
+        "jenkins",
+        "bash"
       ]
     },
     {
@@ -114,6 +158,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "sql"
       ]
     }

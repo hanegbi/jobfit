@@ -22,7 +22,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "7886b0b752388fe57c77",
@@ -63,6 +71,34 @@
         "gcp",
         "ci/cd",
         "distributed systems"
+      ],
+      "score_infra": 65,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "postgresql",
+        "mongodb",
+        "aws",
+        "ci/cd",
+        "full stack developer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 58,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "typescript",
+        "react",
+        "node",
+        "node.js",
+        "postgresql",
+        "mongodb",
+        "microservices",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "ci/cd",
+        "distributed systems"
       ]
     },
     {
@@ -87,6 +123,20 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "graphql",
+        "ci/cd",
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "graphql",
         "ci/cd",
         "qa"
@@ -115,6 +165,18 @@
       "requirements_default": [
         "automation",
         "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:3y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation",
+        "qa"
       ]
     },
     {
@@ -138,6 +200,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "qa"
       ]
     },
     {
@@ -160,6 +232,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "spark",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "spark",
         "automation"
       ]

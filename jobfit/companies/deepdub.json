@@ -23,6 +23,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -45,6 +54,19 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "llm",
+        "api",
+        "automation"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "llm",
+        "automation"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "llm",
         "api",
@@ -74,6 +96,18 @@
         "go",
         "api",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "api",
+        "automation"
       ]
     },
     {
@@ -95,6 +129,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go",
         "api"
       ]
@@ -119,6 +163,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "api"
       ]
     },
     {
@@ -140,6 +193,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "api"
       ]
     }

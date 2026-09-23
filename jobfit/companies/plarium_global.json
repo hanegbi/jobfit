@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "a6a5efd05ee4ab62fbf5",
@@ -41,7 +48,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "3538638a59e48a0631d3",
@@ -63,6 +77,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "qa"
       ]
     },
@@ -90,6 +114,19 @@
         "python",
         "sql",
         "qa"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "python",
+        "exp:17y(-100)",
+        "-qa"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "qa"
       ]
     },
     {
@@ -113,6 +150,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:17y(-100)",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "qa"
       ]
     },
@@ -138,6 +186,20 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "node",
+        "git",
+        "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "node",
+        "exp:17y(-100)",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "node",
         "git",
         "qa"

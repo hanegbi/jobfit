@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 39,
+      "matched_infra": [
+        "devops engineer"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "incredibuild:22.96D",
@@ -41,7 +48,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "incredibuild:3F.07B",
@@ -61,7 +75,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "incredibuild:B2.360",
@@ -81,7 +102,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "incredibuild:BC.85F",
@@ -101,7 +129,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "65facd5d9087c58729aa",
@@ -121,7 +156,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "c4d3d7713162cba8e944",
@@ -143,6 +185,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "ci/cd"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "ci/cd"
       ]
     },
@@ -166,6 +218,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "ci/cd"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "ci/cd"
       ]
     },
@@ -192,6 +254,18 @@
       "requirements_default": [
         "ci/cd",
         "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "linux",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "ci/cd",
+        "linux"
       ]
     },
     {
@@ -215,6 +289,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "ci/cd",
+        "jenkins"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "jenkins",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "ci/cd",
         "jenkins"
       ]
@@ -253,6 +339,29 @@
         "github actions",
         "linux",
         "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "aws",
+        "ci/cd",
+        "linux",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 36,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "go",
+        "rust",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "github actions",
+        "linux",
+        "devops"
       ]
     },
     {
@@ -272,6 +381,14 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "postgres",
+        "api"
+      ],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "postgres",
         "api"
       ]

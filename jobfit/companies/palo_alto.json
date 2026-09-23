@@ -28,6 +28,18 @@
       "requirements_default": [
         "java",
         "go"
+      ],
+      "score_infra": 30,
+      "matched_infra": [
+        "software engineer",
+        "exp:4y(fit)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "java",
+        "go"
       ]
     },
     {
@@ -61,6 +73,24 @@
         "kubernetes",
         "gcp",
         "devops"
+      ],
+      "score_infra": 17,
+      "matched_infra": [
+        "python",
+        "docker",
+        "platform engineer",
+        "exp:6y",
+        "senior(-30)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "go",
+        "docker",
+        "kubernetes",
+        "gcp",
+        "devops"
       ]
     },
     {
@@ -88,6 +118,18 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -112,6 +154,18 @@
       "coverage_default": 0,
       "confidence_default": "full",
       "requirements_default": [
+        "kubernetes",
+        "terraform",
+        "sre"
+      ],
+      "score_infra": 26,
+      "matched_infra": [
+        "site reliability engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kubernetes",
         "terraform",
         "sre"
@@ -144,6 +198,20 @@
         "python",
         "java",
         "golang"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:8y(-75)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "golang"
       ]
     },
     {
@@ -173,6 +241,20 @@
         "gcp",
         "sre",
         "distributed systems"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "devops engineer",
+        "exp:10y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "terraform",
+        "gcp",
+        "sre",
+        "distributed systems"
       ]
     },
     {
@@ -198,6 +280,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "rest"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "rest"
       ]
     },
     {
@@ -222,7 +314,16 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 19,
+      "matched_infra": [
+        "software engineer",
+        "exp:8y(-75)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f1fc3d83fd06807815e1",
@@ -248,6 +349,21 @@
       "coverage_default": 25,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "java",
+        "go",
+        "microservices"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "python",
+        "software engineer",
+        "exp:10y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "java",
         "go",
@@ -279,6 +395,18 @@
         "sql",
         "microservices",
         "kubernetes"
+      ],
+      "score_infra": 30,
+      "matched_infra": [
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "sql",
+        "microservices",
+        "kubernetes"
       ]
     },
     {
@@ -304,6 +432,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "distributed systems"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "distributed systems"
       ]
     },
     {
@@ -327,7 +465,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "554f4abe8a2919cc1715",
@@ -355,6 +501,19 @@
         "python",
         "java",
         "go"
+      ],
+      "score_infra": 3,
+      "matched_infra": [
+        "python",
+        "exp:4y(fit)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "go"
       ]
     },
     {
@@ -378,7 +537,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "d49e7ad8377e1d4a61f0",
@@ -403,6 +570,19 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "typescript",
+        "golang"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:6y",
+        "senior(-30)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "typescript",
         "golang"
@@ -434,6 +614,19 @@
       "requirements_default": [
         "python",
         "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:4y(fit)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "sql"
       ]
     },
     {
@@ -457,6 +650,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "distributed systems"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "distributed systems"
       ]
     },
@@ -485,6 +687,23 @@
       "coverage_default": 40,
       "confidence_default": "full",
       "requirements_default": [
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "linux",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kubernetes",
         "aws",
         "gcp",

@@ -23,7 +23,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "4aaa141bb497ed7a5ce5",
@@ -51,6 +58,19 @@
         "python",
         "sql",
         "data science"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:1y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "data science"
       ]
     },
     {
@@ -73,7 +93,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "7efa52c85819191c20c0",
@@ -97,6 +124,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -128,6 +165,21 @@
         "react",
         "node",
         "node.js"
+      ],
+      "score_infra": 62,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "typescript",
+        "react",
+        "node",
+        "node.js"
       ]
     },
     {
@@ -151,7 +203,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 44,
+      "matched_infra": [
+        "data engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "1f9dfcfdc00049117d2a",
@@ -174,6 +234,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "azure",
+        "databricks"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:1y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "azure",
         "databricks"
       ]

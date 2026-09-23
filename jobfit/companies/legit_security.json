@@ -36,6 +36,28 @@
         "github actions",
         "devops",
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "docker",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "jenkins",
+        "github actions",
+        "devops",
+        "api"
       ]
     },
     {
@@ -56,7 +78,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "1134b726db9bfe97cc02",
@@ -79,6 +108,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "llm",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "llm",
         "automation"
       ]
@@ -110,6 +151,22 @@
         "ci/cd",
         "git",
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "aws",
+        "gcp",
+        "ci/cd",
+        "git",
+        "api"
       ]
     },
     {
@@ -132,6 +189,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "ci/cd"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "ci/cd"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "ci/cd"
       ]
     },
     {
@@ -152,7 +218,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

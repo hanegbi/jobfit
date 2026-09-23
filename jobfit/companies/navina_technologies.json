@@ -24,6 +24,16 @@
       "requirements_default": [
         "rest",
         "data science"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "rest",
+        "data science"
       ]
     },
     {
@@ -45,7 +55,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "e439710fa2536853ba32",
@@ -56,8 +74,8 @@
       "first_seen": "2026-09-15T19:43:52Z",
       "last_seen": "2026-09-15T19:43:52Z",
       "status": "new",
-      "best_cv": "default",
-      "best_score": 24,
+      "best_cv": "infra",
+      "best_score": 38,
       "best_confidence": "full",
       "score_default": 24,
       "matched_default": [
@@ -67,6 +85,21 @@
       "coverage_default": 20,
       "confidence_default": "full",
       "requirements_default": [
+        "aws",
+        "snowflake",
+        "devops",
+        "datadog",
+        "ml infrastructure"
+      ],
+      "score_infra": 38,
+      "matched_infra": [
+        "aws",
+        "ml infrastructure",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "aws",
         "snowflake",
         "devops",
@@ -96,6 +129,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
       ]
     },
     {
@@ -119,6 +163,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "bash"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "bash",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "bash"
       ]
@@ -157,6 +213,29 @@
         "ci/cd",
         "git",
         "snowflake"
+      ],
+      "score_infra": 77,
+      "matched_infra": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "aws",
+        "ci/cd",
+        "full stack engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 75,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "aws",
+        "ci/cd",
+        "git",
+        "snowflake"
       ]
     },
     {
@@ -181,6 +260,22 @@
       "coverage_default": 80,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "typescript",
+        "node",
+        "node.js",
+        "llm"
+      ],
+      "score_infra": 61,
+      "matched_infra": [
+        "python",
+        "node",
+        "node.js",
+        "llm"
+      ],
+      "coverage_infra": 80,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "typescript",
         "node",
@@ -214,6 +309,21 @@
         "javascript",
         "sql",
         "etl"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "off-target title(-50)",
+        "-customer success",
+        "-support engineer"
+      ],
+      "coverage_infra": 25,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "javascript",
+        "sql",
+        "etl"
       ]
     },
     {
@@ -234,7 +344,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "878e07502feda99b338c",
@@ -257,6 +374,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -281,7 +409,17 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "senior(-30)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "05a8229d6166cc350834",
@@ -304,6 +442,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     }

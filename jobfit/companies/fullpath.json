@@ -25,6 +25,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:2y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -47,6 +58,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -72,6 +93,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -96,6 +128,24 @@
       "coverage_default": 43,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "aws",
+        "gcp",
+        "ci/cd",
+        "llm",
+        "devops",
+        "api"
+      ],
+      "score_infra": 40,
+      "matched_infra": [
+        "aws",
+        "ci/cd",
+        "llm",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": 43,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "aws",
         "gcp",
@@ -130,6 +180,20 @@
         "go",
         "llm",
         "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "exp:10y(-100)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "llm",
+        "scalability"
       ]
     },
     {
@@ -157,6 +221,20 @@
         "go",
         "llm",
         "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "exp:10y(-100)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "llm",
+        "scalability"
       ]
     },
     {
@@ -179,6 +257,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -203,6 +291,19 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "ci/cd",
+        "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "exp:7y(-50)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "ci/cd",
         "devops"
@@ -232,6 +333,19 @@
         "go",
         "ci/cd",
         "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "exp:7y(-50)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "ci/cd",
+        "devops"
       ]
     },
     {
@@ -256,6 +370,23 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "sql",
+        "postgresql",
+        "mysql",
+        "microservices",
+        "aws"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "postgresql",
+        "aws",
+        "backend engineer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "sql",
         "postgresql",
@@ -292,6 +423,23 @@
         "mysql",
         "microservices",
         "aws"
+      ],
+      "score_infra": 52,
+      "matched_infra": [
+        "postgresql",
+        "aws",
+        "backend engineer",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "sql",
+        "postgresql",
+        "mysql",
+        "microservices",
+        "aws"
       ]
     },
     {
@@ -322,6 +470,23 @@
         "mysql",
         "microservices",
         "aws"
+      ],
+      "score_infra": 47,
+      "matched_infra": [
+        "postgresql",
+        "aws",
+        "backend engineer",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "go",
+        "sql",
+        "postgresql",
+        "mysql",
+        "microservices",
+        "aws"
       ]
     },
     {
@@ -344,7 +509,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "fullpath:BD.17B",
@@ -367,7 +539,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

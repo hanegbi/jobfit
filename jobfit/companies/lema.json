@@ -23,6 +23,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -47,6 +56,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:6y",
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go"
       ]
     },
     {
@@ -70,6 +90,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:6y",
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go"
       ]
     },
@@ -100,6 +131,22 @@
         "go",
         "sql",
         "automation"
+      ],
+      "score_infra": 23,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:3y(fit)",
+        "-customer success"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "javascript",
+        "go",
+        "sql",
+        "automation"
       ]
     },
     {
@@ -124,6 +171,19 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "go",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "go",
         "automation"
       ]
@@ -167,6 +227,34 @@
         "aws",
         "observability",
         "distributed systems"
+      ],
+      "score_infra": 58,
+      "matched_infra": [
+        "python",
+        "react",
+        "postgresql",
+        "redis",
+        "aws",
+        "observability",
+        "backend engineer",
+        "exp:6y"
+      ],
+      "coverage_infra": 46,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "typescript",
+        "golang",
+        "react",
+        "postgresql",
+        "redis",
+        "kafka",
+        "microservices",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "observability",
+        "distributed systems"
       ]
     },
     {
@@ -189,7 +277,16 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:4y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

@@ -27,6 +27,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "linux"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "linux",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "linux"
       ]
     },
     {
@@ -49,7 +60,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 4,
+      "matched_infra": [
+        "exp:8y(-75)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "4005f7b6f4368ba19427",
@@ -72,7 +90,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "33e8137a46ef5858661e",
@@ -96,6 +122,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python"
       ]
     },
@@ -124,6 +160,18 @@
         "java",
         "rest",
         "microservices"
+      ],
+      "score_infra": 30,
+      "matched_infra": [
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "java",
+        "rest",
+        "microservices"
       ]
     },
     {
@@ -146,7 +194,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 15,
+      "matched_infra": [
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

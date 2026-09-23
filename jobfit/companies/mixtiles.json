@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f0885196bc97dd357366",
@@ -55,6 +62,27 @@
         "machine learning",
         "automation",
         "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "react",
+        "node",
+        "redis",
+        "aws",
+        "automation",
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_infra": 71,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "react",
+        "node",
+        "redis",
+        "aws",
+        "machine learning",
+        "automation",
+        "qa"
       ]
     },
     {
@@ -75,7 +103,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "dec3e3fc140c190b8ea4",
@@ -98,6 +133,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "devops"
+      ],
+      "score_infra": 48,
+      "matched_infra": [
+        "full stack engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "devops"
       ]
     },
     {
@@ -119,7 +164,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "mixtiles:8542310002",
@@ -140,6 +193,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     }

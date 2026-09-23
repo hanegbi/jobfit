@@ -30,6 +30,22 @@
         "observability",
         "scalability",
         "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "observability",
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 60,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "aws",
+        "rag",
+        "observability",
+        "scalability",
+        "automation"
       ]
     },
     {
@@ -61,6 +77,37 @@
       "coverage_default": 62,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "typescript",
+        "react",
+        "node",
+        "node.js",
+        "fastapi",
+        "rest",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "llm",
+        "rag",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "fastapi",
+        "docker",
+        "llm",
+        "automation",
+        "exp:2y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": 62,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "typescript",
         "react",
@@ -113,6 +160,32 @@
         "prometheus",
         "scalability",
         "automation"
+      ],
+      "score_infra": 53,
+      "matched_infra": [
+        "docker",
+        "ci/cd",
+        "llm",
+        "observability",
+        "automation",
+        "devops engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 42,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "docker",
+        "kubernetes",
+        "terraform",
+        "helm",
+        "azure",
+        "ci/cd",
+        "github actions",
+        "llm",
+        "observability",
+        "prometheus",
+        "scalability",
+        "automation"
       ]
     },
     {
@@ -140,6 +213,31 @@
       "coverage_default": 45,
       "confidence_default": "full",
       "requirements_default": [
+        "docker",
+        "kubernetes",
+        "terraform",
+        "helm",
+        "ci/cd",
+        "github actions",
+        "llm",
+        "observability",
+        "prometheus",
+        "scalability",
+        "automation"
+      ],
+      "score_infra": 56,
+      "matched_infra": [
+        "docker",
+        "ci/cd",
+        "llm",
+        "observability",
+        "automation",
+        "devops engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 45,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "docker",
         "kubernetes",
         "terraform",
@@ -198,6 +296,40 @@
         "devops",
         "distributed systems",
         "scalability"
+      ],
+      "score_infra": 59,
+      "matched_infra": [
+        "python",
+        "react",
+        "fastapi",
+        "postgresql",
+        "redis",
+        "docker",
+        "ci/cd",
+        "llm",
+        "backend engineer",
+        "exp:6y"
+      ],
+      "coverage_infra": 47,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "typescript",
+        "react",
+        "fastapi",
+        "postgresql",
+        "redis",
+        "rest",
+        "docker",
+        "kubernetes",
+        "azure",
+        "ci/cd",
+        "git",
+        "llm",
+        "rag",
+        "devops",
+        "distributed systems",
+        "scalability"
       ]
     },
     {
@@ -225,6 +357,32 @@
       "coverage_default": 42,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "javascript",
+        "typescript",
+        "react",
+        "sql",
+        "rest",
+        "docker",
+        "aws",
+        "gcp",
+        "azure",
+        "llm",
+        "scalability"
+      ],
+      "score_infra": 54,
+      "matched_infra": [
+        "python",
+        "react",
+        "docker",
+        "aws",
+        "llm",
+        "full stack engineer",
+        "exp:2y(fit)"
+      ],
+      "coverage_infra": 42,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "javascript",
         "typescript",
@@ -271,6 +429,27 @@
         "azure",
         "nlp",
         "rag"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "aws",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "javascript",
+        "typescript",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "azure",
+        "nlp",
+        "rag"
       ]
     },
     {
@@ -293,6 +472,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "scalability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:1y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "scalability"
       ]
     },
@@ -350,6 +539,48 @@
         "genai",
         "gpu",
         "inference infrastructure"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "node",
+        "node.js",
+        "docker",
+        "aws",
+        "ci/cd",
+        "llm",
+        "observability",
+        "inference",
+        "genai",
+        "exp:10y(-100)",
+        "senior(-30)"
+      ],
+      "coverage_infra": 43,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "typescript",
+        "node",
+        "node.js",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "llm",
+        "rag",
+        "devops",
+        "observability",
+        "prometheus",
+        "grafana",
+        "distributed systems",
+        "scalability",
+        "inference",
+        "genai",
+        "gpu",
+        "inference infrastructure"
       ]
     },
     {
@@ -380,6 +611,23 @@
         "rest",
         "rag",
         "observability"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "observability",
+        "exp:3y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "rest",
+        "rag",
+        "observability"
       ]
     },
     {
@@ -401,7 +649,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "-recruiter"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "fba1004be53a4d872d70",
@@ -424,6 +680,23 @@
       "coverage_default": 29,
       "confidence_default": "full",
       "requirements_default": [
+        "microservices",
+        "kubernetes",
+        "llm",
+        "rag",
+        "observability",
+        "distributed systems",
+        "scalability"
+      ],
+      "score_infra": 30,
+      "matched_infra": [
+        "llm",
+        "observability",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "microservices",
         "kubernetes",
         "llm",

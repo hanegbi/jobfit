@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "3abbc04807cc2743b7b4",
@@ -63,6 +70,35 @@
         "aws",
         "ci/cd",
         "linux"
+      ],
+      "score_infra": 77,
+      "matched_infra": [
+        "node",
+        "node.js",
+        "redis",
+        "elasticsearch",
+        "docker",
+        "aws",
+        "ci/cd",
+        "linux",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "java",
+        "node",
+        "node.js",
+        "sql",
+        "redis",
+        "rabbitmq",
+        "elasticsearch",
+        "rest",
+        "docker",
+        "aws",
+        "ci/cd",
+        "linux"
       ]
     },
     {
@@ -83,7 +119,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "e8522f109540bb7e4f63",
@@ -106,6 +149,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:1y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "sql"
       ]
     },
     {
@@ -126,7 +179,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

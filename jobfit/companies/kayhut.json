@@ -38,6 +38,30 @@
         "linux",
         "rag",
         "observability"
+      ],
+      "score_infra": 66,
+      "matched_infra": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "linux",
+        "observability",
+        "full-stack engineer",
+        "exp:7y(-50)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "javascript",
+        "typescript",
+        "react",
+        "node",
+        "node.js",
+        "linux",
+        "rag",
+        "observability"
       ]
     },
     {
@@ -62,6 +86,17 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "python"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python"
       ]
     },
     {
@@ -84,6 +119,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "rust"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "rust"
       ]
     },
@@ -112,6 +157,18 @@
       "requirements_default": [
         "python",
         "rust"
+      ],
+      "score_infra": 60,
+      "matched_infra": [
+        "python",
+        "software engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "python",
+        "rust"
       ]
     },
     {
@@ -130,7 +187,12 @@
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 8,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "f3cec8f925a043cd8944",
@@ -170,6 +232,33 @@
         "linux",
         "rag",
         "distributed systems"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "postgresql",
+        "elasticsearch",
+        "docker",
+        "ci/cd",
+        "linux",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "typescript",
+        "sql",
+        "postgresql",
+        "elasticsearch",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "ci/cd",
+        "linux",
+        "rag",
+        "distributed systems"
       ]
     },
     {
@@ -190,7 +279,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }

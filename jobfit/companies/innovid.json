@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "innovid:8784012002",
@@ -45,6 +52,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:6y",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -73,6 +92,32 @@
       "coverage_default": 42,
       "confidence_default": "full",
       "requirements_default": [
+        "java",
+        "javascript",
+        "typescript",
+        "react",
+        "node",
+        "node.js",
+        "sql",
+        "kafka",
+        "kubernetes",
+        "aws",
+        "linux",
+        "snowflake"
+      ],
+      "score_infra": 59,
+      "matched_infra": [
+        "react",
+        "node",
+        "node.js",
+        "aws",
+        "linux",
+        "software engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 42,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "java",
         "javascript",
         "typescript",
@@ -119,6 +164,27 @@
         "gcp",
         "azure",
         "scalability"
+      ],
+      "score_infra": 56,
+      "matched_infra": [
+        "python",
+        "react",
+        "docker",
+        "aws",
+        "software engineer"
+      ],
+      "coverage_infra": 44,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "react",
+        "sql",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "scalability"
       ]
     },
     {
@@ -143,6 +209,26 @@
       "coverage_default": 33,
       "confidence_default": "full",
       "requirements_default": [
+        "typescript",
+        "react",
+        "sql",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "scalability"
+      ],
+      "score_infra": 48,
+      "matched_infra": [
+        "react",
+        "docker",
+        "aws",
+        "software engineer"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "typescript",
         "react",
         "sql",
@@ -179,6 +265,20 @@
         "python",
         "aws",
         "automation"
+      ],
+      "score_infra": 80,
+      "matched_infra": [
+        "python",
+        "aws",
+        "automation",
+        "exp:1y(fit)"
+      ],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "aws",
+        "automation"
       ]
     },
     {
@@ -200,7 +300,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "innovid:8647851002",
@@ -223,6 +331,17 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "automation"
       ]
     },
@@ -248,6 +367,19 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "api",
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:8y(-75)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "api",
         "automation"
       ]

@@ -29,6 +29,19 @@
         "python",
         "sql",
         "automation"
+      ],
+      "score_infra": 57,
+      "matched_infra": [
+        "python",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 67,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "sql",
+        "automation"
       ]
     },
     {
@@ -54,6 +67,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "typescript",
+        "react"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "react",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "typescript",
         "react"
       ]

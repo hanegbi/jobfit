@@ -24,6 +24,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "ci/cd"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "ci/cd"
       ]
     },
     {
@@ -46,6 +56,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "ci/cd"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "ci/cd"
       ]
     },
@@ -70,6 +90,23 @@
       "coverage_default": 43,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "kubernetes",
+        "terraform",
+        "helm",
+        "ci/cd",
+        "llm",
+        "automation"
+      ],
+      "score_infra": 35,
+      "matched_infra": [
+        "ci/cd",
+        "llm",
+        "automation"
+      ],
+      "coverage_infra": 43,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "kubernetes",
         "terraform",
@@ -107,6 +144,23 @@
         "azure",
         "ci/cd",
         "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 29,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "python",
+        "java",
+        "javascript",
+        "go",
+        "azure",
+        "ci/cd",
+        "devops"
       ]
     },
     {
@@ -128,6 +182,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "ci/cd",
+        "devops"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "ci/cd"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "ci/cd",
         "devops"
       ]
@@ -152,6 +216,20 @@
       "coverage_default": 20,
       "confidence_default": "full",
       "requirements_default": [
+        "go",
+        "ci/cd",
+        "machine learning",
+        "devops",
+        "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "go",
         "ci/cd",
         "machine learning",
@@ -182,6 +260,18 @@
         "rest",
         "ci/cd",
         "devops"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 33,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "rest",
+        "ci/cd",
+        "devops"
       ]
     },
     {
@@ -204,6 +294,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "ci/cd"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "ci/cd"
       ]
     },
@@ -228,6 +328,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "ci/cd"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "ci/cd"
       ]
     },
     {
@@ -250,6 +360,20 @@
       "coverage_default": 40,
       "confidence_default": "full",
       "requirements_default": [
+        "kubernetes",
+        "terraform",
+        "ci/cd",
+        "scalability",
+        "automation"
+      ],
+      "score_infra": 33,
+      "matched_infra": [
+        "ci/cd",
+        "automation"
+      ],
+      "coverage_infra": 40,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "kubernetes",
         "terraform",
         "ci/cd",
@@ -279,6 +403,17 @@
       "requirements_default": [
         "ci/cd",
         "api"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "ci/cd",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "ci/cd",
+        "api"
       ]
     },
     {
@@ -300,6 +435,16 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "llm",
+        "api"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "llm"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "llm",
         "api"
       ]

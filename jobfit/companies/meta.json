@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "b4164658569fcadd730f",
@@ -44,6 +51,20 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "nlp",
+        "llm",
+        "computer vision",
+        "spark"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "llm",
+        "computer vision",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "nlp",
         "llm",
         "computer vision",
@@ -71,6 +92,16 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "computer vision"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "computer vision",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "computer vision"
       ]
     },
     {
@@ -92,6 +123,15 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "computer vision"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "computer vision"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "computer vision"
       ]
     },
@@ -115,6 +155,15 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "machine learning"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "machine learning"
       ]
     },
     {
@@ -135,7 +184,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "8749017c48f475dfe693",
@@ -160,6 +216,18 @@
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [
+        "python",
+        "sql"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "python",
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
         "python",
         "sql"
       ]

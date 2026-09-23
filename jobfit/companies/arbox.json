@@ -21,7 +21,14 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "ce6d4d8da610e31f7af3",
@@ -45,6 +52,21 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "react",
+        "mysql",
+        "aws",
+        "scalability"
+      ],
+      "score_infra": 59,
+      "matched_infra": [
+        "react",
+        "aws",
+        "full stack developer",
+        "exp:5y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "react",
         "mysql",
         "aws",

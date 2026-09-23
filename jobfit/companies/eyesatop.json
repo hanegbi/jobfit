@@ -28,6 +28,18 @@
       "requirements_default": [
         "automation",
         "qa"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "exp:5y(fit)",
+        "-qa"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation",
+        "qa"
       ]
     },
     {
@@ -51,7 +63,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 52,
+      "matched_infra": [
+        "infrastructure engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "eyesatop:44.F64",
@@ -74,7 +94,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:6y",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     },
     {
       "id": "eyesatop:50.D64",
@@ -100,6 +128,21 @@
       "coverage_default": 50,
       "confidence_default": "full",
       "requirements_default": [
+        "python",
+        "java",
+        "linux",
+        "distributed systems"
+      ],
+      "score_infra": 65,
+      "matched_infra": [
+        "python",
+        "linux",
+        "software engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_infra": 50,
+      "confidence_infra": "full",
+      "requirements_infra": [
         "python",
         "java",
         "linux",
@@ -130,6 +173,17 @@
       "requirements_default": [
         "deep learning",
         "computer vision"
+      ],
+      "score_infra": 15,
+      "matched_infra": [
+        "computer vision",
+        "exp:4y(fit)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "deep learning",
+        "computer vision"
       ]
     },
     {
@@ -153,7 +207,15 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": []
     }
   ]
 }
