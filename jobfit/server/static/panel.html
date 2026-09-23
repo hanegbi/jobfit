@@ -1,2 +1,159 @@
 <!doctype html>
-<html><body><h1>jobfit control panel</h1><p>under construction</p></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jobfit control panel</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; background: #0b0e11; color: #e6e9ec; }
+  .tabs { display: flex; gap: 4px; padding: 12px 16px; border-bottom: 1px solid #232a32; }
+  .tab-btn { background: #171c22; border: 1px solid #232a32; color: #9aa4ad; padding: 8px 14px; border-radius: 7px; cursor: pointer; font-size: 13px; }
+  .tab-btn.active { color: #76b900; border-color: #4d7a00; }
+  .panel { padding: 20px; max-width: 720px; }
+  .panel[hidden] { display: none; }
+  .stat-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .stat { background: #12161b; border: 1px solid #232a32; border-radius: 8px; padding: 12px 16px; min-width: 120px; }
+  .stat b { display: block; font-size: 20px; }
+  .list-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #232a32; }
+  form { display: flex; flex-direction: column; gap: 8px; max-width: 360px; margin-bottom: 20px; }
+  input, button { background: #171c22; border: 1px solid #232a32; color: #e6e9ec; padding: 7px 10px; border-radius: 6px; }
+  button { cursor: pointer; }
+  .msg { font-size: 13px; color: #76b900; min-height: 18px; }
+  .msg.error { color: #ff6b6b; }
+</style>
+</head>
+<body>
+  <div class="tabs">
+    <button class="tab-btn" data-tab="dashboard">Dashboard</button>
+    <button class="tab-btn" data-tab="profiles">CV Profiles</button>
+    <button class="tab-btn" data-tab="connections">Connections</button>
+    <button class="tab-btn" data-tab="referrals">Referrals</button>
+  </div>
+
+  <section id="tab-dashboard" class="panel">
+    <div class="stat-row" id="statRow"></div>
+    <div id="scoreDistribution"></div>
+  </section>
+
+  <section id="tab-profiles" class="panel" hidden>
+    <form id="profileForm">
+      <input type="text" name="name" placeholder="Profile name" required>
+      <input type="file" name="file" accept=".docx" required>
+      <button type="submit">Add CV profile</button>
+    </form>
+    <div class="msg" id="profileMsg"></div>
+    <div id="profileList"></div>
+  </section>
+
+  <section id="tab-connections" class="panel" hidden>
+    <form id="connectionsForm">
+      <input type="file" name="file" accept=".csv" required>
+      <button type="submit">Upload connections CSV</button>
+    </form>
+    <div class="msg" id="connectionsMsg"></div>
+  </section>
+
+  <section id="tab-referrals" class="panel" hidden>
+    <form id="referralForm">
+      <input type="file" name="file" accept=".json" required>
+      <button type="submit">Upload referral export</button>
+    </form>
+    <div class="msg" id="referralMsg"></div>
+  </section>
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll(".panel").forEach(el => el.hidden = el.id !== `tab-${name}`);
+  document.querySelectorAll(".tab-btn").forEach(el => el.classList.toggle("active", el.dataset.tab === name));
+}
+document.querySelectorAll(".tab-btn").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.tab)));
+switchTab("dashboard");
+
+async function refreshDashboard() {
+  const stats = await (await fetch("/api/dashboard")).json();
+  document.getElementById("statRow").innerHTML = `
+    <div class="stat"><b>${stats.total_jobs_open}</b>open jobs</div>
+    <div class="stat"><b>${stats.total_jobs_all_time}</b>jobs all-time</div>
+    <div class="stat"><b>${stats.companies}</b>companies</div>
+    <div class="stat"><b>${stats.connections}</b>connections</div>
+  `;
+  document.getElementById("scoreDistribution").innerHTML = Object.entries(stats.score_distribution).map(([id, buckets]) => {
+    const profile = stats.profiles.find(p => p.id === id);
+    const rows = Object.entries(buckets).map(([bucket, count]) => `<div>${bucket}-${Number(bucket) + 9}: ${count}</div>`).join("");
+    return `<h3>${profile ? profile.name : id}</h3>${rows}`;
+  }).join("");
+}
+
+async function refreshProfiles() {
+  const profiles = await (await fetch("/api/profiles")).json();
+  document.getElementById("profileList").innerHTML = profiles.map(p => `
+    <div class="list-row">
+      <span>${p.name}</span>
+      <button data-id="${p.id}" class="delete-profile">Remove</button>
+    </div>`).join("");
+  document.querySelectorAll(".delete-profile").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      await fetch(`/api/profiles/${btn.dataset.id}`, { method: "DELETE" });
+      await refreshProfiles();
+      await refreshDashboard();
+    });
+  });
+}
+
+document.getElementById("profileForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById("profileMsg");
+  msg.textContent = "Uploading...";
+  msg.classList.remove("error");
+  try {
+    const res = await fetch("/api/profiles", { method: "POST", body: new FormData(e.target) });
+    if (!res.ok) throw new Error((await res.json()).detail || "upload failed");
+    msg.textContent = "Added.";
+    e.target.reset();
+    await refreshProfiles();
+    await refreshDashboard();
+  } catch (err) {
+    msg.textContent = err.message;
+    msg.classList.add("error");
+  }
+});
+
+document.getElementById("connectionsForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById("connectionsMsg");
+  msg.textContent = "Uploading...";
+  msg.classList.remove("error");
+  try {
+    const res = await fetch("/api/connections", { method: "POST", body: new FormData(e.target) });
+    if (!res.ok) throw new Error((await res.json()).detail || "upload failed");
+    msg.textContent = "Connections updated.";
+    e.target.reset();
+    await refreshDashboard();
+  } catch (err) {
+    msg.textContent = err.message;
+    msg.classList.add("error");
+  }
+});
+
+document.getElementById("referralForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById("referralMsg");
+  msg.textContent = "Uploading...";
+  msg.classList.remove("error");
+  try {
+    const res = await fetch("/api/referrals", { method: "POST", body: new FormData(e.target) });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || "upload failed");
+    msg.textContent = `${data.added_new_job} new, ${data.merged_into_existing_job} already tracked (marked as referral).`;
+    e.target.reset();
+    await refreshDashboard();
+  } catch (err) {
+    msg.textContent = err.message;
+    msg.classList.add("error");
+  }
+});
+
+refreshDashboard();
+refreshProfiles();
+</script>
+</body>
+</html>
