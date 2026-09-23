@@ -50,41 +50,6 @@ def test_start_run_rejects_a_second_concurrent_run(tmp_path, monkeypatch):
             runner._state.update(running=False, run_id=None, started_at=None, queue=None)
 
 
-def test_start_recompute_runs_in_background_and_clears_running_state(monkeypatch):
-    called = {"n": 0}
-
-    def _fake_recompute_stage():
-        time.sleep(0.1)  # a real window to observe "still running" in, not a race
-        called["n"] += 1
-
-    monkeypatch.setattr("jobfit.scripts.update_jobs.recompute_stage", _fake_recompute_stage)
-
-    runner.start_recompute()
-    assert runner.status()["running"] is True
-    assert runner.status()["run_id"] == "recompute"
-
-    for _ in range(50):
-        if not runner.is_running():
-            break
-        time.sleep(0.05)
-    assert runner.is_running() is False
-    assert called["n"] == 1
-
-
-def test_start_recompute_rejects_when_a_run_is_already_active():
-    with runner._lock:
-        runner._state.update(running=True, run_id="already-running", started_at="x", queue=None)
-    try:
-        try:
-            runner.start_recompute()
-            assert False, "expected RuntimeError"
-        except RuntimeError as error:
-            assert "already-running" in str(error)
-    finally:
-        with runner._lock:
-            runner._state.update(running=False, run_id=None, started_at=None, queue=None)
-
-
 def test_mark_orphaned_runs_crashed_flags_unfinished_entries(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
     config.RUN_HISTORY_PATH.write_text(json.dumps([

@@ -87,9 +87,10 @@ def client(tmp_path, monkeypatch):
 
 
 @pytest.fixture
-def no_op_recompute(monkeypatch):
-    """recompute_stage() is what runner.start_recompute() calls in the
-    background - stub it so upload tests don't touch real techmap/scoring."""
+def recompute_spy(monkeypatch):
+    """Uploads must NEVER trigger a rescore - scores only update on an
+    explicit "Run update" (see runner.start_run's own recompute_stage()
+    call). This fixture lets upload tests assert that stays true."""
     calls = {"n": 0}
     monkeypatch.setattr(update_jobs, "recompute_stage", lambda: calls.__setitem__("n", calls["n"] + 1))
     return calls
@@ -125,25 +126,21 @@ def test_list_profiles_starts_empty(client):
     assert client.get("/api/profiles").json() == []
 
 
-def test_add_profile_with_docx_returns_immediately_and_triggers_recompute(client, no_op_recompute):
+def test_add_profile_with_docx_returns_immediately_without_recomputing(client, recompute_spy):
     res = client.post(
         "/api/profiles",
         data={"name": "Default"},
         files={"file": ("resume.docx", _make_docx_bytes(), "application/vnd.openxmlformats-officedocument.wordprocessingml.document")},
     )
     assert res.status_code == 200
-    body = res.json()
-    assert body["id"] == "default"
-    assert body["recompute_pending"] is True
-
-    _wait_for_idle()
-    assert no_op_recompute["n"] == 1
+    assert res.json()["id"] == "default"
+    assert recompute_spy["n"] == 0
 
     profiles = client.get("/api/profiles").json()
     assert [p["id"] for p in profiles] == ["default"]
 
 
-def test_add_profile_with_pdf_is_accepted(client, no_op_recompute):
+def test_add_profile_with_pdf_is_accepted(client, recompute_spy):
     res = client.post(
         "/api/profiles",
         data={"name": "PDF Profile"},
@@ -151,58 +148,53 @@ def test_add_profile_with_pdf_is_accepted(client, no_op_recompute):
     )
     assert res.status_code == 200
     assert res.json()["id"] == "pdf_profile"
-    _wait_for_idle()
+    assert recompute_spy["n"] == 0
 
 
-def test_add_profile_rejects_an_unsupported_extension(client, no_op_recompute):
+def test_add_profile_rejects_an_unsupported_extension(client, recompute_spy):
     res = client.post(
         "/api/profiles",
         data={"name": "Bad"},
         files={"file": ("resume.txt", b"plain text resume", "text/plain")},
     )
     assert res.status_code == 400
-    assert no_op_recompute["n"] == 0
+    assert recompute_spy["n"] == 0
     assert client.get("/api/profiles").json() == []
 
 
-def test_delete_profile_removes_it_and_triggers_recompute(client, no_op_recompute):
+def test_delete_profile_removes_it_without_recomputing(client, recompute_spy):
     client.post(
         "/api/profiles", data={"name": "Default"},
         files={"file": ("resume.docx", _make_docx_bytes(), "application/vnd.openxmlformats-officedocument.wordprocessingml.document")},
     )
-    _wait_for_idle()
-    no_op_recompute["n"] = 0
+    assert recompute_spy["n"] == 0
 
     res = client.delete("/api/profiles/default")
     assert res.status_code == 200
-    assert res.json()["recompute_pending"] is True
-    _wait_for_idle()
-    assert no_op_recompute["n"] == 1
+    assert recompute_spy["n"] == 0
     assert client.get("/api/profiles").json() == []
 
 
-def test_delete_unknown_profile_is_a_no_op(client, no_op_recompute):
+def test_delete_unknown_profile_is_a_no_op(client, recompute_spy):
     res = client.delete("/api/profiles/does-not-exist")
     assert res.status_code == 200
-    _wait_for_idle()
+    assert recompute_spy["n"] == 0
 
 
 # --- connections -----------------------------------------------------------
 
-def test_upload_connections_accepts_a_csv(client, no_op_recompute):
+def test_upload_connections_accepts_a_csv_without_recomputing(client, recompute_spy):
     csv_bytes = b"First Name,Last Name,Company,Position,URL\nJane,Doe,Acme,Engineer,https://x\n"
     res = client.post("/api/connections", files={"file": ("Connections.csv", csv_bytes, "text/csv")})
     assert res.status_code == 200
-    assert res.json()["recompute_pending"] is True
     assert config.CONNECTIONS_CSV.read_bytes() == csv_bytes
-    _wait_for_idle()
-    assert no_op_recompute["n"] == 1
+    assert recompute_spy["n"] == 0
 
 
-def test_upload_connections_rejects_a_non_csv_file(client, no_op_recompute):
+def test_upload_connections_rejects_a_non_csv_file(client, recompute_spy):
     res = client.post("/api/connections", files={"file": ("Connections.json", b"{}", "application/json")})
     assert res.status_code == 400
-    assert no_op_recompute["n"] == 0
+    assert recompute_spy["n"] == 0
     assert not config.CONNECTIONS_CSV.exists()
 
 
@@ -212,7 +204,7 @@ def test_list_referrals_starts_empty(client):
     assert client.get("/api/referrals").json() == []
 
 
-def test_upload_referral_merges_and_archives_it(client, no_op_recompute):
+def test_upload_referral_merges_and_archives_it_without_recomputing(client, recompute_spy):
     payload = {
         "companies": [{
             "company": "Acme",
@@ -226,9 +218,7 @@ def test_upload_referral_merges_and_archives_it(client, no_op_recompute):
     assert res.status_code == 200
     body = res.json()
     assert body["added_new_job"] == 1
-    assert body["recompute_pending"] is True
-    _wait_for_idle()
-    assert no_op_recompute["n"] == 1
+    assert recompute_spy["n"] == 0
 
     saved = json.loads((update_jobs.COMPANIES_DIR / "acme.json").read_text(encoding="utf-8"))
     assert saved["jobs"][0]["title"] == "Backend Engineer"
@@ -242,22 +232,22 @@ def test_upload_referral_merges_and_archives_it(client, no_op_recompute):
     assert listed[0]["uploaded_at"] is not None
 
 
-def test_upload_referral_rejects_invalid_json(client, no_op_recompute):
+def test_upload_referral_rejects_invalid_json(client, recompute_spy):
     res = client.post("/api/referrals", files={"file": ("export.json", b"not json", "application/json")})
     assert res.status_code == 400
-    assert no_op_recompute["n"] == 0
+    assert recompute_spy["n"] == 0
 
 
-def test_upload_referral_rejects_json_missing_companies_key(client, no_op_recompute):
+def test_upload_referral_rejects_json_missing_companies_key(client, recompute_spy):
     res = client.post("/api/referrals", files={"file": ("export.json", b'{"foo": []}', "application/json")})
     assert res.status_code == 400
-    assert no_op_recompute["n"] == 0
+    assert recompute_spy["n"] == 0
 
 
-def test_upload_referral_rejects_a_non_json_file(client, no_op_recompute):
+def test_upload_referral_rejects_a_non_json_file(client, recompute_spy):
     res = client.post("/api/referrals", files={"file": ("export.csv", b"a,b,c", "text/csv")})
     assert res.status_code == 400
-    assert no_op_recompute["n"] == 0
+    assert recompute_spy["n"] == 0
 
 
 # --- run trigger ---------------------------------------------------------

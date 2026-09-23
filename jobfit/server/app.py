@@ -39,19 +39,6 @@ def api_dashboard() -> dict:
     return dashboard.get_dashboard_stats()
 
 
-def _trigger_recompute() -> None:
-    """Kick off a background rescore/reaggregate/rebuild after an upload,
-    without making the HTTP request wait for it - recompute_stage() over the
-    whole dataset takes anywhere from tens of seconds to a few minutes.
-    If a run is already active, its own recompute_stage() call will pick up
-    this upload's changes when it gets there - not lost, just not instant.
-    """
-    try:
-        runner.start_recompute()
-    except RuntimeError:
-        pass
-
-
 @app.get("/api/profiles")
 def api_list_profiles() -> list[dict]:
     return [{"id": pid, **entry} for pid, entry in cv.load_registry().items()]
@@ -72,15 +59,13 @@ async def api_add_profile(name: str = Form(...), file: UploadFile = File(...)) -
         profile_id = cv.register_profile(name, tmp_path)
     finally:
         tmp_path.unlink(missing_ok=True)
-    _trigger_recompute()
-    return {"id": profile_id, "recompute_pending": True, **dashboard.get_dashboard_stats()}
+    return {"id": profile_id, **dashboard.get_dashboard_stats()}
 
 
 @app.delete("/api/profiles/{profile_id}")
 def api_delete_profile(profile_id: str) -> dict:
     cv.remove_profile(profile_id)
-    _trigger_recompute()
-    return {"recompute_pending": True, **dashboard.get_dashboard_stats()}
+    return dashboard.get_dashboard_stats()
 
 
 @app.post("/api/connections")
@@ -89,8 +74,7 @@ async def api_upload_connections(file: UploadFile = File(...)) -> dict:
         raise HTTPException(400, "Connections export must be a .csv file")
     config.CONNECTIONS_CSV.parent.mkdir(parents=True, exist_ok=True)
     config.CONNECTIONS_CSV.write_bytes(await file.read())
-    _trigger_recompute()
-    return {"recompute_pending": True, **dashboard.get_dashboard_stats()}
+    return dashboard.get_dashboard_stats()
 
 
 @app.get("/api/referrals")
@@ -128,8 +112,7 @@ async def api_upload_referral(file: UploadFile = File(...)) -> dict:
 
     profiles = cv.load_profiles()
     stats = update_jobs.merge_referral_jobs(profiles, path=archive_path)
-    _trigger_recompute()
-    return {**stats, "recompute_pending": True, **dashboard.get_dashboard_stats()}
+    return {**stats, **dashboard.get_dashboard_stats()}
 
 
 @app.post("/api/run")

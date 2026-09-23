@@ -235,7 +235,7 @@ async function refreshProfiles() {
     btn.addEventListener("click", async () => {
       await fetch(`/api/profiles/${btn.dataset.id}`, { method: "DELETE" });
       await refreshProfiles();
-      await waitForRecomputeThenRefresh(document.getElementById("profileMsg"), "Removed - scores recalculated.");
+      await refreshDashboard();
     });
   });
 }
@@ -257,10 +257,10 @@ document.getElementById("profileForm").addEventListener("submit", async (e) => {
   try {
     const res = await fetch("/api/profiles", { method: "POST", body: new FormData(e.target) });
     if (!res.ok) throw new Error((await res.json()).detail || "upload failed");
-    msg.textContent = "Added - recalculating scores...";
+    msg.textContent = "Added. Scores will update on the next Run update.";
     e.target.reset();
     await refreshProfiles();
-    await waitForRecomputeThenRefresh(msg, "Added - scores recalculated.");
+    await refreshDashboard();
   } catch (err) {
     msg.textContent = err.message;
     msg.classList.add("error");
@@ -275,9 +275,9 @@ document.getElementById("connectionsForm").addEventListener("submit", async (e) 
   try {
     const res = await fetch("/api/connections", { method: "POST", body: new FormData(e.target) });
     if (!res.ok) throw new Error((await res.json()).detail || "upload failed");
-    msg.textContent = "Connections updated - recalculating...";
+    msg.textContent = "Connections updated.";
     e.target.reset();
-    await waitForRecomputeThenRefresh(msg, "Connections updated - scores recalculated.");
+    await refreshDashboard();
   } catch (err) {
     msg.textContent = err.message;
     msg.classList.add("error");
@@ -293,11 +293,10 @@ document.getElementById("referralForm").addEventListener("submit", async (e) => 
     const res = await fetch("/api/referrals", { method: "POST", body: new FormData(e.target) });
     const data = await res.json();
     if (!res.ok) throw new Error(data.detail || "upload failed");
-    const mergeSummary = `${data.added_new_job} new, ${data.merged_into_existing_job} already tracked (marked as referral).`;
-    msg.textContent = `${mergeSummary} Recalculating scores...`;
+    msg.textContent = `${data.added_new_job} new, ${data.merged_into_existing_job} already tracked (marked as referral).`;
     e.target.reset();
     await refreshReferrals();
-    await waitForRecomputeThenRefresh(msg, `${mergeSummary} Scores recalculated.`);
+    await refreshDashboard();
   } catch (err) {
     msg.textContent = err.message;
     msg.classList.add("error");
@@ -309,20 +308,6 @@ async function refreshRunStatus() {
   document.getElementById("runStatus").textContent = s.running ? `Running (started ${fmtDate(s.started_at)})` : "Idle";
   document.getElementById("runBtn").disabled = s.running;
   return s.running;
-}
-
-// Uploads trigger a background recompute (scores can take a while to
-// refresh - see runner.start_recompute) instead of blocking the response.
-// This polls /api/run/status until it's done, then refreshes the numbers
-// that recompute actually changes.
-async function waitForRecomputeThenRefresh(msgEl, doneText) {
-  for (let i = 0; i < 200; i++) {
-    const running = await refreshRunStatus();
-    if (!running) break;
-    await new Promise(r => setTimeout(r, 1000));
-  }
-  msgEl.textContent = doneText;
-  await refreshDashboard();
 }
 
 async function refreshRunHistory() {
