@@ -28,6 +28,14 @@
   #runLog { background: #12161b; border: 1px solid #232a32; border-radius: 8px; padding: 10px; height: 220px; overflow-y: auto; font-size: 12px; margin: 10px 0; }
   label.force { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #9aa4ad; }
 
+  .company-row { flex-wrap: wrap; }
+  .company-actions { display: flex; gap: 6px; }
+  .company-actions button { font-size: 12px; padding: 5px 9px; }
+  .company-actions button.active { border-color: #3987e5; color: #3987e5; }
+  .set-url-form { display: flex; gap: 6px; width: 100%; margin: 6px 0 0; max-width: none; }
+  .set-url-form[hidden] { display: none; }
+  .set-url-form input { flex: 1; }
+
   .chart-block { --chart-grid: #232a32; --chart-axis: #3a434e; --chart-muted: #898781; position: relative; margin-bottom: 18px; }
   .chart-block h3 { font-size: 12.5px; margin: 0 0 8px; color: #9aa4ad; font-weight: 600; }
   .chart-legend { display: flex; gap: 16px; margin-bottom: 6px; }
@@ -43,6 +51,7 @@
     <a href="#profiles">CV Profiles</a>
     <a href="#connections">Connections</a>
     <a href="#referrals">Referrals</a>
+    <a href="#companies">Companies</a>
     <a href="#run">Run &amp; Logs</a>
   </div>
 
@@ -82,6 +91,11 @@
       </form>
       <div class="msg" id="referralMsg"></div>
       <div id="referralList"></div>
+    </section>
+
+    <section id="companies">
+      <h2>Companies without a career page</h2>
+      <div id="companyList"></div>
     </section>
 
     <section id="run">
@@ -303,6 +317,68 @@ document.getElementById("referralForm").addEventListener("submit", async (e) => 
   }
 });
 
+async function refreshCompanies() {
+  const list = await (await fetch("/api/companies/needs-review")).json();
+  const container = document.getElementById("companyList");
+  if (!list.length) {
+    container.innerHTML = `<div class="empty">Every company either has a career page on file or has been reviewed.</div>`;
+    return;
+  }
+  container.innerHTML = list.map(c => {
+    const techmapInfo = c.has_techmap
+      ? `techmap: ${c.techmap_job_count} listing${c.techmap_job_count === 1 ? "" : "s"} (e.g. "${escapeHtml(c.techmap_sample_title || "")}")`
+      : "no techmap data";
+    const decisionLabel = c.decision === "techmap" ? "approved (techmap)" : c.decision === "skip" ? "skipped" : "not reviewed";
+    return `
+    <div class="list-row company-row" data-company="${escapeHtml(c.company)}">
+      <span class="name">${escapeHtml(c.company)}</span>
+      <span class="meta">${techmapInfo} &middot; ${decisionLabel}</span>
+      <div class="company-actions">
+        <button class="approve-techmap${c.decision === "techmap" ? " active" : ""}"${c.has_techmap ? "" : " disabled"}>Approve techmap</button>
+        <button class="set-url-toggle">Set career URL</button>
+        <button class="skip${c.decision === "skip" ? " active" : ""}">Skip</button>
+      </div>
+      <form class="set-url-form" hidden>
+        <input type="text" class="url-input" placeholder="https://company.com/careers" required>
+        <button type="submit">Save</button>
+      </form>
+    </div>`;
+  }).join("");
+
+  async function postDecision(company, decision) {
+    await fetch(`/api/companies/${encodeURIComponent(company)}/decision`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ decision }),
+    });
+    await refreshCompanies();
+  }
+
+  container.querySelectorAll(".approve-techmap").forEach(btn => {
+    btn.addEventListener("click", () => postDecision(btn.closest(".company-row").dataset.company, "techmap"));
+  });
+  container.querySelectorAll(".skip").forEach(btn => {
+    btn.addEventListener("click", () => postDecision(btn.closest(".company-row").dataset.company, "skip"));
+  });
+  container.querySelectorAll(".set-url-toggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const form = btn.closest(".company-row").querySelector(".set-url-form");
+      form.hidden = !form.hidden;
+      if (!form.hidden) form.querySelector(".url-input").focus();
+    });
+  });
+  container.querySelectorAll(".set-url-form").forEach(form => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const company = form.closest(".company-row").dataset.company;
+      const url = form.querySelector(".url-input").value.trim();
+      if (!url) return;
+      await fetch(`/api/companies/${encodeURIComponent(company)}/career-url`, {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ url }),
+      });
+      await refreshCompanies();
+    });
+  });
+}
+
 async function refreshRunStatus() {
   const s = await (await fetch("/api/run/status")).json();
   document.getElementById("runStatus").textContent = s.running ? `Running (started ${fmtDate(s.started_at)})` : "Idle";
@@ -353,6 +429,7 @@ document.getElementById("runBtn").addEventListener("click", async () => {
 refreshDashboard();
 refreshProfiles();
 refreshReferrals();
+refreshCompanies();
 refreshRunStatus();
 refreshRunHistory();
 </script>

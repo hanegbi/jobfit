@@ -34,7 +34,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit import ats_fetchers, config, connections, cv, scoring, techmap_source  # noqa: E402
+from jobfit import ats_fetchers, company_review, config, connections, cv, scoring, techmap_source  # noqa: E402
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
 
 logger = logging.getLogger("jobfit.update_jobs")
@@ -168,6 +168,22 @@ def _techmap_fallback_jobs(company: str, techmap_index: dict[str, list[dict]]) -
     ]
 
 
+def load_companies_to_scrape() -> dict[str, str | None]:
+    """Every company scrape_stage() should touch: companies with a real
+    career URL, plus companies with no URL that were explicitly approved
+    for the techmap fallback via company_review.py. A None value here means
+    "use techmap only" (see fetch_company_jobs_async)."""
+    pages = company_review.load_career_pages()
+    review = company_review.load_review()
+    companies: dict[str, str | None] = {}
+    for name, url in pages.items():
+        if url:
+            companies[name] = url
+        elif review.get(name, {}).get("decision") == "techmap":
+            companies[name] = None
+    return companies
+
+
 def load_techmap_index() -> dict[str, list[dict]]:
     session = ats_fetchers.make_session()
     rows = techmap_source.load_all_rows(session)
@@ -180,7 +196,7 @@ def load_techmap_index() -> dict[str, list[dict]]:
 
 
 async def fetch_company_jobs_async(
-    company: str, url: str, session, profiles: dict, techmap_index: dict[str, list[dict]]
+    company: str, url: str | None, session, profiles: dict, techmap_index: dict[str, list[dict]]
 ) -> list[dict]:
     """Three-tier cascade, escalating only when the previous tier found
     nothing that actually scores as a real job (not just "found zero links" -
@@ -190,7 +206,14 @@ async def fetch_company_jobs_async(
       3. techmap's own row for this company (title/location/level only, no
          description) - better than nothing when the company's own site
          can't be parsed by either of the above.
+
+    url=None means this company has no known career page at all and was
+    reviewed via company_review.py with the "techmap" decision - go
+    straight to tier 3, there is no site to scrape.
     """
+    if not url:
+        return _techmap_fallback_jobs(company, techmap_index)
+
     links = ats_fetchers.fetch_listing_links(session, url, max_links=MAX_LINKS_PER_COMPANY)
     jobs = []
     for title, job_url in links:
@@ -524,8 +547,7 @@ def main() -> None:
     parser.add_argument("--skip-aggregate", action="store_true", help="don't rescore/rebuild after updating")
     args = parser.parse_args()
 
-    all_companies = json.loads(config.ROOT.joinpath("companies_career_pages.json").read_text(encoding="utf-8"))
-    companies = {name: url for name, url in all_companies.items() if url}
+    companies = load_companies_to_scrape()
 
     if args.company:
         if args.company not in companies:

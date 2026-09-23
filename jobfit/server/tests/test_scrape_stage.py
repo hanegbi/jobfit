@@ -1,6 +1,10 @@
+import asyncio
+import json
 from datetime import datetime, timedelta, timezone
 
-from jobfit import config
+import pytest
+
+from jobfit import company_review, config
 from jobfit.scripts import update_jobs
 
 
@@ -26,3 +30,45 @@ def test_force_never_skips_even_if_recent():
 def test_never_checked_company_is_not_skipped():
     assert update_jobs._should_skip_company({}, force=False) is False
     assert update_jobs._should_skip_company({"last_checked": None}, force=False) is False
+
+
+# --- load_companies_to_scrape ---------------------------------------------
+
+@pytest.fixture
+def _isolated_review_paths(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "COMPANIES_CAREER_PAGES_PATH", tmp_path / "companies_career_pages.json")
+    monkeypatch.setattr(config, "COMPANY_REVIEW_PATH", tmp_path / "data" / "company_review.json")
+
+
+def test_load_companies_to_scrape_includes_real_url_companies(_isolated_review_paths):
+    config.COMPANIES_CAREER_PAGES_PATH.write_text(
+        json.dumps({"Acme": "https://acme.com/careers"}), encoding="utf-8"
+    )
+    assert update_jobs.load_companies_to_scrape() == {"Acme": "https://acme.com/careers"}
+
+
+def test_load_companies_to_scrape_excludes_unreviewed_null_url_companies(_isolated_review_paths):
+    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Beta": None}), encoding="utf-8")
+    assert update_jobs.load_companies_to_scrape() == {}
+
+
+def test_load_companies_to_scrape_excludes_skipped_companies(_isolated_review_paths):
+    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Beta": None}), encoding="utf-8")
+    company_review.set_decision("Beta", "skip")
+    assert update_jobs.load_companies_to_scrape() == {}
+
+
+def test_load_companies_to_scrape_includes_techmap_approved_companies_as_none(_isolated_review_paths):
+    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Beta": None}), encoding="utf-8")
+    company_review.set_decision("Beta", "techmap")
+    assert update_jobs.load_companies_to_scrape() == {"Beta": None}
+
+
+# --- fetch_company_jobs_async null-URL fallback ---------------------------
+
+def test_fetch_company_jobs_async_uses_techmap_directly_when_url_is_none():
+    techmap_index = {"beta": [{"title": "Backend Engineer", "location": "Remote", "url": "https://x", "company": "Beta"}]}
+    jobs = asyncio.run(
+        update_jobs.fetch_company_jobs_async("Beta", None, session=None, profiles={}, techmap_index=techmap_index)
+    )
+    assert jobs == [{"title": "Backend Engineer", "location": "Remote", "url": "https://x", "description": ""}]

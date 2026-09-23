@@ -8,7 +8,7 @@ from pathlib import Path
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
 
-from jobfit import config, cv
+from jobfit import company_review, config, cv
 from jobfit.scripts import update_jobs
 from jobfit.server import dashboard, runner, singleton_lock
 
@@ -113,6 +113,36 @@ async def api_upload_referral(file: UploadFile = File(...)) -> dict:
     profiles = cv.load_profiles()
     stats = update_jobs.merge_referral_jobs(profiles, path=archive_path)
     return {**stats, **dashboard.get_dashboard_stats()}
+
+
+@app.get("/api/companies/needs-review")
+def api_companies_needs_review() -> list[dict]:
+    techmap_index = update_jobs.load_techmap_index()
+    return company_review.companies_needing_review(techmap_index)
+
+
+@app.post("/api/companies/{company}/decision")
+def api_set_company_decision(company: str, payload: dict) -> dict:
+    decision = payload.get("decision", "")
+    try:
+        company_review.set_decision(company, decision)
+    except ValueError as error:
+        raise HTTPException(400, str(error))
+    except KeyError:
+        raise HTTPException(404, f"unknown company {company!r}")
+    return {"company": company, "decision": decision}
+
+
+@app.post("/api/companies/{company}/career-url")
+def api_set_company_career_url(company: str, payload: dict) -> dict:
+    url = (payload.get("url") or "").strip()
+    if not url:
+        raise HTTPException(400, "url is required")
+    try:
+        company_review.set_career_url(company, url)
+    except KeyError:
+        raise HTTPException(404, f"unknown company {company!r}")
+    return {"company": company, "url": url}
 
 
 @app.post("/api/run")

@@ -87,8 +87,7 @@ def _run_worker(run_id: str, force: bool) -> None:
     attached = attach(line_queue, _LOGGER_NAMES) if line_queue is not None else []
     started = time.time()
     try:
-        all_companies = json.loads(config.ROOT.joinpath("companies_career_pages.json").read_text(encoding="utf-8"))
-        companies = {name: url for name, url in all_companies.items() if url}
+        companies = update_jobs.load_companies_to_scrape()
         profiles = update_jobs.cv.load_profiles()
         stats = update_jobs.scrape_stage(companies, profiles, force=force)
         update_jobs.recompute_stage()

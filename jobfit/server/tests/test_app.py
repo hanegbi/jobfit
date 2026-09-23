@@ -69,6 +69,8 @@ def client(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "REFERRAL_UPLOADS_DIR", tmp_path / "referrals")
     monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
     monkeypatch.setattr(config, "OUTPUT_HTML", tmp_path / "jobfit.html")
+    monkeypatch.setattr(config, "COMPANIES_CAREER_PAGES_PATH", tmp_path / "companies_career_pages.json")
+    monkeypatch.setattr(config, "COMPANY_REVIEW_PATH", tmp_path / "data" / "company_review.json")
     # Module-level constants computed at import time from config.ROOT - patching
     # config.ROOT alone doesn't reach these (see update_jobs.py:42-43).
     monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path / "companies")
@@ -248,6 +250,68 @@ def test_upload_referral_rejects_a_non_json_file(client, recompute_spy):
     res = client.post("/api/referrals", files={"file": ("export.csv", b"a,b,c", "text/csv")})
     assert res.status_code == 400
     assert recompute_spy["n"] == 0
+
+
+# --- companies needing review -------------------------------------------
+
+def test_companies_needs_review_lists_null_url_companies(client, monkeypatch):
+    (config.COMPANIES_CAREER_PAGES_PATH).write_text(
+        json.dumps({"Acme": "https://acme.com/careers", "Beta": None}), encoding="utf-8"
+    )
+    monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
+    res = client.get("/api/companies/needs-review")
+    assert res.status_code == 200
+    body = res.json()
+    assert [c["company"] for c in body] == ["Beta"]
+    assert body[0]["decision"] == "pending"
+
+
+def test_set_company_decision_approves_techmap(client, monkeypatch):
+    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Beta": None}), encoding="utf-8")
+    monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
+    res = client.post("/api/companies/Beta/decision", json={"decision": "techmap"})
+    assert res.status_code == 200
+    assert res.json() == {"company": "Beta", "decision": "techmap"}
+
+    body = client.get("/api/companies/needs-review").json()
+    assert body[0]["decision"] == "techmap"
+
+
+def test_set_company_decision_rejects_unknown_decision(client):
+    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Beta": None}), encoding="utf-8")
+    res = client.post("/api/companies/Beta/decision", json={"decision": "nope"})
+    assert res.status_code == 400
+
+
+def test_set_company_decision_rejects_unknown_company(client):
+    config.COMPANIES_CAREER_PAGES_PATH.write_text("{}", encoding="utf-8")
+    res = client.post("/api/companies/Nope/decision", json={"decision": "techmap"})
+    assert res.status_code == 404
+
+
+def test_set_company_career_url_updates_and_removes_from_review(client, monkeypatch):
+    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Beta": None}), encoding="utf-8")
+    monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
+    client.post("/api/companies/Beta/decision", json={"decision": "skip"})
+
+    res = client.post("/api/companies/Beta/career-url", json={"url": "https://beta.com/careers"})
+    assert res.status_code == 200
+    assert res.json() == {"company": "Beta", "url": "https://beta.com/careers"}
+
+    body = client.get("/api/companies/needs-review").json()
+    assert body == []
+
+
+def test_set_company_career_url_rejects_empty_url(client):
+    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Beta": None}), encoding="utf-8")
+    res = client.post("/api/companies/Beta/career-url", json={"url": "  "})
+    assert res.status_code == 400
+
+
+def test_set_company_career_url_rejects_unknown_company(client):
+    config.COMPANIES_CAREER_PAGES_PATH.write_text("{}", encoding="utf-8")
+    res = client.post("/api/companies/Nope/career-url", json={"url": "https://nope.com"})
+    assert res.status_code == 404
 
 
 # --- run trigger ---------------------------------------------------------

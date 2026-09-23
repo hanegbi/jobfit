@@ -30,6 +30,15 @@ COMPANY_JOBS_TTL_HOURS = 24
 COMPANY_RECHECK_TTL_HOURS = 12
 RUN_HISTORY_PATH = ROOT / "data" / "run_history.json"
 
+# The curated {company: url|null} map (781 companies) that drives which
+# companies scrape_stage() checks - distinct from COMPANY_CAREER_PAGES_CACHE
+# above, which is the older pipeline.py's tiered scrape-result cache.
+COMPANIES_CAREER_PAGES_PATH = ROOT / "companies_career_pages.json"
+# Triage decisions for companies with no known career URL: "techmap" (use
+# techmap's own title/location/url row as a fallback source) or "skip"
+# (reviewed, deliberately not pursuing this one). Absence = not yet reviewed.
+COMPANY_REVIEW_PATH = ROOT / "data" / "company_review.json"
+
 # --- Techmap source ---
 TECHMAP_RAW_BASE = "https://raw.githubusercontent.com/mluggy/techmap/main/jobs/{category}.csv"
 TECHMAP_CATEGORIES = [
