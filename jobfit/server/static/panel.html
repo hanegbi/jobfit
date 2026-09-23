@@ -5,79 +5,93 @@
 <title>jobfit control panel</title>
 <style>
   body { font-family: system-ui, sans-serif; margin: 0; background: #0b0e11; color: #e6e9ec; }
-  .tabs { display: flex; gap: 4px; padding: 12px 16px; border-bottom: 1px solid #232a32; }
-  .tab-btn { background: #171c22; border: 1px solid #232a32; color: #9aa4ad; padding: 8px 14px; border-radius: 7px; cursor: pointer; font-size: 13px; }
-  .tab-btn.active { color: #76b900; border-color: #4d7a00; }
-  .panel { padding: 20px; max-width: 720px; }
-  .panel[hidden] { display: none; }
+  .topnav { display: flex; gap: 4px; padding: 12px 16px; border-bottom: 1px solid #232a32; position: sticky; top: 0; background: #0b0e11; z-index: 1; }
+  .topnav a { background: #171c22; border: 1px solid #232a32; color: #9aa4ad; padding: 6px 12px; border-radius: 7px; font-size: 12.5px; text-decoration: none; }
+  .topnav a:hover { color: #e6e9ec; }
+  main { max-width: 760px; margin: 0 auto; padding: 8px 20px 60px; }
+  section { padding-top: 28px; margin-top: 20px; border-top: 1px solid #1a2129; }
+  section:first-of-type { border-top: none; margin-top: 8px; }
+  h2 { font-size: 15px; margin: 0 0 14px; color: #9aa4ad; text-transform: uppercase; letter-spacing: 0.04em; }
   .stat-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
   .stat { background: #12161b; border: 1px solid #232a32; border-radius: 8px; padding: 12px 16px; min-width: 120px; }
   .stat b { display: block; font-size: 20px; }
-  .list-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #232a32; }
-  form { display: flex; flex-direction: column; gap: 8px; max-width: 360px; margin-bottom: 20px; }
+  .list-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #232a32; gap: 12px; }
+  .list-row .meta { color: #9aa4ad; font-size: 12px; }
+  .list-row .name { flex: 1; }
+  form { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: 480px; margin-bottom: 14px; }
   input, button { background: #171c22; border: 1px solid #232a32; color: #e6e9ec; padding: 7px 10px; border-radius: 6px; }
+  input[type="text"] { flex: 1; min-width: 140px; }
   button { cursor: pointer; }
-  .msg { font-size: 13px; color: #76b900; min-height: 18px; }
+  .msg { font-size: 13px; color: #76b900; min-height: 18px; margin-bottom: 6px; }
   .msg.error { color: #ff6b6b; }
+  .empty { color: #5c6a66; font-size: 13px; font-style: italic; padding: 6px 0; }
+  #runLog { background: #12161b; border: 1px solid #232a32; border-radius: 8px; padding: 10px; height: 220px; overflow-y: auto; font-size: 12px; margin: 10px 0; }
+  label.force { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #9aa4ad; }
 </style>
 </head>
 <body>
-  <div class="tabs">
-    <button class="tab-btn" data-tab="dashboard">Dashboard</button>
-    <button class="tab-btn" data-tab="profiles">CV Profiles</button>
-    <button class="tab-btn" data-tab="connections">Connections</button>
-    <button class="tab-btn" data-tab="referrals">Referrals</button>
-    <button class="tab-btn" data-tab="run">Run &amp; Logs</button>
+  <div class="topnav">
+    <a href="#dashboard">Dashboard</a>
+    <a href="#profiles">CV Profiles</a>
+    <a href="#connections">Connections</a>
+    <a href="#referrals">Referrals</a>
+    <a href="#run">Run &amp; Logs</a>
   </div>
 
-  <section id="tab-dashboard" class="panel">
-    <div class="stat-row" id="statRow"></div>
-    <div id="scoreDistribution"></div>
-  </section>
+  <main>
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <div class="stat-row" id="statRow"></div>
+      <div id="scoreDistribution"></div>
+    </section>
 
-  <section id="tab-profiles" class="panel" hidden>
-    <form id="profileForm">
-      <input type="text" name="name" placeholder="Profile name" required>
-      <input type="file" name="file" accept=".docx" required>
-      <button type="submit">Add CV profile</button>
-    </form>
-    <div class="msg" id="profileMsg"></div>
-    <div id="profileList"></div>
-  </section>
+    <section id="profiles">
+      <h2>CV Profiles</h2>
+      <form id="profileForm">
+        <input type="text" name="name" placeholder="Profile name" required>
+        <input type="file" name="file" accept=".docx" required>
+        <button type="submit">Add CV profile</button>
+      </form>
+      <div class="msg" id="profileMsg"></div>
+      <div id="profileList"></div>
+    </section>
 
-  <section id="tab-connections" class="panel" hidden>
-    <form id="connectionsForm">
-      <input type="file" name="file" accept=".csv" required>
-      <button type="submit">Upload connections CSV</button>
-    </form>
-    <div class="msg" id="connectionsMsg"></div>
-  </section>
+    <section id="connections">
+      <h2>Connections</h2>
+      <div class="msg" id="connectionsStatus"></div>
+      <form id="connectionsForm">
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Upload connections CSV</button>
+      </form>
+      <div class="msg" id="connectionsMsg"></div>
+    </section>
 
-  <section id="tab-referrals" class="panel" hidden>
-    <form id="referralForm">
-      <input type="file" name="file" accept=".json" required>
-      <button type="submit">Upload referral export</button>
-    </form>
-    <div class="msg" id="referralMsg"></div>
-  </section>
+    <section id="referrals">
+      <h2>Referrals</h2>
+      <form id="referralForm">
+        <input type="file" name="file" accept=".json" required>
+        <button type="submit">Upload referral export</button>
+      </form>
+      <div class="msg" id="referralMsg"></div>
+      <div id="referralList"></div>
+    </section>
 
-  <section id="tab-run" class="panel" hidden>
-    <button id="runBtn">Run update</button>
-    <label><input type="checkbox" id="runForce"> force (ignore recently-checked skip)</label>
-    <div id="runStatus" class="msg"></div>
-    <h3>Live log</h3>
-    <pre id="runLog" style="background:#12161b;border:1px solid #232a32;border-radius:8px;padding:10px;height:260px;overflow-y:auto;font-size:12px;"></pre>
-    <h3>History</h3>
-    <div id="runHistory"></div>
-  </section>
+    <section id="run">
+      <h2>Run &amp; Logs</h2>
+      <button id="runBtn">Run update</button>
+      <label class="force"><input type="checkbox" id="runForce"> force (ignore recently-checked skip)</label>
+      <div class="msg" id="runStatus"></div>
+      <pre id="runLog"></pre>
+      <div id="runHistory"></div>
+    </section>
+  </main>
 
 <script>
-function switchTab(name) {
-  document.querySelectorAll(".panel").forEach(el => el.hidden = el.id !== `tab-${name}`);
-  document.querySelectorAll(".tab-btn").forEach(el => el.classList.toggle("active", el.dataset.tab === name));
+function fmtDate(iso) {
+  if (!iso) return "never";
+  const d = new Date(iso);
+  return isNaN(d) ? iso : d.toLocaleString();
 }
-document.querySelectorAll(".tab-btn").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.tab)));
-switchTab("dashboard");
 
 async function refreshDashboard() {
   const stats = await (await fetch("/api/dashboard")).json();
@@ -90,17 +104,21 @@ async function refreshDashboard() {
   document.getElementById("scoreDistribution").innerHTML = Object.entries(stats.score_distribution).map(([id, buckets]) => {
     const profile = stats.profiles.find(p => p.id === id);
     const rows = Object.entries(buckets).map(([bucket, count]) => `<div>${bucket}-${Number(bucket) + 9}: ${count}</div>`).join("");
-    return `<h3>${profile ? profile.name : id}</h3>${rows}`;
-  }).join("");
+    return `<h3 style="font-size:13px;margin:12px 0 4px;">${profile ? profile.name : id}</h3>${rows}`;
+  }).join("") || `<div class="empty">No CV profiles yet - add one below to see score distributions.</div>`;
+  document.getElementById("connectionsStatus").textContent = `Last uploaded: ${fmtDate(stats.connections_uploaded_at)}`;
+  document.getElementById("connectionsStatus").classList.remove("error");
+  return stats;
 }
 
 async function refreshProfiles() {
   const profiles = await (await fetch("/api/profiles")).json();
-  document.getElementById("profileList").innerHTML = profiles.map(p => `
+  document.getElementById("profileList").innerHTML = profiles.length ? profiles.map(p => `
     <div class="list-row">
-      <span>${p.name}</span>
+      <span class="name">${p.name}</span>
+      <span class="meta">added ${fmtDate(p.uploaded_at)}</span>
       <button data-id="${p.id}" class="delete-profile">Remove</button>
-    </div>`).join("");
+    </div>`).join("") : `<div class="empty">No CV profiles yet.</div>`;
   document.querySelectorAll(".delete-profile").forEach(btn => {
     btn.addEventListener("click", async () => {
       await fetch(`/api/profiles/${btn.dataset.id}`, { method: "DELETE" });
@@ -108,6 +126,15 @@ async function refreshProfiles() {
       await refreshDashboard();
     });
   });
+}
+
+async function refreshReferrals() {
+  const uploads = await (await fetch("/api/referrals")).json();
+  document.getElementById("referralList").innerHTML = uploads.length ? uploads.map(u => `
+    <div class="list-row">
+      <span class="name">${u.filename}</span>
+      <span class="meta">uploaded ${fmtDate(u.uploaded_at)}</span>
+    </div>`).join("") : `<div class="empty">No referral exports uploaded yet.</div>`;
 }
 
 document.getElementById("profileForm").addEventListener("submit", async (e) => {
@@ -156,6 +183,7 @@ document.getElementById("referralForm").addEventListener("submit", async (e) => 
     if (!res.ok) throw new Error(data.detail || "upload failed");
     msg.textContent = `${data.added_new_job} new, ${data.merged_into_existing_job} already tracked (marked as referral).`;
     e.target.reset();
+    await refreshReferrals();
     await refreshDashboard();
   } catch (err) {
     msg.textContent = err.message;
@@ -165,18 +193,18 @@ document.getElementById("referralForm").addEventListener("submit", async (e) => 
 
 async function refreshRunStatus() {
   const s = await (await fetch("/api/run/status")).json();
-  document.getElementById("runStatus").textContent = s.running ? `Running (started ${s.started_at})` : "Idle";
+  document.getElementById("runStatus").textContent = s.running ? `Running (started ${fmtDate(s.started_at)})` : "Idle";
   document.getElementById("runBtn").disabled = s.running;
   return s.running;
 }
 
 async function refreshRunHistory() {
   const history = await (await fetch("/api/run/history")).json();
-  document.getElementById("runHistory").innerHTML = history.slice().reverse().map(r => `
+  document.getElementById("runHistory").innerHTML = history.length ? history.slice().reverse().map(r => `
     <div class="list-row">
-      <span>${r.started_at} ${r.crashed ? "(crashed)" : ""}</span>
-      <span>${r.new_jobs ?? 0} new, ${r.closed_jobs ?? 0} closed, ${(r.failures || []).length} failed</span>
-    </div>`).join("");
+      <span class="name">${fmtDate(r.started_at)} ${r.crashed ? "(crashed)" : ""}</span>
+      <span class="meta">${r.new_jobs ?? 0} new, ${r.closed_jobs ?? 0} closed, ${(r.failures || []).length} failed</span>
+    </div>`).join("") : `<div class="empty">No runs yet.</div>`;
 }
 
 let runEventSource = null;
@@ -210,11 +238,11 @@ document.getElementById("runBtn").addEventListener("click", async () => {
   streamRunLog();
 });
 
-refreshRunStatus();
-refreshRunHistory();
-
 refreshDashboard();
 refreshProfiles();
+refreshReferrals();
+refreshRunStatus();
+refreshRunHistory();
 </script>
 </body>
 </html>

@@ -2,8 +2,16 @@
 
 import json
 from collections import Counter
+from datetime import datetime, timezone
 
 from jobfit import config, connections, cv
+
+
+def _connections_uploaded_at() -> str | None:
+    if not config.CONNECTIONS_CSV.exists():
+        return None
+    mtime = config.CONNECTIONS_CSV.stat().st_mtime
+    return datetime.fromtimestamp(mtime, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def get_dashboard_stats() -> dict:
@@ -37,6 +45,10 @@ def get_dashboard_stats() -> dict:
         "total_jobs_all_time": len(jobs),
         "companies": company_count,
         "connections": connections_count,
-        "profiles": [{"id": pid, "name": entry["name"]} for pid, entry in registry.items()],
+        "connections_uploaded_at": _connections_uploaded_at(),
+        "profiles": [
+            {"id": pid, "name": entry["name"], "uploaded_at": entry["uploaded_at"]}
+            for pid, entry in registry.items()
+        ],
         "score_distribution": score_distribution,
     }

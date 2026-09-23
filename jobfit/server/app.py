@@ -68,6 +68,22 @@ async def api_upload_connections(file: UploadFile = File(...)) -> dict:
     return dashboard.get_dashboard_stats()
 
 
+@app.get("/api/referrals")
+def api_list_referrals() -> list[dict]:
+    if not config.REFERRAL_UPLOADS_DIR.exists():
+        return []
+    entries = []
+    for path in config.REFERRAL_UPLOADS_DIR.glob("*.json"):
+        timestamp, _, original_name = path.stem.partition("-")
+        try:
+            uploaded_at = datetime.strptime(timestamp, "%Y%m%dT%H%M%SZ").strftime("%Y-%m-%dT%H:%M:%SZ")
+        except ValueError:
+            uploaded_at = None
+        entries.append({"filename": original_name or path.name, "uploaded_at": uploaded_at})
+    entries.sort(key=lambda e: e["uploaded_at"] or "", reverse=True)
+    return entries
+
+
 @app.post("/api/referrals")
 async def api_upload_referral(file: UploadFile = File(...)) -> dict:
     if not (file.filename or "").lower().endswith(".json"):
