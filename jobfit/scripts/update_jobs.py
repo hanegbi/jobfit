@@ -35,6 +35,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from jobfit import ats_fetchers, config, connections, cv, scoring, techmap_source  # noqa: E402
+from jobfit.atomic_io import write_json_atomic  # noqa: E402
 
 logger = logging.getLogger("jobfit.update_jobs")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -100,10 +101,7 @@ def _now_iso() -> str:
 
 
 def atomic_write_json(path: Path, data) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    tmp.replace(path)  # atomic on the same filesystem - a crash mid-write never corrupts the real file
+    write_json_atomic(path, data)
 
 
 def load_company_file(company: str) -> dict:

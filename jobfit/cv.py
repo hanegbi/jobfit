@@ -9,6 +9,7 @@ import docx
 import pypdf
 
 from jobfit import config
+from jobfit.atomic_io import write_json_atomic
 
 
 def _extract_text_docx(path: Path) -> str:
@@ -73,8 +74,7 @@ def load_registry() -> dict[str, dict]:
 
 
 def save_registry(registry: dict[str, dict]) -> None:
-    config.CV_PROFILES_REGISTRY.parent.mkdir(parents=True, exist_ok=True)
-    config.CV_PROFILES_REGISTRY.write_text(json.dumps(registry, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_json_atomic(config.CV_PROFILES_REGISTRY, registry)
 
 
 def register_profile(name: str, source_path: Path) -> str:
