@@ -9,16 +9,25 @@ from fastapi.responses import FileResponse, StreamingResponse
 
 from jobfit import config, cv
 from jobfit.scripts import update_jobs
-from jobfit.server import dashboard, runner
+from jobfit.server import dashboard, runner, singleton_lock
 
 STATIC_DIR = Path(__file__).parent / "static"
+LOCK_PATH = config.ROOT / "data" / ".server.lock"
 
 app = FastAPI(title="jobfit control panel")
 
 
 @app.on_event("startup")
 def _on_startup() -> None:
+    # Two server processes writing companies/*.json and profiles.json at once
+    # silently corrupt/lose data - see singleton_lock's own docstring.
+    singleton_lock.acquire(LOCK_PATH)
     runner.mark_orphaned_runs_crashed()
+
+
+@app.on_event("shutdown")
+def _on_shutdown() -> None:
+    singleton_lock.release(LOCK_PATH)
 
 
 @app.get("/")
