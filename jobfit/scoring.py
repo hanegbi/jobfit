@@ -169,18 +169,19 @@ def _penalty(title: str, employment_type: str | None, haystack: str) -> tuple[in
     return min(penalty, MAX_PENALTY), notes
 
 
-def score_job(job: dict, must_have_keywords: list[str], role_weights: dict[str, int] | None = None) -> dict:
-    """Score one job 0-100 against one CV: % of the job's own stated skills you cover.
-
-    job needs: title, description, department, location, employment_type.
-    Returns {score, confidence, matched, requirements, coverage}:
-      - confidence "full" when the job text yielded a requirements list to check
-        coverage against, "title_only" when it didn't (nothing but a title/level
-        to go on, so only title/role-match and experience contribute).
-      - matched: the job's own requirement terms your CV covers (for chips/UI).
-      - requirements: the full requirement list extracted from the job text.
+def _job_context(job: dict) -> dict:
+    """Everything score_job needs that does NOT depend on which CV profile is
+    being scored: role/title match, experience fit, penalties, and the job's
+    own extracted requirements list. Computed once per job and shared across
+    every profile in score_job_both, instead of redone per profile - the
+    role-weight table stopped being per-profile (config.ROLE_WEIGHTS is now
+    shared by every CV), so this work was already identical across profiles;
+    only which of the requirements a profile's own skills cover still differs.
+    extract_job_requirements alone is ~75% of per-job scoring cost (regex
+    search per SKILLS_VOCAB term against the full description), so computing
+    it once instead of once-per-profile is most of the win.
     """
-    role_weights = role_weights or config.ROLE_WEIGHTS
+    role_weights = config.ROLE_WEIGHTS
     title = job.get("title") or ""
     description = job.get("description") or ""
     haystack = f"{title}\n{description}\n{job.get('department') or ''}"
@@ -188,31 +189,63 @@ def score_job(job: dict, must_have_keywords: list[str], role_weights: dict[str, 
     role_pct, matched_role, role_words = _role_match(title, role_weights)
     exp_pct, exp_note = _experience_pct(haystack)
     penalty, penalty_notes = _penalty(title, job.get("employment_type"), haystack)
-
     requirements = extract_job_requirements(description)
-    cv_skills = set(must_have_keywords)
 
     def _is_role_word(term: str) -> bool:
         return all(word in role_words for word in term.split())
 
     real_requirements = [r for r in requirements if not _is_role_word(r)]
+
+    return {
+        "role_pct": role_pct, "matched_role": matched_role,
+        "exp_pct": exp_pct, "exp_note": exp_note,
+        "penalty": penalty, "penalty_notes": penalty_notes,
+        "real_requirements": real_requirements,
+    }
+
+
+def score_job(job: dict, must_have_keywords: list[str], context: dict | None = None) -> dict:
+    """Score one job 0-100 against one CV: % of the job's own stated skills you cover.
+
+    job needs: title, description, department, location, employment_type.
+    `context` is the profile-independent half of the computation (see
+    _job_context) - pass it in when scoring the same job against multiple
+    profiles (score_job_both does) so it's computed once, not once per call.
+    Returns {score, confidence, matched, requirements, coverage}:
+      - confidence "full" when the job text yielded a requirements list to check
+        coverage against, "title_only" when it didn't (nothing but a title/level
+        to go on, so only title/role-match and experience contribute).
+      - matched: the job's own requirement terms your CV covers (for chips/UI).
+      - requirements: the full requirement list extracted from the job text.
+    """
+    context = context or _job_context(job)
+    real_requirements = context["real_requirements"]
+    cv_skills = set(must_have_keywords)
     matched = [r for r in real_requirements if r in cv_skills]
 
     if len(real_requirements) >= MIN_REQUIREMENTS_FOR_COVERAGE:
         coverage_pct = 100.0 * len(matched) / len(real_requirements)
         raw = (
             FULL_WEIGHTS["coverage"] * coverage_pct
-            + FULL_WEIGHTS["role"] * role_pct
-            + FULL_WEIGHTS["experience"] * exp_pct
+            + FULL_WEIGHTS["role"] * context["role_pct"]
+            + FULL_WEIGHTS["experience"] * context["exp_pct"]
         )
         confidence = "full"
     else:
         coverage_pct = None
-        raw = (TITLE_ONLY_WEIGHTS["role"] * role_pct + TITLE_ONLY_WEIGHTS["experience"] * exp_pct) * TITLE_ONLY_SCALE
+        raw = (
+            TITLE_ONLY_WEIGHTS["role"] * context["role_pct"] + TITLE_ONLY_WEIGHTS["experience"] * context["exp_pct"]
+        ) * TITLE_ONLY_SCALE
         confidence = "title_only"
 
-    score = max(0, min(100, round(raw - penalty)))
-    notes = [n for n in ([matched_role] if matched_role else []) + ([exp_note] if exp_note else []) + penalty_notes if n]
+    score = max(0, min(100, round(raw - context["penalty"])))
+    notes = [
+        n for n in (
+            ([context["matched_role"]] if context["matched_role"] else [])
+            + ([context["exp_note"]] if context["exp_note"] else [])
+            + context["penalty_notes"]
+        ) if n
+    ]
 
     return {
         "score": score,
@@ -226,9 +259,10 @@ def score_job(job: dict, must_have_keywords: list[str], role_weights: dict[str, 
 
 def score_job_both(job: dict, profiles: dict[str, dict]) -> dict:
     """Return score/coverage fields for every profile plus a best-of pick."""
+    context = _job_context(job)
     result = {}
     for name, profile in profiles.items():
-        outcome = score_job(job, profile["must_have_keywords"])
+        outcome = score_job(job, profile["must_have_keywords"], context=context)
         result[f"score_{name}"] = outcome["score"]
         result[f"matched_{name}"] = outcome["matched"] + outcome["notes"]
         result[f"coverage_{name}"] = outcome["coverage_pct"]
