@@ -49,3 +49,13 @@ def api_delete_profile(profile_id: str) -> dict:
     cv.remove_profile(profile_id)
     update_jobs.recompute_stage()
     return dashboard.get_dashboard_stats()
+
+
+@app.post("/api/connections")
+async def api_upload_connections(file: UploadFile = File(...)) -> dict:
+    if not (file.filename or "").lower().endswith(".csv"):
+        raise HTTPException(400, "Connections export must be a .csv file")
+    config.CONNECTIONS_CSV.parent.mkdir(parents=True, exist_ok=True)
+    config.CONNECTIONS_CSV.write_bytes(await file.read())
+    update_jobs.recompute_stage()
+    return dashboard.get_dashboard_stats()
