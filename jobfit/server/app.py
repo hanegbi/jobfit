@@ -5,15 +5,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 
 from jobfit import config, cv
 from jobfit.scripts import update_jobs
-from jobfit.server import dashboard
+from jobfit.server import dashboard, runner
 
 STATIC_DIR = Path(__file__).parent / "static"
 
 app = FastAPI(title="jobfit control panel")
+
+
+@app.on_event("startup")
+def _on_startup() -> None:
+    runner.mark_orphaned_runs_crashed()
 
 
 @app.get("/")
@@ -84,3 +89,42 @@ async def api_upload_referral(file: UploadFile = File(...)) -> dict:
     stats = update_jobs.merge_referral_jobs(profiles, path=archive_path)
     update_jobs.recompute_stage()
     return {**stats, **dashboard.get_dashboard_stats()}
+
+
+@app.post("/api/run")
+def api_start_run(payload: dict) -> dict:
+    force = bool(payload.get("force", False))
+    try:
+        run_id = runner.start_run(force)
+    except RuntimeError as error:
+        raise HTTPException(409, str(error))
+    return {"run_id": run_id, "status": "started"}
+
+
+@app.get("/api/run/status")
+def api_run_status() -> dict:
+    return runner.status()
+
+
+@app.get("/api/run/history")
+def api_run_history() -> list[dict]:
+    return runner.get_history()
+
+
+@app.get("/api/run/stream")
+def api_run_stream() -> StreamingResponse:
+    line_queue = runner.log_queue()
+    if line_queue is None:
+        def _idle():
+            yield "event: idle\ndata: no run active\n\n"
+        return StreamingResponse(_idle(), media_type="text/event-stream")
+
+    def _stream():
+        while True:
+            line = line_queue.get()
+            if line is None:
+                yield "event: done\ndata: run finished\n\n"
+                break
+            yield f"data: {line}\n\n"
+
+    return StreamingResponse(_stream(), media_type="text/event-stream")
