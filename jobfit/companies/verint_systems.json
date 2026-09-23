@@ -12,13 +12,6 @@
       "first_seen": "2026-09-15T20:29:35Z",
       "last_seen": "2026-09-15T20:29:35Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -28,7 +21,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "884a2f35510f88054266",
@@ -41,21 +41,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "llm",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "machine learning",
-        "deep learning",
-        "nlp",
-        "llm",
-        "data science"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "llm",
@@ -73,7 +58,22 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "llm",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "machine learning",
+        "deep learning",
+        "nlp",
+        "llm",
+        "data science"
+      ]
     }
   ]
 }

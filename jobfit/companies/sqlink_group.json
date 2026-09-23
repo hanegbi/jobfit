@@ -14,23 +14,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "docker",
-        "aws",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "docker",
@@ -50,7 +33,24 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "docker",
+        "aws",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "api"
+      ]
     },
     {
       "id": "a8126f8c2e5c45178200",
@@ -63,17 +63,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 44,
-      "matched_default": [
-        "data engineer",
-        "exp:3y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "gcp",
-        "etl"
-      ],
       "score_infra": 44,
       "matched_infra": [
         "data engineer",
@@ -87,7 +76,18 @@
       ],
       "best_cv": "default",
       "best_score": 44,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 44,
+      "matched_default": [
+        "data engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "gcp",
+        "etl"
+      ]
     },
     {
       "id": "06cb0dc70a7d79413777",
@@ -100,14 +100,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:3y(fit)",
@@ -118,7 +110,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "dd19c8a106403fef1294",
@@ -131,14 +131,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 54,
-      "matched_default": [
-        "software developer",
-        "exp:3y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 54,
       "matched_infra": [
         "software developer",
@@ -149,7 +141,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 54,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 54,
+      "matched_default": [
+        "software developer",
+        "exp:3y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "476d6b64540acd81a94e",
@@ -162,16 +162,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:4y(fit)",
-        "-qa"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "qa"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "exp:4y(fit)",
@@ -184,7 +174,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:4y(fit)",
+        "-qa"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "qa"
+      ]
     },
     {
       "id": "110843962f75cd425cf2",
@@ -197,16 +197,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "exp:5y(fit)",
@@ -219,7 +209,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "api"
+      ]
     },
     {
       "id": "dace8acbc49f76909597",
@@ -232,14 +232,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:3y(fit)",
@@ -250,7 +242,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "9fd4794b6ea21cec4203",
@@ -263,13 +263,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 15,
-      "matched_default": [
-        "exp:3y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 15,
       "matched_infra": [
         "exp:3y(fit)"
@@ -279,7 +272,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 15,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 15,
+      "matched_default": [
+        "exp:3y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "40a297aa38288c8a3d52",
@@ -292,16 +292,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "sql"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "exp:3y(fit)",
@@ -314,7 +304,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "sql"
+      ]
     },
     {
       "id": "d8c60677db0ea89a295c",
@@ -327,14 +327,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:3y(fit)",
@@ -345,7 +337,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }

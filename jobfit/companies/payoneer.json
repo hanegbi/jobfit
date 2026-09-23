@@ -14,23 +14,16 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
+      "best_cv": "default",
+      "best_score": 15,
+      "best_confidence": "title_only",
       "score_default": 15,
       "matched_default": [
         "exp:4y(fit)"
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 15,
-      "matched_infra": [
-        "exp:4y(fit)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 15,
-      "best_confidence": "title_only"
+      "requirements_default": []
     },
     {
       "id": "68c9e466a60dc87ddce8",
@@ -43,6 +36,9 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
+      "best_cv": "default",
+      "best_score": 30,
+      "best_confidence": "full",
       "score_default": 30,
       "matched_default": [
         "node",
@@ -58,26 +54,7 @@
         "node.js",
         "aws",
         "distributed systems"
-      ],
-      "score_infra": 30,
-      "matched_infra": [
-        "node",
-        "node.js",
-        "aws",
-        "exp:6y",
-        "senior(-30)"
-      ],
-      "coverage_infra": 75,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "node",
-        "node.js",
-        "aws",
-        "distributed systems"
-      ],
-      "best_cv": "default",
-      "best_score": 30,
-      "best_confidence": "full"
+      ]
     }
   ]
 }

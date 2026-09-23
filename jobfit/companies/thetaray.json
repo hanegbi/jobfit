@@ -12,13 +12,6 @@
       "first_seen": "2026-09-15T20:24:14Z",
       "last_seen": "2026-09-15T20:24:14Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -28,7 +21,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "cd02ea8b2071ea05a591",
@@ -39,13 +39,6 @@
       "first_seen": "2026-09-15T20:24:14Z",
       "last_seen": "2026-09-15T20:24:14Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -55,7 +48,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "898bf625f5848082de92",
@@ -66,16 +66,6 @@
       "first_seen": "2026-09-15T20:24:14Z",
       "last_seen": "2026-09-15T20:24:14Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "-qa"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "qa"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)",
@@ -88,7 +78,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)",
+        "-qa"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "qa"
+      ]
     },
     {
       "id": "cf51736be17c94397161",
@@ -99,18 +99,6 @@
       "first_seen": "2026-09-15T20:24:14Z",
       "last_seen": "2026-09-15T20:24:14Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "machine learning",
-        "api",
-        "automation"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "automation",
@@ -125,7 +113,19 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "machine learning",
+        "api",
+        "automation"
+      ]
     },
     {
       "id": "67c5ecd0b350ec65ddd5",
@@ -136,13 +136,6 @@
       "first_seen": "2026-09-15T20:24:14Z",
       "last_seen": "2026-09-15T20:24:14Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "machine learning"
-      ],
       "score_infra": 8,
       "matched_infra": [],
       "coverage_infra": null,
@@ -152,7 +145,14 @@
       ],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 8,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "machine learning"
+      ]
     },
     {
       "id": "b07054b101da9e075127",
@@ -163,14 +163,6 @@
       "first_seen": "2026-09-15T20:24:14Z",
       "last_seen": "2026-09-15T20:24:14Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "machine learning"
-      ],
       "score_infra": 8,
       "matched_infra": [],
       "coverage_infra": null,
@@ -181,7 +173,15 @@
       ],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 8,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "machine learning"
+      ]
     }
   ]
 }

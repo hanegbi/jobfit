@@ -14,21 +14,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 28,
-      "matched_default": [
-        "aws",
-        "ci/cd"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "kubernetes",
-        "terraform",
-        "aws",
-        "gcp",
-        "azure",
-        "ci/cd"
-      ],
       "score_infra": 28,
       "matched_infra": [
         "aws",
@@ -46,7 +31,22 @@
       ],
       "best_cv": "default",
       "best_score": 28,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 28,
+      "matched_default": [
+        "aws",
+        "ci/cd"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "kubernetes",
+        "terraform",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd"
+      ]
     }
   ]
 }

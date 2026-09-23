@@ -12,16 +12,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "genai",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "genai"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "genai",
@@ -34,7 +24,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "genai"
+      ]
     },
     {
       "id": "dbf94686859c463e658f",
@@ -45,16 +45,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "genai",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "genai"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "genai",
@@ -67,7 +57,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "genai"
+      ]
     },
     {
       "id": "057c40046b9d6f7abefd",
@@ -78,13 +78,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go"
-      ],
       "score_infra": 8,
       "matched_infra": [],
       "coverage_infra": null,
@@ -94,7 +87,14 @@
       ],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 8,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go"
+      ]
     },
     {
       "id": "e627aad31e06d127883d",
@@ -105,11 +105,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 8,
       "matched_infra": [],
       "coverage_infra": null,
@@ -117,7 +112,12 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 8,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "9c836823b8cb6d17bb7e",
@@ -128,13 +128,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "rest"
-      ],
       "score_infra": 8,
       "matched_infra": [],
       "coverage_infra": null,
@@ -144,7 +137,14 @@
       ],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 8,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "rest"
+      ]
     },
     {
       "id": "c334110a751367de41a2",
@@ -155,20 +155,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "rest",
-        "snowflake",
-        "databricks",
-        "api",
-        "automation"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "automation",
@@ -185,7 +171,21 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "rest",
+        "snowflake",
+        "databricks",
+        "api",
+        "automation"
+      ]
     },
     {
       "id": "080357ad878660ef05a8",
@@ -196,17 +196,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "automation"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "automation",
@@ -220,7 +209,18 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "automation"
+      ]
     },
     {
       "id": "b6e49dadea1be82e697b",
@@ -231,13 +231,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -247,7 +240,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "312d4c775867b43b741e",
@@ -258,13 +258,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -274,7 +267,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "fbcab6c1b29ece48a88a",
@@ -285,15 +285,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -305,7 +296,16 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go"
+      ]
     },
     {
       "id": "5255ba5a612d422224c4",
@@ -316,15 +316,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [
-        "react"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "react"
-      ],
       "score_infra": 8,
       "matched_infra": [
         "react"
@@ -336,7 +327,16 @@
       ],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 8,
+      "matched_default": [
+        "react"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "react"
+      ]
     },
     {
       "id": "df4b2c9402130e286b88",
@@ -347,13 +347,6 @@
       "first_seen": "2026-09-15T20:22:50Z",
       "last_seen": "2026-09-15T20:22:50Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -363,7 +356,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }

@@ -12,14 +12,6 @@
       "first_seen": "2026-09-15T20:22:43Z",
       "last_seen": "2026-09-15T20:22:43Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:1y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:1y(fit)",
@@ -30,7 +22,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:1y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "145fe052f7a0793ce20f",
@@ -41,24 +41,6 @@
       "first_seen": "2026-09-15T20:22:43Z",
       "last_seen": "2026-09-15T20:22:43Z",
       "status": "new",
-      "score_default": 43,
-      "matched_default": [
-        "python",
-        "postgresql",
-        "data engineer",
-        "exp:4y(fit)"
-      ],
-      "coverage_default": 29,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "sql",
-        "postgresql",
-        "git",
-        "airflow",
-        "etl",
-        "scalability"
-      ],
       "score_infra": 43,
       "matched_infra": [
         "python",
@@ -79,7 +61,25 @@
       ],
       "best_cv": "default",
       "best_score": 43,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 43,
+      "matched_default": [
+        "python",
+        "postgresql",
+        "data engineer",
+        "exp:4y(fit)"
+      ],
+      "coverage_default": 29,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "sql",
+        "postgresql",
+        "git",
+        "airflow",
+        "etl",
+        "scalability"
+      ]
     },
     {
       "id": "713ecc10f12d92215e03",
@@ -90,14 +90,6 @@
       "first_seen": "2026-09-15T20:22:43Z",
       "last_seen": "2026-09-15T20:22:43Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:5y(fit)",
@@ -108,7 +100,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "9c15350510bbead164a3",
@@ -119,13 +119,6 @@
       "first_seen": "2026-09-15T20:22:43Z",
       "last_seen": "2026-09-15T20:22:43Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -135,7 +128,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "bed53cc235bf0f47bf16",
@@ -146,13 +146,6 @@
       "first_seen": "2026-09-15T20:22:43Z",
       "last_seen": "2026-09-15T20:22:43Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -162,7 +155,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "5b5a75965dab7d3b77cb",
@@ -173,17 +173,6 @@
       "first_seen": "2026-09-15T20:22:43Z",
       "last_seen": "2026-09-15T20:22:43Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "rest"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "exp:3y(fit)",
@@ -197,7 +186,18 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "rest"
+      ]
     },
     {
       "id": "011b8f7a629ef013d631",
@@ -208,34 +208,6 @@
       "first_seen": "2026-09-15T20:22:43Z",
       "last_seen": "2026-09-15T20:22:43Z",
       "status": "new",
-      "score_default": 65,
-      "matched_default": [
-        "python",
-        "react",
-        "node",
-        "node.js",
-        "ci/cd",
-        "observability",
-        "automation",
-        "full stack engineer",
-        "exp:3y(fit)"
-      ],
-      "coverage_default": 58,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "java",
-        "javascript",
-        "go",
-        "react",
-        "angular",
-        "node",
-        "node.js",
-        "microservices",
-        "ci/cd",
-        "observability",
-        "automation"
-      ],
       "score_infra": 65,
       "matched_infra": [
         "python",
@@ -266,7 +238,35 @@
       ],
       "best_cv": "default",
       "best_score": 65,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 65,
+      "matched_default": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "ci/cd",
+        "observability",
+        "automation",
+        "full stack engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_default": 58,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "java",
+        "javascript",
+        "go",
+        "react",
+        "angular",
+        "node",
+        "node.js",
+        "microservices",
+        "ci/cd",
+        "observability",
+        "automation"
+      ]
     },
     {
       "id": "f902a3ac4af3487e99df",
@@ -277,34 +277,6 @@
       "first_seen": "2026-09-15T20:22:43Z",
       "last_seen": "2026-09-15T20:22:43Z",
       "status": "new",
-      "score_default": 65,
-      "matched_default": [
-        "python",
-        "react",
-        "node",
-        "node.js",
-        "ci/cd",
-        "observability",
-        "automation",
-        "full stack engineer",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 58,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "java",
-        "javascript",
-        "go",
-        "react",
-        "angular",
-        "node",
-        "node.js",
-        "microservices",
-        "ci/cd",
-        "observability",
-        "automation"
-      ],
       "score_infra": 65,
       "matched_infra": [
         "python",
@@ -335,7 +307,35 @@
       ],
       "best_cv": "default",
       "best_score": 65,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 65,
+      "matched_default": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "ci/cd",
+        "observability",
+        "automation",
+        "full stack engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 58,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "java",
+        "javascript",
+        "go",
+        "react",
+        "angular",
+        "node",
+        "node.js",
+        "microservices",
+        "ci/cd",
+        "observability",
+        "automation"
+      ]
     },
     {
       "id": "tailor_brands:D3.27D",
@@ -348,14 +348,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:3y(fit)",
@@ -366,7 +358,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }

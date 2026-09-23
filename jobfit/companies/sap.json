@@ -12,13 +12,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -28,7 +21,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "9085a645713656a91c91",
@@ -39,16 +39,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "java",
-        "devops"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -61,7 +51,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "java",
+        "devops"
+      ]
     },
     {
       "id": "ea5ad425e55c6c57ddf6",
@@ -72,13 +72,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -88,7 +81,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "934000042d315f5303bc",
@@ -99,39 +99,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 37,
-      "matched_default": [
-        "node",
-        "node.js",
-        "docker",
-        "aws",
-        "ci/cd",
-        "jenkins",
-        "observability",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 39,
-      "confidence_default": "full",
-      "requirements_default": [
-        "java",
-        "go",
-        "golang",
-        "node",
-        "node.js",
-        "microservices",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "ci/cd",
-        "jenkins",
-        "observability",
-        "prometheus",
-        "grafana",
-        "distributed systems",
-        "api"
-      ],
       "score_infra": 37,
       "matched_infra": [
         "node",
@@ -167,7 +134,40 @@
       ],
       "best_cv": "default",
       "best_score": 37,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 37,
+      "matched_default": [
+        "node",
+        "node.js",
+        "docker",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "observability",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 39,
+      "confidence_default": "full",
+      "requirements_default": [
+        "java",
+        "go",
+        "golang",
+        "node",
+        "node.js",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "jenkins",
+        "observability",
+        "prometheus",
+        "grafana",
+        "distributed systems",
+        "api"
+      ]
     },
     {
       "id": "a6567e4c5cf6ab3ce6e3",
@@ -178,19 +178,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 39,
-      "matched_default": [
-        "automation",
-        "platform engineer"
-      ],
-      "coverage_default": 25,
-      "confidence_default": "full",
-      "requirements_default": [
-        "java",
-        "javascript",
-        "rest",
-        "automation"
-      ],
       "score_infra": 39,
       "matched_infra": [
         "automation",
@@ -206,7 +193,20 @@
       ],
       "best_cv": "default",
       "best_score": 39,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 39,
+      "matched_default": [
+        "automation",
+        "platform engineer"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "java",
+        "javascript",
+        "rest",
+        "automation"
+      ]
     },
     {
       "id": "c808ccc8a718704b99a6",
@@ -217,20 +217,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 25,
-      "matched_default": [
-        "aws",
-        "software developer",
-        "-qa"
-      ],
-      "coverage_default": 25,
-      "confidence_default": "full",
-      "requirements_default": [
-        "aws",
-        "scalability",
-        "selenium",
-        "qa"
-      ],
       "score_infra": 25,
       "matched_infra": [
         "aws",
@@ -247,7 +233,21 @@
       ],
       "best_cv": "default",
       "best_score": 25,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 25,
+      "matched_default": [
+        "aws",
+        "software developer",
+        "-qa"
+      ],
+      "coverage_default": 25,
+      "confidence_default": "full",
+      "requirements_default": [
+        "aws",
+        "scalability",
+        "selenium",
+        "qa"
+      ]
     },
     {
       "id": "d5ad809a2cfbafce86c4",
@@ -258,21 +258,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 28,
-      "matched_default": [
-        "docker",
-        "aws"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "golang",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure"
-      ],
       "score_infra": 28,
       "matched_infra": [
         "docker",
@@ -290,7 +275,22 @@
       ],
       "best_cv": "default",
       "best_score": 28,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 28,
+      "matched_default": [
+        "docker",
+        "aws"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "golang",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure"
+      ]
     },
     {
       "id": "bf59f7d6a96555e1d875",
@@ -301,28 +301,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 47,
-      "matched_default": [
-        "aws",
-        "ci/cd",
-        "jenkins",
-        "automation",
-        "devops engineer"
-      ],
-      "coverage_default": 40,
-      "confidence_default": "full",
-      "requirements_default": [
-        "java",
-        "go",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "ci/cd",
-        "jenkins",
-        "github actions",
-        "automation"
-      ],
       "score_infra": 47,
       "matched_infra": [
         "aws",
@@ -347,7 +325,29 @@
       ],
       "best_cv": "default",
       "best_score": 47,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 47,
+      "matched_default": [
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "automation",
+        "devops engineer"
+      ],
+      "coverage_default": 40,
+      "confidence_default": "full",
+      "requirements_default": [
+        "java",
+        "go",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "jenkins",
+        "github actions",
+        "automation"
+      ]
     },
     {
       "id": "448795d448c37f9dcc63",
@@ -358,14 +358,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:10y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:10y(-100)",
@@ -376,7 +368,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:10y(-100)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "7e3db19b553f8875ea65",
@@ -387,14 +387,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)",
@@ -405,7 +397,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "b38810bb0980fd5b2493",
@@ -416,13 +416,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -432,7 +425,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "4aee7e54ec58303a0768",
@@ -443,14 +443,6 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "-recruiter"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)",
@@ -461,7 +453,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)",
+        "-recruiter"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }

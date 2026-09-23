@@ -12,6 +12,9 @@
       "first_seen": "2026-09-15T19:23:05Z",
       "last_seen": "2026-09-15T19:23:05Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
         "llm",
@@ -27,27 +30,7 @@
         "automation",
         "genai",
         "model evaluation"
-      ],
-      "score_infra": 11,
-      "matched_infra": [
-        "llm",
-        "automation",
-        "genai",
-        "model evaluation",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 80,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "llm",
-        "scalability",
-        "automation",
-        "genai",
-        "model evaluation"
-      ],
-      "best_cv": "infra",
-      "best_score": 11,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "ddccf149cdea8ccda983",
@@ -58,6 +41,9 @@
       "first_seen": "2026-09-15T19:23:05Z",
       "last_seen": "2026-09-15T19:23:05Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "off-target title(-50)"
@@ -66,19 +52,7 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "rest"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "rest"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      ]
     },
     {
       "id": "5aba5f329658869c65e4",
@@ -89,23 +63,16 @@
       "first_seen": "2026-09-15T19:23:05Z",
       "last_seen": "2026-09-15T19:23:05Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "off-target title(-50)"
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "requirements_default": []
     },
     {
       "id": "81635111570132e5237e",
@@ -116,6 +83,9 @@
       "first_seen": "2026-09-15T19:23:05Z",
       "last_seen": "2026-09-15T19:23:05Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "genai",
@@ -125,20 +95,7 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "genai"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "genai",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "genai"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      ]
     }
   ]
 }

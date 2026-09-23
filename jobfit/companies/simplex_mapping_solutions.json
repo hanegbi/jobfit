@@ -12,13 +12,6 @@
       "first_seen": "2026-09-15T20:15:07Z",
       "last_seen": "2026-09-15T20:15:07Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -28,7 +21,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "86857f55d0f5c115f580",
@@ -39,20 +39,6 @@
       "first_seen": "2026-09-15T20:15:07Z",
       "last_seen": "2026-09-15T20:15:07Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "java",
-        "javascript",
-        "typescript",
-        "sql"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -69,7 +55,21 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "java",
+        "javascript",
+        "typescript",
+        "sql"
+      ]
     },
     {
       "id": "f3eb1e9625374f250bbc",
@@ -80,50 +80,6 @@
       "first_seen": "2026-09-15T20:15:07Z",
       "last_seen": "2026-09-15T20:15:07Z",
       "status": "new",
-      "score_default": 65,
-      "matched_default": [
-        "python",
-        "react",
-        "node",
-        "node.js",
-        "postgresql",
-        "docker",
-        "aws",
-        "ci/cd",
-        "llm",
-        "computer vision",
-        "observability",
-        "genai",
-        "ai engineer",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 52,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "java",
-        "javascript",
-        "typescript",
-        "react",
-        "node",
-        "node.js",
-        "sql",
-        "postgresql",
-        "microservices",
-        "docker",
-        "aws",
-        "ci/cd",
-        "pytorch",
-        "llm",
-        "rag",
-        "computer vision",
-        "devops",
-        "observability",
-        "api",
-        "vector database",
-        "mlops",
-        "genai"
-      ],
       "score_infra": 68,
       "matched_infra": [
         "python",
@@ -169,9 +125,53 @@
         "mlops",
         "genai"
       ],
-      "best_cv": "infra",
-      "best_score": 68,
-      "best_confidence": "full"
+      "best_cv": "default",
+      "best_score": 65,
+      "best_confidence": "full",
+      "score_default": 65,
+      "matched_default": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "postgresql",
+        "docker",
+        "aws",
+        "ci/cd",
+        "llm",
+        "computer vision",
+        "observability",
+        "genai",
+        "ai engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 52,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "java",
+        "javascript",
+        "typescript",
+        "react",
+        "node",
+        "node.js",
+        "sql",
+        "postgresql",
+        "microservices",
+        "docker",
+        "aws",
+        "ci/cd",
+        "pytorch",
+        "llm",
+        "rag",
+        "computer vision",
+        "devops",
+        "observability",
+        "api",
+        "vector database",
+        "mlops",
+        "genai"
+      ]
     }
   ]
 }

@@ -12,15 +12,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:15y(-100)",
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:15y(-100)",
@@ -32,7 +23,16 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:15y(-100)",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "13edd6b1674ff5e5fad0",
@@ -43,14 +43,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:7y(-50)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:7y(-50)",
@@ -61,7 +53,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:7y(-50)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "76855da18554aa6e285d",
@@ -72,20 +72,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 58,
-      "matched_default": [
-        "linux",
-        "bash",
-        "computer vision"
-      ],
-      "coverage_default": 75,
-      "confidence_default": "full",
-      "requirements_default": [
-        "git",
-        "linux",
-        "bash",
-        "computer vision"
-      ],
       "score_infra": 58,
       "matched_infra": [
         "linux",
@@ -102,7 +88,21 @@
       ],
       "best_cv": "default",
       "best_score": 58,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 58,
+      "matched_default": [
+        "linux",
+        "bash",
+        "computer vision"
+      ],
+      "coverage_default": 75,
+      "confidence_default": "full",
+      "requirements_default": [
+        "git",
+        "linux",
+        "bash",
+        "computer vision"
+      ]
     },
     {
       "id": "541bd925691fb3791203",
@@ -113,21 +113,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "go",
-        "sql",
-        "machine learning",
-        "data science"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -145,7 +130,22 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "go",
+        "sql",
+        "machine learning",
+        "data science"
+      ]
     },
     {
       "id": "dc702a131d8b0d26f90d",
@@ -156,21 +156,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "go",
-        "sql",
-        "machine learning",
-        "data science"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -188,7 +173,22 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "go",
+        "sql",
+        "machine learning",
+        "data science"
+      ]
     },
     {
       "id": "001f14a8be79bbd76303",
@@ -199,16 +199,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [
-        "computer vision"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "machine learning",
-        "computer vision"
-      ],
       "score_infra": 8,
       "matched_infra": [
         "computer vision"
@@ -221,7 +211,17 @@
       ],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 8,
+      "matched_default": [
+        "computer vision"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "machine learning",
+        "computer vision"
+      ]
     },
     {
       "id": "5763261d99bc1627c413",
@@ -232,18 +232,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "ci/cd",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "ci/cd",
-        "git"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "ci/cd",
@@ -258,7 +246,19 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "ci/cd",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "ci/cd",
+        "git"
+      ]
     },
     {
       "id": "b7bf3b9c21ceae15b4fb",
@@ -269,21 +269,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 62,
-      "matched_default": [
-        "python",
-        "aws",
-        "computer vision",
-        "exp:3y(fit)"
-      ],
-      "coverage_default": 75,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "aws",
-        "machine learning",
-        "computer vision"
-      ],
       "score_infra": 62,
       "matched_infra": [
         "python",
@@ -301,7 +286,22 @@
       ],
       "best_cv": "default",
       "best_score": 62,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 62,
+      "matched_default": [
+        "python",
+        "aws",
+        "computer vision",
+        "exp:3y(fit)"
+      ],
+      "coverage_default": 75,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "aws",
+        "machine learning",
+        "computer vision"
+      ]
     },
     {
       "id": "705c6f392d57d42e1369",
@@ -312,13 +312,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 10,
-      "matched_default": [
-        "exp:6y"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 10,
       "matched_infra": [
         "exp:6y"
@@ -328,7 +321,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 10,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 10,
+      "matched_default": [
+        "exp:6y"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "74df0fc5e4d485df2166",
@@ -339,17 +339,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 15,
-      "matched_default": [
-        "python",
-        "exp:4y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "python",
-        "git"
-      ],
       "score_infra": 15,
       "matched_infra": [
         "python",
@@ -363,7 +352,18 @@
       ],
       "best_cv": "default",
       "best_score": 15,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 15,
+      "matched_default": [
+        "python",
+        "exp:4y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "python",
+        "git"
+      ]
     },
     {
       "id": "68fc3e412af2b78b3592",
@@ -374,14 +374,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:8y(-75)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:8y(-75)",
@@ -392,7 +384,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "e0d33c7a4e79447c9210",
@@ -403,14 +403,6 @@
       "first_seen": "2026-09-15T20:16:52Z",
       "last_seen": "2026-09-15T20:16:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:4y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:4y(fit)",
@@ -421,7 +413,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }

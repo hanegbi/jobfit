@@ -14,18 +14,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "python",
-        "sql"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -40,7 +28,19 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "python",
+        "sql"
+      ]
     }
   ]
 }

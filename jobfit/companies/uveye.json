@@ -12,14 +12,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)",
@@ -30,7 +22,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "e76e4395d27f1f73f35c",
@@ -41,13 +41,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -57,7 +50,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "9d64303e69dea22da8bc",
@@ -68,13 +68,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -84,7 +77,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "22ccff6384b80845c601",
@@ -95,19 +95,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "exp:5y(fit)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "machine learning",
-        "computer vision"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "computer vision",
@@ -123,7 +110,20 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "computer vision",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "machine learning",
+        "computer vision"
+      ]
     },
     {
       "id": "f51c63684f040776eb42",
@@ -134,21 +134,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "automation",
-        "exp:2y(fit)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": 67,
-      "confidence_default": "full",
-      "requirements_default": [
-        "machine learning",
-        "computer vision",
-        "automation"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "computer vision",
@@ -166,7 +151,22 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "computer vision",
+        "automation",
+        "exp:2y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_default": 67,
+      "confidence_default": "full",
+      "requirements_default": [
+        "machine learning",
+        "computer vision",
+        "automation"
+      ]
     },
     {
       "id": "8bb6eba6e034edc8004c",
@@ -177,24 +177,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 40,
-      "matched_default": [
-        "aws",
-        "ci/cd",
-        "computer vision",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 43,
-      "confidence_default": "full",
-      "requirements_default": [
-        "aws",
-        "gcp",
-        "azure",
-        "ci/cd",
-        "machine learning",
-        "computer vision",
-        "devops"
-      ],
       "score_infra": 40,
       "matched_infra": [
         "aws",
@@ -215,7 +197,25 @@
       ],
       "best_cv": "default",
       "best_score": 40,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 40,
+      "matched_default": [
+        "aws",
+        "ci/cd",
+        "computer vision",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 43,
+      "confidence_default": "full",
+      "requirements_default": [
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "machine learning",
+        "computer vision",
+        "devops"
+      ]
     },
     {
       "id": "79940c55086ae3b6b2ae",
@@ -226,26 +226,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 33,
-      "matched_default": [
-        "python",
-        "computer vision",
-        "inference",
-        "exp:4y(fit)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "machine learning",
-        "deep learning",
-        "pytorch",
-        "tensorflow",
-        "computer vision",
-        "data science",
-        "inference",
-        "mlops"
-      ],
       "score_infra": 41,
       "matched_infra": [
         "python",
@@ -267,9 +247,29 @@
         "inference",
         "mlops"
       ],
-      "best_cv": "infra",
-      "best_score": 41,
-      "best_confidence": "full"
+      "best_cv": "default",
+      "best_score": 33,
+      "best_confidence": "full",
+      "score_default": 33,
+      "matched_default": [
+        "python",
+        "computer vision",
+        "inference",
+        "exp:4y(fit)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "machine learning",
+        "deep learning",
+        "pytorch",
+        "tensorflow",
+        "computer vision",
+        "data science",
+        "inference",
+        "mlops"
+      ]
     },
     {
       "id": "24671620d660ae081299",
@@ -280,18 +280,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "exp:8y(-75)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "machine learning",
-        "computer vision"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "computer vision",
@@ -306,7 +294,19 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "computer vision",
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "machine learning",
+        "computer vision"
+      ]
     },
     {
       "id": "54259b312c3716a23909",
@@ -317,19 +317,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "exp:8y(-75)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "machine learning",
-        "computer vision"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "computer vision",
@@ -345,7 +332,20 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "computer vision",
+        "exp:8y(-75)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "machine learning",
+        "computer vision"
+      ]
     },
     {
       "id": "20ec0ea6ab22a5bca15c",
@@ -356,26 +356,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 5,
-      "matched_default": [
-        "python",
-        "linux",
-        "bash",
-        "computer vision",
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 71,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "linux",
-        "bash",
-        "machine learning",
-        "computer vision",
-        "automation",
-        "gpu"
-      ],
       "score_infra": 5,
       "matched_infra": [
         "python",
@@ -398,7 +378,27 @@
       ],
       "best_cv": "default",
       "best_score": 5,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 5,
+      "matched_default": [
+        "python",
+        "linux",
+        "bash",
+        "computer vision",
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 71,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "linux",
+        "bash",
+        "machine learning",
+        "computer vision",
+        "automation",
+        "gpu"
+      ]
     },
     {
       "id": "9e1f82b3ffd105876303",
@@ -409,20 +409,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 42,
-      "matched_default": [
-        "linux",
-        "computer vision",
-        "exp:4y(fit)",
-        "-customer success"
-      ],
-      "coverage_default": 67,
-      "confidence_default": "full",
-      "requirements_default": [
-        "linux",
-        "machine learning",
-        "computer vision"
-      ],
       "score_infra": 42,
       "matched_infra": [
         "linux",
@@ -439,7 +425,21 @@
       ],
       "best_cv": "default",
       "best_score": 42,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 42,
+      "matched_default": [
+        "linux",
+        "computer vision",
+        "exp:4y(fit)",
+        "-customer success"
+      ],
+      "coverage_default": 67,
+      "confidence_default": "full",
+      "requirements_default": [
+        "linux",
+        "machine learning",
+        "computer vision"
+      ]
     },
     {
       "id": "4940b7e769aaa9c50b5b",
@@ -450,19 +450,6 @@
       "first_seen": "2026-09-15T20:27:56Z",
       "last_seen": "2026-09-15T20:27:56Z",
       "status": "new",
-      "score_default": 57,
-      "matched_default": [
-        "linux",
-        "computer vision",
-        "exp:4y(fit)"
-      ],
-      "coverage_default": 67,
-      "confidence_default": "full",
-      "requirements_default": [
-        "linux",
-        "machine learning",
-        "computer vision"
-      ],
       "score_infra": 57,
       "matched_infra": [
         "linux",
@@ -478,7 +465,20 @@
       ],
       "best_cv": "default",
       "best_score": 57,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 57,
+      "matched_default": [
+        "linux",
+        "computer vision",
+        "exp:4y(fit)"
+      ],
+      "coverage_default": 67,
+      "confidence_default": "full",
+      "requirements_default": [
+        "linux",
+        "machine learning",
+        "computer vision"
+      ]
     },
     {
       "id": "uveye:6D.17B",
@@ -491,14 +491,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:2y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:2y(fit)",
@@ -509,7 +501,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }

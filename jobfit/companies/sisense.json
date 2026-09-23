@@ -12,13 +12,6 @@
       "first_seen": "2026-09-15T20:16:28Z",
       "last_seen": "2026-09-15T20:16:28Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "api"
-      ],
       "score_infra": 8,
       "matched_infra": [],
       "coverage_infra": null,
@@ -28,7 +21,14 @@
       ],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 8,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "api"
+      ]
     },
     {
       "id": "6534815ffc7a0fd1be5c",
@@ -39,20 +39,6 @@
       "first_seen": "2026-09-15T20:16:28Z",
       "last_seen": "2026-09-15T20:16:28Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "react",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "typescript",
-        "react",
-        "angular",
-        "vue",
-        "scalability"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "react",
@@ -69,7 +55,21 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "react",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "typescript",
+        "react",
+        "angular",
+        "vue",
+        "scalability"
+      ]
     },
     {
       "id": "c9ce02a032d18e93d376",
@@ -80,13 +80,6 @@
       "first_seen": "2026-09-15T20:16:28Z",
       "last_seen": "2026-09-15T20:16:28Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -96,7 +89,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "61ebde2a072935936e7f",
@@ -107,16 +107,6 @@
       "first_seen": "2026-09-15T20:16:28Z",
       "last_seen": "2026-09-15T20:16:28Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "azure",
-        "snowflake"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -129,7 +119,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "azure",
+        "snowflake"
+      ]
     },
     {
       "id": "39c33ed7a441fe18c692",
@@ -140,16 +140,6 @@
       "first_seen": "2026-09-15T20:16:28Z",
       "last_seen": "2026-09-15T20:16:28Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "javascript",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -162,7 +152,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "javascript",
+        "api"
+      ]
     },
     {
       "id": "22616c094aca7ad06fe2",
@@ -173,18 +173,6 @@
       "first_seen": "2026-09-15T20:16:28Z",
       "last_seen": "2026-09-15T20:16:28Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "sql",
-        "git"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -199,7 +187,19 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "sql",
+        "git"
+      ]
     }
   ]
 }

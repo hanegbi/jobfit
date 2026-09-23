@@ -12,13 +12,6 @@
       "first_seen": "2026-09-15T20:25:06Z",
       "last_seen": "2026-09-15T20:25:06Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -28,7 +21,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "toka:BE.074",
@@ -39,16 +39,6 @@
       "first_seen": "2026-09-15T20:25:06Z",
       "last_seen": "2026-09-15T20:25:06Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "-account executive"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)",
@@ -61,7 +51,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)",
+        "-account executive"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go"
+      ]
     },
     {
       "id": "toka:BF.16A",
@@ -72,30 +72,6 @@
       "first_seen": "2026-09-15T20:25:06Z",
       "last_seen": "2026-09-15T20:25:06Z",
       "status": "new",
-      "score_default": 39,
-      "matched_default": [
-        "mongodb",
-        "ci/cd",
-        "backend engineer",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 15,
-      "confidence_default": "full",
-      "requirements_default": [
-        "javascript",
-        "sql",
-        "mongodb",
-        "kafka",
-        "rabbitmq",
-        "rest",
-        "microservices",
-        "kubernetes",
-        "ci/cd",
-        "devops",
-        "distributed systems",
-        "asyncio",
-        "api"
-      ],
       "score_infra": 39,
       "matched_infra": [
         "mongodb",
@@ -122,7 +98,31 @@
       ],
       "best_cv": "default",
       "best_score": 39,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 39,
+      "matched_default": [
+        "mongodb",
+        "ci/cd",
+        "backend engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 15,
+      "confidence_default": "full",
+      "requirements_default": [
+        "javascript",
+        "sql",
+        "mongodb",
+        "kafka",
+        "rabbitmq",
+        "rest",
+        "microservices",
+        "kubernetes",
+        "ci/cd",
+        "devops",
+        "distributed systems",
+        "asyncio",
+        "api"
+      ]
     },
     {
       "id": "toka:12.F1B",
@@ -133,17 +133,6 @@
       "first_seen": "2026-09-15T20:25:06Z",
       "last_seen": "2026-09-15T20:25:06Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "exp:8y(-75)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "python"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -157,7 +146,18 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "exp:8y(-75)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "python"
+      ]
     },
     {
       "id": "toka:E5.46D",
@@ -168,17 +168,6 @@
       "first_seen": "2026-09-15T20:25:06Z",
       "last_seen": "2026-09-15T20:25:06Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "python"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -192,7 +181,18 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "python"
+      ]
     }
   ]
 }

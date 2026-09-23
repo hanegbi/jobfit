@@ -12,16 +12,6 @@
       "first_seen": "2026-09-15T20:29:52Z",
       "last_seen": "2026-09-15T20:29:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "rest"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -34,7 +24,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "rest"
+      ]
     },
     {
       "id": "300ea81b70b67caca9c3",
@@ -45,13 +45,6 @@
       "first_seen": "2026-09-15T20:29:52Z",
       "last_seen": "2026-09-15T20:29:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -61,7 +54,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "vetric_technology:C3.277",
@@ -72,15 +72,6 @@
       "first_seen": "2026-09-15T20:29:52Z",
       "last_seen": "2026-09-15T20:29:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:3y(fit)",
@@ -92,7 +83,16 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:3y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "vetric_technology:63.27B",
@@ -103,16 +103,6 @@
       "first_seen": "2026-09-15T20:29:52Z",
       "last_seen": "2026-09-15T20:29:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "spark"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -125,7 +115,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "spark"
+      ]
     },
     {
       "id": "vetric_technology:1D.07C",
@@ -136,38 +136,6 @@
       "first_seen": "2026-09-15T20:29:52Z",
       "last_seen": "2026-09-15T20:29:52Z",
       "status": "new",
-      "score_default": 61,
-      "matched_default": [
-        "python",
-        "redis",
-        "docker",
-        "aws",
-        "ci/cd",
-        "bash",
-        "observability",
-        "automation",
-        "devops engineer",
-        "exp:3y(fit)"
-      ],
-      "coverage_default": 53,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "typescript",
-        "go",
-        "redis",
-        "docker",
-        "kubernetes",
-        "terraform",
-        "aws",
-        "ci/cd",
-        "github actions",
-        "bash",
-        "observability",
-        "grafana",
-        "scalability",
-        "automation"
-      ],
       "score_infra": 61,
       "matched_infra": [
         "python",
@@ -202,7 +170,39 @@
       ],
       "best_cv": "default",
       "best_score": 61,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 61,
+      "matched_default": [
+        "python",
+        "redis",
+        "docker",
+        "aws",
+        "ci/cd",
+        "bash",
+        "observability",
+        "automation",
+        "devops engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_default": 53,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "typescript",
+        "go",
+        "redis",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "ci/cd",
+        "github actions",
+        "bash",
+        "observability",
+        "grafana",
+        "scalability",
+        "automation"
+      ]
     },
     {
       "id": "vetric_technology:74.F6C",
@@ -213,38 +213,6 @@
       "first_seen": "2026-09-15T20:29:52Z",
       "last_seen": "2026-09-15T20:29:52Z",
       "status": "new",
-      "score_default": 61,
-      "matched_default": [
-        "python",
-        "redis",
-        "docker",
-        "aws",
-        "ci/cd",
-        "bash",
-        "observability",
-        "automation",
-        "devops engineer",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 53,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "typescript",
-        "go",
-        "redis",
-        "docker",
-        "kubernetes",
-        "terraform",
-        "aws",
-        "ci/cd",
-        "github actions",
-        "bash",
-        "observability",
-        "grafana",
-        "scalability",
-        "automation"
-      ],
       "score_infra": 61,
       "matched_infra": [
         "python",
@@ -279,7 +247,39 @@
       ],
       "best_cv": "default",
       "best_score": 61,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 61,
+      "matched_default": [
+        "python",
+        "redis",
+        "docker",
+        "aws",
+        "ci/cd",
+        "bash",
+        "observability",
+        "automation",
+        "devops engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 53,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "typescript",
+        "go",
+        "redis",
+        "docker",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "ci/cd",
+        "github actions",
+        "bash",
+        "observability",
+        "grafana",
+        "scalability",
+        "automation"
+      ]
     },
     {
       "id": "d87e42adbfaaaf36b23c",
@@ -292,19 +292,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 47,
-      "matched_default": [
-        "aws",
-        "devops engineer",
-        "exp:3y(fit)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "kubernetes",
-        "aws",
-        "scalability"
-      ],
       "score_infra": 47,
       "matched_infra": [
         "aws",
@@ -320,7 +307,20 @@
       ],
       "best_cv": "default",
       "best_score": 47,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 47,
+      "matched_default": [
+        "aws",
+        "devops engineer",
+        "exp:3y(fit)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "kubernetes",
+        "aws",
+        "scalability"
+      ]
     }
   ]
 }

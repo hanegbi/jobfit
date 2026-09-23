@@ -14,14 +14,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:4y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:4y(fit)",
@@ -32,7 +24,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:4y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "c1a86fe38d5be8c91fb9",
@@ -45,13 +45,6 @@
       "status": "seen",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 15,
-      "matched_default": [
-        "exp:5y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 15,
       "matched_infra": [
         "exp:5y(fit)"
@@ -61,7 +54,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 15,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 15,
+      "matched_default": [
+        "exp:5y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "0890a0ffdbefb55cbbfd",
@@ -74,17 +74,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "aws",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "aws"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "aws",
@@ -98,7 +87,18 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "aws",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "aws"
+      ]
     },
     {
       "id": "fdd1349e5af8cbfc365e",
@@ -111,15 +111,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 15,
-      "matched_default": [
-        "exp:4y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "sql"
-      ],
       "score_infra": 15,
       "matched_infra": [
         "exp:4y(fit)"
@@ -131,7 +122,16 @@
       ],
       "best_cv": "default",
       "best_score": 15,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 15,
+      "matched_default": [
+        "exp:4y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "sql"
+      ]
     },
     {
       "id": "baeae01e9a65c5e29fab",
@@ -144,15 +144,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "sql"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -164,7 +155,16 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "sql"
+      ]
     }
   ]
 }

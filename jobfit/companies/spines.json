@@ -14,20 +14,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 7,
-      "matched_default": [
-        "llm",
-        "automation",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 67,
-      "confidence_default": "full",
-      "requirements_default": [
-        "nlp",
-        "llm",
-        "automation"
-      ],
       "score_infra": 7,
       "matched_infra": [
         "llm",
@@ -44,7 +30,21 @@
       ],
       "best_cv": "default",
       "best_score": 7,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 7,
+      "matched_default": [
+        "llm",
+        "automation",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 67,
+      "confidence_default": "full",
+      "requirements_default": [
+        "nlp",
+        "llm",
+        "automation"
+      ]
     }
   ]
 }

@@ -12,19 +12,6 @@
       "first_seen": "2026-09-15T20:43:34Z",
       "last_seen": "2026-09-15T20:43:34Z",
       "status": "new",
-      "score_default": 2,
-      "matched_default": [
-        "node",
-        "genai",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 67,
-      "confidence_default": "full",
-      "requirements_default": [
-        "node",
-        "machine learning",
-        "genai"
-      ],
       "score_infra": 2,
       "matched_infra": [
         "node",
@@ -40,7 +27,20 @@
       ],
       "best_cv": "default",
       "best_score": 2,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 2,
+      "matched_default": [
+        "node",
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 67,
+      "confidence_default": "full",
+      "requirements_default": [
+        "node",
+        "machine learning",
+        "genai"
+      ]
     },
     {
       "id": "2377e0e4cf5d561e5132",
@@ -51,21 +51,6 @@
       "first_seen": "2026-09-15T20:43:34Z",
       "last_seen": "2026-09-15T20:43:34Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [
-        "node",
-        "llm",
-        "inference",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 75,
-      "confidence_default": "full",
-      "requirements_default": [
-        "node",
-        "machine learning",
-        "llm",
-        "inference"
-      ],
       "score_infra": 8,
       "matched_infra": [
         "node",
@@ -83,7 +68,22 @@
       ],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 8,
+      "matched_default": [
+        "node",
+        "llm",
+        "inference",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 75,
+      "confidence_default": "full",
+      "requirements_default": [
+        "node",
+        "machine learning",
+        "llm",
+        "inference"
+      ]
     },
     {
       "id": "proteantecs:05.F69",
@@ -96,13 +96,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 15,
-      "matched_default": [
-        "exp:5y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 15,
       "matched_infra": [
         "exp:5y(fit)"
@@ -112,7 +105,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 15,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 15,
+      "matched_default": [
+        "exp:5y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "proteantecs:FB.D6C",
@@ -125,13 +125,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 15,
-      "matched_default": [
-        "exp:2y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 15,
       "matched_infra": [
         "exp:2y(fit)"
@@ -141,7 +134,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 15,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 15,
+      "matched_default": [
+        "exp:2y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "proteantecs:DF.073",
@@ -154,14 +154,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:5y(fit)",
@@ -172,7 +164,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }

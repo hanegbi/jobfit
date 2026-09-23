@@ -12,13 +12,6 @@
       "first_seen": "2026-09-15T20:34:23Z",
       "last_seen": "2026-09-15T20:34:23Z",
       "status": "closed",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -28,7 +21,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "dcbf91a350e29b9f546c",
@@ -39,13 +39,6 @@
       "first_seen": "2026-09-15T20:34:23Z",
       "last_seen": "2026-09-15T20:34:23Z",
       "status": "closed",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -55,7 +48,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "wiz:4702745006",
@@ -66,17 +66,6 @@
       "first_seen": "2026-09-15T20:34:23Z",
       "last_seen": "2026-09-22T22:13:57Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "exp:7y(-50)",
-        "off-target title(-50)",
-        "-account executive",
-        "-recruiter",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:7y(-50)",
@@ -90,7 +79,18 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:7y(-50)",
+        "off-target title(-50)",
+        "-account executive",
+        "-recruiter",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "wiz:4699167006",
@@ -101,17 +101,6 @@
       "first_seen": "2026-09-15T20:34:23Z",
       "last_seen": "2026-09-22T22:13:57Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "exp:7y(-50)",
-        "off-target title(-50)",
-        "-account executive",
-        "-recruiter",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:7y(-50)",
@@ -125,7 +114,18 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:7y(-50)",
+        "off-target title(-50)",
+        "-account executive",
+        "-recruiter",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "wiz:4681239006",
@@ -136,25 +136,6 @@
       "first_seen": "2026-09-15T20:34:23Z",
       "last_seen": "2026-09-22T22:13:57Z",
       "status": "seen",
-      "score_default": 36,
-      "matched_default": [
-        "python",
-        "aws",
-        "automation",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 38,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "go",
-        "sql",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "automation"
-      ],
       "score_infra": 36,
       "matched_infra": [
         "python",
@@ -176,7 +157,26 @@
       ],
       "best_cv": "default",
       "best_score": 36,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 36,
+      "matched_default": [
+        "python",
+        "aws",
+        "automation",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 38,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "go",
+        "sql",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "automation"
+      ]
     },
     {
       "id": "wiz:4692874006",
@@ -187,21 +187,6 @@
       "first_seen": "2026-09-15T20:34:23Z",
       "last_seen": "2026-09-22T22:13:57Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "aws",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "sql",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "aws",
@@ -219,7 +204,22 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "aws",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "sql",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure"
+      ]
     },
     {
       "id": "wiz:4615162006",
@@ -230,31 +230,6 @@
       "first_seen": "2026-09-22T22:13:57Z",
       "last_seen": "2026-09-22T22:13:57Z",
       "status": "new",
-      "score_default": 32,
-      "matched_default": [
-        "postgresql",
-        "docker",
-        "aws",
-        "ci/cd",
-        "exp:4y(fit)"
-      ],
-      "coverage_default": 31,
-      "confidence_default": "full",
-      "requirements_default": [
-        "java",
-        "golang",
-        "postgresql",
-        "graphql",
-        "microservices",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "ci/cd",
-        "devops",
-        "scalability"
-      ],
       "score_infra": 32,
       "matched_infra": [
         "postgresql",
@@ -282,7 +257,32 @@
       ],
       "best_cv": "default",
       "best_score": 32,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 32,
+      "matched_default": [
+        "postgresql",
+        "docker",
+        "aws",
+        "ci/cd",
+        "exp:4y(fit)"
+      ],
+      "coverage_default": 31,
+      "confidence_default": "full",
+      "requirements_default": [
+        "java",
+        "golang",
+        "postgresql",
+        "graphql",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "ci/cd",
+        "devops",
+        "scalability"
+      ]
     },
     {
       "id": "wiz:4621708006",
@@ -293,13 +293,6 @@
       "first_seen": "2026-09-22T22:13:57Z",
       "last_seen": "2026-09-22T22:13:57Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -309,7 +302,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }

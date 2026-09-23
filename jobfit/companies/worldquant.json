@@ -12,22 +12,6 @@
       "first_seen": "2026-09-15T20:35:00Z",
       "last_seen": "2026-09-15T20:35:00Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "linux",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "java",
-        "golang",
-        "linux",
-        "data science",
-        "site reliability"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -46,7 +30,23 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "linux",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "java",
+        "golang",
+        "linux",
+        "data science",
+        "site reliability"
+      ]
     },
     {
       "id": "aca22be7d3743f0b8d80",
@@ -57,17 +57,6 @@
       "first_seen": "2026-09-15T20:35:00Z",
       "last_seen": "2026-09-15T20:35:00Z",
       "status": "new",
-      "score_default": 15,
-      "matched_default": [
-        "linux",
-        "exp:4y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "c++",
-        "linux"
-      ],
       "score_infra": 15,
       "matched_infra": [
         "linux",
@@ -81,7 +70,18 @@
       ],
       "best_cv": "default",
       "best_score": 15,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 15,
+      "matched_default": [
+        "linux",
+        "exp:4y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "c++",
+        "linux"
+      ]
     },
     {
       "id": "7f971780edd4aab70ce1",
@@ -92,23 +92,6 @@
       "first_seen": "2026-09-15T20:35:00Z",
       "last_seen": "2026-09-15T20:35:00Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "linux",
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "java",
-        "golang",
-        "linux",
-        "data science",
-        "site reliability"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -128,7 +111,24 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "linux",
+        "off-target title(-50)",
+        "senior(-30)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "java",
+        "golang",
+        "linux",
+        "data science",
+        "site reliability"
+      ]
     },
     {
       "id": "b354a5c9f0df3c20f965",
@@ -139,18 +139,6 @@
       "first_seen": "2026-09-15T20:35:00Z",
       "last_seen": "2026-09-15T20:35:00Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "exp:2y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "python",
-        "scalability"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -165,7 +153,19 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "exp:2y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "python",
+        "scalability"
+      ]
     },
     {
       "id": "daa67cdb576cc7399886",
@@ -176,23 +176,6 @@
       "first_seen": "2026-09-15T20:35:00Z",
       "last_seen": "2026-09-15T20:35:00Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "llm",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 29,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "machine learning",
-        "deep learning",
-        "pytorch",
-        "llm",
-        "pandas",
-        "numpy"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -212,7 +195,24 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "llm",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 29,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "machine learning",
+        "deep learning",
+        "pytorch",
+        "llm",
+        "pandas",
+        "numpy"
+      ]
     }
   ]
 }

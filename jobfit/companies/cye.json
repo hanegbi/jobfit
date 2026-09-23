@@ -12,6 +12,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "off-target title(-50)",
@@ -19,18 +22,7 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "requirements_default": []
     },
     {
       "id": "a7da895b58416f1428fb",
@@ -41,23 +33,16 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "off-target title(-50)"
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "requirements_default": []
     },
     {
       "id": "67e868aa482418a13894",
@@ -68,6 +53,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "exp:4y(fit)",
@@ -76,19 +64,7 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:4y(fit)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "requirements_default": []
     },
     {
       "id": "72ce56bf22ef09c327ac",
@@ -99,6 +75,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
         "aws",
@@ -112,24 +91,7 @@
         "aws",
         "gcp",
         "azure"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "aws",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 25,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "helm",
-        "aws",
-        "gcp",
-        "azure"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "ccaf17b8089dbab4fe46",
@@ -140,6 +102,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
         "python",
@@ -154,25 +119,7 @@
         "java",
         "llm",
         "api"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "python",
-        "llm",
-        "exp:2y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 50,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "java",
-        "llm",
-        "api"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "4e69d1e40865b4bb230b",
@@ -183,6 +130,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 2,
+      "best_confidence": "full",
       "score_default": 2,
       "matched_default": [
         "elasticsearch",
@@ -199,27 +149,7 @@
         "aws",
         "azure",
         "linux"
-      ],
-      "score_infra": 2,
-      "matched_infra": [
-        "elasticsearch",
-        "aws",
-        "linux",
-        "exp:2y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 60,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "sql",
-        "elasticsearch",
-        "aws",
-        "azure",
-        "linux"
-      ],
-      "best_cv": "default",
-      "best_score": 2,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "fea5c785a415a2f4dae0",
@@ -230,6 +160,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
         "aws",
@@ -242,23 +175,7 @@
         "aws",
         "gcp",
         "azure"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "aws",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 33,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "aws",
-        "gcp",
-        "azure"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "778904874fa1b17afc5a",
@@ -269,6 +186,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "exp:3y(fit)",
@@ -276,18 +196,7 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "requirements_default": []
     },
     {
       "id": "9b1cec3898b1b74eccbf",
@@ -298,6 +207,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 2,
+      "best_confidence": "full",
       "score_default": 2,
       "matched_default": [
         "elasticsearch",
@@ -314,27 +226,7 @@
         "aws",
         "azure",
         "linux"
-      ],
-      "score_infra": 2,
-      "matched_infra": [
-        "elasticsearch",
-        "aws",
-        "linux",
-        "exp:1y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 60,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "sql",
-        "elasticsearch",
-        "aws",
-        "azure",
-        "linux"
-      ],
-      "best_cv": "default",
-      "best_score": 2,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "2620f7095f9eaa216160",
@@ -345,6 +237,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
         "python",
@@ -359,25 +254,7 @@
         "python",
         "llm",
         "rag"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "python",
-        "llm",
-        "exp:7y(-50)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_infra": 67,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "llm",
-        "rag"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "9b738b4f95472a40d8a2",
@@ -388,6 +265,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "exp:2y(fit)",
@@ -395,18 +275,7 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:2y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "requirements_default": []
     },
     {
       "id": "e71c529efb07860c259d",
@@ -417,6 +286,9 @@
       "first_seen": "2026-09-15T18:29:15Z",
       "last_seen": "2026-09-15T18:29:15Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "automation",
@@ -427,21 +299,7 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "automation"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "exp:1y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "automation"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      ]
     }
   ]
 }

@@ -12,6 +12,9 @@
       "first_seen": "2026-09-15T19:55:57Z",
       "last_seen": "2026-09-15T19:55:57Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "exp:3y(fit)",
@@ -19,18 +22,7 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "requirements_default": []
     },
     {
       "id": "paragon:33.753",
@@ -41,6 +33,9 @@
       "first_seen": "2026-09-15T19:55:57Z",
       "last_seen": "2026-09-15T19:55:57Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 7,
+      "best_confidence": "full",
       "score_default": 7,
       "matched_default": [
         "python",
@@ -54,24 +49,7 @@
         "python",
         "sql",
         "automation"
-      ],
-      "score_infra": 7,
-      "matched_infra": [
-        "python",
-        "automation",
-        "exp:4y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 67,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "sql",
-        "automation"
-      ],
-      "best_cv": "default",
-      "best_score": 7,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "paragon:2C.D64",
@@ -82,6 +60,9 @@
       "first_seen": "2026-09-15T19:55:57Z",
       "last_seen": "2026-09-15T19:55:57Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "exp:3y(fit)",
@@ -89,18 +70,7 @@
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "requirements_default": []
     },
     {
       "id": "paragon:AE.C65",
@@ -111,6 +81,9 @@
       "first_seen": "2026-09-15T19:55:57Z",
       "last_seen": "2026-09-15T19:55:57Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 12,
+      "best_confidence": "full",
       "score_default": 12,
       "matched_default": [
         "linux",
@@ -124,24 +97,7 @@
         "linux",
         "devops",
         "sre"
-      ],
-      "score_infra": 12,
-      "matched_infra": [
-        "linux",
-        "exp:1y(fit)",
-        "-customer success"
-      ],
-      "coverage_infra": 25,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "kubernetes",
-        "linux",
-        "devops",
-        "sre"
-      ],
-      "best_cv": "default",
-      "best_score": 12,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "paragon:B1.456",
@@ -152,6 +108,9 @@
       "first_seen": "2026-09-15T19:55:57Z",
       "last_seen": "2026-09-15T19:55:57Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 47,
+      "best_confidence": "full",
       "score_default": 47,
       "matched_default": [
         "python",
@@ -180,39 +139,7 @@
         "bash",
         "prometheus",
         "grafana"
-      ],
-      "score_infra": 47,
-      "matched_infra": [
-        "python",
-        "ci/cd",
-        "jenkins",
-        "linux",
-        "bash",
-        "devops engineer",
-        "exp:4y(fit)"
-      ],
-      "coverage_infra": 33,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "java",
-        "go",
-        "sql",
-        "microservices",
-        "kubernetes",
-        "terraform",
-        "ansible",
-        "helm",
-        "ci/cd",
-        "jenkins",
-        "linux",
-        "bash",
-        "prometheus",
-        "grafana"
-      ],
-      "best_cv": "default",
-      "best_score": 47,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "paragon:82.95C",
@@ -223,6 +150,9 @@
       "first_seen": "2026-09-15T19:55:57Z",
       "last_seen": "2026-09-15T19:55:57Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
         "python",
@@ -248,36 +178,7 @@
         "devops",
         "prometheus",
         "grafana"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "python",
-        "ci/cd",
-        "jenkins",
-        "linux",
-        "exp:4y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 31,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "java",
-        "go",
-        "microservices",
-        "kubernetes",
-        "terraform",
-        "ansible",
-        "ci/cd",
-        "jenkins",
-        "linux",
-        "devops",
-        "prometheus",
-        "grafana"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      ]
     }
   ]
 }

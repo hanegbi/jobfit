@@ -14,24 +14,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 32,
-      "matched_default": [
-        "python",
-        "docker",
-        "aws",
-        "exp:8y(-75)"
-      ],
-      "coverage_default": 43,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "java",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure"
-      ],
       "score_infra": 32,
       "matched_infra": [
         "python",
@@ -52,7 +34,25 @@
       ],
       "best_cv": "default",
       "best_score": 32,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 32,
+      "matched_default": [
+        "python",
+        "docker",
+        "aws",
+        "exp:8y(-75)"
+      ],
+      "coverage_default": 43,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "java",
+        "docker",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure"
+      ]
     },
     {
       "id": "servicenow:744000145264389",
@@ -65,13 +65,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 4,
-      "matched_default": [
-        "exp:8y(-75)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 4,
       "matched_infra": [
         "exp:8y(-75)"
@@ -81,7 +74,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 4,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 4,
+      "matched_default": [
+        "exp:8y(-75)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }

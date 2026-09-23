@@ -12,15 +12,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -32,7 +23,16 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "api"
+      ]
     },
     {
       "id": "771ab184bb15c5c259b7",
@@ -43,19 +43,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:7y(-50)",
-        "off-target title(-50)",
-        "senior(-30)",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "exp:7y(-50)",
@@ -71,7 +58,20 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:7y(-50)",
+        "off-target title(-50)",
+        "senior(-30)",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "api"
+      ]
     },
     {
       "id": "862aca9d2677fe555a97",
@@ -82,22 +82,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "aws",
-        "exp:5y(fit)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "kubernetes",
-        "aws",
-        "azure",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "aws",
@@ -116,7 +100,23 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "aws",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "kubernetes",
+        "aws",
+        "azure",
+        "api"
+      ]
     },
     {
       "id": "f780c1d10773964b75f4",
@@ -127,30 +127,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "docker",
-        "aws",
-        "ci/cd",
-        "jenkins",
-        "linux",
-        "exp:5y(fit)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": 56,
-      "confidence_default": "full",
-      "requirements_default": [
-        "docker",
-        "kubernetes",
-        "aws",
-        "azure",
-        "ci/cd",
-        "jenkins",
-        "linux",
-        "devops",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "docker",
@@ -177,7 +153,31 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "docker",
+        "aws",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-customer success"
+      ],
+      "coverage_default": 56,
+      "confidence_default": "full",
+      "requirements_default": [
+        "docker",
+        "kubernetes",
+        "aws",
+        "azure",
+        "ci/cd",
+        "jenkins",
+        "linux",
+        "devops",
+        "api"
+      ]
     },
     {
       "id": "8d0be642617599ca592b",
@@ -188,18 +188,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "exp:5y(fit)",
@@ -214,7 +202,19 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-account executive",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "api"
+      ]
     },
     {
       "id": "4f18d8e78a87f5fa0cf7",
@@ -225,18 +225,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "exp:5y(fit)",
@@ -251,7 +239,19 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-account executive",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "api"
+      ]
     },
     {
       "id": "b0f2c9d2fee06860478e",
@@ -262,18 +262,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "exp:5y(fit)",
@@ -288,7 +276,19 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:5y(fit)",
+        "off-target title(-50)",
+        "-account executive",
+        "-customer success"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "api"
+      ]
     },
     {
       "id": "c2bf16b91452ea69d5c3",
@@ -299,23 +299,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "linux",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "go",
-        "rust",
-        "kubernetes",
-        "linux",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "python",
@@ -335,7 +318,24 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "python",
+        "linux",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "go",
+        "rust",
+        "kubernetes",
+        "linux",
+        "api"
+      ]
     },
     {
       "id": "ac25dedceb81372d9085",
@@ -346,18 +346,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 33,
-      "matched_default": [
-        "linux",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "rust",
-        "linux",
-        "api"
-      ],
       "score_infra": 33,
       "matched_infra": [
         "linux",
@@ -372,7 +360,19 @@
       ],
       "best_cv": "default",
       "best_score": 33,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 33,
+      "matched_default": [
+        "linux",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "rust",
+        "linux",
+        "api"
+      ]
     },
     {
       "id": "dd96b0b6ac62fb8549fa",
@@ -383,21 +383,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "react",
-        "ci/cd",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 50,
-      "confidence_default": "full",
-      "requirements_default": [
-        "javascript",
-        "react",
-        "ci/cd",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "react",
@@ -415,7 +400,22 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "react",
+        "ci/cd",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 50,
+      "confidence_default": "full",
+      "requirements_default": [
+        "javascript",
+        "react",
+        "ci/cd",
+        "api"
+      ]
     },
     {
       "id": "5c01bea312a7807ca789",
@@ -426,24 +426,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 49,
-      "matched_default": [
-        "ci/cd",
-        "automation",
-        "backend engineer",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 29,
-      "confidence_default": "full",
-      "requirements_default": [
-        "typescript",
-        "kafka",
-        "microservices",
-        "ci/cd",
-        "devops",
-        "api",
-        "automation"
-      ],
       "score_infra": 49,
       "matched_infra": [
         "ci/cd",
@@ -464,7 +446,25 @@
       ],
       "best_cv": "default",
       "best_score": 49,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 49,
+      "matched_default": [
+        "ci/cd",
+        "automation",
+        "backend engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 29,
+      "confidence_default": "full",
+      "requirements_default": [
+        "typescript",
+        "kafka",
+        "microservices",
+        "ci/cd",
+        "devops",
+        "api",
+        "automation"
+      ]
     },
     {
       "id": "f74e8011b300836e3c32",
@@ -475,34 +475,6 @@
       "first_seen": "2026-09-15T20:21:23Z",
       "last_seen": "2026-09-15T20:21:23Z",
       "status": "new",
-      "score_default": 49,
-      "matched_default": [
-        "python",
-        "react",
-        "node",
-        "node.js",
-        "aws",
-        "full-stack engineer",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 36,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "java",
-        "javascript",
-        "typescript",
-        "go",
-        "react",
-        "node",
-        "node.js",
-        "rest",
-        "microservices",
-        "aws",
-        "gcp",
-        "azure",
-        "api"
-      ],
       "score_infra": 49,
       "matched_infra": [
         "python",
@@ -533,7 +505,35 @@
       ],
       "best_cv": "default",
       "best_score": 49,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 49,
+      "matched_default": [
+        "python",
+        "react",
+        "node",
+        "node.js",
+        "aws",
+        "full-stack engineer",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 36,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "java",
+        "javascript",
+        "typescript",
+        "go",
+        "react",
+        "node",
+        "node.js",
+        "rest",
+        "microservices",
+        "aws",
+        "gcp",
+        "azure",
+        "api"
+      ]
     }
   ]
 }

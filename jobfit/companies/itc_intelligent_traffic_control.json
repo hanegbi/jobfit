@@ -12,23 +12,16 @@
       "first_seen": "2026-09-15T19:21:32Z",
       "last_seen": "2026-09-15T19:21:32Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "off-target title(-50)"
       ],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "requirements_default": []
     },
     {
       "id": "d7f7e0dae3b825021771",
@@ -39,6 +32,9 @@
       "first_seen": "2026-09-15T19:21:32Z",
       "last_seen": "2026-09-15T19:21:32Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
         "python",
@@ -52,24 +48,7 @@
         "java",
         "sql",
         "computer vision"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "python",
-        "computer vision",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 50,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "java",
-        "sql",
-        "computer vision"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "e524c7ffd147296abb1f",
@@ -80,6 +59,9 @@
       "first_seen": "2026-09-15T19:21:32Z",
       "last_seen": "2026-09-15T19:21:32Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 47,
+      "best_confidence": "full",
       "score_default": 47,
       "matched_default": [
         "python",
@@ -104,35 +86,7 @@
         "distributed systems",
         "scalability",
         "api"
-      ],
-      "score_infra": 47,
-      "matched_infra": [
-        "python",
-        "docker",
-        "linux",
-        "computer vision",
-        "software engineer"
-      ],
-      "coverage_infra": 31,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "java",
-        "sql",
-        "microservices",
-        "docker",
-        "kubernetes",
-        "git",
-        "linux",
-        "machine learning",
-        "computer vision",
-        "distributed systems",
-        "scalability",
-        "api"
-      ],
-      "best_cv": "default",
-      "best_score": 47,
-      "best_confidence": "full"
+      ]
     }
   ]
 }

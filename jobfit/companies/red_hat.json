@@ -12,13 +12,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -28,7 +21,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "7e07e44816451c6a65b6",
@@ -39,22 +39,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 40,
-      "matched_default": [
-        "linux",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 50,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "ansible",
-        "linux",
-        "inference",
-        "automation",
-        "vllm"
-      ],
       "score_infra": 40,
       "matched_infra": [
         "linux",
@@ -73,7 +57,23 @@
       ],
       "best_cv": "default",
       "best_score": 40,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 40,
+      "matched_default": [
+        "linux",
+        "inference",
+        "automation"
+      ],
+      "coverage_default": 50,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "ansible",
+        "linux",
+        "inference",
+        "automation",
+        "vllm"
+      ]
     },
     {
       "id": "d09a192e6556fe0abf09",
@@ -84,26 +84,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 49,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 62,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ],
       "score_infra": 49,
       "matched_infra": [
         "aws",
@@ -126,7 +106,27 @@
       ],
       "best_cv": "default",
       "best_score": 49,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 49,
+      "matched_default": [
+        "aws",
+        "linux",
+        "llm",
+        "inference",
+        "automation"
+      ],
+      "coverage_default": 62,
+      "confidence_default": "full",
+      "requirements_default": [
+        "ansible",
+        "aws",
+        "azure",
+        "linux",
+        "llm",
+        "inference",
+        "automation",
+        "vllm"
+      ]
     },
     {
       "id": "ab89769158afd0f8388f",
@@ -137,28 +137,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 4,
-      "matched_default": [
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 62,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation",
-        "vllm",
-        "gpu"
-      ],
       "score_infra": 4,
       "matched_infra": [
         "linux",
@@ -183,7 +161,29 @@
       ],
       "best_cv": "default",
       "best_score": 4,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 4,
+      "matched_default": [
+        "linux",
+        "llm",
+        "observability",
+        "inference",
+        "automation",
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 62,
+      "confidence_default": "full",
+      "requirements_default": [
+        "ansible",
+        "linux",
+        "llm",
+        "observability",
+        "inference",
+        "automation",
+        "vllm",
+        "gpu"
+      ]
     },
     {
       "id": "afcb1863d29c193a3f60",
@@ -194,26 +194,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 49,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 62,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ],
       "score_infra": 49,
       "matched_infra": [
         "aws",
@@ -236,7 +216,27 @@
       ],
       "best_cv": "default",
       "best_score": 49,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 49,
+      "matched_default": [
+        "aws",
+        "linux",
+        "llm",
+        "inference",
+        "automation"
+      ],
+      "coverage_default": 62,
+      "confidence_default": "full",
+      "requirements_default": [
+        "ansible",
+        "aws",
+        "azure",
+        "linux",
+        "llm",
+        "inference",
+        "automation",
+        "vllm"
+      ]
     },
     {
       "id": "4de24b144bd6b0e775a6",
@@ -247,26 +247,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 49,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 62,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ],
       "score_infra": 49,
       "matched_infra": [
         "aws",
@@ -289,7 +269,27 @@
       ],
       "best_cv": "default",
       "best_score": 49,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 49,
+      "matched_default": [
+        "aws",
+        "linux",
+        "llm",
+        "inference",
+        "automation"
+      ],
+      "coverage_default": 62,
+      "confidence_default": "full",
+      "requirements_default": [
+        "ansible",
+        "aws",
+        "azure",
+        "linux",
+        "llm",
+        "inference",
+        "automation",
+        "vllm"
+      ]
     },
     {
       "id": "e9f18a1fa8a9d8d18635",
@@ -300,27 +300,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 44,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 56,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "pytorch",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ],
       "score_infra": 44,
       "matched_infra": [
         "aws",
@@ -344,18 +323,8 @@
       ],
       "best_cv": "default",
       "best_score": 44,
-      "best_confidence": "full"
-    },
-    {
-      "id": "f4bb0939446d070dafa2",
-      "title": "Red Hat OpenShift AI",
-      "location": null,
-      "url": "https://www.redhat.com/en/products/ai/openshift-ai",
-      "description": "Red Hat OpenShift AI Skip to content AI Overview AI news Technical blog Live AI events Inference explained See our approach Products Red Hat AI Enterprise Red Hat AI Inference Red Hat Enterprise Linux AI Red Hat OpenShift AI Explore Red Hat AI Engage & learn Learning hub AI topics AI partners Services for AI Hybrid cloud Platform solutions Artificial intelligence Build, deploy, and monitor AI models and apps. Linux standardization Get consistency across operating environments. Application development Simplify the way you build, deploy, and manage apps. Automation Scale automation and unite tech, teams, and environments. Use cases Virtualization Modernize operations for virtualized and containerized workloads. Digital sovereignty Control and protect critical infrastructure. Security Code, build, deploy, and monitor security-focused software. Edge computing Deploy workloads closer to the source with edge technology. Explore solutions Solutions by industry Automotive Financial services Healthcare Industrial sector Media and entertainment Public sector (Global) Public sector (U.S.) Telecommunications Discover cloud technologies Learn how to use our cloud products and solutions at your own pace in the Red Hat® Hybrid Cloud Console. Products Platforms Red Hat AI Develop and deploy AI solutions across the hybrid cloud. Red Hat Enterprise Linux Support hybrid cloud innovation on a flexible operating system. Red Hat OpenShift Build, modernize, and deploy apps at scale. Red Hat Ansible Automation Platform Implement enterprise-wide automation. New version Featured Lightwell Red Hat AI Enterprise Red Hat OpenShift Virtualization Engine Red Hat Desktop See all products Try & buy Start a trial Buy online Integrate with major cloud providers Services & support Consulting Product support Services for AI Technical Account Management Explore services Training Training & certification Courses and exams Certifications Skills assessments Red Hat Academy Learning subscription Explore training Featured Red Hat Certified System Administrator exam Red Hat System Administration I Red Hat Learning Subscription trial (No cost) Red Hat Certified Engineer exam Red Hat Certified OpenShift Administrator exam Services Consulting Partner training Product support Services for AI Technical Account Management Learn Build your skills Documentation Hands-on labs Hybrid cloud learning hub Interactive demos Training and certification More ways to learn Blog Events and webinars Podcasts and video series Red Hat TV Resource library For developers Discover resources and tools to help you build, deliver, and manage cloud-native applications and services. Partners For customers Our partners Red Hat Ecosystem Catalog Find a partner For partners Partner Connect Become a partner Training Support Access the partner portal Build solutions powered by trusted partners Find solutions from our collaborative community of experts and technologies in the Red Hat® Ecosystem Catalog. Console Docs Support Search I'd like to: Start a trial Buy a learning subscription Manage subscriptions Contact sales Contact customer service See Red Hat jobs Help me find: Documentation Developer resources Tech topics Architecture center Security updates Customer support I want to learn more about: AI Application modernization Automation Cloud-native applications Linux Virtualization New For you Recommended We'll recommend resources you may like as you browse. Try these suggestions for now. Product trial center Courses and exams All products Tech topics Resource library Log in Get more with a Red Hat account Console access Event registration Training & trials World-class support Explore more account benefits Log in or register A subscription may be required for some services. Change page language 简体中文 English Français Deutsch Italiano 日本語 한국어 Português Español Contact us Red Hat AI Products & documentation Red Hat AI A platform of products and services for the development and deployment of AI across the hybrid cloud. Red Hat AI Enterprise Build, develop, and deploy AI-powered applications across the hybrid cloud. Documentation Try it Red Hat AI Inference Optimize model performance with an integrated stack for fast, consistent, and cost-effective inference at scale. Documentation Try it Red Hat Enterprise Linux AI Develop, test, and run generative AI models to power enterprise applications. Documentation Try it How to buy Red Hat OpenShift AI Build and deploy AI-enabled applications and models at scale across hybrid environments. Documentation Try it MCP servers Learn Basics What's new in Red Hat AI Why you should care about AI inference What is vLLM? What is AI inference? What is Agentic AI? What is AgentOps? What is llm-d? See all AI topics See all AI blogs Why Red Hat AI Fast, efficient inference Connecting data to models and agents Agentic AI Scaling AI Technical Learning hub Training & certification Point-and-click demos Current Red Hat AI customers AI quickstarts AI partners Hardware & infrastructure NVIDIA AMD Intel Dell Lenovo Cloud AWS Microsoft Azure Google Cloud IBM Cloud System integrators Accenture IBM Kyndryl See all AI partners Red Hat OpenShift AI Red Hat® OpenShift® AI is a flexible hybrid cloud platform to deploy open weight models and autonomous agents at scale. Try it Talk to a Red Hatter Quick links See product documentation Start learning Get hands-on training Browse MCP servers View this video by opting in to \"Advertising cookies.\" Update preferences Watch a Red Hat OpenShift AI demo. Video duration: 5:59 What is Red Hat OpenShift AI? Red Hat OpenShift AI combines comprehensive MLOps, GenAIOps, and AgentOps capabilities to accelerate the deployment of agentic AI applications into production. With open source tools like PyTorch, Kubeflow, MLflow, and vLLM, teams can experiment, serve, and deliver AI models and applications at scale. Join our live AI events to learn more Get 50% off Red Hat OpenShift AI training Offer ends December 31, 2026. Lea",
-      "first_seen": "2026-09-15T20:07:20Z",
-      "last_seen": "2026-09-15T20:07:20Z",
-      "status": "new",
-      "score_default": 40,
+      "best_confidence": "full",
+      "score_default": 44,
       "matched_default": [
         "aws",
         "linux",
@@ -363,7 +332,7 @@
         "inference",
         "automation"
       ],
-      "coverage_default": 50,
+      "coverage_default": 56,
       "confidence_default": "full",
       "requirements_default": [
         "ansible",
@@ -374,9 +343,18 @@
         "llm",
         "inference",
         "automation",
-        "mlops",
         "vllm"
-      ],
+      ]
+    },
+    {
+      "id": "f4bb0939446d070dafa2",
+      "title": "Red Hat OpenShift AI",
+      "location": null,
+      "url": "https://www.redhat.com/en/products/ai/openshift-ai",
+      "description": "Red Hat OpenShift AI Skip to content AI Overview AI news Technical blog Live AI events Inference explained See our approach Products Red Hat AI Enterprise Red Hat AI Inference Red Hat Enterprise Linux AI Red Hat OpenShift AI Explore Red Hat AI Engage & learn Learning hub AI topics AI partners Services for AI Hybrid cloud Platform solutions Artificial intelligence Build, deploy, and monitor AI models and apps. Linux standardization Get consistency across operating environments. Application development Simplify the way you build, deploy, and manage apps. Automation Scale automation and unite tech, teams, and environments. Use cases Virtualization Modernize operations for virtualized and containerized workloads. Digital sovereignty Control and protect critical infrastructure. Security Code, build, deploy, and monitor security-focused software. Edge computing Deploy workloads closer to the source with edge technology. Explore solutions Solutions by industry Automotive Financial services Healthcare Industrial sector Media and entertainment Public sector (Global) Public sector (U.S.) Telecommunications Discover cloud technologies Learn how to use our cloud products and solutions at your own pace in the Red Hat® Hybrid Cloud Console. Products Platforms Red Hat AI Develop and deploy AI solutions across the hybrid cloud. Red Hat Enterprise Linux Support hybrid cloud innovation on a flexible operating system. Red Hat OpenShift Build, modernize, and deploy apps at scale. Red Hat Ansible Automation Platform Implement enterprise-wide automation. New version Featured Lightwell Red Hat AI Enterprise Red Hat OpenShift Virtualization Engine Red Hat Desktop See all products Try & buy Start a trial Buy online Integrate with major cloud providers Services & support Consulting Product support Services for AI Technical Account Management Explore services Training Training & certification Courses and exams Certifications Skills assessments Red Hat Academy Learning subscription Explore training Featured Red Hat Certified System Administrator exam Red Hat System Administration I Red Hat Learning Subscription trial (No cost) Red Hat Certified Engineer exam Red Hat Certified OpenShift Administrator exam Services Consulting Partner training Product support Services for AI Technical Account Management Learn Build your skills Documentation Hands-on labs Hybrid cloud learning hub Interactive demos Training and certification More ways to learn Blog Events and webinars Podcasts and video series Red Hat TV Resource library For developers Discover resources and tools to help you build, deliver, and manage cloud-native applications and services. Partners For customers Our partners Red Hat Ecosystem Catalog Find a partner For partners Partner Connect Become a partner Training Support Access the partner portal Build solutions powered by trusted partners Find solutions from our collaborative community of experts and technologies in the Red Hat® Ecosystem Catalog. Console Docs Support Search I'd like to: Start a trial Buy a learning subscription Manage subscriptions Contact sales Contact customer service See Red Hat jobs Help me find: Documentation Developer resources Tech topics Architecture center Security updates Customer support I want to learn more about: AI Application modernization Automation Cloud-native applications Linux Virtualization New For you Recommended We'll recommend resources you may like as you browse. Try these suggestions for now. Product trial center Courses and exams All products Tech topics Resource library Log in Get more with a Red Hat account Console access Event registration Training & trials World-class support Explore more account benefits Log in or register A subscription may be required for some services. Change page language 简体中文 English Français Deutsch Italiano 日本語 한국어 Português Español Contact us Red Hat AI Products & documentation Red Hat AI A platform of products and services for the development and deployment of AI across the hybrid cloud. Red Hat AI Enterprise Build, develop, and deploy AI-powered applications across the hybrid cloud. Documentation Try it Red Hat AI Inference Optimize model performance with an integrated stack for fast, consistent, and cost-effective inference at scale. Documentation Try it Red Hat Enterprise Linux AI Develop, test, and run generative AI models to power enterprise applications. Documentation Try it How to buy Red Hat OpenShift AI Build and deploy AI-enabled applications and models at scale across hybrid environments. Documentation Try it MCP servers Learn Basics What's new in Red Hat AI Why you should care about AI inference What is vLLM? What is AI inference? What is Agentic AI? What is AgentOps? What is llm-d? See all AI topics See all AI blogs Why Red Hat AI Fast, efficient inference Connecting data to models and agents Agentic AI Scaling AI Technical Learning hub Training & certification Point-and-click demos Current Red Hat AI customers AI quickstarts AI partners Hardware & infrastructure NVIDIA AMD Intel Dell Lenovo Cloud AWS Microsoft Azure Google Cloud IBM Cloud System integrators Accenture IBM Kyndryl See all AI partners Red Hat OpenShift AI Red Hat® OpenShift® AI is a flexible hybrid cloud platform to deploy open weight models and autonomous agents at scale. Try it Talk to a Red Hatter Quick links See product documentation Start learning Get hands-on training Browse MCP servers View this video by opting in to \"Advertising cookies.\" Update preferences Watch a Red Hat OpenShift AI demo. Video duration: 5:59 What is Red Hat OpenShift AI? Red Hat OpenShift AI combines comprehensive MLOps, GenAIOps, and AgentOps capabilities to accelerate the deployment of agentic AI applications into production. With open source tools like PyTorch, Kubeflow, MLflow, and vLLM, teams can experiment, serve, and deliver AI models and applications at scale. Join our live AI events to learn more Get 50% off Red Hat OpenShift AI training Offer ends December 31, 2026. Lea",
+      "first_seen": "2026-09-15T20:07:20Z",
+      "last_seen": "2026-09-15T20:07:20Z",
+      "status": "new",
       "score_infra": 47,
       "matched_infra": [
         "aws",
@@ -400,9 +378,31 @@
         "mlops",
         "vllm"
       ],
-      "best_cv": "infra",
-      "best_score": 47,
-      "best_confidence": "full"
+      "best_cv": "default",
+      "best_score": 40,
+      "best_confidence": "full",
+      "score_default": 40,
+      "matched_default": [
+        "aws",
+        "linux",
+        "llm",
+        "inference",
+        "automation"
+      ],
+      "coverage_default": 50,
+      "confidence_default": "full",
+      "requirements_default": [
+        "ansible",
+        "aws",
+        "azure",
+        "linux",
+        "pytorch",
+        "llm",
+        "inference",
+        "automation",
+        "mlops",
+        "vllm"
+      ]
     },
     {
       "id": "2f5a1b2b5a7705cfc60c",
@@ -413,28 +413,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 52,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 67,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation",
-        "vllm"
-      ],
       "score_infra": 52,
       "matched_infra": [
         "aws",
@@ -459,7 +437,29 @@
       ],
       "best_cv": "default",
       "best_score": 52,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 52,
+      "matched_default": [
+        "aws",
+        "linux",
+        "llm",
+        "observability",
+        "inference",
+        "automation"
+      ],
+      "coverage_default": 67,
+      "confidence_default": "full",
+      "requirements_default": [
+        "ansible",
+        "aws",
+        "azure",
+        "linux",
+        "llm",
+        "observability",
+        "inference",
+        "automation",
+        "vllm"
+      ]
     },
     {
       "id": "0e6c63aa5ede8a451574",
@@ -470,13 +470,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -486,7 +479,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "12218d74425831ccc6aa",
@@ -497,25 +497,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 40,
-      "matched_default": [
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 50,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "linux",
-        "machine learning",
-        "deep learning",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ],
       "score_infra": 40,
       "matched_infra": [
         "linux",
@@ -537,7 +518,26 @@
       ],
       "best_cv": "default",
       "best_score": 40,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 40,
+      "matched_default": [
+        "linux",
+        "llm",
+        "inference",
+        "automation"
+      ],
+      "coverage_default": 50,
+      "confidence_default": "full",
+      "requirements_default": [
+        "ansible",
+        "linux",
+        "machine learning",
+        "deep learning",
+        "llm",
+        "inference",
+        "automation",
+        "vllm"
+      ]
     },
     {
       "id": "4429a786fbd7aad13886",
@@ -548,20 +548,6 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "new",
-      "score_default": 33,
-      "matched_default": [
-        "linux",
-        "automation"
-      ],
-      "coverage_default": 40,
-      "confidence_default": "full",
-      "requirements_default": [
-        "kubernetes",
-        "ansible",
-        "linux",
-        "scalability",
-        "automation"
-      ],
       "score_infra": 33,
       "matched_infra": [
         "linux",
@@ -578,7 +564,21 @@
       ],
       "best_cv": "default",
       "best_score": 33,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 33,
+      "matched_default": [
+        "linux",
+        "automation"
+      ],
+      "coverage_default": 40,
+      "confidence_default": "full",
+      "requirements_default": [
+        "kubernetes",
+        "ansible",
+        "linux",
+        "scalability",
+        "automation"
+      ]
     }
   ]
 }

@@ -12,24 +12,6 @@
       "first_seen": "2026-09-15T20:09:58Z",
       "last_seen": "2026-09-15T20:09:58Z",
       "status": "new",
-      "score_default": 2,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "genai",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 67,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "aws",
-        "linux",
-        "llm",
-        "api",
-        "genai"
-      ],
       "score_infra": 2,
       "matched_infra": [
         "aws",
@@ -50,7 +32,25 @@
       ],
       "best_cv": "default",
       "best_score": 2,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 2,
+      "matched_default": [
+        "aws",
+        "linux",
+        "llm",
+        "genai",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 67,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "aws",
+        "linux",
+        "llm",
+        "api",
+        "genai"
+      ]
     },
     {
       "id": "f65d332184956ca4070c",
@@ -61,15 +61,6 @@
       "first_seen": "2026-09-15T20:09:58Z",
       "last_seen": "2026-09-15T20:09:58Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -81,7 +72,16 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "api"
+      ]
     },
     {
       "id": "5dba463c3553df34cde5",
@@ -92,13 +92,6 @@
       "first_seen": "2026-09-15T20:09:58Z",
       "last_seen": "2026-09-15T20:09:58Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -108,7 +101,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "7caf08ae82fc834ebd0b",
@@ -119,16 +119,6 @@
       "first_seen": "2026-09-15T20:09:58Z",
       "last_seen": "2026-09-15T20:09:58Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [
-        "llm"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "llm",
-        "api"
-      ],
       "score_infra": 8,
       "matched_infra": [
         "llm"
@@ -141,7 +131,17 @@
       ],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 8,
+      "matched_default": [
+        "llm"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "llm",
+        "api"
+      ]
     },
     {
       "id": "2231640f41529697513a",
@@ -152,15 +152,6 @@
       "first_seen": "2026-09-15T20:09:58Z",
       "last_seen": "2026-09-15T20:09:58Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -172,7 +163,16 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "api"
+      ]
     },
     {
       "id": "26be1e189886188a908b",
@@ -183,20 +183,6 @@
       "first_seen": "2026-09-15T20:09:58Z",
       "last_seen": "2026-09-15T20:09:58Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "aws",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "microservices",
-        "aws",
-        "gcp",
-        "azure",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "aws",
@@ -213,7 +199,21 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "microservices",
+        "aws",
+        "gcp",
+        "azure",
+        "api"
+      ]
     }
   ]
 }

@@ -12,15 +12,6 @@
       "first_seen": "2026-09-15T20:35:13Z",
       "last_seen": "2026-09-15T20:35:13Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "kubernetes"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -32,7 +23,16 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "kubernetes"
+      ]
     },
     {
       "id": "68c3f638e7e9d8b734c5",
@@ -43,42 +43,6 @@
       "first_seen": "2026-09-15T20:35:13Z",
       "last_seen": "2026-09-15T20:35:13Z",
       "status": "new",
-      "score_default": 3,
-      "matched_default": [
-        "python",
-        "react",
-        "flask",
-        "fastapi",
-        "postgresql",
-        "mongodb",
-        "redis",
-        "docker",
-        "aws",
-        "ci/cd",
-        "llm",
-        "exp:7y(-50)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 69,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "typescript",
-        "react",
-        "django",
-        "flask",
-        "fastapi",
-        "postgresql",
-        "mongodb",
-        "redis",
-        "rest",
-        "microservices",
-        "docker",
-        "kubernetes",
-        "aws",
-        "ci/cd",
-        "llm"
-      ],
       "score_infra": 3,
       "matched_infra": [
         "python",
@@ -117,7 +81,43 @@
       ],
       "best_cv": "default",
       "best_score": 3,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 3,
+      "matched_default": [
+        "python",
+        "react",
+        "flask",
+        "fastapi",
+        "postgresql",
+        "mongodb",
+        "redis",
+        "docker",
+        "aws",
+        "ci/cd",
+        "llm",
+        "exp:7y(-50)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 69,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "typescript",
+        "react",
+        "django",
+        "flask",
+        "fastapi",
+        "postgresql",
+        "mongodb",
+        "redis",
+        "rest",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "aws",
+        "ci/cd",
+        "llm"
+      ]
     },
     {
       "id": "fe3bd00dd2d969d8d2f2",
@@ -128,31 +128,6 @@
       "first_seen": "2026-09-15T20:35:13Z",
       "last_seen": "2026-09-15T20:35:13Z",
       "status": "new",
-      "score_default": 2,
-      "matched_default": [
-        "python",
-        "mongodb",
-        "redis",
-        "docker",
-        "aws",
-        "ci/cd",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 60,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "postgres",
-        "mongodb",
-        "redis",
-        "docker",
-        "kubernetes",
-        "aws",
-        "ci/cd",
-        "devops",
-        "scalability"
-      ],
       "score_infra": 2,
       "matched_infra": [
         "python",
@@ -180,7 +155,32 @@
       ],
       "best_cv": "default",
       "best_score": 2,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 2,
+      "matched_default": [
+        "python",
+        "mongodb",
+        "redis",
+        "docker",
+        "aws",
+        "ci/cd",
+        "exp:5y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 60,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "postgres",
+        "mongodb",
+        "redis",
+        "docker",
+        "kubernetes",
+        "aws",
+        "ci/cd",
+        "devops",
+        "scalability"
+      ]
     },
     {
       "id": "21b0e29be39b059c1736",
@@ -191,17 +191,6 @@
       "first_seen": "2026-09-15T20:35:13Z",
       "last_seen": "2026-09-15T20:35:13Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": 0,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "rest",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -215,7 +204,18 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": 0,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "rest",
+        "api"
+      ]
     }
   ]
 }

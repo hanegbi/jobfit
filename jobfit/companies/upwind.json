@@ -14,22 +14,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 33,
-      "matched_default": [
-        "ci/cd",
-        "jenkins",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "kubernetes",
-        "terraform",
-        "ci/cd",
-        "jenkins",
-        "github actions",
-        "devops"
-      ],
       "score_infra": 33,
       "matched_infra": [
         "ci/cd",
@@ -48,7 +32,23 @@
       ],
       "best_cv": "default",
       "best_score": 33,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 33,
+      "matched_default": [
+        "ci/cd",
+        "jenkins",
+        "exp:5y(fit)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "kubernetes",
+        "terraform",
+        "ci/cd",
+        "jenkins",
+        "github actions",
+        "devops"
+      ]
     }
   ]
 }

@@ -12,6 +12,9 @@
       "first_seen": "2026-09-15T18:07:32Z",
       "last_seen": "2026-09-15T18:07:32Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "aws",
@@ -21,20 +24,7 @@
       "confidence_default": "title_only",
       "requirements_default": [
         "aws"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "aws",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "aws"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      ]
     },
     {
       "id": "7733acba877c74e1492e",
@@ -45,6 +35,9 @@
       "first_seen": "2026-09-15T18:07:32Z",
       "last_seen": "2026-09-15T18:07:32Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
         "ci/cd",
@@ -56,22 +49,7 @@
         "kubernetes",
         "ci/cd",
         "api"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "ci/cd",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 33,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "kubernetes",
-        "ci/cd",
-        "api"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "f3894dc7424a7923e81b",
@@ -82,6 +60,9 @@
       "first_seen": "2026-09-15T18:07:32Z",
       "last_seen": "2026-09-15T18:07:32Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
         "aws",
@@ -100,29 +81,7 @@
         "devops",
         "api",
         "automation"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "aws",
-        "ci/cd",
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 38,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "ci/cd",
-        "devops",
-        "api",
-        "automation"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "f14603cfb7b7e8c4c7eb",
@@ -133,6 +92,9 @@
       "first_seen": "2026-09-15T18:07:32Z",
       "last_seen": "2026-09-15T18:07:32Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "full",
       "score_default": 0,
       "matched_default": [
         "aws",
@@ -144,22 +106,7 @@
         "kubernetes",
         "aws",
         "azure"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "aws",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 33,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "kubernetes",
-        "aws",
-        "azure"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      ]
     },
     {
       "id": "0269573c8298c6161c34",
@@ -170,6 +117,9 @@
       "first_seen": "2026-09-15T18:07:32Z",
       "last_seen": "2026-09-15T18:07:32Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
       "score_default": 0,
       "matched_default": [
         "automation",
@@ -180,21 +130,7 @@
       "requirements_default": [
         "kubernetes",
         "automation"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "kubernetes",
-        "automation"
-      ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      ]
     },
     {
       "id": "ea0ffb0a6232c6864ecf",
@@ -205,6 +141,9 @@
       "first_seen": "2026-09-15T18:07:32Z",
       "last_seen": "2026-09-15T18:07:32Z",
       "status": "new",
+      "best_cv": "default",
+      "best_score": 5,
+      "best_confidence": "full",
       "score_default": 5,
       "matched_default": [],
       "coverage_default": 0,
@@ -213,19 +152,7 @@
         "go",
         "kubernetes",
         "api"
-      ],
-      "score_infra": 5,
-      "matched_infra": [],
-      "coverage_infra": 0,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "go",
-        "kubernetes",
-        "api"
-      ],
-      "best_cv": "default",
-      "best_score": 5,
-      "best_confidence": "full"
+      ]
     }
   ]
 }

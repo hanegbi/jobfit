@@ -12,20 +12,6 @@
       "first_seen": "2026-09-15T20:11:52Z",
       "last_seen": "2026-09-15T20:11:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "aws",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "rest",
-        "terraform",
-        "aws",
-        "gcp",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "aws",
@@ -42,7 +28,21 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "rest",
+        "terraform",
+        "aws",
+        "gcp",
+        "api"
+      ]
     },
     {
       "id": "20f58db13ceaf8a7e1b4",
@@ -53,30 +53,6 @@
       "first_seen": "2026-09-15T20:11:52Z",
       "last_seen": "2026-09-15T20:11:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "node",
-        "mongodb",
-        "redis",
-        "aws",
-        "observability",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 45,
-      "confidence_default": "full",
-      "requirements_default": [
-        "java",
-        "node",
-        "mongodb",
-        "redis",
-        "cassandra",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "observability",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "node",
@@ -103,7 +79,31 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "node",
+        "mongodb",
+        "redis",
+        "aws",
+        "observability",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 45,
+      "confidence_default": "full",
+      "requirements_default": [
+        "java",
+        "node",
+        "mongodb",
+        "redis",
+        "cassandra",
+        "kubernetes",
+        "aws",
+        "gcp",
+        "azure",
+        "observability",
+        "api"
+      ]
     },
     {
       "id": "ecb22790a8451f310ab2",
@@ -114,26 +114,6 @@
       "first_seen": "2026-09-15T20:11:52Z",
       "last_seen": "2026-09-15T20:11:52Z",
       "status": "new",
-      "score_default": 25,
-      "matched_default": [
-        "mongodb",
-        "redis",
-        "elasticsearch",
-        "aws",
-        "-customer success"
-      ],
-      "coverage_default": 50,
-      "confidence_default": "full",
-      "requirements_default": [
-        "postgres",
-        "mongodb",
-        "redis",
-        "kafka",
-        "elasticsearch",
-        "aws",
-        "vector database",
-        "ml infrastructure"
-      ],
       "score_infra": 34,
       "matched_infra": [
         "mongodb",
@@ -155,9 +135,29 @@
         "vector database",
         "ml infrastructure"
       ],
-      "best_cv": "infra",
-      "best_score": 34,
-      "best_confidence": "full"
+      "best_cv": "default",
+      "best_score": 25,
+      "best_confidence": "full",
+      "score_default": 25,
+      "matched_default": [
+        "mongodb",
+        "redis",
+        "elasticsearch",
+        "aws",
+        "-customer success"
+      ],
+      "coverage_default": 50,
+      "confidence_default": "full",
+      "requirements_default": [
+        "postgres",
+        "mongodb",
+        "redis",
+        "kafka",
+        "elasticsearch",
+        "aws",
+        "vector database",
+        "ml infrastructure"
+      ]
     },
     {
       "id": "bbe0d19a5876f899edfd",
@@ -168,20 +168,6 @@
       "first_seen": "2026-09-15T20:11:52Z",
       "last_seen": "2026-09-15T20:11:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "node",
-        "mongodb",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 50,
-      "confidence_default": "full",
-      "requirements_default": [
-        "node",
-        "mongodb",
-        "cassandra",
-        "scalability"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "node",
@@ -198,7 +184,21 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "node",
+        "mongodb",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 50,
+      "confidence_default": "full",
+      "requirements_default": [
+        "node",
+        "mongodb",
+        "cassandra",
+        "scalability"
+      ]
     },
     {
       "id": "a9a7aa3ef9a3e90c1450",
@@ -209,20 +209,6 @@
       "first_seen": "2026-09-15T20:11:52Z",
       "last_seen": "2026-09-15T20:11:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "node",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "node",
-        "cassandra",
-        "kafka",
-        "spark",
-        "distributed systems"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "node",
@@ -239,7 +225,21 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "node",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "node",
+        "cassandra",
+        "kafka",
+        "spark",
+        "distributed systems"
+      ]
     },
     {
       "id": "d0d05195db1fd6890036",
@@ -250,18 +250,6 @@
       "first_seen": "2026-09-15T20:11:52Z",
       "last_seen": "2026-09-15T20:11:52Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "aws",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "kubernetes",
-        "aws",
-        "api"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "aws",
@@ -276,7 +264,19 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "kubernetes",
+        "aws",
+        "api"
+      ]
     }
   ]
 }

@@ -14,13 +14,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 15,
-      "matched_default": [
-        "exp:3y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 15,
       "matched_infra": [
         "exp:3y(fit)"
@@ -30,7 +23,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 15,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 15,
+      "matched_default": [
+        "exp:3y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "e9649ef3fd5608430a0a",
@@ -43,14 +43,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:3y(fit)",
@@ -61,7 +53,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "582b590a7eebbcf48300",
@@ -74,14 +74,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "exp:3y(fit)",
@@ -92,7 +84,15 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "exp:3y(fit)",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     },
     {
       "id": "11443640efa40470bcd3",
@@ -105,22 +105,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 52,
-      "matched_default": [
-        "python",
-        "docker",
-        "ci/cd",
-        "exp:3y(fit)"
-      ],
-      "coverage_default": 60,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "microservices",
-        "docker",
-        "kubernetes",
-        "ci/cd"
-      ],
       "score_infra": 52,
       "matched_infra": [
         "python",
@@ -139,7 +123,23 @@
       ],
       "best_cv": "default",
       "best_score": 52,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 52,
+      "matched_default": [
+        "python",
+        "docker",
+        "ci/cd",
+        "exp:3y(fit)"
+      ],
+      "coverage_default": 60,
+      "confidence_default": "full",
+      "requirements_default": [
+        "python",
+        "microservices",
+        "docker",
+        "kubernetes",
+        "ci/cd"
+      ]
     },
     {
       "id": "9ca0e463fd48da62961d",
@@ -152,13 +152,6 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 15,
-      "matched_default": [
-        "exp:4y(fit)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 15,
       "matched_infra": [
         "exp:4y(fit)"
@@ -168,7 +161,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 15,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 15,
+      "matched_default": [
+        "exp:4y(fit)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }

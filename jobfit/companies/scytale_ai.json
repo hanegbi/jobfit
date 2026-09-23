@@ -12,16 +12,6 @@
       "first_seen": "2026-09-15T20:12:10Z",
       "last_seen": "2026-09-15T20:12:10Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "automation"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "automation",
@@ -34,7 +24,17 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation"
+      ]
     },
     {
       "id": "d2ecbf22050719a9bdb5",
@@ -45,17 +45,6 @@
       "first_seen": "2026-09-15T20:12:10Z",
       "last_seen": "2026-09-15T20:12:10Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "git",
-        "automation"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "automation",
@@ -69,7 +58,18 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "git",
+        "automation"
+      ]
     },
     {
       "id": "67217ec173646096db89",
@@ -80,17 +80,6 @@
       "first_seen": "2026-09-15T20:12:10Z",
       "last_seen": "2026-09-15T20:12:10Z",
       "status": "new",
-      "score_default": 28,
-      "matched_default": [
-        "automation"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "api",
-        "automation"
-      ],
       "score_infra": 28,
       "matched_infra": [
         "automation"
@@ -104,7 +93,18 @@
       ],
       "best_cv": "default",
       "best_score": 28,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 28,
+      "matched_default": [
+        "automation"
+      ],
+      "coverage_default": 33,
+      "confidence_default": "full",
+      "requirements_default": [
+        "go",
+        "api",
+        "automation"
+      ]
     },
     {
       "id": "48dba2aa1c721b55cf4c",
@@ -115,14 +115,6 @@
       "first_seen": "2026-09-15T20:12:10Z",
       "last_seen": "2026-09-15T20:12:10Z",
       "status": "new",
-      "score_default": 8,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "rest",
-        "api"
-      ],
       "score_infra": 8,
       "matched_infra": [],
       "coverage_infra": null,
@@ -133,7 +125,15 @@
       ],
       "best_cv": "default",
       "best_score": 8,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 8,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "rest",
+        "api"
+      ]
     },
     {
       "id": "d081b1f06e998e37eee2",
@@ -144,30 +144,6 @@
       "first_seen": "2026-09-15T20:12:10Z",
       "last_seen": "2026-09-15T20:12:10Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "mongodb",
-        "aws",
-        "ci/cd",
-        "linux",
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 45,
-      "confidence_default": "full",
-      "requirements_default": [
-        "sql",
-        "mongodb",
-        "aws",
-        "azure",
-        "ci/cd",
-        "github actions",
-        "git",
-        "linux",
-        "devops",
-        "scalability",
-        "automation"
-      ],
       "score_infra": 0,
       "matched_infra": [
         "mongodb",
@@ -194,7 +170,31 @@
       ],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "full",
+      "score_default": 0,
+      "matched_default": [
+        "mongodb",
+        "aws",
+        "ci/cd",
+        "linux",
+        "automation",
+        "off-target title(-50)"
+      ],
+      "coverage_default": 45,
+      "confidence_default": "full",
+      "requirements_default": [
+        "sql",
+        "mongodb",
+        "aws",
+        "azure",
+        "ci/cd",
+        "github actions",
+        "git",
+        "linux",
+        "devops",
+        "scalability",
+        "automation"
+      ]
     },
     {
       "id": "60d1b8427e23f708cd91",
@@ -205,13 +205,6 @@
       "first_seen": "2026-09-15T20:12:10Z",
       "last_seen": "2026-09-15T20:12:10Z",
       "status": "new",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
       "score_infra": 0,
       "matched_infra": [
         "off-target title(-50)"
@@ -221,7 +214,14 @@
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": []
     }
   ]
 }
