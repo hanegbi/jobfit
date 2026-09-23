@@ -1,5 +1,7 @@
 """FastAPI app for the jobfit control panel — localhost only, no auth."""
 
+import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
@@ -59,3 +61,26 @@ async def api_upload_connections(file: UploadFile = File(...)) -> dict:
     config.CONNECTIONS_CSV.write_bytes(await file.read())
     update_jobs.recompute_stage()
     return dashboard.get_dashboard_stats()
+
+
+@app.post("/api/referrals")
+async def api_upload_referral(file: UploadFile = File(...)) -> dict:
+    if not (file.filename or "").lower().endswith(".json"):
+        raise HTTPException(400, "Referral export must be a .json file")
+    raw = await file.read()
+    try:
+        payload = json.loads(raw)
+    except json.JSONDecodeError:
+        raise HTTPException(400, "Not valid JSON")
+    if "companies" not in payload:
+        raise HTTPException(400, 'Expected a top-level "companies" key')
+
+    config.REFERRAL_UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    archive_path = config.REFERRAL_UPLOADS_DIR / f"{timestamp}-{file.filename}"
+    archive_path.write_bytes(raw)
+
+    profiles = cv.load_profiles()
+    stats = update_jobs.merge_referral_jobs(profiles, path=archive_path)
+    update_jobs.recompute_stage()
+    return {**stats, **dashboard.get_dashboard_stats()}

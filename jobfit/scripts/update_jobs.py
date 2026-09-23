@@ -381,11 +381,15 @@ def recompute_stage() -> None:
     build_html.build()
 
 
-def merge_referral_jobs(profiles: dict) -> dict[str, int]:
-    """Merge WhatsApp-referral-sourced jobs (config.REFERRAL_JOBS_PATH) into
-    companies/*.json - same canonical-company + title-similarity matching as
-    the old pipeline's referral_source.merge_referral_jobs, adapted to this
-    script's per-company-file / job-id / status / score record shape.
+def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str, int]:
+    """Merge WhatsApp-referral-sourced jobs into companies/*.json - same
+    canonical-company + title-similarity matching as the old pipeline's
+    referral_source.merge_referral_jobs, adapted to this script's
+    per-company-file / job-id / status / score record shape.
+
+    `path` defaults to config.REFERRAL_JOBS_PATH (the CLI's fixed
+    Downloads-folder file); the control panel passes an explicit
+    uploaded-file path instead.
 
     A referral job that looks like a job already on file for that company
     (by title similarity) gets that existing record tagged as a referral
@@ -393,8 +397,9 @@ def merge_referral_jobs(profiles: dict) -> dict[str, int]:
     """
     from jobfit import referral_source  # noqa: E402
 
+    path = path or config.REFERRAL_JOBS_PATH
     stats = {"matched_existing_company": 0, "new_company": 0, "merged_into_existing_job": 0, "added_new_job": 0}
-    if not config.REFERRAL_JOBS_PATH.exists():
+    if not path.exists():
         return stats
 
     existing_names = [
@@ -404,7 +409,7 @@ def merge_referral_jobs(profiles: dict) -> dict[str, int]:
     canonical_by_key = {connections.normalize_company(c): c for c in existing_names if connections.normalize_company(c)}
     now = _now_iso()
 
-    for company_entry in referral_source.load_referral_companies(config.REFERRAL_JOBS_PATH):
+    for company_entry in referral_source.load_referral_companies(path):
         names = [company_entry.get("company", "")] + list(company_entry.get("also_posted_as") or [])
         canonical = None
         for name in names:
