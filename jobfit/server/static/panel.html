@@ -27,6 +27,14 @@
   .empty { color: #5c6a66; font-size: 13px; font-style: italic; padding: 6px 0; }
   #runLog { background: #12161b; border: 1px solid #232a32; border-radius: 8px; padding: 10px; height: 220px; overflow-y: auto; font-size: 12px; margin: 10px 0; }
   label.force { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #9aa4ad; }
+
+  .chart-block { --chart-grid: #232a32; --chart-axis: #3a434e; --chart-muted: #898781; position: relative; margin-bottom: 18px; }
+  .chart-block h3 { font-size: 12.5px; margin: 0 0 8px; color: #9aa4ad; font-weight: 600; }
+  .chart-legend { display: flex; gap: 16px; margin-bottom: 6px; }
+  .legend-item { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #c3c2b7; }
+  .legend-swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .score-bar { cursor: default; }
+  .chart-tooltip { position: absolute; transform: translate(-50%, -100%); background: #1a2129; border: 1px solid #2f3946; border-radius: 6px; padding: 5px 9px; font-size: 12px; color: #e6e9ec; white-space: nowrap; pointer-events: none; }
 </style>
 </head>
 <body>
@@ -42,7 +50,7 @@
     <section id="dashboard">
       <h2>Dashboard</h2>
       <div class="stat-row" id="statRow"></div>
-      <div id="scoreDistribution"></div>
+      <div id="scoreDistribution" class="chart-block"></div>
     </section>
 
     <section id="profiles">
@@ -93,6 +101,114 @@ function fmtDate(iso) {
   return isNaN(d) ? iso : d.toLocaleString();
 }
 
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+// Validated (dataviz skill: node scripts/validate_palette.js against this page's
+// #0b0e11 surface, dark mode) - blue/orange clear every CVD + contrast gate.
+const SCORE_SERIES_COLORS = ["#3987e5", "#d95926"];
+// Bucket 0 (score 0-9) is overwhelmingly off-target/unscored jobs and dwarfs
+// every other bucket by 10-20x - plotting it crushes the buckets that actually
+// matter (a good-fit job) down to invisible slivers. Shown as a caption instead.
+const SCORE_BUCKETS = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+function niceStep(max) {
+  const rough = max / 5 || 1;
+  const mag = Math.pow(10, Math.floor(Math.log10(rough)));
+  const norm = rough / mag;
+  const step = norm < 1.5 ? 1 : norm < 3 ? 2 : norm < 7 ? 5 : 10;
+  return step * mag;
+}
+
+function renderScoreChart(stats) {
+  const container = document.getElementById("scoreDistribution");
+  const profileIds = Object.keys(stats.score_distribution);
+  if (!profileIds.length) {
+    container.innerHTML = `<div class="empty">No CV profiles yet - add one below to see score distributions.</div>`;
+    return;
+  }
+
+  const series = profileIds.map((id, i) => {
+    const profile = stats.profiles.find(p => p.id === id);
+    const buckets = stats.score_distribution[id] || {};
+    return {
+      name: profile ? profile.name : id,
+      color: SCORE_SERIES_COLORS[i % SCORE_SERIES_COLORS.length],
+      values: SCORE_BUCKETS.map(b => buckets[String(b)] || 0),
+    };
+  });
+
+  const maxCount = Math.max(1, ...series.flatMap(s => s.values));
+  const yTick = niceStep(maxCount);
+  const yMax = Math.ceil(maxCount / yTick) * yTick;
+
+  const marginLeft = 50, marginBottom = 26, marginTop = 10, marginRight = 8;
+  const groupW = 56, barW = 22, barGap = 2;
+  const chartW = SCORE_BUCKETS.length * groupW;
+  const chartH = 200;
+  const W = marginLeft + chartW + marginRight;
+  const H = marginTop + chartH + marginBottom;
+
+  const gridlines = [];
+  for (let v = 0; v <= yMax; v += yTick) {
+    const y = marginTop + chartH - (v / yMax) * chartH;
+    gridlines.push(`<line x1="${marginLeft}" y1="${y}" x2="${marginLeft + chartW}" y2="${y}" stroke="var(--chart-grid)" stroke-width="1"></line>`);
+    gridlines.push(`<text x="${marginLeft - 8}" y="${y + 4}" text-anchor="end" font-size="10.5" fill="var(--chart-muted)">${v.toLocaleString()}</text>`);
+  }
+
+  const totalBarsW = series.length * barW + (series.length - 1) * barGap;
+  const bars = [];
+  SCORE_BUCKETS.forEach((bucket, bi) => {
+    const groupX = marginLeft + bi * groupW + (groupW - totalBarsW) / 2;
+    series.forEach((s, si) => {
+      const val = s.values[bi];
+      const barH = (val / yMax) * chartH;
+      const x = groupX + si * (barW + barGap);
+      const y = marginTop + chartH - barH;
+      bars.push(
+        `<rect class="score-bar" data-label="${bucket}-${bucket + 9}" data-series="${escapeHtml(s.name)}" data-value="${val}" ` +
+        `x="${x}" y="${y.toFixed(1)}" width="${barW}" height="${Math.max(barH, 0).toFixed(1)}" rx="4" ry="4" fill="${s.color}"></rect>`
+      );
+    });
+    const labelX = marginLeft + bi * groupW + groupW / 2;
+    bars.push(`<text x="${labelX}" y="${marginTop + chartH + 18}" text-anchor="middle" font-size="10" fill="var(--chart-muted)">${bucket}</text>`);
+  });
+
+  const legend = series.length > 1
+    ? `<div class="chart-legend">${series.map(s => `<span class="legend-item"><span class="legend-swatch" style="background:${s.color}"></span>${escapeHtml(s.name)}</span>`).join("")}</div>`
+    : "";
+
+  const belowThreshold = profileIds.map((id, i) => {
+    const count = (stats.score_distribution[id] || {})["0"] || 0;
+    return `${series[i].name}: ${count.toLocaleString()}`;
+  }).join(" · ");
+
+  container.innerHTML = `
+    ${legend}
+    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Score distribution histogram, jobs per 10-point score bucket from 10-19 up, by CV profile" style="width:100%;max-width:${W}px;height:auto;display:block;">
+      ${gridlines.join("")}
+      <line x1="${marginLeft}" y1="${marginTop + chartH}" x2="${marginLeft + chartW}" y2="${marginTop + chartH}" stroke="var(--chart-axis)" stroke-width="1"></line>
+      ${bars.join("")}
+    </svg>
+    <div class="chart-tooltip" id="scoreChartTooltip" hidden></div>
+    <div class="empty" style="margin-top:6px;">Not shown: score 0-9 (${belowThreshold})</div>
+  `;
+
+  const tooltip = document.getElementById("scoreChartTooltip");
+  container.querySelectorAll(".score-bar").forEach(bar => {
+    bar.addEventListener("mouseenter", () => {
+      tooltip.hidden = false;
+      tooltip.textContent = `${bar.dataset.series}: ${Number(bar.dataset.value).toLocaleString()} jobs (score ${bar.dataset.label})`;
+      const rect = bar.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      tooltip.style.left = (rect.left - containerRect.left + rect.width / 2) + "px";
+      tooltip.style.top = (rect.top - containerRect.top - 6) + "px";
+    });
+    bar.addEventListener("mouseleave", () => { tooltip.hidden = true; });
+  });
+}
+
 async function refreshDashboard() {
   const stats = await (await fetch("/api/dashboard")).json();
   document.getElementById("statRow").innerHTML = `
@@ -101,11 +217,7 @@ async function refreshDashboard() {
     <div class="stat"><b>${stats.companies}</b>companies</div>
     <div class="stat"><b>${stats.connections}</b>connections</div>
   `;
-  document.getElementById("scoreDistribution").innerHTML = Object.entries(stats.score_distribution).map(([id, buckets]) => {
-    const profile = stats.profiles.find(p => p.id === id);
-    const rows = Object.entries(buckets).map(([bucket, count]) => `<div>${bucket}-${Number(bucket) + 9}: ${count}</div>`).join("");
-    return `<h3 style="font-size:13px;margin:12px 0 4px;">${profile ? profile.name : id}</h3>${rows}`;
-  }).join("") || `<div class="empty">No CV profiles yet - add one below to see score distributions.</div>`;
+  renderScoreChart(stats);
   document.getElementById("connectionsStatus").textContent = `Last uploaded: ${fmtDate(stats.connections_uploaded_at)}`;
   document.getElementById("connectionsStatus").classList.remove("error");
   return stats;
