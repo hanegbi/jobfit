@@ -1,7 +1,7 @@
 {
   "name": "MazeBolt",
   "career_url": "https://mazebolt.com/careers/",
-  "last_checked": "2026-09-15T19:37:47Z",
+  "last_checked": "2026-09-23T16:01:53Z",
   "jobs": [
     {
       "id": "0641b6627d2e6423ebe8",
@@ -11,7 +11,7 @@
       "description": "",
       "first_seen": "2026-09-15T19:37:47Z",
       "last_seen": "2026-09-15T19:37:47Z",
-      "status": "new",
+      "status": "closed",
       "best_cv": "default",
       "best_score": 0,
       "best_confidence": "title_only",
@@ -33,6 +33,192 @@
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": []
+    },
+    {
+      "id": "a8a0338acfaf0a66273d",
+      "title": "Mythos Is a Wake-Up Call for DDoS Defense",
+      "location": null,
+      "url": "https://mazebolt.com/blog/mythos-is-a-wake-up-call-for-ddos-defense",
+      "description": "Back to blogs Howard Silverman April 13, 2026 In This Article The Crux of the Issue – Faster Identification of Vulnerabilities The Structural Gap in DDoS Protection MazeBolt: Providing the DDoS Vulnerability Data that the Market is Missing The Shift to Automated and Self-Healing DDoS Protection AI Makes Continuous DDoS Validation Even More Essential Skim Summary Mythos Is a Wake-Up Call for DDoS Defense Will Anthropic’s Mythos, with its AI-powered Identification of software and infrastructure weaknesses, upset the financial services industry by means of new, AI-developed attacks? Major bank leaders were called to an urgent meeting by Treasury Secretary Scott Bessent and Federal Reserve Chair Jerome Powell, over concerns that the latest AI model released by Anthropic (the developer of Claude) could materially increase cyber risk – raising pressure on banks to prepare their systems for a new generation of AI-enabled attacks. Bloomberg reported that the meeting focused on whether banks were taking adequate precautions against these emerging threats. The Crux of the Issue – Faster Identification of Vulnerabilities Recent discussion of advanced AI offensive models points to a major shift in attacker capability. AI can significantly reduce the time required by attackers to: Analyze CVEs Identify infrastructure weaknesses Correlate misconfigurations Determine viable attack paths As AI dramatically accelerates the discovery and exploitation of cybersecurity vulnerabilities, tasks that once demanded manual research and specialized expertise now can be performed in minutes. For DDoS and availability-focused attacks, that shift matters. Faster reconnaissance helps attackers identify likely bypass paths, weak mitigation layers, and infrastructure-specific opportunities across CDN, WAF, and DDoS protection stacks. While Mythos is being discussed primarily in the context of software vulnerabilities, the broader lesson is that AI is accelerating the identification of exploitable weaknesses across the internet-facing environment. Anthropic itself says Mythos can identify vulnerabilities and, in some cases, develop related exploits autonomously. The Structural Gap in DDoS Protection DDoS security is fundamentally different from other areas of cybersecurity, in that vulnerabilities are not in the software itself but rather they exist in the defense systems and their configurations. Moreover, their configuration must be specific to each customer’s environment. Enterprise environments are highly dynamic and constantly changing. As a result, effective testing must be continuous, not periodic. The issue with this situation is that, when using traditional methods of testing, DDoS protection cannot be safely tested in real conditions without risking disruption. Historically, this has created a situation in which organizations lack visibility into the real vulnerabilities in their production environments. AI has amplified this lack of visibility into vulnerabilities within DDoS defenses, because: • Vulnerabilities are discovered and exploited faster • Manual testing is too slow • Periodic testing is ineffective • Misconfigurations are exposed immediately MazeBolt: Providing the DDoS Vulnerability Data that the Market is Missing MazeBolt is uniquely positioned because our patented RADAR™ platform creates the vulnerability data the market is missing. Unlike solutions relying on CVEs, logs, or assumptions, RADAR generates real DDoS vulnerability data by simulating attacks on live systems. This is the only way to produce the data required for AI models to function and provide real-world protection. RADAR is a patented platform that generates this data at scale. In other words, MazeBolt is not analyzing vulnerabilities but rather is creating the data required to expose and validate them – data that enables accurate validation, reliable automation, and training of advanced AI models. The Shift to Automated and Self-Healing DDoS Protection AI-driven attacks operate at machine speed; human-led or semi-automated defenses cannot keep up. Moreover, the effectiveness of DDoS protections depends on configuration, and their configuration reflects the specifics of each customer environment. Which brings us to the core challenge: Configuration determines whether DDoS defenses work, but the DDoS configurations constantly change. MazeBolt closes this gap with real-world visibility into DDoS defense behavior that enables continuous validation and optimization. The strategic implication is that systems can automatically adapt and improve. RADAR supports a feedback loop that enables self-healing protection systems, that includes: Attack simulation Vulnerability identification Configuration tuning Validation As AI outpaces human response, the future demands fully automated protection powered by continuously validated and continuously remediated real-world data. MazeBolt is essential for this shift. AI Makes Continuous DDoS Validation Even More Essential Considering the capabilities demonstrated by Mythos, it is increasingly clear that traditional DDoS testing approaches are no longer sufficient. If attackers can prioritize the most promising paths automatically, defenders need AI-powered validation that does the same. SmartCycle™, an AI-powered capability available with MazeBolt’s RADAR™, helps identify and mitigate DDoS attack vector risk for deployed DDoS protections. Rather than testing in an unstructured order, SmartCycle focuses first on the DDoS attack vectors that are most likely to cause damage in each environment, helping enterprises identify high-risk vulnerabilities faster and accelerate remediation. This ability is increasingly crucial, as new AI-powered tools reduce the time attackers need to move from discovery to action. With SmartCycle, enterprises can: Prioritize the attack vectors most likely to cause damage Reduce noise from low-value tests Mirror modern attacker reconnaissance workflows Focus validation on the hig",
+      "first_seen": "2026-09-23T16:01:53Z",
+      "last_seen": "2026-09-23T16:01:53Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "automation",
+        "off-target title(-50)",
+        "-manual testing"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "automation",
+        "off-target title(-50)",
+        "-manual testing"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "80ae6b50cd71aae19507",
+      "title": "Datasheets",
+      "location": null,
+      "url": "https://mazebolt.com/resource-center/data-sheets",
+      "description": "We value your privacy We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies. Privacy Policy Customize Reject All Accept All Skip to content Resource Center Learn More About Continuous DDoS Vulnerability Management Datasheets Native Cloudflare CDN Deployment Native Cloudflare CDN Deployment How RADAR™ by MazeBolt Meets PRA Requirements How RADAR™ by MazeBolt Meets PRA Requirements MazeBolt – RADAR™ Overview MazeBolt – RADAR™ Overview Deploying RADAR in Microsoft Azure Deploying RADAR in Microsoft Azure Enhance Microsoft Azure DDoS Protection with MazeBolt RADAR Enhance Microsoft Azure DDoS Protection with MazeBolt RADAR MazeBolt RADAR™ vs. Traditional DDoS Testing MazeBolt RADAR™ vs. Traditional DDoS Testing Supporting DORA Readiness Supporting DORA Readiness Preferred Remediation Technology Alliance Preferred Remediation Technology Alliance MazeBolt – RADAR for Partners MazeBolt – RADAR for Partners",
+      "first_seen": "2026-09-23T16:01:53Z",
+      "last_seen": "2026-09-23T16:01:53Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "azure"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "azure"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "bc8c9e85d6bd72ff5066",
+      "title": "Infographics",
+      "location": null,
+      "url": "https://mazebolt.com/resource-center/infographics",
+      "description": "Skip to content Resource Center Learn More About Continuous DDoS Vulnerability Management Infographics State of DDoS Defenses Survey: Why CISOs Lack Confidence State of DDoS Defenses Survey: Why CISOs Lack Confidence The ROI of Continuous DDoS Validation The ROI of Continuous DDoS Validation 7 Trends to Watch in 2026 7 Trends to Watch in 2026 How AI is Transforming DDoS Risk How AI is Transforming DDoS Risk 7 Tips to Configuring Your Network and Preventing DDoS Attacks 7 Tips to Configuring Your Network and Preventing DDoS Attacks Inside a DDoS Attack: Mapping the Hidden Gaps Inside a DDoS Attack: Mapping the Hidden Gaps What’s Fueling Today’s DDoS Threats What’s Fueling Today’s DDoS Threats 7 Inconvenient Truths for the Financial Sector 7 Inconvenient Truths for the Financial Sector Damaging DDoS Downtime: Who Is at Risk? Damaging DDoS Downtime: Who Is at Risk? DDoS And Elections DDoS And Elections 3 New Approaches DDoS to Vulnerability Management 3 New Approaches DDoS to Vulnerability Management Infographic: Put Business Continuity First with CTEM Infographic: Put Business Continuity First with CTEM",
+      "first_seen": "2026-09-23T16:01:53Z",
+      "last_seen": "2026-09-23T16:01:53Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "6728dee6cfb670815245",
+      "title": "Case Studies",
+      "location": null,
+      "url": "https://mazebolt.com/resource-center/case-studies",
+      "description": "Skip to content Case Studies Resource Center Learn More About Continuous DDoS Vulnerability Management Resource Center Learn More About Continuous DDoS Vulnerability Management Case Studies Insurance Company Gains Full DDoS Visibility Across a Complex Network Insurance Company Gains Full DDoS Visibility Across a Complex Network European Payment Service Provider Strengthens DDoS Defenses and Expands RADAR Testing to the Cloud European Payment Service Provider Strengthens DDoS Defenses and Expands RADAR Testing to the Cloud Bridging the Visibility Gap in Days with MazeBolt & F5 Bridging the Visibility Gap in Days with MazeBolt & F5 Global eCommerce Platform Eliminates DDoS Downtime Global eCommerce Platform Eliminates DDoS Downtime Payment Service Provider Eliminates DDoS Mitigation False Positives Payment Service Provider Eliminates DDoS Mitigation False Positives Top Bank Complies with EU’s DORA Top Bank Complies with EU’s DORA International Bank Chooses RADAR™ to Prevent Damaging DDoS Attacks International Bank Chooses RADAR™ to Prevent Damaging DDoS Attacks Insurance Company Avoids Damaging DDoS Downtime Insurance Company Avoids Damaging DDoS Downtime Government Secures Parliamentary Elections Government Secures Parliamentary Elections Finance Company Eliminates DDoS False Positives Finance Company Eliminates DDoS False Positives Financial Services Provider Slashes DDoS Risk from 50% to under 15% Financial Services Provider Slashes DDoS Risk from 50% to under 15% Gamer Maintains Business Continuity Gamer Maintains Business Continuity",
+      "first_seen": "2026-09-23T16:01:53Z",
+      "last_seen": "2026-09-23T16:01:53Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "d3bdb6d421f7b4d99ac2",
+      "title": "AI-Generated DDoS Attacks",
+      "location": null,
+      "url": "https://mazebolt.com/deep-dive/building-resilience-to-ai-generated-ddos-attacks",
+      "description": "Skip to content Building Resilience to AI-Generated DDoS Attacks REQUEST A DEMO AI is redefining the threat level and economics of cyber risk. What once took hackers significant time, expertise, and repeated trial and error can now happen at the speed of an AI query. The impact of AI on how we defend ourselves against damaging DDoS attacks adds new dimensions to the DDoS attack surface. lt accelerates how quickly attackers can identify DDoS vulnerabilities due to increasingly effective adaptation of attack methods. Moreover, as vulnerabilities are exploited more quickly, damage can be inflicted with extended effect. These capabilities are tied to business continuity and the ability to maintain the resilience of online services. They heighten the urgency for automated remediation of both known and Al-generated DDoS attack vectors. Table of Contents Why DDoS Vulnerabilities are Different? AI Creates New Challenges for DDoS Visibility Cyber Offense is Accelerating Efficient Remediation of Vulnerabilities Automated, Self-Healing DDoS Protection is Key AI is redefining the threat level and economics of cyber risk. What once took hackers significant time, expertise, and repeated trial and error can now happen at the speed of an AI query. The impact of AI on how we defend ourselves against damaging DDoS attacks adds new dimensions to the DDoS attack surface. lt accelerates how quickly attackers can identify DDoS vulnerabilities due to increasingly effective adaptation of attack methods. Moreover, as vulnerabilities are exploited more quickly, damage can be inflicted with extended effect. These capabilities are tied to business continuity and the ability to maintain the resilience of online services. They heighten the urgency for automated remediation of both known and Al-generated DDoS attack vectors. Why DDoS Vulnerabilities are Different? A DDoS vulnerability is not found in the software itself, but in the deployed protection stack – the configurations, policies, routing logic, mitigation layers, and operational assumptions that determine how those defenses function in the real world. This creates a critical DDoS gap, because of: Configuration Drift Enterprise environments change constantly. Custom Requirements DDoS defenses must be configured per environment. Extent of Coverage All attack vectors must be tested across layers 3, 4 & 7. Though not connected to DDoS vulnerabilities, Anthropic’s latest AI model Mythos serves as a wake-up call for security leaders, by underscoring how dramatically AI can accelerate attacker capabilities. With Al-discovered and Al-generated attack vectors rapidly moving from science project to reality, it is becoming clear that traditional DDoS testing approaches are insufficient. lf attackers can automatically identify and prioritize the most promising paths, defenders need Al-powered validation that can stay one step ahead of them. AI Creates New Challenges for DDoS Visibility Enterprises rarely know where their DDoS protections are vulnerable – until a DDoS attack starts to cause damage, thereby exposing the problem. Al-generated DDoS threats make this even harder. These newly emerging attack patterns will quickly bypass existing assumptions, rule sets, or signature-based protections. AI makes such threats more scalable by helping attackers generate variations faster and identifying which DDoS vulnerabilities are likely to have the greatest business impact. As a result of these combined challenges, the issue is no longer whether an enterprise has DDoS protection deployed. Rather, the key question is whether the deployed DDoS protection is continuously validated against rapidly changing, Al-enhanced attack conditions. Cyber Offense is Accelerating Today’s cybersecurity arms race is also about speed: whether defenders can identify and close vulnerabilities before threat actors use AI to find and exploit them. While most security tools rely on logs, alerts, CVEs, or historical assumptions, these inputs do not reveal how DDoS defenses will behave against newly generated or Al-orchestrated attack techniques in a live environment. What is missing is authentic DDoS vulnerability data – information that can only be created by safely simulating attacks against live systems. DDoS vulnerability data includes information about vulnerable areas of DDoS defenses that can be used to gain critical insight into where protections will fail. This is where MazeBolt’s DDoS vulnerability simulation platform is different. MazeBolt RADAR generates comprehensive DDoS vulnerability data by simulating DDoS attacks (including Al-generated, Al-orchestrated, and existing, known attacks) in live production environments, without causing disruption. This type of data is more important than ever in the era of Al-powered DDoS attacks, since AI models are only as useful as the data that drives them. Without accurate, environment-specific DDoS vulnerability data, automation is limited and, all too often, protection remains reactive. By simulating Al-powered DDoS attack scenarios, organizations can increase their DDoS resilience and improve overall confidence in their automated DDoS mitigation posture – validating multiple aspects of resilience: ln addition to testing whether known attacks are covered, enterprises also need to start validating the Al-generated threats that are yet to be created. That shift is part of what redefines DDoS resilience, transforming it into a continuous source of actionable intelligence. Efficient Remediation of Vulnerabilities With the emergence of Al-generated DDoS attacks, efficient DDoS vulnerability remediation has become even more critical. Enterprises need full visibility into their deployed DDoS protection mechanisms by means of continuous, nondisruptive DDoS simulation and validation – allowing the identification and remediation of vulnerabilities across the entire attack surface. Moreover, RADAR capabilities enable the generation of large vulnerability data se",
+      "first_seen": "2026-09-23T16:01:53Z",
+      "last_seen": "2026-09-23T16:01:53Z",
+      "status": "new",
+      "score_default": 8,
+      "matched_default": [
+        "automation"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "automation"
+      ],
+      "score_infra": 8,
+      "matched_infra": [
+        "automation"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "automation"
+      ],
+      "best_cv": "default",
+      "best_score": 8,
+      "best_confidence": "title_only"
+    },
+    {
+      "id": "22f79af583a0688bae5c",
+      "title": "Anatomy of a DDoS Attack",
+      "location": null,
+      "url": "https://mazebolt.com/deep-dive/anatomy-of-a-ddos-attack",
+      "description": "Skip to content Understanding the Hidden Gaps in DDoS Protection Anatomy of a DDoS Attack REQUEST A DEMO GET THE PDF Despite the widespread adoption of DDoS protection solutions, disruptive DDoS attacks continue to make headlines. Organizations invest increasing sums in the best DDoS protection solutions but continue to be brought down. Why? Even “basic” attacks are bypassing established defenses, as evidenced by the recurring DDoS attacks on well-known companies like X. Our analysis, based on over 100,000 hours of annual attack simulations, reveals that all deployed DDoS protections are highly vulnerable — with gaps that often go unnoticed until an attack successfully disrupts services. With no effective way to address these weaknesses preemptively, organizations remain exposed. This eBook examines why DDoS attacks persist and continue to cause significant damage. Table of Contents Even Simple Attacks Bring Down the Best DDoS Protections DDoS Vulnerabilities vs. Other Types of Vulnerabilities The Unknown Threat in Your Cyber Defenses How DDoS Protections Get Exposed Closing Holes that Attackers Love to Exploit The DDoS Reality Check Eliminate the DDoS Protection Gap Despite the widespread adoption of DDoS protection solutions, disruptive DDoS attacks continue to make headlines. Organizations invest increasing sums in the best DDoS protection solutions but continue to be brought down. Why? Even “basic” attacks are bypassing established defenses, as evidenced by the recurring DDoS attacks on well-known companies like X. Our analysis, based on over 100,000 hours of annual attack simulations, reveals that all deployed DDoS protections are highly vulnerable — with gaps that often go unnoticed until an attack successfully disrupts services. With no effective way to address these weaknesses preemptively, organizations remain exposed. This eBook examines why DDoS attacks persist and continue to cause significant damage. Even Simple Attacks Bring Down the Best DDoS Protections More than 25 million damaging DDoS attacks were reported this year – representing a 53% YoY increase. Moreover, the volume and magnitude of these attacks increased by 56%. The total Web DDoS attacks surged 550%. These growing numbers and their escalating cost begs the question: What are we missing? And how can the risk of these attacks – and the damage they cause – be reduced? Unlike other types of cyberattacks, the only way a DDoS attack can succeed in damaging online service availability is by exploiting vulnerabilities in the deployed DDoS protections. In other words, the only way you can have a damaging DDoS attack (once you have protections deployed) is due to DDoS vulnerabilities in DDoS protection security policies. Cloudflare, Akamai, AWS Advanced Shield, etc. don’t go down when a damaging attack occurs. It’s the end customer’s organization that does. DDoS Vulnerabilities vs. Other Types of Vulnerabilities To illustrate the importance of eliminating DDoS vulnerabilities, let’s evaluate how DDoS vulnerabilities compare to other types of vulnerabilities. Take, for example, the case of vulnerabilities in web applications: From a theoretical perspective, there would be no need to deploy a Web Application Firewall (WAF) if your Web application were to be continuously validated pre- and post-deployment, and if you followed an ongoing process of checking for vulnerabilities that included: If this process were to be followed carefully – there would be zero errors in the coding (CVEs/proprietary) or in the logic of the web application that could be exploited. WAF would be completely unnecessary. But this logic does not apply to DDoS vulnerabilities . The only possible protection against a DDoS attack is provided via DDoS mitigation solutions. Unlike WAF – in the case of DDoS vulnerabilities, there is no software engineering (on the end service) that could help you prevent an attack from taking down your online services. When it comes to DDoS, organizations are reliant on fully automated DDoS protection solutions for damage prevention. If the DDoS protection solution your organization is using fails because it had a vulnerable setting – the DDoS attack causes damage and brings down services. The Unknown Threat in Your Cyber Defenses DDoS vulnerabilities are hidden within all DDoS protection solutions – i.e., they are mostly located in the security policies that have become outdated due to the continuous changes in network configurations, and organizations have no visibility into them. An organization can suffer a damaging DDoS attack only if its DDoS protection is vulnerable. A DDoS vulnerability is defined as a combination of the following: The following is one example of a potential DDoS vulnerability: If an attacker launched the above combination against the target example.com: The target is classified as protected from the particular attack vector and service combination, if the target’s protection solution automatically blocks the attack (the SYN flood). The target is classified as vulnerable to the particular attack vector and service combination, if the target’s protection solution does NOT automatically block the attack (the SYN flood), in which case manual intervention would be required – i.e., SLAs are required during a damaging DDoS attack, to mitigate manually. Stated differently, the results of the attack will be one of these two options: How DDoS Protections Get Exposed Effective DDoS protection requires multiple (hybrid) layers of protection. Associating a DDoS vulnerability with the relevant protection layer is critical for successful remediation as vulnerabilities can only be remediated in the relevant protection policy. Where there is just a single layer of protection, e.g., the Scrubbing Center, it is obvious where the vulnerability is located – it will be in the Scrubbing Center itself. However, many organizations have on-prem. data centers and cloud deployments, and all are governed by multiple DDoS secu",
+      "first_seen": "2026-09-23T16:01:53Z",
+      "last_seen": "2026-09-23T16:01:53Z",
+      "status": "new",
+      "score_default": 0,
+      "matched_default": [
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [
+        "go",
+        "aws"
+      ],
+      "score_infra": 0,
+      "matched_infra": [
+        "aws",
+        "off-target title(-50)"
+      ],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [
+        "go",
+        "aws"
+      ],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only"
     }
   ]
 }
