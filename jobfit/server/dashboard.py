@@ -14,6 +14,13 @@ def _connections_uploaded_at() -> str | None:
     return datetime.fromtimestamp(mtime, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _html_updated_at() -> str | None:
+    if not config.OUTPUT_HTML.exists():
+        return None
+    mtime = config.OUTPUT_HTML.stat().st_mtime
+    return datetime.fromtimestamp(mtime, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
 def get_dashboard_stats() -> dict:
     registry = cv.load_registry()
     profile_ids = list(registry)
@@ -46,6 +53,7 @@ def get_dashboard_stats() -> dict:
         "companies": company_count,
         "connections": connections_count,
         "connections_uploaded_at": _connections_uploaded_at(),
+        "html_updated_at": _html_updated_at(),
         "profiles": [
             {"id": pid, "name": entry["name"], "uploaded_at": entry["uploaded_at"]}
             for pid, entry in registry.items()

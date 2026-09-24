@@ -39,6 +39,13 @@ def api_dashboard() -> dict:
     return dashboard.get_dashboard_stats()
 
 
+@app.get("/jobfit.html")
+def output_html() -> FileResponse:
+    if not config.OUTPUT_HTML.exists():
+        raise HTTPException(404, "jobfit.html hasn't been generated yet - run an update first")
+    return FileResponse(config.OUTPUT_HTML)
+
+
 @app.get("/api/profiles")
 def api_list_profiles() -> list[dict]:
     return [{"id": pid, **entry} for pid, entry in cv.load_registry().items()]

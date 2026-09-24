@@ -25,6 +25,7 @@
   .msg { font-size: 13px; color: #76b900; min-height: 18px; margin-bottom: 6px; }
   .msg.error { color: #ff6b6b; }
   .empty { color: #5c6a66; font-size: 13px; font-style: italic; padding: 6px 0; }
+  #htmlLink a { color: #3987e5; }
   #runLog { background: #12161b; border: 1px solid #232a32; border-radius: 8px; padding: 10px; height: 220px; overflow-y: auto; font-size: 12px; margin: 10px 0; }
   label.force { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #9aa4ad; }
 
@@ -59,6 +60,7 @@
     <section id="dashboard">
       <h2>Dashboard</h2>
       <div class="stat-row" id="statRow"></div>
+      <div class="msg" id="htmlLink"></div>
       <div id="scoreDistribution" class="chart-block"></div>
     </section>
 
@@ -234,6 +236,9 @@ async function refreshDashboard() {
   renderScoreChart(stats);
   document.getElementById("connectionsStatus").textContent = `Last uploaded: ${fmtDate(stats.connections_uploaded_at)}`;
   document.getElementById("connectionsStatus").classList.remove("error");
+  document.getElementById("htmlLink").innerHTML = stats.html_updated_at
+    ? `<a href="/jobfit.html" target="_blank">Open jobfit.html</a> &middot; last updated ${fmtDate(stats.html_updated_at)}`
+    : `<span class="empty">jobfit.html hasn't been generated yet - run an update to create it.</span>`;
   return stats;
 }
 

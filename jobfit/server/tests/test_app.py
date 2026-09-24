@@ -120,6 +120,22 @@ def test_dashboard_with_no_data_yet(client):
     assert body["total_jobs_open"] == 0
     assert body["companies"] == 0
     assert body["profiles"] == []
+    assert body["html_updated_at"] is None
+
+
+def test_output_html_returns_404_before_any_run(client):
+    res = client.get("/jobfit.html")
+    assert res.status_code == 404
+
+
+def test_output_html_is_served_once_generated(client):
+    config.OUTPUT_HTML.write_text("<html>jobs</html>", encoding="utf-8")
+    res = client.get("/jobfit.html")
+    assert res.status_code == 200
+    assert "jobs" in res.text
+
+    dashboard_body = client.get("/api/dashboard").json()
+    assert dashboard_body["html_updated_at"] is not None
 
 
 # --- profiles ------------------------------------------------------------
