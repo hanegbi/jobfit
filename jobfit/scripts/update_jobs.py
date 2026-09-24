@@ -419,9 +419,21 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
     from jobfit import referral_source  # noqa: E402
 
     path = path or config.REFERRAL_JOBS_PATH
-    stats = {"matched_existing_company": 0, "new_company": 0, "merged_into_existing_job": 0, "added_new_job": 0}
+    stats = {
+        "matched_existing_company": 0, "new_company": 0, "merged_into_existing_job": 0,
+        "added_new_job": 0, "added_to_career_pages": 0,
+    }
     if not path.exists():
         return stats
+
+    # A referral company (new or already tracked in companies/*.json) may still
+    # be missing from the curated scrape-target list (companies_career_pages.json)
+    # - that's what actually gates scrape_stage(). Fold it in here so a company
+    # first seen via referral gets picked up by future scrape runs too, instead
+    # of only ever being refreshed by another referral touching it.
+    career_pages = company_review.load_career_pages()
+    review = company_review.load_review()
+    techmap_index = None
 
     existing_names = [
         json.loads(p.read_text(encoding="utf-8"))["name"]
@@ -488,6 +500,19 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
         record["name"] = canonical
         record.setdefault("career_url", None)
         save_company_file(canonical, record)
+
+        if canonical not in career_pages:
+            if techmap_index is None:
+                techmap_index = load_techmap_index()
+            has_techmap = bool(techmap_index.get(connections.normalize_company(canonical)))
+            career_pages[canonical] = None
+            if has_techmap:
+                review[canonical] = {"decision": "techmap", "decided_at": _now_iso()}
+            stats["added_to_career_pages"] += 1
+
+    if stats["added_to_career_pages"]:
+        company_review.save_career_pages(career_pages)
+        company_review.save_review(review)
 
     return stats
 
