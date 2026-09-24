@@ -604,6 +604,20 @@ function shortDescription(text, limit) {
 function escapeHtml(s) {
   return (s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
+function timeAgo(iso) {
+  if (!iso) return "";
+  const then = new Date(iso);
+  if (isNaN(then)) return "";
+  const days = Math.floor((Date.now() - then.getTime()) / 86400000);
+  let relative;
+  if (days <= 0) relative = "today";
+  else if (days === 1) relative = "yesterday";
+  else if (days < 7) relative = `${days} days ago`;
+  else if (days < 30) { const w = Math.round(days / 7); relative = `${w} week${w === 1 ? "" : "s"} ago`; }
+  else if (days < 365) { const m = Math.round(days / 30); relative = `${m} month${m === 1 ? "" : "s"} ago`; }
+  else { const y = Math.round(days / 365); relative = `${y} year${y === 1 ? "" : "s"} ago`; }
+  return `${relative} &middot; ${then.toISOString().slice(0, 10)}`;
+}
 // Comma-separated multi-term input: "python, staff" -> ["python", "staff"].
 function parseTerms(raw) {
   return (raw || "").split(",").map(t => t.trim().toLowerCase()).filter(Boolean);
@@ -729,7 +743,7 @@ function jobCardHtml(job, showCompany) {
           ${showCompany ? `<div class="job-company">${escapeHtml(job.company)}${job.company_size ? " &middot; " + escapeHtml(job.company_size) : ""}${job.industry ? " &middot; " + escapeHtml(job.industry) : ""}</div>` : ""}
         </div>
         <div class="job-head-right">
-          <div class="job-date">${escapeHtml(job.posted_at || "")}</div>
+          <div class="job-date">${timeAgo(job.posted_at)}</div>
           <div class="card-actions">
             <button class="icon-btn sent-btn ${isSent ? "active" : ""}" data-action="sent" data-id="${job.id}" title="${isSent ? "Mark CV as not sent" : "Mark CV as sent"}">➤</button>
             <button class="icon-btn reached-btn ${isReached ? "active" : ""}" data-action="reached" data-id="${job.id}" title="${isReached ? "Mark as not reached out" : "Mark as reached out"}">☎</button>

@@ -569,7 +569,10 @@ def aggregate_to_jobs_v2() -> int:
             out["is_remote"] = is_remote
             out["department"] = job.get("department")
             out["employment_type"] = job.get("employment_type")
-            out["posted_at"] = job.get("last_seen")
+            # first_seen (when jobfit first saw this listing), not last_seen
+            # (which bumps every time a re-check still finds the job open) -
+            # "posted" should read as roughly-stable, not reset on every run.
+            out["posted_at"] = job.get("first_seen")
             out["connections"] = contacts
             out["has_connection"] = bool(contacts)
             out["has_description"] = bool(job.get("description"))
