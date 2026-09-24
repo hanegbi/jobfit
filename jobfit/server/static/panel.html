@@ -98,6 +98,7 @@
 
     <section id="companies">
       <h2>Companies without a career page</h2>
+      <div id="companyScrapeAction"></div>
       <div id="companyList"></div>
     </section>
 
@@ -336,9 +337,28 @@ document.getElementById("referralForm").addEventListener("submit", async (e) => 
   }
 });
 
+const reviewedCompanies = new Set();
+
+function renderCompanyScrapeAction() {
+  const action = document.getElementById("companyScrapeAction");
+  if (!reviewedCompanies.size) {
+    action.innerHTML = "";
+    return;
+  }
+  const names = [...reviewedCompanies];
+  action.innerHTML = `<button id="scrapeReviewedCompanies">Scrape ${names.length} reviewed compan${names.length === 1 ? "y" : "ies"} now</button>`;
+  document.getElementById("scrapeReviewedCompanies").addEventListener("click", async () => {
+    document.getElementById("run").scrollIntoView({ behavior: "smooth" });
+    await startRun({ force: false, companies: names });
+    reviewedCompanies.clear();
+    action.innerHTML = "";
+  });
+}
+
 async function refreshCompanies() {
   const list = await (await fetch("/api/companies/needs-review")).json();
   const container = document.getElementById("companyList");
+  renderCompanyScrapeAction();
   if (!list.length) {
     container.innerHTML = `<div class="empty">Every company either has a career page on file or has been reviewed.</div>`;
     return;
@@ -368,6 +388,7 @@ async function refreshCompanies() {
     await fetch(`/api/companies/${encodeURIComponent(company)}/decision`, {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ decision }),
     });
+    if (decision === "techmap") reviewedCompanies.add(company);
     await refreshCompanies();
   }
 
@@ -393,6 +414,7 @@ async function refreshCompanies() {
       await fetch(`/api/companies/${encodeURIComponent(company)}/career-url`, {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ url }),
       });
+      reviewedCompanies.add(company);
       await refreshCompanies();
     });
   });
