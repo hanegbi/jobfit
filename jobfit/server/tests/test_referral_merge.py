@@ -73,6 +73,7 @@ def test_merge_referral_jobs_returns_empty_stats_when_the_file_is_missing(tmp_pa
     assert stats == {
         "matched_existing_company": 0, "new_company": 0,
         "merged_into_existing_job": 0, "added_new_job": 0, "added_to_career_pages": 0,
+        "scrapable_companies": [],
     }
 
 
@@ -144,6 +145,37 @@ def test_merge_referral_jobs_does_not_re_add_a_company_already_in_the_bank(tmp_p
     assert stats["added_to_career_pages"] == 0
     pages = json.loads(config.COMPANIES_CAREER_PAGES_PATH.read_text(encoding="utf-8"))
     assert pages == {"Acme": "https://acme.com/careers"}
+
+
+def test_merge_referral_jobs_reports_techmap_approved_companies_as_scrapable(tmp_path, monkeypatch):
+    companies_dir = tmp_path / "companies"
+    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
+    monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {
+        "acme": [{"title": "Backend Engineer", "location": None, "url": "https://x", "company": "Acme"}],
+    })
+
+    upload_path = tmp_path / "referral.json"
+    upload_path.write_text(json.dumps({
+        "companies": [{"company": "Acme", "jobs": [{"title": "Backend Engineer", "contact": "Jane Doe"}]}],
+    }), encoding="utf-8")
+
+    stats = update_jobs.merge_referral_jobs(profiles={}, path=upload_path)
+
+    assert stats["scrapable_companies"] == ["Acme"]
+
+
+def test_merge_referral_jobs_reports_no_techmap_companies_as_not_scrapable(tmp_path, monkeypatch):
+    companies_dir = tmp_path / "companies"
+    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
+
+    upload_path = tmp_path / "referral.json"
+    upload_path.write_text(json.dumps({
+        "companies": [{"company": "Acme", "jobs": [{"title": "Backend Engineer", "contact": "Jane Doe"}]}],
+    }), encoding="utf-8")
+
+    stats = update_jobs.merge_referral_jobs(profiles={}, path=upload_path)
+
+    assert stats["scrapable_companies"] == []
 
 
 def test_merge_referral_jobs_backfills_a_company_already_tracked_but_missing_from_the_bank(tmp_path, monkeypatch):

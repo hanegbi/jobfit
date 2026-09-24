@@ -92,6 +92,7 @@
         <button type="submit">Upload referral export</button>
       </form>
       <div class="msg" id="referralMsg"></div>
+      <div id="referralScrapeAction"></div>
       <div id="referralList"></div>
     </section>
 
@@ -306,8 +307,10 @@ document.getElementById("connectionsForm").addEventListener("submit", async (e) 
 document.getElementById("referralForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const msg = document.getElementById("referralMsg");
+  const scrapeAction = document.getElementById("referralScrapeAction");
   msg.textContent = "Uploading...";
   msg.classList.remove("error");
+  scrapeAction.innerHTML = "";
   try {
     const res = await fetch("/api/referrals", { method: "POST", body: new FormData(e.target) });
     const data = await res.json();
@@ -316,6 +319,17 @@ document.getElementById("referralForm").addEventListener("submit", async (e) => 
     e.target.reset();
     await refreshReferrals();
     await refreshDashboard();
+    await refreshCompanies();
+
+    const scrapable = data.scrapable_companies || [];
+    if (scrapable.length) {
+      scrapeAction.innerHTML = `<button id="scrapeReferralCompanies">Scrape ${scrapable.length} new compan${scrapable.length === 1 ? "y" : "ies"} now</button>`;
+      document.getElementById("scrapeReferralCompanies").addEventListener("click", async () => {
+        document.getElementById("run").scrollIntoView({ behavior: "smooth" });
+        await startRun({ force: false, companies: scrapable });
+        scrapeAction.innerHTML = "";
+      });
+    }
   } catch (err) {
     msg.textContent = err.message;
     msg.classList.add("error");
@@ -417,18 +431,23 @@ function streamRunLog() {
   });
 }
 
-document.getElementById("runBtn").addEventListener("click", async () => {
-  const force = document.getElementById("runForce").checked;
+async function startRun(payload) {
   document.getElementById("runLog").textContent = "";
   const res = await fetch("/api/run", {
-    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ force }),
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
   });
   if (res.status === 409) {
     document.getElementById("runStatus").textContent = "A run is already active.";
-    return;
+    return false;
   }
   await refreshRunStatus();
   streamRunLog();
+  return true;
+}
+
+document.getElementById("runBtn").addEventListener("click", () => {
+  const force = document.getElementById("runForce").checked;
+  startRun({ force });
 });
 
 refreshDashboard();

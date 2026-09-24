@@ -61,7 +61,11 @@ def mark_orphaned_runs_crashed() -> None:
         _save_history(history)
 
 
-def start_run(force: bool) -> str:
+def start_run(force: bool, companies: list[str] | None = None) -> str:
+    """companies=None scrapes every company in the bank (the normal "Run
+    update" button); a list scopes the scrape to just those names - e.g. the
+    companies a referral upload just added, so you don't have to re-check
+    everything else to pick up a handful of new ones."""
     with _lock:
         if _state["running"]:
             raise RuntimeError(f"run {_state['run_id']} already active")
@@ -72,24 +76,27 @@ def start_run(force: bool) -> str:
     history = _load_history()
     history.append({
         "id": run_id, "started_at": started_at, "finished_at": None, "trigger": "manual",
-        "force": force, "companies_checked": 0, "companies_skipped": 0, "new_jobs": 0,
-        "closed_jobs": 0, "failures": [], "duration_s": None, "crashed": False,
+        "force": force, "companies": companies, "companies_checked": 0, "companies_skipped": 0,
+        "new_jobs": 0, "closed_jobs": 0, "failures": [], "duration_s": None, "crashed": False,
     })
     _save_history(history)
 
-    thread = threading.Thread(target=_run_worker, args=(run_id, force), daemon=True)
+    thread = threading.Thread(target=_run_worker, args=(run_id, force, companies), daemon=True)
     thread.start()
     return run_id
 
 
-def _run_worker(run_id: str, force: bool) -> None:
+def _run_worker(run_id: str, force: bool, companies: list[str] | None) -> None:
     line_queue = log_queue()
     attached = attach(line_queue, _LOGGER_NAMES) if line_queue is not None else []
     started = time.time()
     try:
-        companies = update_jobs.load_companies_to_scrape()
+        scrape_targets = update_jobs.load_companies_to_scrape()
+        if companies is not None:
+            wanted = set(companies)
+            scrape_targets = {name: url for name, url in scrape_targets.items() if name in wanted}
         profiles = update_jobs.cv.load_profiles()
-        stats = update_jobs.scrape_stage(companies, profiles, force=force)
+        stats = update_jobs.scrape_stage(scrape_targets, profiles, force=force)
         update_jobs.recompute_stage()
         _finish_run(run_id, started, stats)
     finally:

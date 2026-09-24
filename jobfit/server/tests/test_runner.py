@@ -9,15 +9,22 @@ def test_start_run_marks_running_then_finishes(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
     monkeypatch.setattr(runner, "_LOGGER_NAMES", [])
 
+    seen_companies = {}
+
     def _fake_scrape_stage(companies, profiles, force=False):
         from jobfit.scripts.update_jobs import RunStats
+        seen_companies.update(companies)
         return RunStats(companies_checked=1, companies_skipped=0, new_jobs=2, closed_jobs=0, failures=[])
 
     monkeypatch.setattr("jobfit.scripts.update_jobs.scrape_stage", _fake_scrape_stage)
     monkeypatch.setattr("jobfit.scripts.update_jobs.recompute_stage", lambda: None)
     monkeypatch.setattr("jobfit.scripts.update_jobs.cv.load_profiles", lambda: {})
     monkeypatch.setattr(config, "ROOT", tmp_path)
-    (tmp_path / "companies_career_pages.json").write_text("{}", encoding="utf-8")
+    monkeypatch.setattr(config, "COMPANIES_CAREER_PAGES_PATH", tmp_path / "companies_career_pages.json")
+    monkeypatch.setattr(config, "COMPANY_REVIEW_PATH", tmp_path / "data" / "company_review.json")
+    (tmp_path / "companies_career_pages.json").write_text(
+        json.dumps({"Acme": "https://acme.com/careers"}), encoding="utf-8"
+    )
 
     run_id = runner.start_run(force=False)
     assert runner.status()["running"] is True
@@ -33,6 +40,42 @@ def test_start_run_marks_running_then_finishes(tmp_path, monkeypatch):
     assert history[-1]["id"] == run_id
     assert history[-1]["new_jobs"] == 2
     assert history[-1]["finished_at"] is not None
+    assert seen_companies == {"Acme": "https://acme.com/careers"}
+
+
+def test_start_run_scopes_scrape_to_the_given_companies(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
+    monkeypatch.setattr(runner, "_LOGGER_NAMES", [])
+
+    seen_companies = {}
+
+    def _fake_scrape_stage(companies, profiles, force=False):
+        from jobfit.scripts.update_jobs import RunStats
+        seen_companies.update(companies)
+        return RunStats(companies_checked=len(companies), companies_skipped=0, new_jobs=0, closed_jobs=0, failures=[])
+
+    monkeypatch.setattr("jobfit.scripts.update_jobs.scrape_stage", _fake_scrape_stage)
+    monkeypatch.setattr("jobfit.scripts.update_jobs.recompute_stage", lambda: None)
+    monkeypatch.setattr("jobfit.scripts.update_jobs.cv.load_profiles", lambda: {})
+    monkeypatch.setattr(config, "ROOT", tmp_path)
+    monkeypatch.setattr(config, "COMPANIES_CAREER_PAGES_PATH", tmp_path / "companies_career_pages.json")
+    monkeypatch.setattr(config, "COMPANY_REVIEW_PATH", tmp_path / "data" / "company_review.json")
+    (tmp_path / "companies_career_pages.json").write_text(json.dumps({
+        "Acme": "https://acme.com/careers",
+        "Beta": "https://beta.com/careers",
+    }), encoding="utf-8")
+
+    run_id = runner.start_run(force=False, companies=["Beta"])
+
+    for _ in range(50):
+        if not runner.is_running():
+            break
+        time.sleep(0.05)
+
+    assert seen_companies == {"Beta": "https://beta.com/careers"}
+    history = runner.get_history()
+    assert history[-1]["id"] == run_id
+    assert history[-1]["companies"] == ["Beta"]
 
 
 def test_start_run_rejects_a_second_concurrent_run(tmp_path, monkeypatch):

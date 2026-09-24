@@ -76,6 +76,10 @@ def client(tmp_path, monkeypatch):
     monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path / "companies")
     monkeypatch.setattr(update_jobs, "META_PATH", tmp_path / "companies" / "_meta.json")
     monkeypatch.setattr(app_module, "LOCK_PATH", tmp_path / ".server.lock")
+    # merge_referral_jobs() checks techmap availability for any newly-seen
+    # company - stub it out so referral-upload tests never hit the real
+    # techmap cache/network.
+    monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
 
     (tmp_path / "companies").mkdir()
     (tmp_path / "companies_career_pages.json").write_text("{}", encoding="utf-8")
@@ -355,6 +359,26 @@ def test_start_run_returns_a_run_id_and_marks_running(client, monkeypatch):
     history = client.get("/api/run/history").json()
     assert len(history) == 1
     assert history[0]["finished_at"] is not None
+
+
+def test_start_run_with_companies_scopes_the_scrape(client, monkeypatch):
+    seen = {}
+
+    def _fake_scrape_stage(companies, profiles, force=False):
+        seen.update(companies)
+        return update_jobs.RunStats(companies_checked=len(companies), companies_skipped=0, new_jobs=0, closed_jobs=0, failures=[])
+    monkeypatch.setattr(update_jobs, "scrape_stage", _fake_scrape_stage)
+    monkeypatch.setattr(update_jobs, "recompute_stage", lambda: None)
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {})
+    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({
+        "Acme": "https://acme.com/careers", "Beta": "https://beta.com/careers",
+    }), encoding="utf-8")
+
+    res = client.post("/api/run", json={"force": False, "companies": ["Beta"]})
+    assert res.status_code == 200
+    _wait_for_idle()
+
+    assert seen == {"Beta": "https://beta.com/careers"}
 
 
 def test_start_run_returns_409_when_already_running(client):

@@ -421,7 +421,7 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
     path = path or config.REFERRAL_JOBS_PATH
     stats = {
         "matched_existing_company": 0, "new_company": 0, "merged_into_existing_job": 0,
-        "added_new_job": 0, "added_to_career_pages": 0,
+        "added_new_job": 0, "added_to_career_pages": 0, "scrapable_companies": [],
     }
     if not path.exists():
         return stats
@@ -441,6 +441,7 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
     ]
     canonical_by_key = {connections.normalize_company(c): c for c in existing_names if connections.normalize_company(c)}
     now = _now_iso()
+    touched_companies: set[str] = set()
 
     for company_entry in referral_source.load_referral_companies(path):
         names = [company_entry.get("company", "")] + list(company_entry.get("also_posted_as") or [])
@@ -461,6 +462,7 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
                 canonical_by_key[key] = canonical
             stats["new_company"] += 1
 
+        touched_companies.add(canonical)
         record = load_company_file(canonical)
         for raw_job in company_entry.get("jobs") or []:
             title = (raw_job.get("title") or "").strip()
@@ -513,6 +515,12 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
     if stats["added_to_career_pages"]:
         company_review.save_career_pages(career_pages)
         company_review.save_review(review)
+
+    # Which of this upload's companies are actually eligible for a scoped
+    # scrape right now (a real URL, or techmap-approved) - a company left
+    # pending review isn't scrapable until that's resolved in the panel.
+    scrapable = load_companies_to_scrape()
+    stats["scrapable_companies"] = sorted(name for name in touched_companies if name in scrapable)
 
     return stats
 

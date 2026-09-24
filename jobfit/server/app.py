@@ -155,8 +155,9 @@ def api_set_company_career_url(company: str, payload: dict) -> dict:
 @app.post("/api/run")
 def api_start_run(payload: dict) -> dict:
     force = bool(payload.get("force", False))
+    companies = payload.get("companies")
     try:
-        run_id = runner.start_run(force)
+        run_id = runner.start_run(force, companies=companies)
     except RuntimeError as error:
         raise HTTPException(409, str(error))
     return {"run_id": run_id, "status": "started"}
