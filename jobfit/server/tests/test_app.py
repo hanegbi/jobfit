@@ -345,7 +345,7 @@ def test_run_history_starts_empty(client):
 
 
 def test_start_run_returns_a_run_id_and_marks_running(client, monkeypatch):
-    def _fake_scrape_stage(companies, profiles, force=False):
+    def _fake_scrape_stage(companies, profiles, force=False, cancel_event=None):
         return update_jobs.RunStats(companies_checked=0, companies_skipped=0, new_jobs=0, closed_jobs=0, failures=[])
     monkeypatch.setattr(update_jobs, "scrape_stage", _fake_scrape_stage)
     monkeypatch.setattr(update_jobs, "recompute_stage", lambda: None)
@@ -364,7 +364,7 @@ def test_start_run_returns_a_run_id_and_marks_running(client, monkeypatch):
 def test_start_run_with_companies_scopes_the_scrape(client, monkeypatch):
     seen = {}
 
-    def _fake_scrape_stage(companies, profiles, force=False):
+    def _fake_scrape_stage(companies, profiles, force=False, cancel_event=None):
         seen.update(companies)
         return update_jobs.RunStats(companies_checked=len(companies), companies_skipped=0, new_jobs=0, closed_jobs=0, failures=[])
     monkeypatch.setattr(update_jobs, "scrape_stage", _fake_scrape_stage)
@@ -390,6 +390,26 @@ def test_start_run_returns_409_when_already_running(client):
     finally:
         with runner._lock:
             runner._state.update(running=False, run_id=None, started_at=None, queue=None)
+
+
+def test_stop_run_returns_409_when_nothing_is_running(client):
+    res = client.post("/api/run/stop")
+    assert res.status_code == 409
+
+
+def test_stop_run_sets_the_cancel_event_for_an_active_run(client):
+    import threading
+    event = threading.Event()
+    with runner._lock:
+        runner._state.update(running=True, run_id="already-running", started_at="x", queue=None, cancel_event=event)
+    try:
+        res = client.post("/api/run/stop")
+        assert res.status_code == 200
+        assert event.is_set() is True
+        assert client.get("/api/run/status").json()["stop_requested"] is True
+    finally:
+        with runner._lock:
+            runner._state.update(running=False, run_id=None, started_at=None, queue=None, cancel_event=None)
 
 
 def test_run_stream_reports_idle_when_no_run_is_active(client):

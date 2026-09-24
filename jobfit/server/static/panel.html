@@ -105,6 +105,7 @@
     <section id="run">
       <h2>Run &amp; Logs</h2>
       <button id="runBtn">Run update</button>
+      <button id="stopBtn" hidden>Stop</button>
       <label class="force"><input type="checkbox" id="runForce"> force (ignore recently-checked skip)</label>
       <div class="msg" id="runStatus"></div>
       <pre id="runLog"></pre>
@@ -422,8 +423,12 @@ async function refreshCompanies() {
 
 async function refreshRunStatus() {
   const s = await (await fetch("/api/run/status")).json();
-  document.getElementById("runStatus").textContent = s.running ? `Running (started ${fmtDate(s.started_at)})` : "Idle";
+  document.getElementById("runStatus").textContent = s.running
+    ? (s.stop_requested ? "Stopping (finishing in-flight companies)..." : `Running (started ${fmtDate(s.started_at)})`)
+    : "Idle";
   document.getElementById("runBtn").disabled = s.running;
+  document.getElementById("stopBtn").hidden = !s.running;
+  document.getElementById("stopBtn").disabled = s.stop_requested;
   return s.running;
 }
 
@@ -431,7 +436,7 @@ async function refreshRunHistory() {
   const history = await (await fetch("/api/run/history")).json();
   document.getElementById("runHistory").innerHTML = history.length ? history.slice().reverse().map(r => `
     <div class="list-row">
-      <span class="name">${fmtDate(r.started_at)} ${r.crashed ? "(crashed)" : ""}</span>
+      <span class="name">${fmtDate(r.started_at)} ${r.crashed ? "(crashed)" : r.stopped ? "(stopped early)" : ""}</span>
       <span class="meta">${r.new_jobs ?? 0} new, ${r.closed_jobs ?? 0} closed, ${(r.failures || []).length} failed</span>
     </div>`).join("") : `<div class="empty">No runs yet.</div>`;
 }
@@ -466,6 +471,11 @@ async function startRun(payload) {
   streamRunLog();
   return true;
 }
+
+document.getElementById("stopBtn").addEventListener("click", async () => {
+  await fetch("/api/run/stop", { method: "POST" });
+  await refreshRunStatus();
+});
 
 document.getElementById("runBtn").addEventListener("click", () => {
   const force = document.getElementById("runForce").checked;

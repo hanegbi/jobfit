@@ -15,7 +15,7 @@ from jobfit.server.logging_stream import attach, detach
 _LOGGER_NAMES = ["jobfit.update_jobs", "jobfit.ats", "jobfit.techmap", "jobfit.lm_bridge"]
 
 _lock = threading.Lock()
-_state = {"running": False, "run_id": None, "started_at": None, "queue": None}
+_state = {"running": False, "run_id": None, "started_at": None, "queue": None, "cancel_event": None}
 
 
 def is_running() -> bool:
@@ -25,7 +25,24 @@ def is_running() -> bool:
 
 def status() -> dict:
     with _lock:
-        return {"running": _state["running"], "run_id": _state["run_id"], "started_at": _state["started_at"]}
+        stop_requested = bool(_state["cancel_event"] is not None and _state["cancel_event"].is_set())
+        return {
+            "running": _state["running"], "run_id": _state["run_id"], "started_at": _state["started_at"],
+            "stop_requested": stop_requested,
+        }
+
+
+def stop_run() -> bool:
+    """Ask the active run to wind down gracefully: no new companies get
+    queued after this, but whatever's already in flight finishes and saves
+    normally. Returns False if nothing is running."""
+    with _lock:
+        if not _state["running"]:
+            return False
+        event = _state["cancel_event"]
+    if event is not None:
+        event.set()
+    return True
 
 
 def log_queue():
@@ -71,22 +88,23 @@ def start_run(force: bool, companies: list[str] | None = None) -> str:
             raise RuntimeError(f"run {_state['run_id']} already active")
         run_id = uuid.uuid4().hex[:12]
         started_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-        _state.update(running=True, run_id=run_id, started_at=started_at, queue=queue.Queue())
+        cancel_event = threading.Event()
+        _state.update(running=True, run_id=run_id, started_at=started_at, queue=queue.Queue(), cancel_event=cancel_event)
 
     history = _load_history()
     history.append({
         "id": run_id, "started_at": started_at, "finished_at": None, "trigger": "manual",
         "force": force, "companies": companies, "companies_checked": 0, "companies_skipped": 0,
-        "new_jobs": 0, "closed_jobs": 0, "failures": [], "duration_s": None, "crashed": False,
+        "new_jobs": 0, "closed_jobs": 0, "failures": [], "duration_s": None, "crashed": False, "stopped": False,
     })
     _save_history(history)
 
-    thread = threading.Thread(target=_run_worker, args=(run_id, force, companies), daemon=True)
+    thread = threading.Thread(target=_run_worker, args=(run_id, force, companies, cancel_event), daemon=True)
     thread.start()
     return run_id
 
 
-def _run_worker(run_id: str, force: bool, companies: list[str] | None) -> None:
+def _run_worker(run_id: str, force: bool, companies: list[str] | None, cancel_event: threading.Event) -> None:
     line_queue = log_queue()
     attached = attach(line_queue, _LOGGER_NAMES) if line_queue is not None else []
     started = time.time()
@@ -96,18 +114,18 @@ def _run_worker(run_id: str, force: bool, companies: list[str] | None) -> None:
             wanted = set(companies)
             scrape_targets = {name: url for name, url in scrape_targets.items() if name in wanted}
         profiles = update_jobs.cv.load_profiles()
-        stats = update_jobs.scrape_stage(scrape_targets, profiles, force=force)
+        stats = update_jobs.scrape_stage(scrape_targets, profiles, force=force, cancel_event=cancel_event)
         update_jobs.recompute_stage()
-        _finish_run(run_id, started, stats)
+        _finish_run(run_id, started, stats, stopped=cancel_event.is_set())
     finally:
         detach(attached)
         if line_queue is not None:
             line_queue.put(None)
         with _lock:
-            _state.update(running=False, run_id=None, started_at=None, queue=None)
+            _state.update(running=False, run_id=None, started_at=None, queue=None, cancel_event=None)
 
 
-def _finish_run(run_id: str, started: float, stats) -> None:
+def _finish_run(run_id: str, started: float, stats, stopped: bool = False) -> None:
     history = _load_history()
     for entry in history:
         if entry["id"] == run_id:
@@ -119,6 +137,7 @@ def _finish_run(run_id: str, started: float, stats) -> None:
                 closed_jobs=stats.closed_jobs,
                 failures=stats.failures,
                 duration_s=round(time.time() - started, 1),
+                stopped=stopped,
             )
             break
     _save_history(history)

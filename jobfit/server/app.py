@@ -168,6 +168,13 @@ def api_run_status() -> dict:
     return runner.status()
 
 
+@app.post("/api/run/stop")
+def api_stop_run() -> dict:
+    if not runner.stop_run():
+        raise HTTPException(409, "no run is active")
+    return {"status": "stopping"}
+
+
 @app.get("/api/run/history")
 def api_run_history() -> list[dict]:
     return runner.get_history()

@@ -1,5 +1,6 @@
 import asyncio
 import json
+import threading
 from datetime import datetime, timedelta, timezone
 
 import pytest
@@ -72,3 +73,42 @@ def test_fetch_company_jobs_async_uses_techmap_directly_when_url_is_none():
         update_jobs.fetch_company_jobs_async("Beta", None, session=None, profiles={}, techmap_index=techmap_index)
     )
     assert jobs == [{"title": "Backend Engineer", "location": "Remote", "url": "https://x", "description": ""}]
+
+
+# --- scrape_stage graceful cancellation ------------------------------------
+
+def test_scrape_stage_queues_nothing_when_cancel_event_is_already_set(monkeypatch):
+    monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
+    monkeypatch.setattr(update_jobs.ats_fetchers, "make_session", lambda: None)
+    called = []
+
+    def _fake_process(company, url, session, profiles, techmap_index, force):
+        called.append(company)
+        return company, 0, 0, False, None
+
+    monkeypatch.setattr(update_jobs, "_process_company", _fake_process)
+
+    cancel_event = threading.Event()
+    cancel_event.set()
+
+    stats = update_jobs.scrape_stage(
+        {"Acme": "https://acme.com/careers", "Beta": "https://beta.com/careers"},
+        profiles={}, cancel_event=cancel_event,
+    )
+
+    assert called == []
+    assert stats.companies_checked == 0
+
+
+def test_scrape_stage_runs_normally_with_no_cancel_event(monkeypatch):
+    monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
+    monkeypatch.setattr(update_jobs.ats_fetchers, "make_session", lambda: None)
+
+    def _fake_process(company, url, session, profiles, techmap_index, force):
+        return company, 1, 0, False, None
+
+    monkeypatch.setattr(update_jobs, "_process_company", _fake_process)
+
+    stats = update_jobs.scrape_stage({"Acme": "https://acme.com/careers"}, profiles={})
+
+    assert stats.companies_checked == 1

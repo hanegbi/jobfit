@@ -339,20 +339,31 @@ def _process_company(company, url, session, profiles, techmap_index, force):
         return company, 0, 0, False, error
 
 
-def scrape_stage(companies: dict[str, str], profiles: dict, force: bool = False) -> RunStats:
+def scrape_stage(
+    companies: dict[str, str], profiles: dict, force: bool = False, cancel_event=None
+) -> RunStats:
     """The network-bound half of an update: fetch + diff every company,
     concurrently, skipping anything checked within COMPANY_RECHECK_TTL_HOURS
-    unless force=True."""
+    unless force=True.
+
+    cancel_event (a threading.Event, checked between submissions) lets a
+    graceful stop request take effect without killing the process: once set,
+    no more companies get queued, but whatever's already in flight (at most
+    WORKERS of them) is allowed to finish and save normally, so nothing gets
+    left half-written.
+    """
     session = ats_fetchers.make_session()
     logger.info("loading techmap data (fallback source for companies whose own site can't be parsed)...")
     techmap_index = load_techmap_index()
 
     stats = RunStats()
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
-        futures = [
-            pool.submit(_process_company, company, url, session, profiles, techmap_index, force)
-            for company, url in companies.items()
-        ]
+        futures = []
+        for company, url in companies.items():
+            if cancel_event is not None and cancel_event.is_set():
+                logger.info("stop requested - not queuing the remaining companies")
+                break
+            futures.append(pool.submit(_process_company, company, url, session, profiles, techmap_index, force))
         for future in as_completed(futures):
             company, new_count, closed_count, skipped, error = future.result()
             if skipped:
