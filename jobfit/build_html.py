@@ -328,6 +328,7 @@ PAGE_TEMPLATE = r"""<!doctype html>
 <script>
 const JOBS = __JOBS_JSON__;
 const PROFILES = __PROFILES_JSON__;
+const COMPANY_ADDRESSES = __COMPANY_ADDRESSES_JSON__;
 const GENERATED_AT = __GENERATED_AT_JSON__;
 
 const cvSelectEl = document.getElementById("cvSelect");
@@ -720,14 +721,33 @@ function confidenceFor(job, cvName) {
   return job[`confidence_${cvName}`];
 }
 
+// Precise office address for a job's company/branch, when we've researched
+// one (see jobfit/data/company_addresses.json - best-effort, most companies
+// don't have an entry). Matches by city against the job's own location text
+// first (a company can have several branches); falls back to a company's
+// only branch if it has just one and nothing matched by city.
+function findPreciseAddress(job) {
+  const branches = COMPANY_ADDRESSES[job.company];
+  if (!branches || !branches.length) return null;
+  const loc = (job.location || "").toLowerCase();
+  const city = (job.city || "").toLowerCase();
+  const match = branches.find(b => {
+    const bc = (b.city || "").toLowerCase();
+    return bc && (loc.includes(bc) || city === bc);
+  });
+  return match || (branches.length === 1 ? branches[0] : null);
+}
+
 function locationTagHtml(job) {
   const loc = job.location;
   const locEsc = escapeHtml(loc);
   const looksReal = !job.is_remote && loc.trim().toLowerCase() !== "remote";
   if (!looksReal) return `<span class="tag muted">${locEsc}</span>`;
-  const query = encodeURIComponent(`${job.company || ""} ${loc}`.trim());
-  const mapsUrl = escapeHtml(`https://www.google.com/maps/search/?api=1&query=${query}`);
-  const tooltip = escapeHtml(`Open ${loc} on Google Maps`);
+  const addr = findPreciseAddress(job);
+  const mapsQuery = addr ? `${addr.street} ${addr.number}, ${addr.city}`.trim() : `${job.company || ""} ${loc}`.trim();
+  const tooltipText = addr ? `Open ${addr.street} ${addr.number}, ${addr.city} on Google Maps` : `Open ${loc} on Google Maps`;
+  const mapsUrl = escapeHtml(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`);
+  const tooltip = escapeHtml(tooltipText);
   return `<a class="tag muted tag-location" href="${mapsUrl}" target="_blank" rel="noopener" title="${tooltip}">${locEsc}</a>`;
 }
 
@@ -1120,13 +1140,30 @@ render();
 """
 
 
+def _load_company_addresses() -> dict:
+    """Precise office addresses (city/street/number, possibly multiple
+    branches) researched per company - see jobfit/data/company_addresses.json.
+    Best-effort and far from complete (most companies don't publish a real
+    street address anywhere public); the UI falls back to a plain
+    company+city Maps search when a company has no entry here."""
+    path = config.ROOT / "data" / "company_addresses.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
 def render(dataset: list[dict], profiles: list[dict]) -> str:
     jobs_json = json.dumps(dataset, ensure_ascii=False).replace("</", "<\\/")
     profiles_json = json.dumps(profiles, ensure_ascii=False)
+    addresses_json = json.dumps(_load_company_addresses(), ensure_ascii=False).replace("</", "<\\/")
     generated_at = json.dumps(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"))
     return (
         PAGE_TEMPLATE.replace("__JOBS_JSON__", jobs_json)
         .replace("__PROFILES_JSON__", profiles_json)
+        .replace("__COMPANY_ADDRESSES_JSON__", addresses_json)
         .replace("__GENERATED_AT_JSON__", generated_at)
     )
 

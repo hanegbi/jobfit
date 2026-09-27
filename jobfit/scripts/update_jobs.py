@@ -354,7 +354,8 @@ async def fetch_company_jobs_async(
         logger.debug("%s: playwright fallback failed: %s", company, error)
         pw_jobs = []
     pw_scored = _any_job_scores_positive(pw_jobs, profiles)
-    if pw_scored and _has_real_descriptions(pw_jobs) and _looks_like_real_job_urls(pw_jobs):
+    pw_urls_look_real = _looks_like_real_job_urls(pw_jobs)
+    if pw_scored and _has_real_descriptions(pw_jobs) and pw_urls_look_real:
         return pw_jobs
 
     # Neither tier fully qualified (scored + real description + job-shaped
@@ -364,7 +365,9 @@ async def fetch_company_jobs_async(
     # static HTML or Playwright-rendered - only product pages whose long
     # copy scores well on keyword overlap) - prefer techmap's thin-but-real
     # data over storing product pages as fake jobs, when techmap has it.
-    if not (pw_scored and _has_real_descriptions(pw_jobs)) and not (plain_scored and _has_real_descriptions(jobs)):
+    plain_fully_qualified = plain_scored and _has_real_descriptions(jobs) and plain_urls_look_real
+    pw_fully_qualified = pw_scored and _has_real_descriptions(pw_jobs) and pw_urls_look_real
+    if not plain_fully_qualified and not pw_fully_qualified:
         techmap_jobs = _techmap_fallback_jobs(company, techmap_index)
         if techmap_jobs:
             logger.info("%s: still nothing scoring after Playwright - falling back to techmap (%d rows)", company, len(techmap_jobs))
