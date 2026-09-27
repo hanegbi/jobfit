@@ -563,7 +563,9 @@ def scrape_stage(
 RECOMPUTE_WORKERS = 8
 
 
-def _recompute_one_company(path_str: str, profiles: dict, profile_ids: set, stale_prefixes: tuple) -> tuple[int, int]:
+def _recompute_one_company(
+    path_str: str, profiles: dict, profile_ids: set, stale_prefixes: tuple, force: bool = False,
+) -> tuple[int, int]:
     """Runs in a worker process (see recompute_stage): rescore one
     company's stored jobs against the given profiles and save it back.
     Module-level (not a closure) and taking only picklable arguments,
@@ -578,6 +580,13 @@ def _recompute_one_company(path_str: str, profiles: dict, profile_ids: set, stal
     re-upload); a profile being added/removed also naturally falls out of
     this (the key sets no longer match) without special-casing it.
 
+    The cache key is a hash of the *inputs* (description + CV text) only,
+    not of jobfit.scoring's own logic - a scoring-formula change (e.g. a
+    gate fix) doesn't change any job's inputs, so it can't invalidate the
+    cache on its own. `force=True` bypasses the cache check entirely so a
+    formula change actually takes effect on already-scored jobs, at the
+    cost of rescoring everything regardless of whether it's needed.
+
     Returns (jobs_rescored, jobs_skipped_unchanged).
     """
     path = Path(path_str)
@@ -586,7 +595,7 @@ def _recompute_one_company(path_str: str, profiles: dict, profile_ids: set, stal
     skipped = 0
     for job in record["jobs"]:
         current_keys = {name: scoring.score_cache_key(job, profile) for name, profile in profiles.items()}
-        if job.get("_score_cache_keys") == current_keys:
+        if not force and job.get("_score_cache_keys") == current_keys:
             skipped += 1
             continue
         job.update(scoring.score_job_both(job, profiles))
@@ -600,7 +609,7 @@ def _recompute_one_company(path_str: str, profiles: dict, profile_ids: set, stal
     return rescored, skipped
 
 
-def recompute_stage() -> None:
+def recompute_stage(force: bool = False) -> None:
     """The local-only half of an update: rescore every stored job against the
     *current* profile registry, drop any score fields for profiles that no
     longer exist, reaggregate, and rebuild jobfit.html. Safe to call after
@@ -615,6 +624,10 @@ def recompute_stage() -> None:
     process-per-company parallelizes cleanly with no coordination needed
     beyond collecting each worker's per-company job count for the
     progress log.
+
+    force=True bypasses the per-job score cache (see _recompute_one_company)
+    - needed after a jobfit.scoring/ats_scorer *logic* change, since the
+    cache key only tracks input (description/CV text) changes.
     """
     profiles = cv.load_profiles()
     profile_ids = set(profiles)
@@ -627,13 +640,13 @@ def recompute_stage() -> None:
     log_every = 50
     start = time.time()
     logger.info(
-        "recompute: rescoring %d companies against %d profile(s) using %d worker processes...",
-        total_companies, len(profiles), RECOMPUTE_WORKERS,
+        "recompute: rescoring %d companies against %d profile(s) using %d worker processes%s...",
+        total_companies, len(profiles), RECOMPUTE_WORKERS, " (forced, ignoring cache)" if force else "",
     )
 
     with ProcessPoolExecutor(max_workers=RECOMPUTE_WORKERS) as pool:
         futures = [
-            pool.submit(_recompute_one_company, str(path), profiles, profile_ids, stale_prefixes)
+            pool.submit(_recompute_one_company, str(path), profiles, profile_ids, stale_prefixes, force)
             for path in company_paths
         ]
         for i, future in enumerate(as_completed(futures), start=1):

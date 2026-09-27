@@ -66,6 +66,29 @@ def test_recompute_rescores_a_job_whose_description_changed_since_it_was_scored(
     assert saved["jobs"][0]["_score_cache_keys"] == {"default": scoring.score_cache_key(job, profiles["default"])}
 
 
+def test_recompute_force_bypasses_a_matching_cache_key(tmp_path, monkeypatch):
+    """force=True exists for a scoring-*logic* change (e.g. a gate fix): the
+    cache key only tracks input (description/CV text) changes, so an
+    unchanged job would otherwise be skipped forever even though its score
+    should change under the new logic."""
+    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
+    profiles = {"default": {"text": "Backend engineer with Python experience"}}
+    job = {"id": "1", "title": "Backend Engineer", "description": "Python required"}
+    job["_score_cache_keys"] = {"default": scoring.score_cache_key(job, profiles["default"])}
+    job["score_default"] = 99  # deliberately-wrong stored score
+    path = tmp_path / "acme.json"
+    path.write_text(json.dumps({"name": "Acme", "jobs": [job]}), encoding="utf-8")
+
+    rescored, skipped = update_jobs._recompute_one_company(
+        str(path), profiles, {"default"}, ("score_", "matched_", "coverage_", "confidence_", "requirements_"),
+        force=True,
+    )
+
+    assert (rescored, skipped) == (1, 0)
+    saved = json.loads(path.read_text(encoding="utf-8"))
+    assert saved["jobs"][0]["score_default"] != 99
+
+
 def test_recompute_rescores_when_a_profile_is_added(tmp_path, monkeypatch):
     """Real case: uploading a second CV profile - a job already scored
     against "default" must also get scored against the new "infra"
