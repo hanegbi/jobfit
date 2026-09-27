@@ -70,3 +70,85 @@ def test_looks_like_boilerplate_never_flags_long_text_even_with_a_marker():
     long_text = ("We are hiring a great engineer. " * 60) + "Manage Consent"
     assert len(long_text) >= ats_fetchers._SHORT_BOILERPLATE_LEN
     assert ats_fetchers.looks_like_boilerplate(long_text) is False
+
+
+# --- JSON-LD JobPosting extraction ------------------------------------------
+
+def _soup(html: str):
+    from bs4 import BeautifulSoup
+    return BeautifulSoup(html, "html.parser")
+
+
+def test_jsonld_job_postings_finds_a_single_object():
+    html = '<script type="application/ld+json">{"@type": "JobPosting", "title": "Backend Engineer"}</script>'
+    postings = ats_fetchers._jsonld_job_postings(_soup(html))
+    assert len(postings) == 1
+    assert postings[0]["title"] == "Backend Engineer"
+
+
+def test_jsonld_job_postings_finds_objects_in_a_list():
+    html = '<script type="application/ld+json">[{"@type": "JobPosting", "title": "A"}, {"@type": "Organization"}]</script>'
+    postings = ats_fetchers._jsonld_job_postings(_soup(html))
+    assert len(postings) == 1
+    assert postings[0]["title"] == "A"
+
+
+def test_jsonld_job_postings_unwraps_a_graph_wrapper():
+    html = '<script type="application/ld+json">{"@graph": [{"@type": "JobPosting", "title": "A"}, {"@type": "WebPage"}]}</script>'
+    postings = ats_fetchers._jsonld_job_postings(_soup(html))
+    assert len(postings) == 1
+    assert postings[0]["title"] == "A"
+
+
+def test_jsonld_job_postings_ignores_malformed_json():
+    html = '<script type="application/ld+json">{not valid json</script>'
+    assert ats_fetchers._jsonld_job_postings(_soup(html)) == []
+
+
+def test_jsonld_job_postings_returns_empty_when_no_script_tags():
+    assert ats_fetchers._jsonld_job_postings(_soup("<html><body>hi</body></html>")) == []
+
+
+def test_jsonld_location_extracts_from_nested_postal_address():
+    posting = {"jobLocation": {"address": {"addressLocality": "Tel Aviv", "addressRegion": "", "addressCountry": "IL"}}}
+    assert ats_fetchers._jsonld_location(posting) == "Tel Aviv, IL"
+
+
+def test_jsonld_location_handles_addressCountry_as_a_nested_object():
+    """Real crash found live on A2Z Cust2Mate's job pages: addressCountry was
+    {"@type": "Country", "name": "IL"} instead of a plain string, and the
+    original ", ".join(...) raised TypeError on the dict."""
+    posting = {"jobLocation": {"address": {
+        "addressLocality": "Giv'atayim", "addressRegion": "Tel Aviv District",
+        "addressCountry": {"@type": "Country", "name": "IL"},
+    }}}
+    assert ats_fetchers._jsonld_location(posting) == "Giv'atayim, Tel Aviv District, IL"
+
+
+def test_jsonld_location_handles_a_plain_string_address():
+    posting = {"jobLocation": {"address": "Remote"}}
+    assert ats_fetchers._jsonld_location(posting) == "Remote"
+
+
+def test_jsonld_location_handles_a_list_of_locations_using_the_first():
+    posting = {"jobLocation": [{"address": {"addressLocality": "Haifa"}}, {"address": {"addressLocality": "Tel Aviv"}}]}
+    assert ats_fetchers._jsonld_location(posting) == "Haifa"
+
+
+def test_jsonld_location_returns_none_when_absent():
+    assert ats_fetchers._jsonld_location({}) is None
+
+
+def test_jsonld_location_returns_none_when_fields_are_empty():
+    posting = {"jobLocation": {"address": {"addressLocality": "", "addressRegion": "", "addressCountry": ""}}}
+    assert ats_fetchers._jsonld_location(posting) is None
+
+
+def test_fetch_generic_job_details_returns_empty_for_a_skipped_host():
+    result = ats_fetchers.fetch_generic_job_details(session=None, url="https://www.linkedin.com/jobs/view/123")
+    assert result == {"description": "", "location": None, "employment_type": None, "posted_at": None}
+
+
+def test_fetch_generic_job_details_returns_empty_for_no_url():
+    result = ats_fetchers.fetch_generic_job_details(session=None, url=None)
+    assert result == {"description": "", "location": None, "employment_type": None, "posted_at": None}

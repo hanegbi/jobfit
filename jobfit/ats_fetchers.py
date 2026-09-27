@@ -436,6 +436,19 @@ def _jsonld_job_postings(soup: BeautifulSoup) -> list[dict]:
     return postings
 
 
+def _address_part_str(value) -> Optional[str]:
+    """A schema.org PostalAddress field is usually a plain string, but
+    addressCountry in particular is often a nested Country object instead
+    (e.g. {"@type": "Country", "name": "IL"} - confirmed live on A2Z
+    Cust2Mate's job pages, which crashed the plain "," .join(...) this
+    replaced since a dict isn't a str)."""
+    if isinstance(value, dict):
+        value = value.get("name") or value.get("addressCountry")
+    if isinstance(value, str) and value.strip():
+        return value.strip()
+    return None
+
+
 def _jsonld_location(posting: dict) -> Optional[str]:
     location = posting.get("jobLocation")
     if isinstance(location, list):
@@ -446,7 +459,11 @@ def _jsonld_location(posting: dict) -> Optional[str]:
     if isinstance(address, str):
         return _clean(address) or None
     if isinstance(address, dict):
-        parts = [address.get("addressLocality"), address.get("addressRegion"), address.get("addressCountry")]
+        parts = [
+            _address_part_str(address.get("addressLocality")),
+            _address_part_str(address.get("addressRegion")),
+            _address_part_str(address.get("addressCountry")),
+        ]
         joined = ", ".join(p for p in parts if p)
         return joined or None
     return None
