@@ -89,6 +89,66 @@ def test_skips_jobs_with_no_title(companies_dir):
     assert record["jobs"] == []
 
 
+def test_drops_a_job_in_a_non_israel_non_remote_location(companies_dir):
+    """Real case: a company's career page mixes its Israel R&D roles with
+    postings from its other offices (a US sales team, a Mexico support
+    team) - this job search only wants the Israel-based ones."""
+    profiles = {"default": {"must_have_keywords": []}}
+    fetched = [{"title": "Account Executive", "location": "Austin, Texas", "url": "https://x/1", "description": ""}]
+
+    record, new_count, _ = update_jobs.diff_and_update("Acme", "https://acme/careers", fetched, profiles)
+
+    assert new_count == 0
+    assert record["jobs"] == []
+
+
+def test_keeps_a_job_with_an_israeli_location(companies_dir):
+    profiles = {"default": {"must_have_keywords": []}}
+    fetched = [{"title": "Backend Engineer", "location": "Tel Aviv", "url": "https://x/1", "description": ""}]
+
+    record, new_count, _ = update_jobs.diff_and_update("Acme", "https://acme/careers", fetched, profiles)
+
+    assert new_count == 1
+
+
+def test_keeps_a_remote_job(companies_dir):
+    profiles = {"default": {"must_have_keywords": []}}
+    fetched = [{"title": "Backend Engineer", "location": "Remote", "url": "https://x/1", "description": ""}]
+
+    record, new_count, _ = update_jobs.diff_and_update("Acme", "https://acme/careers", fetched, profiles)
+
+    assert new_count == 1
+
+
+def test_keeps_a_job_with_no_location_at_all(companies_dir):
+    """Empty/unspecified location is kept rather than dropped - many sources
+    (plain-HTTP scrapes especially) just don't expose a location at all, and
+    that must not be treated as "therefore not Israel"."""
+    profiles = {"default": {"must_have_keywords": []}}
+    fetched = [{"title": "Backend Engineer", "location": None, "url": "https://x/1", "description": ""}]
+
+    record, new_count, _ = update_jobs.diff_and_update("Acme", "https://acme/careers", fetched, profiles)
+
+    assert new_count == 1
+
+
+def test_closes_a_previously_israel_job_that_is_now_reported_foreign(companies_dir):
+    """If a source corrects/changes a job's location on a re-scrape to
+    somewhere non-Israel, it should be closed like any other job that's no
+    longer being reported by the fetch, not silently kept forever."""
+    profiles = {"default": {"must_have_keywords": []}}
+    fetched_first = [{"title": "Backend Engineer", "location": "Tel Aviv", "url": "https://x/1", "description": ""}]
+    record, _, _ = update_jobs.diff_and_update("Acme", "https://acme/careers", fetched_first, profiles)
+    update_jobs.save_company_file("Acme", record)
+
+    fetched_second = [{"title": "Backend Engineer", "location": "Austin, Texas", "url": "https://x/1", "description": ""}]
+    record2, new_count, closed_count = update_jobs.diff_and_update("Acme", "https://acme/careers", fetched_second, profiles)
+
+    assert new_count == 0
+    assert closed_count == 1
+    assert record2["jobs"][0]["status"] == "closed"
+
+
 def test_new_job_captures_department_and_employment_type(companies_dir):
     profiles = {"default": {"must_have_keywords": []}}
     fetched = [{

@@ -53,7 +53,10 @@ NAV_TIMEOUT_MS = 15000
 JOB_PAGE_NAV_TIMEOUT_MS = 8000
 SETTLE_MS = 2000
 JOB_SETTLE_MS = 800
-MAX_JOB_LINKS_PER_COMPANY = 6
+# See update_jobs.MAX_LINKS_PER_COMPANY - a low cap here has the same effect
+# on the Playwright tier: it biases toward whichever section the page lists
+# first instead of surfacing the company's full spread of open roles.
+MAX_JOB_LINKS_PER_COMPANY = 50
 MAX_DESC_LEN = 6000
 PER_COMPANY_BUDGET_S = 75
 

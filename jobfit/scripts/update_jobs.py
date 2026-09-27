@@ -42,7 +42,12 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 COMPANIES_DIR = config.ROOT / "companies"
 META_PATH = COMPANIES_DIR / "_meta.json"
-MAX_LINKS_PER_COMPANY = 12
+# A low cap here silently biases toward whatever section a career page lists
+# first - usually R&D/Engineering - and starves every other department of a
+# slot before the location filter in diff_and_update() even gets a chance to
+# drop the ones that aren't Israel-relevant anyway. High enough that a large
+# company's full listing (Sales, HR, Ops, ... alongside R&D) fits.
+MAX_LINKS_PER_COMPANY = 50
 
 _ATS_ID_PATTERNS = [
     re.compile(r"greenhouse\.io/[^/]+/jobs/(\d+)", re.I),
@@ -362,6 +367,8 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
 
     for job in fetched:
         title = (job.get("title") or "").strip()
+        if not scoring.is_relevant_location(job.get("location")):
+            continue  # non-Israel, non-remote office (e.g. "Texas", "Mexico") - not what this job search targets
         if not title:
             continue
         job_id = compute_job_id(company, title, job.get("location"), job.get("url"))

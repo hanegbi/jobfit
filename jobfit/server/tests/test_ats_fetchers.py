@@ -243,10 +243,22 @@ def test_fetch_elbit_sigmabit_jobs_maps_fields(monkeypatch):
     assert len(jobs) == 1
     job = jobs[0]
     assert job["title"] == 'מחסנאי.ת תחמושת פצמ"ר'
-    assert job["location"] == "North"
+    assert job["location"] == "North, Israel"
     assert job["url"] == "https://elbitsystemscareer.com/jobs/?id=20234"
     assert job["description"] == "לאתר החברה ביקנעם"
     assert job["posted_at"] == "2026-03-22"
+
+
+def test_fetch_elbit_sigmabit_jobs_tags_israel_even_with_no_area(monkeypatch):
+    """Every job on this feed is Israel-based (Elbit Sigmabit has no
+    non-Israel offices in it) - a missing area must still resolve to
+    "Israel" so scoring.is_relevant_location doesn't drop it."""
+    payload = [{"jobId": 2, "jobTitle": "Some Role", "status": 1, "description": "", "area": None, "openDate": None}]
+    monkeypatch.setattr(ats_fetchers, "_request", lambda *a, **kw: _FakeResponse(payload))
+
+    jobs = ats_fetchers.fetch_elbit_sigmabit_jobs(session=None)
+
+    assert jobs[0]["location"] == "Israel"
 
 
 def test_fetch_elbit_sigmabit_jobs_skips_non_open_status(monkeypatch):

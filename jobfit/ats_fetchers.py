@@ -579,9 +579,18 @@ def fetch_elbit_sigmabit_jobs(session: requests.Session) -> list[dict]:
         if not title:
             continue
         job_id = row.get("jobId")
+        # Elbit Systems Sigmabit has no non-Israel offices in this feed - its
+        # own "area" values are internal Israeli region labels (North, Sharon,
+        # Shfela, Jerusalem Area, ...), none of which contain the word
+        # "israel" and so wouldn't be recognized by scoring.is_relevant_location
+        # on their own (real bug caught before it ran: 567 of 578 jobs would
+        # have been silently dropped as "not Israel"). Tag every job as
+        # Israel explicitly rather than teaching the generic location filter
+        # about this one company's internal region vocabulary.
+        area = row.get("area")
         jobs.append({
             "title": title,
-            "location": row.get("area"),
+            "location": f"{area}, Israel" if area else "Israel",
             "url": f"https://elbitsystemscareer.com/jobs/?id={job_id}" if job_id else "https://elbitsystemscareer.com/jobs/",
             "description": strip_html(row.get("description") or ""),
             "department": None,
