@@ -238,6 +238,58 @@ def test_has_real_descriptions_treats_a_missing_description_key_as_empty():
     assert update_jobs._has_real_descriptions([{"title": "Backend Engineer"}]) is False
 
 
+# --- _looks_like_real_job_urls ----------------------------------------------
+
+def test_looks_like_real_job_urls_false_for_no_jobs():
+    assert update_jobs._looks_like_real_job_urls([]) is False
+
+
+def test_looks_like_real_job_urls_true_for_job_indicating_urls():
+    jobs = [
+        {"url": "https://acme.com/positions/senior-backend-engineer"},
+        {"url": "https://acme.com/careers/co/eng/123/backend/all"},
+    ]
+    assert update_jobs._looks_like_real_job_urls(jobs) is True
+
+
+def test_looks_like_real_job_urls_true_for_a_numeric_job_id():
+    """Real case: Check Point's job URLs carry no English job word at all,
+    just a numeric joborderid (?a=show&joborderid=0936589)."""
+    jobs = [{"url": "https://careers.checkpoint.com/index.php?a=show&joborderid=0936589"}]
+    assert update_jobs._looks_like_real_job_urls(jobs) is True
+
+
+def test_looks_like_real_job_urls_false_for_product_marketing_pages():
+    """Real case caught live: agatsoftware.com/careers/ returns only product
+    pages ("Guardian Agent", "AI Gateway", ...) whose URLs are named after
+    the product, not a job-listing convention, and whose long marketing
+    copy scores well on AI/security keyword coverage despite not being
+    jobs at all."""
+    jobs = [
+        {"url": "https://agatsoftware.com/ai-security-overview/guardian-agent/"},
+        {"url": "https://agatsoftware.com/private-ai-suite/knowledge-chatbot/"},
+        {"url": "https://agatsoftware.com/private-ai-suite/ai-podcast-audio-generator/"},
+    ]
+    assert update_jobs._looks_like_real_job_urls(jobs) is False
+
+
+def test_looks_like_real_job_urls_true_when_only_a_minority_match():
+    """MIN_JOB_URL_RATIO is a soft floor (0.3), not "all or nothing" - a
+    listing mixing a few real jobs with some marketing links should still
+    pass."""
+    jobs = [
+        {"url": "https://acme.com/careers/backend-engineer-123"},
+        {"url": "https://acme.com/about-us"},
+        {"url": "https://acme.com/products/widget"},
+    ]
+    assert update_jobs._looks_like_real_job_urls(jobs) is True
+
+
+def test_looks_like_real_job_urls_treats_a_missing_url_as_non_matching():
+    jobs = [{"title": "Backend Engineer"}]
+    assert update_jobs._looks_like_real_job_urls(jobs) is False
+
+
 # --- description-gated escalation to Playwright -----------------------------
 
 def test_fetch_company_jobs_async_escalates_to_playwright_when_plain_http_titles_score_but_descriptions_are_thin(monkeypatch):

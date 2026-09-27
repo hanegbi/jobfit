@@ -168,6 +168,30 @@ def _has_real_descriptions(jobs: list[dict]) -> bool:
     return (with_description / len(jobs)) >= MIN_DESCRIPTION_RATIO
 
 
+MIN_JOB_URL_RATIO = 0.3
+# A job-indicating path token, or a run of 3+ digits (a job/req ID - real
+# postings are routinely id-numbered even when the surrounding path has no
+# English job word at all, e.g. Check Point's ?joborderid=0936589).
+_JOB_URL_HINT_RE = re.compile(r"(job|career|position|opening|vacan|opportunit|\d{3,})", re.I)
+
+
+def _looks_like_real_job_urls(jobs: list[dict]) -> bool:
+    """Whether enough of the fetched jobs' own URLs actually look like job
+    postings, not a company's regular marketing/product pages that happened
+    to score positively purely on vocabulary overlap with the CV. Real case
+    caught live: agatsoftware.com/careers/ has zero real job links anywhere
+    in its HTML (confirmed via Playwright too - same result rendered) - only
+    product pages ("Guardian Agent", "AI Gateway", ...) whose long marketing
+    copy scores well on AI/security keyword coverage despite not being jobs
+    at all. A real job-posting URL almost always carries a job-indicating
+    path token or a numeric job/req ID; a product page's URL almost never
+    does, since it's named after the product, not a listing convention."""
+    if not jobs:
+        return False
+    matching = sum(1 for j in jobs if j.get("url") and _JOB_URL_HINT_RE.search(j["url"]))
+    return (matching / len(jobs)) >= MIN_JOB_URL_RATIO
+
+
 async def _fetch_via_playwright(company: str, url: str) -> list[dict]:
     from jobfit.scripts.playwright_listings import _scrape_company_inner  # noqa: E402
     from playwright.async_api import async_playwright
@@ -314,10 +338,13 @@ async def fetch_company_jobs_async(
         })
 
     plain_scored = _any_job_scores_positive(jobs, profiles)
-    if plain_scored and _has_real_descriptions(jobs):
+    plain_urls_look_real = _looks_like_real_job_urls(jobs)
+    if plain_scored and _has_real_descriptions(jobs) and plain_urls_look_real:
         return jobs
 
-    if plain_scored:
+    if plain_scored and not plain_urls_look_real:
+        logger.info("%s: plain-HTTP scored but URLs don't look like real jobs (%d entries, likely marketing pages) - trying Playwright", company, len(jobs))
+    elif plain_scored:
         logger.info("%s: plain-HTTP scored but has no real descriptions (%d entries) - trying Playwright for richer data", company, len(jobs))
     else:
         logger.info("%s: plain-HTTP found nothing scoring (%d raw entries) - trying Playwright", company, len(jobs))
@@ -327,13 +354,25 @@ async def fetch_company_jobs_async(
         logger.debug("%s: playwright fallback failed: %s", company, error)
         pw_jobs = []
     pw_scored = _any_job_scores_positive(pw_jobs, profiles)
-    if pw_scored and _has_real_descriptions(pw_jobs):
+    if pw_scored and _has_real_descriptions(pw_jobs) and _looks_like_real_job_urls(pw_jobs):
         return pw_jobs
 
-    # Neither tier got both a positive score and real descriptions - prefer
-    # whichever one at least scored (a title-only match beats nothing, and
-    # beats techmap's title/location-only rows), Playwright's attempt first
-    # since it's the richer of the two when both scored.
+    # Neither tier fully qualified (scored + real description + job-shaped
+    # URLs). If a tier scored and described but its URLs still don't look
+    # like real jobs, both tiers rendered the same marketing content (real
+    # case: agatsoftware.com/careers/ has zero real job links anywhere, in
+    # static HTML or Playwright-rendered - only product pages whose long
+    # copy scores well on keyword overlap) - prefer techmap's thin-but-real
+    # data over storing product pages as fake jobs, when techmap has it.
+    if not (pw_scored and _has_real_descriptions(pw_jobs)) and not (plain_scored and _has_real_descriptions(jobs)):
+        techmap_jobs = _techmap_fallback_jobs(company, techmap_index)
+        if techmap_jobs:
+            logger.info("%s: still nothing scoring after Playwright - falling back to techmap (%d rows)", company, len(techmap_jobs))
+            return techmap_jobs
+
+    # Prefer whichever tier at least scored (a title-only or marketing-page
+    # match beats nothing), Playwright's attempt first since it's the richer
+    # of the two when both scored.
     if pw_scored:
         return pw_jobs
     if plain_scored:
