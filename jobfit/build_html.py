@@ -121,6 +121,8 @@ PAGE_TEMPLATE = r"""<!doctype html>
   .job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
   .tag { background: var(--chip-bg); border: 1px solid var(--chip-border); color: #b7e08a; padding: 3px 9px; border-radius: 999px; font-size: 11px; white-space: nowrap; }
   .tag.muted { background: var(--panel2); border-color: var(--border); color: var(--text-dim); }
+  a.tag-location { text-decoration: none; cursor: pointer; }
+  a.tag-location:hover { color: var(--accent); border-color: var(--accent-dim); text-decoration: underline; }
   .tag.conn { background: var(--blue-bg); border-color: var(--blue-border); color: var(--blue); }
   .tag.remote { background: #1a2a1a; border-color: #2f4a2f; color: #9fd18f; }
   .tag.lang { background: var(--blue-bg); border-color: var(--blue-border); color: var(--blue); font-weight: 600; }
@@ -209,6 +211,18 @@ PAGE_TEMPLATE = r"""<!doctype html>
     <div>
       <div class="field-label">Min score <span id="minScoreVal" style="color:var(--accent)"></span></div>
       <input type="range" id="minScore" min="0" max="100" value="0">
+    </div>
+
+    <div>
+      <div class="field-label">Posted</div>
+      <select id="postedSelect">
+        <option value="any">Any time</option>
+        <option value="1">Last 24 hours</option>
+        <option value="3">Last 3 days</option>
+        <option value="7">Last week</option>
+        <option value="14">Last 2 weeks</option>
+        <option value="30">Last month</option>
+      </select>
     </div>
 
     <div class="toggle-row"><span>Remote only</span><label class="switch"><input type="checkbox" id="fRemote"><span class="slider-track"></span></label></div>
@@ -328,7 +342,7 @@ const PAGE_SIZE = 100;
 let visibleCount = PAGE_SIZE;
 
 const state = {
-  q: "", qMode: "OR", qScope: "both", excludeTitle: "", excludeMode: "OR", cv: "best", minScore: 0, remote: false, conn: false, desc: false,
+  q: "", qMode: "OR", qScope: "both", excludeTitle: "", excludeMode: "OR", cv: "best", minScore: 0, remote: false, conn: false, desc: false, postedWithin: "any",
   companies: null, cities: new Set(), industries: new Set(), depts: new Set(), years: new Set(), languages: new Set(),
   group: false, sort: "score_desc", likedOnly: false, showHidden: false, showSent: false, showReached: false, referralOnly: false, showClosed: false,
 };
@@ -362,6 +376,8 @@ const allCities = uniqueSorted("city");
 const allIndustries = uniqueSorted("industry");
 const allDepts = uniqueSorted("department");
 const YEARS_BUCKETS = ["1", "2", "3", "4", "5", "6", "7", "8", "9+", "Unspecified"];
+const POSTED_WITHIN_DAYS = { "1": 1, "3": 3, "7": 7, "14": 14, "30": 30 };
+const POSTED_WITHIN_VALUES = ["any", ...Object.keys(POSTED_WITHIN_DAYS)];
 state.companies = new Set(allCompanies);
 
 const LANGUAGE_DEFS = [
@@ -460,7 +476,7 @@ function captureFilterSnapshot() {
   const allCompaniesSelected = state.companies.size >= allCompanies.length;
   return {
     q: state.q, qMode: state.qMode, qScope: state.qScope, excludeTitle: state.excludeTitle, excludeMode: state.excludeMode, cv: state.cv, minScore: state.minScore,
-    remote: state.remote, conn: state.conn, desc: state.desc,
+    remote: state.remote, postedWithin: state.postedWithin, conn: state.conn, desc: state.desc,
     companies: allCompaniesSelected ? null : Array.from(state.companies),
     cities: Array.from(state.cities), industries: Array.from(state.industries),
     depts: Array.from(state.depts), years: Array.from(state.years), languages: Array.from(state.languages),
@@ -539,6 +555,7 @@ function applyFilterState(saved) {
   state.excludeTitle = saved.excludeTitle || ""; state.excludeMode = saved.excludeMode === "AND" ? "AND" : "OR";
   state.cv = saved.cv || "best"; state.minScore = saved.minScore || 0;
   state.remote = !!saved.remote; state.conn = !!saved.conn; state.desc = !!saved.desc;
+  state.postedWithin = POSTED_WITHIN_VALUES.includes(saved.postedWithin) ? saved.postedWithin : "any";
   state.group = !!saved.group; state.sort = saved.sort || "score_desc";
   state.likedOnly = !!saved.likedOnly; state.showHidden = !!saved.showHidden; state.showSent = !!saved.showSent; state.showReached = !!saved.showReached; state.referralOnly = !!saved.referralOnly;
   state.showClosed = !!saved.showClosed;
@@ -561,6 +578,7 @@ function applyFilterState(saved) {
   document.getElementById("minScore").value = state.minScore;
   document.getElementById("minScoreVal").textContent = state.minScore;
   document.getElementById("fRemote").checked = state.remote;
+  document.getElementById("postedSelect").value = state.postedWithin;
   document.getElementById("fConn").checked = state.conn;
   document.getElementById("fDesc").checked = state.desc;
   document.getElementById("fLiked").checked = state.likedOnly;
@@ -605,19 +623,29 @@ function shortDescription(text, limit) {
 function escapeHtml(s) {
   return (s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
-function timeAgo(iso) {
-  if (!iso) return "";
+function daysSince(iso) {
+  const then = new Date(iso);
+  if (isNaN(then)) return null;
+  return Math.floor((Date.now() - then.getTime()) / 86400000);
+}
+function formatDateDDMMYYYY(iso) {
   const then = new Date(iso);
   if (isNaN(then)) return "";
-  const days = Math.floor((Date.now() - then.getTime()) / 86400000);
-  let relative;
-  if (days <= 0) relative = "today";
-  else if (days === 1) relative = "yesterday";
-  else if (days < 7) relative = `${days} days ago`;
-  else if (days < 30) { const w = Math.round(days / 7); relative = `${w} week${w === 1 ? "" : "s"} ago`; }
-  else if (days < 365) { const m = Math.round(days / 30); relative = `${m} month${m === 1 ? "" : "s"} ago`; }
-  else { const y = Math.round(days / 365); relative = `${y} year${y === 1 ? "" : "s"} ago`; }
-  return `${relative} &middot; ${then.toISOString().slice(0, 10)}`;
+  const dd = String(then.getUTCDate()).padStart(2, "0");
+  const mm = String(then.getUTCMonth() + 1).padStart(2, "0");
+  const yyyy = then.getUTCFullYear();
+  return `${dd}-${mm}-${yyyy}`;
+}
+function timeAgo(iso) {
+  if (!iso) return "";
+  const days = daysSince(iso);
+  if (days === null) return "";
+  if (days <= 0) return "today";
+  if (days === 1) return "yesterday";
+  if (days < 7) return `${days} days ago`;
+  if (days < 30) { const w = Math.round(days / 7); return `${w} week${w === 1 ? "" : "s"} ago`; }
+  if (days < 365) { const m = Math.round(days / 30); return `${m} month${m === 1 ? "" : "s"} ago`; }
+  const y = Math.round(days / 365); return `${y} year${y === 1 ? "" : "s"} ago`;
 }
 // Comma-separated multi-term input: "python, staff" -> ["python", "staff"].
 function parseTerms(raw) {
@@ -654,6 +682,10 @@ function matchesFilters(job) {
   }
   if (scoreFor(job) < state.minScore) return false;
   if (state.remote && !job.is_remote) return false;
+  if (state.postedWithin !== "any") {
+    const days = daysSince(job.posted_at);
+    if (days === null || days > POSTED_WITHIN_DAYS[state.postedWithin]) return false;
+  }
   if (state.conn && !job.has_connection) return false;
   if (state.desc && !job.has_description) return false;
   if (!state.companies.has(job.company)) return false;
@@ -688,12 +720,23 @@ function confidenceFor(job, cvName) {
   return job[`confidence_${cvName}`];
 }
 
+function locationTagHtml(job) {
+  const loc = job.location;
+  const locEsc = escapeHtml(loc);
+  const looksReal = !job.is_remote && loc.trim().toLowerCase() !== "remote";
+  if (!looksReal) return `<span class="tag muted">${locEsc}</span>`;
+  const query = encodeURIComponent(`${job.company || ""} ${loc}`.trim());
+  const mapsUrl = escapeHtml(`https://www.google.com/maps/search/?api=1&query=${query}`);
+  const tooltip = escapeHtml(`Open ${loc} on Google Maps`);
+  return `<a class="tag muted tag-location" href="${mapsUrl}" target="_blank" rel="noopener" title="${tooltip}">${locEsc}</a>`;
+}
+
 function jobMetaTags(job) {
   const tags = [];
   if (job.status === "new") tags.push(`<span class="tag new-job">New</span>`);
   if (job.status === "closed") tags.push(`<span class="tag closed-job">Closed</span>`);
   if (job.is_referral) tags.push(`<span class="tag referral">Referral</span>`);
-  if (job.location) tags.push(`<span class="tag muted">${escapeHtml(job.location)}</span>`);
+  if (job.location) tags.push(locationTagHtml(job));
   if (job.is_remote) tags.push(`<span class="tag remote">remote</span>`);
   if (job.department) tags.push(`<span class="tag muted">${escapeHtml(job.department)}</span>`);
   if (job.employment_type) tags.push(`<span class="tag muted">${escapeHtml(job.employment_type)}</span>`);
@@ -744,7 +787,7 @@ function jobCardHtml(job, showCompany) {
           ${showCompany ? `<div class="job-company">${escapeHtml(job.company)}${job.company_size ? " &middot; " + escapeHtml(job.company_size) : ""}${job.industry ? " &middot; " + escapeHtml(job.industry) : ""}</div>` : ""}
         </div>
         <div class="job-head-right">
-          <div class="job-date">${timeAgo(job.posted_at)}</div>
+          <div class="job-date" title="${job.posted_at ? "Posted " + formatDateDDMMYYYY(job.posted_at) : ""}">${timeAgo(job.posted_at)}</div>
           <div class="card-actions">
             <button class="icon-btn sent-btn ${isSent ? "active" : ""}" data-action="sent" data-id="${job.id}" title="${isSent ? "Mark CV as not sent" : "Mark CV as sent"}">➤</button>
             <button class="icon-btn reached-btn ${isReached ? "active" : ""}" data-action="reached" data-id="${job.id}" title="${isReached ? "Mark as not reached out" : "Mark as reached out"}">☎</button>
@@ -976,6 +1019,7 @@ document.getElementById("minScore").addEventListener("input", (e) => {
   render();
 });
 document.getElementById("fRemote").addEventListener("change", (e) => { state.remote = e.target.checked; render(); });
+document.getElementById("postedSelect").addEventListener("change", (e) => { state.postedWithin = e.target.value; render(); });
 document.getElementById("fConn").addEventListener("change", (e) => { state.conn = e.target.checked; render(); });
 document.getElementById("fDesc").addEventListener("change", (e) => { state.desc = e.target.checked; render(); });
 document.getElementById("fLiked").addEventListener("change", (e) => { state.likedOnly = e.target.checked; render(); });
@@ -1009,14 +1053,14 @@ document.getElementById("sortSelect").addEventListener("change", (e) => { state.
 document.getElementById("companySearch").addEventListener("input", (e) => setupCompanyList(e.target.value));
 document.getElementById("loadMoreBtn").addEventListener("click", () => { visibleCount += PAGE_SIZE; render(); });
 document.getElementById("resetBtn").addEventListener("click", () => {
-  state.q = ""; state.qMode = "OR"; state.qScope = "both"; state.excludeTitle = ""; state.excludeMode = "OR"; state.cv = "best"; state.minScore = 0; state.remote = false; state.conn = false; state.desc = false;
+  state.q = ""; state.qMode = "OR"; state.qScope = "both"; state.excludeTitle = ""; state.excludeMode = "OR"; state.cv = "best"; state.minScore = 0; state.remote = false; state.postedWithin = "any"; state.conn = false; state.desc = false;
   state.companies = new Set(allCompanies); state.cities = new Set(); state.industries = new Set(); state.depts = new Set();
   state.years = new Set(); state.languages = new Set();
   state.likedOnly = false; state.showHidden = false; state.showSent = false; state.showReached = false; state.referralOnly = false; state.showClosed = false;
   document.getElementById("qSearch").value = ""; document.getElementById("qExcludeTitle").value = ""; document.getElementById("cvSelect").value = "best";
   syncModeBtn("qModeBtn", "OR"); syncModeBtn("excludeModeBtn", "OR"); syncScopeBtn();
   document.getElementById("minScore").value = 0; document.getElementById("minScoreVal").textContent = "0";
-  document.getElementById("fRemote").checked = false; document.getElementById("fConn").checked = false; document.getElementById("fDesc").checked = false;
+  document.getElementById("fRemote").checked = false; document.getElementById("postedSelect").value = "any"; document.getElementById("fConn").checked = false; document.getElementById("fDesc").checked = false;
   document.getElementById("fLiked").checked = false; document.getElementById("fShowHidden").checked = false; document.getElementById("fShowSent").checked = false; document.getElementById("fShowReached").checked = false; document.getElementById("fReferral").checked = false;
   document.getElementById("fShowClosed").checked = false;
   document.getElementById("companySearch").value = "";
