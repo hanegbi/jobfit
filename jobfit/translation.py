@@ -27,8 +27,18 @@ from jobfit.atomic_io import write_json_atomic
 logger = logging.getLogger("jobfit.translation")
 
 HEBREW_RE = re.compile(r"[֐-׿]")
+_LETTER_RE = re.compile(r"[A-Za-z֐-׿]")
 _CHUNK_MAX_CHARS = 480
 _REQUEST_DELAY_S = 0.35
+# A page that's overwhelmingly English but happens to include one Hebrew
+# word (e.g. an "EN | עברית" language-switcher link) must not trigger a
+# full translate - real case caught live: a company's English job
+# description got needlessly run through translation, and the mostly-
+# English text partially garbled, because contains_hebrew() alone treats a
+# single stray Hebrew character anywhere in the text as "this is Hebrew."
+# Requiring Hebrew to be a real share of the letters distinguishes actual
+# Hebrew content from an incidental fragment.
+MIN_HEBREW_LETTER_RATIO = 0.2
 
 CACHE_PATH = config.ROOT / "cache" / "translations.json"
 
@@ -36,7 +46,15 @@ _cache_lock = threading.Lock()
 
 
 def contains_hebrew(text: str) -> bool:
-    return bool(text) and bool(HEBREW_RE.search(text))
+    """Whether Hebrew makes up a real share of text's letters, not just a
+    single incidental character somewhere in an otherwise non-Hebrew page."""
+    if not text:
+        return False
+    letters = _LETTER_RE.findall(text)
+    if not letters:
+        return False
+    hebrew_count = sum(1 for c in letters if HEBREW_RE.match(c))
+    return (hebrew_count / len(letters)) >= MIN_HEBREW_LETTER_RATIO
 
 
 def _load_cache() -> dict:

@@ -24,6 +24,15 @@ def test_contains_hebrew_true_for_mixed_text():
     assert translation.contains_hebrew("Backend Engineer - מהנדס תוכנה") is True
 
 
+def test_contains_hebrew_false_for_mostly_english_text_with_one_stray_hebrew_word():
+    """Real bug caught live: a company's job description was almost
+    entirely English but included a language-switcher link ("EN עברית"),
+    and that single stray Hebrew word triggered a full (and needless,
+    partially-garbling) translation of otherwise-fine English content."""
+    text = "We are hiring a backend engineer with strong Python experience. " * 20 + "EN עברית"
+    assert translation.contains_hebrew(text) is False
+
+
 # --- _split_into_chunks ------------------------------------------------------
 
 def test_split_into_chunks_keeps_short_text_as_one_chunk():
