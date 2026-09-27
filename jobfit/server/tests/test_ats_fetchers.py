@@ -152,3 +152,64 @@ def test_fetch_generic_job_details_returns_empty_for_a_skipped_host():
 def test_fetch_generic_job_details_returns_empty_for_no_url():
     result = ats_fetchers.fetch_generic_job_details(session=None, url=None)
     assert result == {"description": "", "location": None, "employment_type": None, "posted_at": None}
+
+
+# --- title extraction & boilerplate stripping -------------------------------
+
+def test_link_title_text_prefers_a_nested_heading_over_the_whole_anchor():
+    """Real example caught live: Adaptive6's Webflow careers page wraps an
+    entire job card - title, department tag, location, description snippet,
+    an "Apply Now" CTA - in one <a>, so a.get_text() produced "Senior Backend
+    Developer Engineering Israel Apply Now" instead of just the real title."""
+    html = (
+        '<a href="/x"><h2>Senior Backend Developer</h2>'
+        '<div class="tag">Engineering</div><div class="location">Israel</div>'
+        '<span>Apply Now</span></a>'
+    )
+    a = _soup(html).find("a")
+    assert ats_fetchers._link_title_text(a) == "Senior Backend Developer"
+
+
+def test_link_title_text_falls_back_to_full_text_when_no_heading():
+    html = '<a href="/x">Backend Engineer</a>'
+    a = _soup(html).find("a")
+    assert ats_fetchers._link_title_text(a) == "Backend Engineer"
+
+
+def test_strip_boilerplate_keeps_a_header_that_contains_a_real_job_link():
+    """Real bug caught live: the entire job-listing section on Adaptive6's
+    careers page is wrapped in <header class="section_careers"> (a loose,
+    non-standard use of <header> as "this section's heading area", not
+    site navigation) - the old blanket decompose() on every <header> in the
+    document silently wiped every job listing before any title-cleaning
+    logic even ran."""
+    soup = _soup(
+        '<header class="section_careers"><a href="/x"><h2>Senior Backend Developer</h2></a></header>'
+    )
+    ats_fetchers._strip_boilerplate(soup)
+    assert soup.find("header") is not None
+    assert soup.find("a") is not None
+
+
+def test_strip_boilerplate_removes_a_header_with_no_job_link():
+    soup = _soup('<header><a href="/">Home</a><a href="/about">About</a></header><p>Body text</p>')
+    ats_fetchers._strip_boilerplate(soup)
+    assert soup.find("header") is None
+    assert soup.find("p") is not None
+
+
+def test_strip_boilerplate_removes_nav_and_footer_without_job_links():
+    soup = _soup('<nav><a href="/">Home</a></nav><p>Body</p><footer><a href="/terms">Terms</a></footer>')
+    ats_fetchers._strip_boilerplate(soup)
+    assert soup.find("nav") is None
+    assert soup.find("footer") is None
+    assert soup.find("p") is not None
+
+
+def test_strip_boilerplate_still_removes_script_style_svg_form_noscript():
+    soup = _soup(
+        "<script>alert(1)</script><style>.a{}</style><svg></svg><form></form><noscript>x</noscript><p>Body</p>"
+    )
+    ats_fetchers._strip_boilerplate(soup)
+    assert soup.find(["script", "style", "svg", "form", "noscript"]) is None
+    assert soup.find("p") is not None

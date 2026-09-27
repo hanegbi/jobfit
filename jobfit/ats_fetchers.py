@@ -362,9 +362,26 @@ def _is_cookie_widget(tag) -> bool:
     return any(marker in haystack for marker in COOKIE_WIDGET_MARKERS)
 
 
+def _contains_a_job_link(tag) -> bool:
+    from jobfit.listing_heuristics import looks_like_job_title
+    return any(looks_like_job_title(_link_title_text(a)) for a in tag.find_all("a", href=True))
+
+
 def _strip_boilerplate(soup: BeautifulSoup) -> None:
-    for tag in soup(["script", "style", "nav", "header", "footer", "svg", "form", "noscript"]):
+    for tag in soup(["script", "style", "svg", "form", "noscript"]):
         tag.decompose()
+    # nav/header/footer are usually genuine site chrome worth discarding, but
+    # not always: real example caught live on Adaptive6's Webflow-built
+    # careers page - the *entire* job-cards section is wrapped in
+    # <header class="section_careers">, a loose (if non-standard) use of the
+    # tag as "this content block's heading area", not "site navigation
+    # header". A blanket decompose() silently wiped every job listing before
+    # any of the title-cleaning logic even ran. Only strip one of these three
+    # tags when it holds no job-looking link itself - real site chrome never
+    # does, so this doesn't let genuine boilerplate back in.
+    for tag in soup(["nav", "header", "footer"]):
+        if not _contains_a_job_link(tag):
+            tag.decompose()
     # Computed as a static list first: decomposing a matched ancestor detaches
     # its descendants too, and re-decomposing an already-detached tag raises.
     for el in list(soup.find_all(_is_cookie_widget)):
@@ -519,6 +536,25 @@ def fetch_generic_job_details(session: requests.Session, url: str) -> dict:
     }
 
 
+def _link_title_text(a) -> str:
+    """Prefer a heading element's own text over the whole anchor's text. Many
+    career-page builders wrap an entire job card - title, department tag,
+    location, a description snippet, an "Apply Now" CTA - in one <a>, and
+    a.get_text() then concatenates all of it into one garbled "title" (real
+    example caught live: Adaptive6's Webflow careers page renders
+    "Senior Backend Developer Engineering Israel Apply Now" as the link text,
+    even though the real title lives cleanly in a nested
+    <h2 class="heading-style-h5">Senior Backend Developer</h2>). Falls back to
+    the whole anchor's text when no heading is nested inside it, so simpler
+    career pages (the link text IS just the title) are unaffected."""
+    heading = a.find(["h1", "h2", "h3", "h4", "h5", "h6"])
+    if heading:
+        heading_text = _clean(heading.get_text(" "))
+        if heading_text:
+            return heading_text
+    return _clean(a.get_text(" "))
+
+
 def fetch_listing_links(session: requests.Session, url: str, max_links: int = 8) -> list[tuple[str, str]]:
     """Pull candidate (title, absolute_url) job links off a career listing page.
 
@@ -551,7 +587,7 @@ def fetch_listing_links(session: requests.Session, url: str, max_links: int = 8)
     # overview links before the filter ever runs.
     candidate_cap = max_links * 4
     for a in soup.find_all("a", href=True):
-        text = _clean(a.get_text(" "))
+        text = _link_title_text(a)
         href = a["href"]
         if not text or href.startswith("#") or href.lower().startswith("javascript:"):
             continue

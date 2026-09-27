@@ -10,7 +10,7 @@ import re
 from urllib.parse import urlsplit
 
 NAV_DENYLIST = re.compile(
-    r"^(home|about|contact|privacy|terms( of (use|service))?|cookies?( policy)?|sign ?in|log ?in|"
+    r"^(home|about|contact( us)?|privacy( policy)?|terms( of (use|service))?|cookies?( policy)?|sign ?in|log ?in|"
     r"register|blog|news|press|resources?|"
     r"investors?|sustainability|diversity|benefits?|life at|culture|our (team|story|values)|"
     r"locations?|offices?|leadership|board|help|faq|support|search( jobs?)?|filter|sort by|share|"
