@@ -11,7 +11,7 @@ from urllib.parse import urlsplit
 
 NAV_DENYLIST = re.compile(
     r"^(home|about|contact( us)?|privacy( policy)?|terms( of (use|service))?|cookies?( policy)?|sign ?in|log ?in|"
-    r"register|blog|news|press|resources?|"
+    r"register|blog|news|press|resources?|white papers?|case stud(y|ies)|"
     r"investors?|sustainability|diversity|benefits?|life at|culture|our (team|story|values)|"
     r"locations?|offices?|leadership|board|help|faq|support|search( jobs?)?|filter|sort by|share|"
     r"apply( now| today)?|view all|see all|view (open )?positions?|view listing|browse all|"
@@ -22,6 +22,17 @@ NAV_DENYLIST = re.compile(
 )
 _FORM_TOKEN_RE = re.compile(r"^\[#|#\]$")
 _EMAIL_RE = re.compile(r"^[\w.+-]+@[\w-]+\.[\w.-]+\??$")
+_URL_TEXT_RE = re.compile(r"^(https?://|www\.)", re.I)
+# Substrings that mark a link destination as never a job posting regardless
+# of its text - real case: a careers page's "office location" links point at
+# Google Maps, and their anchor text ("USA Office", a street address) passes
+# every other heuristic just fine.
+NON_JOB_LINK_HREF_MARKERS = ("google.com/maps", "maps.google.com", "goo.gl/maps")
+
+
+def looks_like_job_link_href(href: str) -> bool:
+    href_lower = (href or "").lower()
+    return not any(marker in href_lower for marker in NON_JOB_LINK_HREF_MARKERS)
 
 MAX_LINKS_PER_COMPANY = 8
 
@@ -37,6 +48,8 @@ def looks_like_job_title(text: str) -> bool:
     if NAV_DENYLIST.match(text):
         return False
     if _FORM_TOKEN_RE.search(text) or _EMAIL_RE.match(text):
+        return False
+    if _URL_TEXT_RE.match(text):
         return False
     if not re.search(r"[A-Za-z]{3,}", text):
         return False

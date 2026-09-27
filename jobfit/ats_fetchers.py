@@ -566,7 +566,7 @@ def fetch_listing_links(session: requests.Session, url: str, max_links: int = 8)
     """
     from urllib.parse import urljoin
 
-    from jobfit.listing_heuristics import drop_category_prefix_links, looks_like_job_title
+    from jobfit.listing_heuristics import drop_category_prefix_links, looks_like_job_link_href, looks_like_job_title
 
     if not url or any(host in url.lower() for host in _SKIP_GENERIC_FETCH_HOSTS):
         return []
@@ -590,6 +590,8 @@ def fetch_listing_links(session: requests.Session, url: str, max_links: int = 8)
         text = _link_title_text(a)
         href = a["href"]
         if not text or href.startswith("#") or href.lower().startswith("javascript:"):
+            continue
+        if not looks_like_job_link_href(href):
             continue
         if not looks_like_job_title(text):
             continue

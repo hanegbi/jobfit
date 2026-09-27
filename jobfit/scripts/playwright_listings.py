@@ -42,6 +42,7 @@ from jobfit.ats_fetchers import COOKIE_WIDGET_MARKERS, looks_like_boilerplate  #
 from jobfit.listing_heuristics import (  # noqa: E402
     clean as _clean,
     drop_category_prefix_links,
+    looks_like_job_link_href as _looks_like_job_link_href,
     looks_like_job_title as _looks_like_job_title,
 )
 
@@ -78,6 +79,8 @@ async def extract_job_links(page, base_url: str) -> list[tuple[str, str]]:
         text = _clean(a.get("text") or "")
         href = a.get("href") or ""
         if not href or href.startswith("#") or href.lower().startswith("javascript:"):
+            continue
+        if not _looks_like_job_link_href(href):
             continue
         if not _looks_like_job_title(text):
             continue
