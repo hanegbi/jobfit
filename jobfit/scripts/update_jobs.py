@@ -570,17 +570,30 @@ def recompute_stage() -> None:
     profile_ids = set(profiles)
     stale_prefixes = ("score_", "matched_", "coverage_", "confidence_", "requirements_")
 
-    for path in sorted(COMPANIES_DIR.glob("*.json")):
-        if path.name == "_meta.json":
-            continue
+    company_paths = [p for p in sorted(COMPANIES_DIR.glob("*.json")) if p.name != "_meta.json"]
+    total_companies = len(company_paths)
+    jobs_rescored = 0
+    log_every = 50
+    start = time.time()
+    logger.info("recompute: rescoring %d companies against %d profile(s)...", total_companies, len(profiles))
+
+    for i, path in enumerate(company_paths, start=1):
         record = json.loads(path.read_text(encoding="utf-8"))
         for job in record["jobs"]:
             job.update(scoring.score_job_both(job, profiles))
+            jobs_rescored += 1
             for key in list(job):
                 for prefix in stale_prefixes:
                     if key.startswith(prefix) and key[len(prefix):] not in profile_ids:
                         del job[key]
         save_company_file(record["name"], record)
+        if i % log_every == 0 or i == total_companies:
+            elapsed = time.time() - start
+            rate = jobs_rescored / elapsed if elapsed > 0 else 0
+            logger.info(
+                "recompute progress: %d/%d companies, %d jobs rescored (%.0f jobs/s, %.0fs elapsed)",
+                i, total_companies, jobs_rescored, rate, elapsed,
+            )
 
     count = aggregate_to_jobs_v2()
     logger.info("recompute: rescored against %d profile(s), aggregated %d jobs", len(profiles), count)
