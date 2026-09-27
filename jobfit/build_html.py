@@ -116,6 +116,7 @@ PAGE_TEMPLATE = r"""<!doctype html>
   .job-title { font-size: 15px; font-weight: 600; margin: 0 0 3px; }
   .job-title-link { color: inherit; text-decoration: none; }
   .job-title-link:hover { color: var(--accent); text-decoration: underline; }
+  .translated-badge { display: inline-block; margin-left: 8px; font-size: 10.5px; font-weight: 500; color: var(--text-dim); background: var(--chip-bg); border: 1px solid var(--chip-border); border-radius: 999px; padding: 2px 8px; vertical-align: middle; cursor: help; }
   .job-company { color: var(--text-dim); font-size: 12.5px; }
   .job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
   .tag { background: var(--chip-bg); border: 1px solid var(--chip-border); color: #b7e08a; padding: 3px 9px; border-radius: 999px; font-size: 11px; white-space: nowrap; }
@@ -739,7 +740,7 @@ function jobCardHtml(job, showCompany) {
     <div class="job-body">
       <div class="job-head">
         <div>
-          <div class="job-title">${job.url ? `<a class="job-title-link" href="${escapeHtml(job.url)}" target="_blank" rel="noopener" title="Open listing">${highlight(job.title, titleTerm)}</a>` : highlight(job.title, titleTerm)}</div>
+          <div class="job-title">${job.url ? `<a class="job-title-link" href="${escapeHtml(job.url)}" target="_blank" rel="noopener" title="Open listing">${highlight(job.title, titleTerm)}</a>` : highlight(job.title, titleTerm)}${job.source_language === "he" ? `<span class="translated-badge" title="Machine-translated from Hebrew. Original: ${escapeHtml(job.title_original || "")}">translated from Hebrew</span>` : ""}</div>
           ${showCompany ? `<div class="job-company">${escapeHtml(job.company)}${job.company_size ? " &middot; " + escapeHtml(job.company_size) : ""}${job.industry ? " &middot; " + escapeHtml(job.industry) : ""}</div>` : ""}
         </div>
         <div class="job-head-right">

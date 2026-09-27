@@ -34,6 +34,13 @@ def test_rejects_text_with_no_real_letters():
     assert looks_like_job_title("12345678") is False
 
 
+def test_accepts_a_hebrew_job_title():
+    """Hebrew has no vowels, so real job titles run shorter than the 3-letter
+    Latin floor - real case: Elbit Systems Sigmabit's career site is
+    entirely Hebrew."""
+    assert looks_like_job_title("מהנדס תוכנה בכיר") is True
+
+
 def test_rejects_an_exact_white_papers_or_case_studies_nav_link():
     """Real false positive caught live: BugSec's careers page has a resources
     submenu ("White Papers", "Case Studies") sitting right next to the real

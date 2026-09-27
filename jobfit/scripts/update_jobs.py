@@ -34,7 +34,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit import ats_fetchers, company_review, config, connections, cv, scoring, techmap_source  # noqa: E402
+from jobfit import ats_fetchers, company_review, config, connections, cv, scoring, techmap_source, translation  # noqa: E402
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
 
 logger = logging.getLogger("jobfit.update_jobs")
@@ -276,6 +276,17 @@ async def fetch_company_jobs_async(
     if not url:
         return _techmap_fallback_jobs(company, techmap_index)
 
+    for host_fragment, special_fetcher in ats_fetchers.SPECIAL_CASE_FETCHERS.items():
+        if host_fragment in url.lower():
+            try:
+                special_jobs = special_fetcher(session)
+            except Exception as error:  # noqa: BLE001
+                logger.debug("%s: special-case fetcher failed: %s", company, error)
+                special_jobs = []
+            if special_jobs:
+                return special_jobs
+            break
+
     ats_jobs = _ats_api_jobs(session, url)
     if ats_jobs is not None:
         if _any_job_scores_positive(ats_jobs, profiles):
@@ -371,6 +382,12 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
                 "description": ats_fetchers.strip_html(job.get("description")),
                 "department": job.get("department"),
                 "employment_type": job.get("employment_type"),
+                # Set only when translation.translate_job_if_needed() found
+                # non-English (currently: Hebrew) content and translated it -
+                # the UI shows a badge and can fall back to the original.
+                "title_original": job.get("title_original"),
+                "description_original": job.get("description_original"),
+                "source_language": job.get("source_language"),
                 # An ATS API tells us the job's real posting date - prefer that
                 # over "now" (when *we* happened to first check) so a company
                 # scraped for the first time doesn't make every one of its
@@ -429,6 +446,8 @@ def _process_company(company, url, session, profiles, techmap_index, force):
         return company, 0, 0, True, None
     try:
         fetched = asyncio.run(fetch_company_jobs_async(company, url, session, profiles, techmap_index))
+        for job in fetched:
+            translation.translate_job_if_needed(job)
         updated, new_count, closed_count = diff_and_update(company, url, fetched, profiles)
         save_company_file(company, updated)
         return company, new_count, closed_count, False, None

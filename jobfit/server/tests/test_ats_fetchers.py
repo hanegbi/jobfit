@@ -213,3 +213,50 @@ def test_strip_boilerplate_still_removes_script_style_svg_form_noscript():
     ats_fetchers._strip_boilerplate(soup)
     assert soup.find(["script", "style", "svg", "form", "noscript"]) is None
     assert soup.find("p") is not None
+
+
+# --- fetch_elbit_sigmabit_jobs -----------------------------------------------
+
+class _FakeResponse:
+    def __init__(self, payload):
+        self._payload = payload
+
+    def json(self):
+        return self._payload
+
+
+def test_fetch_elbit_sigmabit_jobs_maps_fields(monkeypatch):
+    """Real structure returned by elbitsystemscareer.com/cron/jobs.json - the
+    site the DOM scraper can never see job links on, since every job card
+    is a JS-driven div with no <a href> at all."""
+    payload = [
+        {
+            "jobId": 20234, "jobTitle": 'מחסנאי.ת תחמושת פצמ"ר', "status": 1,
+            "description": "&lt;div&gt;לאתר החברה ביקנעם&lt;/div&gt;",
+            "area": "North", "employmentType": None, "openDate": "2026-03-22T03:46:00",
+        },
+    ]
+    monkeypatch.setattr(ats_fetchers, "_request", lambda *a, **kw: _FakeResponse(payload))
+
+    jobs = ats_fetchers.fetch_elbit_sigmabit_jobs(session=None)
+
+    assert len(jobs) == 1
+    job = jobs[0]
+    assert job["title"] == 'מחסנאי.ת תחמושת פצמ"ר'
+    assert job["location"] == "North"
+    assert job["url"] == "https://elbitsystemscareer.com/jobs/?id=20234"
+    assert job["description"] == "לאתר החברה ביקנעם"
+    assert job["posted_at"] == "2026-03-22"
+
+
+def test_fetch_elbit_sigmabit_jobs_skips_non_open_status(monkeypatch):
+    payload = [{"jobId": 1, "jobTitle": "Closed Role", "status": 0, "description": "", "area": None, "openDate": None}]
+    monkeypatch.setattr(ats_fetchers, "_request", lambda *a, **kw: _FakeResponse(payload))
+
+    assert ats_fetchers.fetch_elbit_sigmabit_jobs(session=None) == []
+
+
+def test_fetch_elbit_sigmabit_jobs_returns_empty_when_the_request_fails(monkeypatch):
+    monkeypatch.setattr(ats_fetchers, "_request", lambda *a, **kw: None)
+
+    assert ats_fetchers.fetch_elbit_sigmabit_jobs(session=None) == []

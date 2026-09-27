@@ -51,7 +51,10 @@ def looks_like_job_title(text: str) -> bool:
         return False
     if _URL_TEXT_RE.match(text):
         return False
-    if not re.search(r"[A-Za-z]{3,}", text):
+    # Hebrew words carry no vowels, so they run shorter than the Latin-script
+    # 3-letter floor (real case: Elbit Systems Sigmabit's career site is
+    # entirely Hebrew - "מסגר.ת" (Welder), a real job title, is 6 chars).
+    if not (re.search(r"[A-Za-z]{3,}", text) or re.search(r"[א-ת]{2,}", text)):
         return False
     return True
 

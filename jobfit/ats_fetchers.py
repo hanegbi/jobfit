@@ -555,6 +555,52 @@ def _link_title_text(a) -> str:
     return _clean(a.get_text(" "))
 
 
+def fetch_elbit_sigmabit_jobs(session: requests.Session) -> list[dict]:
+    """Elbit Systems Sigmabit's careers site (elbitsystemscareer.com) renders
+    every one of its ~578 job cards entirely client-side with no real <a
+    href> link at all (confirmed live via Playwright - the anchors on the
+    page are all site-chrome, zero of them point at a job). But the page
+    itself loads its full listing from a plain JSON feed at /cron/jobs.json -
+    use that directly instead of trying to scrape a DOM that was never going
+    to expose real job links.
+    """
+    response = _request(session, "GET", "https://elbitsystemscareer.com/cron/jobs.json")
+    if response is None:
+        return []
+    try:
+        rows = response.json()
+    except Exception:  # noqa: BLE001
+        return []
+    jobs = []
+    for row in rows:
+        if not isinstance(row, dict) or row.get("status") != 1:
+            continue
+        title = _clean(row.get("jobTitle") or "")
+        if not title:
+            continue
+        job_id = row.get("jobId")
+        jobs.append({
+            "title": title,
+            "location": row.get("area"),
+            "url": f"https://elbitsystemscareer.com/jobs/?id={job_id}" if job_id else "https://elbitsystemscareer.com/jobs/",
+            "description": strip_html(row.get("description") or ""),
+            "department": None,
+            "employment_type": row.get("employmentType"),
+            "posted_at": _posted_date(row.get("openDate")),
+        })
+    return jobs
+
+
+# Company career sites whose job data can't be reached through the normal
+# <a href> listing scrape or the known ATS APIs at all (a custom in-house
+# portal that renders every job client-side with no anchor tags) but do
+# expose their own plain JSON feed once you know where to look - keyed by
+# the host fragment in the company's career URL.
+SPECIAL_CASE_FETCHERS = {
+    "elbitsystemscareer.com": fetch_elbit_sigmabit_jobs,
+}
+
+
 def fetch_listing_links(session: requests.Session, url: str, max_links: int = 8) -> list[tuple[str, str]]:
     """Pull candidate (title, absolute_url) job links off a career listing page.
 
