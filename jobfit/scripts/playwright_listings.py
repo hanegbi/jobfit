@@ -67,10 +67,22 @@ INPUT_PATH = config.ROOT / "cache" / "needs_playwright.json"
 
 
 async def extract_job_links(page, base_url: str) -> list[tuple[str, str]]:
-    """Return [(title, absolute_url), ...] from the rendered page's anchors."""
+    """Return [(title, absolute_url), ...] from the rendered page's anchors.
+
+    Prefers a nested h1-h6 heading's text over the whole anchor's text, same
+    as ats_fetchers._link_title_text - a job-card <a> commonly wraps the
+    title plus a department tag, location, and an "Apply Now" CTA into one
+    block of innerText (real case: Adaptive6's Webflow careers page), and
+    that contamination survives even after Playwright renders the page.
+    """
     anchors = await page.eval_on_selector_all(
         "a[href]",
-        "els => els.map(e => ({text: e.innerText || e.textContent || '', href: e.getAttribute('href')}))",
+        """els => els.map(e => {
+            const heading = e.querySelector('h1, h2, h3, h4, h5, h6');
+            const headingText = heading ? (heading.innerText || heading.textContent || '').trim() : '';
+            const text = headingText || e.innerText || e.textContent || '';
+            return {text, href: e.getAttribute('href')};
+        })""",
     )
     seen_urls: set[str] = set()
     results: list[tuple[str, str]] = []
@@ -105,9 +117,30 @@ _COOKIE_WIDGET_SELECTOR = ", ".join(
 
 
 async def extract_description(page) -> str:
-    for sel in ("script", "style", "nav", "header", "footer", "svg", "form", "noscript", _COOKIE_WIDGET_SELECTOR):
+    for sel in ("script", "style", "svg", "form", "noscript", _COOKIE_WIDGET_SELECTOR):
         try:
             await page.eval_on_selector_all(sel, "els => els.forEach(e => e.remove())")
+        except Exception:  # noqa: BLE001
+            pass
+    # nav/header/footer are usually genuine site chrome, but not always: same
+    # bug as ats_fetchers._strip_boilerplate found live on Adaptive6's
+    # Webflow-built pages, except here it's the individual job page - the
+    # *entire* job description is wrapped in <header class="section_careers">.
+    # Only remove one of these tags if doing so wouldn't wipe most of the
+    # page's remaining text, since real chrome is a sliver, not the bulk of
+    # the page.
+    for sel in ("nav", "header", "footer"):
+        try:
+            await page.eval_on_selector_all(
+                sel,
+                """els => {
+                    const bodyLen = (document.body.innerText || '').length;
+                    els.forEach(e => {
+                        const ownLen = (e.innerText || '').length;
+                        if (bodyLen === 0 || ownLen < bodyLen * 0.4) e.remove();
+                    });
+                }""",
+            )
         except Exception:  # noqa: BLE001
             pass
     text = _clean(await page.inner_text("body"))
