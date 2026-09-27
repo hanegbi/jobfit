@@ -191,7 +191,9 @@ def test_fetch_company_jobs_async_falls_through_when_ats_board_scores_nothing(mo
         )
         monkeypatch.setattr(
             update_jobs.ats_fetchers, "fetch_generic_job_details",
-            lambda *a, **kw: {"description": "python required", "location": None, "employment_type": None, "posted_at": None},
+            lambda *a, **kw: {
+                "description": "python required, " * 5, "location": None, "employment_type": None, "posted_at": None,
+            },
         )
 
         profiles = {"default": {"must_have_keywords": ["python"]}}
@@ -201,5 +203,104 @@ def test_fetch_company_jobs_async_falls_through_when_ats_board_scores_nothing(mo
 
         assert len(jobs) == 1
         assert jobs[0]["title"] == "Backend Engineer"
+
+    asyncio.run(_run())
+
+
+# --- _has_real_descriptions -------------------------------------------------
+
+def test_has_real_descriptions_false_for_no_jobs():
+    assert update_jobs._has_real_descriptions([]) is False
+
+
+def test_has_real_descriptions_true_when_most_jobs_have_a_real_description():
+    jobs = [
+        {"description": "x" * 50},
+        {"description": "x" * 50},
+        {"description": ""},
+    ]
+    assert update_jobs._has_real_descriptions(jobs) is True
+
+
+def test_has_real_descriptions_false_when_descriptions_are_mostly_empty_or_thin():
+    """Real case: a title alone can still score positive, but if the
+    description is just short site-chrome (or missing outright) it's useless
+    for the CV-coverage scoring the description exists to feed."""
+    jobs = [
+        {"description": ""},
+        {"description": "short"},
+        {"description": "x" * 50},
+    ]
+    assert update_jobs._has_real_descriptions(jobs) is False
+
+
+def test_has_real_descriptions_treats_a_missing_description_key_as_empty():
+    assert update_jobs._has_real_descriptions([{"title": "Backend Engineer"}]) is False
+
+
+# --- description-gated escalation to Playwright -----------------------------
+
+def test_fetch_company_jobs_async_escalates_to_playwright_when_plain_http_titles_score_but_descriptions_are_thin(monkeypatch):
+    """Real case caught live: Adaptive6's Webflow careers page yields titles
+    that score fine from plain HTTP, but the individual job pages are a JS
+    SPA with no description in the static HTML - only site nav. Without this
+    gate, the cascade would accept the title-only result and never try
+    Playwright, silently shipping a job with no description for CV scoring."""
+    async def _run():
+        monkeypatch.setattr(update_jobs.ats_fetchers, "resolve_ats", lambda url: None)
+        monkeypatch.setattr(
+            update_jobs.ats_fetchers, "fetch_listing_links",
+            lambda *a, **kw: [("Backend Engineer", "https://x/1")],
+        )
+        monkeypatch.setattr(
+            update_jobs.ats_fetchers, "fetch_generic_job_details",
+            lambda *a, **kw: {"description": "", "location": None, "employment_type": None, "posted_at": None},
+        )
+
+        async def _fake_playwright(company, url):
+            return [{"title": "Backend Engineer", "location": None, "url": "https://x/1", "description": "x" * 100}]
+        monkeypatch.setattr(update_jobs, "_fetch_via_playwright", _fake_playwright)
+
+        profiles = {"default": {"must_have_keywords": ["backend"]}}
+        jobs = await update_jobs.fetch_company_jobs_async(
+            "Acme", "https://acme.com/careers", session=None, profiles=profiles, techmap_index={},
+        )
+
+        assert len(jobs) == 1
+        assert jobs[0]["description"] == "x" * 100
+
+    asyncio.run(_run())
+
+
+def test_fetch_company_jobs_async_keeps_plain_http_result_when_playwright_gets_nothing_better(monkeypatch):
+    """When plain HTTP scored (title-only) and Playwright's rescue attempt
+    fails or also comes back thin, the cascade should still prefer the
+    plain-HTTP result (a title-only match) over techmap's even-thinner
+    title/location-only fallback."""
+    async def _run():
+        monkeypatch.setattr(update_jobs.ats_fetchers, "resolve_ats", lambda url: None)
+        monkeypatch.setattr(
+            update_jobs.ats_fetchers, "fetch_listing_links",
+            lambda *a, **kw: [("Backend Engineer", "https://x/1")],
+        )
+        monkeypatch.setattr(
+            update_jobs.ats_fetchers, "fetch_generic_job_details",
+            lambda *a, **kw: {"description": "", "location": None, "employment_type": None, "posted_at": None},
+        )
+
+        async def _empty_playwright(company, url):
+            return []
+        monkeypatch.setattr(update_jobs, "_fetch_via_playwright", _empty_playwright)
+
+        profiles = {"default": {"must_have_keywords": ["backend"]}}
+        jobs = await update_jobs.fetch_company_jobs_async(
+            "Acme", "https://acme.com/careers", session=None, profiles=profiles, techmap_index={"acme": [
+                {"title": "Backend Engineer", "location": "Remote", "url": "https://x/1"},
+            ]},
+        )
+
+        assert len(jobs) == 1
+        assert jobs[0]["title"] == "Backend Engineer"
+        assert jobs[0]["description"] == ""
 
     asyncio.run(_run())

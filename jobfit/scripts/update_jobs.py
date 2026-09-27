@@ -143,6 +143,26 @@ def _any_job_scores_positive(jobs: list[dict], profiles: dict) -> bool:
     return False
 
 
+MIN_DESCRIPTION_LEN = 50
+MIN_DESCRIPTION_RATIO = 0.5
+
+
+def _has_real_descriptions(jobs: list[dict]) -> bool:
+    """Whether enough of the fetched jobs actually have a description, not
+    just a title. The description is what scoring's coverage check (70% of
+    a job's score) runs against - a title alone can still score positive on
+    role/keyword match, which let jobs with no description at all silently
+    pass as "this tier worked" and skip the richer Playwright tier that
+    might have gotten the real content (real case: Adaptive6's job pages are
+    a Webflow SPA - the static HTML plain HTTP sees has no description at
+    all, just site chrome, but the *title* alone scored well enough that
+    Playwright was never tried)."""
+    if not jobs:
+        return False
+    with_description = sum(1 for j in jobs if len(j.get("description") or "") >= MIN_DESCRIPTION_LEN)
+    return (with_description / len(jobs)) >= MIN_DESCRIPTION_RATIO
+
+
 async def _fetch_via_playwright(company: str, url: str) -> list[dict]:
     from jobfit.scripts.playwright_listings import _scrape_company_inner  # noqa: E402
     from playwright.async_api import async_playwright
@@ -233,12 +253,18 @@ async def fetch_company_jobs_async(
     company: str, url: str | None, session, profiles: dict, techmap_index: dict[str, list[dict]]
 ) -> list[dict]:
     """Four-tier cascade, escalating only when the previous tier found
-    nothing that actually scores as a real job (not just "found zero links" -
-    a page whose only extractable links are nav junk needs the same rescue):
+    nothing that actually scores as a real job AND has real descriptions
+    (not just "found zero links" - a page whose only extractable links are
+    nav junk needs the same rescue, and so does a page whose titles score
+    fine but whose descriptions are empty site-chrome, since the description
+    is what scoring's coverage check runs against):
       0. Direct ATS API (url itself is a Greenhouse/Lever/Ashby/Workable/
          Comeet board) - richest data, skips HTML scraping entirely.
       1. Plain HTTP listing scrape (fast, cheap, works for most sites).
-      2. Playwright render (JS-rendered listing pages plain HTTP can't see).
+      2. Playwright render (JS-rendered listing pages plain HTTP can't see -
+         also the rescue path for JS-rendered *descriptions*, since a site
+         like a Webflow SPA can have static titles but only render the
+         actual description text client-side).
       3. techmap's own row for this company (title/location/level only, no
          description) - better than nothing when the company's own site
          can't be parsed by either of the above.
@@ -271,17 +297,31 @@ async def fetch_company_jobs_async(
             "employment_type": details["employment_type"], "posted_at": details["posted_at"],
         })
 
-    if _any_job_scores_positive(jobs, profiles):
+    plain_scored = _any_job_scores_positive(jobs, profiles)
+    if plain_scored and _has_real_descriptions(jobs):
         return jobs
 
-    logger.info("%s: plain-HTTP found nothing scoring (%d raw entries) - trying Playwright", company, len(jobs))
+    if plain_scored:
+        logger.info("%s: plain-HTTP scored but has no real descriptions (%d entries) - trying Playwright for richer data", company, len(jobs))
+    else:
+        logger.info("%s: plain-HTTP found nothing scoring (%d raw entries) - trying Playwright", company, len(jobs))
     try:
         pw_jobs = await _fetch_via_playwright(company, url)
     except Exception as error:  # noqa: BLE001
         logger.debug("%s: playwright fallback failed: %s", company, error)
         pw_jobs = []
-    if _any_job_scores_positive(pw_jobs, profiles):
+    pw_scored = _any_job_scores_positive(pw_jobs, profiles)
+    if pw_scored and _has_real_descriptions(pw_jobs):
         return pw_jobs
+
+    # Neither tier got both a positive score and real descriptions - prefer
+    # whichever one at least scored (a title-only match beats nothing, and
+    # beats techmap's title/location-only rows), Playwright's attempt first
+    # since it's the richer of the two when both scored.
+    if pw_scored:
+        return pw_jobs
+    if plain_scored:
+        return jobs
 
     techmap_jobs = _techmap_fallback_jobs(company, techmap_index)
     if techmap_jobs:
