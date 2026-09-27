@@ -8,7 +8,7 @@ verticals) are public - no login needed, confirmed by fetching them with a
 plain headless browser and no session/cookies at all. Filtered to Israel
 Registration Number = Registered, Status = Active (IVC's default), Sector =
 Enterprise Software & Infrastructure - the closest single-sector match to
-this project's target roles (config.TARGET_ROLES). That still runs into the
+this project's software/AI/infra job search. That still runs into the
 thousands of results; only the free-tier UI's own "Annual Membership"
 paywall (which blocks large page jumps, not sequential single-page steps)
 is a real limit, so this steps one page at a time.

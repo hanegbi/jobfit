@@ -130,6 +130,16 @@ def save_meta(meta: dict) -> None:
     atomic_write_json(META_PATH, meta)
 
 
+MIN_SCORE_FOR_REAL_MATCH = 50
+"""jobfit.ats_scorer's hard gates cap a weak/mismatched candidate's score
+(e.g. a role-family mismatch caps at 40) rather than zeroing it out - a
+capped-but-nonzero score still means "not a fit" or "weak match" in that
+engine's own band semantics, not "this scored, so the tier worked". 50 is
+the floor of "partial match" (config.ScoringConfig.bands): clear relevant
+background, not junk - that's the bar for treating a fetch tier as having
+found something real."""
+
+
 def _any_job_scores_positive(jobs: list[dict], profiles: dict) -> bool:
     """Whether at least one fetched job looks like a real, relevant posting.
 
@@ -137,13 +147,13 @@ def _any_job_scores_positive(jobs: list[dict], profiles: dict) -> bool:
     handful of nav-link junk (a career page's own "Careers Homepage"/"Why Us"
     links, misidentified as job titles) still returns a non-empty list, so
     counting entries alone isn't enough; checking that something actually
-    scores above 0 is what tells a real result from junk.
+    clears MIN_SCORE_FOR_REAL_MATCH is what tells a real result from junk.
     """
     for job in jobs:
         title = (job.get("title") or "").strip()
         if not title:
             continue
-        if scoring.score_job_both(job, profiles)["best_score"] > 0:
+        if scoring.score_job_both(job, profiles)["best_score"] >= MIN_SCORE_FOR_REAL_MATCH:
             return True
     return False
 

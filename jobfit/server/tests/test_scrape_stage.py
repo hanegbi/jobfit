@@ -196,7 +196,10 @@ def test_fetch_company_jobs_async_falls_through_when_ats_board_scores_nothing(mo
             },
         )
 
-        profiles = {"default": {"must_have_keywords": ["python"]}}
+        profiles = {"default": {"must_have_keywords": ["python"], "text": (
+            "Backend Engineer\nAcme Corp | 2021 - Present\n"
+            "- Built and owned production REST APIs in Python"
+        )}}
         jobs = await update_jobs.fetch_company_jobs_async(
             "Acme", "https://boards.greenhouse.io/acme", session=None, profiles=profiles, techmap_index={},
         )

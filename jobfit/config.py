@@ -47,67 +47,14 @@ TECHMAP_CATEGORIES = [
     "finance", "marketing", "sales", "hr", "legal", "admin", "procurement-operations",
 ]
 
-# --- Scoring config (tuned for Dan Hanegbi; shared by both CV profiles) ---
-TARGET_ROLES: list[str] = [
-    "backend engineer", "backend developer", "software engineer", "software developer",
-    "platform engineer", "infrastructure engineer", "ml engineer", "machine learning engineer",
-    "ai engineer", "ai infrastructure", "distributed systems engineer", "python engineer",
-    "site reliability engineer", "devops engineer", "data engineer", "full stack engineer",
-    "full-stack engineer", "fullstack engineer", "full stack developer",
-    # Dan's actual specialization at Hailo: deploying/serving AI+LLM models,
-    "mlops engineer", "ml infrastructure engineer", "ml platform engineer",
-    "ai platform engineer", "llm infrastructure engineer", "inference engineer",
-    "machine learning infrastructure engineer", "ml systems engineer",
-]
-
-# One shared role/title weighting for every CV profile. Profiles no longer get
-# their own hand-tuned table - what differentiates them is the skill vocabulary
-# extracted from each CV's own text (see cv.py), and coverage against a job's
-# real description already dominates the score (see scoring.FULL_WEIGHTS).
-ROLE_WEIGHTS: dict[str, int] = {
-    "software engineer": 58, "python engineer": 55, "backend engineer": 54,
-    "ai engineer": 53, "ml engineer": 52, "machine learning engineer": 52,
-    "ai infrastructure": 52, "backend developer": 50, "software developer": 50,
-    "platform engineer": 48, "infrastructure engineer": 48, "distributed systems engineer": 48,
-    "site reliability engineer": 45, "full stack engineer": 42, "full-stack engineer": 42,
-    "fullstack engineer": 42, "full stack developer": 40, "devops engineer": 40,
-    "data engineer": 38, "mlops engineer": 56, "ml infrastructure engineer": 56,
-    "ml platform engineer": 55, "ai platform engineer": 55, "llm infrastructure engineer": 57,
-    "inference engineer": 55, "machine learning infrastructure engineer": 56, "ml systems engineer": 53,
-}
-
-TITLE_INCLUDE_KEYWORDS: list[str] = [
-    "software", "engineer", "developer", "programmer", "architect", "sde", "swe",
-    "backend", "back end", "back-end", "full stack", "fullstack", "full-stack",
-    "infrastructure", "infra", "platform", "devops", "sre", "site reliability",
-    "python", "ai", "ml", "machine learning", "deep learning", "llm", "genai",
-    "gen ai", "mlops", "inference", "data engineer",
-]
-
-TITLE_EXCLUDE_KEYWORDS: list[str] = [
-    "team lead", "tech lead", "team leader", "tech leader", "manager", "director",
-    "sales", "presales", "pre-sales", "solution engineer", "solutions engineer",
-    "account executive", "account manager", "marketing", "recruiter",
-    "talent acquisition", "human resources", "finance", "accountant", "legal",
-    "customer success", "customer support", "technical support", "mechanical",
-    "electrical", "electronics", "hardware", "analog", "rf engineer", "vlsi",
-    "asic", "physical design", "civil engineer", "industrial engineer", "chemical",
-    "technician", "field application", "designer", "ui/ux", "ux/ui",
-    "ios", "android", "swift developer", "objective-c", "mobile developer",
-    "mobile engineer", "react native", "flutter", "unity", "game developer",
-    "game engineer", "frontend engineer", "front-end engineer", "front end engineer",
-    "frontend developer", "ui engineer",
-]
-
-EXCLUDE_KEYWORDS: list[str] = [
-    "qa", "manual testing", "account executive", "recruiter", "customer success",
-    "support engineer", "frontend only",
-]
-
-OVERQUALIFIED_TITLE_TERMS: list[str] = [
-    "principal", "staff", "distinguished", "director", "head of", "vp",
-    "vice president", "chief", "fellow",
-]
+# --- Scoring config ---
+# No hardcoded role/title/exclude-keyword lists here on purpose: jobfit.scoring
+# is now a thin adapter over jobfit.ats_scorer, which compares each CV's own
+# text against a job's title+description via section-aware requirement
+# extraction and taxonomy-based skill matching (jobfit/ats_scorer/config.py,
+# jobfit/ats_scorer/data/*.json) - not a hand-picked list of "acceptable"
+# titles for one specific person. A different CV drives a genuinely
+# different match.
 
 REMOTE_TERMS: list[str] = ["remote", "anywhere", "work from home", "wfh", "distributed"]
 
