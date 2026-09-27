@@ -95,6 +95,21 @@ def test_keeps_unrelated_sibling_postings():
     assert drop_category_prefix_links(results) == results
 
 
+def test_keeps_flat_query_string_job_links_with_no_path_nesting_at_all():
+    """Real bug caught live: Check Point's job pages are all
+    index.php?...joborderid=N - a flat query-string scheme where every job
+    has the identical, empty parent path. Without a guard, an empty parent
+    is trivially "a prefix of" every other entry's parent (other[:0] == ()
+    always), so every single real job link was silently dropped as if it
+    were a category-overview page."""
+    results = [
+        ("Administrative Assistant", "https://careers.checkpoint.com/index.php?a=show&joborderid=1"),
+        ("Backend Developer", "https://careers.checkpoint.com/index.php?a=show&joborderid=2"),
+    ]
+
+    assert drop_category_prefix_links(results) == results
+
+
 def test_keeps_a_single_link_unchanged():
     results = [("Backend Engineer", "https://acme.com/careers/eng/1/backend-engineer")]
     assert drop_category_prefix_links(results) == results

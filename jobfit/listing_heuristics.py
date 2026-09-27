@@ -87,7 +87,14 @@ def drop_category_prefix_links(results: list[tuple[str, str]]) -> list[tuple[str
     filtered = []
     for i, (title, url) in enumerate(results):
         mine = parents[i]
-        if any(j != i and len(mine) < len(other) and other[: len(mine)] == mine for j, other in enumerate(parents)):
+        # An empty parent (no directory nesting at all - real case: Check
+        # Point's job pages are all index.php?...joborderid=N, a flat
+        # query-string scheme with an identical, empty parent path for every
+        # single job) is not "more general" than anything - other[:0] == ()
+        # is trivially true for every other entry, which without this guard
+        # made every such link look like a category overview of the entire
+        # batch and silently dropped all of them.
+        if mine and any(j != i and len(mine) < len(other) and other[: len(mine)] == mine for j, other in enumerate(parents)):
             continue
         filtered.append((title, url))
     return filtered

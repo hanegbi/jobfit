@@ -368,18 +368,22 @@ def _contains_a_job_link(tag) -> bool:
 
 
 def _strip_boilerplate(soup: BeautifulSoup) -> None:
-    for tag in soup(["script", "style", "svg", "form", "noscript"]):
+    for tag in soup(["script", "style", "svg", "noscript"]):
         tag.decompose()
-    # nav/header/footer are usually genuine site chrome worth discarding, but
-    # not always: real example caught live on Adaptive6's Webflow-built
-    # careers page - the *entire* job-cards section is wrapped in
-    # <header class="section_careers">, a loose (if non-standard) use of the
-    # tag as "this content block's heading area", not "site navigation
+    # nav/header/footer/form are usually genuine site chrome worth
+    # discarding, but not always: real example caught live on Adaptive6's
+    # Webflow-built careers page - the *entire* job-cards section is wrapped
+    # in <header class="section_careers">, a loose (if non-standard) use of
+    # the tag as "this content block's heading area", not "site navigation
     # header". A blanket decompose() silently wiped every job listing before
-    # any of the title-cleaning logic even ran. Only strip one of these three
-    # tags when it holds no job-looking link itself - real site chrome never
-    # does, so this doesn't let genuine boilerplate back in.
-    for tag in soup(["nav", "header", "footer"]):
+    # any of the title-cleaning logic even ran. A second real example: Check
+    # Point's career search-results page (careers.checkpoint.com) wraps its
+    # entire results list - real job links included - in a <form> (the
+    # search-filter widget's own form), so blanket-stripping every <form>
+    # wiped that too. Only strip one of these four tags when it holds no
+    # job-looking link itself - real site chrome/widget forms never do, so
+    # this doesn't let genuine boilerplate back in.
+    for tag in soup(["nav", "header", "footer", "form"]):
         if not _contains_a_job_link(tag):
             tag.decompose()
     # Computed as a static list first: decomposing a matched ancestor detaches
@@ -619,12 +623,13 @@ def fetch_listing_links(session: requests.Session, url: str, max_links: int = 8)
     (scripts/playwright_listings.py), so this keeps the fast/cheap path doing
     as much of the work as it can.
     """
-    from urllib.parse import urljoin
+    from urllib.parse import urljoin, urlsplit
 
     from jobfit.listing_heuristics import drop_category_prefix_links, looks_like_job_link_href, looks_like_job_title
 
     if not url or any(host in url.lower() for host in _SKIP_GENERIC_FETCH_HOSTS):
         return []
+    source_host = urlsplit(url).netloc.lower()
     response = _request(session, "GET", url)
     if response is None:
         return []
@@ -657,6 +662,18 @@ def fetch_listing_links(session: requests.Session, url: str, max_links: int = 8)
         results.append((text, absolute))
         if len(results) >= candidate_cap:
             break
+    # Prefer links on the same host as the career page itself. A page with a
+    # large marketing mega-menu can have dozens of product/solution links
+    # that individually pass every title heuristic and appear well before
+    # the real job links in document order - real case: Check Point's Israel
+    # job-search page (careers.checkpoint.com) has a shared site-wide
+    # mega-menu linking out to www.checkpoint.com ahead of its own results,
+    # so the first actual job link doesn't show up until candidate #124,
+    # long past any reasonable max_links. Stable sort: same-host candidates
+    # move first without disturbing relative order within each group, so a
+    # company that legitimately posts jobs on a different subdomain doesn't
+    # lose them outright, just loses priority for the cap.
+    results.sort(key=lambda item: urlsplit(item[1]).netloc.lower() != source_host)
     return drop_category_prefix_links(results)[:max_links]
 
 

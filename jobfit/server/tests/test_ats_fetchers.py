@@ -272,3 +272,30 @@ def test_fetch_elbit_sigmabit_jobs_returns_empty_when_the_request_fails(monkeypa
     monkeypatch.setattr(ats_fetchers, "_request", lambda *a, **kw: None)
 
     assert ats_fetchers.fetch_elbit_sigmabit_jobs(session=None) == []
+
+
+# --- fetch_listing_links: same-host priority -------------------------------
+
+class _FakeHtmlResponse:
+    def __init__(self, text):
+        self.text = text
+
+
+def test_fetch_listing_links_prioritizes_same_host_links_over_a_mega_menu(monkeypatch):
+    """Real bug caught live: Check Point's Israel job-search page
+    (careers.checkpoint.com) shares a site-wide marketing mega-menu that
+    links out to www.checkpoint.com - those links pass every title
+    heuristic just as easily as a real job title, appear before the real
+    job links in document order, and previously filled the entire
+    max_links cap before a single real job was ever reached."""
+    html = """
+    <a href="https://www.checkpoint.com/quantum/next-generation-firewall/">Industrial Firewalls</a>
+    <a href="https://www.checkpoint.com/harmony/sase/private-access/">Private Access</a>
+    <a href="https://careers.checkpoint.com/index.php?a=show&jid=1">Administrative Assistant</a>
+    """
+    monkeypatch.setattr(ats_fetchers, "_request", lambda *a, **kw: _FakeHtmlResponse(html))
+    url = "https://careers.checkpoint.com/index.php?q=&fa%5B%5D=country_s%3AIsrael"
+
+    links = ats_fetchers.fetch_listing_links(session=None, url=url, max_links=1)
+
+    assert links == [("Administrative Assistant", "https://careers.checkpoint.com/index.php?a=show&jid=1")]
