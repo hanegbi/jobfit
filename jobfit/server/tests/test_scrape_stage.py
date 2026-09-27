@@ -112,3 +112,94 @@ def test_scrape_stage_runs_normally_with_no_cancel_event(monkeypatch):
     stats = update_jobs.scrape_stage({"Acme": "https://acme.com/careers"}, profiles={})
 
     assert stats.companies_checked == 1
+
+
+# --- ATS API tier (_ats_api_jobs) ------------------------------------------
+
+def test_ats_api_jobs_returns_none_for_a_non_ats_url():
+    assert update_jobs._ats_api_jobs(session=None, url="https://acme.com/careers") is None
+
+
+def test_ats_api_jobs_returns_none_for_no_url():
+    assert update_jobs._ats_api_jobs(session=None, url=None) is None
+
+
+def test_ats_api_jobs_maps_fields_from_a_resolved_board(monkeypatch):
+    monkeypatch.setattr(update_jobs.ats_fetchers, "fetch_company_board", lambda session, ats, token, url: [
+        {
+            "title": "Backend Engineer", "location": "Tel Aviv", "url": "https://boards.greenhouse.io/acme/1",
+            "description": "build things", "department": "Engineering", "employment_type": "Full-time",
+            "posted_at": "2026-06-15", "_ats": "greenhouse",
+        },
+    ])
+
+    jobs = update_jobs._ats_api_jobs(session=None, url="https://boards.greenhouse.io/acme")
+
+    assert jobs == [{
+        "title": "Backend Engineer", "location": "Tel Aviv", "url": "https://boards.greenhouse.io/acme/1",
+        "description": "build things", "department": "Engineering", "employment_type": "Full-time",
+        "posted_at": "2026-06-15",
+    }]
+
+
+def test_ats_api_jobs_returns_empty_list_when_board_resolves_but_has_zero_jobs(monkeypatch):
+    monkeypatch.setattr(update_jobs.ats_fetchers, "fetch_company_board", lambda session, ats, token, url: [])
+
+    jobs = update_jobs._ats_api_jobs(session=None, url="https://boards.greenhouse.io/acme")
+
+    assert jobs == []
+
+
+def test_ats_api_jobs_returns_empty_list_when_the_api_call_raises(monkeypatch):
+    def _boom(session, ats, token, url):
+        raise RuntimeError("network blew up")
+    monkeypatch.setattr(update_jobs.ats_fetchers, "fetch_company_board", _boom)
+
+    jobs = update_jobs._ats_api_jobs(session=None, url="https://boards.greenhouse.io/acme")
+
+    assert jobs == []
+
+
+def test_fetch_company_jobs_async_uses_the_ats_api_tier_first(monkeypatch):
+    async def _run():
+        monkeypatch.setattr(update_jobs.ats_fetchers, "fetch_company_board", lambda session, ats, token, url: [
+            {"title": "Backend Engineer", "location": "Tel Aviv", "url": "https://x", "description": "python required"},
+        ])
+        called_generic = []
+        monkeypatch.setattr(update_jobs.ats_fetchers, "fetch_listing_links", lambda *a, **kw: called_generic.append(1) or [])
+
+        profiles = {"default": {"must_have_keywords": ["python"]}}
+        jobs = await update_jobs.fetch_company_jobs_async(
+            "Acme", "https://boards.greenhouse.io/acme", session=None, profiles=profiles, techmap_index={},
+        )
+
+        assert len(jobs) == 1
+        assert jobs[0]["title"] == "Backend Engineer"
+        assert called_generic == []  # never fell through to generic HTML scraping
+
+    asyncio.run(_run())
+
+
+def test_fetch_company_jobs_async_falls_through_when_ats_board_scores_nothing(monkeypatch):
+    async def _run():
+        monkeypatch.setattr(update_jobs.ats_fetchers, "fetch_company_board", lambda session, ats, token, url: [
+            {"title": "Sales Manager", "location": "Tel Aviv", "url": "https://x", "description": "irrelevant"},
+        ])
+        monkeypatch.setattr(
+            update_jobs.ats_fetchers, "fetch_listing_links",
+            lambda *a, **kw: [("Backend Engineer", "https://x/2")],
+        )
+        monkeypatch.setattr(
+            update_jobs.ats_fetchers, "fetch_generic_job_details",
+            lambda *a, **kw: {"description": "python required", "location": None, "employment_type": None, "posted_at": None},
+        )
+
+        profiles = {"default": {"must_have_keywords": ["python"]}}
+        jobs = await update_jobs.fetch_company_jobs_async(
+            "Acme", "https://boards.greenhouse.io/acme", session=None, profiles=profiles, techmap_index={},
+        )
+
+        assert len(jobs) == 1
+        assert jobs[0]["title"] == "Backend Engineer"
+
+    asyncio.run(_run())

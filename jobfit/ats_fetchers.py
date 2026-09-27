@@ -408,6 +408,100 @@ def fetch_generic_description(session: requests.Session, url: str) -> str:
     return text[:6000]
 
 
+def _jsonld_job_postings(soup: BeautifulSoup) -> list[dict]:
+    """Every schema.org JobPosting object embedded as JSON-LD on the page -
+    many career-page builders (and any site doing Google for Jobs SEO) embed
+    this even when the visible page itself is a JS app plain HTTP can't
+    render, so it's worth checking unconditionally rather than only as a
+    fallback. A page can embed one object, a list of objects, or a
+    "@graph" wrapper; this normalizes all three shapes."""
+    postings = []
+    for script in soup.find_all("script", type="application/ld+json"):
+        if not script.string:
+            continue
+        try:
+            payload = json.loads(script.string)
+        except (json.JSONDecodeError, TypeError):
+            continue
+        candidates = payload if isinstance(payload, list) else [payload]
+        expanded = []
+        for item in candidates:
+            if isinstance(item, dict) and "@graph" in item:
+                expanded.extend(item["@graph"])
+            else:
+                expanded.append(item)
+        for item in expanded:
+            if isinstance(item, dict) and item.get("@type") == "JobPosting":
+                postings.append(item)
+    return postings
+
+
+def _jsonld_location(posting: dict) -> Optional[str]:
+    location = posting.get("jobLocation")
+    if isinstance(location, list):
+        location = location[0] if location else None
+    if not isinstance(location, dict):
+        return _clean(str(location)) if location else None
+    address = location.get("address")
+    if isinstance(address, str):
+        return _clean(address) or None
+    if isinstance(address, dict):
+        parts = [address.get("addressLocality"), address.get("addressRegion"), address.get("addressCountry")]
+        joined = ", ".join(p for p in parts if p)
+        return joined or None
+    return None
+
+
+def fetch_generic_job_details(session: requests.Session, url: str) -> dict:
+    """Richer version of fetch_generic_description: also pulls location,
+    employment_type and posted_at from the page's own schema.org JobPosting
+    JSON-LD when present (common - many career-page builders emit it for
+    Google for Jobs indexing, confirmed present on Fireblocks's careers page
+    live), instead of leaving those fields None the way plain text-scraping
+    always does. Falls back to the plain description-only result when no
+    JobPosting JSON-LD is found, so this is a strict improvement with no new
+    failure mode.
+    """
+    empty = {"description": "", "location": None, "employment_type": None, "posted_at": None}
+    if not url or any(host in url.lower() for host in _SKIP_GENERIC_FETCH_HOSTS):
+        return empty
+    response = _request(session, "GET", url)
+    if response is None:
+        return empty
+    try:
+        soup = BeautifulSoup(response.text, "html.parser")
+    except Exception:  # noqa: BLE001 - malformed HTML must not break the pipeline
+        return empty
+
+    postings = _jsonld_job_postings(soup)
+    posting = postings[0] if postings else None
+
+    description = ""
+    if posting and posting.get("description"):
+        try:
+            description = _clean(BeautifulSoup(str(posting["description"]), "html.parser").get_text(" "))[:6000]
+        except Exception:  # noqa: BLE001
+            description = ""
+    if not description:
+        _strip_boilerplate(soup)
+        text = _clean(soup.get_text(" "))
+        description = "" if looks_like_boilerplate(text) else text[:6000]
+
+    if not posting:
+        return {**empty, "description": description}
+
+    employment_type = posting.get("employmentType")
+    if isinstance(employment_type, list):
+        employment_type = employment_type[0] if employment_type else None
+
+    return {
+        "description": description,
+        "location": _jsonld_location(posting),
+        "employment_type": _clean(str(employment_type)) if employment_type else None,
+        "posted_at": _posted_date(posting.get("datePosted")),
+    }
+
+
 def fetch_listing_links(session: requests.Session, url: str, max_links: int = 8) -> list[tuple[str, str]]:
     """Pull candidate (title, absolute_url) job links off a career listing page.
 

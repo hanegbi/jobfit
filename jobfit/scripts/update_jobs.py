@@ -195,12 +195,48 @@ def load_techmap_index() -> dict[str, list[dict]]:
     return index
 
 
+def _ats_api_jobs(session, url: str) -> list[dict] | None:
+    """When url itself resolves to a known ATS platform (boards.greenhouse.io,
+    jobs.lever.co, jobs.ashbyhq.com, apply.workable.com, comeet.com/jobs/...),
+    fetch the whole board through that platform's own JSON API instead of
+    scraping HTML - real location/department/employment_type/posted_at come
+    back structured, not left as None/dropped the way generic <a> scraping
+    leaves them. Returns None (not []) when url isn't a recognized ATS URL at
+    all, so the caller can tell "not applicable" from "resolved but 0 jobs
+    posted right now" (the latter is a legitimate result, not a failure)."""
+    resolved = ats_fetchers.resolve_ats(url)
+    if not resolved:
+        return None
+    ats, token = resolved
+    try:
+        jobs = ats_fetchers.fetch_company_board(session, ats, token, url)
+    except Exception as error:  # noqa: BLE001 - a bad guess/expired board must never abort the run
+        logger.debug("ATS API fetch failed (%s/%s): %s", ats, token, error)
+        return []
+    if jobs is None:
+        return []
+    return [
+        {
+            "title": j.get("title"),
+            "location": j.get("location"),
+            "url": j.get("url"),
+            "description": j.get("description") or "",
+            "department": j.get("department"),
+            "employment_type": j.get("employment_type"),
+            "posted_at": j.get("posted_at"),
+        }
+        for j in jobs
+    ]
+
+
 async def fetch_company_jobs_async(
     company: str, url: str | None, session, profiles: dict, techmap_index: dict[str, list[dict]]
 ) -> list[dict]:
-    """Three-tier cascade, escalating only when the previous tier found
+    """Four-tier cascade, escalating only when the previous tier found
     nothing that actually scores as a real job (not just "found zero links" -
     a page whose only extractable links are nav junk needs the same rescue):
+      0. Direct ATS API (url itself is a Greenhouse/Lever/Ashby/Workable/
+         Comeet board) - richest data, skips HTML scraping entirely.
       1. Plain HTTP listing scrape (fast, cheap, works for most sites).
       2. Playwright render (JS-rendered listing pages plain HTTP can't see).
       3. techmap's own row for this company (title/location/level only, no
@@ -214,11 +250,26 @@ async def fetch_company_jobs_async(
     if not url:
         return _techmap_fallback_jobs(company, techmap_index)
 
+    ats_jobs = _ats_api_jobs(session, url)
+    if ats_jobs is not None:
+        if _any_job_scores_positive(ats_jobs, profiles):
+            return ats_jobs
+        if ats_jobs:
+            logger.info("%s: ATS API board resolved but nothing scored (%d jobs) - falling through", company, len(ats_jobs))
+        # else: board resolved but genuinely has 0 open jobs right now - still
+        # worth trying generic scraping in case the URL also renders a normal
+        # page (rare, but cheap to check), otherwise this naturally ends up
+        # with 0 jobs either way.
+
     links = ats_fetchers.fetch_listing_links(session, url, max_links=MAX_LINKS_PER_COMPANY)
     jobs = []
     for title, job_url in links:
-        desc = ats_fetchers.fetch_generic_description(session, job_url)
-        jobs.append({"title": title, "location": None, "url": job_url, "description": desc})
+        details = ats_fetchers.fetch_generic_job_details(session, job_url)
+        jobs.append({
+            "title": title, "url": job_url,
+            "location": details["location"], "description": details["description"],
+            "employment_type": details["employment_type"], "posted_at": details["posted_at"],
+        })
 
     if _any_job_scores_positive(jobs, profiles):
         return jobs
@@ -278,7 +329,13 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
                 "location": job.get("location"),
                 "url": job.get("url"),
                 "description": ats_fetchers.strip_html(job.get("description")),
-                "first_seen": now,
+                "department": job.get("department"),
+                "employment_type": job.get("employment_type"),
+                # An ATS API tells us the job's real posting date - prefer that
+                # over "now" (when *we* happened to first check) so a company
+                # scraped for the first time doesn't make every one of its
+                # existing postings look brand new.
+                "first_seen": job.get("posted_at") or now,
                 "last_seen": now,
                 "status": "new",
             }

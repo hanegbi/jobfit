@@ -89,6 +89,44 @@ def test_skips_jobs_with_no_title(companies_dir):
     assert record["jobs"] == []
 
 
+def test_new_job_captures_department_and_employment_type(companies_dir):
+    profiles = {"default": {"must_have_keywords": []}}
+    fetched = [{
+        "title": "Backend Engineer", "location": "Tel Aviv", "url": "https://x/1", "description": "",
+        "department": "Engineering", "employment_type": "Full-time",
+    }]
+
+    record, _, _ = update_jobs.diff_and_update("Acme", "https://acme/careers", fetched, profiles)
+
+    job = record["jobs"][0]
+    assert job["department"] == "Engineering"
+    assert job["employment_type"] == "Full-time"
+
+
+def test_new_job_prefers_the_source_posted_at_over_now(companies_dir):
+    profiles = {"default": {"must_have_keywords": []}}
+    fetched = [{
+        "title": "Backend Engineer", "location": None, "url": "https://x/1", "description": "",
+        "posted_at": "2026-06-15",
+    }]
+
+    record, _, _ = update_jobs.diff_and_update("Acme", "https://acme/careers", fetched, profiles)
+
+    job = record["jobs"][0]
+    assert job["first_seen"] == "2026-06-15"
+    assert job["last_seen"] != "2026-06-15"  # last_seen is still "now", only first_seen is backdated
+
+
+def test_new_job_falls_back_to_now_when_no_posted_at(companies_dir):
+    profiles = {"default": {"must_have_keywords": []}}
+    fetched = [{"title": "Backend Engineer", "location": None, "url": "https://x/1", "description": ""}]
+
+    record, _, _ = update_jobs.diff_and_update("Acme", "https://acme/careers", fetched, profiles)
+
+    job = record["jobs"][0]
+    assert job["first_seen"] == job["last_seen"]
+
+
 def test_does_not_rescore_existing_jobs(companies_dir):
     """recompute_stage() owns rescoring now, not diff_and_update - a changed
     profile registry between two scrape runs must not silently rescore here."""

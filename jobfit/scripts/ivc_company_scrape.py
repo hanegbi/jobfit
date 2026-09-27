@@ -67,10 +67,28 @@ SECTOR_FILTER_TEXT = "Enterprise Software & Infrastructure"
 DOMAIN_RE = re.compile(r"^(?:www\.)?[a-zA-Z0-9][\w-]*(?:\.[a-zA-Z0-9-]+)+/?$")
 ENTITY_TYPES = {"High-Tech Company", "Multinational Corporation"}
 
-CAREER_LINK_WORDS = (
-    "career", "careers", "jobs", "job openings", "join us", "we're hiring",
-    "we are hiring", "work with us", "open positions", "join our team",
-)
+# "work with us" / "join us" / "we're hiring" are common marketing CTAs for
+# prospective customers, event promos ("Join us for our AI Summit"), or
+# partners - not hiring specifically. Real false positives found on live
+# sites: QEDIT's "work with us" pointed at /contact-us/ (its own real
+# "careers" -> /careers/ link existed too, just later in the page);
+# AuraPlayer, BigID, Codium, DataFlint, Deepdub, Flarion, Gloat, Hypernative
+# and Innvo AI all resolved to an event/webinar/demo/blog page instead of a
+# careers page via this kind of phrase. Precision matters far more than
+# recall here - a wrong career_url produces confidently-wrong scraped data
+# that looks legitimate, whereas no match just leaves the company pending
+# review. So: only match unambiguous hiring-specific phrases, full stop.
+#
+# Word-boundary regexes, not substring checks: Overbooked's own "Careers"
+# link was correctly present, but a naive `"jobs" in text` check matched
+# first on "Overbooked vs. dripjobs" (a competitor-comparison nav item -
+# "jobs" as a substring of a product name, nothing to do with hiring).
+CAREER_LINK_PATTERNS = [
+    re.compile(rf"\b{re.escape(w)}\b", re.I)
+    for w in ("career", "careers", "jobs", "job openings", "open positions",
+              "open roles", "current openings", "job opportunities")
+]
+_NON_HTTP_SCHEMES = ("mailto:", "tel:", "sms:", "javascript:", "#")
 
 
 # --- phase 1: harvest from IVC ---------------------------------------------
@@ -189,18 +207,26 @@ async def harvest(max_pages: int | None) -> dict[str, str]:
 
 # --- phase 2: career-page discovery ----------------------------------------
 
+MAX_CAREER_LINK_TEXT_LEN = 30  # a real nav label ("Careers", "Open Positions") is
+# always short; a marketing sentence that happens to contain "jobs" in some
+# other sense isn't. Real false positive found live: DataFlint's "See
+# DataFlint on your own Spark jobs" (Spark *compute* jobs, nothing to do with
+# hiring) at 37 chars - the length alone tells the two apart reliably where
+# the keyword can't.
+
+
 def _find_career_link(html: str, base_url: str) -> str | None:
     from bs4 import BeautifulSoup
 
     soup = BeautifulSoup(html, "html.parser")
     for a in soup.find_all("a", href=True):
         text = (a.get_text(" ") or "").strip().lower()
-        if not text:
+        if not text or len(text) > MAX_CAREER_LINK_TEXT_LEN:
             continue
-        if any(word in text for word in CAREER_LINK_WORDS):
-            href = a["href"]
-            if href.startswith("#") or href.lower().startswith("javascript:"):
-                continue
+        href = a["href"].strip()
+        if href.lower().startswith(_NON_HTTP_SCHEMES):
+            continue
+        if any(p.search(text) for p in CAREER_LINK_PATTERNS):
             return urljoin(base_url, href)
     return None
 
