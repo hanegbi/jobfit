@@ -10,6 +10,7 @@ are unrelated to the role/title-matching mechanism this module used to
 hardcode and are unchanged.
 """
 
+import hashlib
 import re
 from functools import lru_cache
 
@@ -131,6 +132,21 @@ def _cv_text_for_profile(profile: dict) -> str:
         return text
     keywords = profile.get("must_have_keywords") or []
     return f"Skills: {', '.join(keywords)}" if keywords else ""
+
+
+def score_cache_key(job: dict, profile: dict) -> str:
+    """Deterministic (stable across processes and runs - unlike Python's
+    built-in hash(), which is randomized per-process) short hash of what a
+    job's score against one profile was actually computed from: the job's
+    own description text plus that profile's CV text. update_jobs.
+    recompute_stage stores this per job/profile pair and skips rescoring
+    when it's unchanged, so a rerun only does real work for jobs whose
+    description changed (a rescrape) or whose CV changed (a re-upload),
+    not every job every time."""
+    description = job.get("description") or ""
+    cv_text = _cv_text_for_profile(profile)
+    combined = f"{description}\x00{cv_text}".encode("utf-8")
+    return hashlib.sha256(combined).hexdigest()[:16]
 
 
 def score_job(job: dict, cv_text: str = "", context: JobRequirements | None = None) -> dict:

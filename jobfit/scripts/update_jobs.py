@@ -27,7 +27,7 @@ import logging
 import re
 import sys
 import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -560,12 +560,62 @@ def scrape_stage(
     return stats
 
 
+RECOMPUTE_WORKERS = 8
+
+
+def _recompute_one_company(path_str: str, profiles: dict, profile_ids: set, stale_prefixes: tuple) -> tuple[int, int]:
+    """Runs in a worker process (see recompute_stage): rescore one
+    company's stored jobs against the given profiles and save it back.
+    Module-level (not a closure) and taking only picklable arguments,
+    since ProcessPoolExecutor sends this function and its arguments to a
+    separate process.
+
+    Each job stores a `_score_cache_keys` dict (one hash per profile, from
+    scoring.score_cache_key - the job's description + that profile's CV
+    text). A job whose stored keys still match the profiles' current keys
+    is skipped entirely rather than rescored - a rerun only does real work
+    for jobs whose description changed (a rescrape) or whose CV changed (a
+    re-upload); a profile being added/removed also naturally falls out of
+    this (the key sets no longer match) without special-casing it.
+
+    Returns (jobs_rescored, jobs_skipped_unchanged).
+    """
+    path = Path(path_str)
+    record = json.loads(path.read_text(encoding="utf-8"))
+    rescored = 0
+    skipped = 0
+    for job in record["jobs"]:
+        current_keys = {name: scoring.score_cache_key(job, profile) for name, profile in profiles.items()}
+        if job.get("_score_cache_keys") == current_keys:
+            skipped += 1
+            continue
+        job.update(scoring.score_job_both(job, profiles))
+        job["_score_cache_keys"] = current_keys
+        rescored += 1
+        for key in list(job):
+            for prefix in stale_prefixes:
+                if key.startswith(prefix) and key[len(prefix):] not in profile_ids:
+                    del job[key]
+    save_company_file(record["name"], record)
+    return rescored, skipped
+
+
 def recompute_stage() -> None:
     """The local-only half of an update: rescore every stored job against the
     *current* profile registry, drop any score fields for profiles that no
-    longer exist, reaggregate, and rebuild jobfit.html. Cheap (pure regex
-    scoring over already-fetched text) - safe to call after any admin edit,
-    not just after a scrape."""
+    longer exist, reaggregate, and rebuild jobfit.html. Safe to call after
+    any admin edit, not just after a scrape.
+
+    Rescoring is CPU-bound (regex-based requirement extraction and
+    matching per job, not I/O), so it's parallelized across
+    RECOMPUTE_WORKERS separate processes rather than threads - Python
+    threads mostly serialize on the GIL for this kind of work, the same
+    reason the scrape side's plain-HTTP calls don't benefit from asyncio.
+    Each company is independent (its own file, no shared state), so
+    process-per-company parallelizes cleanly with no coordination needed
+    beyond collecting each worker's per-company job count for the
+    progress log.
+    """
     profiles = cv.load_profiles()
     profile_ids = set(profiles)
     stale_prefixes = ("score_", "matched_", "coverage_", "confidence_", "requirements_")
@@ -573,30 +623,37 @@ def recompute_stage() -> None:
     company_paths = [p for p in sorted(COMPANIES_DIR.glob("*.json")) if p.name != "_meta.json"]
     total_companies = len(company_paths)
     jobs_rescored = 0
+    jobs_skipped = 0
     log_every = 50
     start = time.time()
-    logger.info("recompute: rescoring %d companies against %d profile(s)...", total_companies, len(profiles))
+    logger.info(
+        "recompute: rescoring %d companies against %d profile(s) using %d worker processes...",
+        total_companies, len(profiles), RECOMPUTE_WORKERS,
+    )
 
-    for i, path in enumerate(company_paths, start=1):
-        record = json.loads(path.read_text(encoding="utf-8"))
-        for job in record["jobs"]:
-            job.update(scoring.score_job_both(job, profiles))
-            jobs_rescored += 1
-            for key in list(job):
-                for prefix in stale_prefixes:
-                    if key.startswith(prefix) and key[len(prefix):] not in profile_ids:
-                        del job[key]
-        save_company_file(record["name"], record)
-        if i % log_every == 0 or i == total_companies:
-            elapsed = time.time() - start
-            rate = jobs_rescored / elapsed if elapsed > 0 else 0
-            logger.info(
-                "recompute progress: %d/%d companies, %d jobs rescored (%.0f jobs/s, %.0fs elapsed)",
-                i, total_companies, jobs_rescored, rate, elapsed,
-            )
+    with ProcessPoolExecutor(max_workers=RECOMPUTE_WORKERS) as pool:
+        futures = [
+            pool.submit(_recompute_one_company, str(path), profiles, profile_ids, stale_prefixes)
+            for path in company_paths
+        ]
+        for i, future in enumerate(as_completed(futures), start=1):
+            rescored, skipped = future.result()
+            jobs_rescored += rescored
+            jobs_skipped += skipped
+            if i % log_every == 0 or i == total_companies:
+                elapsed = time.time() - start
+                rate = jobs_rescored / elapsed if elapsed > 0 else 0
+                logger.info(
+                    "recompute progress: %d/%d companies, %d jobs rescored, %d unchanged (skipped) "
+                    "(%.0f jobs/s, %.0fs elapsed)",
+                    i, total_companies, jobs_rescored, jobs_skipped, rate, elapsed,
+                )
 
     count = aggregate_to_jobs_v2()
-    logger.info("recompute: rescored against %d profile(s), aggregated %d jobs", len(profiles), count)
+    logger.info(
+        "recompute: rescored %d jobs (%d unchanged, skipped) against %d profile(s), aggregated %d jobs",
+        jobs_rescored, jobs_skipped, len(profiles), count,
+    )
     from jobfit import build_html
     build_html.build()
 

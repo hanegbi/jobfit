@@ -9,12 +9,38 @@ from jobfit.ats_scorer.models import JobRequirements, Requirement, RequirementKi
 from jobfit.ats_scorer.patterns import CERTIFICATION_RE, DEGREE_RE, LANGUAGE_RE, LOCATION_RE, YEARS_TOTAL_RE
 from jobfit.ats_scorer.taxonomy import load_role_families, load_skills_taxonomy
 
-_MUST_HAVE_HEADERS = ("requirements", "qualifications", "what you'll need", "what you need",
-                      "what we're looking for", "minimum qualifications")
-_NICE_TO_HAVE_HEADERS = ("nice to have", "nice-to-have", "advantage", "advantages", "bonus",
-                         "bonus points", "plus", "preferred qualifications", "preferred")
-_RESPONSIBILITY_HEADERS = ("responsibilities", "what you'll do", "what you will do",
-                           "about the role", "the role", "role overview", "your role")
+_NICE_TO_HAVE_HEADER_WORDS = frozenset({
+    "nice to have", "nice-to-have", "advantage", "advantages", "bonus",
+    "bonus points", "preferred qualifications", "preferred",
+})
+_RESPONSIBILITY_HEADER_WORDS = frozenset({
+    "responsibilities", "what you'll do", "what youll do", "what you will do",
+    "about the role", "the role", "role overview", "your role",
+})
+# Everything else recognized below (requirements/qualifications/...) is must_have.
+
+# Matched against the *raw, un-split* text - real scraped job descriptions
+# have no line breaks at all (ats_fetchers.strip_html collapses everything
+# to one whitespace-joined block), so section headers can't be found by
+# scanning lines; they're found as inline markers like "...Responsibilities:
+# Design systems. Requirements: 5+ years Python..." and each section's
+# content runs from right after its own header to the position of the next
+# recognized header (or end of text).
+_HEADER_RE = re.compile(
+    r"(requirements|qualifications|what you'?ll need|what you need|"
+    r"what we're looking for|minimum qualifications|nice to have|nice-to-have|"
+    r"advantages?|bonus(?: points)?|preferred qualifications|preferred|"
+    r"responsibilities|what you'?ll do|what you will do|about the role|"
+    r"the role|role overview|your role)\s*:",
+    re.IGNORECASE,
+)
+# Breaks a section's text into bullet-like units. Handles both a real line
+# break/bullet-marker (a nicely-formatted JD, e.g. from a PDF/manual entry)
+# and a sentence boundary in collapsed single-line text (the common real
+# case here) - a period/exclamation/question mark followed by a capital
+# letter or digit reads as "next bullet", not just "next sentence in the
+# same bullet", which is an acceptable approximation once formatting is gone.
+_SEGMENT_SPLIT_RE = re.compile(r"[\r\n]+|[•●‣⁃]+|(?<=[.!?])\s+(?=[A-Z0-9])")
 
 _SOFTENER_RE = re.compile(
     r"\b(advantage|plus|nice to have|preferred|bonus|familiarity with|familiar with|"
@@ -43,42 +69,42 @@ _SENIORITY_TITLE_PATTERNS: list[tuple[Seniority, re.Pattern]] = [
     (Seniority.JUNIOR, re.compile(r"\bjunior\b|\bjr\.?\b|\bentry.level\b|\bgraduate\b", re.IGNORECASE)),
 ]
 
-_BULLET_LINE_RE = re.compile(r"^\s*[-*••●‣⁃]\s*|^\s*\d+[.)]\s*")
+_BULLET_LINE_RE = re.compile(r"^\s*[-*•●‣⁃]\s*|^\s*\d+[.)]\s*")
 
 
-def _split_lines(text: str) -> list[str]:
-    return [ln.strip() for ln in (text or "").splitlines()]
-
-
-def _is_header(line: str) -> str | None:
-    """Return the header category ("must", "nice", "responsibility") if
-    this line looks like a section header, else None."""
-    stripped = line.strip().strip(":").strip().lower()
-    if not stripped or len(stripped) > 60:
-        return None
-    if any(stripped == h or stripped.startswith(h) for h in _MUST_HAVE_HEADERS):
-        return "must"
-    if any(stripped == h or stripped.startswith(h) for h in _NICE_TO_HAVE_HEADERS):
+def _header_bucket(header_word: str) -> str:
+    lowered = header_word.strip().lower()
+    if lowered in _NICE_TO_HAVE_HEADER_WORDS:
         return "nice"
-    if any(stripped == h or stripped.startswith(h) for h in _RESPONSIBILITY_HEADERS):
+    if lowered in _RESPONSIBILITY_HEADER_WORDS:
         return "responsibility"
-    return None
+    return "must"
+
+
+def _split_into_segments(text: str) -> list[str]:
+    return [s.strip() for s in _SEGMENT_SPLIT_RE.split(text) if s.strip()]
 
 
 def _split_sections(text: str) -> dict[str, list[str]]:
-    """Split JD text into must/nice/responsibility/other line buckets by
-    scanning for header lines. Lines before the first recognized header go
-    to "other" (used for title/domain context, not as requirements)."""
+    """Split JD text into must/nice/responsibility/other bullet-like
+    buckets by finding section headers as inline markers within the raw
+    text (not by scanning physical lines - real scraped descriptions have
+    none, see _HEADER_RE's docstring above). Text before the first
+    recognized header goes to "other" (used for title/domain context, not
+    as requirements)."""
+    text = text or ""
     sections: dict[str, list[str]] = {"must": [], "nice": [], "responsibility": [], "other": []}
-    current = "other"
-    for line in _split_lines(text):
-        if not line:
-            continue
-        header = _is_header(line)
-        if header:
-            current = header
-            continue
-        sections[current].append(line)
+    matches = list(_HEADER_RE.finditer(text))
+    if not matches:
+        sections["other"] = _split_into_segments(text)
+        return sections
+    if matches[0].start() > 0:
+        sections["other"] = _split_into_segments(text[: matches[0].start()])
+    for i, match in enumerate(matches):
+        bucket = _header_bucket(match.group(1))
+        start = match.end()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        sections[bucket].extend(_split_into_segments(text[start:end]))
     return sections
 
 
@@ -190,8 +216,8 @@ def extract_job_requirements(text: str, title: str | None = None) -> JobRequirem
         nothing is invented.
     """
     text = text or ""
-    lines = _split_lines(text)
-    resolved_title = title or next((ln for ln in lines if ln.strip()), "")
+    segments = _split_into_segments(text)
+    resolved_title = title or (segments[0] if segments else "")
 
     sections = _split_sections(text)
 

@@ -92,6 +92,35 @@ Requirements:
     assert "aws" not in all_text.lower()
 
 
+def test_jd_extractor_finds_sections_in_a_single_line_collapsed_description():
+    """Real bug caught live in production: jobfit's own scraper
+    (ats_fetchers.strip_html/_clean) collapses every job description to a
+    single whitespace-joined line with zero newlines - the section headers
+    still have to be found as inline "Requirements:"/"Nice to have:"
+    markers within that flowing text, not by scanning physical lines
+    (which never existed for any real scraped job, so must_have/
+    nice_to_have were silently always empty before this fix)."""
+    jd = (
+        "Join our team building next-gen infrastructure. Responsibilities: "
+        "Design and build backend services. Own production systems end to end. "
+        "Requirements: 5+ years of experience with Python. Kubernetes experience required. "
+        "Must have AWS experience. BSc degree required. "
+        "Nice to have: PostgreSQL is a plus. GraphQL experience is a bonus."
+    )
+    result = jd_extractor.extract_job_requirements(jd, title="Senior Backend Engineer")
+
+    must_have_texts = [r.text for r in result.must_have]
+    nice_to_have_texts = [r.text for r in result.nice_to_have]
+    assert any("Python" in t for t in must_have_texts)
+    assert any("Kubernetes" in t for t in must_have_texts)
+    assert any("AWS" in t for t in must_have_texts)
+    assert any("PostgreSQL" in t for t in nice_to_have_texts)
+    assert any("GraphQL" in t for t in nice_to_have_texts)
+    assert not any("PostgreSQL" in t or "GraphQL" in t for t in must_have_texts)
+    assert result.role_family == "backend"
+    assert result.required_years_total == 5
+
+
 def test_jd_extractor_classifies_degree_requirement():
     jd = """Data Scientist
 
