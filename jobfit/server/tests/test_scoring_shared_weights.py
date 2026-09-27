@@ -91,6 +91,33 @@ def test_score_job_treats_a_completely_unparseable_job_as_zero():
     assert result["score_default"] == 0
 
 
+def test_score_job_treats_a_stray_domain_keyword_as_still_unparseable():
+    """Real bug caught live in production: a company's "About Us" page
+    (title "About Us", zero requirements, zero role-family match) still
+    scored 62/100 "100% req match" because it happened to mention "Deep
+    Learning" once in a long block of marketing copy, and a bare domain
+    hit alone used to be enough to skip the zero-score guard. domain is a
+    single skills-taxonomy keyword found anywhere in the text - too weak a
+    signal on its own to call a page "a real job description"."""
+    job = {
+        "title": "About Us",
+        "description": (
+            "About Us Our Vision Our Team Newsroom Careers Resources Podcast Insights "
+            "Featured Articles Resource Library Video Library Getting to Know Us Contact Us "
+            "Defense and National Security Critical Infrastructure and Enterprise Government "
+            "Agencies powered by Deep Learning and advanced analytics for mission-critical teams."
+        ),
+        "department": None, "employment_type": None,
+    }
+    profiles = {"default": {"must_have_keywords": [], "text": (
+        "Senior Backend Engineer\nAcme | 2020 - Present\n- Built Python services on Kubernetes and AWS at scale"
+    )}}
+
+    result = scoring.score_job_both(job, profiles)
+
+    assert result["score_default"] == 0
+
+
 def test_score_job_an_unrelated_job_scores_lower_than_a_relevant_one():
     """No exclude-keyword list needed: a sales job with a real requirements
     section naturally scores lower against a backend-engineering CV

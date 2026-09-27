@@ -107,7 +107,7 @@ def _cached_candidate_profile(cv_text: str):
 
 def _looks_unparseable(job_req: JobRequirements) -> bool:
     """Whether a job's text yielded no structured signal at all - no
-    must_have, no nice_to_have, no recognizable role family, no domain.
+    must_have, no nice_to_have, no recognizable role family.
 
     Each individual "nothing stated" default elsewhere (e.g. must_have
     coverage defaults to 100 when a JD simply has no formal Requirements
@@ -118,8 +118,15 @@ def _looks_unparseable(job_req: JobRequirements) -> bool:
     nothing at all - scoring that as a neutral/default match would
     silently defeat every "0 score = not a real job" gate built around
     scoring elsewhere in the pipeline (e.g. update_jobs._any_job_scores_positive).
-    """
-    return not (job_req.must_have or job_req.nice_to_have or job_req.role_family or job_req.domain)
+
+    domain deliberately does NOT count as parseable signal on its own -
+    it's a single skills-taxonomy keyword hit anywhere in the text, and a
+    long marketing page is likely to mention *some* tech word in passing
+    (real case caught live: a company's "About Us" page - title "About
+    Us", zero requirements, zero role-family match - still had "Deep
+    Learning" appear once deep in its content and scored 62/100 "100% req
+    match" because that alone was enough to skip this guard before)."""
+    return not (job_req.must_have or job_req.nice_to_have or job_req.role_family)
 
 
 def _cv_text_for_profile(profile: dict) -> str:

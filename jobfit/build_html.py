@@ -62,8 +62,8 @@ PAGE_TEMPLATE = r"""<!doctype html>
   .check-item:hover { background: var(--panel2); }
   .check-item input { accent-color: var(--accent); cursor: pointer; width: 15px; height: 15px; flex-shrink: 0; }
   .check-item .label-text { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .check-item .only-btn { display: none; background: none; border: none; color: var(--accent); font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; cursor: pointer; padding: 2px 5px; flex-shrink: 0; }
-  .check-item:hover .only-btn, .check-item:focus-within .only-btn { display: inline-block; }
+  .check-item .only-btn { display: inline-block; opacity: 0; background: none; border: none; color: var(--accent); font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; cursor: pointer; padding: 2px 5px; flex-shrink: 0; }
+  .check-item:hover .only-btn, .check-item:focus-within .only-btn { opacity: 1; }
   .check-item .count { color: var(--text-dim); font-size: 11.5px; flex-shrink: 0; }
 
   select { width: 100%; background: var(--panel2); border: 1px solid var(--border); color: var(--text); padding: 8px 10px; border-radius: 8px; font-size: 13px; }
@@ -179,7 +179,7 @@ PAGE_TEMPLATE = r"""<!doctype html>
 <div class="app">
   <aside class="sidebar">
     <div class="brand"><span class="dot"></span><h1>Job Fit v2</h1></div>
-    <div class="subtitle">Israel/remote software-adjacent openings from techmap-listed companies, cross-referenced with your LinkedIn connections. Score = % of the job's own stated requirements your CV covers, blended with title/role and experience fit — scored deterministically against two CVs (general AI/software vs. infra/MLOps), no AI calls, no per-job cost. Jobs without a real scraped description ("title-only") fall back to title/role + experience only — that's flagged on the card, not hidden.</div>
+    <div class="subtitle" title="Score = % of the job's own stated requirements your CV covers, blended with title/role and experience fit — scored deterministically against two CVs, no AI calls. Jobs with no scraped description ("title-only", flagged on the card) fall back to title/role + experience only.">Israel/remote openings, scored against your CVs. <span class="tag muted" style="cursor:help;">?</span></div>
 
     <div>
       <div class="field-label-row">
