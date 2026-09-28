@@ -1,0 +1,72 @@
+{
+  "company_id": "sasa_software_agricultural_cooperative_society_gate_scanner",
+  "schema_version": 1,
+  "career_url": "https://www.sasa-software.com/careers-at-sasa-software/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:45:38.125359Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?sasa\\-software\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?sasa\\-software\\.com/wp\\-content/uploads/2020/01/[^/?#]+/?$"
+    ],
+    "url_shape": "sasa-software.com|wp-content/uploads|3",
+    "explicit_accept": [
+      "https://www.sasa-software.com/wp-content/uploads/Job-Description-Senior-Backend-Developer.pdf",
+      "https://www.sasa-software.com/wp-content/uploads/Job-Description-Backend-Developer.pdf",
+      "https://www.sasa-software.com/wp-content/uploads/Job-Description-Sales-March-2026.pdf"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 57,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}

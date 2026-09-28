@@ -1,0 +1,96 @@
+{
+  "company_id": "reclaim_security_ltd_formerly_libra_security",
+  "schema_version": 1,
+  "career_url": "https://reclaim.security/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:45:38.125359Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?reclaim\\.security/[^/?#]+/?$"
+    ],
+    "url_shape": "reclaim.security|career|2",
+    "explicit_accept": [
+      "https://reclaim.security/career/senior-security-researcher/",
+      "https://reclaim.security/career/director-of-people-hr/",
+      "https://reclaim.security/career/account-executive-north-america/",
+      "https://reclaim.security/career/account-executive-europe/",
+      "https://reclaim.security/career/sales-engineer-il/",
+      "https://reclaim.security/career/sales-engineer-usa/",
+      "https://reclaim.security/career/senior-software-developer/",
+      "https://reclaim.security/career/channel-alliances-director-namer/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 44,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 45,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 46,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 47,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": null,
+  "notes": []
+}
