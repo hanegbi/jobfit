@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style data-vite-theme="" data-inject-first="">:root {
+      --background: 0 0% 100%;
+--foreground: 20 14.3% 4.1%;
+--muted: 60 4.8% 95.9%;
+--muted-foreground: 25 5.3% 44.7%;
+--popover: 0 0% 100%;
+--popover-foreground: 20 14.3% 4.1%;
+--card: 0 0% 100%;
+--card-foreground: 20 14.3% 4.1%;
+--border: 20 5.9% 90%;
+--input: 20 5.9% 90%;
+--primary: 221 83% 53%;
+--primary-foreground: 219 100% 99%;
+--secondary: 60 4.8% 95.9%;
+--secondary-foreground: 24 9.8% 10%;
+--accent: 60 4.8% 95.9%;
+--accent-foreground: 24 9.8% 10%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 60 9.1% 97.8%;
+--ring: 20 14.3% 4.1%;
+--radius: 0.5rem;
+  }
+  .dark {
+      --background: 240 10% 3.9%;
+--foreground: 0 0% 98%;
+--muted: 240 3.7% 15.9%;
+--muted-foreground: 240 5% 64.9%;
+--popover: 240 10% 3.9%;
+--popover-foreground: 0 0% 98%;
+--card: 240 10% 3.9%;
+--card-foreground: 0 0% 98%;
+--border: 240 3.7% 15.9%;
+--input: 240 3.7% 15.9%;
+--primary: 221 83% 53%;
+--primary-foreground: 219 100% 99%;
+--secondary: 240 3.7% 15.9%;
+--secondary-foreground: 0 0% 98%;
+--accent: 240 3.7% 15.9%;
+--accent-foreground: 0 0% 98%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 0 0% 98%;
+--ring: 240 4.9% 83.9%;
+--radius: 0.5rem;
+  }</style>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnatchBot - Enterprise Conversational AI Platform</title>
+    <meta name="description" content="Build intelligent conversational AI with SnatchBot's enterprise-grade platform. Deploy chatbots and voice assistants across multiple channels." />
+    <meta name="keywords" content="chatbot, AI, conversational AI, voice assistant, enterprise, automation, GPT-5, Claude Sonnet 4.0, Fortune 500" />
+    <meta name="author" content="SnatchBot" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="SnatchBot - Enterprise Conversational AI Platform" />
+    <meta property="og:description" content="Build intelligent conversational AI with SnatchBot's enterprise-grade platform. Deploy chatbots and voice assistants across multiple channels." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://snatchbot.me/" />
+    <meta property="og:image" content="https://snatchbot.me/og-image.png" />
+    <meta property="og:site_name" content="SnatchBot" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@SnatchBot" />
+    <meta name="twitter:creator" content="@SnatchBot" />
+    <meta name="twitter:title" content="SnatchBot - Enterprise Conversational AI Platform" />
+    <meta name="twitter:description" content="Build intelligent conversational AI with SnatchBot's enterprise-grade platform." />
+    <meta name="twitter:image" content="https://snatchbot.me/og-image.png" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snatchbot.me/" />
+    
+    <!-- Theme Color for mobile browsers -->
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="msapplication-navbutton-color" content="#2563eb" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <!-- Compiled Tailwind CSS -->
+    <link rel="stylesheet" href="/tailwind.css">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* Loading Screen Styles - Enterprise Gradient */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      
+      .loading-content {
+        text-align: center;
+      }
+      
+      .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .loading-text {
+        color: #ffffff;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      
+      .loading-subtext {
+        color: rgba(255, 255, 255, 0.8);
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+      }
+      
+      /* Hide loading screen when React loads */
+      .app-loaded #loading-screen {
+        opacity: 0;
+        pointer-events: none;
+        display: none;
+        transition: opacity 0.5s ease-out;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-PGn8vSJz.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Ei3MlnEz.css">
+  </head>
+  <body>
+    <!-- Loading Screen - Enterprise Gradient -->
+    <div id="loading-screen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading SnatchBot Platform...</div>
+        <div class="loading-subtext">Please wait while we initialize the application</div>
+      </div>
+    </div>
+    
+    <!-- React App Root -->
+    <div id="root"></div>
+    
+    <script>
+      // Remove loading screen when React app is ready
+      window.hideLoadingScreen = function() {
+        console.log('hideLoadingScreen called');
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          loadingScreen.style.display = 'none';
+          loadingScreen.remove();
+        }
+        document.body.classList.add('app-loaded');
+      };
+      
+      // Auto-hide loading screen after 300ms as fallback (reduced from 1500ms)
+      setTimeout(() => {
+        console.log('Fallback timer triggered');
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          console.log('Loading screen found, removing it');
+          loadingScreen.style.display = 'none';
+          loadingScreen.remove();
+          document.body.classList.add('app-loaded');
+        }
+      }, 300);
+      
+      // Log when script loads
+      console.log('Loading screen script initialized');
+    </script>
+    
+  </body>
+</html>

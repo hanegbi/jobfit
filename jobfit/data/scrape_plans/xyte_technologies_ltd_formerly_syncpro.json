@@ -1,0 +1,58 @@
+{
+  "company_id": "xyte_technologies_ltd_formerly_syncpro",
+  "schema_version": 1,
+  "career_url": "https://www.xyte.io/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T15:26:38.221357Z",
+  "verified_at": "2026-09-28T15:26:38.221357Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?xyte\\.ai/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?xyte\\.ai/solutions/[^/?#]+/?$",
+      "^https?://(www\\.)?xyte\\.ai/[^/?#]+/?$"
+    ],
+    "url_shape": "xyte.ai|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

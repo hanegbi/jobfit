@@ -1,0 +1,2799 @@
+ï»¿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- [GCM v2] Google Consent Mode v2 default â synchronous, fires before any tracking script -->
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'denied',personalization_storage:'denied',security_storage:'granted',wait_for_update:500});</script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N8QSX7NZ');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) â GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-77MHLYYTP2"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-77MHLYYTP2');</script>
+  <!-- [CMP] Cookiebot â Auto Blocking Mode. Set data-cbid to your Domain Group ID from cookiebot.com/dashboard -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="479df544-2c5a-4a78-8167-c32ea38f45c2" data-blockingmode="auto" type="text/javascript" async></script>
+  <script src="partials/consent.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Okoora | Financial Intelligence for Better Decisions, Execution & Revenue</title>
+  <link rel="icon" type="image/png" href="images/favicon/favicon_.png">
+  <meta name="description" content="Okoora operates financial activity across accounts, payments, FX, exposure and pricing to improve decisions and execution, or embeds the same capabilities to create new customer revenue.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://okoora.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://okoora.com/">
+  <meta property="og:title"       content="The AI-native intelligence layer that operates your finances.">
+  <meta property="og:description" content="Run your business across every currency and country. Okoora operates the money behind it, intelligently and under your policy.">
+  <meta property="og:image"       content="images/og-home.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale"      content="en_US">
+  <meta property="og:site_name"   content="Okoora">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@okoora">
+  <meta name="twitter:title"       content="The AI-native intelligence layer that operates your finances.">
+  <meta name="twitter:description" content="Run your business across every currency and country. Okoora operates the money behind it, intelligently and under your policy.">
+  <meta name="twitter:image"       content="images/og-home.jpg">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Okoora",
+    "url": "https://okoora.com",
+    "logo": "https://okoora.com/images/okoora-logo.svg"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Okoora",
+    "url": "https://okoora.com"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://okoora.com/"}
+    ]
+  }
+  </script>
+
+  <!-- Fira Sans Condensed ? served locally -->
+  <!-- Remaining fonts from Google Fonts --><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="css/style.css?v=20260831c">
+  <style>
+    /* ââ Hero proof cards (right side) ââ */
+    .ok-hero__diagram {
+      flex: 0 0 376px;
+      width: 376px;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-left: auto;
+      padding: 32px 0;
+    }
+    .ok-hero__proof-item {
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      min-height: 98px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 20px 30px;
+    }
+    .ok-hero__proof-label {
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.24px;
+      text-transform: none; color: #2320e6;
+      margin-bottom: 0;
+    }
+    .ok-hero__proof-label--pink  { color: #e605f2; }
+    .ok-hero__proof-label--orange { color: #ed7b3e; }
+    .ok-hero__proof-text {
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 17px; font-weight: 400; color: #575757;
+      line-height: 1.3; margin: 0; max-width: 270px;
+    }
+    @media (max-width: 1100px) { .ok-hero__diagram { display: none; } }
+    @media (min-width: 1600px) { .ok-hero__diagram { flex: 0 0 420px; width: 420px; } }
+
+    /* ââ Animation stage ââ */
+    .okai-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      /* background: #ffffff; */
+      /* border-radius: 20px; */
+      /* border: 1px solid rgba(35, 32, 230, 0.07); */
+      /* box-shadow: 0 4px 48px rgba(35, 32, 230, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04); */
+      overflow: hidden;
+    }
+    .okai-svg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+
+    /* ââ AI Core ââ */
+    .okai-core {
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%,-50%) scale(0.9);
+      opacity: 0;
+      width: 76px; height: 76px;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+    }
+    .okai-core__ring {
+      position: absolute; border-radius: 50%; pointer-events: none;
+    }
+    .okai-core__ring--1 {
+      width: 100px; height: 100px;
+      border: 1px solid rgba(35,32,230,0.13);
+      animation: okai-ring 3.6s ease-in-out infinite;
+    }
+    .okai-core__ring--2 {
+      width: 128px; height: 128px;
+      border: 1px solid rgba(35,32,230,0.06);
+      animation: okai-ring 3.6s ease-in-out 1.4s infinite;
+    }
+    @keyframes okai-ring {
+      0%,100% { transform: scale(1);    opacity: 0.65; }
+      50%      { transform: scale(1.05); opacity: 1; }
+    }
+    .okai-core__body {
+      position: relative;
+      width: 76px; height: 76px;
+      background: linear-gradient(145deg, #2c29ee 0%, #1815c4 100%);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 36px rgba(35,32,230,0.42), 0 0 0 1px rgba(255,255,255,0.12) inset;
+      animation: okai-core-breathe 4s ease-in-out infinite;
+    }
+    @keyframes okai-core-breathe {
+      0%,100% { box-shadow: 0 8px 36px rgba(35,32,230,0.42), 0 0 0 1px rgba(255,255,255,0.12) inset; }
+      50%      { box-shadow: 0 14px 56px rgba(35,32,230,0.62), 0 0 0 1px rgba(255,255,255,0.18) inset; }
+    }
+    .okai-core__label {
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,0.95);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      text-align: center; line-height: 1.25;
+      user-select: none;
+    }
+
+    /* ââ Financial nodes ââ */
+    .okai-node {
+      position: absolute;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(35,32,230,0.10);
+      border-radius: 10px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 2px;
+      box-shadow: 0 2px 14px rgba(35,32,230,0.07), 0 1px 2px rgba(0,0,0,0.04);
+      transition: box-shadow 0.35s ease, border-color 0.35s ease;
+      z-index: 5; user-select: none;
+    }
+    .okai-node--glow {
+      box-shadow: 0 4px 26px rgba(35,32,230,0.24), 0 0 0 1px rgba(35,32,230,0.22);
+      border-color: rgba(35,32,230,0.28);
+    }
+    .okai-node__label {
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 11px; font-weight: 700;
+      color: #121c3b; text-transform: uppercase;
+      letter-spacing: 0.07em; white-space: nowrap; line-height: 1;
+    }
+    .okai-node__sub {
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 9px; color: rgba(35,32,230,0.5);
+      white-space: nowrap; line-height: 1;
+    }
+
+    /* ââ Confirmation label ââ */
+    .okai-confirm {
+      position: absolute;
+      background: #2320e6; color: #fff;
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em;
+      padding: 4px 12px; border-radius: 20px;
+      white-space: nowrap; pointer-events: none;
+      z-index: 20;
+      transition: opacity 0.35s ease;
+      box-shadow: 0 2px 14px rgba(35,32,230,0.32);
+    }
+
+    /* ââ Value Proposition Strip ââ */
+    .ok-vps {
+      background: #121C3B;
+      padding: 0 max(calc((100% - var(--content-w)) / 2), 40px);
+    }
+    .ok-vps__inner { padding: 100px 0 60px; }
+    .ok-vps__hd { margin-bottom: 42px; }
+    .ok-vps__hd .ok-h2 { color: #ffffff; font-size: 48px; }
+    .ok-vps__title-gradient {
+      display: block;
+      background: linear-gradient(90deg, #90D2FE 0%, #E605F2 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .ok-gradient-inline {
+      display: inline;
+      background: linear-gradient(90deg, #90D2FE 0%, #E605F2 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .ok-vps__sub {
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 17px; color: rgba(255,255,255,.55); line-height: 1.6; margin-top: 14px;
+    }
+    /* Intelligence band + connectors + cards */
+    .ok-vps__row { display: flex; flex-direction: column; }
+    .ok-vps__band {
+      background: linear-gradient(90deg, #121C3B 0%, #2C4592 50%, #121C3B 100%);
+      border-radius: 12px 12px 0 0;
+      padding: 12px 22px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      color: #fff;
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 20px; font-weight: 400;
+      /* letter-spacing: .2px; */
+    }
+    .ok-vps__connectors {
+      display: flex; gap: 12px;
+    }
+    .ok-vps__connectors span {
+      flex: 1; display: flex; justify-content: center;
+    }
+    .ok-vps__connectors span::after {
+      content: ''; display: block;
+      width: 1px; height: 18px;
+      background: rgba(13,43,216,.45);
+    }
+    /* VPS cards â new design */
+    .ok-vps .m3-chain__cards { gap: 6px; }
+    .ok-vps .m3-chain__card {
+      position: relative;
+      padding: 0;
+      flex: 1 1 0;
+      aspect-ratio: 255 / 364;
+      background: none;
+      animation: none;
+      box-shadow: none;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow: hidden;
+      border-radius: 4px;
+      border: none;
+    }
+    .ok-vps__card-top {
+      /* background: #fff; */
+      padding: 32px 16px 0px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ok-vps__card-title {
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 24px;
+      font-weight: 405;
+      color: #1d2c59;
+      line-height: 1;
+      margin: 0;
+      /* text-transform: uppercase; */
+    }
+    .ok-vps__card-sub {
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 16px; font-weight: 400; color: #32384B; line-height: 1.4; margin: 0;
+    }
+    .ok-vps__card-screen {
+      display: flex; align-items: flex-end;
+      width: 100%;
+      flex: 1;
+    }
+    .ok-vps__card-screen img { width: 100%; height: auto; display: block; }
+    .ok-vps__card-plus {
+      position: absolute; bottom: 14px; right: 14px;
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,.18); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; text-decoration: none;
+      box-shadow: none;
+      transition: background .15s, width .2s, border-radius .2s, padding .2s; z-index: 2;
+      overflow: hidden; white-space: nowrap;
+    }
+    .ok-vps__card-plus-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity .15s; }
+    .ok-vps__card-plus-label {
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 13px; font-weight: 400; color: #121C3B;
+      opacity: 0; max-width: 0; overflow: hidden;
+      transition: opacity .15s, max-width .2s;
+    }
+    .ok-vps .m3-chain__card .ok-vps__card-plus { top: 14px; bottom: auto; background: rgba(0,0,0,.18); color: #121C3B; }
+    .ok-vps .m3-chain__card:hover .ok-vps__card-plus { background: rgba(0,0,0,.32); }
+    .ok-vps .m3-chain__card .ok-vps__card-plus .ok-vps__card-plus-label { color: #121C3B !important; }
+    .ok-case .ok-card .ok-vps__card-plus { top: 16px; right: 16px; bottom: auto; background: rgba(0,0,0,.18); color: #121C3B; }
+    .ok-case .ok-card:hover .ok-vps__card-plus { background: rgba(0,0,0,.32); }
+    .ok-case .ok-card .ok-vps__card-plus .ok-vps__card-plus-label { color: #121C3B !important; }
+    .ok-vps .m3-chain__card:has(.ok-vps__card-plus):hover { cursor: pointer; }
+    .ok-vps .m3-chain__card:hover .ok-vps__card-plus,
+    .ok-case .ok-card:hover .ok-vps__card-plus,
+    .ok-vps__card-plus:hover {
+      background: rgba(18,28,59,.8); width: auto; border-radius: 20px;
+      padding: 0 14px; gap: 6px;
+    }
+    .ok-vps .m3-chain__card:hover .ok-vps__card-plus .ok-vps__card-plus-icon,
+    .ok-case .ok-card:hover .ok-vps__card-plus .ok-vps__card-plus-icon,
+    .ok-vps__card-plus:hover .ok-vps__card-plus-icon { opacity: 0; max-width: 0; overflow: hidden; }
+    .ok-vps .m3-chain__card:hover .ok-vps__card-plus .ok-vps__card-plus-label,
+    .ok-case .ok-card:hover .ok-vps__card-plus .ok-vps__card-plus-label,
+    .ok-vps__card-plus:hover .ok-vps__card-plus-label { opacity: 1; max-width: 80px; color: #fff !important; }
+    .ok-vps__card-soon {
+      position: absolute; top: 14px; right: 14px;
+      background: rgb(22 52 221 / 50%);
+      color: #fff;
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 12px; font-weight: 500;
+      padding: 5px 12px; border-radius: 20px;
+      pointer-events: none; z-index: 2;
+    }
+    .ok-vps__card--build .ok-vps__card-title {
+      background: linear-gradient(90deg, #90D2FE 0%, #E605F2 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .ok-vps__card--build .ok-vps__card-sub { color: #fff; }
+    @media (max-width: 1440px) {
+      .ok-vps__card-top { padding: 32px 16px 0px; }
+    }
+    @media (max-width: 900px) {
+      .ok-vps .m3-chain__cards { flex-wrap: wrap; }
+      .ok-vps .m3-chain__cards .m3-chain__card { flex: 0 0 calc(33.333% - 12px); }
+      .ok-vps__connectors { display: none; }
+    }
+    @media (max-width: 600px) {
+      .ok-vps .m3-chain__cards .m3-chain__card { flex: 0 0 100%; }
+    }
+
+    /* ââ Button sizing â hero CTA ââ */
+    .ok-hero__cta .ok-btn-ghost--hero { height: auto; }
+
+    /* ââ Hero title word cycle (disabled) ââ */
+    .ok-cycle { display: inline; }
+    .ok-cycle__word { display: inline; }
+    /* Rotating word */
+    .ok-rot { display: inline-block; transition: opacity 0.25s ease, transform 0.25s ease; }
+    .ok-rot.is-out { opacity: 0; transform: translateY(-6px); }
+
+    /* ââ Hero eyebrow ââ */
+    .ok-hero__eyebrow {
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #6b7280;
+      margin: 0 0 14px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    @media (max-width: 900px) { .ok-hero__eyebrow { font-size: 13px; margin-bottom: 12px; } }
+
+    /* ââ Hero secondary CTA (See how it works) ââ */
+    .ok-hero__see-how {
+      display: inline-flex;
+      align-items: center;
+      color: #303030 !important;
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 0 4px;
+      transition: color 0.2s;
+    }
+    .ok-hero__see-how:hover { color: #0d2bd8 !important; }
+
+    /* Laptop screens: taller hero video so the dashboard fits inside */
+    @media (min-width: 1101px) and (max-width: 1599px) {
+      .ok-hero-visual__video { aspect-ratio: 16 / 10; }
+    }
+
+
+    /* Hero H1 sizing */
+    .ok-hero h1, #ok-h1 { font-size: clamp(38px, 4.2vw, 57px) !important; }
+    html body #okoora-homepage .ok-hero #ok-h1 { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+
+    /* Hero intro storyboard â text â dashboard â text â aside â all together */
+    .ok-hero-intro {
+      position: absolute; inset: 20px 40px; z-index: 6;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    .ok-hero-intro__text {
+      position: absolute;
+      font-family: 'Fira Sans Condensed', sans-serif;
+      font-size: clamp(32px, 4.4vw, 64px);
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: 0.3px;
+      text-align: center;
+      text-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    .ok-hero-visual.is-playing .ok-hero-intro__text--1 {
+      animation: ok-intro-fade 2.5s ease 0.3s forwards;
+    }
+    .ok-hero-visual.is-playing .ok-hero-intro__text--2 {
+      animation: ok-intro-fade 2.5s ease 5.8s forwards;
+    }
+    @keyframes ok-intro-fade {
+      0%   { opacity: 0; transform: translateY(10px); }
+      20%  { opacity: 1; transform: translateY(0); }
+      75%  { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-6px); }
+    }
+    /* Dashboard app: appears at scene 2, disappears during text 2, reappears after */
+    .ok-hero-visual.is-playing .ok-cd__app {
+      opacity: 0;
+      animation: ok-cd-app-story 10s ease forwards;
+    }
+    @keyframes ok-cd-app-story {
+      0%    { opacity: 0; transform: translateY(10px); filter: none; }  /* t=0   hidden */
+      30%   { opacity: 0; transform: translateY(10px); filter: none; }  /* t=3.0 still hidden */
+      38%   { opacity: 1; transform: translateY(0); filter: none; }     /* t=3.8 faded in â full color */
+      55%   { opacity: 1; transform: translateY(0); filter: none; }     /* t=5.5 stay */
+      60%   { opacity: 0; transform: translateY(0); filter: none; }     /* t=6.0 fade out for text 2 */
+      83%   { opacity: 0; transform: translateY(0); filter: saturate(0.5) brightness(0.96); }
+      90%   { opacity: 0.45; transform: translateY(0); filter: saturate(0.5) brightness(0.96); }  /* t=9.0 fade back â muted */
+      100%  { opacity: 0.45; transform: translateY(0); filter: saturate(0.5) brightness(0.96); }
+    }
+    /* Aside: no glass, no fade â snaps in fully opaque after intro text finishes */
+    .ok-cd__ok {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-color: #0A122E !important;
+      box-shadow: 0 20px 50px rgba(4,12,34,0.55) !important;
+      transform: none !important;
+    }
+    .ok-hero-visual.is-playing .ok-cd__ok {
+      opacity: 0;
+      animation: ok-aside-snap 0.001s linear 8.6s forwards;
+    }
+    @keyframes ok-aside-snap {
+      to { opacity: 1; }
+    }
+    @keyframes ok-intro-in {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Mute KPI green highlights â soft blue */
+    .ok-cd[data-frame="reconcile"] [data-kpi-exp],
+    .ok-cd[data-frame="monetize"]  [data-kpi-rev] {
+      background: #EFF6FF !important;
+      border-color: #BFDBFE !important;
+    }
+    .ok-cd[data-frame="reconcile"] [data-kpi-exp] b,
+    .ok-cd[data-frame="monetize"]  [data-kpi-rev] b,
+    .ok-cd[data-frame="monetize"]  [data-kpi-rev] em {
+      color: #1D4ED8 !important;
+    }
+
+
+  </style>
+<script src="https://cdn.userway.org/widget.js" data-account="oeaYDwEaBP"></script></head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8QSX7NZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- Page load screen ? slides up when fonts/assets are ready -->
+<div class="ok-loader" id="ok-loader" aria-hidden="true"></div>
+
+<div class="ok-page" id="okoora-homepage">
+
+  <!-- STICKY HEADER -->
+  <!-- PARTIAL:header -->
+  <div id="site-header"></div>
+<!-- /PARTIAL:header -->
+  <script src="partials/nav.js?v=20260803d" defer></script>
+
+  
+
+  <main id="main-content" role="main">
+
+    <!-- ======================================================
+         HERO
+    ====================================================== -->
+    <div class="ok-hero-bg">
+    <section class="ok-hero" aria-labelledby="ok-h1">
+      <div class="ok-hero__inner">
+        <div class="ok-hero__content">
+          <p class="ok-hero__eyebrow"><img src="images/AI_title.png" alt="" width="20" height="20" style="display:inline-block;vertical-align:-5px;margin-right:8px;">AI-native financial intelligence</p>
+          <h1 id="ok-h1" style="text-align:center !important;color:#272727;">
+            Okoora turns financial activity into better decisions, better execution, and new revenue.
+          </h1>
+          <p class="ok-hero__sub">
+            Run your own finance better, or embed Okoora to do the same for your customers.
+          </p>
+          <div class="ok-hero__cta-mob">
+          <a href="contact-sales" class="ok-btn">
+            <span class="ok-fold"></span>
+            <div class="ok-points"><i class="ok-point"></i><i class="ok-point"></i><i class="ok-point"></i><i class="ok-point"></i><i class="ok-point"></i><i class="ok-point"></i><i class="ok-point"></i><i class="ok-point"></i><i class="ok-point"></i><i class="ok-point"></i></div>
+            <span class="ok-btn__inner">
+              <svg class="ok-icon" fill="white" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37"></polyline></svg>
+              Get Started
+            </span>
+          </a>
+        </div>
+          <div class="ok-hero__cta">
+            <a href="contact-sales" class="ok-hero__get-started">
+              <span>Get started</span>
+              <span class="ok-hero__get-started-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         HERO VISUAL â video background + product UI animation
+    ====================================================== -->
+    <div class="ok-hero-visual">
+      <video class="ok-hero-visual__video" autoplay loop muted playsinline preload="auto" poster="images/hero_bg.png" aria-hidden="true">
+        <source src="videos/hero.mp4" type="video/mp4">
+      </video>
+      <div class="ok-hero-intro" aria-hidden="true">
+        <div class="ok-hero-intro__text ok-hero-intro__text--1">your platform</div>
+        <div class="ok-hero-intro__text ok-hero-intro__text--2">with okoora's capabilities</div>
+      </div>
+      <div class="ok-hero-statement" data-t="statement" aria-hidden="true">
+        <div class="ok-hero-statement__line">One financial intelligence layer.</div>
+        <div class="ok-hero-statement__line">Two ways to operate.</div>
+      </div>
+      <div class="ok-cd" data-frame="detect" aria-hidden="true">
+
+        <!-- ============ CUSTOMER DASHBOARD (OripioFin-style) ============ -->
+        <div class="ok-cd__app">
+          <header class="ok-cd__top">
+            <span class="ok-cd__logo"><i class="ok-cd__logo-mark">â±</i>AcmeFin</span>
+            <div class="ok-cd__topright">
+              <span class="ok-cd__user">AH</span>
+            </div>
+          </header>
+
+          <div class="ok-cd__body">
+            <aside class="ok-cd__nav">
+              <div class="ok-cd__search"><span>â¯</span> Search <em>â K</em></div>
+              <div class="ok-cd__nav-hd">MAIN MENU</div>
+              <a class="is-on"><i>â¤</i>Dashboard</a>
+              <a><i>â§</i>Analytics</a>
+              <a><i>â</i>Transactions</a>
+              <a><i>â¢</i>Invoices</a>
+              <div class="ok-cd__nav-hd">FEATURES</div>
+              <a><i>â»</i>Recurring</a>
+              <div class="ok-cd__nav-hd">GENERAL</div>
+              <a><i>â</i>Settings</a>
+              <a><i>â¤´</i>Log out</a>
+            </aside>
+
+            <div class="ok-cd__content">
+
+              <div class="ok-cd__page-hd">
+                <div>
+                  <h2>Overview</h2>
+                  <p>Here is the summary of overall data</p>
+                </div>
+              </div>
+
+              <!-- KPI cards -->
+              <div class="ok-cd__kpis">
+                <div class="ok-cd__kpi ok-cd__kpi--green">
+                  <div class="ok-cd__kpi-hd">
+                    <span class="ok-cd__kpi-ico">ð¼</span>
+                    <div><b>My balance</b><small>Wallet Overview &amp; Spending</small></div>
+                    <span class="ok-cd__kpi-dots">â¯</span>
+                  </div>
+                  <div class="ok-cd__kpi-val">$20,520.32 <span class="ok-cd__kpi-pct">+1.5% â</span></div>
+                  <div class="ok-cd__kpi-cta">See details <em>â</em></div>
+                </div>
+                <div class="ok-cd__kpi" data-kpi-rev>
+                  <div class="ok-cd__kpi-hd">
+                    <span class="ok-cd__kpi-ico">ð¦</span>
+                    <div><b>Financial revenue</b><small>Platform earnings</small></div>
+                    <span class="ok-cd__kpi-dots">â¯</span>
+                  </div>
+                  <div class="ok-cd__kpi-val"><span data-rev>$12,840</span> <span class="ok-cd__kpi-pct" data-rev-delta>+3.2% â</span></div>
+                  <div class="ok-cd__kpi-cta">View summary <em>â</em></div>
+                </div>
+                <div class="ok-cd__kpi" data-kpi-exp>
+                  <div class="ok-cd__kpi-hd">
+                    <span class="ok-cd__kpi-ico">ð</span>
+                    <div><b>Open exposure</b><small><span data-exp-sub>1 upcoming obligation</span></small></div>
+                    <span class="ok-cd__kpi-dots">â¯</span>
+                  </div>
+                  <div class="ok-cd__kpi-val"><span data-exp>â¬120,000</span></div>
+                  <div class="ok-cd__kpi-cta">Analyze exposure <em>â</em></div>
+                </div>
+              </div>
+
+              <!-- Middle row: wallet + chart -->
+              <div class="ok-cd__two">
+
+                <div class="ok-cd__panel">
+                  <div class="ok-cd__panel-hd">
+                    <div>
+                      <b>My Wallet</b>
+                      <small>Today 1 USD = 122.20 BDT</small>
+                    </div>
+                    <button class="ok-cd__add">+ Add New</button>
+                  </div>
+                  <div class="ok-cd__wallets">
+                    <div class="ok-cd__wallet">
+                      <div class="ok-cd__wallet-hd"><span class="ok-cd__flag">ðºð¸</span>USD<span class="ok-cd__wallet-dots">â¯</span></div>
+                      <div class="ok-cd__wallet-amt">$22,678.00</div>
+                      <div class="ok-cd__wallet-lim">Limit is $10k a month</div>
+                      <div class="ok-cd__wallet-st ok-cd__wallet-st--on">Active</div>
+                    </div>
+                    <div class="ok-cd__wallet" data-hl="eur">
+                      <div class="ok-cd__wallet-hd"><span class="ok-cd__flag">ðªðº</span>EUR<span class="ok-cd__wallet-dots">â¯</span></div>
+                      <div class="ok-cd__wallet-amt" data-eur>â¬20,000</div>
+                      <div class="ok-cd__wallet-lim" data-eur-lim>Available EUR</div>
+                      <div class="ok-cd__wallet-st ok-cd__wallet-st--on">Active</div>
+                    </div>
+                    <div class="ok-cd__wallet">
+                      <div class="ok-cd__wallet-hd"><span class="ok-cd__flag">ð§ð©</span>BDT<span class="ok-cd__wallet-dots">â¯</span></div>
+                      <div class="ok-cd__wallet-amt">à§³1,22,678.00</div>
+                      <div class="ok-cd__wallet-lim">Limit is à§³10k a month</div>
+                      <div class="ok-cd__wallet-st ok-cd__wallet-st--on">Active</div>
+                    </div>
+                    <div class="ok-cd__wallet">
+                      <div class="ok-cd__wallet-hd"><span class="ok-cd__flag">ð¬ð§</span>GBP<span class="ok-cd__wallet-dots">â¯</span></div>
+                      <div class="ok-cd__wallet-amt">Â£15,000.00</div>
+                      <div class="ok-cd__wallet-lim">Limit is Â£13k a month</div>
+                      <div class="ok-cd__wallet-st ok-cd__wallet-st--off">Inactive</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ok-cd__panel">
+                  <div class="ok-cd__panel-hd">
+                    <div>
+                      <b>Cash Flow</b>
+                      <big>$342,323.44</big>
+                    </div>
+                    <div class="ok-cd__toggle">
+                      <span>Monthly</span><span class="is-on">Yearly</span>
+                    </div>
+                  </div>
+                  <div class="ok-cd__chart">
+                    <svg viewBox="0 0 300 120" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="cdBar" x1="0" x2="0" y1="0" y2="1">
+                          <stop offset="0" stop-color="#64748B" stop-opacity="0.9"/>
+                          <stop offset="1" stop-color="#64748B" stop-opacity="0.35"/>
+                        </linearGradient>
+                        <linearGradient id="cdBarLight" x1="0" x2="0" y1="0" y2="1">
+                          <stop offset="0" stop-color="#E2E8F0" stop-opacity="0.95"/>
+                          <stop offset="1" stop-color="#E2E8F0" stop-opacity="0.4"/>
+                        </linearGradient>
+                      </defs>
+                      <g>
+                        <rect x="14"  y="66" width="26" height="54" rx="4" fill="url(#cdBarLight)"/>
+                        <rect x="56"  y="48" width="26" height="72" rx="4" fill="url(#cdBarLight)"/>
+                        <rect x="98"  y="34" width="26" height="86" rx="4" fill="url(#cdBar)"/>
+                        <rect x="140" y="24" width="26" height="96" rx="4" fill="url(#cdBar)"/>
+                        <rect x="182" y="46" width="26" height="74" rx="4" fill="url(#cdBarLight)"/>
+                        <rect x="224" y="58" width="26" height="62" rx="4" fill="url(#cdBarLight)"/>
+                        <rect x="266" y="42" width="26" height="78" rx="4" fill="url(#cdBarLight)"/>
+                      </g>
+                    </svg>
+                    <div class="ok-cd__chart-labels">
+                      <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recent Activities table -->
+              <div class="ok-cd__panel">
+                <div class="ok-cd__panel-hd">
+                  <b>Recent Activities</b>
+                </div>
+                <table class="ok-cd__tbl">
+                  <thead>
+                    <tr><th></th><th>Activity</th><th>Order ID</th><th>Date</th><th>Amount</th><th>Status</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr data-inv>
+                      <td><span class="ok-cd__chk"></span></td>
+                      <td><i class="ok-cd__row-ico">ð</i>Supplier invoice Â· European Supplier</td>
+                      <td>INV-2841</td>
+                      <td>Sep 30, 2026</td>
+                      <td class="ok-cd__amt">â¬120,000</td>
+                      <td><span class="ok-cd__st" data-inv-status>Due 30d</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="ok-cd__chk"></span></td>
+                      <td><i class="ok-cd__row-ico">ð</i>Supplier invoice Â· UK Supplier</td>
+                      <td>INV-2918</td>
+                      <td>Sep 18, 2026</td>
+                      <td class="ok-cd__amt">Â£48,200</td>
+                      <td><span class="ok-cd__st">Due 14d</span></td>
+                    </tr>
+                    <tr data-txfx>
+                      <td><span class="ok-cd__chk"></span></td>
+                      <td><i class="ok-cd__row-ico">â¦</i>FX Protection Â· via Okoora</td>
+                      <td data-txfx-id>â</td>
+                      <td>Today</td>
+                      <td class="ok-cd__amt" data-txfx-amt>â¬100,000</td>
+                      <td><span class="ok-cd__st ok-cd__st--ok">Completed</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ OKOORA EMBEDDED LAYER (unchanged) ============ -->
+        <aside class="ok-cd__ok">
+          <div class="ok-cd__ok-brand">powered by <b>okoora</b></div>
+          <div class="ok-cd__ok-api"><span class="ok-cd__ok-api-dot"></span>api.okoora.com Â· <b>Connected</b> Â· v2</div>
+          <nav class="ok-cd__ok-stages" data-stages>
+            <span data-stage="detect">DETECT</span>
+            <span data-stage="decide">DECIDE</span>
+            <span data-stage="execute">EXECUTE</span>
+            <span data-stage="reconcile">RECONCILE</span>
+            <span data-stage="monetize">MONETIZE</span>
+          </nav>
+
+          <div class="ok-cd__ok-body">
+
+            <div class="ok-cd__ok-state" data-state="detect">
+              <div class="ok-cd__ok-lbl">Detected</div>
+              <div class="ok-cd__ok-msg">Upcoming EUR obligation</div>
+              <div class="ok-cd__ok-amt">â¬120,000</div>
+              <div class="ok-cd__ok-sub">INV-2841 Â· Due in 30 days</div>
+              <div class="ok-cd__ok-note">Reading invoice Â· vendor country Â· currency</div>
+            </div>
+
+            <div class="ok-cd__ok-state" data-state="decide">
+              <div class="ok-cd__ok-lbl">EUR/USD Â· Market</div>
+              <div class="ok-cd__ok-rate">1.0834 <span class="ok-cd__ok-rate-delta">â² +0.12%</span></div>
+              <svg class="ok-cd__ok-chart" viewBox="0 0 160 40" preserveAspectRatio="none">
+                <defs><linearGradient id="cdg2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#05F2F2" stop-opacity="0.35"/><stop offset="1" stop-color="#05F2F2" stop-opacity="0"/></linearGradient></defs>
+                <path d="M0,24 L20,22 L40,26 L60,18 L80,22 L100,14 L120,18 L140,10 L160,12 L160,40 L0,40 Z" fill="url(#cdg2)"/>
+                <polyline points="0,24 20,22 40,26 60,18 80,22 100,14 120,18 140,10 160,12" fill="none" stroke="#05F2F2" stroke-width="1.4"/>
+              </svg>
+              <div class="ok-cd__ok-reco">
+                <div class="ok-cd__ok-reco-lbl">Recommended</div>
+                <div class="ok-cd__ok-reco-val">Protect â¬100K</div>
+                <div class="ok-cd__ok-reco-sub">before payment date</div>
+              </div>
+            </div>
+
+            <div class="ok-cd__ok-state" data-state="execute">
+              <div class="ok-cd__ok-lbl">Protect exposure</div>
+              <div class="ok-cd__ok-amt">â¬100,000</div>
+              <div class="ok-cd__ok-execpair">
+                <span>EUR / USD</span><b>Rate 1.0834</b>
+              </div>
+              <button class="ok-cd__ok-btn" data-exec-btn type="button" tabindex="-1">Protect â¬100K</button>
+              <div class="ok-cd__ok-progress"><span data-exec-bar></span></div>
+              <div class="ok-cd__ok-status" data-exec-status>Ready</div>
+            </div>
+
+            <div class="ok-cd__ok-state" data-state="reconcile">
+              <div class="ok-cd__ok-lbl ok-cd__ok-lbl--ok">Reconciled â</div>
+              <div class="ok-cd__ok-msg">3 records updated</div>
+              <div class="ok-cd__ok-checks">
+                <div>â Invoice status</div>
+                <div>â Transaction ledger</div>
+                <div>â Exposure balance</div>
+              </div>
+              <div class="ok-cd__ok-note">Synced to AcmeFin</div>
+            </div>
+
+            <div class="ok-cd__ok-state" data-state="monetize">
+              <div class="ok-cd__ok-lbl ok-cd__ok-lbl--ok">Monetized</div>
+              <div class="ok-cd__ok-rev">+$4,200</div>
+              <div class="ok-cd__ok-msg">Revenue captured</div>
+              <div class="ok-cd__ok-note">FX markup Â· protected â¬100K volume</div>
+            </div>
+
+          </div>
+          <pre class="ok-cd__ok-code" data-code><span class="ok-cd__ok-code-line"><b>POST</b> /v2/exposure/detect</span><span class="ok-cd__ok-code-line">{</span><span class="ok-cd__ok-code-line">  "invoice": <em>"INV-2841"</em>,</span><span class="ok-cd__ok-code-line">  "amount": <em>120000</em>,</span><span class="ok-cd__ok-code-line">  "currency": <em>"EUR"</em></span><span class="ok-cd__ok-code-line">}</span></pre>
+        </aside>
+      </div>
+    </div>
+    <script src="js/hero-anim.js?v=20260830a" defer></script>
+    <script>
+      (function(){
+        var LOOP_MS = 32000;
+        function start(){
+          var vis = document.querySelector('.ok-hero-visual');
+          if (!vis) return;
+          function play(){
+            vis.classList.remove('is-playing');
+            void vis.offsetWidth;
+            vis.classList.add('is-playing');
+            window.dispatchEvent(new Event('okoora:hero-restart'));
+          }
+          function begin(){
+            play();
+            setInterval(play, LOOP_MS);
+          }
+          if (!('IntersectionObserver' in window)) { begin(); return; }
+          var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){ if (e.isIntersecting) { begin(); io.disconnect(); } });
+          }, { threshold: 0.5 });
+          io.observe(vis);
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+        else start();
+      })();
+    </script>
+    <script>
+      (function(){
+        function boot(){
+          document.querySelectorAll('.ok-rot').forEach(function(el){
+            var words = (el.getAttribute('data-words')||'').split('|').filter(Boolean);
+            if (words.length < 2) return;
+            var i = words.indexOf(el.textContent.trim());
+            if (i < 0) i = 0;
+            setInterval(function(){
+              el.classList.add('is-out');
+              setTimeout(function(){
+                i = (i + 1) % words.length;
+                el.textContent = words[i];
+                el.classList.remove('is-out');
+              }, 260);
+            }, 2400);
+          });
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+        else boot();
+      })();
+    </script>
+
+    <!-- ======================================================
+         LOGOS BAR ? MAX ? PAYSEND ? CEVA ? Finxact
+    ====================================================== -->
+    <section class="ok-logos" aria-label="Trusted by leading financial companies">
+      <div class="ok-logos__left">
+        <p class="ok-logos__headline">Trusted by banks, fintechs, and enterprises <strong>operating globally.</strong></p>
+      </div>
+      <div class="ok-logos__grid" aria-hidden="true">
+        <div class="ok-logos__card"><img src="images/Logos/Logo1.svg" alt="" loading="lazy"></div>
+        <div class="ok-logos__card"><img src="images/Logos/Logo2.svg" alt="" loading="lazy"></div>
+        <div class="ok-logos__card"><img src="images/Logos/Logo3.svg" alt="" loading="lazy"></div>
+        <div class="ok-logos__card"><img src="images/Logos/Logo4.svg" alt="" loading="lazy"></div>
+        <div class="ok-logos__card"><img src="images/Logos/Logo5.svg" alt="" loading="lazy"></div>
+        <div class="ok-logos__card"><img src="images/Logos/Logo6.svg" alt="" loading="lazy"></div>
+        <div class="ok-logos__card"><img src="images/Logos/Logo7.svg" alt="" loading="lazy"></div>
+        <div class="ok-logos__card"><img src="images/Logos/Logo9.svg" alt="" loading="lazy"></div>
+      </div>
+    </section>
+    </div><!-- /.ok-hero-bg -->
+
+    <!-- ======================================================
+         VALUE PROPOSITION STRIP
+    ====================================================== -->
+    <section class="ok-vps" aria-labelledby="ok-vps-h">
+      <div class="ok-vps__inner">
+        <div class="ok-vps__hd ok-anim">
+          <h2 id="ok-vps-h" class="ok-h2">Everything your money runs on.<span class="ok-vps__title-gradient">Operated as one.</span></h2>
+        </div>
+
+        <div class="ok-vps__row">
+
+          <!-- Intelligence band -->
+          <div class="ok-vps__band">
+            <img src="images/AI_title.png" alt="" aria-hidden="true" style="height:40px; width:40px; display:block; object-fit:contain;">
+            Operated by one AI-native intelligence
+          </div>
+
+          <!-- One connector per card -->
+          <div class="ok-vps__connectors" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="m3-chain__cards">
+
+            <!-- Card 1: Accounts -->
+            <a href="products/multi-currency_accounts" class="m3-chain__card" style="background:url('images/Accounts_background.png') center/cover no-repeat;">
+              <div class="ok-vps__card-top">
+                <h3 class="ok-vps__card-title">Accounts</h3>
+                <p class="ok-vps__card-sub">Every currency, one place.</p>
+              </div>
+              <div class="ok-vps__card-screen">
+                <img src="images/Accounts_image.png" alt="" loading="lazy">
+              </div>
+              <span class="ok-vps__card-plus" aria-hidden="true">
+                <span class="ok-vps__card-plus-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+                <span class="ok-vps__card-plus-label">Learn more</span>
+              </span>
+            </a>
+
+            <!-- Card 2: Payments -->
+            <a href="products/payments" class="m3-chain__card" style="background:url('images/Payments_background.png') center/cover no-repeat;">
+              <div class="ok-vps__card-top">
+                <h3 class="ok-vps__card-title">Payments</h3>
+                <p class="ok-vps__card-sub">Collect and pay, worldwide.</p>
+              </div>
+              <div class="ok-vps__card-screen">
+                <img src="images/Payments_image.png" alt="" loading="lazy">
+              </div>
+              <span class="ok-vps__card-plus" aria-hidden="true">
+                <span class="ok-vps__card-plus-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+                <span class="ok-vps__card-plus-label">Learn more</span>
+              </span>
+            </a>
+
+            <!-- Card 3: FX Marketplace -->
+            <a href="products/fx-marketplace" class="m3-chain__card" style="background:url('images/FX_Marketplace_background.png') center/cover no-repeat;">
+              <div class="ok-vps__card-top">
+                <h3 class="ok-vps__card-title">FX Marketplace</h3>
+                <p class="ok-vps__card-sub">Best institutional rate.</p>
+              </div>
+              <div class="ok-vps__card-screen">
+                <img src="images/FX_Marketplace_image.png" alt="" loading="lazy">
+              </div>
+              <span class="ok-vps__card-plus" aria-hidden="true">
+                <span class="ok-vps__card-plus-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+                <span class="ok-vps__card-plus-label">Learn more</span>
+              </span>
+            </a>
+
+            <!-- Card 4: Regulated Infrastructure -->
+            <a href="products/regulated_infrastructure" class="m3-chain__card" style="background:url('images/Regulated_background.png') center/cover no-repeat;">
+              <div class="ok-vps__card-top">
+                <h3 class="ok-vps__card-title">Regulated Infrastructure</h3>
+                <p class="ok-vps__card-sub">The weight stays with us.</p>
+              </div>
+              <div class="ok-vps__card-screen">
+                <img src="images/Regulated_image.png" alt="" loading="lazy">
+              </div>
+              <span class="ok-vps__card-plus" aria-hidden="true">
+                <span class="ok-vps__card-plus-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+                <span class="ok-vps__card-plus-label">Learn more</span>
+              </span>
+            </a>
+
+            <!-- Card 5: Build -->
+            <div class="m3-chain__card ok-vps__card--build" style="background:url('images/Build_background.png') center/cover no-repeat;">
+              <div class="ok-vps__card-top">
+                <h3 class="ok-vps__card-title">Build</h3>
+                <p class="ok-vps__card-sub">Describe it, watch it build.</p>
+              </div>
+              <div class="ok-vps__card-screen">
+                <img src="images/Build_image.png" alt="" loading="lazy">
+              </div>
+              <span class="ok-vps__card-soon">Coming Soon</span>
+            </div>
+
+          </div><!-- /.m3-chain__cards -->
+        </div><!-- /.ok-vps__row -->
+      </div><!-- /.ok-vps__inner -->
+    </section>
+
+    <!-- ======================================================
+         CONTENT RAIL ? vertical side lines span these 3 sections
+    ====================================================== -->
+    <div class="ok-rail">
+
+    <!-- ======================================================
+         CASE STUDY
+    ====================================================== -->
+    <section class="ok-case" aria-labelledby="ok-case-h">
+      <div style="position:relative;">
+        <h2 id="ok-case-h" class="ok-reveal-text">Running on Okoora. <span class="ok-case__grad">See financial work</span></h2>
+        <p class="ok-case__sub ok-anim" data-delay="1">
+          Three operating jobs. Real financial work in production. Each card shows how Okoora operates across exposure, money movement, and live transaction pricing.
+        </p>
+      </div>
+
+      <div class="ok-case__grid" role="list" aria-label="Okoora product capabilities">
+
+        <article class="ok-card ok-card--exp ok-anim" id="ok-exp-card" data-delay="2" role="listitem" tabindex="0" style="cursor:pointer;" aria-haspopup="dialog">
+          <span class="ok-vps__card-plus" aria-hidden="true">
+            <span class="ok-vps__card-plus-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="ok-vps__card-plus-label" style="color:#fff;">Learn more</span>
+          </span>
+          <div class="ok-card__label">
+            <strong>Every exposure<br>visible and protected.</strong>
+            <span>Every currency and entity netted into one live number and protected by your policy at the moment it arises, not weeks later.</span>
+          </div>
+          <div class="ok-card__body">
+            <div class="ok-exp-conv">
+              <div class="ok-exp-lbl">Business activity netted by Okoora</div>
+              <svg id="ok-exp-svg" viewBox="0 0 300 150" preserveAspectRatio="none" aria-hidden="true"></svg>
+              <div class="ok-exp-net">
+                <div class="ok-exp-net-val" id="ok-exp-net-val">$26.7M</div>
+                <div class="ok-exp-net-c">net USD exposure</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ok-card ok-card--mim ok-anim" id="ok-mot-card" data-delay="3" role="listitem" tabindex="0" style="cursor:pointer;" aria-haspopup="dialog">
+          <span class="ok-vps__card-plus" aria-hidden="true">
+            <span class="ok-vps__card-plus-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="ok-vps__card-plus-label" style="color:#fff;">Learn more</span>
+          </span>
+          <div class="ok-card__label">
+            <strong>Every payment,</br>end to end.</strong>
+            <span>Currency, approval, route, and record operate as one workflow. Only payments outside your policy stop for you. The rest is handled and reconciled automatically.</span>
+          </div>
+          <div class="ok-card__body">
+            <div class="ok-mim-header">
+              <div class="ok-mim-header-l">
+                <span class="ok-mim-badge">EN</span>
+                <span class="ok-mim-nm">Money in motion<span>End to end, by policy</span></span>
+              </div>
+              <span class="ok-mim-live"><i></i>LIVE</span>
+            </div>
+            <div class="ok-mim-jrn">
+              <div class="ok-mim-lbl">Payment operated as one workflow</div>
+              <div class="ok-mim-track">
+                <div class="ok-mim-meta"><b>Supplier invoice, CN</b><span class="ok-mim-tag" id="t1tag">routed, executed</span></div>
+                <div class="ok-mim-base"><div class="ok-mim-fill" id="f1"></div><div class="ok-mim-node" id="n1"></div></div>
+              </div>
+              <div class="ok-mim-track">
+                <div class="ok-mim-meta"><b>Vendor payment, VN</b><span class="ok-mim-tag" id="t2tag">converted at 1.08</span></div>
+                <div class="ok-mim-base"><div class="ok-mim-fill" id="f2"></div><div class="ok-mim-node" id="n2"></div></div>
+              </div>
+              <div class="ok-mim-track">
+                <div class="ok-mim-meta"><b>Client payout, UK</b><span class="ok-mim-tag" id="t3tag">in transit</span></div>
+                <div class="ok-mim-base"><div class="ok-mim-fill" id="f3"></div><div class="ok-mim-node" id="n3"></div></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ok-card ok-card--tall ok-card--erc ok-anim" id="ok-erc-card"
+                 data-delay="4" role="listitem" tabindex="0" aria-haspopup="dialog"
+                 aria-label="Open Embedded Revenue Console details">
+          <span class="ok-vps__card-plus" aria-hidden="true">
+            <span class="ok-vps__card-plus-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="ok-vps__card-plus-label" style="color:#fff;">Learn more</span>
+          </span>
+          <div class="ok-card__label">
+            <strong>Revenue you already earn, captured</strong>
+            <span>Every client transaction is priced and executed by your pricing policy, in real time. You bring the volume; Okoora turns it into revenue you keep.</span>
+          </div>
+          <div class="ok-card__body">
+            <!-- Feed header -->
+            <div class="erc-feedhead">
+              <span class="erc-feedhead-t">
+                Transactions happening now
+                <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6.5" stroke="#121c3b" stroke-width="1.1"/><path d="M7 4v4" stroke="#121c3b" stroke-width="1.3" stroke-linecap="round"/><circle cx="7" cy="10" r=".7" fill="#121c3b"/></svg>
+              </span>
+              <span class="erc-feedhead-live"><i></i>LIVE</span>
+            </div>
+            <!-- Live feed -->
+            <div class="erc-feed" id="ok-erc-feed"></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <hr class="ok-sec-div" aria-hidden="true">
+
+    <!-- ======================================================
+         TWO COMMERCIAL SURFACES
+    ====================================================== -->
+    <section class="ok-surfaces" aria-labelledby="ok-surfaces-h">
+      <div class="ok-surfaces__head">
+        <span class="ok-tag-pill ok-anim">Two paths. One system.</span>
+        <h2 id="ok-surfaces-h" class="ok-h2 ok-reveal-text">
+          One company.<br>Two commercial surfaces.
+        </h2>
+      </div>
+
+      <div class="ok-surfaces__grid">
+
+        <!-- A: Operate Your Own Finance -->
+        <article class="ok-surface ok-surface--ent ok-anim" data-delay="1" aria-labelledby="ok-surface-ent-h">
+          <div class="ok-surface__inner">
+            <span class="ok-surface__tag">Operate Your Own Finance</span>
+            <h3 id="ok-surface-ent-h">Your financial operation,<br>running on Okoora.</h3>
+            <p class="ok-surface__sub">Okoora operates financial work your team handles today, across analysis, cash, payments, currencies, and hedging, running by your policy so nothing waits and nothing slips.</p>
+            <nav class="ok-surface__work" aria-label="Financial work types">
+              <a href="solutions/enterprise/analyze-and-decide" class="ok-surface__work-item">
+                <span class="ok-surface__work-dot" aria-hidden="true"></span>
+                Analyze and decide
+              </a>
+              <a href="solutions/enterprise/manage-your-cash" class="ok-surface__work-item">
+                <span class="ok-surface__work-dot" aria-hidden="true"></span>
+                Manage your cash
+              </a>
+              <a href="solutions/enterprise/move-and-pay" class="ok-surface__work-item">
+                <span class="ok-surface__work-dot" aria-hidden="true"></span>
+                Move and pay
+              </a>
+              <a href="solutions/enterprise/convert-currencies" class="ok-surface__work-item">
+                <span class="ok-surface__work-dot" aria-hidden="true"></span>
+                Convert currencies
+              </a>
+              <a href="solutions/enterprise/protect-value" class="ok-surface__work-item">
+                <span class="ok-surface__work-dot" aria-hidden="true"></span>
+                Protect value
+              </a>
+            </nav>
+            <div class="ok-surface__actions">
+              <a href="map-your-work" class="ok-surface__cta">Map this work in your business</a>
+              <a href="solutions/enterprise/analyze-and-decide" class="ok-surface__link">See the whole system &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- B: Serve Your Customers -->
+        <article class="ok-surface ok-surface--plt ok-anim" data-delay="2" aria-labelledby="ok-surface-plt-h">
+          <div class="ok-surface__inner">
+            <span class="ok-surface__tag">Serve Your Customers</span>
+            <h3 id="ok-surface-plt-h">Your product. Your brand.<br>Okoora operating underneath.</h3>
+            <p class="ok-surface__sub">Embed financial capabilities inside the product your customers already use, and turn every transaction into revenue you own.</p>
+            <nav class="ok-surface__work" aria-label="Platform commercial moves">
+              <a href="solutions/by-use-case/embed-accounts" class="ok-surface__work-item">
+                <span class="ok-surface__work-dot" aria-hidden="true"></span>
+                Embed accounts and money flow
+              </a>
+              <a href="solutions/by-use-case/embed-fx-products" class="ok-surface__work-item">
+                <span class="ok-surface__work-dot" aria-hidden="true"></span>
+                Embed FX products
+              </a>
+              <a href="solutions/by-use-case/ai-pricing" class="ok-surface__work-item">
+                <span class="ok-surface__work-dot" aria-hidden="true"></span>
+                AI pricing per client and transaction
+              </a>
+            </nav>
+            <div class="ok-surface__proof">
+              <span class="ok-surface__proof-stat"><strong>$30M</strong> in new revenue, one client, two years.</span>
+            </div>
+            <div class="ok-surface__actions">
+              <a href="https://dashboard2.okoora.com/sign-up" class="ok-surface__cta ok-surface__cta--plt" target="_blank" rel="noopener">Get started</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <hr class="ok-sec-div" aria-hidden="true">
+
+    <!-- ======================================================
+         STACK
+    ====================================================== -->
+    <section class="ok-stack" aria-labelledby="ok-stack-h">
+      <div class="ok-stack__inner">
+
+        <!-- Left: pill + title -->
+        <div class="ok-stack__head">
+          <span class="ok-tag-pill ok-anim">The Stack</span>
+          <h2 id="ok-stack-h" class="ok-h2 ok-anim" data-delay="1">
+            One stack. Four layers.
+            <span class="ok-blue-text"> Operating as one system.</span>
+          </h2>
+        </div>
+
+        <!-- Right: SVG layers + connectors + text labels -->
+        <div class="ok-stack__anim">
+          <div class="ok-stack__visual">
+            <div class="ok-stack__layer">
+              <img src="images/stack/1.svg" alt="Intelligence layer">
+              <div class="ok-sl__hconn"></div>
+            </div>
+            <div class="ok-sl__vgap"></div>
+            <div class="ok-stack__layer">
+              <img src="images/stack/2.svg" alt="Orchestration layer">
+              <div class="ok-sl__hconn"></div>
+            </div>
+            <div class="ok-sl__vgap"></div>
+            <div class="ok-stack__layer">
+              <img src="images/stack/3.svg" alt="Data layer">
+              <div class="ok-sl__hconn"></div>
+            </div>
+            <div class="ok-sl__vgap"></div>
+            <div class="ok-stack__layer">
+              <img src="images/stack/4.svg" alt="Building Blocks layer">
+              <div class="ok-sl__hconn"></div>
+            </div>
+          </div>
+
+          <div class="ok-stack__layers">
+            <div class="ok-stack__item">
+              <h4>Intelligence</h4>
+              <p>Sees everything, decides by your policy, acts across the entire system.</p>
+            </div>
+            <div class="ok-stack__item">
+              <h4>Orchestration</h4>
+              <p>Policies and controls enforced at every action.</p>
+            </div>
+            <div class="ok-stack__item">
+              <h4>Data connectivity</h4>
+              <p>One live financial picture: transactions, positions, and exposures.</p>
+            </div>
+            <div class="ok-stack__item">
+              <h4>Building blocks</h4>
+              <p>Accounts, payments, liquidity, FX, and market access.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    </div><!-- /.ok-rail -->
+
+
+    <!-- ======================================================
+         PROOF, MOAT, AND RECOGNITION (consolidated)
+    ====================================================== -->
+    <section class="ok-proof" aria-labelledby="ok-proof-h">
+      <div class="ok-proof__head">
+        <span class="ok-tag-pill ok-anim">Proof, moat, and recognition</span>
+        <h2 id="ok-proof-h" class="ok-h2 dark ok-reveal-text">
+          Built by people who operated finance.<br>
+          <span class="ok-blue-text">Now encoded in software.</span>
+        </h2>
+        <p class="ok-proof__intro ok-anim" data-delay="1">
+          Most companies analyse finance. Most fintechs execute it. Okoora operates it. The intelligence was written by people who operated finance for decades, then encoded into software. That is a moat no single capability can cross.
+        </p>
+      </div>
+
+      <div class="ok-proof__grid">
+
+        <!-- Platform outcome -->
+        <div class="ok-proof__card ok-proof__card--platform ok-anim" data-delay="2" style="background:url('images/Payments_background.png') center/cover no-repeat;">
+          <span class="ok-proof__card-tag">Platform outcome</span>
+          <div class="ok-proof__stat">
+            <span class="ok-stat__val bt" data-count-to="30" data-suffix="M+">$30M+</span>
+            <span class="ok-stat__lbl">in new revenue</span>
+          </div>
+          <p class="ok-proof__card-desc">One client. Two years. A financial institution turned its existing customer base into revenue it had never captured, using Okoora's embedded pricing intelligence.</p>
+          <a href="solutions/by-use-case/ai-pricing" class="ok-proof__card-link">See how platforms generate revenue &rarr;</a>
+        </div>
+
+        <!-- Company proof -->
+        <div class="ok-proof__card ok-proof__card--company ok-anim" data-delay="3" style="background:url('images/FX_Marketplace_background.png') center/cover no-repeat;">
+          <span class="ok-proof__card-tag">In production</span>
+          <p class="ok-proof__card-body">Financial analysis, decision preparation, and management outputs are already produced by the technology in production today. Live across global banks, fintechs, and enterprises.</p>
+          <ul class="ok-proof__anchors">
+            <li><span class="ok-proof__anchor-dot" aria-hidden="true"></span>Live in production</li>
+            <li><span class="ok-proof__anchor-dot" aria-hidden="true"></span>Regulated financial infrastructure</li>
+            <li><span class="ok-proof__anchor-dot" aria-hidden="true"></span>Operating billions in financial flows</li>
+          </ul>
+        </div>
+
+        <!-- Recognition -->
+        <div class="ok-proof__card ok-proof__card--recog ok-anim" data-delay="4">
+          <span class="ok-proof__card-tag">Recognition</span>
+
+          <!-- Year cards (split panel: badge | info) -->
+          <div class="ok-recog__years">
+
+            <div class="ok-recog__year">
+              <h3 class="ok-recog__year-title">Top Fintech Company <span class="ok-recog__year-num">2024</span></h3>
+              <img src="images/Awards/Award2024.png" class="ok-recog__year-badge" alt="2024 Top Fintech Company award" loading="lazy">
+              <p class="ok-recog__year-sub">Business process solution</p>
+              <a href="https://www.cnbc.com/the-worlds-top-250-fintech-companies-2024/#bps" class="ok-recog__year-link" target="_blank" rel="noopener">View Recognition
+                <svg class="ok-recog__year-link-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="#059669" stroke-width="1.2"/>
+                  <path d="M7 10h6M10.5 7.5L13 10l-2.5 2.5" stroke="#059669" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="ok-recog__year">
+              <h3 class="ok-recog__year-title">Top Fintech Company <span class="ok-recog__year-num">2025</span></h3>
+              <img src="images/Awards/Award2025.png" class="ok-recog__year-badge" alt="2025 Top Fintech Company award" loading="lazy">
+              <p class="ok-recog__year-sub">Payments</p>
+              <a href="https://www.cnbc.com/the-worlds-top-fintech-companies-2025/" class="ok-recog__year-link" target="_blank" rel="noopener">View Recognition
+                <svg class="ok-recog__year-link-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="#059669" stroke-width="1.2"/>
+                  <path d="M7 10h6M10.5 7.5L13 10l-2.5 2.5" stroke="#059669" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="ok-recog__year ok-recog__year--current">
+              <h3 class="ok-recog__year-title">Top Fintech Company <span class="ok-recog__year-num">2026</span></h3>
+              <img src="images/Awards/Award2026.png" class="ok-recog__year-badge" alt="2026 Top Fintech Company award" loading="lazy">
+              <p class="ok-recog__year-sub">Business process solution</p>
+              <a href="#" class="ok-recog__year-link">View Recognition
+                <svg class="ok-recog__year-link-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="#059669" stroke-width="1.2"/>
+                  <path d="M7 10h6M10.5 7.5L13 10l-2.5 2.5" stroke="#059669" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Additional Recognition -->
+          <div class="ok-recog__additional">
+            <span class="ok-recog__add-label">Additional Recognition</span>
+            <div class="ok-recog__add-grid">
+
+              <div class="ok-recog__add-item">
+                <img src="images/Awards/TechRound.svg" class="ok-recog__add-logo" alt="Top 66 SaaS Companies" loading="lazy">
+                <p class="ok-recog__add-org">TechRound</p>
+              </div>
+
+              <div class="ok-recog__add-item">
+                <img src="images/Awards/Europas.svg" class="ok-recog__add-logo" alt="Europe's 100 Hottest Startups" loading="lazy">
+                <p class="ok-recog__add-org">Europas</p>
+              </div>
+
+              <div class="ok-recog__add-item">
+                <img src="images/Awards/IBS Intelligence.svg" class="ok-recog__add-logo" alt="Award in Forex Management" loading="lazy">
+                <p class="ok-recog__add-org">IBS Intelligence</p>
+              </div>
+
+              <div class="ok-recog__add-item">
+                <img src="images/Awards/Best SaaS for FinTech.svg" class="ok-recog__add-logo" alt="The Fintech Awards" loading="lazy">
+                <p class="ok-recog__add-org">Best SaaS for FinTech</p>
+              </div>
+
+              <div class="ok-recog__add-item">
+                <img src="images/Awards/award.svg" class="ok-recog__add-logo" alt="Atlas Awards" loading="lazy">
+                <p class="ok-recog__add-org">Global FX infrastructure</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CTA BANNER
+    ====================================================== -->
+    <section class="ok-cta" aria-labelledby="ok-cta-h">
+      <div class="ok-cta__row">
+        <div class="ok-cta__left">
+          <h2 id="ok-cta-h" class="ok-h2 ok-reveal-text">See how the intelligence layer operates your money.</h2>
+          <div class="ok-cta__routes ok-anim" data-delay="2">
+            <a href="contact-sales.html?path=operate" class="ok-cta__route">Operate your own finance</a>
+            <a href="contact-sales.html?path=serve" class="ok-cta__route">Serve your customers</a>
+          </div>
+        </div>
+        <div class="ok-cta__actions ok-anim" data-delay="2">
+          <a href="contact-sales" class="ok-btn">
+            <span>Get Started</span>
+            <span class="ok-btn__arrow" aria-hidden="true">
+              <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <!-- PARTIAL:footer -->
+  <footer class="ok-footer" role="contentinfo" aria-label="Site footer">
+    <div class="ok-footer__inner">
+      <div class="ok-footer__top">
+        <div class="ok-footer__brand">
+          <div class="ok-footer__logo-box">
+            <img src="images/Logos/logo.svg.svg"
+                 alt="Okoora" width="143" height="45" loading="lazy">
+          </div>
+          <p class="ok-footer__copy">&copy; 2026 Okoora | All Rights Reserved</p>
+        </div>
+        <nav class="ok-footer__nav" aria-label="Footer navigation">
+          <div class="ok-footer__col" id="ok-foot-product"><h4>Product</h4></div>
+          <div class="ok-footer__col" id="ok-foot-solutions"><h4>Solutions</h4></div>
+          <div class="ok-footer__col" id="ok-foot-partners"><h4>Partners</h4></div>
+          <div class="ok-footer__col" id="ok-foot-company"><h4>Company</h4></div>
+        </nav>
+      </div>
+
+      <div class="ok-footer__bot">
+        <a href="https://reference.okoora.com/docs/privacy-policy" target="_blank" rel="noopener">Privacy policy</a>
+        <a href="https://reference.okoora.com/docs/cookie-policy" target="_blank" rel="noopener">Cookie Policy</a>
+<a href="terms-of-service" target="_blank" rel="noopener">Legal</a>
+        <a href="/supported-currencies">Supported Currencies</a>
+        <a href="/whistleblowing">Whistleblowing</a>
+<a href="https://okoora.com/v3/glossary/" target="_blank" rel="noopener">Glossary</a>
+      </div>
+    </div>
+  </footer>
+<!-- /PARTIAL:footer -->
+
+  <!-- ======================================================
+       EMBEDDED REVENUE CONSOLE POPUP
+  ====================================================== -->
+  <div class="ok-erc-popup" id="ok-erc-popup" role="dialog" aria-modal="true"
+       aria-label="Embedded Revenue Console" aria-hidden="true">
+    <div class="ok-erc-popup__backdrop" id="ok-erc-backdrop"></div>
+    <div class="ok-erc-popup__sheet">
+
+      <div class="ok-erc-popup__handle" aria-hidden="true"></div>
+
+      <!-- Close button (uses Figma close-frame asset) -->
+      <button class="ok-erc-popup__close" id="ok-erc-close" aria-label="Close">
+        <img src="images/popup/icon-close.svg"
+             alt="" width="37" height="37" loading="lazy">
+      </button>
+
+      <!-- ?? White header ?? -->
+      <div class="ok-erc__hd">
+        <div class="ok-erc__hd-left">
+          <div class="ok-erc__hd-tag">
+            <img src="images/popup/icon-erc-tag.svg"
+                 alt="" width="30" height="30" loading="lazy">
+            Embedded Revenue Console
+          </div>
+          <h2>The pricing engine that sets <em>the right margin on every transaction,</em> automatically.</h2>
+          <p class="ok-erc__hd-desc">Okoora learns from millions of transactions, reads every client, and prices every transaction to the margin it can genuinely bear, in real time. Revenue you were leaving behind, captured for you.</p>
+        </div>
+        <div class="ok-erc__hd-right">
+          <a href="contact-sales" class="ok-erc__hd-btn">Get Started â</a>
+          <a href="contact-sales" class="ok-erc__hd-link">Read the platform story â</a>
+        </div>
+      </div>
+
+      <!-- ?? Light-blue hero ?? -->
+      <div class="ok-erc__hero">
+        <div class="ok-erc__hero-bg" aria-hidden="true">
+          <img src="images/Embedded_Revenue_Console_bg.png" alt="">
+        </div>
+        <img src="images/ticker.svg" alt="" class="ok-erc__hero-ticker" aria-hidden="true">
+        <div class="ok-erc__hero-content">
+          <div class="ok-erc__stats">
+            <div class="ok-erc__stat">
+              <span class="ok-erc__stat-val">$30M+</span>
+              <span class="ok-erc__stat-lbl">in revenue earned this month, across all clients</span>
+            </div>
+            <div class="ok-erc__stat">
+              <span class="ok-erc__stat-val">$15M</span>
+              <span class="ok-erc__stat-lbl">in additional revenue you could still earn, captured automatically as the engine learns</span>
+            </div>
+          </div>
+          <p class="ok-erc__hero-caption">
+            <strong>Every transaction priced to what it can bear.</strong>
+            The engine turns the activity your clients are already creating into revenue you keep.
+          </p>
+        </div>
+      </div>
+
+      <!-- For platforms strip -->
+      <div class="ok-erc__platforms">
+        <span class="ok-erc__platforms-lbl">For platforms:</span>
+        <span class="ok-erc__platforms-chip">banks</span>
+        <span class="ok-erc__platforms-chip">fintechs</span>
+        <span class="ok-erc__platforms-chip">PSPs &amp; ERPs</span>
+        <span class="ok-erc__platforms-suffix">embedding Okoora for their own clients.</span>
+      </div>
+
+      <!-- ?? Two product cards ?? -->
+      <div class="ok-erc__row-hds">
+        <p class="ok-erc__col-hd">Priced in real time</p>
+        <p class="ok-erc__col-hd">The engine lifts the price, intelligently</p>
+      </div>
+      <div class="ok-erc__row">
+        <!-- Priced in real time card -->
+        <div class="ok-erc__card ok-erc__card--priced">
+          <div class="ok-erc__log-panel" id="ok-erc-price-feed"></div>
+        </div>
+        <!-- 59?82 lift card -->
+        <div class="ok-erc__card">
+          <p class="ok-erc__col-hd ok-erc__col-hd--mob2">The engine lifts the price, intelligently</p>
+          <div class="ok-erc__lift">
+            <span class="ok-erc__lift-from">59bps</span>
+            <span class="ok-erc__lift-arrow">
+              <img src="images/popup/icon-lift-arrow.svg"
+                   alt="?" width="24" height="24" loading="lazy">
+            </span>
+            <span class="ok-erc__lift-to">82bps</span>
+            <span class="ok-erc__lift-auto">Auto</span>
+          </div>
+          <p class="ok-erc__lift-why"><strong>Why:</strong> high volatility window, client is price-insensitive. +$1,062/month.</p>
+        </div>
+      </div>
+      <!-- Sub-descriptions -->
+      <div class="ok-erc__row-hds" style="padding-top:0;padding-bottom:24px;">
+        <p class="ok-erc__col-sub"><strong>No manual pricing.</strong> <span>Every transaction is priced the moment it happens.</span></p>
+        <p class="ok-erc__col-sub"><strong>Knows when to charge more.</strong> <span>Margin goes up where the client can bear it, with a reason logged for every move.</span></p>
+      </div>
+
+      <!-- ?? Client analysis ?? -->
+      <div class="ok-erc__analysis-hds">
+        <p class="ok-erc__analysis-hd">Reads every client</p>
+        <p class="ok-erc__analysis-hd">Smart pricing vs flat pricing</p>
+      </div>
+      <div class="ok-erc__analysis">
+        <div class="ok-erc__card ok-erc__card--analysis">
+          <div class="ok-erc__bar-panel">
+            <div class="ok-erc__bar-row">
+              <span class="ok-erc__bar-label">Underpaying</span>
+              <div class="ok-erc__bar-track"><div class="ok-erc__bar-fill" style="width:10.7%;background:#e77d32;"></div></div>
+              <span class="ok-erc__bar-count" style="color:#e77d32;">8</span>
+            </div>
+            <div class="ok-erc__bar-row">
+              <span class="ok-erc__bar-label">Priced right</span>
+              <div class="ok-erc__bar-track"><div class="ok-erc__bar-fill" style="width:70.5%;background:#26b35b;"></div></div>
+              <span class="ok-erc__bar-count" style="color:#26b35b;">241</span>
+            </div>
+            <div class="ok-erc__bar-row">
+              <span class="ok-erc__bar-label">Overpaying</span>
+              <div class="ok-erc__bar-track"><div class="ok-erc__bar-fill" style="width:20.1%;background:#ea5f33;"></div></div>
+              <span class="ok-erc__bar-count" style="color:#ea5f33;">63</span>
+            </div>
+            <div class="ok-erc__bar-row">
+              <span class="ok-erc__bar-label">Needs review</span>
+              <div class="ok-erc__bar-track"><div class="ok-erc__bar-fill" style="width:2.8%;background:#7f56d9;"></div></div>
+              <span class="ok-erc__bar-count" style="color:#7f56d9;">12</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img class="ok-erc__chart-img"
+               src="images/popup/erc-chart.svg"
+               alt="Smart pricing vs flat pricing chart" loading="lazy">
+        </div>
+      </div>
+      <!-- Analysis sub-descriptions -->
+      <div class="ok-erc__analysis-hds" style="padding-bottom:20px;">
+        <p class="ok-erc__analysis-sub"><strong>Every client read.</strong> The engine sees who is underpriced and corrects it.</p>
+        <p class="ok-erc__analysis-sub"><strong>Smart pricing beats flat, and the gap compounds.</strong> Every transaction priced right, month after month.</p>
+      </div>
+
+      <!-- ?? Features ?? -->
+      <div class="ok-erc__features">
+        <div class="ok-erc__feat">
+          <img src="images/popup/icon-feat-revenue.svg"
+               alt="" width="24" height="24" loading="lazy">
+          <p class="ok-erc__feat-hd">Revenue on every transaction</p>
+          <p class="ok-erc__feat-p">Every client transaction is priced with a margin, in real time, with no manual work.</p>
+        </div>
+        <div class="ok-erc__feat">
+          <img src="images/popup/icon-feat-learns.svg"
+               alt="" width="24" height="24" loading="lazy">
+          <p class="ok-erc__feat-hd">Learns and lifts</p>
+          <p class="ok-erc__feat-p">The engine analyses millions of transactions and lifts margin exactly where the client can bear it.</p>
+        </div>
+        <div class="ok-erc__feat">
+          <img src="images/popup/icon-feat-noleft.svg"
+               alt="" width="24" height="24" loading="lazy">
+          <p class="ok-erc__feat-hd">No revenue left behind</p>
+          <p class="ok-erc__feat-p">The gap between what you charge and what you could charge, closed automatically.</p>
+        </div>
+      </div>
+
+      <!-- ?? Quote ?? -->
+      <div class="ok-erc__quote">
+        <p class="ok-erc__quote-text">"Since we turned this on, the engine has become a critical part of our business plan."</p>
+        <p class="ok-erc__quote-attr"><strong>Senior banker,</strong> global financial institution operating on Okoora</p>
+      </div>
+
+      <!-- ?? Disclaimer ?? -->
+      <p class="ok-erc__disclaimer">Illustrative activity from an Okoora demo. Numbers and quote verified for production.</p>
+
+    </div><!-- /.ok-erc-popup__sheet -->
+  </div><!-- /.ok-erc-popup -->
+
+  <!-- ======================================================
+       EXPOSURE POPUP
+  ====================================================== -->
+  <div class="ok-erc-popup" id="ok-exp-popup" role="dialog" aria-modal="true"
+       aria-label="Exposure, operated by policy" aria-hidden="true">
+    <div class="ok-erc-popup__backdrop" id="ok-exp-backdrop"></div>
+    <div class="ok-erc-popup__sheet">
+
+      <div class="ok-erc-popup__handle" aria-hidden="true"></div>
+
+      <button class="ok-erc-popup__close" id="ok-exp-close" aria-label="Close">
+        <img src="images/popup/icon-close.svg"
+             alt="" width="37" height="37" loading="lazy">
+      </button>
+
+      <!-- ?? Header ?? -->
+      <div class="ok-erc__hd">
+        <div class="ok-erc__hd-left">
+          <div class="ok-erc__hd-tag">
+            <img src="images/popup/icon-exp-tag.svg"
+                 alt="" width="30" height="30" loading="lazy">
+            Exposure, operated<br> by policy
+          </div>
+          <h2>See every FX exposure as one picture and <em>protect it automatically.</em></h2>
+          <p class="ok-erc__hd-desc">Okoora consolidates exposure across every entity and system into one live view, then neutralises it by your policy, in real time. You stop finding out at month-end.</p>
+        </div>
+        <div class="ok-erc__hd-right">
+          <a href="contact-sales" class="ok-erc__hd-btn">Get Started â</a>
+          <a href="contact-sales" class="ok-erc__hd-link">Read the platform story â</a>
+        </div>
+      </div>
+
+      <!-- ?? Hero ?? -->
+      <div class="ok-exp__hero">
+        <div class="ok-exp__hero-bg" aria-hidden="true">
+          <img src="images/Exposure_bg.png" alt="">
+        </div>
+        <div class="ok-exp__hero-inner">
+          <div class="ok-exp__hero-left">
+            <span class="ok-exp__hero-tag">Value protected by policy</span>
+            <span class="ok-exp__hero-val">$6.7M</span>
+            <span class="ok-exp__hero-lbl">protected on a single market move, versus leaving exposure unmanaged</span>
+            <p class="ok-exp__hero-caption"><strong>Same market move, two outcomes.</strong> Okoora keeps downside within your approved policy.</p>
+          </div>
+          <div class="ok-exp__comparison">
+            <div class="ok-exp__cmp-item">
+              <span class="ok-exp__cmp-val ok-exp__cmp-val--red">-$7.8M</span>
+              <span class="ok-exp__cmp-lbl">Unhedged</span>
+            </div>
+            <div class="ok-exp__cmp-item">
+              <span class="ok-exp__cmp-val ok-exp__cmp-val--green">-$1.1M</span>
+              <span class="ok-exp__cmp-lbl">By policy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ?? For enterprises strip ?? -->
+      <div class="ok-erc__platforms">
+        <span class="ok-erc__platforms-lbl" style="color:#2320e6;">For enterprises:</span>
+        <span class="ok-erc__platforms-suffix">global businesses managing their own financial activity across multiple currencies and entities.</span>
+      </div>
+
+      <!-- ?? Row 1: Consolidated / Neutralized ?? -->
+      <div class="ok-erc__row-hds">
+        <p class="ok-erc__col-hd">Consolidated into one picture</p>
+        <p class="ok-erc__col-hd">Exposure neutralised, continuously</p>
+      </div>
+      <div class="ok-erc__row">
+        <div class="ok-erc__card ok-exp__card--chart">
+          <img src="images/popup/exp-chart.png"
+               alt="Exposure consolidated chart" class="ok-exp__chart-img" loading="lazy">
+        </div>
+        <div class="ok-erc__card">
+          <p class="ok-erc__col-hd ok-erc__col-hd--mob2">Exposure neutralised, continuously</p>
+          <div class="ok-exp__bars">
+            <div class="ok-exp__bar-row">
+              <span class="ok-erc__bar-label">Gross</span>
+              <div class="ok-erc__bar-track"><div class="ok-erc__bar-fill" style="width:70%;background:#ff1919;"></div></div>
+              <span class="ok-exp__bar-count" style="color:#ff1919;">$58.2M</span>
+            </div>
+            <div class="ok-exp__bar-row">
+              <span class="ok-erc__bar-label">Net</span>
+              <div class="ok-erc__bar-track"><div class="ok-erc__bar-fill" style="width:20%;background:#26b35b;"></div></div>
+              <span class="ok-exp__bar-count" style="color:#26b35b;">$26.7M</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ok-erc__row-hds" style="padding-top:0;padding-bottom:24px;">
+        <p class="ok-erc__col-sub"><strong>Nine currencies,</strong> <span>one number. Every entity and system netted into one live position.</span></p>
+        <p class="ok-erc__col-sub"><strong>Risk shrinks in real time.</strong> <span>Okoora offsets exposure across the entire book before it reaches you.</span></p>
+      </div>
+
+      <!-- ?? Row 2: Stress test / End-to-end ?? -->
+      <div class="ok-erc__row-hds">
+        <p class="ok-erc__col-hd">Stress-test the market before it happens</p>
+        <p class="ok-erc__col-hd">Every exposure managed end to end</p>
+      </div>
+      <div class="ok-erc__row">
+        <div class="ok-erc__card">
+          <div class="ok-exp__bars">
+            <div class="ok-exp__bar-row">
+              <span class="ok-erc__bar-label">Unhedged</span>
+              <div class="ok-erc__bar-track"><div class="ok-erc__bar-fill" style="width:70%;background:#ff1919;"></div></div>
+              <span class="ok-exp__bar-count" style="color:#ff1919;">High loss</span>
+            </div>
+            <div class="ok-exp__bar-row">
+              <span class="ok-erc__bar-label">Full hedge</span>
+              <div class="ok-erc__bar-track"><div class="ok-erc__bar-fill" style="width:50%;background:#ea5f33;"></div></div>
+              <span class="ok-exp__bar-count" style="color:#ea5f33;">Stable</span>
+            </div>
+            <div class="ok-exp__bar-row">
+              <span class="ok-erc__bar-label">Policy mix</span>
+              <div class="ok-erc__bar-track"><div class="ok-erc__bar-fill" style="width:20%;background:#26b35b;"></div></div>
+              <span class="ok-exp__bar-count" style="color:#26b35b;">Best</span>
+            </div>
+          </div>
+        </div>
+        <div class="ok-erc__card ok-exp__card--steps">
+          <p class="ok-erc__col-hd ok-erc__col-hd--mob2">Every exposure managed end to end</p>
+          <div class="ok-exp__steps">
+            <div class="ok-exp__step">
+              <div class="ok-exp__step-top"></div>
+              <div class="ok-exp__step-icon">
+                <img src="images/popup/icon-step-detect.svg" alt="" loading="lazy">
+              </div>
+              <span class="ok-exp__step-num">1. Detect</span>
+              <span class="ok-exp__step-lbl">Exposure arises</span>
+            </div>
+            <div class="ok-exp__step">
+              <div class="ok-exp__step-top"></div>
+              <div class="ok-exp__step-icon">
+                <img src="images/popup/icon-step-decide.svg" alt="" loading="lazy">
+              </div>
+              <span class="ok-exp__step-num">2. Decide</span>
+              <span class="ok-exp__step-lbl">Policy selects action</span>
+            </div>
+            <div class="ok-exp__step">
+              <div class="ok-exp__step-top"></div>
+              <div class="ok-exp__step-icon">
+                <img src="images/popup/icon-step-execute.svg" alt="" loading="lazy">
+              </div>
+              <span class="ok-exp__step-num">3. Execute</span>
+              <span class="ok-exp__step-lbl">Hedge sent</span>
+            </div>
+            <div class="ok-exp__step">
+              <div class="ok-exp__step-top"></div>
+              <div class="ok-exp__step-icon">
+                <img src="images/popup/icon-step-explain.svg" alt="" loading="lazy">
+              </div>
+              <span class="ok-exp__step-num">4. Explain</span>
+              <span class="ok-exp__step-lbl">Decision logged</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ok-erc__row-hds" style="padding-top:0;padding-bottom:24px;">
+        <p class="ok-erc__col-sub"><strong>Move the market, see the outcome.</strong> <span>Okoora compares every protection structure, and the policy mix protects the most.</span></p>
+        <p class="ok-erc__col-sub"><strong>Sees, decides, acts â by your policy.</strong> <span>Every move executed and logged, with a reason you can audit.</span></p>
+      </div>
+
+      <!-- ?? Features ?? -->
+      <div class="ok-erc__features">
+        <div class="ok-erc__feat">
+          <img src="images/popup/icon-feat-picture.svg" alt="" width="24" height="24" loading="lazy">
+          <p class="ok-erc__feat-hd">One live picture</p>
+          <p class="ok-erc__feat-p">Every currency, entity, and system consolidated into one exposure you can act on.</p>
+        </div>
+        <div class="ok-erc__feat">
+          <img src="images/popup/icon-feat-policy.svg" alt="" width="24" height="24" loading="lazy">
+          <p class="ok-erc__feat-hd">Protected by policy</p>
+          <p class="ok-erc__feat-p">Downside kept within your approved policy, automatically, on every move.</p>
+        </div>
+        <div class="ok-erc__feat">
+          <img src="images/popup/icon-feat-nosurprise.svg" alt="" width="24" height="24" loading="lazy">
+          <p class="ok-erc__feat-hd">No month-end surprises</p>
+          <p class="ok-erc__feat-p">Breaches are detected at the moment they arise, not weeks later.</p>
+        </div>
+      </div>
+
+      <!-- ?? Quote ?? -->
+      <div class="ok-erc__quote">
+        <p class="ok-erc__quote-text">"Since we turned this on, the engine has become a critical part of our business plan."</p>
+        <p class="ok-erc__quote-attr"><strong>Senior banker,</strong> global financial institution operating on Okoora</p>
+      </div>
+
+      <!-- ?? Disclaimer ?? -->
+      <p class="ok-erc__disclaimer">Illustrative activity from an Okoora demo. Numbers and quote verified for production.</p>
+
+    </div><!-- /.ok-erc-popup__sheet -->
+  </div><!-- /.ok-exp-popup -->
+
+  <!-- ======================================================
+       MONEY IN MOTION POPUP
+  ====================================================== -->
+  <div class="ok-erc-popup" id="ok-mot-popup" role="dialog" aria-modal="true"
+       aria-label="Money in motion" aria-hidden="true">
+    <div class="ok-erc-popup__backdrop" id="ok-mot-backdrop"></div>
+    <div class="ok-erc-popup__sheet">
+
+      <div class="ok-erc-popup__handle" aria-hidden="true"></div>
+      <button class="ok-erc-popup__close" id="ok-mot-close" aria-label="Close">
+        <img src="images/popup/icon-close.svg"
+             alt="" width="37" height="37" loading="lazy">
+      </button>
+
+      <!-- ?? Content (exact standalone design) ?? -->
+      <div class="ok-mot-wrap">
+
+        <div class="head">
+          <span class="eyebrow"><span class="en">EN</span>Money in motion</span>
+          <h2>A payment isn't one click. Okoora operates <b>the whole journey</b>, from instruction to reconciliation.</h2>
+          <p>Currency, approval, route, status, and record operate as one controlled workflow. You hold the critical control points; everything else is handled and logged automatically.</p>
+          <div class="who"><b>For enterprises:</b> groups moving money across multiple entities, currencies, and banks.</div>
+        </div>
+
+        <div class="grid">
+          <!-- HERO: money operated -->
+          <div class="cell span2">
+            <div class="vis">
+              <div class="k">Money operated end to end, right now</div>
+              <div class="oper">
+                <div><div class="big">$32.7M</div><div class="lbl">moving across the group today, operated as one workflow</div></div>
+                <div class="side">
+                  <div class="it"><div class="v" id="ok-mot-mIn">$18.5M</div><div class="s">Inflows</div></div>
+                  <div class="it"><div class="v" id="ok-mot-mOut">$14.2M</div><div class="s">Outflows</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="cap"><b>One workflow, not scattered payments.</b> Every move across entities and banks, handled and reconciled in one place.</div>
+          </div>
+
+          <!-- JOURNEY rail -->
+          <div class="cell span2">
+            <div class="vis jrn">
+              <div class="k">From instruction to reconciliation, one controlled journey</div>
+              <div class="stations">
+                <span class="st">Instructed</span><span class="st ctrl">Approval</span><span class="st">Convert</span>
+                <span class="st">Execute</span><span class="st">In transit</span><span class="st">Reconciled</span>
+              </div>
+              <div class="railwrap">
+                <div class="ctrlband" id="ok-mot-ctrlband"></div>
+                <div class="ctrltag" id="ok-mot-ctrltag">Your control point</div>
+                <svg id="ok-mot-railSvg" viewBox="0 0 920 74" preserveAspectRatio="none" aria-hidden="true"></svg>
+              </div>
+            </div>
+            <div class="cap"><b>You hold the control point.</b> Okoora operates every stage; payments above your limit stop for approval, then continue automatically.</div>
+          </div>
+
+          <!-- CONTROL POINT moment -->
+          <div class="cell">
+            <div class="vis ctrl2">
+              <span class="tok"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <div class="txt"><b id="ok-mot-awaitN">2 awaiting you</b><span>above policy limit, pending approval</span></div>
+            </div>
+            <div class="cap"><b>Control where it matters.</b> Only exceptions reach you. The rest is operated by your policy.</div>
+          </div>
+
+          <!-- RIGHT NOW panel -->
+          <div class="cell">
+            <div class="vis now">
+              <div class="k">Right now, across the group</div>
+              <div class="row"><span class="l"><i style="background:#1B6B33"></i>Inflows</span><span class="v" id="ok-mot-nowIn">$18.5M</span></div>
+              <div class="row"><span class="l"><i style="background:#059669"></i>Outflows</span><span class="v" id="ok-mot-nowOut">$14.2M</span></div>
+              <div class="row"><span class="l"><i style="background:#B5781B"></i>Pending</span><span><span class="v" id="ok-mot-nowPend">$6.3M</span><span class="meta" id="ok-mot-nowPendN">11 in flight</span></span></div>
+            </div>
+            <div class="cap"><b>The whole group, live.</b> Inflows, outflows, and pending, consolidated the moment they move.</div>
+          </div>
+        </div>
+
+        <div class="blurbs">
+          <div class="blurb">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8h13m0 0l-4-4m4 4l-4 4M20 16H7m0 0l4-4m-4 4l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h4>One controlled workflow</h4>
+            <p>Currency, approval, route, status, and record, operated together from instruction to reconciliation.</p>
+          </div>
+          <div class="blurb">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+            <h4>You hold the control points</h4>
+            <p>Payments above your policy stop for you. Everything else runs automatically.</p>
+          </div>
+          <div class="blurb">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h4>Reconciled by default</h4>
+            <p>Every move tracked to arrival and matched to your records, with nothing left open.</p>
+          </div>
+        </div>
+
+        <div class="quote">
+          <p>"Since we turned this on, the engine has become a critical part of our business plan."</p>
+          <div class="by">Senior banker, global financial institution operating on Okoora</div>
+          <div class="ph">Placeholder, pending final approval of exact quote.</div>
+        </div>
+
+        <div class="foot">
+          <a href="contact-sales" class="cta">
+            Get Started
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="/platform" class="sec">Read the enterprise story â</a>
+        </div>
+        <div class="illus">Illustrative activity from an Okoora demo. Numbers and quote verified for production.</div>
+
+      </div><!-- /.ok-mot-wrap -->
+
+    </div><!-- /.ok-erc-popup__sheet -->
+  </div><!-- /.ok-mot-popup -->
+
+</div><!-- /.ok-page -->
+
+<script>
+(function () {
+  'use strict';
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* -------------------------------------------------------
+     PAGE LOAD SCREEN
+  ------------------------------------------------------- */
+  var loader = document.getElementById('ok-loader');
+
+  function dismissLoader() {
+    if (loader) {
+      loader.classList.add('ok-loader--done');
+      loader.addEventListener('transitionend', function () {
+        loader.style.display = 'none';
+      }, { once: true });
+    }
+    /* Reveal hero h1 text */
+    var heroH1 = document.querySelector('.ok-hero h1.ok-reveal-text');
+    if (heroH1 && !reduced) heroH1.classList.add('ok-reveal-done');
+    /* Fade in hero sub + CTA with stagger */
+    document.querySelectorAll('.ok-hero-after').forEach(function (el, i) {
+      setTimeout(function () { el.classList.add('ok-hero-after--in'); }, 350 + i * 150);
+    });
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(dismissLoader, 180);
+  } else {
+    window.addEventListener('load', function () { setTimeout(dismissLoader, 180); });
+  }
+
+  /* -------------------------------------------------------
+     MOBILE MENU ? runs regardless of prefers-reduced-motion
+  ------------------------------------------------------- */
+  (function () {
+    var burger = document.getElementById('ok-burger');
+    var menu   = document.getElementById('ok-mobile-menu');
+    if (!burger || !menu) return;
+
+    function open() {
+      menu.classList.add('is-open');
+      burger.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
+      burger.setAttribute('aria-label', 'Close menu');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      menu.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open menu');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', function () {
+      menu.classList.contains('is-open') ? close() : open();
+    });
+
+    /* Accordion */
+    menu.querySelectorAll('.ok-mobile-menu__trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var targetId = btn.getAttribute('data-target');
+        var sub = document.getElementById(targetId);
+        var wasOpen = btn.classList.contains('is-open');
+        menu.querySelectorAll('.ok-mobile-menu__trigger').forEach(function (b) {
+          b.classList.remove('is-open');
+          b.setAttribute('aria-expanded', 'false');
+        });
+        menu.querySelectorAll('.ok-mobile-menu__sub').forEach(function (s) {
+          s.classList.remove('is-open');
+        });
+        if (!wasOpen && sub) {
+          btn.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+          sub.classList.add('is-open');
+        }
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+  })();
+
+  /* -------------------------------------------------------
+     SCROLL-AWARE NAV ? hide after 30% scroll, show on scroll up
+     (runs regardless of prefers-reduced-motion ? it's behaviour, not animation)
+  ------------------------------------------------------- */
+  (function () {
+    var header = document.getElementById('ok-header');
+    if (!header) return;
+    var lastY = window.scrollY;
+    var hidden = false;
+    var ticking = false;
+
+    function update() {
+      var y = window.scrollY;
+      /* Recompute fresh every tick ? page height can change after images load */
+      var scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      var threshold = scrollable * 0.15;
+
+      if (y > lastY + 2 && y > threshold && !hidden) {
+        header.classList.add('ok-header--hidden');
+        hidden = true;
+        document.querySelectorAll('.ok-nav__trigger').forEach(function (btn) {
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      } else if (y < lastY - 2 && hidden) {
+        header.classList.remove('ok-header--hidden');
+        hidden = false;
+      }
+      lastY = y;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+  })();
+
+  /* -------------------------------------------------------
+     ERC CARD ? live feed + KPI tickers
+  ------------------------------------------------------- */
+  (function () {
+    var feed = document.getElementById('ok-erc-feed');
+    if (!feed) return;
+    var clis = ['CLI_01333','CLI_02110','CLI_01074','CLI_01037','CLI_01777','CLI_02295','CLI_01259','CLI_01481','CLI_01592','CLI_02221','CLI_01629','CLI_01740'];
+    var pairs = ['GBP/EUR','EUR/INR','EUR/ILS','EUR/USD','USD/ZAR','USD/KES','EUR/JPY','USD/NGN','EUR/GBP'];
+    var acts = [['hedge','hedge'],['exchange','exchange'],['payout','payout'],['payin','payin']];
+    var dotColors = { hedge: '#f59e0b', exchange: '#7f56d9', payout: '#0d2bd8', payin: '#26b35b' };
+    function pad(x) { return x < 10 ? '0' + x : '' + x; }
+    function addRow() {
+      var d = new Date(), ts = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+      var cli = clis[Math.floor(Math.random() * clis.length)];
+      var a   = acts[Math.floor(Math.random() * acts.length)];
+      var pair = pairs[Math.floor(Math.random() * pairs.length)];
+      var amt  = '$' + (Math.floor(8 + Math.random() * 115) * 1000 + Math.floor(Math.random() * 900)).toLocaleString('en-US');
+      var hasBps = Math.random() < 0.55;
+      var bps = hasBps ? ('+' + Math.floor(4 + Math.random() * 15) + 'bps') : '';
+      var el = document.createElement('div');
+      el.className = 'erc-row';
+      el.innerHTML = '<span class="erc-dot" style="background:' + dotColors[a[0]] + '"></span>' +
+        '<span class="erc-tm">' + ts + '</span>' +
+        '<span class="erc-desc"><span class="erc-cli">' + cli + '</span> Â· <span class="erc-' + a[0] + '">' + a[1] + '</span> Â· ' + pair + '</span>' +
+        '<span class="erc-amt">' + amt + '</span>' +
+        '<span class="erc-bps' + (hasBps ? '' : ' empty') + '">' + (hasBps ? bps : '') + '</span>';
+      feed.insertBefore(el, feed.firstChild);
+      while (feed.children.length > 15) feed.removeChild(feed.lastChild);
+    }
+    for (var i = 0; i < 15; i++) addRow();
+    setInterval(addRow, 1100);
+
+  })();
+
+  /* -------------------------------------------------------
+     EXPOSURE CARD ? convergence animation
+  ------------------------------------------------------- */
+  (function () {
+    var svg = document.getElementById('ok-exp-svg');
+    if (!svg) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    function E(n, a) {
+      var e = document.createElementNS(NS, n);
+      for (var k in a) e.setAttribute(k, a[k]);
+      return e;
+    }
+    var target = [262, 75];
+    var srcs = [[8, 24], [8, 60], [8, 96], [8, 128]];
+    srcs.forEach(function(s) {
+      svg.appendChild(E('path', {
+        d: 'M' + s[0] + ',' + s[1] + ' C120,' + s[1] + ' 170,75 ' + target[0] + ',75',
+        fill: 'none', stroke: '#C7CEF5', 'stroke-width': 1.3
+      }));
+    });
+    var dots = [];
+    var colors = ['#4D6BFF', '#059669', '#05B7C9', '#6C4BD8'];
+    srcs.forEach(function(s, i) {
+      var c = E('circle', { r: 4.5, cx: s[0], cy: s[1], fill: colors[i] });
+      svg.appendChild(c);
+      dots.push({ el: c, s: s, t: Math.random(), sp: 0.0009 + Math.random() * 0.0006 });
+    });
+    svg.appendChild(E('circle', { cx: target[0], cy: target[1], r: 6, fill: '#059669' }));
+    function bez(s, t) {
+      var c1x = 120, c2x = 170, u = 1 - t;
+      var x = u*u*u*s[0] + 3*u*u*t*c1x + 3*u*t*t*c2x + t*t*t*target[0];
+      var y = u*u*u*s[1] + 3*u*u*t*s[1] + 3*u*t*t*75 + t*t*t*75;
+      return [x, y];
+    }
+    function loop() {
+      dots.forEach(function(o) {
+        o.t += o.sp;
+        if (o.t > 1) o.t -= 1;
+        var p = bez(o.s, o.t);
+        o.el.setAttribute('cx', p[0]);
+        o.el.setAttribute('cy', p[1]);
+        o.el.setAttribute('opacity', 0.3 + 0.6 * Math.sin(o.t * Math.PI));
+      });
+      requestAnimationFrame(loop);
+    }
+    loop();
+
+    /* net value gentle drift */
+    var base = 26.7, dir = 1;
+    setInterval(function() {
+      base += dir * (Math.random() * 0.04);
+      if (base > 27.2 || base < 26.2) dir *= -1;
+      var el = document.getElementById('ok-exp-net-val');
+      if (el) el.textContent = '$' + base.toFixed(1) + 'M';
+    }, 2000);
+  })();
+
+  /* -------------------------------------------------------
+     EMBEDDED REVENUE CONSOLE POPUP
+  ------------------------------------------------------- */
+  (function () {
+    var card     = document.getElementById('ok-erc-card');
+    var popup    = document.getElementById('ok-erc-popup');
+    var backdrop = document.getElementById('ok-erc-backdrop');
+    var closeBtn = document.getElementById('ok-erc-close');
+    if (!card || !popup) return;
+
+    function openPopup() {
+      popup.classList.add('is-open');
+      popup.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn && closeBtn.focus();
+    }
+    function closePopup() {
+      popup.classList.remove('is-open');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      card.focus();
+    }
+
+    card.addEventListener('click', openPopup);
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPopup(); }
+    });
+    backdrop && backdrop.addEventListener('click', closePopup);
+    closeBtn && closeBtn.addEventListener('click', closePopup);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && popup.classList.contains('is-open')) closePopup();
+    });
+  })();
+
+  /* -------------------------------------------------------
+     EXPOSURE POPUP
+  ------------------------------------------------------- */
+  (function () {
+    var card     = document.getElementById('ok-exp-card');
+    var popup    = document.getElementById('ok-exp-popup');
+    var backdrop = document.getElementById('ok-exp-backdrop');
+    var closeBtn = document.getElementById('ok-exp-close');
+    if (!card || !popup) return;
+
+    function openPopup() {
+      popup.classList.add('is-open');
+      popup.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn && closeBtn.focus();
+    }
+    function closePopup() {
+      popup.classList.remove('is-open');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      card.focus();
+    }
+
+    card.addEventListener('click', openPopup);
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPopup(); }
+    });
+    backdrop && backdrop.addEventListener('click', closePopup);
+    closeBtn && closeBtn.addEventListener('click', closePopup);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && popup.classList.contains('is-open')) closePopup();
+    });
+  })();
+
+  if (reduced) return;
+
+  /* -------------------------------------------------------
+     TEXT LINE-REVEAL ? split into word spans
+  ------------------------------------------------------- */
+  function splitTextNodes(el) {
+    /* Walk DOM tree, wrap each word in overflow:hidden span */
+    function walk(node) {
+      if (node.nodeType === 3) {
+        var words = node.textContent.split(/(\s+)/);
+        var frag = document.createDocumentFragment();
+        words.forEach(function (chunk) {
+          if (!chunk.trim()) {
+            frag.appendChild(document.createTextNode(chunk));
+          } else {
+            var outer = document.createElement('span');
+            outer.className = 'ok-word';
+            var inner = document.createElement('span');
+            inner.className = 'ok-word__inner';
+            inner.textContent = chunk;
+            outer.appendChild(inner);
+            frag.appendChild(outer);
+          }
+        });
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === 1 && node.tagName !== 'BR' && !node.classList.contains('ok-no-split')) {
+        Array.from(node.childNodes).forEach(walk);
+      }
+    }
+    Array.from(el.childNodes).forEach(walk);
+    /* Apply stagger delay to each word */
+    el.querySelectorAll('.ok-word__inner').forEach(function (w, i) {
+      w.style.animationDelay = (i * 0.055) + 's';
+    });
+  }
+
+  /* Split hero h1 immediately (reveal triggered by loader exit) */
+  var heroH1 = document.querySelector('.ok-hero h1.ok-reveal-text');
+  if (heroH1) splitTextNodes(heroH1);
+
+  /* Split all section headings ? revealed on scroll */
+  var revealEls = document.querySelectorAll('.ok-reveal-text:not(.ok-hero h1)');
+  revealEls.forEach(splitTextNodes);
+
+  var revealIo = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('ok-reveal-done');
+      revealIo.unobserve(e.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+
+  revealEls.forEach(function (el) { revealIo.observe(el); });
+
+  /* -------------------------------------------------------
+     SCROLL-TRIGGERED SECTIONS (ok-anim / ok-is-visible)
+  ------------------------------------------------------- */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      el.classList.add('ok-is-visible');
+      var ctaSection = el.closest('.ok-cta');
+      if (ctaSection) ctaSection.classList.add('ok-cta--visible');
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.ok-anim').forEach(function (el) { io.observe(el); });
+
+  /* -------------------------------------------------------
+     STATS COUNTER ANIMATION
+  ------------------------------------------------------- */
+  function animateCount(el, target, suffix, duration) {
+    var prefix = '$';
+    var start = performance.now();
+    function step(now) {
+      var p = Math.min((now - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.floor(ease * target) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var statsIo = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      var target = parseInt(el.dataset.countTo, 10);
+      var suffix = el.dataset.suffix || '';
+      if (!isNaN(target)) animateCount(el, target, suffix, 1200);
+      statsIo.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-count-to]').forEach(function (el) { statsIo.observe(el); });
+
+
+  /* -------------------------------------------------------
+     MEGA MENU ? toggle aria-expanded on trigger click (keyboard)
+  ------------------------------------------------------- */
+  document.querySelectorAll('.ok-nav__trigger').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      /* Close all others */
+      document.querySelectorAll('.ok-nav__trigger').forEach(function (b) {
+        b.setAttribute('aria-expanded', 'false');
+      });
+      this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    });
+  });
+
+  /* Close mega on Escape */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.ok-nav__trigger').forEach(function (btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.blur();
+      });
+    }
+  });
+
+})();
+</script>
+<script>
+(function(){
+  var section = document.querySelector('.ok-stack');
+  if (!section) return;
+  var visual  = section.querySelector('.ok-stack__visual');
+  var layers  = Array.from(visual.querySelectorAll('.ok-stack__layer'));
+  var items   = Array.from(section.querySelectorAll('.ok-stack__item'));
+  var isOpen  = false;
+  var ease    = 'cubic-bezier(0.4, 0, 0.2, 1)';
+  var dur     = '0.85s';
+
+  function setLayerTransitions(delays) {
+    layers.forEach(function(el, i) {
+      /* transform only ? GPU composited, smooth 60fps */
+      el.style.transition = 'transform ' + dur + ' ' + ease + ' ' + delays[i];
+    });
+  }
+  function setItemTransitions(delays) {
+    items.forEach(function(el, i) {
+      el.style.transition = 'opacity 0.55s ease ' + delays[i]
+                          + ',transform 0.55s ease ' + delays[i];
+    });
+  }
+
+  function open() {
+    if (isOpen) return;
+    isOpen = true;
+    /* top-down stagger for open */
+    setLayerTransitions(['0s','0.1s','0.2s','0.3s']);
+    setItemTransitions(['0.1s','0.25s','0.4s','0.55s']);
+    visual.classList.add('ok-stack--open');
+    items.forEach(function(el) { el.classList.add('ok-sl--in'); });
+  }
+
+  function close() {
+    if (!isOpen) return;
+    isOpen = false;
+    /* bottom-up stagger for close */
+    setLayerTransitions(['0.3s','0.2s','0.1s','0s']);
+    setItemTransitions(['0.3s','0.2s','0.1s','0s']);
+    visual.classList.remove('ok-stack--open');
+    items.forEach(function(el) { el.classList.remove('ok-sl--in'); });
+  }
+
+  var prevScrollY = window.scrollY || 0;
+
+  function check() {
+    var scrollY  = window.scrollY || document.documentElement.scrollTop;
+    var goingDown = scrollY > prevScrollY;
+    prevScrollY  = scrollY;
+
+    var top = section.getBoundingClientRect().top;
+    var vh  = window.innerHeight;
+
+    /* active zone: section has entered or passed through the viewport */
+    if (top < vh * 0.85) {
+      if (goingDown || top <= 0) {
+        open();   /* scroll down OR coming back up from below (top ? 0 = section above viewport) */
+      } else {
+        close();  /* scrolling up while section top is visible in viewport */
+      }
+    }
+  }
+
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check, { passive: true });
+  setTimeout(check, 50);
+})();
+</script>
+<script>
+(function(){
+  var feed = document.getElementById('ok-erc-price-feed');
+  if (!feed) return;
+  var data = [
+    { cli: 'CLI_01629', pair: 'USD / KES', bps: '+14bps' },
+    { cli: 'CLI_01777', pair: 'GBP / EUR', bps: '+17bps' },
+    { cli: 'CLI_01629', pair: 'EUR / INR', bps: '+12bps' }
+  ];
+  var idx = 0;
+  function pad(x) { return x < 10 ? '0' + x : '' + x; }
+  function addRow() {
+    var d = new Date(), ts = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    var row = data[idx % data.length]; idx++;
+    var el = document.createElement('div');
+    el.className = 'ok-erc__log-row';
+    el.innerHTML =
+      '<div class="ok-erc__log-left">' +
+        '<span class="ok-erc__log-time">' + ts + '</span>' +
+        '<span class="ok-erc__log-id">' + row.cli + ' Â· <span class="ok-erc__log-status">priced</span></span>' +
+      '</div>' +
+      '<div class="ok-erc__log-right">' +
+        '<span class="ok-erc__log-pair">' + row.pair + '</span>' +
+        '<span class="ok-erc__log-badge">' + row.bps + '</span>' +
+      '</div>';
+    feed.insertBefore(el, feed.firstChild);
+    while (feed.children.length > 3) feed.removeChild(feed.lastChild);
+  }
+  for (var i = data.length - 1; i >= 0; i--) {
+    var row = data[i];
+    var el = document.createElement('div');
+    el.className = 'ok-erc__log-row';
+    el.innerHTML =
+      '<div class="ok-erc__log-left">' +
+        '<span class="ok-erc__log-time">08:39:38</span>' +
+        '<span class="ok-erc__log-id">' + row.cli + ' Â· <span class="ok-erc__log-status">priced</span></span>' +
+      '</div>' +
+      '<div class="ok-erc__log-right">' +
+        '<span class="ok-erc__log-pair">' + row.pair + '</span>' +
+        '<span class="ok-erc__log-badge">' + row.bps + '</span>' +
+      '</div>';
+    feed.insertBefore(el, feed.firstChild);
+  }
+  setInterval(addRow, 1600);
+})();
+</script>
+<script>
+(function(){
+  var tracks=[{f:'f1',n:'n1',end:78},{f:'f2',n:'n2',end:52},{f:'f3',n:'n3',end:60}];
+  var t=0;
+  function loop(){
+    t+=0.005;
+    tracks.forEach(function(tr,i){
+      var base=tr.end, osc=base+Math.sin(t+i*1.1)*6;
+      osc=Math.max(8,Math.min(94,osc));
+      document.getElementById(tr.f).style.width=osc+'%';
+      document.getElementById(tr.n).style.left=osc+'%';
+    });
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ?? Money in motion popup ?? */
+(function () {
+  var card     = document.getElementById('ok-mot-card');
+  var popup    = document.getElementById('ok-mot-popup');
+  var backdrop = document.getElementById('ok-mot-backdrop');
+  var closeBtn = document.getElementById('ok-mot-close');
+  if (!card || !popup) return;
+
+  var railBooted = false;
+
+  function openPopup() {
+    popup.classList.add('is-open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeBtn && closeBtn.focus();
+    if (!railBooted) { railBooted = true; bootRail(); bootLiveNumbers(); }
+  }
+  function closePopup() {
+    popup.classList.remove('is-open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    card.focus();
+  }
+
+  card.addEventListener('click', openPopup);
+  card.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPopup(); }
+  });
+  backdrop && backdrop.addEventListener('click', closePopup);
+  closeBtn && closeBtn.addEventListener('click', closePopup);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && popup.classList.contains('is-open')) closePopup();
+  });
+
+  function bootRail() {
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.getElementById('ok-mot-railSvg');
+    if (!svg) return;
+    function E(n, a) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
+    var STN = [40, 210, 380, 540, 710, 880];
+    var APPROVAL = 1;
+    var rows = [18, 37, 56];
+    var band = document.getElementById('ok-mot-ctrlband'), tag = document.getElementById('ok-mot-ctrltag');
+    var bandPct = STN[APPROVAL] / 920;
+    band.style.left = (bandPct * 100 - 7) + '%'; band.style.width = '15%';
+    tag.style.left  = (bandPct * 100 + 0.5) + '%';
+    rows.forEach(function (y) {
+      svg.appendChild(E('line', { x1: STN[0], y1: y, x2: STN[STN.length - 1], y2: y, stroke: '#E3E5F4', 'stroke-width': 3, 'stroke-linecap': 'round' }));
+      STN.forEach(function (x) { svg.appendChild(E('circle', { cx: x, cy: y, r: 3.5, fill: '#C9CCE8' })); });
+    });
+    var toks = rows.map(function (y, i) {
+      var prog = E('line', { x1: STN[0], y1: y, x2: STN[0], y2: y, stroke: '#059669', 'stroke-width': 3, 'stroke-linecap': 'round' }); svg.appendChild(prog);
+      var halo = E('circle', { cx: STN[0], cy: y, r: 9, fill: '#059669', opacity: .16 }); svg.appendChild(halo);
+      var tok  = E('circle', { cx: STN[0], cy: y, r: 6, fill: '#059669' }); svg.appendChild(tok);
+      return { prog: prog, halo: halo, tok: tok, y: y, stage: 0, held: (i === 1), approved: false };
+    });
+    function moveTok(t, toX, cb) {
+      var x0 = parseFloat(t.tok.getAttribute('cx')), t0 = performance.now(), dur = 620;
+      (function step(now) {
+        var p = Math.min(1, (now - t0) / dur), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+        var x = x0 + (toX - x0) * e; t.tok.setAttribute('cx', x); t.halo.setAttribute('cx', x); t.prog.setAttribute('x2', x);
+        if (p < 1) requestAnimationFrame(step); else cb && cb();
+      })(t0);
+    }
+    function advance(t) {
+      if (t.stage >= STN.length - 1) { setTimeout(function () { reset(t); }, 1400); return; }
+      if (t.held && t.stage === APPROVAL && !t.approved) {
+        t.tok.setAttribute('fill', '#B5781B'); t.halo.setAttribute('fill', '#B5781B');
+        setTimeout(function () {
+          t.approved = true; t.tok.setAttribute('fill', '#059669'); t.halo.setAttribute('fill', '#059669');
+          t.stage++; moveTok(t, STN[t.stage], function () { advance(t); });
+        }, 1700);
+        return;
+      }
+      t.stage++;
+      var last = (t.stage === STN.length - 1);
+      moveTok(t, STN[t.stage], function () {
+        if (last) { t.tok.setAttribute('fill', '#1B6B33'); t.halo.setAttribute('fill', '#1B6B33'); setTimeout(function () { reset(t); }, 1500); }
+        else setTimeout(function () { advance(t); }, 700);
+      });
+    }
+    function reset(t) {
+      t.stage = 0; t.approved = false;
+      t.tok.setAttribute('cx', STN[0]); t.halo.setAttribute('cx', STN[0]); t.prog.setAttribute('x2', STN[0]);
+      t.tok.setAttribute('fill', '#059669'); t.halo.setAttribute('fill', '#059669');
+      setTimeout(function () { advance(t); }, 500);
+    }
+    toks.forEach(function (t, i) { setTimeout(function () { advance(t); }, 400 + i * 900); });
+  }
+
+  function bootLiveNumbers() {
+    var mIn = 18.5, mOut = 14.2, mPend = 6.3, pendN = 11;
+    var eIn = document.getElementById('ok-mot-nowIn'), eOut = document.getElementById('ok-mot-nowOut');
+    var ePend = document.getElementById('ok-mot-nowPend'), ePendN = document.getElementById('ok-mot-nowPendN');
+    function flash(n) { if (n) n.animate([{ opacity: .5 }, { opacity: 1 }], { duration: 300 }); }
+    setInterval(function () { mIn += Math.random() * 0.15; if (eIn) { eIn.textContent = '$' + mIn.toFixed(1) + 'M'; flash(eIn); } }, 2100);
+    setInterval(function () { mOut += Math.random() * 0.12; if (eOut) { eOut.textContent = '$' + mOut.toFixed(1) + 'M'; flash(eOut); } }, 2600);
+    setInterval(function () {
+      mPend = Math.max(4, Math.min(8.5, mPend + (Math.random() - 0.5) * 0.5));
+      pendN = Math.max(6, Math.min(15, pendN + (Math.random() < .5 ? -1 : 1)));
+      if (ePend) { ePend.textContent = '$' + mPend.toFixed(1) + 'M'; flash(ePend); }
+      if (ePendN) ePendN.textContent = pendN + ' in motion';
+    }, 1800);
+  }
+})();
+
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  var stageEl = document.getElementById('okai-stage');
+  var svgEl   = document.getElementById('okai-svg');
+  var coreEl  = document.getElementById('okai-core');
+  if (!stageEl || !svgEl || !coreEl) return;
+
+  /* ââ Layout ââ */
+  var W  = stageEl.offsetWidth  || 580;
+  var H  = stageEl.offsetHeight || 420;
+  var CX = W / 2, CY = H / 2;
+  var RX = Math.round(W * 0.375);
+  var RY = Math.round(H * 0.34);
+  var CARD_W = 84, CARD_H = 44;
+  var CORE_R = 40;
+  var NS = 'http://www.w3.org/2000/svg';
+
+  /* ââ Node definitions ââ */
+  var DEFS = [
+    { label: 'Payment',    sub: 'Outgoing',  a: 188 },
+    { label: 'FX',         sub: 'Exposure',  a: 218 },
+    { label: 'Liquidity',  sub: null,        a: 248 },
+    { label: 'Treasury',   sub: null,        a: 272 },
+    { label: 'Invoice',    sub: null,        a: 298 },
+    { label: 'Policy',     sub: null,        a: 325 },
+    { label: 'Bank',       sub: 'Core',      a: 352 },
+    { label: 'ERP',        sub: null,        a: 18  },
+    { label: 'PSP',        sub: null,        a: 50  },
+    { label: 'Quote',      sub: 'Live',      a: 80  },
+    { label: 'Market',     sub: null,        a: 112 },
+    { label: 'Settlement', sub: null,        a: 152 },
+  ];
+
+  var CONFIRMS = [
+    'â Policy Applied',
+    'â Revenue Generated',
+    'â FX Protected',
+    'â Market Checked',
+    'â Risk Evaluated',
+    'â Route Optimized',
+    'â Payment Approved',
+    'â Liquidity Optimized',
+    'â Exposure Covered',
+    'â Treasury Updated',
+  ];
+
+  /* ââ Build node data ââ */
+  svgEl.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+  /* Reusable pulse dot */
+  var dot = document.createElementNS(NS, 'circle');
+  dot.setAttribute('r', '4');
+  dot.setAttribute('fill', '#2320e6');
+  dot.setAttribute('opacity', '0');
+  svgEl.appendChild(dot);
+
+  var nodes = DEFS.map(function (d) {
+    var rad = d.a * Math.PI / 180;
+    var nx  = CX + RX * Math.cos(rad);
+    var ny  = CY + RY * Math.sin(rad);
+    var dx  = nx - CX, dy = ny - CY;
+    var dist = Math.sqrt(dx * dx + dy * dy);
+    var GAP_S = CORE_R;
+    var GAP_E = Math.max(CARD_W, CARD_H) / 2 + 8;
+    var t0 = GAP_S / dist, t1 = (dist - GAP_E) / dist;
+
+    /* SVG line */
+    var line = document.createElementNS(NS, 'line');
+    var lineLen = dist * (t1 - t0);
+    line.setAttribute('x1', CX + dx * t0); line.setAttribute('y1', CY + dy * t0);
+    line.setAttribute('x2', CX + dx * t1); line.setAttribute('y2', CY + dy * t1);
+    line.setAttribute('stroke', 'rgba(35,32,230,0.16)');
+    line.setAttribute('stroke-width', '1');
+    line.style.strokeDasharray  = lineLen;
+    line.style.strokeDashoffset = lineLen;
+    line.style.opacity = '0';
+    svgEl.insertBefore(line, dot);
+
+    /* Card */
+    var card = document.createElement('div');
+    card.className = 'okai-node';
+    card.style.left   = (nx - CARD_W / 2) + 'px';
+    card.style.top    = (ny - CARD_H / 2) + 'px';
+    card.style.width  = CARD_W + 'px';
+    card.style.height = CARD_H + 'px';
+    card.style.opacity   = '0';
+    card.style.transform = 'scale(0.82)';
+    card.innerHTML = '<span class="okai-node__label">' + d.label + '</span>' +
+      (d.sub ? '<span class="okai-node__sub">' + d.sub + '</span>' : '');
+    stageEl.appendChild(card);
+
+    return {
+      nx: nx, ny: ny,
+      lx1: CX + dx * t0, ly1: CY + dy * t0,
+      lx2: CX + dx * t1, ly2: CY + dy * t1,
+      lineLen: lineLen,
+      svgLine: line,
+      el: card,
+    };
+  });
+
+  /* Confirmation label (reused) */
+  var confirmEl = document.createElement('div');
+  confirmEl.className = 'okai-confirm';
+  confirmEl.style.opacity = '0';
+  stageEl.appendChild(confirmEl);
+
+  /* ââ State ââ */
+  var active = false, introPlayed = false;
+  var pulseRaf = null, lastIdx = -1;
+  var timers = [];
+
+  function after(fn, ms) { var t = setTimeout(fn, ms); timers.push(t); }
+  function clearAll() { timers.forEach(clearTimeout); timers = []; cancelAnimationFrame(pulseRaf); }
+
+  /* ââ Stage 1-3: Intro ââ */
+  function playIntro() {
+    /* Core fades in */
+    coreEl.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    coreEl.style.opacity    = '1';
+    coreEl.style.transform  = 'translate(-50%,-50%) scale(1)';
+
+    nodes.forEach(function (n, i) {
+      after(function () {
+        if (!active) return;
+        /* Node settles in */
+        n.el.style.transition = 'opacity 0.4s ease, transform 0.45s cubic-bezier(0.34,1.3,0.64,1)';
+        n.el.style.opacity    = '1';
+        n.el.style.transform  = 'scale(1)';
+        /* Line draws 130ms after node */
+        after(function () {
+          if (!active) return;
+          var dur = (n.lineLen / 280).toFixed(2) + 's';
+          n.svgLine.style.opacity    = '1';
+          n.svgLine.style.transition = 'stroke-dashoffset ' + dur + ' linear';
+          n.svgLine.style.strokeDashoffset = '0';
+        }, 130);
+      }, 700 + i * 95);
+    });
+
+    after(function () {
+      introPlayed = true;
+      if (active) schedulePulse();
+    }, 700 + nodes.length * 95 + 500);
+  }
+
+  /* ââ Stage 4-5: Pulse loop ââ */
+  function schedulePulse() {
+    after(function () {
+      if (!active) return;
+      var idx;
+      do { idx = Math.floor(Math.random() * nodes.length); } while (idx === lastIdx);
+      lastIdx = idx;
+      firePulse(nodes[idx]);
+    }, 700 + Math.random() * 900);
+  }
+
+  function firePulse(n) {
+    if (!active) return;
+    var t0 = null;
+    var DUR = 500 + n.lineLen * 0.85;
+    dot.setAttribute('cx', n.lx1);
+    dot.setAttribute('cy', n.ly1);
+    dot.setAttribute('opacity', '0.92');
+
+    function step(ts) {
+      if (!active) { dot.setAttribute('opacity', '0'); return; }
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / DUR, 1);
+      var e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+      dot.setAttribute('cx', n.lx1 + (n.lx2 - n.lx1) * e);
+      dot.setAttribute('cy', n.ly1 + (n.ly2 - n.ly1) * e);
+      if (p < 1) { pulseRaf = requestAnimationFrame(step); }
+      else { dot.setAttribute('opacity', '0'); onArrived(n); }
+    }
+    pulseRaf = requestAnimationFrame(step);
+  }
+
+  function onArrived(n) {
+    if (!active) return;
+    n.el.classList.add('okai-node--glow');
+
+    /* Floating confirmation label */
+    var lbl = CONFIRMS[Math.floor(Math.random() * CONFIRMS.length)];
+    confirmEl.textContent = lbl;
+    var cx = parseFloat(n.el.style.left) + CARD_W / 2;
+    var cy = parseFloat(n.el.style.top) - 6;
+    cx = Math.min(Math.max(cx, 72), W - 72);
+    cy = Math.max(cy, 10);
+    confirmEl.style.left      = cx + 'px';
+    confirmEl.style.top       = cy + 'px';
+    confirmEl.style.transform = 'translate(-50%, -100%)';
+    confirmEl.style.opacity   = '1';
+
+    after(function () {
+      confirmEl.style.opacity = '0';
+      n.el.classList.remove('okai-node--glow');
+      if (active) schedulePulse();
+    }, 1100);
+  }
+
+  /* ââ Visibility control ââ */
+  function start() {
+    if (active) return;
+    active = true;
+    if (!introPlayed) playIntro(); else schedulePulse();
+  }
+  function pause() {
+    active = false;
+    clearAll();
+    dot.setAttribute('opacity', '0');
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries[0].isIntersecting ? start() : pause();
+  }, { threshold: 0.1 });
+  io.observe(stageEl);
+
+  after(start, 350);
+})();
+</script>
+  <script>
+  /* word cycle disabled */
+  </script>
+<script src="js/nav-mega.js" defer></script>
+<script src="partials/inject.js?v=20260830c" defer></script>
+<script>
+/* Hero H1 centering guard â re-applies if any third-party script rewrites the inline style */
+(function(){var h=document.getElementById('ok-h1');if(!h)return;
+function fix(){h.style.setProperty('text-align','center','important');h.style.setProperty('margin-left','auto','important');h.style.setProperty('margin-right','auto','important');}
+fix();window.addEventListener('load',fix);
+if('MutationObserver' in window){new MutationObserver(fix).observe(h,{attributes:true,attributeFilter:['style','class']});}
+})();
+</script>
+</body>
+</html>
+

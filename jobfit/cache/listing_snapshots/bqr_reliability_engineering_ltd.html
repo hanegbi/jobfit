@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>if(/(?:^|\/)(?:bqrpc|forms\/portal|sso|admin)(?:\/|$)/i.test(location.pathname)){const l=document.createElement("link");l.rel="modulepreload";l.crossOrigin="";l.href="/assets/dist-Dpk8ACZL.js";document.head.appendChild(l);}</script>
+
+    <meta charset="UTF-8" />
+    <!-- bqr-digital.com's own favicon (images/bqr/fav.png on the legacy site), 90x90 RGBA.
+         Both this app's hosts share one index.html and one bundle, so bqr-tools and the
+         bqr-digital storefront necessarily show the same icon -- which is what was asked
+         for. favicon.svg stays in public/ because bqrd_routes.py still serves it by name. -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+    <!-- The server's search/no-JS summary is not the visual homepage. Hide it before
+         first paint while the real hero loads; restore it if startup fails. -->
+    <style>
+      #bqr-home-loader { display: none; }
+      html.bqr-home-boot #root { visibility: hidden; }
+      html.bqr-home-boot #bqr-home-loader {
+        position: fixed; inset: 0; z-index: 1000; display: grid; place-content: center;
+        justify-items: center; gap: 12px; background: #fff; color: #697480;
+        font: 13px/1.5 system-ui, sans-serif;
+      }
+    </style>
+    <script>
+      (() => {
+        if (location.pathname !== "/" || /(^|\.)bqr-digital\.com$/i.test(location.hostname)) return;
+        let observer, finished = false;
+        const release = () => {
+          if (finished) return;
+          finished = true;
+          document.documentElement.classList.remove("bqr-home-boot");
+          observer?.disconnect();
+          clearTimeout(deadline);
+          window.removeEventListener("error", failedModule, true);
+        };
+        const failedModule = (event) => {
+          if (event.target?.tagName === "SCRIPT" && event.target.type === "module") release();
+        };
+        document.documentElement.classList.add("bqr-home-boot");
+        const deadline = setTimeout(release, 8000);
+        window.addEventListener("error", failedModule, true);
+        document.addEventListener("DOMContentLoaded", () => {
+          if (finished) return;
+          const root = document.getElementById("root");
+          if (!root) return release();
+          const check = () => { if (root.querySelector(".hm-hero")) release(); };
+          observer = new MutationObserver(check);
+          observer.observe(root, { childList: true, subtree: true });
+          check();
+        }, { once: true });
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-ChQiFCB1.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/jsx-runtime-n5LQ9ujS.js">
+    <link rel="modulepreload" crossorigin href="/assets/theme-DD5I6YUI.js">
+    <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
+    <link rel="modulepreload" crossorigin href="/assets/pixels-CmjRm4lY.js">
+    <link rel="modulepreload" crossorigin href="/assets/analytics-DhThs1SD.js">
+    <link rel="modulepreload" crossorigin href="/assets/site-PYdNtgOL.js">
+    <link rel="modulepreload" crossorigin href="/assets/role-NnkMQ5On.js">
+    <link rel="modulepreload" crossorigin href="/assets/router-5r6eVV0s.js">
+    <link rel="modulepreload" crossorigin href="/assets/content-RNxvKCqb.js">
+    <link rel="modulepreload" crossorigin href="/assets/SiteSearch-qu-RYpi1.js">
+    <link rel="stylesheet" crossorigin href="/assets/theme-BfNEfwNo.css">
+    <link rel="stylesheet" crossorigin href="/assets/content-MQxUNtc1.css">
+    <link rel="stylesheet" crossorigin href="/assets/SiteSearch-Dp9yYo2a.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-DAOGvujt.css">
+  <link rel="canonical" href="https://www.bqr.com/careers"><title>Careers at BQR Reliability Engineering</title><meta name="description" content="Open positions at BQR — reliability engineering, software and analysis roles."><meta property="og:type" content="website"><meta property="og:site_name" content="BQR Reliability Engineering"><meta property="og:title" content="Careers at BQR Reliability Engineering"><meta property="og:description" content="Open positions at BQR — reliability engineering, software and analysis roles."><meta property="og:url" content="https://www.bqr.com/careers"><meta property="og:image" content="https://www.bqr.com/og/pages/careers.png?v=a5adc324"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Careers at BQR Reliability Engineering"><meta name="twitter:description" content="Open positions at BQR — reliability engineering, software and analysis roles."><meta name="twitter:image" content="https://www.bqr.com/og/pages/careers.png?v=a5adc324"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://www.bqr.com/#organization", "name": "BQR Reliability Engineering Ltd.", "url": "https://www.bqr.com/", "logo": "https://www.bqr.com/bqr-logo-plain.svg"}, {"@type": "WebSite", "@id": "https://www.bqr.com/#website", "url": "https://www.bqr.com/", "name": "BQR Reliability Engineering", "publisher": {"@id": "https://www.bqr.com/#organization"}}, {"@type": "WebPage", "@id": "https://www.bqr.com/careers#webpage", "url": "https://www.bqr.com/careers", "name": "Careers at BQR Reliability Engineering", "description": "Open positions at BQR — reliability engineering, software and analysis roles.", "isPartOf": {"@id": "https://www.bqr.com/#website"}}]}</script><script>window.__BQR_CONTENT__={"overrides": {"home.seg.lead.reliability": "Run MIL-HDBK-217, FIDES and Telcordia predictions on the real design, with electrical-stress simulation behind the numbers — so the reliability case holds up when someone interrogates it.", "home.products.lead": "When you're ready for the real thing — full standards coverage and automated design analysis, from the schematic to the field.", "home.hero.lead": "BQR helps engineers predict, analyze and validate the reliability and maintainability of electronic and mechanical systems - from the first schematic to the field. Have our team run it for you, or license the software and do it in-house."}, "sizes": {"home.seg.lead.reliability": "xl", "home.products.lead": "lg", "home.hero.lead": "sm"}};window.__BQR_VERSIONS__=[{"page": "/", "component_key": "contact-first"}, {"page": "/blog/the-ultimate-guide-to-calculating-mtbf", "component_key": "how-to-calculate-mtbf"}, {"page": "/bqrdigitalv2/bqrpc/index.php", "component_key": "baseline"}, {"page": "/bqrdigitalv2/index.php", "component_key": "baseline"}, {"page": "/bqrdigitalv2/indexfda.php", "component_key": "baseline"}, {"page": "/digital", "component_key": "baseline"}, {"page": "/forms/faq", "component_key": "baseline"}, {"page": "/pricing", "component_key": "baseline"}, {"page": "/tools", "component_key": "baseline"}];</script><meta name="google-site-verification" content="MKwywaoXySujEd0vv11B87tVEVq4xs2dnv2ghzCpvMw" /><script>(function(w,d,s,l,i){w[l]=w[l]||[];function g(){w[l].push(arguments);}w.bqrGtag=g;g('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','functionality_storage':'denied','personalization_storage':'denied','security_storage':'granted','wait_for_update':500});var ok=false;try{var c=w.localStorage&&w.localStorage.getItem('bqr_cookie_consent');var strict=true;try{var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';strict=tz.indexOf('Europe/')===0||['Atlantic/Azores','Atlantic/Madeira','Atlantic/Canary','Atlantic/Reykjavik','Asia/Nicosia','Asia/Famagusta'].indexOf(tz)>=0;}catch(e){}ok=(c==='accepted'||(!c&&!strict));if(ok){g('consent','update',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted','functionality_storage':'granted','personalization_storage':'granted'});}}catch(e){}w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);w.bqrPixels=(function(){var done=false,last=w.location&&w.location.pathname;var V=['Google Ads','Meta (Facebook)','LinkedIn'];function load(){if(done||!V.length)return;done=true;try{var a=d.createElement('script');a.async=true;a.src='https://www.googletagmanager.com/gtag/js?id=AW-6434697982';d.head.appendChild(a);g('js',new Date());g('config','AW-6434697982');!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(w,d,'script','https://connect.facebook.net/en_US/fbevents.js');w.fbq('init','1513704724111211');w.fbq('track','PageView');w._linkedin_partner_id='6952033';w._linkedin_data_partner_ids=w._linkedin_data_partner_ids||[];w._linkedin_data_partner_ids.push(w._linkedin_partner_id);if(!w.lintrk){w.lintrk=function(a,b){w.lintrk.q.push([a,b]);};w.lintrk.q=[];}var b=d.createElement('script');b.type='text/javascript';b.async=true;b.src='https://snap.licdn.com/li.lms-analytics/insight.min.js';d.head.appendChild(b);}catch(e){}}function grant(){if(!done){load();return;}if(w.fbq){try{w.fbq('consent','grant');}catch(e){}}}function revoke(){if(w.fbq){try{w.fbq('consent','revoke');}catch(e){}}}function pageview(p){if(!done||p===last)return;last=p;if(w.fbq){try{w.fbq('track','PageView');}catch(e){}}}var C={'contact':['Contact','',''],'lead':['Lead','',''],'registration':['CompleteRegistration','',''],'purchase':['Purchase','','']};function conversion(k,p){if(!done)return;var c=C[k];if(!c)return;p=p||{};if(c[0]&&w.fbq){try{w.fbq('track',c[0],p);}catch(e){}}if(c[1]&&w.lintrk){try{w.lintrk('track',{conversion_id:c[1]});}catch(e){}}if(c[2]){try{g('event','conversion',{send_to:c[2],value:p.value,currency:p.currency});}catch(e){}}}return{load:load,grant:grant,revoke:revoke,pageview:pageview,conversion:conversion,vendors:V,loaded:function(){return done;}};})();if(ok){w.bqrPixels.load();}})(window,document,'script','dataLayer','GTM-TWHSSQWB');</script></head>
+  <body>
+    <div id="bqr-home-loader" role="status" aria-live="polite">
+      <img src="/bqr-logo-plain.svg" width="112" height="40" alt="BQR" />
+      <span>Loading…</span>
+    </div>
+    <div id="root"><section style="max-width:820px;margin:56px auto;padding:0 24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:#16233a"><h1 style="font-size:1.7rem;line-height:1.3">Careers at BQR Reliability Engineering</h1><p style="font-size:1.05rem;line-height:1.6;color:#44526b">Open positions at BQR — reliability engineering, software and analysis roles.</p><nav style="font-size:.95rem;line-height:2"><a href="/solutions" style="margin-right:1.25em">Products</a><a href="/parts-count" style="margin-right:1.25em">Free MTBF calculator</a><a href="/professional-services" style="margin-right:1.25em">Professional services</a><a href="/blog" style="margin-right:1.25em">Blog</a><a href="/company/about-us" style="margin-right:1.25em">About BQR</a><a href="/contact-us-general" style="margin-right:1.25em">Free Design Review</a></nav></section></div>
+  </body>
+</html>
