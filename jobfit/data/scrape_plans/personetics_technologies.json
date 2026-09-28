@@ -1,0 +1,150 @@
+{
+  "company_id": "personetics_technologies",
+  "schema_version": 1,
+  "career_url": "https://personetics.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:04:12.472750Z",
+  "verified_at": "2026-09-28T11:04:12.472750Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?personetics\\.com/us/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?personetics\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "personetics.com|us/careers/co/tel-aviv-israel/A0.379/applied-data-scientist|7",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 32,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 34,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 35,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 53,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 54,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 55,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 56,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 57,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 58,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 59,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 60,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "b647fdf9932f12452517233350d827da68324d2a",
+    "candidate_count": 85
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 12
+  },
+  "rediscover_after": "2026-10-05T11:04:12.472750Z",
+  "notes": []
+}

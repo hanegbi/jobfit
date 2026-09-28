@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Critical resources loaded first -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Apple Touch Icons for iOS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Reeco" />
+
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://use.typekit.net" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://plausible.io" />
+    <link rel="preconnect" href="https://js.hs-scripts.com" />
+    <link rel="preconnect" href="https://assets.apollo.io" />
+
+    <!-- DNS prefetch for other domains -->
+    <link rel="dns-prefetch" href="https://images.ctfassets.net" />
+    <link rel="dns-prefetch" href="https://cdn.contentful.com" />
+
+    <!-- Critical CSS - fonts loaded with display=swap for better performance -->
+    <link
+      rel="stylesheet"
+      href="https://use.typekit.net/giu5qml.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Fallback for CSS if JS is disabled -->
+    <noscript>
+      <link rel="stylesheet" href="https://use.typekit.net/giu5qml.css" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Load config.js with defer -->
+    <script type="application/javascript" src="/config.js" defer></script>
+    <!-- Default meta tags - overridden by React Helmet on each page -->
+    <title>Reeco - Hotel Procurement Software | Complete P2P Platform</title>
+    <meta
+      name="description"
+      content="All-in-one hotel procurement platform trusted by 1,000+ properties. Streamline purchasing, receiving, inventory management, AP automation, and recipe costing. Eliminate manual tasks and gain complete visibility."
+    />
+
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Reeco" />
+    <meta property="og:title" content="Reeco - Hotel Procurement Software | Complete P2P Platform" />
+    <meta property="og:description" content="All-in-one hotel procurement platform trusted by 1,000+ properties. Streamline purchasing, receiving, inventory management, AP automation, and recipe costing. Eliminate manual tasks and gain complete visibility." />
+    <meta property="og:url" content="https://www.reeco.com" />
+    <meta property="og:image" content="https://www.reeco.com/logo.svg" />
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Reeco - Hotel Procurement Software | Complete P2P Platform" />
+    <meta name="twitter:description" content="All-in-one hotel procurement platform trusted by 1,000+ properties. Streamline purchasing, receiving, inventory management, AP automation, and recipe costing." />
+    <meta name="twitter:image" content="https://www.reeco.com/logo.svg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.reeco.com" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Reeco",
+        "alternateName": "Reeco Inc",
+        "url": "https://www.reeco.com",
+        "logo": "https://www.reeco.com/logo.svg",
+        "description": "Reeco gives hotels clear visibility and control across orders, inventory, recipes, and invoices, powered by smart technology and trusted partnerships",
+        "foundingDate": "2019",
+        "industry": "Software",
+        "numberOfEmployees": "51-200",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "US"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://www.reeco.com"
+        },
+        "sameAs": [
+          "https://www.facebook.com/the.official.reeco/",
+          "https://twitter.com/reeco_shopping",
+          "https://www.linkedin.com/company/re-eco/"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "category": "Software",
+          "name": "We've got your back",
+          "description": "Complete procurement solution for hotels"
+        }
+      }
+    </script>
+    <!-- Google Ads conversion tracking tag -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-11166662251"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-11166662251");
+      gtag("config", "AW-17926692391");
+    </script>
+    <!-- Event snippet for Lead conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url != "undefined") {
+            window.location = url;
+          }
+        };
+        gtag("event", "conversion", {
+          send_to: "AW-11166662251/Q69iCPO23pwYEOv81swp",
+          event_callback: callback,
+        });
+        return false;
+      }
+    </script>
+
+    <!-- Google Analytics tracking tag -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G870JFJB28"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G870JFJB28");
+    </script>
+    <script
+      defer
+      data-domain="reeco.com"
+      src="https://plausible.io/js/script.file-downloads.hash.outbound-links.revenue.tagged-events.js"
+    ></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
+    <!-- Start of HubSpot Embed Code -->
+    <script
+      type="text/javascript"
+      id="hs-script-loader"
+      async
+      defer
+      src="//js.hs-scripts.com/43835755.js"
+    ></script>
+    <!-- End of HubSpot Embed Code -->
+
+    <!-- Start of Apollo.io Tracking Code -->
+    <script>
+      function initApollo() {
+        var n = Math.random().toString(36).substring(7),
+          o = document.createElement("script");
+        o.src =
+          "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" +
+          n;
+        o.async = true;
+        o.defer = true;
+        o.onload = function () {
+          window.trackingFunctions.onLoad({ appId: "69970d12382acb00219198bc" });
+        };
+        document.head.appendChild(o);
+      }
+      initApollo();
+    </script>
+    <!-- End of Apollo.io Tracking Code -->
+    <script type="module" crossorigin src="/js/index-44b69d82.js"></script>
+    <link rel="modulepreload" crossorigin href="/js/chunk-38421a04.js">
+    <link rel="modulepreload" crossorigin href="/js/chunk-415235ba.js">
+    <link rel="modulepreload" crossorigin href="/js/chunk-219e9454.js">
+    <link rel="modulepreload" crossorigin href="/js/chunk-b8093f59.js">
+    <link rel="modulepreload" crossorigin href="/js/chunk-9e2dc55d.js">
+    <link rel="stylesheet" href="/css/index-dcd7be27.css">
+  </head>
+  <body>
+    <div id="reeco-app"></div>
+    
+  </body>
+</html>

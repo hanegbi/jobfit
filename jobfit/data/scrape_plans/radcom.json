@@ -1,0 +1,72 @@
+{
+  "company_id": "radcom",
+  "schema_version": 1,
+  "career_url": "https://www.radcom.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:04:58.070793Z",
+  "verified_at": "2026-09-28T11:04:58.070793Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?radcom\\.com/careers/co/israel/FF\\.077/software\\-team\\-lead/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?radcom\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?radcom\\.com/careers/co/rd/[^/?#]+/?$",
+      "^https?://(www\\.)?youtube\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "radcom.com|careers/co/israel/FF.077/software-team-lead|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 42,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 63,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 64,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 65,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 73,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "30c46170f1500512c29dec009cf7e4e1f172355b",
+    "candidate_count": 77
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": "2026-10-05T11:04:58.070793Z",
+  "notes": []
+}

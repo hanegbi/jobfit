@@ -1,0 +1,86 @@
+{
+  "company_id": "pecan_ai",
+  "schema_version": 1,
+  "career_url": "https://www.pecan.ai/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:04:00.728642Z",
+  "verified_at": "2026-09-28T11:04:00.728642Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?pecan\\.ai/careers/career\\-job/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?pecan\\.ai/resource/[^/?#]+/?$",
+      "^https?://(www\\.)?pecan\\.ai/[^/?#]+/?$"
+    ],
+    "url_shape": "pecan.ai|careers/career-job|3",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 24,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "49f02d045bdf71ee73903becec0cfdae7e9cb951",
+    "candidate_count": 44
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": "2026-10-05T11:04:00.728642Z",
+  "notes": []
+}

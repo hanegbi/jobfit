@@ -1,0 +1,60 @@
+{
+  "company_id": "questar",
+  "schema_version": 1,
+  "career_url": "https://questar.applytojob.com/apply",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:04:54.962728Z",
+  "verified_at": "2026-09-28T11:04:54.962728Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?questar\\.applytojob\\.com/apply/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?info\\.jazzhr\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "questar.applytojob.com|apply/oKfA9rels3|3",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 2,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 3,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "ed35797387bc8d71c7ba5093103833569643a298",
+    "candidate_count": 5
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": "2026-10-05T11:04:54.962728Z",
+  "notes": []
+}

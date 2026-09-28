@@ -1,0 +1,97 @@
+{
+  "company_id": "quicklizard",
+  "schema_version": 1,
+  "career_url": "https://www.quicklizard.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:04:55.970692Z",
+  "verified_at": "2026-09-28T11:08:08.516463Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?quicklizard\\.com/careers/open\\-positions/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?quicklizard\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?login\\.start\\-chat\\.com/modal/67e8d1d4\\-84fa\\-4d0a\\-b95a\\-bd5d52b37825/[^/?#]+/?$",
+      "^https?://(www\\.)?youtube\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "quicklizard.com|careers/open-positions/co/israel/45.271/senior-customer-success-manager|7",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 44,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 50,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 53,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 54,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 55,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 56,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 57,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 71,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "992aa6e9adfb75aa2338b56864e2c593b40ac9cd",
+    "candidate_count": 71
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": "2026-10-05T11:04:55.970692Z",
+  "notes": []
+}

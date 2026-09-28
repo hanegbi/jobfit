@@ -1,0 +1,144 @@
+{
+  "company_id": "priority_software",
+  "schema_version": 1,
+  "career_url": "https://www.priority-software.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:04:39.953993Z",
+  "verified_at": "2026-09-28T11:04:39.953993Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?priority\\-software\\.com/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?priority\\-software\\.com/erp/[^/?#]+/?$",
+      "^https?://(www\\.)?priority\\-software\\.com/wp\\-content/uploads/2024/03/[^/?#]+/?$",
+      "^https?://(www\\.)?priority\\-software\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?priority\\-software\\.com/nl/[^/?#]+/?$",
+      "^https?://(www\\.)?priority\\-software\\.com/il/[^/?#]+/?$"
+    ],
+    "url_shape": "priority-software.com|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 44,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 47,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 84,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 99,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 103,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 104,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 105,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 110,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 111,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 119,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 120,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 121,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 122,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 123,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 124,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 125,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 126,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 127,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 136,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "18cd99eace048b74048c76b93c6a0ad75b1ec6bf",
+    "candidate_count": 140
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 9
+  },
+  "rediscover_after": "2026-10-05T11:04:39.953993Z",
+  "notes": []
+}

@@ -1,0 +1,82 @@
+{
+  "company_id": "pixellot",
+  "schema_version": 1,
+  "career_url": "https://www.pixellot.tv/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:04:21.434715Z",
+  "verified_at": "2026-09-28T11:04:21.434715Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?pixellot\\.tv/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?pixellot\\.tv/[^/?#]+/?$",
+      "^https?://(www\\.)?vimeo\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?pixellot\\.tv/wp\\-content/uploads/2024/04/[^/?#]+/?$"
+    ],
+    "url_shape": "pixellot.tv|careers/co/israel/24.96D/software-developer|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 39,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 44,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 51,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 52,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 53,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "b23b4814637a9d8eab9e3c66f8aded08909cd79b",
+    "candidate_count": 55
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": "2026-10-05T11:04:21.434715Z",
+  "notes": []
+}

@@ -1,0 +1,75 @@
+{
+  "company_id": "rail_vision",
+  "schema_version": 1,
+  "career_url": "https://www.railvision.io/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:05:02.416262Z",
+  "verified_at": "2026-09-28T11:05:02.416262Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?railvision\\.io/careers/co/raanana/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?railvision\\.io/[^/?#]+/?$"
+    ],
+    "url_shape": "railvision.io|careers/co/raanana/2B.272/deep-learning-research-engineer|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "5ebe0bc8e025634e17f662e7f2c1db3d2e93e086",
+    "candidate_count": 17
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": "2026-10-05T11:05:02.416262Z",
+  "notes": []
+}

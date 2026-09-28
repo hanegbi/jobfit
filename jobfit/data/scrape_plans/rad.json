@@ -1,0 +1,96 @@
+{
+  "company_id": "rad",
+  "schema_version": 1,
+  "career_url": "https://www.rad.com/career",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:04:56.791973Z",
+  "verified_at": "2026-09-28T11:04:56.791973Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?rad\\.com/career/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?rad\\.com/resource/[^/?#]+/?$",
+      "^https?://(www\\.)?rad\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "rad.com|career|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 49,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 56,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 66,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 67,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 68,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 69,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 70,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 71,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 72,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 73,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "53334881bcf48fc4dd830d6b540a49f7010deebf",
+    "candidate_count": 80
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": "2026-10-05T11:04:56.791973Z",
+  "notes": []
+}

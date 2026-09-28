@@ -1,0 +1,63 @@
+{
+  "company_id": "plainid",
+  "schema_version": 1,
+  "career_url": "https://www.plainid.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:04:24.390848Z",
+  "verified_at": "2026-09-28T11:04:24.390848Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?plainid\\.com/work\\-with\\-us/co/[^?#]+$",
+    "exclude_url": [],
+    "url_shape": "plainid.com|work-with-us/co/israel/2B.275/pre-sales-engineer-emea|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "0e8dd182a72062dc2b3f101495c3fb6b9bc030df",
+    "candidate_count": 41
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 4
+  },
+  "rediscover_after": "2026-10-05T11:04:24.390848Z",
+  "notes": []
+}
