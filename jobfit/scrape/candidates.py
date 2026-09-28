@@ -48,13 +48,29 @@ def link_title_text(a) -> str:
     a.get_text() then concatenates all of it into one garbled "title" (real
     example caught live: Adaptive6's Webflow careers page renders
     "Senior Backend Developer Engineering Israel Apply Now" as the link text,
-    even though the real title lives cleanly in a nested <h2>). Falls back to
-    the whole anchor's text when no heading is nested inside it."""
+    even though the real title lives cleanly in a nested <h2>).
+
+    Other builders instead give the CTA its own small <a> ("Apply") as a
+    SIBLING of a heading, both inside one narrow card div (real example
+    caught live: Appcharge renders <div><div><h3>Data Analyst</h3></div>
+    <a>Apply</a></div> - the anchor's own text is just "Apply"). When no
+    heading is nested inside the anchor, look at the anchor's immediate
+    parent for one - but only if that parent contains exactly this one
+    anchor, so a heading is never borrowed from a different job's card in
+    a shared list container.
+
+    Falls back to the whole anchor's text when neither finds anything."""
     heading = a.find(["h1", "h2", "h3", "h4", "h5", "h6"])
     if heading:
         heading_text = _clean(heading.get_text(" "))
         if heading_text:
             return heading_text
+    if a.parent is not None and len(a.parent.find_all("a")) == 1:
+        heading = a.parent.find(["h1", "h2", "h3", "h4", "h5", "h6"])
+        if heading:
+            heading_text = _clean(heading.get_text(" "))
+            if heading_text:
+                return heading_text
     return _clean(a.get_text(" "))
 
 

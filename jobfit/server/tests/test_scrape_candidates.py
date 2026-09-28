@@ -112,6 +112,29 @@ def test_prefers_a_nested_heading_over_the_whole_card_text():
     assert link_title_text(a) == "Senior Backend Developer"
 
 
+def test_falls_back_to_a_sibling_heading_when_the_anchor_is_just_a_button():
+    """Real DOM caught live (Appcharge): the card's title lives in a <h3>
+    that is a SIBLING of the <a>, not nested inside it - a separate
+    "Apply" button next to the heading, both children of one card div."""
+    from bs4 import BeautifulSoup
+    a = BeautifulSoup(
+        '<div><div><h3>Data Analyst</h3></div><a href="/careers/data-analyst">Apply</a></div>', "html.parser"
+    ).a
+    assert link_title_text(a) == "Data Analyst"
+
+
+def test_does_not_borrow_a_heading_from_a_sibling_card_in_a_shared_container():
+    """If the anchor's parent hosts more than one anchor (a shared list
+    container, not a narrow per-card wrapper), a heading found there could
+    belong to a different job entirely - stay with the anchor's own text."""
+    from bs4 import BeautifulSoup
+    container = BeautifulSoup(
+        '<ul><h3>Backend Engineer</h3><a href="/careers/one">Apply</a><a href="/careers/two">Apply</a></ul>', "html.parser"
+    )
+    anchors = container.find_all("a")
+    assert link_title_text(anchors[1]) == "Apply"
+
+
 def test_cookie_widget_links_are_dropped_and_cap_is_respected():
     html = '<div class="cookiebot"><a href="/cookies-policy">Cookie Preferences Center</a></div>' + "".join(
         f'<a href="/careers/job-{i}">Engineer number {i}</a>' for i in range(10)
