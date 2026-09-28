@@ -34,7 +34,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit import ats_fetchers, company_review, config, connections, cv, pipeline_lock, scoring, techmap_source, translation  # noqa: E402
+from jobfit import ats_fetchers, company_registry, company_review, config, connections, cv, pipeline_lock, scoring, techmap_source, translation  # noqa: E402
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
 
 logger = logging.getLogger("jobfit.update_jobs")
@@ -117,7 +117,14 @@ def load_company_file(company: str) -> dict:
 
 
 def save_company_file(company: str, data: dict) -> None:
-    atomic_write_json(COMPANIES_DIR / f"{_snake_case(company)}.json", data)
+    target_id = _snake_case(company)
+    target_path = COMPANIES_DIR / f"{target_id}.json"
+    if not target_path.exists():
+        registry = company_registry.get_registry(COMPANIES_DIR, COMPANIES_DIR.parent / "data" / "company_registry.json")
+        conflict_id = registry.register_if_new(target_id, company, data.get("career_url"))
+        if conflict_id is not None:
+            raise company_registry.DuplicateCompany(company, target_id, conflict_id)
+    atomic_write_json(target_path, data)
 
 
 def load_meta() -> dict:
