@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<script>
+	const PAGE_NAME = 'careers';
+	const SITE_REGION = 'US';
+	const FETCH_URL = 'https://www.gett.com/wp-admin/admin-ajax.php';
+	const MIXPANEL_API_URL = 'https://relay.gett.com/api/v1/mixpanel';
+	const EXPERIMENT = JSON.parse('0');
+
+	window.OnetrustActiveGroups = '';
+	let targetingTriggered = false;
+
+	// Define dataLayer and the gtag function.
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+
+	// Default consent to 'denied'.
+	gtag('consent', 'default', {
+		'analytics_storage': 'denied',
+		'ad_storage': 'denied',
+		'ad_user_data': 'denied',
+		'ad_personalization': 'denied',
+	});
+	</script>
+
+		<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-NRJ9QVX');</script>
+	<!-- End Google Tag Manager -->
+	
+	<!-- OneTrust Cookies Consent Notice start for gett.com -->
+	<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="8f40e6d1-fd30-4dcd-bf1b-727e33122988" ></script>
+	<script>
+	function OptanonWrapper() {
+		document.dispatchEvent(new Event('consentUpdated'));
+
+		const performanceConsentStatus = window.OnetrustActiveGroups.includes(',C0002,') ? 'granted' : 'denied';
+		const targetingConsentStatus = window.OnetrustActiveGroups.includes(',C0004,') ? 'granted' : 'denied';
+
+		gtag('consent', 'update', {
+			'analytics_storage': performanceConsentStatus,
+			'ad_storage': targetingConsentStatus,
+			'ad_user_data': targetingConsentStatus,
+			'ad_personalization': targetingConsentStatus,
+		});
+
+		if (targetingConsentStatus === 'granted' && !targetingTriggered) {
+			dataLayer.push({ event: 'targetingConsent' });
+			targetingTriggered = true;
+		}
+	}
+	</script>
+	<!-- OneTrust Cookies Consent Notice end for gett.com -->
+
+	
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta name="google-site-verification" content="fVwUwHGo67Hn5KQtHgi_H8a0H7LGjAuV6otMKf1xTQI" />
+
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v28.0 (Yoast SEO v28.0) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+	<title>Gett Careers</title>
+	<meta name="description" content="Looking for your dream job? Browse the latest jobs available at Gett for new career opportunities with excellent benefits." />
+	<link rel="canonical" href="https://www.gett.com/careers/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Careers - Gett" />
+	<meta property="og:description" content="Looking for your dream job? Browse the latest jobs available at Gett for new career opportunities with excellent benefits." />
+	<meta property="og:url" content="https://www.gett.com/careers/" />
+	<meta property="og:site_name" content="Gett" />
+	<meta property="article:publisher" content="https://www.facebook.com/Gett.UK/" />
+	<meta property="article:modified_time" content="2024-04-07T10:13:30+00:00" />
+	<meta property="og:image" content="https://www.gett.com/wp-content/uploads/2020/12/careers-featured-image.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="627" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@Gett_UK" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="4 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/www.gett.com\/careers\/","url":"https:\/\/www.gett.com\/careers\/","name":"Gett Careers","isPartOf":{"@id":"https:\/\/www.gett.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/www.gett.com\/careers\/#primaryimage"},"image":{"@id":"https:\/\/www.gett.com\/careers\/#primaryimage"},"thumbnailUrl":"https:\/\/www.gett.com\/wp-content\/uploads\/2020\/12\/careers-featured-image.png","datePublished":"2015-10-07T14:39:21+00:00","dateModified":"2024-04-07T10:13:30+00:00","description":"Looking for your dream job? Browse the latest jobs available at Gett for new career opportunities with excellent benefits.","breadcrumb":{"@id":"https:\/\/www.gett.com\/careers\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.gett.com\/careers\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/www.gett.com\/careers\/#primaryimage","url":"https:\/\/www.gett.com\/wp-content\/uploads\/2020\/12\/careers-featured-image.png","contentUrl":"https:\/\/www.gett.com\/wp-content\/uploads\/2020\/12\/careers-featured-image.png","width":1200,"height":627},{"@type":"BreadcrumbList","@id":"https:\/\/www.gett.com\/careers\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/www.gett.com\/"},{"@type":"ListItem","position":2,"name":"Careers"}]},{"@type":"WebSite","@id":"https:\/\/www.gett.com\/#website","url":"https:\/\/www.gett.com\/","name":"Gett","description":"Your Corporate Ground Travel Solution","publisher":{"@id":"https:\/\/www.gett.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.gett.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/www.gett.com\/#organization","name":"Gett","url":"https:\/\/www.gett.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/www.gett.com\/#\/schema\/logo\/image\/","url":"https:\/\/www.gett.com\/wp-content\/uploads\/2021\/04\/gett-logo.svg","contentUrl":"https:\/\/www.gett.com\/wp-content\/uploads\/2021\/04\/gett-logo.svg","width":1044,"height":344,"caption":"Gett"},"image":{"@id":"https:\/\/www.gett.com\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.facebook.com\/Gett.UK\/","https:\/\/x.com\/Gett_UK","https:\/\/www.instagram.com\/gett_uk\/","https:\/\/www.linkedin.com\/company\/gettaxi"]}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.gett.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.gett.com%2Fcareers%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.gett.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.gett.com%2Fcareers%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-button-inline-css">
+.wp-block-button__link{align-content:center;box-sizing:border-box;cursor:pointer;display:inline-block;height:100%;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}.wp-block-button__link.alignright{text-align:right}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons>.wp-block-button.has-custom-width{max-width:none}.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{width:100%}.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons>.wp-block-button.wp-block-button__width-25{width:calc(25% - var(--wp--style--block-gap, .5em)*.75)}.wp-block-buttons>.wp-block-button.wp-block-button__width-50{width:calc(50% - var(--wp--style--block-gap, .5em)*.5)}.wp-block-buttons>.wp-block-button.wp-block-button__width-75{width:calc(75% - var(--wp--style--block-gap, .5em)*.25)}.wp-block-buttons>.wp-block-button.wp-block-button__width-100{flex-basis:100%;width:100%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{width:25%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{width:50%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{width:75%}.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{border-radius:0}.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{border-radius:0!important}:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){border:2px solid;padding:.667em 1.333em}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){color:currentColor}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){background-color:initial;background-image:none}
+/*# sourceURL=https://www.gett.com/wp-includes/blocks/button/style.min.css */
+</style>
+<style id="wp-block-cover-inline-css">
+.wp-block-cover,.wp-block-cover-image{align-items:center;background-position:50%;box-sizing:border-box;display:flex;justify-content:center;min-height:430px;overflow:hidden;overflow:clip;padding:1em;position:relative}.wp-block-cover .has-background-dim:not([class*=-background-color]),.wp-block-cover-image .has-background-dim:not([class*=-background-color]),.wp-block-cover-image.has-background-dim:not([class*=-background-color]),.wp-block-cover.has-background-dim:not([class*=-background-color]){background-color:#000}.wp-block-cover .has-background-dim.has-background-gradient,.wp-block-cover-image .has-background-dim.has-background-gradient{background-color:initial}.wp-block-cover-image.has-background-dim:before,.wp-block-cover.has-background-dim:before{background-color:inherit;content:""}.wp-block-cover .wp-block-cover__background,.wp-block-cover .wp-block-cover__gradient-background,.wp-block-cover-image .wp-block-cover__background,.wp-block-cover-image .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim:not(.has-background-gradient):before,.wp-block-cover.has-background-dim:not(.has-background-gradient):before{bottom:0;left:0;opacity:.5;position:absolute;right:0;top:0}.wp-block-cover-image.has-background-dim.has-background-dim-10 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-10 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-10:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-10 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-10 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-10:not(.has-background-gradient):before{opacity:.1}.wp-block-cover-image.has-background-dim.has-background-dim-20 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-20 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-20:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-20 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-20 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-20:not(.has-background-gradient):before{opacity:.2}.wp-block-cover-image.has-background-dim.has-background-dim-30 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-30 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-30:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-30 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-30 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-30:not(.has-background-gradient):before{opacity:.3}.wp-block-cover-image.has-background-dim.has-background-dim-40 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-40 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-40:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-40 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-40 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-40:not(.has-background-gradient):before{opacity:.4}.wp-block-cover-image.has-background-dim.has-background-dim-50 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-50 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-50:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-50 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-50 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-50:not(.has-background-gradient):before{opacity:.5}.wp-block-cover-image.has-background-dim.has-background-dim-60 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-60 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-60:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-60 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-60 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-60:not(.has-background-gradient):before{opacity:.6}.wp-block-cover-image.has-background-dim.has-background-dim-70 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-70 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-70:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-70 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-70 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-70:not(.has-background-gradient):before{opacity:.7}.wp-block-cover-image.has-background-dim.has-background-dim-80 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-80 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-80:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-80 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-80 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-80:not(.has-background-gradient):before{opacity:.8}.wp-block-cover-image.has-background-dim.has-background-dim-90 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-90 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-90:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-90 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-90 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-90:not(.has-background-gradient):before{opacity:.9}.wp-block-cover-image.has-background-dim.has-background-dim-100 .wp-block-cover__background,.wp-block-cover-image.has-background-dim.has-background-dim-100 .wp-block-cover__gradient-background,.wp-block-cover-image.has-background-dim.has-background-dim-100:not(.has-background-gradient):before,.wp-block-cover.has-background-dim.has-background-dim-100 .wp-block-cover__background,.wp-block-cover.has-background-dim.has-background-dim-100 .wp-block-cover__gradient-background,.wp-block-cover.has-background-dim.has-background-dim-100:not(.has-background-gradient):before{opacity:1}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-0,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-0,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-0,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-0{opacity:0}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-10,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-10,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-10,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-10{opacity:.1}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-20,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-20,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-20,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-20{opacity:.2}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-30,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-30,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-30,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-30{opacity:.3}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-40,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-40,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-40,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-40{opacity:.4}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-50,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-50,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-50,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-50{opacity:.5}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-60,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-60,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-60,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-60{opacity:.6}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-70,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-70,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-70,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-70{opacity:.7}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-80,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-80,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-80,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-80{opacity:.8}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-90,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-90,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-90,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-90{opacity:.9}.wp-block-cover .wp-block-cover__background.has-background-dim.has-background-dim-100,.wp-block-cover .wp-block-cover__gradient-background.has-background-dim.has-background-dim-100,.wp-block-cover-image .wp-block-cover__background.has-background-dim.has-background-dim-100,.wp-block-cover-image .wp-block-cover__gradient-background.has-background-dim.has-background-dim-100{opacity:1}.wp-block-cover-image.alignleft,.wp-block-cover-image.alignright,.wp-block-cover.alignleft,.wp-block-cover.alignright{max-width:420px;width:100%}.wp-block-cover-image.aligncenter,.wp-block-cover-image.alignleft,.wp-block-cover-image.alignright,.wp-block-cover.aligncenter,.wp-block-cover.alignleft,.wp-block-cover.alignright{display:flex}.wp-block-cover .wp-block-cover__inner-container,.wp-block-cover-image .wp-block-cover__inner-container{color:inherit;position:relative;width:100%}.wp-block-cover-image.is-position-top-left,.wp-block-cover.is-position-top-left{align-items:flex-start;justify-content:flex-start}.wp-block-cover-image.is-position-top-center,.wp-block-cover.is-position-top-center{align-items:flex-start;justify-content:center}.wp-block-cover-image.is-position-top-right,.wp-block-cover.is-position-top-right{align-items:flex-start;justify-content:flex-end}.wp-block-cover-image.is-position-center-left,.wp-block-cover.is-position-center-left{align-items:center;justify-content:flex-start}.wp-block-cover-image.is-position-center-center,.wp-block-cover.is-position-center-center{align-items:center;justify-content:center}.wp-block-cover-image.is-position-center-right,.wp-block-cover.is-position-center-right{align-items:center;justify-content:flex-end}.wp-block-cover-image.is-position-bottom-left,.wp-block-cover.is-position-bottom-left{align-items:flex-end;justify-content:flex-start}.wp-block-cover-image.is-position-bottom-center,.wp-block-cover.is-position-bottom-center{align-items:flex-end;justify-content:center}.wp-block-cover-image.is-position-bottom-right,.wp-block-cover.is-position-bottom-right{align-items:flex-end;justify-content:flex-end}.wp-block-cover-image.has-custom-content-position.has-custom-content-position .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position .wp-block-cover__inner-container{margin:0}.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-bottom-left .wp-block-cover__inner-container,.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-bottom-right .wp-block-cover__inner-container,.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-center-left .wp-block-cover__inner-container,.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-center-right .wp-block-cover__inner-container,.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-top-left .wp-block-cover__inner-container,.wp-block-cover-image.has-custom-content-position.has-custom-content-position.is-position-top-right .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-bottom-left .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-bottom-right .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-center-left .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-center-right .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-top-left .wp-block-cover__inner-container,.wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-top-right .wp-block-cover__inner-container{margin:0;width:auto}.wp-block-cover .wp-block-cover__image-background,.wp-block-cover video.wp-block-cover__video-background,.wp-block-cover-image .wp-block-cover__image-background,.wp-block-cover-image video.wp-block-cover__video-background{border:none;bottom:0;box-shadow:none;height:100%;left:0;margin:0;max-height:none;max-width:none;object-fit:cover;outline:none;padding:0;position:absolute;right:0;top:0;width:100%}.wp-block-cover .wp-block-cover__embed-background,.wp-block-cover-image .wp-block-cover__embed-background{border:none;bottom:0;box-shadow:none;height:100%;left:0;margin:0;max-height:none;max-width:none;outline:none;padding:0;pointer-events:none;position:absolute;right:0;top:0;width:100%}.wp-block-cover .wp-block-cover__embed-background .wp-block-embed__wrapper,.wp-block-cover-image .wp-block-cover__embed-background .wp-block-embed__wrapper{bottom:0;height:100%;left:0;margin:0;padding:0;position:absolute;right:0;top:0;width:100%}.wp-block-cover .wp-block-cover__embed-background .wp-block-embed__wrapper iframe,.wp-block-cover .wp-block-cover__embed-background iframe,.wp-block-cover-image .wp-block-cover__embed-background .wp-block-embed__wrapper iframe,.wp-block-cover-image .wp-block-cover__embed-background iframe{height:100vh;left:50%;min-height:100%;min-width:100%;pointer-events:none;position:absolute;top:50%;transform:translate(-50%,-50%);width:100vw}.wp-block-cover-image.has-parallax,.wp-block-cover.has-parallax,.wp-block-cover__image-background.has-parallax,video.wp-block-cover__video-background.has-parallax{background-attachment:fixed;background-repeat:no-repeat;background-size:cover}@supports (-webkit-touch-callout:inherit){.wp-block-cover-image.has-parallax,.wp-block-cover.has-parallax,.wp-block-cover__image-background.has-parallax,video.wp-block-cover__video-background.has-parallax{background-attachment:scroll}}@media (prefers-reduced-motion:reduce){.wp-block-cover-image.has-parallax,.wp-block-cover.has-parallax,.wp-block-cover__image-background.has-parallax,video.wp-block-cover__video-background.has-parallax{background-attachment:scroll}}.wp-block-cover-image.is-repeated,.wp-block-cover.is-repeated,.wp-block-cover__image-background.is-repeated,video.wp-block-cover__video-background.is-repeated{background-repeat:repeat;background-size:auto}.wp-block-cover-image-text,.wp-block-cover-image-text a,.wp-block-cover-image-text a:active,.wp-block-cover-image-text a:focus,.wp-block-cover-image-text a:hover,.wp-block-cover-text,.wp-block-cover-text a,.wp-block-cover-text a:active,.wp-block-cover-text a:focus,.wp-block-cover-text a:hover,section.wp-block-cover-image h2,section.wp-block-cover-image h2 a,section.wp-block-cover-image h2 a:active,section.wp-block-cover-image h2 a:focus,section.wp-block-cover-image h2 a:hover{color:#fff}.wp-block-cover-image .wp-block-cover.has-left-content{justify-content:flex-start}.wp-block-cover-image .wp-block-cover.has-right-content{justify-content:flex-end}.wp-block-cover-image.has-left-content .wp-block-cover-image-text,.wp-block-cover.has-left-content .wp-block-cover-text,section.wp-block-cover-image.has-left-content>h2{margin-left:0;text-align:left}.wp-block-cover-image.has-right-content .wp-block-cover-image-text,.wp-block-cover.has-right-content .wp-block-cover-text,section.wp-block-cover-image.has-right-content>h2{margin-right:0;text-align:right}.wp-block-cover .wp-block-cover-text,.wp-block-cover-image .wp-block-cover-image-text,section.wp-block-cover-image>h2{font-size:2em;line-height:1.25;margin-bottom:0;max-width:840px;padding:.44em;text-align:center;z-index:1}:where(.wp-block-cover-image:not(.has-text-color)),:where(.wp-block-cover:not(.has-text-color)){color:#fff}:where(.wp-block-cover-image.is-light:not(.has-text-color)),:where(.wp-block-cover.is-light:not(.has-text-color)){color:#000}:root :where(.wp-block-cover h1:not(.has-text-color)),:root :where(.wp-block-cover h2:not(.has-text-color)),:root :where(.wp-block-cover h3:not(.has-text-color)),:root :where(.wp-block-cover h4:not(.has-text-color)),:root :where(.wp-block-cover h5:not(.has-text-color)),:root :where(.wp-block-cover h6:not(.has-text-color)),:root :where(.wp-block-cover p:not(.has-text-color)){color:inherit}body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__embed-background,body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__image-background,body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__video-background{z-index:0}body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__background,body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__gradient-background,body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__inner-container,body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)).has-background-dim:not(.has-background-gradient):before{z-index:1}.has-modal-open body:not(.editor-styles-wrapper) .wp-block-cover:not(.wp-block-cover:has(.wp-block-cover__background+.wp-block-cover__inner-container)) .wp-block-cover__inner-container{z-index:auto}
+/*# sourceURL=https://www.gett.com/wp-includes/blocks/cover/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://www.gett.com/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://www.gett.com/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://www.gett.com/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-buttons-inline-css">
+.wp-block-buttons{box-sizing:border-box}.wp-block-buttons.is-vertical{flex-direction:column}.wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-left{justify-content:flex-start}.wp-block-buttons.is-content-justification-left.is-vertical{align-items:flex-start}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.is-content-justification-center.is-vertical{align-items:center}.wp-block-buttons.is-content-justification-right{justify-content:flex-end}.wp-block-buttons.is-content-justification-right.is-vertical{align-items:flex-end}.wp-block-buttons.is-content-justification-space-between{justify-content:space-between}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons .wp-block-button__link{width:100%}.wp-block-button.aligncenter{text-align:center}
+/*# sourceURL=https://www.gett.com/wp-includes/blocks/buttons/style.min.css */
+</style>
+<style id="wp-block-columns-inline-css">
+.wp-block-columns{box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns{align-items:normal!important}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}
+/*# sourceURL=https://www.gett.com/wp-includes/blocks/columns/style.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=https://www.gett.com/wp-includes/blocks/group/style.min.css */
+</style>
+
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #fff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--gray-600: #263238;--wp--preset--color--gray-500: #4d5a60;--wp--preset--color--gray-400: #67777e;--wp--preset--color--gray-50: #f0f2f3;--wp--preset--color--primary-700: #9e5c00;--wp--preset--color--primary-500: #ff9d00;--wp--preset--color--primary-300: #ffce80;--wp--preset--color--primary-100: #fff3de;--wp--preset--color--secondary-500: #134bc3;--wp--preset--color--secondary-400: #5384ee;--wp--preset--color--secondary-300: #abd1ff;--wp--preset--color--secondary-200: #d4e7ff;--wp--preset--color--red: #d63b42;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--primary-orange-to-pink: linear-gradient(90deg, rgb(255, 157, 0) 40%, rgb(255, 0, 148) 150%);--wp--preset--font-size--small: 0.875rem;--wp--preset--font-size--medium: 1.125rem;--wp--preset--font-size--large: clamp(1.5rem, 1.1rem + 1.3333vw, 2rem);--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--regular-16: 1rem;--wp--preset--font-size--regular: clamp(1rem, 0.9rem + 0.3333vw, 1.125rem);--wp--preset--font-size--medium-2: clamp(1.125rem, 1.025rem + 0.3333vw, 1.25rem);--wp--preset--font-size--medium-3: clamp(1.25rem, 1.05rem + 0.6667vw, 1.5rem);--wp--preset--font-size--large-2: clamp(2rem, 1.6rem + 1.3333vw, 2.5rem);--wp--preset--font-size--large-3: clamp(2rem, 1.2rem + 2.6667vw, 3rem);--wp--preset--font-size--xlarge: clamp(3rem, 2.6rem + 1.3333vw, 3.5rem);--wp--preset--font-size--xxlarge: clamp(3rem, 2.2rem + 2.6667vw, 4rem);--wp--preset--font-size--huge: clamp(3rem, 1rem + 6.6667vw, 5.5rem);--wp--preset--font-size--huge-2: clamp(4rem, 2.8rem + 4vw, 5.5rem);--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 1200px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 0; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 0; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 0;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 0;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 0;}:root :where(.is-layout-grid){gap: 0;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{color: var(--wp--preset--color--gray-600);padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-gray-600-color{color: var(--wp--preset--color--gray-600) !important;}.has-gray-500-color{color: var(--wp--preset--color--gray-500) !important;}.has-gray-400-color{color: var(--wp--preset--color--gray-400) !important;}.has-gray-50-color{color: var(--wp--preset--color--gray-50) !important;}.has-primary-700-color{color: var(--wp--preset--color--primary-700) !important;}.has-primary-500-color{color: var(--wp--preset--color--primary-500) !important;}.has-primary-300-color{color: var(--wp--preset--color--primary-300) !important;}.has-primary-100-color{color: var(--wp--preset--color--primary-100) !important;}.has-secondary-500-color{color: var(--wp--preset--color--secondary-500) !important;}.has-secondary-400-color{color: var(--wp--preset--color--secondary-400) !important;}.has-secondary-300-color{color: var(--wp--preset--color--secondary-300) !important;}.has-secondary-200-color{color: var(--wp--preset--color--secondary-200) !important;}.has-red-color{color: var(--wp--preset--color--red) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-gray-600-background-color{background-color: var(--wp--preset--color--gray-600) !important;}.has-gray-500-background-color{background-color: var(--wp--preset--color--gray-500) !important;}.has-gray-400-background-color{background-color: var(--wp--preset--color--gray-400) !important;}.has-gray-50-background-color{background-color: var(--wp--preset--color--gray-50) !important;}.has-primary-700-background-color{background-color: var(--wp--preset--color--primary-700) !important;}.has-primary-500-background-color{background-color: var(--wp--preset--color--primary-500) !important;}.has-primary-300-background-color{background-color: var(--wp--preset--color--primary-300) !important;}.has-primary-100-background-color{background-color: var(--wp--preset--color--primary-100) !important;}.has-secondary-500-background-color{background-color: var(--wp--preset--color--secondary-500) !important;}.has-secondary-400-background-color{background-color: var(--wp--preset--color--secondary-400) !important;}.has-secondary-300-background-color{background-color: var(--wp--preset--color--secondary-300) !important;}.has-secondary-200-background-color{background-color: var(--wp--preset--color--secondary-200) !important;}.has-red-background-color{background-color: var(--wp--preset--color--red) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-gray-600-border-color{border-color: var(--wp--preset--color--gray-600) !important;}.has-gray-500-border-color{border-color: var(--wp--preset--color--gray-500) !important;}.has-gray-400-border-color{border-color: var(--wp--preset--color--gray-400) !important;}.has-gray-50-border-color{border-color: var(--wp--preset--color--gray-50) !important;}.has-primary-700-border-color{border-color: var(--wp--preset--color--primary-700) !important;}.has-primary-500-border-color{border-color: var(--wp--preset--color--primary-500) !important;}.has-primary-300-border-color{border-color: var(--wp--preset--color--primary-300) !important;}.has-primary-100-border-color{border-color: var(--wp--preset--color--primary-100) !important;}.has-secondary-500-border-color{border-color: var(--wp--preset--color--secondary-500) !important;}.has-secondary-400-border-color{border-color: var(--wp--preset--color--secondary-400) !important;}.has-secondary-300-border-color{border-color: var(--wp--preset--color--secondary-300) !important;}.has-secondary-200-border-color{border-color: var(--wp--preset--color--secondary-200) !important;}.has-red-border-color{border-color: var(--wp--preset--color--red) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-primary-orange-to-pink-gradient-background{background: var(--wp--preset--gradient--primary-orange-to-pink) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-regular-16-font-size{font-size: var(--wp--preset--font-size--regular-16) !important;}.has-regular-font-size{font-size: var(--wp--preset--font-size--regular) !important;}.has-medium-2-font-size{font-size: var(--wp--preset--font-size--medium-2) !important;}.has-medium-3-font-size{font-size: var(--wp--preset--font-size--medium-3) !important;}.has-large-2-font-size{font-size: var(--wp--preset--font-size--large-2) !important;}.has-large-3-font-size{font-size: var(--wp--preset--font-size--large-3) !important;}.has-xlarge-font-size{font-size: var(--wp--preset--font-size--xlarge) !important;}.has-xxlarge-font-size{font-size: var(--wp--preset--font-size--xxlarge) !important;}.has-huge-font-size{font-size: var(--wp--preset--font-size--huge) !important;}.has-huge-2-font-size{font-size: var(--wp--preset--font-size--huge-2) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='gett-style-css' href='https://www.gett.com/wp-content/themes/gett/build/css/style.css?ver=1774446831' media='all' />
+<link rel="https://api.w.org/" href="https://www.gett.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.gett.com/wp-json/wp/v2/pages/174" /><link rel="icon" href="https://www.gett.com/wp-content/uploads/2021/04/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.gett.com/wp-content/uploads/2021/04/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.gett.com/wp-content/uploads/2021/04/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.gett.com/wp-content/uploads/2021/04/cropped-favicon-270x270.png" />
+<link rel='stylesheet' id='page-custom-style-css' href='https://www.gett.com/wp-content/themes/gett/build/css/pages/intl/page-174.css?ver=1678619520' media='all' />
+<link rel='stylesheet' id='style-careers-open-positions-list-css' href='https://www.gett.com/wp-content/themes/gett/build/css/lib/careers/open-positions-list.css?ver=1671009394' media='all' />
+<style id="core-block-supports-inline-css">
+.wp-container-core-columns-is-layout-9ba6dbca{flex-wrap:nowrap;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+
+</head>
+
+
+<body
+	id="en_US"
+	class="wp-singular page-template-default page page-id-174 wp-embed-responsive wp-theme-gett flex min-h-svh flex-col has-white-background-color has-gray-600-color top-bar">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRJ9QVX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<header
+	id="masthead"
+	class="full site-navigation py-16 has-white-background-color lg:py-24"
+>
+	<div class="wp-block-group flex items-center justify-content-between gap-x-32">
+		<a 
+			href="/"
+			class="logo-container"
+			aria-label="Site logo"
+		>
+			<img
+				src="/wp-content/themes/gett/build/images/gett-logo.svg"
+				alt="Gett"
+				width="91"
+				height="30"
+			/>
+		</a>
+
+		<div class="mobile-section-end flex items-center lg:hidden">
+							<a
+					href="https://www.gett.com/uk/start/?referrer=mobile-top-bar-button"
+					class="btn btn-primary mobile-top-bar-button px-16 me-16"
+				>Business signup</a>
+			
+			<button id="open-navigation" aria-label="Open navigation">
+				<svg xmlns="http://www.w3.org/2000/svg" width="28" height="20"><path fill="#111b21" fill-rule="evenodd" d="M26.25 16.4285714c.9664983 0 1.75.7994915 1.75 1.7857143S27.2164983 20 26.25 20H1.75C.78350169 20 0 19.2005085 0 18.2142857s.78350169-1.7857143 1.75-1.7857143h24.5zm0-8.21428569c.9664983 0 1.75.79949152 1.75 1.78571429 0 .9862228-.7835017 1.7857143-1.75 1.7857143H1.75C.78350169 11.7857143 0 10.9862228 0 10c0-.98622277.78350169-1.78571429 1.75-1.78571429h24.5zM26.25 0C27.2164983 0 28 .79949152 28 1.78571429c0 .98622276-.7835017 1.78571428-1.75 1.78571428H1.75c-.96649831 0-1.75-.79949152-1.75-1.78571428C0 .79949152.78350169 0 1.75 0h24.5z"/></svg>
+			</button>
+		</div>
+
+		<div
+			class="navigation-container lg:flex lg:items-center lg:justify-content-between lg:grow"
+		>
+			<div class="close-container has-text-align-right lg:hidden">
+				<button
+					id="close-navigation"
+					aria-label="Close navigation"
+				>
+					<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M13.3.71a.996.996 0 00-1.41 0L7 5.59 2.11.7A.996.996 0 10.7 2.11L5.59 7 .7 11.89a.996.996 0 101.41 1.41L7 8.41l4.89 4.89a.996.996 0 101.41-1.41L8.41 7l4.89-4.89c.38-.38.38-1.02 0-1.4z" id="a"/></defs><g fill="none" fill-rule="evenodd"><mask id="b" fill="#fff"><use xlink:href="#a"/></mask><use fill="#000" xlink:href="#a"/><g mask="url(#b)" fill="#111b21" fill-rule="nonzero"><path d="M-5-5h24v24H-5z"/></g></g></svg>
+				</button>
+			</div>
+
+			<nav>
+				<ul id="primary-left-menu" class="menu lg:flex lg:flex-wrap lg:gap-x-24"><li id="menu-item-14600" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14600"><a href="#">Business</a>
+<ul class="sub-menu">
+	<li id="menu-item-16026" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16026"><a href="/uk/business">Gett Business</a></li>
+	<li id="menu-item-16027" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16027"><a href="/uk/business/taxi-booking-platform">Platform</a></li>
+	<li id="menu-item-16035" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16035"><a href="/uk/business/our-support-team">Our support team</a></li>
+	<li id="menu-item-16040" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16040"><a href="/uk/business/fleets">Our taxi fleet</a></li>
+	<li id="menu-item-16053" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16053"><a href="/uk/business/hospitality">Gett Hospitality</a></li>
+	<li id="menu-item-16058" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16058"><a href="/uk/business/public-sector-taxis">Gett Public</a></li>
+</ul>
+</li>
+<li id="menu-item-15787" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-15787"><a href="#">Riders</a>
+<ul class="sub-menu">
+	<li id="menu-item-16046" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16046"><a href="https://www.gett.com/uk/riders">London’s black taxi app</a></li>
+	<li id="menu-item-16049" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16049"><a href="/uk/riders/family">Gett Family</a></li>
+	<li id="menu-item-15789" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15789"><a href="https://www.gett.com/uk/ride-greener/">Ride Greener</a></li>
+</ul>
+</li>
+<li id="menu-item-15386" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-15386"><a href="#">Drivers</a>
+<ul class="sub-menu">
+	<li id="menu-item-16081" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16081"><a href="/uk/drivers">Become a Driver</a></li>
+	<li id="menu-item-15387" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15387"><a href="https://www.gett.com/uk/supply-partners/">Become a Supply Partner</a></li>
+</ul>
+</li>
+<li id="menu-item-14617" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-14617"><a href="#">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-14618" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14618"><a href="https://www.gett.com/uk/about/">About Us</a></li>
+	<li id="menu-item-14620" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-14620"><a href="https://www.gett.com/careers/" aria-current="page">Careers</a></li>
+	<li id="menu-item-14615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14615"><a href="https://www.gett.com/blog/">Blog</a></li>
+	<li id="menu-item-16104" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16104"><a href="/uk/help">Help Centre</a></li>
+</ul>
+</li>
+</ul>			</nav>
+
+			<div class="buttons-container lg:flex lg:items-center lg:flex-row-reverse">
+									<a
+						href="https://www.gett.com/uk/start/?referrer=menu-button"
+						class="btn btn-primary menu-start-button lg:ms-24"
+					>Business signup</a>
+				
+				<a
+					href="https://business.gett.com/"
+					class="btn btn-secondary login-btn lg:px-0"
+				>Business login</a>
+
+				<nav class="country-picker country-picker-mobile mt-24 lg:hidden">
+					<button
+						type="button"
+						class="open-country-picker flex items-center justify-content-center gap-x-8"
+						aria-label="Open country picker"
+						data-open-modal="country-picker-modal"
+					>
+						<img
+							src="/wp-content/themes/gett/build/images/globe.svg"
+							alt=""
+							width="24"
+							height="24"
+						/>
+
+						<img
+							src="/wp-content/themes/gett/build/images/arrow-nav.svg"
+							alt=""
+							width="10"
+							height="6.25"
+						/>
+					</button>
+				</nav>
+
+				<nav class="country-picker country-picker-desktop max-lg:hidden me-24">
+					<ul class="menu">
+						<li class="menu-item menu-item-has-children mx-0">
+							<a
+								href="#"
+								class="mx-0 open-country-picker"
+								aria-label="Open country picker"
+							>
+								<img
+									src="/wp-content/themes/gett/build/images/globe.svg"
+									alt=""
+									width="24"
+									height="24"
+								/>
+							</a>
+
+							<ul class="sub-menu">
+															<li class="menu-item israel-flag">
+									<a
+										href="/il"
+										aria-label="Israel"
+										class="flex items-center"
+									>
+										<img
+											src="/wp-content/themes/gett/build/images/flags/israel.svg"
+											alt=""
+											width="22" 
+											height="16"
+										><p class="mt-0 ms-8">Israel</p>
+									</a>
+								</li>
+																<li class="menu-item uk-flag">
+									<a
+										href="/uk"
+										aria-label="United Kingdom"
+										class="flex items-center"
+									>
+										<img
+											src="/wp-content/themes/gett/build/images/flags/uk.svg"
+											alt=""
+											width="22" 
+											height="16"
+										><p class="mt-0 ms-8">United Kingdom</p>
+									</a>
+								</li>
+															</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<dialog id="country-picker-modal" class="has-white-background-color has-gray-600-color rounded-24 py-0 px-0 md:rounded-40">
+			<div class="py-32 px-32">
+				<p class="has-regular-font-size font-medium mt-0">Select your region</p>
+
+									<div class="option mt-32 israel-flag">
+						<a
+							href="/il"
+							aria-label="Israel"
+							class="flex"
+						>
+							<img
+								src="/wp-content/themes/gett/build/images/flags/israel.svg"
+								alt=""
+								width="28"
+								height="22"
+							><p class="has-medium-font-size mt-0 ms-24">Israel</p>
+						</a>
+					</div>
+									<div class="option mt-32 uk-flag">
+						<a
+							href="/uk"
+							aria-label="United Kingdom"
+							class="flex"
+						>
+							<img
+								src="/wp-content/themes/gett/build/images/flags/uk.svg"
+								alt=""
+								width="28"
+								height="22"
+							><p class="has-medium-font-size mt-0 ms-24">United Kingdom</p>
+						</a>
+					</div>
+				
+				<div class="mt-40 has-text-align-center">
+					<button class="close has-small-font-size font-medium">
+						Cancel					</button>
+				</div>
+			</div>
+		</dialog>
+	</div>
+</header>
+
+<main
+	role="main"
+	id="page-174"
+	class="post-174 page type-page status-publish has-post-thumbnail hentry">
+	
+<div class="wp-block-group mt-32 mb-80 md:mt-40 md:mb-144 is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9ba6dbca wp-block-columns-is-layout-flex">
+<div class="wp-block-column md:col-5 pt-40 md:pt-32 is-layout-flow wp-block-column-is-layout-flow">
+<h1 class="wp-block-heading has-xxlarge-font-size" id="h-gett-where-you-want-to-be">Gett where you want to be</h1>
+
+
+
+<p class="has-medium-font-size mt-24 wp-block-paragraph">We are looking for top talent to join our team of global Getters. Defined by passion, driven by quality and excellence, our team is steering ground travel into the future — and having fun while we do it.</p>
+
+
+
+<div class="wp-block-buttons mt-40 is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button" data-button-position="gett where you want to be"><a class="wp-block-button__link wp-element-button" href="#open-positions">Open positions</a></div>
+</div>
+</div>
+
+
+
+<div class="wp-block-column md:col-7 order-first md:order-last md:ps-48 is-layout-flow wp-block-column-is-layout-flow">
+<div 
+	class="block lottie-container"
+	data-name="lottie-block_1c0e4262f0ad8d1bae67c75acc4d2535"
+	data-src="https://www.gett.com/wp-content/uploads/2021/03/careers-hero.json" 
+	data-md-src=""
+	data-trigger="viewport"
+	data-position-threshold="0"
+	data-loop="1"
+>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="block image-ticker-container overflow-hidden news-ticker mb-56 md:mb-88">
+	<div class="sliding-background-image-ticker-block_a753fd1796080705e27d6ff1f119aa03"></div>
+
+	<style>.sliding-background-image-ticker-block_a753fd1796080705e27d6ff1f119aa03{background:url("https://www.gett.com/wp-content/uploads/2022/03/careers-ticker-mobile.png") repeat-x;width:5490px;height:48px;animation:slide-image-ticker-block_a753fd1796080705e27d6ff1f119aa03 60s linear infinite;}@keyframes slide-image-ticker-block_a753fd1796080705e27d6ff1f119aa03{0%{transform: translate3d(0, 0, 0);}100%{transform: translate3d(-1830px, 0, 0);}}@media (min-width: 782px){.sliding-background-image-ticker-block_a753fd1796080705e27d6ff1f119aa03{background-image:url("https://www.gett.com/wp-content/uploads/2022/03/careers-ticker-desktop.jpg");height:96px;width:10974px;animation-name:md-slide-image-ticker-block_a753fd1796080705e27d6ff1f119aa03;}@keyframes md-slide-image-ticker-block_a753fd1796080705e27d6ff1f119aa03{0%{transform: translate3d(0, 0, 0);}100%{transform: translate3d(-3658px, 0, 0);}}}</style></div>
+
+
+
+
+
+<div class="wp-block-group mb-80 md:mb-144 is-layout-flow wp-block-group-is-layout-flow">
+<figure class="wp-block-image size-large is-resized md:hidden"><img decoding="async" src="https://www.gett.com/wp-content/uploads/2021/04/diversity-mobile.svg" alt="" class="wp-image-6627" style="width:382px;height:152px"/></figure>
+
+
+
+<figure class="wp-block-image size-large is-resized max-md:hidden"><img decoding="async" src="https://www.gett.com/wp-content/uploads/2021/04/diversity-desktop.svg" alt="" class="wp-image-6628" style="width:1168px;height:267px"/></figure>
+
+
+
+<div class="wp-block-cover rounded-40 py-80 px-24 md:py-88 md:px-144"><span aria-hidden="true" class="wp-block-cover__background has-gray-600-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
+<h2 class="wp-block-heading has-text-align-center has-large-2-font-size" id="h-at-gett-we-embrace-and-celebrate-diversity-in-all-its-vibrant-forms">At Gett, we embrace and celebrate diversity in all its vibrant forms</h2>
+
+
+
+<p class="has-text-align-center has-medium-3-font-size md:mt-24 wp-block-paragraph">We believe it&#8217;s our duty to create an inclusive environment where you can be your whole self. We strive to operate openly and respectfully as a team and offer accessible products and services; we believe this helps us achieve great outcomes for our customers and communities and make Gett an enjoyable, safe and positive workplace for all. Together, we grow and thrive on the multitude of backgrounds in our truly diverse team.</p>
+</div></div>
+</div>
+
+
+
+<div class="wp-block-group mb-104 md:mb-96 is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9ba6dbca wp-block-columns-is-layout-flex">
+<div class="wp-block-column col-11 md:col-6 md:pe-72 is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-image size-large mb-16"><img decoding="async" src="https://www.gett.com/wp-content/uploads/2021/03/icon-suitcase.svg" alt="" class="wp-image-6362"/></figure>
+
+
+
+<h2 class="wp-block-heading has-medium-3-font-size mb-8" id="h-learn-from-the-best"><strong>Learn from the best</strong></h2>
+
+
+
+<p class="mt-0 wp-block-paragraph">Jumpstart your career and learn from some of the brightest minds in the industry. We are flat, lean and accessible: no matter where you are in your career journey &#8211; at Gett, you can always bring your idea to the table.</p>
+</div>
+
+
+
+<div class="wp-block-column col-11 md:col-6 mt-56 md:mt-0 md:ps-72 is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-image size-large mb-16"><img decoding="async" src="https://www.gett.com/wp-content/uploads/2021/03/icon-star.svg" alt="" class="wp-image-6361"/></figure>
+
+
+
+<h2 class="wp-block-heading has-medium-3-font-size mb-8" id="h-cutting-edge-tech-and-design"><strong>Cutting-edge tech and design</strong> </h2>
+
+
+
+<p class="mt-0 wp-block-paragraph">We are one of the pioneers of transport digitalisation and our product and tech teams deliver industry-leading platforms that simplify everyday movement and amplify earning opportunities.</p>
+</div>
+</div>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9ba6dbca wp-block-columns-is-layout-flex">
+<div class="wp-block-column col-11 md:col-6 mt-56 md:mt-72 md:pe-72 is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-image size-large mb-16"><img decoding="async" src="https://www.gett.com/wp-content/uploads/2021/03/icon-megaphone.svg" alt="" class="wp-image-6360"/></figure>
+
+
+
+<h2 class="wp-block-heading has-medium-3-font-size mb-8" id="h-influence-and-impact"><strong><strong>Influence and impact</strong> </strong></h2>
+
+
+
+<p class="mt-0 wp-block-paragraph">We are a smart, intelligent, and curious team. And our people are on a daily mission to solve real problems and build intuitive services and products that make a real difference in the lives of millions of people.</p>
+</div>
+
+
+
+<div class="wp-block-column col-11 md:col-6 mt-56 md:mt-72 md:ps-72 is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-image size-large mb-16"><img decoding="async" src="https://www.gett.com/wp-content/uploads/2021/03/icon-home.svg" alt="" class="wp-image-6359"/></figure>
+
+
+
+<h2 class="wp-block-heading has-medium-3-font-size mb-8" id="h-flexibility-and-choice"><strong><strong>Flexibility and choice</strong> </strong></h2>
+
+
+
+<p class="mt-0 wp-block-paragraph">We trust you to know how you can deliver your best work. Gett offers a number of flexi working benefits that meet the needs of a new working world, provides more personal time, and encourages work-life balance.</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="open-positions" class="wp-block-group mb-72 md:mb-104 pt-16 md:pt-48 is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading has-large-3-font-size mb-40" id="h-open-positions">Open positions</h2>
+
+
+<div class="open-positions-list form-design light loading loading-orange loading-large"></div>
+
+
+<script
+	type="comeet-social"
+	data-color="ff9d00"
+	data-social-show-title="true"
+	data-social-pinterest="false"
+	data-social-whatsapp="true"
+	></script>
+	
+</div>
+
+
+
+<div class="wp-block-group mb-104 md:mb-144 is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading has-text-align-center has-large-font-size mb-40 md:mb-56" id="h-learn-more-about-life-at-gett">Learn more about life at Gett</h2>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9ba6dbca wp-block-columns-is-layout-flex">
+<div class="wp-block-column col-6 md:col-2 md:offset-2 mb-48 md:mb-0 is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-image aligncenter size-large"><a href="https://www.facebook.com/GettCareers/" target="_blank" rel="noopener"><img decoding="async" src="https://www.gett.com/wp-content/uploads/2021/03/icon-social-network-facebook.svg" alt="" class="wp-image-6366"/></a></figure>
+
+
+
+<p class="has-text-align-center wp-block-paragraph"><a href="https://www.facebook.com/GettCareers/" target="_blank" rel="noreferrer noopener nofollow">Follow Gett Careers on Facebook</a></p>
+</div>
+
+
+
+<div class="wp-block-column col-6 md:col-2 md:offset-1 mb-48 md:mb-0 is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-image aligncenter size-large"><a href="https://www.linkedin.com/company/gettaxi/" target="_blank" rel="noopener"><img decoding="async" src="https://www.gett.com/wp-content/uploads/2021/03/icon-social-network-linkedin.svg" alt="" class="wp-image-6367"/></a></figure>
+
+
+
+<p class="has-text-align-center wp-block-paragraph"><a href="https://www.linkedin.com/company/gettaxi/" target="_blank" rel="noreferrer noopener nofollow">Connect with us on LinkedIn</a></p>
+</div>
+
+
+
+<div class="wp-block-column col-6 md:col-2 offset-3 md:offset-1 is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-image aligncenter size-large"><a href="https://www.glassdoor.com/Overview/Working-at-Gett-EI_IE810731.11,15.htm" target="_blank" rel="noopener"><img decoding="async" src="https://www.gett.com/wp-content/uploads/2021/03/icon-social-network-glassdoor.svg" alt="" class="wp-image-6370"/></a></figure>
+
+
+
+<p class="has-text-align-center wp-block-paragraph"><a href="https://www.glassdoor.com/Overview/Working-at-Gett-EI_IE810731.11,15.htm" target="_blank" rel="noreferrer noopener nofollow">Read reviews on Glassdoor</a></p>
+</div>
+</div>
+</div>
+</main>
+
+
+<dialog id="message-modal" class="has-white-background-color has-gray-600-color has-text-align-center rounded-24 py-0 px-0 md:rounded-40">
+	<div class="py-32 px-32">
+		<img
+			decoding="async"
+			loading="lazy"
+			src=""
+			height="62"
+			class="icon mb-32"
+			alt=""
+		>
+
+		<h3 class="message-title has-large-2-font-size font-bold"></h3>
+
+		<div class="message-text has-medium-2-font-size mt-16"></div>
+
+		<button
+			type="button"
+			class="close btn btn-primary w-full mt-40"
+		>OK</button>
+	</div>
+</dialog>
+
+
+<footer id="footer" class="site-navigation w-full pb-24 has-white-color full-footer" style="margin-top: auto">
+	<div class="wp-block-group">
+					<div class="navigation-container pt-40 pb-16 lg:py-48">
+				<div class="mb-24 lg:mb-0">
+					<img
+						src="/wp-content/themes/gett/build/images/gett-logo-white.svg"
+						alt="Gett"
+						width="70"
+						height="23"
+					/>
+				</div>
+
+				<div class="lg:mt-48 lg:flex lg:justify-content-between">
+					<nav>
+						<ul id="menu-footer" class="menu lg:flex "><li id="menu-item-14624" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14624"><a href="#">Business</a>
+<ul class="sub-menu">
+	<li id="menu-item-16024" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16024"><a href="/uk/business">Gett Business</a></li>
+	<li id="menu-item-16025" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16025"><a href="/uk/business/taxi-booking-platform">Platform</a></li>
+	<li id="menu-item-16036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16036"><a href="/uk/business/our-support-team">Our support team</a></li>
+	<li id="menu-item-16039" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16039"><a href="/uk/business/fleets">Our taxi fleet</a></li>
+	<li id="menu-item-16052" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16052"><a href="/uk/business/hospitality">Gett Hospitality</a></li>
+	<li id="menu-item-16057" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16057"><a href="/uk/business/public-sector-taxis">Gett Public</a></li>
+</ul>
+</li>
+<li id="menu-item-14631" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14631"><a href="#">Riders</a>
+<ul class="sub-menu">
+	<li id="menu-item-16045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16045"><a href="https://www.gett.com/uk/riders">London’s black taxi app</a></li>
+	<li id="menu-item-16050" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16050"><a href="/uk/riders/family">Gett Family</a></li>
+	<li id="menu-item-14633" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14633"><a href="https://www.gett.com/uk/ride-greener/">Ride Greener</a></li>
+</ul>
+</li>
+<li id="menu-item-15388" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-15388"><a href="#">Drivers</a>
+<ul class="sub-menu">
+	<li id="menu-item-16080" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16080"><a href="/uk/drivers">Become a Driver</a></li>
+	<li id="menu-item-14643" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14643"><a href="https://www.gett.com/uk/supply-partners/">Become a Supply Partner</a></li>
+</ul>
+</li>
+<li id="menu-item-14639" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-14639"><a href="#">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-14640" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14640"><a href="https://www.gett.com/uk/about/">About Us</a></li>
+	<li id="menu-item-14642" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-14642"><a href="https://www.gett.com/careers/" aria-current="page">Careers</a></li>
+	<li id="menu-item-14637" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14637"><a href="https://www.gett.com/blog/">Blog</a></li>
+	<li id="menu-item-16103" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16103"><a href="/uk/help">Help Centre</a></li>
+</ul>
+</li>
+</ul>					</nav>
+
+					<div class="buttons-container mt-24 has-text-align-center lg:mt-0">
+													<a
+								href="https://gett.onelink.me/dxLT/fc20831e"
+								class="btn btn-secondary btn-color-white footer-download-app-button"
+							>
+								Download the app							</a>
+						
+												<div class="mt-40">
+															<a
+									href="https://www.facebook.com/Gett.UK/"
+									aria-label="Facebook"
+									target="_blank"
+									rel="noreferrer noopener"
+									style="display:inline-block"
+																	>
+									<img
+										src="/wp-content/themes/gett/build/images/social/white/facebook.svg"
+										alt="Facebook"
+										width="22"
+										height="22"
+									>
+								</a>
+															<a
+									href="https://twitter.com/Gett_UK"
+									aria-label="Twitter"
+									target="_blank"
+									rel="noreferrer noopener"
+									style="display:inline-block"
+									class="ms-32 lg:ms-24"								>
+									<img
+										src="/wp-content/themes/gett/build/images/social/white/twitter.svg"
+										alt="Twitter"
+										width="22"
+										height="22"
+									>
+								</a>
+															<a
+									href="https://www.instagram.com/gett_uk/"
+									aria-label="Instagram"
+									target="_blank"
+									rel="noreferrer noopener"
+									style="display:inline-block"
+									class="ms-32 lg:ms-24"								>
+									<img
+										src="/wp-content/themes/gett/build/images/social/white/instagram.svg"
+										alt="Instagram"
+										width="22"
+										height="22"
+									>
+								</a>
+															<a
+									href="https://www.linkedin.com/company/gettaxi"
+									aria-label="Linkedin"
+									target="_blank"
+									rel="noreferrer noopener"
+									style="display:inline-block"
+									class="ms-32 lg:ms-24"								>
+									<img
+										src="/wp-content/themes/gett/build/images/social/white/linkedin.svg"
+										alt="Linkedin"
+										width="22"
+										height="22"
+									>
+								</a>
+													</div>
+												</div>
+				</div>
+			</div>
+		
+		<div class="footer-bottom-container has-small-font-size has-text-align-center pt-24">
+			
+			<div class="lg:flex lg:justify-content-between">
+				<div class="footer-wrapper-start flex flex-wrap justify-content-center gap-x-24 gap-y-8 lg:gap-x-16">
+					<ul id="menu-legals" class="flex flex-wrap justify-content-center gap-x-24 gap-y-8 lg:gap-x-16"><li id="menu-item-14598" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14598"><a href="/uk/legal">Legal</a></li><li id="menu-item-16088" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16088"><a href="/legal/privacy-policies">Privacy Policy</a></li><li id="menu-item-16070" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16070"><a href="/security">Security</a></li></ul>
+					<button
+						id="ot-sdk-btn"
+						class="ot-sdk-show-settings has-small-font-size has-white-color py-0 px-0 hover:underline"
+					>Cookie Settings</button>
+				</div>
+
+				<p class="mt-24 has-small-font-size has-text-align-center order-first lg:mt-0">
+					© 2026 Gett - All Rights Reserved				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/gett/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="lottie-js" src="https://www.gett.com/wp-content/themes/gett/build/vendor/lottie/lottie.min.js?ver=1692109496"></script>
+<script id="block-lottie-js" src="https://www.gett.com/wp-content/themes/gett/build/js/lib/blocks/lottie.js?ver=1740395227"></script>
+<script id="gett-utils-js" src="https://www.gett.com/wp-content/themes/gett/build/js/utils.js?ver=1747830948"></script>
+<script id="gtdata-js" src="https://www.gett.com/wp-content/themes/gett/build/js/lib/gtdata.js?ver=1755172980"></script>
+<script id="form-manager-js" src="https://www.gett.com/wp-content/themes/gett/build/js/lib/form-manager.js?ver=1763540118"></script>
+<script id="global-js" src="https://www.gett.com/wp-content/themes/gett/build/js/global.js?ver=1746465696"></script>
+<script id="careers-open-positions-list-js" src="https://www.gett.com/wp-content/themes/gett/build/js/lib/careers/open-positions-list.js?ver=1740923581"></script>
+<script id="comeet-script-js" src="https://www.gett.com/wp-content/themes/gett/build/js/lib/careers/comeet-script.js?ver=1755172980"></script>
+
+<!-- Accessibility - gett.com-->
+
+<style>
+/*custom accessibility BTN colors*/
+#INDmenu-btn svg :first-child{
+	fill: #fff !important;
+	stroke: #555555 !important;
+	stroke-width: 3px !important;
+}
+
+#INDmenu-btn svg :last-child{
+	fill: #555555 !important;
+}
+</style>
+
+<script data-cfasync="false">
+	window.interdeal = {
+		sitekey   : '7ec85bd2bce37fedd9b84ea84b5b58f1',
+		Position  : 'Right',
+		Menulang  : 'EN',
+		domains	 : {
+			js  : 'https://js.nagich.co.il/',
+			acc : 'https://access.nagich.co.il/'
+		},
+		btnStyle  : {
+			vPosition : ['78%','22%'],
+			scale	  : ['0.7','0.7'],
+		}
+	}
+</script>
+
+<script>
+	(function(doc, head, body){
+		var coreCall             = doc.createElement('script');
+		coreCall.src             = 'https://js.nagich.co.il/core/2.1.9/accessibility.js';
+		coreCall.defer           = true;
+		coreCall.integrity       = 'sha512-JkluHARviIJeTsvupKh9gkG6AsMbbBOkfg9zPQvZwxJtslc0NTDhdQrVX+qg45fEyM97XrW07Gb8wmh/vwlITA==';
+		coreCall.crossOrigin     = 'anonymous';
+		coreCall.setAttribute('data-cfasync', true );
+		body? body.appendChild(coreCall) : head.appendChild(coreCall);
+	})(document, document.head, document.body);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+{
+  "company_id": "irp_systems",
+  "schema_version": 1,
+  "career_url": "https://irpsystems.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:27:42.388098Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?irpsystems\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "irpsystems.com|careers|2",
+    "explicit_accept": [
+      "https://www.irpsystems.com/careers/FF.27F/",
+      "https://www.irpsystems.com/careers/43.E66/",
+      "https://www.irpsystems.com/careers/3E.B64/",
+      "https://www.irpsystems.com/careers/32.568/",
+      "https://www.irpsystems.com/careers/7D.27B/",
+      "https://www.irpsystems.com/careers/81.E62/",
+      "https://www.irpsystems.com/careers/E3.768/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 18,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "03ea86fda9d5325d7423c8c16b021d57403cc497",
+    "candidate_count": 34
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 7
+  },
+  "rediscover_after": "2026-10-05T10:27:42.388098Z",
+  "notes": []
+}

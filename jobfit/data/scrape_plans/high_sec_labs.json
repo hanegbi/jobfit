@@ -1,0 +1,117 @@
+{
+  "company_id": "high_sec_labs",
+  "schema_version": 1,
+  "career_url": "https://highseclabs.com/jobs/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:27:25.602632Z",
+  "verified_at": "2026-09-28T10:27:25.602632Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?highseclabs\\.com/jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?highseclabs\\.com/product/[^/?#]+/?$",
+      "^https?://(www\\.)?highseclabs\\.com/solutions/[^/?#]+/?$",
+      "^https?://(www\\.)?highseclabs\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "highseclabs.com|jobs|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 53,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 59,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 88,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 106,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 120,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 121,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 122,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 123,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 124,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 125,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 126,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 127,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "ef0dfabdb3005d4a4db58bdeb7ddfa50659ed54b",
+    "candidate_count": 134
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": "2026-10-05T10:27:25.602632Z",
+  "notes": []
+}

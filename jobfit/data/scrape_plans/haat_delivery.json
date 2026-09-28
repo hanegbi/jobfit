@@ -1,0 +1,59 @@
+{
+  "company_id": "haat_delivery",
+  "schema_version": 1,
+  "career_url": "https://careers.haat.delivery/",
+  "derived_by": "rules",
+  "model": null,
+  "derived_at": "2026-09-28T10:27:11.025683Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "playwright",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "js_shell",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "0e27b8cbefbbc044b2bf71084060967ac4b8119e",
+    "candidate_count": 3
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 0
+  },
+  "rediscover_after": "2026-10-05T10:27:11.025683Z",
+  "notes": [
+    "classifier failed (no recorded labels for https://careers.haat.delivery/); fell back to rules"
+  ]
+}

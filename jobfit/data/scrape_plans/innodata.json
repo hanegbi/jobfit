@@ -1,0 +1,53 @@
+{
+  "company_id": "innodata",
+  "schema_version": 1,
+  "career_url": "https://innodatacareers.com/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:28:11.654902Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "8526a76d425013d4112ae7f3549e3caed9368107",
+    "candidate_count": 7
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 0
+  },
+  "rediscover_after": "2026-10-05T10:28:11.654902Z",
+  "notes": []
+}

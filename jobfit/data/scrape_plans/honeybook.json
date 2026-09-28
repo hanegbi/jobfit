@@ -1,0 +1,53 @@
+{
+  "company_id": "honeybook",
+  "schema_version": 1,
+  "career_url": "https://www.honeybook.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:27:27.767469Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 31,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 48,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "ec4800c8d757ef4968e967bd63750e6455c3dca4",
+    "candidate_count": 58
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 0
+  },
+  "rediscover_after": "2026-10-05T10:27:27.767469Z",
+  "notes": []
+}

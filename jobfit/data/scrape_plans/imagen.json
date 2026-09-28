@@ -1,0 +1,66 @@
+{
+  "company_id": "imagen",
+  "schema_version": 1,
+  "career_url": "https://imagen.ai/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:27:49.950863Z",
+  "verified_at": "2026-09-28T10:27:49.950863Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?jobs\\.gem\\.com/imagen\\-technologies/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?imagen\\.ai/careers/[^/?#]+/?$",
+      "^https?://(www\\.)?cdn\\.prod\\.website\\-files\\.com/6698f658d36f64dc3c52f4f5/[^/?#]+/?$"
+    ],
+    "url_shape": "jobs.gem.com|imagen-technologies|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "f6fb64dd74211ecbb9d1b5a3e53793189919ba1c",
+    "candidate_count": 16
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": "2026-10-05T10:27:49.950863Z",
+  "notes": []
+}

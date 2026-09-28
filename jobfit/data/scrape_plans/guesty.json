@@ -1,0 +1,146 @@
+{
+  "company_id": "guesty",
+  "schema_version": 1,
+  "career_url": "https://www.guesty.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:27:02.209496Z",
+  "verified_at": "2026-09-28T10:27:02.209496Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?guesty\\.com/careers\\-open\\-positions/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?guesty\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?guesty\\.com/wp\\-content/uploads/2026/08/[^/?#]+/?$"
+    ],
+    "url_shape": "guesty.com|careers-open-positions/co/spain/1B.273|5",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 55,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 56,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 57,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 58,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 59,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 60,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 61,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 62,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 63,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 64,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 65,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 66,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 67,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 68,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 69,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 70,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 71,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 72,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 89,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 100,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "324f89d978f90674aa1f051b12f4bbe0ecc7d8ae",
+    "candidate_count": 102
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 18
+  },
+  "rediscover_after": "2026-10-05T10:27:02.209496Z",
+  "notes": []
+}

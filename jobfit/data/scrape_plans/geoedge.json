@@ -1,0 +1,75 @@
+{
+  "company_id": "geoedge",
+  "schema_version": 1,
+  "career_url": "https://www.geoedge.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:26:36.962064Z",
+  "verified_at": "2026-09-28T10:26:36.962064Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?geoedge\\.com/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?geoedge\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "geoedge.com|careers/co/other/B1.D61/business-development-associate|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "d09850012fb0277350b35eeca0f6ed57d8d975ca",
+    "candidate_count": 41
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": "2026-10-05T10:26:36.962064Z",
+  "notes": []
+}
