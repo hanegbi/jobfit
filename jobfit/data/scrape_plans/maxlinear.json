@@ -1,0 +1,97 @@
+{
+  "company_id": "maxlinear",
+  "schema_version": 1,
+  "career_url": "https://www.maxlinear.com/company/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:46:44.794495Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?maxlinear\\.com/products/interface/serial\\-transceivers/[^/?#]+/?$",
+      "^https?://(www\\.)?maxlinear\\.com/company/[^/?#]+/?$",
+      "^https?://(www\\.)?careersus\\-maxlinear\\.icims\\.com/jobs/[^/?#]+/?$",
+      "^https?://(www\\.)?careersintl\\-maxlinear\\.icims\\.com/jobs/[^/?#]+/?$"
+    ],
+    "url_shape": "careersintl-maxlinear.icims.com|jobs/2839/director-of-customer-program-management|4",
+    "explicit_accept": [
+      "https://careersintl-maxlinear.icims.com/jobs/2839/director-of-customer-program-management/job",
+      "https://careersintl-maxlinear.icims.com/jobs/2758/principal-systems-engineer-%28power%29/job",
+      "https://careersintl-maxlinear.icims.com/jobs/2858/senior-marketing-manager/job"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 63,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 64,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 115,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 121,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 127,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 128,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 129,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 130,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 131,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "e7367042f63d3e466513a35c8d35fa47716150ef",
+    "candidate_count": 139
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": "2026-10-05T10:46:44.794495Z",
+  "notes": []
+}

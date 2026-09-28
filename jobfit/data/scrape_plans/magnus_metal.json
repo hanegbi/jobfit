@@ -1,0 +1,87 @@
+{
+  "company_id": "magnus_metal",
+  "schema_version": 1,
+  "career_url": "https://www.magnusmetal.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:46:36.883652Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?magnusmetal\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "magnusmetal.com|careers|2",
+    "explicit_accept": [
+      "https://magnusmetal.com/careers/senior-chemistry-researcher-job2423/",
+      "https://magnusmetal.com/careers/experimental-physicist-job2418/",
+      "https://magnusmetal.com/careers/chemical-polymer-materials-engineer-job2420/",
+      "https://magnusmetal.com/careers/qc-engineer-job2425/",
+      "https://magnusmetal.com/careers/system-operator-job4002/",
+      "https://magnusmetal.com/careers/cto-integrator-job2421/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 4,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 5,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 6,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 8,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "569e6798248e24d2a767e5c7b7a77a61c7fe26eb",
+    "candidate_count": 11
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": "2026-10-05T10:46:36.883652Z",
+  "notes": []
+}

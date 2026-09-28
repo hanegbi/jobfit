@@ -1,0 +1,53 @@
+{
+  "company_id": "majestic_labs",
+  "schema_version": 1,
+  "career_url": "https://majestic-labs.ai/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:46:37.323984Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "4ec8ed755600d41c037091a2d5f471bf0f762436",
+    "candidate_count": 7
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 0
+  },
+  "rediscover_after": "2026-10-05T10:46:37.323984Z",
+  "notes": []
+}

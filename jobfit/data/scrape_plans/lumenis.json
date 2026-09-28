@@ -1,0 +1,108 @@
+{
+  "company_id": "lumenis",
+  "schema_version": 1,
+  "career_url": "https://lumenis.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:46:22.235378Z",
+  "verified_at": "2026-09-28T10:46:22.235378Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?lumenis\\.com/about/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?lumenis\\.com/vision/products/photocoagulators/[^/?#]+/?$",
+      "^https?://(www\\.)?lumenis\\.com/about/[^/?#]+/?$",
+      "^https?://(www\\.)?lumenis\\.applicantpro\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?globalblocks\\.lumenis\\.com/wp\\-content/uploads/2024/05/[^/?#]+/?$"
+    ],
+    "url_shape": "lumenis.com|about/careers/co/lumenis-hq-yokneam/D2.D6D/clinical-manager|7",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 62,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 76,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 77,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 94,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 95,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 96,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 97,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 98,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 99,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 100,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 101,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 102,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "cb0608c8257f50214e4dbb12e43859f9e9c7946e",
+    "candidate_count": 121
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": "2026-10-05T10:46:22.235378Z",
+  "notes": []
+}

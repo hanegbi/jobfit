@@ -1,0 +1,86 @@
+{
+  "company_id": "medinol",
+  "schema_version": 1,
+  "career_url": "https://www.medinol.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:47:00.517013Z",
+  "verified_at": "2026-09-28T10:47:00.517013Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?medinol\\.com/en/openings/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?medinol\\.com/en/technology/[^/?#]+/?$",
+      "^https?://(www\\.)?medinol\\.com/en/working\\-in\\-medinol/[^/?#]+/?$"
+    ],
+    "url_shape": "medinol.com|en/openings|3",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "64d4808d3d33f2fb552cb8cd82c6186d0b372706",
+    "candidate_count": 47
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": "2026-10-05T10:47:00.517013Z",
+  "notes": []
+}

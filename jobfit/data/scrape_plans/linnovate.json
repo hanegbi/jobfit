@@ -1,0 +1,71 @@
+{
+  "company_id": "linnovate",
+  "schema_version": 1,
+  "career_url": "https://www.linnovate.net/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:46:17.344693Z",
+  "verified_at": "2026-09-28T10:46:17.344693Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?linkedin\\.com/jobs/view/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?linnovate\\.net/[^/?#]+/?$",
+      "^https?://(www\\.)?linnovate\\.net/wp\\-content/uploads/2026/08/[^/?#]+/?$"
+    ],
+    "url_shape": "linkedin.com|jobs/view|3",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "372569a9047d9592dbbdfccb00d2a270dd98faf9",
+    "candidate_count": 27
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": "2026-10-05T10:46:17.344693Z",
+  "notes": []
+}

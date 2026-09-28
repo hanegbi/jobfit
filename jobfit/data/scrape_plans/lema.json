@@ -1,0 +1,90 @@
+{
+  "company_id": "lema",
+  "schema_version": 1,
+  "career_url": "https://www.lema.ai/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:46:10.542656Z",
+  "verified_at": "2026-09-28T10:46:10.542656Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?lema\\.ai/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?lema\\.ai/[^/?#]+/?$"
+    ],
+    "url_shape": "lema.ai|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 18,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "2bf8089327895b6d734725be92aa2feec1941d55",
+    "candidate_count": 26
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": "2026-10-05T10:46:10.542656Z",
+  "notes": []
+}

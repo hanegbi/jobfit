@@ -1,0 +1,104 @@
+{
+  "company_id": "istra_research",
+  "schema_version": 1,
+  "career_url": "https://www.istraresearch.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:45:47.828891Z",
+  "verified_at": "2026-09-28T10:45:47.828891Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?istrallc\\.com/careers\\-2/co/istra\\-research/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?istrallc\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?istrallc\\.com/careers\\-2/co/development\\-technology/[^/?#]+/?$",
+      "^https?://(www\\.)?istrallc\\.com/careers\\-2/co/finance/[^/?#]+/?$",
+      "^https?://(www\\.)?istrallc\\.com/careers\\-2/co/research/[^/?#]+/?$",
+      "^https?://(www\\.)?istrallc\\.com/careers\\-2/co/infrastructure\\-operations/[^/?#]+/?$"
+    ],
+    "url_shape": "istrallc.com|careers-2/co/istra-research/6D.447/senior-vlsi-design-engineer|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 8,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "4839c26a4ee2ab3d2043fc076b149c8430626e25",
+    "candidate_count": 20
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": "2026-10-05T10:45:47.828891Z",
+  "notes": []
+}

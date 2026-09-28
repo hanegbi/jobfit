@@ -1,0 +1,101 @@
+{
+  "company_id": "lusha",
+  "schema_version": 1,
+  "career_url": "https://www.lusha.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:46:24.185242Z",
+  "verified_at": "2026-09-28T10:46:24.185242Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?lusha\\.com/careers/co/tel\\-aviv/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?ideas\\.lusha\\.com/forums/[^/?#]+/?$",
+      "^https?://(www\\.)?lusha\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "lusha.com|careers/co/tel-aviv/46.07A|5",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 38,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 39,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 44,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 49,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "79ab46fa58f31a74cd49a6f161727cf559afd2e4",
+    "candidate_count": 70
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 9
+  },
+  "rediscover_after": "2026-10-05T10:46:24.185242Z",
+  "notes": []
+}

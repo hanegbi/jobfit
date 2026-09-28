@@ -1,0 +1,130 @@
+{
+  "company_id": "kela",
+  "schema_version": 1,
+  "career_url": "https://www.kelacyber.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:45:53.252955Z",
+  "verified_at": "2026-09-28T10:45:53.252955Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?kelacyber\\.com/careers/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?kelacyber\\.com/ja/[^/?#]+/?$",
+      "^https?://(www\\.)?kelacyber\\.com/es/[^/?#]+/?$",
+      "^https?://(www\\.)?kelacyber\\.com/de/[^/?#]+/?$",
+      "^https?://(www\\.)?kelacyber\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?kelacyber\\.com/resources/research/[^/?#]+/?$",
+      "^https?://(www\\.)?kelacyber\\.com/press/[^/?#]+/?$"
+    ],
+    "url_shape": "kelacyber.com|careers/engineering/08.66F|4",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 39,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 41,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 44,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 45,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 46,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 47,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 48,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "6d16773f71c511b13f9e1cea0f63304ef7bf9f27",
+    "candidate_count": 57
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 10
+  },
+  "rediscover_after": "2026-10-05T10:45:53.252955Z",
+  "notes": []
+}

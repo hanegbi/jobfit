@@ -1,0 +1,58 @@
+{
+  "company_id": "kueez",
+  "schema_version": 1,
+  "career_url": "https://careers.smartrecruiters.com/Kueez",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:46:06.224722Z",
+  "verified_at": "2026-09-28T10:46:06.224722Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?jobs\\.smartrecruiters\\.com/Kueez/[^/?#]+/?$",
+    "exclude_url": [],
+    "url_shape": "jobs.smartrecruiters.com|Kueez|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 3,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 4,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 5,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "360f2338c98e02a5e24a24092fdb04f901afa275",
+    "candidate_count": 6
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": "2026-10-05T10:46:06.224722Z",
+  "notes": []
+}

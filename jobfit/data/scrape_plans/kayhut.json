@@ -1,0 +1,87 @@
+{
+  "company_id": "kayhut",
+  "schema_version": 1,
+  "career_url": "https://www.kayhut.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:45:59.575872Z",
+  "verified_at": "2026-09-28T10:45:59.575872Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?kayhut\\.com/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?kayhut\\.com/careers/co/ai/[^/?#]+/?$",
+      "^https?://(www\\.)?kayhut\\.com/careers/co/other/[^/?#]+/?$",
+      "^https?://(www\\.)?kayhut\\.com/careers/co/software/[^/?#]+/?$"
+    ],
+    "url_shape": "kayhut.com|careers/co/herzliya-israel/3A.C68/senior-full-stack-engineer-ai-native|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 4,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 5,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "cbe1a0ada308a4209f7c394eb36da4b2dfe506f9",
+    "candidate_count": 8
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": "2026-10-05T10:45:59.575872Z",
+  "notes": []
+}

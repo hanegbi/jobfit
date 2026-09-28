@@ -1,0 +1,91 @@
+{
+  "company_id": "kms_lighthouse",
+  "schema_version": 1,
+  "career_url": "https://kmslh.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:45:53.975068Z",
+  "verified_at": "2026-09-28T10:45:53.975068Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?kmslh\\.com/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?kmslh\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?kmslh\\.com/wp\\-content/uploads/2021/03/[^/?#]+/?$"
+    ],
+    "url_shape": "kmslh.com|careers/co/belgrade-serbia/9D.073/devops-engineer|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 21,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 22,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 23,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 40,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 42,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "7fa05ff0690aeb1df5aa7517b36795d2bba8d15a",
+    "candidate_count": 44
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": "2026-10-05T10:45:53.975068Z",
+  "notes": []
+}
