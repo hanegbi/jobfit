@@ -32,6 +32,18 @@ def test_adds_a_brand_new_job(companies_dir):
     assert record["career_url"] == "https://acme/careers"
 
 
+def test_stores_years_required_on_a_new_job(companies_dir):
+    fetched = [{
+        "title": "Backend Engineer", "location": "Tel Aviv",
+        "description": "Requirements: 5+ years of experience with Python",
+        "url": "https://acme.com/careers/1",
+    }]
+    record, new_count, closed_count = update_jobs.diff_and_update("Acme Corp", "https://acme.com/careers", fetched, {})
+
+    assert new_count == 1
+    assert record["jobs"][0]["years_required"] == 5
+
+
 def test_marks_a_missing_job_closed_but_keeps_it(companies_dir):
     profiles = {"default": {"must_have_keywords": []}}
     fetched_first = [{"title": "Backend Engineer", "location": None, "url": "https://x/1", "description": ""}]

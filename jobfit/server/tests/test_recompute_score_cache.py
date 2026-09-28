@@ -5,7 +5,7 @@ re-upload), not every job every time."""
 
 import json
 
-from jobfit import scoring
+from jobfit import config, scoring
 from jobfit.scripts import update_jobs
 
 
@@ -147,3 +147,40 @@ def test_recompute_rescores_when_a_profile_is_added(tmp_path, monkeypatch):
     assert (rescored, skipped) == (1, 0)
     saved = json.loads(path.read_text(encoding="utf-8"))
     assert "score_infra" in saved["jobs"][0]
+
+
+def test_recompute_stores_years_required_when_a_job_is_rescored(tmp_path, monkeypatch):
+    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
+    profiles = {"default": {"text": "Backend engineer with Python experience"}}
+    job = {
+        "id": "1", "title": "Backend Engineer",
+        "description": "Requirements: 5+ years of experience with Python",
+    }
+    path = tmp_path / "acme.json"
+    path.write_text(json.dumps({"name": "Acme", "jobs": [job]}), encoding="utf-8")
+
+    update_jobs._recompute_one_company(
+        str(path), profiles, {"default"}, ("score_", "matched_", "coverage_", "confidence_", "requirements_"),
+    )
+
+    saved = json.loads(path.read_text(encoding="utf-8"))
+    assert saved["jobs"][0]["years_required"] == 5
+
+
+def test_recompute_stage_writes_scoring_engine_to_meta(tmp_path, monkeypatch):
+    companies_dir = tmp_path / "companies"
+    companies_dir.mkdir()
+    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
+    monkeypatch.setattr(update_jobs, "META_PATH", companies_dir / "_meta.json")
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {})
+    monkeypatch.setattr(update_jobs, "RECOMPUTE_WORKERS", 1)
+    monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
+    monkeypatch.setattr(config, "JOBS_OUTPUT_JSON", tmp_path / "jobs_v2.json")
+    monkeypatch.setattr(config, "JOBS_OUTPUT_META_JSON", tmp_path / "jobs_v2.meta.json")
+    monkeypatch.setattr(config, "CONNECTIONS_CSV", tmp_path / "connections.csv")
+    monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
+
+    update_jobs.recompute_stage()
+
+    meta = json.loads((companies_dir / "_meta.json").read_text(encoding="utf-8"))
+    assert meta["scoring_engine"] == scoring.SCORING_ENGINE_FINGERPRINT

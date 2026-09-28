@@ -18,6 +18,7 @@ REFERRAL_JOBS_PATH = Path(r"C:\Users\user\Downloads\jobs_by_company.json")
 GENERIC_DESC_TTL_HOURS = 24 * 14
 CONNECTIONS_CACHE = ROOT / "cache" / "connections_index.json"
 JOBS_OUTPUT_JSON = ROOT / "data" / "jobs_v2.json"
+JOBS_OUTPUT_META_JSON = ROOT / "data" / "jobs_v2.meta.json"
 OUTPUT_HTML = ROOT.parent / "jobfit.html"
 
 # --- Personal inputs (uploaded through the control panel, gitignored) ---

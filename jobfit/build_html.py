@@ -330,6 +330,7 @@ const JOBS = __JOBS_JSON__;
 const PROFILES = __PROFILES_JSON__;
 const COMPANY_ADDRESSES = __COMPANY_ADDRESSES_JSON__;
 const GENERATED_AT = __GENERATED_AT_JSON__;
+const SCORING_ENGINE = __SCORING_ENGINE_JSON__;
 
 const cvSelectEl = document.getElementById("cvSelect");
 for (const p of PROFILES) {
@@ -1129,7 +1130,7 @@ const descCount = JOBS.filter(j => j.has_description).length;
 const referralCount = JOBS.filter(j => j.is_referral).length;
 function updateStatBlock() {
   document.getElementById("statBlock").innerHTML =
-    `${JOBS.length} jobs &middot; ${companiesCount} companies<br>${connCount} with a connection<br>${descCount} with full description<br>${referralCount} referral jobs<br>${likedIds.size} liked &middot; ${hiddenIds.size} hidden &middot; ${sentIds.size} CV sent &middot; ${reachedIds.size} reached out<br>generated ${GENERATED_AT}`;
+    `${JOBS.length} jobs &middot; ${companiesCount} companies<br>${connCount} with a connection<br>${descCount} with full description<br>${referralCount} referral jobs<br>${likedIds.size} liked &middot; ${hiddenIds.size} hidden &middot; ${sentIds.size} CV sent &middot; ${reachedIds.size} reached out<br>generated ${GENERATED_AT}${SCORING_ENGINE ? ` &middot; engine ${SCORING_ENGINE}` : ""}`;
 }
 updateStatBlock();
 
@@ -1155,16 +1156,27 @@ def _load_company_addresses() -> dict:
         return {}
 
 
-def render(dataset: list[dict], profiles: list[dict]) -> str:
+def _load_scoring_engine_fingerprint() -> str | None:
+    if not config.JOBS_OUTPUT_META_JSON.exists():
+        return None
+    try:
+        return json.loads(config.JOBS_OUTPUT_META_JSON.read_text(encoding="utf-8")).get("scoring_engine")
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def render(dataset: list[dict], profiles: list[dict], scoring_engine: str | None = None) -> str:
     jobs_json = json.dumps(dataset, ensure_ascii=False).replace("</", "<\\/")
     profiles_json = json.dumps(profiles, ensure_ascii=False)
     addresses_json = json.dumps(_load_company_addresses(), ensure_ascii=False).replace("</", "<\\/")
     generated_at = json.dumps(datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"))
+    scoring_engine_json = json.dumps(scoring_engine)
     return (
         PAGE_TEMPLATE.replace("__JOBS_JSON__", jobs_json)
         .replace("__PROFILES_JSON__", profiles_json)
         .replace("__COMPANY_ADDRESSES_JSON__", addresses_json)
         .replace("__GENERATED_AT_JSON__", generated_at)
+        .replace("__SCORING_ENGINE_JSON__", scoring_engine_json)
     )
 
 
@@ -1173,7 +1185,7 @@ def build(dataset: list[dict] | None = None) -> None:
         dataset = json.loads(config.JOBS_OUTPUT_JSON.read_text(encoding="utf-8"))
     from jobfit import cv
     profiles = [{"id": pid, "name": entry["name"]} for pid, entry in cv.load_registry().items()]
-    html = render(dataset, profiles)
+    html = render(dataset, profiles, _load_scoring_engine_fingerprint())
     config.OUTPUT_HTML.write_text(html, encoding="utf-8")
     print(f"wrote {config.OUTPUT_HTML} ({len(dataset)} jobs)")
 

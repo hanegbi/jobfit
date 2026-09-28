@@ -463,6 +463,7 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
                 "status": "new",
             }
             new_job.update(scores)
+            new_job["years_required"] = scoring.required_years(f"{title}\n{new_job['description'] or ''}")
             existing_by_id[job_id] = new_job
             new_count += 1
 
@@ -607,6 +608,7 @@ def _recompute_one_company(
             skipped += 1
             continue
         job.update(scoring.score_job_both(job, profiles))
+        job["years_required"] = scoring.required_years(f"{job.get('title') or ''}\n{job.get('description') or ''}")
         job["_score_cache_keys"] = current_keys
         rescored += 1
         for key in list(job):
@@ -672,9 +674,12 @@ def recompute_stage(force: bool = False) -> None:
                     )
 
         count = aggregate_to_jobs_v2()
+        meta = load_meta()
+        meta["scoring_engine"] = scoring.SCORING_ENGINE_FINGERPRINT
+        save_meta(meta)
         logger.info(
-            "recompute: rescored %d jobs (%d unchanged, skipped) against %d profile(s), aggregated %d jobs",
-            jobs_rescored, jobs_skipped, len(profiles), count,
+            "recompute: rescored %d jobs (%d unchanged, skipped) against %d profile(s), aggregated %d jobs, engine %s",
+            jobs_rescored, jobs_skipped, len(profiles), count, scoring.SCORING_ENGINE_FINGERPRINT,
         )
         from jobfit import build_html
         build_html.build()
@@ -852,6 +857,12 @@ def aggregate_to_jobs_v2() -> int:
 
         dataset.sort(key=lambda r: r.get("best_score") or 0, reverse=True)
         atomic_write_json(config.JOBS_OUTPUT_JSON, dataset)
+        atomic_write_json(config.JOBS_OUTPUT_META_JSON, {
+            "scoring_engine": scoring.SCORING_ENGINE_FINGERPRINT,
+            "aggregated_at": _now_iso(),
+            "job_count": len(dataset),
+            "company_count": len({r["company"] for r in dataset}),
+        })
         return len(dataset)
 
 
@@ -862,6 +873,7 @@ def main() -> None:
     parser.add_argument("--force", action="store_true", help="re-check companies even if checked recently")
     parser.add_argument("--skip-aggregate", action="store_true", help="don't rescore/rebuild after updating")
     parser.add_argument("--wait", action="store_true", help="wait for another pipeline run to finish instead of exiting")
+    parser.add_argument("--force-rescore", action="store_true", help="rescore every job regardless of the score cache")
     args = parser.parse_args()
 
     with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="update", scope=args.company or "all", wait=args.wait):
@@ -903,7 +915,7 @@ def main() -> None:
         save_meta(meta)
 
         if not args.skip_aggregate:
-            recompute_stage()
+            recompute_stage(force=args.force_rescore)
 
         logger.info("done in %.1fs", time.time() - started)
 
