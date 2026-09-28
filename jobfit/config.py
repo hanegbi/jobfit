@@ -33,6 +33,21 @@ COMPANY_RECHECK_TTL_HOURS = 12
 RUN_HISTORY_PATH = ROOT / "data" / "run_history.json"
 PIPELINE_LOCK_PATH = ROOT / "data" / ".pipeline.lock"
 
+# --- Plan-driven scraping (jobfit/scrape) ---
+# One ScrapePlan per company, derived once by `update_jobs --discover`
+# (deterministic probes first, a small LLM only when they cannot decide)
+# and executed in pure Python on every ordinary run. Committed to git:
+# producing one may have cost an API call, and hand-written plans are legal.
+SCRAPE_PLANS_DIR = ROOT / "data" / "scrape_plans"
+# The listing HTML a plan was derived from - the regression fixture the
+# replay test runs every plan against. Committed to git.
+LISTING_SNAPSHOTS_DIR = ROOT / "cache" / "listing_snapshots"
+# TTL cache for job detail pages (replaces cache/generic_descriptions.json).
+PAGE_CACHE_DIR = ROOT / "cache" / "pages"
+PAGE_CACHE_TTL_HOURS = GENERIC_DESC_TTL_HOURS
+# URL regexes the audit marked "not a job" - consulted by RejectListFilter.
+LINK_REJECTS_PATH = ROOT / "data" / "link_rejects.json"
+
 # The curated {company: url|null} map (781 companies) that drives which
 # companies scrape_stage() checks - distinct from COMPANY_CAREER_PAGES_CACHE
 # above, which is the older pipeline.py's tiered scrape-result cache.

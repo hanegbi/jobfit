@@ -15,3 +15,7 @@ jobfit/data/connections.csv
 jobfit/data/referrals/
 jobfit/data/profiles.json
 jobfit/data/.server.lock
+
+# Job detail-page TTL cache (jobfit/scrape) - regeneratable, not committed
+# like data/scrape_plans/ and cache/listing_snapshots/ are.
+jobfit/cache/pages/
