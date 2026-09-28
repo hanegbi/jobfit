@@ -705,6 +705,23 @@ def aggregate_to_jobs_v2(force: bool = False) -> int:
         return len(dataset)
 
 
+def print_plan_summary(store) -> None:
+    from collections import Counter
+    plans = list(store.all())
+    by_status = Counter(p.status for p in plans)
+    by_derived = Counter(p.derived_by for p in plans)
+    by_kind = Counter(p.strategy.kind for p in plans)
+    print(f"scrape plans: {len(plans)}")
+    print("  by status:     " + ", ".join(f"{k}={v}" for k, v in sorted(by_status.items())))
+    print("  by derived_by: " + ", ".join(f"{k}={v}" for k, v in sorted(by_derived.items())))
+    print("  by kind:       " + ", ".join(f"{k}={v}" for k, v in sorted(by_kind.items())))
+    broken = [p for p in plans if p.strategy.kind == "broken_url"]
+    if broken:
+        print("  broken_url plans (review these):")
+        for p in broken:
+            print(f"    {p.company_id}: {p.strategy.reason} [{p.status}]")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="only process the first N companies (testing)")
@@ -714,7 +731,13 @@ def main() -> None:
     parser.add_argument("--wait", action="store_true", help="wait for another pipeline run to finish instead of exiting")
     parser.add_argument("--force-rescore", action="store_true", help="rescore every job regardless of the score cache")
     parser.add_argument("--force-aggregate", action="store_true", help="ignore the per-company aggregate cache")
+    parser.add_argument("--plans", action="store_true", help="print a summary of stored scrape plans and exit")
     args = parser.parse_args()
+
+    if args.plans:
+        from jobfit.scrape.plan_store import FilePlanStore
+        print_plan_summary(FilePlanStore(config.SCRAPE_PLANS_DIR))
+        return
 
     with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="update", scope=args.company or "all", wait=args.wait):
         companies = load_companies_to_scrape()

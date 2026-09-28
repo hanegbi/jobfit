@@ -19,6 +19,8 @@ REASON_MAX = 200
 
 
 class PlanClassifier(ABC):
+    derived_by: str = "rules"
+
     @abstractmethod
     def classify(self, page: Page, candidates: list[Candidate], career_url: str) -> Labels: ...
 
@@ -49,6 +51,8 @@ class RulesPlanClassifier(PlanClassifier):
 
 
 class RecordedPlanClassifier(PlanClassifier):
+    derived_by = "llm"
+
     def __init__(self, labels_by_url: dict[str, Labels]):
         self.labels_by_url = labels_by_url
 

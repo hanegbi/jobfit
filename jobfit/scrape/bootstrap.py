@@ -42,3 +42,23 @@ def build_scrape_service(session, techmap_index: dict[str, list[dict]], plans_di
     )
     store = FilePlanStore(plans_dir or config.SCRAPE_PLANS_DIR)
     return CompanyScrapeService(store, factory, health, registry, special_hosts=list(ats_fetchers.SPECIAL_CASE_FETCHERS))
+
+
+def build_discovery_planner(session, classifier=None, playwright_available: bool = True):
+    """The discovery graph. `classifier` defaults to RulesPlanClassifier;
+    Task 16 passes an LLMPlanClassifier built from a lazily-imported
+    llm_client. This function is called only by the discovery command."""
+    from jobfit.scrape.classifiers import RulesPlanClassifier
+    from jobfit.scrape.planner import PlanInducer, PlanValidator, ScrapePlanner
+
+    registry = default_registry(session)
+    fetchers = PageFetcherFactory(session, playwright_available)
+    factory = StrategyFactory(
+        registry=registry, fetchers=fetchers, extractor=CandidateExtractor(), enricher=GenericHtmlEnricher(HttpPageFetcher(session)),
+        reject_patterns=load_reject_patterns(), techmap_index={}, health=HealthPolicy(),
+        special_fetchers=ats_fetchers.SPECIAL_CASE_FETCHERS, session=session,
+    )
+    return ScrapePlanner(
+        registry, fetchers, CandidateExtractor(), classifier or RulesPlanClassifier(), PlanInducer(), PlanValidator(factory.chain_for),
+        special_hosts=list(ats_fetchers.SPECIAL_CASE_FETCHERS),
+    )
