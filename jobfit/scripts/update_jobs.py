@@ -105,8 +105,8 @@ def _now_iso() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def atomic_write_json(path: Path, data) -> None:
-    write_json_atomic(path, data)
+def atomic_write_json(path: Path, data, indent: int | None = 2) -> None:
+    write_json_atomic(path, data, indent=indent)
 
 
 def load_company_file(company: str) -> dict:
@@ -619,7 +619,7 @@ def _recompute_one_company(
     return rescored, skipped
 
 
-def recompute_stage(force: bool = False) -> None:
+def recompute_stage(force: bool = False, force_aggregate: bool = False) -> None:
     """The local-only half of an update: rescore every stored job against the
     *current* profile registry, drop any score fields for profiles that no
     longer exist, reaggregate, and rebuild jobfit.html. Safe to call after
@@ -673,7 +673,7 @@ def recompute_stage(force: bool = False) -> None:
                         i, total_companies, jobs_rescored, jobs_skipped, rate, elapsed,
                     )
 
-        count = aggregate_to_jobs_v2()
+        count = aggregate_to_jobs_v2(force=force_aggregate)
         meta = load_meta()
         meta["scoring_engine"] = scoring.SCORING_ENGINE_FINGERPRINT
         save_meta(meta)
@@ -809,54 +809,117 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
         return stats
 
 
-def aggregate_to_jobs_v2() -> int:
+def _context_sha1() -> str:
+    """Covers every input that a flattened row embeds besides the company
+    file's own bytes: LinkedIn connections (contacts_for_company) and
+    techmap (industry/size/location hint) both feed into every row, so a
+    change to either must invalidate every company's cache entry, not
+    just the one company file that happened to change."""
+    hasher = hashlib.sha1()
+    if config.CONNECTIONS_CSV.exists():
+        hasher.update(config.CONNECTIONS_CSV.read_bytes())
+    if config.TECHMAP_CACHE_DIR.exists():
+        for path in sorted(config.TECHMAP_CACHE_DIR.glob("*")):
+            if path.is_file():
+                hasher.update(path.read_bytes())
+    return hasher.hexdigest()
+
+
+def _flatten_company(record: dict, company: str, contacts: list, industry, size, techmap_location_hint) -> list[dict]:
+    from jobfit import pipeline as _pipeline  # reuse its already-debugged location-inference logic, not a copy
+
+    rows = []
+    for job in record["jobs"]:
+        loc, city, is_remote = _pipeline._infer_location_fields(job, techmap_location_hint)
+        out = dict(job)  # carries id/title/url/description/status/first_seen/last_seen/score_*/matched_*/coverage_*/confidence_*/requirements_*/best_*
+        out["company"] = company
+        out["industry"] = industry
+        out["company_size"] = size
+        out["location"] = loc
+        out["city"] = city
+        out["is_remote"] = is_remote
+        out["department"] = job.get("department")
+        out["employment_type"] = job.get("employment_type")
+        # first_seen (when jobfit first saw this listing), not last_seen
+        # (which bumps every time a re-check still finds the job open) -
+        # "posted" should read as roughly-stable, not reset on every run.
+        out["posted_at"] = job.get("first_seen")
+        out["connections"] = contacts
+        out["has_connection"] = bool(contacts)
+        out["has_description"] = bool(job.get("description"))
+        if "years_required" in job:
+            years_required = job["years_required"]
+        else:
+            years_required = scoring.required_years(f"{job['title']}\n{job.get('description') or ''}")
+        out["years_required"] = years_required
+        out["is_referral"] = bool(job.get("is_referral"))
+        out["referral_contact"] = job.get("referral_contact")
+        rows.append(out)
+    return rows
+
+
+def aggregate_to_jobs_v2(force: bool = False) -> int:
     """Flatten companies/*.json into the record shape build_html.py already
     expects, and write it to config.JOBS_OUTPUT_JSON - so build_html needs no
     changes at all, it just picks up whatever's there.
+
+    Each company's flattened rows are cached under config.AGGREGATE_CACHE_DIR,
+    keyed by the sha1 of its own companies/*.json bytes plus a shared
+    context_sha1 (connections + techmap, which also feed every row). A
+    company whose file and the shared context are both unchanged since its
+    last flatten is a cache hit - this is what makes a scoped `--company X`
+    run's aggregate step cost seconds instead of the ~6 minutes a full
+    re-flatten of ~1900 companies takes. force=True ignores the cache
+    entirely (e.g. after a bulk edit that touched context but you want to
+    be sure).
     """
     with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="aggregate", scope="all"):
-        from jobfit import pipeline as _pipeline  # reuse its already-debugged location-inference logic, not a copy
-
         conn_index = connections.load_connections_index()
         techmap_index = load_techmap_index()
+        context_sha1 = _context_sha1()
+
+        cache_dir = config.AGGREGATE_CACHE_DIR
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        live_stems: set[str] = set()
 
         dataset = []
         for path in sorted(COMPANIES_DIR.glob("*.json")):
             if path.name == "_meta.json":
                 continue
-            record = json.loads(path.read_text(encoding="utf-8"))
-            company = record["name"]
-            contacts = connections.contacts_for_company(conn_index, company)
-            techmap_rows = techmap_index.get(connections.normalize_company(company), [])
-            industry = techmap_rows[0]["industry"] if techmap_rows else None
-            size = techmap_rows[0]["size"] if techmap_rows else None
-            techmap_location_hint = techmap_rows[0]["location"] if techmap_rows else None
+            stem = path.stem
+            live_stems.add(stem)
+            source_bytes = path.read_bytes()
+            source_sha1 = hashlib.sha1(source_bytes).hexdigest()
+            cache_path = cache_dir / f"{stem}.json"
 
-            for job in record["jobs"]:
-                loc, city, is_remote = _pipeline._infer_location_fields(job, techmap_location_hint)
-                out = dict(job)  # carries id/title/url/description/status/first_seen/last_seen/score_*/matched_*/coverage_*/confidence_*/requirements_*/best_*
-                out["company"] = company
-                out["industry"] = industry
-                out["company_size"] = size
-                out["location"] = loc
-                out["city"] = city
-                out["is_remote"] = is_remote
-                out["department"] = job.get("department")
-                out["employment_type"] = job.get("employment_type")
-                # first_seen (when jobfit first saw this listing), not last_seen
-                # (which bumps every time a re-check still finds the job open) -
-                # "posted" should read as roughly-stable, not reset on every run.
-                out["posted_at"] = job.get("first_seen")
-                out["connections"] = contacts
-                out["has_connection"] = bool(contacts)
-                out["has_description"] = bool(job.get("description"))
-                out["years_required"] = scoring.required_years(f"{job['title']}\n{job.get('description') or ''}")
-                out["is_referral"] = bool(job.get("is_referral"))
-                out["referral_contact"] = job.get("referral_contact")
-                dataset.append(out)
+            rows = None
+            if not force and cache_path.exists():
+                try:
+                    cached = json.loads(cache_path.read_text(encoding="utf-8"))
+                except (json.JSONDecodeError, OSError):
+                    cached = None
+                if cached is not None and cached.get("source_sha1") == source_sha1 and cached.get("context_sha1") == context_sha1:
+                    rows = cached["rows"]
+
+            if rows is None:
+                record = json.loads(source_bytes.decode("utf-8"))
+                company = record["name"]
+                contacts = connections.contacts_for_company(conn_index, company)
+                techmap_rows = techmap_index.get(connections.normalize_company(company), [])
+                industry = techmap_rows[0]["industry"] if techmap_rows else None
+                size = techmap_rows[0]["size"] if techmap_rows else None
+                techmap_location_hint = techmap_rows[0]["location"] if techmap_rows else None
+                rows = _flatten_company(record, company, contacts, industry, size, techmap_location_hint)
+                atomic_write_json(cache_path, {"source_sha1": source_sha1, "context_sha1": context_sha1, "rows": rows})
+
+            dataset.extend(rows)
+
+        for stale in cache_dir.glob("*.json"):
+            if stale.stem not in live_stems:
+                stale.unlink()
 
         dataset.sort(key=lambda r: r.get("best_score") or 0, reverse=True)
-        atomic_write_json(config.JOBS_OUTPUT_JSON, dataset)
+        atomic_write_json(config.JOBS_OUTPUT_JSON, dataset, indent=None)
         atomic_write_json(config.JOBS_OUTPUT_META_JSON, {
             "scoring_engine": scoring.SCORING_ENGINE_FINGERPRINT,
             "aggregated_at": _now_iso(),
@@ -874,6 +937,7 @@ def main() -> None:
     parser.add_argument("--skip-aggregate", action="store_true", help="don't rescore/rebuild after updating")
     parser.add_argument("--wait", action="store_true", help="wait for another pipeline run to finish instead of exiting")
     parser.add_argument("--force-rescore", action="store_true", help="rescore every job regardless of the score cache")
+    parser.add_argument("--force-aggregate", action="store_true", help="ignore the per-company aggregate cache")
     args = parser.parse_args()
 
     with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="update", scope=args.company or "all", wait=args.wait):
@@ -915,7 +979,7 @@ def main() -> None:
         save_meta(meta)
 
         if not args.skip_aggregate:
-            recompute_stage(force=args.force_rescore)
+            recompute_stage(force=args.force_rescore, force_aggregate=args.force_aggregate)
 
         logger.info("done in %.1fs", time.time() - started)
 
