@@ -1,0 +1,1352 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	
+	
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>We&#039;re hiring - Alison.ai</title>
+<link data-rocket-prefetch href="https://s3-us-west-2.amazonaws.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://www.comeet.co" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://snap.licdn.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://scripts.clarity.ms" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://www.clarity.ms" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://static.ads-twitter.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://connect.facebook.net" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://bat.bing.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://js-eu1.hs-banner.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://js-eu1.hs-analytics.net" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://www.googletagmanager.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://web.cmp.usercentrics.eu" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://www.gstatic.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://cdn.elementor.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://www.google.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://js-eu1.hs-scripts.com" rel="dns-prefetch">
+<link crossorigin data-rocket-preload as="font" href="https://alison.ai/wp-content/themes/alison-theme/fonts/Inter-Light.woff2" rel="preload"><link rel="preload" data-rocket-preload as="image" href="https://alison.ai/wp-content/uploads/Frame-1000007323-1.webp" imagesrcset="https://alison.ai/wp-content/uploads/Frame-1000007323-1.webp 1354w, https://alison.ai/wp-content/uploads/Frame-1000007323-1-300x237.webp 300w, https://alison.ai/wp-content/uploads/Frame-1000007323-1-1024x808.webp 1024w, https://alison.ai/wp-content/uploads/Frame-1000007323-1-768x606.webp 768w" imagesizes="(max-width: 1354px) 100vw, 1354px" fetchpriority="high">
+	<meta name="description" content="Alison is a young, exciting performance marketing company. Enter to view open positions." />
+	<link rel="canonical" href="https://alison.ai/company/were-hiring" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="We&#039;re hiring - Alison.ai" />
+	<meta property="og:description" content="Alison is a young, exciting performance marketing company. Enter to view open positions." />
+	<meta property="og:url" content="https://alison.ai/company/were-hiring" />
+	<meta property="og:site_name" content="Alison.ai" />
+	<meta property="article:modified_time" content="2025-04-24T13:49:29+00:00" />
+	<meta property="og:image" content="https://alison.ai/wp-content/uploads/alison-preview.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="627" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/alison.ai\/company\/were-hiring","url":"https:\/\/alison.ai\/company\/were-hiring","name":"We're hiring - Alison.ai","isPartOf":{"@id":"https:\/\/alison.ai\/#website"},"primaryImageOfPage":{"@id":"https:\/\/alison.ai\/company\/were-hiring#primaryimage"},"image":{"@id":"https:\/\/alison.ai\/company\/were-hiring#primaryimage"},"thumbnailUrl":"https:\/\/alison.ai\/wp-content\/uploads\/Frame-1000007323-1.webp","datePublished":"2019-11-20T15:12:30+00:00","dateModified":"2025-04-24T13:49:29+00:00","description":"Alison is a young, exciting performance marketing company. Enter to view open positions.","breadcrumb":{"@id":"https:\/\/alison.ai\/company\/were-hiring#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/alison.ai\/company\/were-hiring"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/alison.ai\/company\/were-hiring#primaryimage","url":"https:\/\/alison.ai\/wp-content\/uploads\/Frame-1000007323-1.webp","contentUrl":"https:\/\/alison.ai\/wp-content\/uploads\/Frame-1000007323-1.webp","width":1354,"height":1068,"caption":"The Alison.ai Team"},{"@type":"BreadcrumbList","@id":"https:\/\/alison.ai\/company\/were-hiring#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/alison.ai\/"},{"@type":"ListItem","position":2,"name":"Company","item":"https:\/\/alison.ai\/company"},{"@type":"ListItem","position":3,"name":"We&#8217;re hiring"}]},{"@type":"WebSite","@id":"https:\/\/alison.ai\/#website","url":"https:\/\/alison.ai\/","name":"Alison.ai","description":"Get Smart(er) About Creative Analysis","publisher":{"@id":"https:\/\/alison.ai\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/alison.ai\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/alison.ai\/#organization","name":"Alison.ai","url":"https:\/\/alison.ai\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/alison.ai\/#\/schema\/logo\/image\/","url":"https:\/\/alison.ai\/wp-content\/uploads\/cropped-icon-logo.png","contentUrl":"https:\/\/alison.ai\/wp-content\/uploads\/cropped-icon-logo.png","width":512,"height":512,"caption":"Alison"},"image":{"@id":"https:\/\/alison.ai\/#\/schema\/logo\/image\/"},"alternateName":["Alison","Alison AI"],"description":"Alison.ai is a creative analysis platform for ad agencies and brands, not a learning platform. Powered by the Creative Genome, our proprietary engine delivers predictive insights, creative scores, and competitor benchmarks so you can generate high-impact creatives and optimize faster.","disambiguatingDescription":"Alison.ai (alison.ai) is an AI creative intelligence platform for advertisers. It is not affiliated with Alison (alison.com), the online learning platform.","sameAs":["https:\/\/www.linkedin.com\/company\/alison-ai\/","https:\/\/www.crunchbase.com\/organization\/alison-ai","https:\/\/www.g2.com\/products\/alison-ai\/reviews","https:\/\/www.capterra.com\/p\/10005094\/Alison-ai\/","https:\/\/www.getapp.com\/marketing-software\/a\/alison\/","https:\/\/softwareadvice.com\/marketing\/alison-profile\/","https:\/\/www.wikidata.org\/wiki\/Q140734594"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//cdn.elementor.com' />
+
+<link rel="alternate" type="application/rss+xml" title="Alison.ai &raquo; Feed" href="https://alison.ai/feed" />
+<link rel="alternate" type="application/rss+xml" title="Alison.ai &raquo; Comments Feed" href="https://alison.ai/comments/feed" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://alison.ai/wp-json/oembed/1.0/embed?url=https%3A%2F%2Falison.ai%2Fcompany%2Fwere-hiring" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://alison.ai/wp-json/oembed/1.0/embed?url=https%3A%2F%2Falison.ai%2Fcompany%2Fwere-hiring&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:rgba(90,90,90,.25);border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto rgba(90,90,90,.25);outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:rgba(90,90,90,.25);border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://alison.ai/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-columns-inline-css">
+.wp-block-columns{box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns{align-items:normal!important}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}
+/*# sourceURL=https://alison.ai/wp-includes/blocks/columns/style.min.css */
+</style>
+<style id="wp-block-spacer-inline-css">
+.wp-block-spacer{clear:both}
+/*# sourceURL=https://alison.ai/wp-includes/blocks/spacer/style.min.css */
+</style>
+
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--ffffff: #FFFFFF;--wp--preset--color--000000: #000000;--wp--preset--color--ff-4185: #FF4185;--wp--preset--color--0-a-2540: #0A2540;--wp--preset--color--0-a-6376: #0A6376;--wp--preset--color--08-b-1-ab: #08B1AB;--wp--preset--color--079792: #079792;--wp--preset--color--ef-6-c-34: #EF6C34;--wp--preset--color--e-5503-c: #E5503C;--wp--preset--color--294158: #294158;--wp--preset--color--e-6-eaed: #E6EAED;--wp--preset--color--d-2-dade: #D2DADE;--wp--preset--color--9-da-7-b-2: #9DA7B2;--wp--preset--color--677583: #677583;--wp--preset--color--3-b-5065: #3B5065;--wp--preset--color--92-d-8-d-3: #92D8D3;--wp--preset--color--e-9-f-7-f-5: #E9F7F5;--wp--preset--color--f-4-f-8-f-8: #F4F8F8;--wp--preset--color--19-a-99-b: #19A99B;--wp--preset--color--e-8-f-5-f-4: #E8F5F4;--wp--preset--color--cbeaeb: #CBEAEB;--wp--preset--color--2-e-1-f-42: #2E1F42;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--gradient-nk-dark: linear-gradient(0deg, #002139 0%, #0A6376 100%);--wp--preset--gradient--gradient-nk-orange-argo: linear-gradient(114deg, #EBAB57 15%, #DF7343 50%, #D45B45 85%);--wp--preset--gradient--gradient-nk-mint-light: linear-gradient(9deg, #E8F5F4 20%, #CBEAEB 59%);--wp--preset--gradient--gradient-nk-mint-to-white: linear-gradient(0deg, #9FD8CC 0%, #FFFFFF 100%);--wp--preset--gradient--rainbow: linear-gradient(81.47deg, #66DEF2 11.99%, #7AD4D4 24.33%, #8BCBBB 31.82%, #8FA6C9 41.34%, #9387D5 46.74%, #9B45EE 56.94%, #B668A8 69.39%, #C47985 75.64%, #D28B60 82.12%, #E19E3A 88.85%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--spacing--1: 1rem;--wp--preset--spacing--2: 2rem;--wp--preset--spacing--3: 3rem;--wp--preset--spacing--4: 4rem;--wp--preset--spacing--5: 5rem;--wp--preset--spacing--6: 6rem;--wp--preset--spacing--7: 7rem;--wp--preset--spacing--8: 8rem;--wp--preset--spacing--9: 9rem;--wp--preset--spacing--10: 10rem;--wp--preset--spacing--11: 11rem;--wp--preset--spacing--12: 12rem;--wp--preset--spacing--13: 13rem;--wp--preset--spacing--14: 14rem;--wp--preset--spacing--15: 15rem;--wp--preset--spacing--16: 16rem;--wp--preset--spacing--17: 17rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:root { --wp--style--global--content-size: 1180px;--wp--style--global--wide-size: 1440px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-ffffff-color{color: var(--wp--preset--color--ffffff) !important;}.has-000000-color{color: var(--wp--preset--color--000000) !important;}.has-ff-4185-color{color: var(--wp--preset--color--ff-4185) !important;}.has-0-a-2540-color{color: var(--wp--preset--color--0-a-2540) !important;}.has-0-a-6376-color{color: var(--wp--preset--color--0-a-6376) !important;}.has-08-b-1-ab-color{color: var(--wp--preset--color--08-b-1-ab) !important;}.has-079792-color{color: var(--wp--preset--color--079792) !important;}.has-ef-6-c-34-color{color: var(--wp--preset--color--ef-6-c-34) !important;}.has-e-5503-c-color{color: var(--wp--preset--color--e-5503-c) !important;}.has-294158-color{color: var(--wp--preset--color--294158) !important;}.has-e-6-eaed-color{color: var(--wp--preset--color--e-6-eaed) !important;}.has-d-2-dade-color{color: var(--wp--preset--color--d-2-dade) !important;}.has-9-da-7-b-2-color{color: var(--wp--preset--color--9-da-7-b-2) !important;}.has-677583-color{color: var(--wp--preset--color--677583) !important;}.has-3-b-5065-color{color: var(--wp--preset--color--3-b-5065) !important;}.has-92-d-8-d-3-color{color: var(--wp--preset--color--92-d-8-d-3) !important;}.has-e-9-f-7-f-5-color{color: var(--wp--preset--color--e-9-f-7-f-5) !important;}.has-f-4-f-8-f-8-color{color: var(--wp--preset--color--f-4-f-8-f-8) !important;}.has-19-a-99-b-color{color: var(--wp--preset--color--19-a-99-b) !important;}.has-e-8-f-5-f-4-color{color: var(--wp--preset--color--e-8-f-5-f-4) !important;}.has-cbeaeb-color{color: var(--wp--preset--color--cbeaeb) !important;}.has-2-e-1-f-42-color{color: var(--wp--preset--color--2-e-1-f-42) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-ffffff-background-color{background-color: var(--wp--preset--color--ffffff) !important;}.has-000000-background-color{background-color: var(--wp--preset--color--000000) !important;}.has-ff-4185-background-color{background-color: var(--wp--preset--color--ff-4185) !important;}.has-0-a-2540-background-color{background-color: var(--wp--preset--color--0-a-2540) !important;}.has-0-a-6376-background-color{background-color: var(--wp--preset--color--0-a-6376) !important;}.has-08-b-1-ab-background-color{background-color: var(--wp--preset--color--08-b-1-ab) !important;}.has-079792-background-color{background-color: var(--wp--preset--color--079792) !important;}.has-ef-6-c-34-background-color{background-color: var(--wp--preset--color--ef-6-c-34) !important;}.has-e-5503-c-background-color{background-color: var(--wp--preset--color--e-5503-c) !important;}.has-294158-background-color{background-color: var(--wp--preset--color--294158) !important;}.has-e-6-eaed-background-color{background-color: var(--wp--preset--color--e-6-eaed) !important;}.has-d-2-dade-background-color{background-color: var(--wp--preset--color--d-2-dade) !important;}.has-9-da-7-b-2-background-color{background-color: var(--wp--preset--color--9-da-7-b-2) !important;}.has-677583-background-color{background-color: var(--wp--preset--color--677583) !important;}.has-3-b-5065-background-color{background-color: var(--wp--preset--color--3-b-5065) !important;}.has-92-d-8-d-3-background-color{background-color: var(--wp--preset--color--92-d-8-d-3) !important;}.has-e-9-f-7-f-5-background-color{background-color: var(--wp--preset--color--e-9-f-7-f-5) !important;}.has-f-4-f-8-f-8-background-color{background-color: var(--wp--preset--color--f-4-f-8-f-8) !important;}.has-19-a-99-b-background-color{background-color: var(--wp--preset--color--19-a-99-b) !important;}.has-e-8-f-5-f-4-background-color{background-color: var(--wp--preset--color--e-8-f-5-f-4) !important;}.has-cbeaeb-background-color{background-color: var(--wp--preset--color--cbeaeb) !important;}.has-2-e-1-f-42-background-color{background-color: var(--wp--preset--color--2-e-1-f-42) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-ffffff-border-color{border-color: var(--wp--preset--color--ffffff) !important;}.has-000000-border-color{border-color: var(--wp--preset--color--000000) !important;}.has-ff-4185-border-color{border-color: var(--wp--preset--color--ff-4185) !important;}.has-0-a-2540-border-color{border-color: var(--wp--preset--color--0-a-2540) !important;}.has-0-a-6376-border-color{border-color: var(--wp--preset--color--0-a-6376) !important;}.has-08-b-1-ab-border-color{border-color: var(--wp--preset--color--08-b-1-ab) !important;}.has-079792-border-color{border-color: var(--wp--preset--color--079792) !important;}.has-ef-6-c-34-border-color{border-color: var(--wp--preset--color--ef-6-c-34) !important;}.has-e-5503-c-border-color{border-color: var(--wp--preset--color--e-5503-c) !important;}.has-294158-border-color{border-color: var(--wp--preset--color--294158) !important;}.has-e-6-eaed-border-color{border-color: var(--wp--preset--color--e-6-eaed) !important;}.has-d-2-dade-border-color{border-color: var(--wp--preset--color--d-2-dade) !important;}.has-9-da-7-b-2-border-color{border-color: var(--wp--preset--color--9-da-7-b-2) !important;}.has-677583-border-color{border-color: var(--wp--preset--color--677583) !important;}.has-3-b-5065-border-color{border-color: var(--wp--preset--color--3-b-5065) !important;}.has-92-d-8-d-3-border-color{border-color: var(--wp--preset--color--92-d-8-d-3) !important;}.has-e-9-f-7-f-5-border-color{border-color: var(--wp--preset--color--e-9-f-7-f-5) !important;}.has-f-4-f-8-f-8-border-color{border-color: var(--wp--preset--color--f-4-f-8-f-8) !important;}.has-19-a-99-b-border-color{border-color: var(--wp--preset--color--19-a-99-b) !important;}.has-e-8-f-5-f-4-border-color{border-color: var(--wp--preset--color--e-8-f-5-f-4) !important;}.has-cbeaeb-border-color{border-color: var(--wp--preset--color--cbeaeb) !important;}.has-2-e-1-f-42-border-color{border-color: var(--wp--preset--color--2-e-1-f-42) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-gradient-nk-dark-gradient-background{background: var(--wp--preset--gradient--gradient-nk-dark) !important;}.has-gradient-nk-orange-argo-gradient-background{background: var(--wp--preset--gradient--gradient-nk-orange-argo) !important;}.has-gradient-nk-mint-light-gradient-background{background: var(--wp--preset--gradient--gradient-nk-mint-light) !important;}.has-gradient-nk-mint-to-white-gradient-background{background: var(--wp--preset--gradient--gradient-nk-mint-to-white) !important;}.has-rainbow-gradient-background{background: var(--wp--preset--gradient--rainbow) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='pc-security-css' href='https://alison.ai/wp-content/plugins/pc-security-main/public/css/pc-security-public.css?ver=1.0.1' media='all' />
+<link rel='stylesheet' id='ea11y-widget-fonts-css' href='https://alison.ai/wp-content/plugins/pojo-accessibility/assets/build/fonts.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='ea11y-skip-link-css' href='https://alison.ai/wp-content/plugins/pojo-accessibility/assets/build/skip-link.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='style-css' href='https://alison.ai/wp-content/cache/background-css/1/alison.ai/wp-content/themes/alison-theme/css/style.css?ver=1787744607&wpr_t=1790607609' media='' />
+<link rel='stylesheet' id='careers-style-css' href='https://alison.ai/wp-content/themes/alison-theme/css/careers.css?ver=1787744607' media='' />
+<link rel='stylesheet' id='swiper-css-css' href='https://alison.ai/wp-content/themes/alison-theme/css/swiper.css?ver=11.1.4' media='all' />
+<link rel='stylesheet' id='cf7cf-style-css' href='https://alison.ai/wp-content/plugins/cf7-conditional-fields/style.css?ver=2.7.13' media='all' />
+<link rel='stylesheet' id='cf7apps-honeypot-frontend-css' href='https://alison.ai/wp-content/plugins/contact-form-7-honeypot/legacy-honeypot/includes/css/honeypot-frontend.css?ver=3.7.1' media='all' />
+<script id="jquery-core-js" src="https://alison.ai/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://alison.ai/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script type="text/rocketlazyloadscript" id="pc-security-js" data-rocket-src="https://alison.ai/wp-content/plugins/pc-security-main/public/js/pc-security-public.js?ver=1.0.1"></script>
+<script id="lead-attribution-js" src="https://alison.ai/wp-content/themes/alison-theme/js/lead-attribution.js?ver=1787744607"></script>
+<link rel="https://api.w.org/" href="https://alison.ai/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://alison.ai/wp-json/wp/v2/pages/456" /><link rel='shortlink' href='https://alison.ai/?p=456' />
+<!-- Google Tag Manager -->
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-WPCJKH24');</script>
+
+<!-- End Google Tag Manager -->
+
+
+
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+
+    (function(c,l,a,r,i,t,y){
+
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+
+    })(window, document, "clarity", "script", "q3zexi1o4a");
+
+</script>
+
+
+
+<!-- Meta Pixel Code -->
+
+<script type="text/rocketlazyloadscript">
+
+!function(f,b,e,v,n,t,s)
+
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+
+n.queue=[];t=b.createElement(e);t.async=!0;
+
+t.src=v;s=b.getElementsByTagName(e)[0];
+
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '2275395589298229');
+
+fbq('track', 'PageView');
+
+</script>
+
+<noscript><img height="1" width="1" style="display:none"
+
+src="https://www.facebook.com/tr?id=2275395589298229&ev=PageView&noscript=1"
+
+/></noscript>
+
+<!-- End Meta Pixel Code -->
+
+
+
+<!-- Twitter conversion tracking base code -->
+
+<script type="text/rocketlazyloadscript">
+
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+
+twq('config','op51z');
+
+</script>
+
+<!-- End Twitter conversion tracking base code -->
+
+		<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+
+			(function(c, l, a, r, i, t, y) {
+
+				c[a] = c[a] || function() {
+
+					(c[a].q = c[a].q || []).push(arguments)
+
+				};
+
+				t = l.createElement(r);
+
+				t.async = 1;
+
+				t.src = "https://www.clarity.ms/tag/" + i + "?ref=wordpress";
+
+				y = l.getElementsByTagName(r)[0];
+
+				y.parentNode.insertBefore(t, y);
+
+			})(window, document, "clarity", "script", "y47xbva9d1");
+
+		</script>
+
+	<meta name="application-name" itemprop="name" content="Comeet Jobs" />
+<meta name="application-url" itemprop="url" content="https://alison.ai/company/were-hiring" />
+<link rel="icon" href="https://alison.ai/wp-content/uploads/cropped-icon-logo-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://alison.ai/wp-content/uploads/cropped-icon-logo-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://alison.ai/wp-content/uploads/cropped-icon-logo-180x180.png" />
+<meta name="msapplication-TileImage" content="https://alison.ai/wp-content/uploads/cropped-icon-logo-270x270.png" />
+<style id="wp-custom-css">
+.lg-gap.has-nested-images figure.wp-block-image img{
+	max-height:100px;
+}
+.impact-result-block{
+	margin-top:50px;
+}
+
+.wp-block-column .hbspt-form{
+	border-radius: 11px;
+    border: 1px solid var(--Border, #E1E3EE);
+    background: #FFF;
+    padding: 15px;
+    margin: 0px;
+	    position: sticky;
+    top: 90px;
+}
+
+.postid-138276 .single-post__head .flex-layout, .postid-138276  #breadcrumbs{
+	display:none;
+}
+
+.postid-138372 .wp-block-video video{
+	max-height:420px;
+	width:auto;
+}
+
+.cta-banner.alignfull .image-element {
+    margin: 0 -10px;
+
+}
+
+.postid-138446 .single-post__author, .postid-138446 .single-post__date, .postid-138446  .single-post__reading-time{
+	display:none;
+}
+.subscription-form-section .subscription-form__wrap .form-group {
+    grid-template-columns: 1fr 1fr 190px;
+}
+@media only screen and (max-width: 767px) {
+.subscription-form-section .subscription-form__wrap .form-group {
+      grid-template-columns: 1fr;
+    }
+}
+root
+{
+	--wpr-bg-d851613a-6a8d-4e16-9721-dda54b4b2bfe:url('/wp-content/uploads/Untitled-design-7.jpg');
+	--wpr-bg-3ca5a779-7109-47cd-a4ea-b1d3b5d94eb7:url('/wp-content/uploads/Untitled-design-7.jpg');
+}
+
+.page-template-lead-generation-step-1{
+	background-image:var(--wpr-bg-042da695-59ba-4d38-aef9-74404d1e950d);
+	    background-size: cover;
+    background-repeat: no-repeat;
+}
+@media only screen and (max-width: 1660px) and (min-width: 500px)  {
+.scroll-to-top-wrapper{
+	bottom:100px;
+}
+}
+@media only screen and (max-width: 768px) {
+.landing-page-styles .cards-section .section-title {
+    text-align: center !important;
+}
+	.landing-page-styles{
+		text-align:center;
+	}
+.landing-page-styles	.wp-block-cf-accordion{
+		text-align:center;
+	}
+	.landing-page-styles .contact-us-form .form-field label{
+		text-align:left;
+		display:block;
+	}
+	.landing-page-styles .testimonials-slider-section .container .swiper-wrapper .swiper-slide__top .testimonial-stars-img{
+		margin: 0 auto;
+	}
+}
+
+.site-footer__social ul a{
+	width:42px;
+	height:42px;
+}
+</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WPCJKH24');</script>
+<!-- End Google Tag Manager -->
+
+	<!-- Google tag (gtag.js) -->
+	<script>
+		  // Function to load Google Analytics
+		  function loadGA() {
+			var script = document.createElement('script');
+			script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SEG71NY78T'; // Replace with your GA ID
+			script.async = true;
+			document.body.appendChild(script);
+
+			// Initialize GA tracking
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-SEG71NY78T'); // Replace with your GA ID
+		}
+
+		// Load GA on the first scroll
+		function onScrollLoadGA() {
+			window.removeEventListener('scroll', onScrollLoadGA);
+			loadGA();
+		}
+
+		window.addEventListener('scroll', onScrollLoadGA);
+	</script>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16797796959"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'AW-16797796959');
+	</script>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-WPCJKH24');</script>
+	<!-- End Google Tag Manager -->
+
+
+
+<link rel='stylesheet' id='heading-section-css' href='https://alison.ai/wp-content/themes/alison-theme/css/heading-section.css?ver=1787744607' media='all' />
+<link rel='stylesheet' id='comeet_style-css' href='https://alison.ai/wp-content/plugins/comeet-wp-plugin-Version-3.0.2/css/comeet-basic.css' media='all' />
+<link rel='stylesheet' id='comeet_reset_style-css' href='https://alison.ai/wp-content/plugins/comeet-wp-plugin-Version-3.0.2/css/comeet-reset.css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css' href='https://alison.ai/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.1.7' media='all' />
+<style id="core-block-supports-inline-css">
+.wp-container-core-columns-is-layout-7387b849{flex-wrap:nowrap;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+
+<style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion">.promo-bar-top{--wpr-bg-cce9c749-fd05-4ed0-8520-66ff48eca00e: url('https://alison.ai/wp-content/themes/alison-theme/images/top-banner.bg.svg');}</style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.page-template-lead-generation-step-1 .site,.page-template-lead-generation-step-2 .site{--wpr-bg-6ac52e4e-e8ea-4a1e-a06b-be51555f4de9: url('https://alison.ai/wp-content/uploads/Untitled-design-7.jpg');}.page-template-lead-generation-step-1{--wpr-bg-042da695-59ba-4d38-aef9-74404d1e950d: url('https://alison.ai/wp-content/uploads/Untitled-design-7.jpg');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":".page-template-lead-generation-step-1 .site,.page-template-lead-generation-step-2 .site","style":".page-template-lead-generation-step-1 .site,.page-template-lead-generation-step-2 .site{--wpr-bg-6ac52e4e-e8ea-4a1e-a06b-be51555f4de9: url('https:\/\/alison.ai\/wp-content\/uploads\/Untitled-design-7.jpg');}","hash":"6ac52e4e-e8ea-4a1e-a06b-be51555f4de9","url":"https:\/\/alison.ai\/wp-content\/uploads\/Untitled-design-7.jpg"},{"selector":".page-template-lead-generation-step-1","style":".page-template-lead-generation-step-1{--wpr-bg-042da695-59ba-4d38-aef9-74404d1e950d: url('https:\/\/alison.ai\/wp-content\/uploads\/Untitled-design-7.jpg');}","hash":"042da695-59ba-4d38-aef9-74404d1e950d","url":"https:\/\/alison.ai\/wp-content\/uploads\/Untitled-design-7.jpg"}]; const rocket_excluded_pairs = [{"selector":".promo-bar-top","style":".promo-bar-top{--wpr-bg-cce9c749-fd05-4ed0-8520-66ff48eca00e: url('https:\/\/alison.ai\/wp-content\/themes\/alison-theme\/images\/top-banner.bg.svg');}","hash":"cce9c749-fd05-4ed0-8520-66ff48eca00e","url":"https:\/\/alison.ai\/wp-content\/themes\/alison-theme\/images\/top-banner.bg.svg"}];</script><meta name="generator" content="WP Rocket 3.22.1" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_lazyload_images wpr_lazyload_iframes wpr_preconnect_external_domains wpr_auto_preload_fonts wpr_oci wpr_cdn wpr_preload_links wpr_host_fonts_locally wpr_desktop" /></head>
+<body class="wp-singular page-template-default page page-id-456 page-child parent-pageid-139747 wp-custom-logo wp-theme-alison-theme ally-default no-sidebar">
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPCJKH24"
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->		<script type="text/rocketlazyloadscript">
+			const onSkipLinkClick = () => {
+				const htmlElement = document.querySelector('html');
+
+				htmlElement.style['scroll-behavior'] = 'smooth';
+
+				setTimeout( () => htmlElement.style['scroll-behavior'] = null, 1000 );
+			}
+			document.addEventListener("DOMContentLoaded", () => {
+				if (!document.querySelector('#content')) {
+					document.querySelector('.ea11y-skip-to-content-link').remove();
+				}
+			});
+		</script>
+		<nav aria-label="Skip to content navigation">
+			<a class="ea11y-skip-to-content-link"
+				href="#content"
+				tabindex="-1"
+				onclick="onSkipLinkClick()"
+			>
+				Skip to content
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" role="presentation">
+					<path d="M18 6V12C18 12.7956 17.6839 13.5587 17.1213 14.1213C16.5587 14.6839 15.7956 15 15 15H5M5 15L9 11M5 15L9 19"
+								stroke="black"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+					/>
+				</svg>
+			</a>
+			<div class="ea11y-skip-to-content-backdrop"></div>
+		</nav>
+
+		<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#primary">Skip to content</a>
+	
+	<header id="masthead" class="site-header site-header--sticky">
+		<div class="container">
+			<div class="site-header__wrap">
+				<a href="https://alison.ai" aria-label="Alison.ai" class="site-header__logo site-logo">
+					<span class="screen-reader-text" itemprop="name">Alison.ai</span>
+				</a>
+																	<a href="https://alison.ai/book-a-demo" class="btn btn--primary mobile-only align-right" target="">Book a demo</a>
+								<button aria-label="Open Mobile Navigation" class="site-header__opener-nav"><span></span></button>
+				<div class="site-header__nav">
+					<nav id="site-navigation" class="main-navigation">
+						<ul id="primary-menu" class="primary-menu"><li id="menu-item-136633" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-136633">
+<div class="menu-item__link menu-item__link--title">Product</div>
+<span class="sub-menu__opener"><span class="opener-arrow"><svg class="svg-icon icon-chevron-down" width="13" height="13""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-chevron-down"></use></svg></span></span>
+<div class='sub-menu-dropdown'>
+<ul class="sub-menu level0">
+	<li style="--columns: 2;" class="grid">
+	<ul class="sub-menu level1">
+		<li id="menu-item-140797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-140797">
+		<a href="https://alison.ai/product/preflight-plus" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-custom-edit" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-custom-edit"></use></svg></span><span class="menu-text">Preflight Plus</span></span></a>
+		</li>
+		<li id="menu-item-141540" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141540">
+		<a href="https://alison.ai/product/creative-genome" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-chartpie" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-chartpie"></use></svg></span><span class="menu-text">Creative Genome</span></span></a>
+		</li>
+		<li id="menu-item-136634" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136634">
+		<a href="/product/video-generation" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-claperboard" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-claperboard"></use></svg></span><span class="menu-text">Video Generation</span></span></a>
+		</li>
+		<li id="menu-item-136635" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136635">
+		<a href="/product/creative-tagging" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-tag" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-tag"></use></svg></span><span class="menu-text">Creative Tagging</span></span></a>
+		</li>
+		<li id="menu-item-136637" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136637">
+		<a href="/product/creative-copilot" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-chat" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-chat"></use></svg></span><span class="menu-text">Creative AI-Agent</span></span></a>
+		</li>
+		<li id="menu-item-136638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136638">
+		<a href="/product/creative-analytics-insights" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon analysis" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#analysis"></use></svg></span><span class="menu-text">Creative Analytics &#038; Insights</span></span></a>
+		</li>
+		<li id="menu-item-136636" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136636">
+		<a href="/product/competitive-intelligence" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-competitor" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-competitor"></use></svg></span><span class="menu-text">Competitive Intelligence</span></span></a>
+		</li>
+		<li id="menu-item-141617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141617">
+		<a href="https://alison.ai/product/alison-mcp" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-user-robot" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-user-robot"></use></svg></span><span class="menu-text">MCP, Evo and API</span></span></a>
+		</li>
+	</ul>
+</li>
+</ul>
+
+</div><!-- .sub-menu-dropdown -->
+</li>
+<li id="menu-item-136652" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-136652">
+<div class="menu-item__link menu-item__link--title">Solutions</div>
+<span class="sub-menu__opener"><span class="opener-arrow"><svg class="svg-icon icon-chevron-down" width="13" height="13""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-chevron-down"></use></svg></span></span>
+<div class='sub-menu-dropdown sub-menu-dropdown--solution'>
+<ul class="sub-menu level0">
+	<li class="column">
+	<ul class="sub-menu level1">
+		<li id="menu-item-136656" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136656">
+		<div class="menu-item__link menu-item__link--title">Grow your teams</div>
+		</li>
+		<li id="menu-item-136657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136657">
+		<a href="/solution/alison-ai-for-creative-team" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-custom-edit" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-custom-edit"></use></svg></span><span class="menu-text">Creative Teams</span></span></a>
+		</li>
+		<li id="menu-item-136659" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136659">
+		<a href="/solution/alison-ai-for-media-teams" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">Media Teams</span></span></a>
+		</li>
+		<li id="menu-item-136661" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136661">
+		<a href="/solution/alison-ai-for-data-analytics-teams" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-chartpie" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-chartpie"></use></svg></span><span class="menu-text">Data Analytics Teams</span></span></a>
+		</li>
+	</ul>
+</li>
+	<li class="column">
+	<ul class="sub-menu level1">
+		<li id="menu-item-136664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136664">
+		<div class="menu-item__link menu-item__link--title">Product type</div>
+		</li>
+		<li style="--columns: 2;" class="grid">
+		<ul class="sub-menu level2">
+			<li id="menu-item-136666" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136666">
+			<a href="/solution/gaming" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-gamepad" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-gamepad"></use></svg></span><span class="menu-text">Gaming</span></span></a>
+			</li>
+			<li id="menu-item-136668" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136668">
+			<a href="/solution/fashion" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-mockup" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-mockup"></use></svg></span><span class="menu-text">Fashion</span></span></a>
+			</li>
+			<li id="menu-item-136670" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136670">
+			<a href="/solution/finance" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-user-robot" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-user-robot"></use></svg></span><span class="menu-text">Finance</span></span></a>
+			</li>
+			<li id="menu-item-137032" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137032">
+			<a href="/solution/ecommerce" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-product" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-product"></use></svg></span><span class="menu-text">eCommerce</span></span></a>
+			</li>
+			<li id="menu-item-137034" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137034">
+			<a href="/solution/apps" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-mobile" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-mobile"></use></svg></span><span class="menu-text">Apps</span></span></a>
+			</li>
+			<li id="menu-item-137036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137036">
+			<a href="/solution/b2b" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-window-alt" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-window-alt"></use></svg></span><span class="menu-text">B2B</span></span></a>
+			</li>
+			<li id="menu-item-137038" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137038">
+			<a href="/solution/agencies" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-claperboard" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-claperboard"></use></svg></span><span class="menu-text">Agencies</span></span></a>
+			</li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li class="column">
+	<ul class="sub-menu level1">
+		<li id="menu-item-141053" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-141053">
+		<div class="menu-item__link menu-item__link--title">Platforms</div>
+		</li>
+		<li style="--columns: 2;" class="grid">
+		<ul class="sub-menu level2">
+			<li id="menu-item-141063" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141063">
+			<a href="https://alison.ai/google-ads-creative-optimization-intelligence-alison-ai" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">Google Ads</span></span></a>
+			</li>
+			<li id="menu-item-141062" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141062">
+			<a href="https://alison.ai/meta-ads-creative-strategy-video-generation" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">Meta</span></span></a>
+			</li>
+			<li id="menu-item-141061" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141061">
+			<a href="https://alison.ai/snapchat-ad-creative-intelligence-optimization" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">Snapchat</span></span></a>
+			</li>
+			<li id="menu-item-141060" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141060">
+			<a href="https://alison.ai/tiktok-ad-creative-intelligence-video-engine" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">TikTok</span></span></a>
+			</li>
+			<li id="menu-item-141059" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141059">
+			<a href="https://alison.ai/b2b-linkedin-ad-creative-optimization" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">LinkedIn</span></span></a>
+			</li>
+			<li id="menu-item-141058" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141058">
+			<a href="https://alison.ai/moloco-ad-creative-optimization-intelligence" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">Moloco</span></span></a>
+			</li>
+			<li id="menu-item-141057" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141057">
+			<a href="https://alison.ai/unity-ads-video-creative-optimization-for-gaming" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">Unity</span></span></a>
+			</li>
+			<li id="menu-item-141056" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141056">
+			<a href="https://alison.ai/applovin-creative-optimization-video-generation" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">AppLovin</span></span></a>
+			</li>
+			<li id="menu-item-141055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141055">
+			<a href="https://alison.ai/amazon-ads-creative-intelligence-optimization" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">Amazon Ads</span></span></a>
+			</li>
+		</ul>
+</li>
+	</ul>
+</li>
+</ul>
+
+</div><!-- .sub-menu-dropdown -->
+</li>
+<li id="menu-item-136674" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-136674">
+<div class="menu-item__link menu-item__link--title">Resources</div>
+<span class="sub-menu__opener"><span class="opener-arrow"><svg class="svg-icon icon-chevron-down" width="13" height="13""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-chevron-down"></use></svg></span></span>
+<div class='sub-menu-dropdown'>
+<ul class="sub-menu level0">
+	<li style="--columns: 1;" class="grid">
+	<ul class="sub-menu level1">
+		<li id="menu-item-140516" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-140516">
+		<a href="https://alison.ai/pricing" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-tag" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-tag"></use></svg></span><span class="menu-text">Pricing</span></span></a>
+		</li>
+		<li id="menu-item-137064" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137064">
+		<a href="https://alison.ai/resources/blog" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-blog" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-blog"></use></svg></span><span class="menu-text">Blog</span></span></a>
+		</li>
+		<li id="menu-item-140176" class="menu-item menu-item-type-post_type_archive menu-item-object-webinars-and-videos menu-item-140176">
+		<a href="https://alison.ai/webinars-and-videos" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-megaphone" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-megaphone"></use></svg></span><span class="menu-text">Webinars And Videos</span></span></a>
+		</li>
+		<li id="menu-item-137065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137065">
+		<a href="https://alison.ai/resources/press" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-press" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-press"></use></svg></span><span class="menu-text">Newsroom</span></span></a>
+		</li>
+		<li id="menu-item-137066" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137066">
+		<a href="https://alison.ai/resources/success" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon variant-19" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#variant-19"></use></svg></span><span class="menu-text">Success Stories</span></span></a>
+		</li>
+		<li id="menu-item-140677" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-140677">
+		<a href="https://alison.ai/resources/creative-intelligence-reports" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon icon-chartpie" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-chartpie"></use></svg></span><span class="menu-text">Creative Intelligence Reports</span></span></a>
+		</li>
+	</ul>
+</li>
+</ul>
+
+</div><!-- .sub-menu-dropdown -->
+</li>
+<li id="menu-item-136675" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-136675">
+<div class="menu-item__link menu-item__link--title">Company</div>
+<span class="sub-menu__opener"><span class="opener-arrow"><svg class="svg-icon icon-chevron-down" width="13" height="13""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-chevron-down"></use></svg></span></span>
+<div class='sub-menu-dropdown'>
+<ul class="sub-menu level0">
+	<li style="--columns: 1;" class="grid">
+	<ul class="sub-menu level1">
+		<li id="menu-item-137048" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137048">
+		<a href="https://alison.ai/company/about-us" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon variant-22" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#variant-22"></use></svg></span><span class="menu-text">About Us</span></span></a>
+		</li>
+		<li id="menu-item-137049" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-456 current_page_item menu-item-137049">
+		<a href="https://alison.ai/company/were-hiring" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon variant-20" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#variant-20"></use></svg></span><span class="menu-text">Careers</span></span></a>
+		</li>
+		<li id="menu-item-137051" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137051">
+		<a href="https://alison.ai/company/contact" class="menu-item__link"><span class="menu-item__text"><span class="icon-image"><svg class="svg-icon variant-21" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#variant-21"></use></svg></span><span class="menu-text">Contact Us</span></span></a>
+		</li>
+	</ul>
+</li>
+</ul>
+
+</div><!-- .sub-menu-dropdown -->
+</li>
+</ul>					</nav>
+					<div class="site-header__aside">
+						<ul id="menu-header-aside" class="header-aside-menu"><li id="menu-item-136672" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home  menu-item-136672"><a href="https://alison.ai/#calculator-home-section" class="menu-item__button btn btn--outline-dark"><span class="btn__text">Calculate Alison&#8217;s Impact</span></a></li>
+<li id="menu-item-136673" class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-136673"><a href="https://alison.ai/get-started-1" class="menu-item__button btn btn--primary"><span class="btn__text">Register</span></a></li>
+<li id="menu-item-137854" class="blue-btn menu-item menu-item-type-custom menu-item-object-custom  menu-item-137854"><a target="_blank" href="https://app.alison.ai/login" class="menu-item__button btn btn--primary"><span class="btn__text">Log In</span></a></li>
+</ul>					</div>
+					
+				</div>
+				
+											</div>
+		</div>
+	</header>
+
+		<div class="promo-bar-top" id="promo-bar">
+		<div class="content_wrap">
+						<img src="https://alison.ai/wp-content/uploads/Text.svg" alt="" class="promo-badge-image"/>
+						<p>The Alison MCP Server is live: creative intelligence inside your AI workspace.
+
+</p>
+										<a href="https://alison.ai/product/alison-mcp"  class="btn  btn--outline-white" target=""><span>Connect Your Workspace</span></a>
+					</div>
+		<div class="close-banner close-banner-js"><div class="cross-text">×</div></div>
+	</div>
+	
+		<main id="primary" class="site-main">
+
+		
+
+<article id="post-456" class="post-456 page type-page status-publish hentry">
+
+	<div class="entry-content">
+
+		<div class="container">
+
+			
+<div style="height:var(--wp--preset--spacing--6)" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+
+<section id="section-block_470b0c82d242478219a4f09188a6ca0e" style="--max--heading-width:670px;--heading-font-desktop:45px;--heading-font-mobile:34px" class="heading-section center align wp-block-cf-heading-section">
+
+
+
+	<div class="container">
+
+
+
+		<div class="heading-section__wrap">
+
+									<h3 class="h3">Craft the Future With Innovation and Creativity</h3>
+
+				<p>We&#8217;re seeking individuals who are passionate about a world where technology and creativity intersect, and where outstanding work is driven by insightful analysis. We want daring creators, dedicated owners, and high achievers who are prepared to give their all, building with meticulous care and delivering genuinely intelligent creative solutions.</p>
+															</div>
+
+
+
+	</div>
+
+</section>
+
+
+
+
+
+
+<div style="height:var(--wp--preset--spacing--6)" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-7387b849 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:600px">
+<div class="comeet-outer-wrapper">
+            <div class="cards">
+                                                            <div class="card card-career">
+                                    <div class="card-header">
+                                        <span class="card-title">Senior Data Engineer</span>
+                                    </div>
+                                    <div class="card-body">
+                                                                                    <p class="card-text">We are seeking talented and passionate Senior Data Engineer to join our Data team. In this&hellip;</p>
+                                                                            </div>
+                                    <div class="card-footer">
+                                        <a href="//alison.ai/company/were-hiring/co/tel-aviv/F3.E6F/senior-data-engineer/all" class="btn-career">
+                                            Apply                                            <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 14.3277L13.5562 16L21 8.00003L13.5562 0L12 1.6723L16.9588 7H0V9H16.9588L12 14.3277Z" fill="#252525"/>
+                                            </svg>
+
+                                        </a>
+                                    </div>
+                                </div>
+                                                                            <div class="card card-career">
+                                    <div class="card-header">
+                                        <span class="card-title">Head of North America</span>
+                                    </div>
+                                    <div class="card-body">
+                                                                                    <p class="card-text">Alison.ai, the industry leading creative analytics platform, is looking for our Head of North America to&hellip;</p>
+                                                                            </div>
+                                    <div class="card-footer">
+                                        <a href="//alison.ai/company/were-hiring/co/new-york/18.B6B/head-of-north-america/all" class="btn-career">
+                                            Apply                                            <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 14.3277L13.5562 16L21 8.00003L13.5562 0L12 1.6723L16.9588 7H0V9H16.9588L12 14.3277Z" fill="#252525"/>
+                                            </svg>
+
+                                        </a>
+                                    </div>
+                                </div>
+                                                <div class="card card-career">
+                                    <div class="card-header">
+                                        <span class="card-title">Senior Account Executive</span>
+                                    </div>
+                                    <div class="card-body">
+                                                                                    <p class="card-text">We're looking for a Senior Account Executive to help grow Alison across Europe by bringing new&hellip;</p>
+                                                                            </div>
+                                    <div class="card-footer">
+                                        <a href="//alison.ai/company/were-hiring/co/london/6C.D68/senior-account-executive/all" class="btn-career">
+                                            Apply                                            <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 14.3277L13.5562 16L21 8.00003L13.5562 0L12 1.6723L16.9588 7H0V9H16.9588L12 14.3277Z" fill="#252525"/>
+                                            </svg>
+
+                                        </a>
+                                    </div>
+                                </div>
+                                    </div>
+                    <!-- <div class="comeet-social">
+                <script type="comeet-social"></script>
+            </div> -->
+        </div>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:677px">
+<figure class="wp-block-image size-full sticky-element"><img fetchpriority="high" decoding="async" width="1354" height="1068" src="https://alison.ai/wp-content/uploads/Frame-1000007323-1.webp" alt="" class="wp-image-137858" srcset="https://alison.ai/wp-content/uploads/Frame-1000007323-1.webp 1354w, https://alison.ai/wp-content/uploads/Frame-1000007323-1-300x237.webp 300w, https://alison.ai/wp-content/uploads/Frame-1000007323-1-1024x808.webp 1024w, https://alison.ai/wp-content/uploads/Frame-1000007323-1-768x606.webp 768w" sizes="(max-width: 1354px) 100vw, 1354px" /></figure>
+</div>
+</div>
+		</div>
+
+	</div><!-- .entry-content -->
+
+</article><!-- #post-456 -->
+
+	</main><!-- #main -->
+
+
+
+</div><!-- #page -->
+
+
+
+<footer class="site-footer ">
+
+	<div class="container">
+
+		<div class="site-footer__wrap">
+
+						<div class="site-footer__top">
+
+				<div class="site-footer__widget">
+
+					<a href="https://alison.ai" aria-label="Alison.ai" class="site-footer__logo site-logo">
+
+					</a>
+
+						
+
+					<div class="subscription-form">
+
+						
+<div class="wpcf7 no-js" id="wpcf7-f136896-o1" lang="en-US" dir="ltr" data-wpcf7-id="136896">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/company/were-hiring#wpcf7-f136896-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="136896" /><input type="hidden" name="_wpcf7_version" value="6.1.7" /><input type="hidden" name="_wpcf7_locale" value="en_US" /><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f136896-o1" /><input type="hidden" name="_wpcf7_container_post" value="0" /><input type="hidden" name="_wpcf7_posted_data_hash" value="" /><input type="hidden" name="_wpcf7cf_hidden_group_fields" value="[]" /><input type="hidden" name="_wpcf7cf_hidden_groups" value="[]" /><input type="hidden" name="_wpcf7cf_visible_groups" value="[]" /><input type="hidden" name="_wpcf7cf_repeaters" value="[]" /><input type="hidden" name="_wpcf7cf_steps" value="{}" /><input type="hidden" name="_wpcf7cf_options" value="{&quot;form_id&quot;:136896,&quot;conditions&quot;:[],&quot;settings&quot;:{&quot;animation&quot;:&quot;yes&quot;,&quot;animation_intime&quot;:200,&quot;animation_outtime&quot;:200,&quot;conditions_ui&quot;:&quot;normal&quot;,&quot;notice_dismissed&quot;:false,&quot;repeater_remove_button&quot;:&quot;bottom&quot;,&quot;notice_dismissed_update-cf7-5.4&quot;:true,&quot;notice_dismissed_update-cf7-5.4.1&quot;:true,&quot;notice_dismissed_rollback-cf7-5.4.1&quot;:true,&quot;notice_dismissed_rollback-cf7-5.4.2&quot;:true}}" /><input type="hidden" name="_wpcf7dtx_version" value="5.0.7" /><input type="hidden" name="_wpcf7_recaptcha_response" value="" />
+</fieldset>
+<h3 class="subscription-title">Subscribe to Newsletter</h3><span id="wpcf7-6aba64d9153a5-wrapper" class="wpcf7-form-control-wrap cf7apps-honeypot-wrap subscriber-name-wrap" data-cf7apps-honeypot="subscriber-name" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;"><input type="hidden" name="subscriber-name-random-hash" value="20260928"><input type="hidden" name="subscriber-name-time-token" value="MTc5MDYwMDQwOQ==.8f442d54aae918bc0a65dbb6424aa0c1925e0151a9d7eea0e8598c6a56d50069"><label
+		    for="wpcf7-6aba64d9153a5-field"
+		    class="hp-message"
+        >Please leave this field empty.</label><input
+	    id="wpcf7-6aba64d9153a5-field"
+	    
+	    class="wpcf7-form-control wpcf7-text"
+	    type="text"
+	    name="4qiztxqlyrnj"
+	    value=""
+	    autocomplete="new-password"
+	    tabindex="1000"
+	    data-cf7apps-tabindex="1000"
+    /></span>
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="utm_source" />
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="utm_medium" />
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="utm_campaign" />
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="utm_term" />
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="utm_content" />
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="gclid" />
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="fbclid" />
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="original_referrer" />
+<div class="subscription-form__wrap">
+<span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Full Name" value="" type="text" name="your-name" /></span>
+<span class="wpcf7-form-control-wrap" data-name="company-email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Enter email address" value="" type="email" name="company-email" /></span><div class="submit-button"><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="Submit" /></div></div><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+					</div>
+
+					
+
+											<div class="site-footer__social">
+
+							<ul>
+
+															
+
+															
+
+								
+
+								<li>
+
+									<a href="https://www.linkedin.com/company/alison-ai/" target="_blank" class="btn btn--icon btn--icon-only" aria-label="linkedin">
+
+										<svg class="svg-icon icon-linkedin" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-linkedin"></use></svg>									</span>
+
+									</a>
+
+								</li>
+
+															
+
+															
+
+								
+
+								<li>
+
+									<a href="https://www.facebook.com/OfficialAlisonAi" target="_blank" class="btn btn--icon btn--icon-only" aria-label="facebook">
+
+										<svg class="svg-icon icon-facebook" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-facebook"></use></svg>									</span>
+
+									</a>
+
+								</li>
+
+															
+
+															
+
+								
+
+								<li>
+
+									<a href="https://www.instagram.com/alisonai_/" target="_blank" class="btn btn--icon btn--icon-only" aria-label="insta">
+
+										<svg class="svg-icon icon-insta" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-insta"></use></svg>									</span>
+
+									</a>
+
+								</li>
+
+															
+
+															
+
+								
+
+								<li>
+
+									<a href="https://x.com/AlisonAi_" target="_blank" class="btn btn--icon btn--icon-only" aria-label="x">
+
+										<svg class="svg-icon icon-new-twitter" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-new-twitter"></use></svg>									</span>
+
+									</a>
+
+								</li>
+
+															
+
+															
+
+								
+
+								<li>
+
+									<a href="https://www.youtube.com/@alisonai/featured" target="_blank" class="btn btn--icon btn--icon-only" aria-label="youtube">
+
+										<svg class="svg-icon icon-youtube" width="20" height="20""><use xlink:href="https://alison.ai/wp-content/themes/alison-theme/images/icons_gallery.svg?ver=1787744607#icon-youtube"></use></svg>									</span>
+
+									</a>
+
+								</li>
+
+														</ul>
+
+						</div>
+
+					
+
+				</div>
+
+				<div class="site-footer__nav">
+
+					<nav id="site-navigation" class="main-navigation">
+
+						<ul id="footer-menu" class="footer-menu"><li id="menu-item-136887" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-136887"><div class="menu-item__title">Product</div>
+<ul class="sub-menu">
+	<li id="menu-item-140792" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-140792"><a href="https://alison.ai/product/preflight-plus" class="menu-item__link">Preflight Plus</a></li>
+	<li id="menu-item-141539" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141539"><a href="https://alison.ai/product/creative-genome" class="menu-item__link">Creative Genome</a></li>
+	<li id="menu-item-137198" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137198"><a href="https://alison.ai/product/video-generation" class="menu-item__link">Video Generation</a></li>
+	<li id="menu-item-137187" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137187"><a href="https://alison.ai/product/creative-copilot" class="menu-item__link">AI-Agent</a></li>
+	<li id="menu-item-137189" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137189"><a href="https://alison.ai/product/competitive-intelligence" class="menu-item__link">Competitive Intelligence</a></li>
+	<li id="menu-item-137188" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137188"><a href="https://alison.ai/product/creative-analytics-insights" class="menu-item__link">Analytics &amp; Insights</a></li>
+	<li id="menu-item-141619" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141619"><a href="https://alison.ai/product/alison-mcp" class="menu-item__link">MCP, Evo and API</a></li>
+</ul>
+</li>
+<li id="menu-item-136888" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-136888"><div class="menu-item__title">Resources</div>
+<ul class="sub-menu">
+	<li id="menu-item-140691" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-140691"><a href="https://alison.ai/pricing" class="menu-item__link">Pricing</a></li>
+	<li id="menu-item-136893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136893"><a href="https://alison.ai/resources/blog" class="menu-item__link">Blog</a></li>
+	<li id="menu-item-140443" class="menu-item menu-item-type-post_type_archive menu-item-object-webinars-and-videos menu-item-140443"><a href="https://alison.ai/webinars-and-videos" class="menu-item__link">Webinars And Videos</a></li>
+	<li id="menu-item-137071" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137071"><a href="https://alison.ai/resources/success" class="menu-item__link">Success Stories</a></li>
+	<li id="menu-item-137072" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137072"><a href="https://alison.ai/resources/press" class="menu-item__link">Newsroom</a></li>
+	<li id="menu-item-140692" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-140692"><a href="https://alison.ai/resources/creative-intelligence-reports" class="menu-item__link">Creative Intelligence Reports</a></li>
+</ul>
+</li>
+<li id="menu-item-136892" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-136892"><div class="menu-item__title">Company</div>
+<ul class="sub-menu">
+	<li id="menu-item-137199" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137199"><a href="https://alison.ai/company/about-us" class="menu-item__link">About Us</a></li>
+	<li id="menu-item-137074" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137074"><a href="https://alison.ai/company/contact" class="menu-item__link">Contact Us</a></li>
+	<li id="menu-item-139566" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139566"><a href="https://alison.ai/company/diversity-inclusion" class="menu-item__link">Diversity &#038; Inclusion</a></li>
+	<li id="menu-item-140055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-140055"><a href="https://alison.ai/company/modern-slavery-and-human-trafficking-policy" class="menu-item__link">Modern Slavery Policy</a></li>
+</ul>
+</li>
+<li id="menu-item-141402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-141402"><div class="menu-item__title">Compare</div>
+<ul class="sub-menu">
+	<li id="menu-item-141407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141407"><a href="https://alison.ai/vs-motion" class="menu-item__link">VS. Motion</a></li>
+	<li id="menu-item-141406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141406"><a href="https://alison.ai/vs-creativex" class="menu-item__link">VS. CreativeX</a></li>
+	<li id="menu-item-141405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141405"><a href="https://alison.ai/vs-system1" class="menu-item__link">VS. System1</a></li>
+	<li id="menu-item-141404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141404"><a href="https://alison.ai/vs-vidmob" class="menu-item__link">VS. Vidmob</a></li>
+	<li id="menu-item-141537" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141537"><a href="https://alison.ai/vs-segwise" class="menu-item__link">VS. Segwise</a></li>
+	<li id="menu-item-141538" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141538"><a href="https://alison.ai/vs-adcreative-ai" class="menu-item__link">VS. AdCreative.ai</a></li>
+</ul>
+</li>
+</ul>					</nav>	
+
+				</div>
+
+			</div>
+
+						
+
+			<div class="site-footer__privacy">
+
+				<p>
+
+				<a href="https://alison.ai" aria-label="Alison.ai" class="site-footer__logo site-logo">
+
+				</a>
+
+				
+
+				
+
+				<span>All Rights Reserved </span></p>
+
+				<ul>
+
+																<li>
+
+							<a href="https://alison.ai/terms-of-service" target="">Terms of service</a>
+
+						</li>
+
+																					<li>
+
+							<a href="https://alison.ai/privacy-policy" target="">Privacy policy</a>
+
+						</li>
+
+					
+
+										
+
+				</ul>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</footer>
+
+<div  class="scroll-to-top-wrapper">
+
+	<a href="#top" class="scroll-to-top" aria-label="Scroll top">
+
+		<svg width="81" height="81" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+			<path d="M40.2612 26.8104L40.2612 59.0939" stroke="#100701"></path>
+
+			<circle cx="40.2622" cy="40.7173" r="39.5171" stroke="#100701"></circle>
+
+			<path d="M52.4093 42.9522L40.262 26.0756L28.1147 42.9522" stroke="#100701"></path>
+
+		</svg>
+
+	</a>
+
+</div>
+
+
+
+<script type="text/rocketlazyloadscript">
+
+	function _calculateScrollbarWidth() {
+
+		document.documentElement.style.setProperty('--scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + "px");
+
+	}
+
+	window.addEventListener('resize', _calculateScrollbarWidth, false);
+
+	document.addEventListener('DOMContentLoaded', _calculateScrollbarWidth, false); 
+
+	window.addEventListener('load', _calculateScrollbarWidth);
+
+</script>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/alison-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+
+
+
+<script type="text/rocketlazyloadscript">
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Get the current page's URL parameters
+
+  var urlParams = new URLSearchParams(window.location.search);
+
+
+
+  // Iterate through all anchor links on the page
+
+  document.querySelectorAll('a').forEach(link => {
+
+    // Ensure the link has a valid href attribute
+
+    if (link.href && link.href.startsWith('http')) {
+
+      try {
+
+        // Parse the href into a URL object
+
+        var linkUrl = new URL(link.href);
+
+
+
+        // Append each query parameter from the current page's URL
+
+        urlParams.forEach((value, key) => {
+
+          linkUrl.searchParams.set(key, value); // Use .set to update or add params
+
+        });
+
+
+
+        // Update the href attribute with the modified URL
+
+        link.href = linkUrl.toString();
+
+      } catch (error) {
+
+        console.error('Error processing link:', link.href, error);
+
+      }
+
+    } else {
+
+      console.warn('Skipping invalid or undefined link:', link);
+
+    }
+
+  });
+
+});
+
+</script>
+
+
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+      var referrer = document.referrer; // Get the referring site
+
+
+
+      if (referrer) {
+
+          var _hsq = window._hsq = window._hsq || [];
+
+          _hsq.push(["setCustomAttribute", "referrer", referrer]); // Pass as metadata
+
+          _hsq.push(["trackPageView"]);
+
+      }
+
+
+
+      // Also store in sessionStorage (optional)
+
+      sessionStorage.setItem("hs_referrer", referrer);
+
+  });
+
+</script>
+
+
+
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+
+_linkedin_partner_id = "6852314";
+
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+
+</script><script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+
+(function(l) {
+
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+
+window.lintrk.q=[]}
+
+var s = document.getElementsByTagName("script")[0];
+
+var b = document.createElement("script");
+
+b.type = "text/javascript";b.async = true;
+
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+
+</script>
+
+<noscript>
+
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=6852314&fmt=gif" />
+
+</noscript>			<script type="text/rocketlazyloadscript">
+				const registerAllyAction = () => {
+					if ( ! window?.ElementorProFrontendConfig || ! window?.elementorFrontend?.utils?.urlActions ) {
+						return;
+					}
+
+					elementorFrontend.utils.urlActions.addAction( 'allyWidget:open', () => {
+						if (window?.ea11yWidget?.widget?.open) {
+							return window.ea11yWidget.widget.isOpen()
+								? window.ea11yWidget.widget.close()
+								: window.ea11yWidget.widget.open();
+						}
+					} );
+				};
+
+				const waitingLimit = 30;
+				let retryCounter = 0;
+
+				const waitForElementorPro = () => {
+					return new Promise( ( resolve ) => {
+						const intervalId = setInterval( () => {
+							if ( retryCounter === waitingLimit ) {
+								resolve( null );
+							}
+
+							retryCounter++;
+
+							if ( window.elementorFrontend && window?.elementorFrontend?.utils?.urlActions ) {
+								clearInterval( intervalId );
+								resolve( window.elementorFrontend );
+							}
+								}, 100 ); // Check every 100 milliseconds for availability of elementorFrontend
+					});
+				};
+
+				waitForElementorPro().then( () => { registerAllyAction(); });
+			</script>
+			<script type="text/rocketlazyloadscript">
+						  document.addEventListener('wpcf7submit', function (event) {
+							  try {
+							    const apiResponse = event.detail.apiResponse;
+							 
+							    if (!apiResponse || !apiResponse.message) {
+							      console.warn('API response or message is missing.');
+							      return;
+							    }
+							    const responseOutputElement = document.querySelector('.wpcf7-response-output');
+							    const responseOutput = apiResponse.message;
+							    let resubscribeLink = document.querySelector('.wpcf7-response-link');
+							    const marker = '[HS_RESUBSCRIBE]';
+							    const isResubscribe = typeof responseOutput === 'string' && responseOutput.indexOf(marker) === 0;
+
+							    if (isResubscribe) {
+							      const messageHtml = responseOutput.replace(marker, '').trim();
+							      if (!resubscribeLink) {
+							        const div = document.createElement('div');
+							        div.classList.add('wpcf7-response-link');
+							        div.innerHTML = messageHtml;
+							
+							        if (responseOutputElement) {
+							          responseOutputElement.after(div);
+							          responseOutputElement.style.display = 'none';
+							        } else {
+							          console.warn('.wpcf7-response-output element not found.');
+							        }
+							      }
+							       if (resubscribeLink && responseOutputElement) {
+							          resubscribeLink.style.display = 'block';
+							          responseOutputElement.style.display = 'none';
+							        }
+							
+							    } else { 
+							      if (responseOutputElement) {
+							        responseOutputElement.style.display = 'block';
+							        if(resubscribeLink){
+							            resubscribeLink.style.display = 'none';
+							        }
+							        if(responseOutputElement.nextElementSibling){
+							          responseOutputElement.nextElementSibling.style.display = 'none';
+							        }
+							      }
+							    }
+							  } catch (error) {
+							    console.error('An error occurred in the wpcf7submit event listener:', error);
+							  }
+							}, false);
+						</script>
+							<style>
+								.wpcf7-response-link{
+									border:2px solid #ffb900;
+									margin: 2em 0.5em 1em;
+								    padding: 0.2em 1em;
+								}
+							</style><script id="ea11y-widget-js-extra">
+var ea11yWidget = {"iconSettings":{"style":{"icon":"person","size":"medium","color":"#0C7FA4","cornerRadius":{"radius":32,"unit":"px"}},"position":{"desktop":{"hidden":false,"enableExactPosition":true,"exactPosition":{"horizontal":{"direction":"right","value":10,"unit":"px"},"vertical":{"direction":"bottom","value":200,"unit":"px"}},"position":"top-right"},"mobile":{"hidden":false,"enableExactPosition":true,"exactPosition":{"horizontal":{"direction":"left","value":5,"unit":"px"},"vertical":{"direction":"top","value":60,"unit":"px"}},"position":"bottom-left"}}},"toolsSettings":{"bigger-text":{"enabled":true},"bigger-line-height":{"enabled":true},"text-align":{"enabled":true},"readable-font":{"enabled":true},"grayscale":{"enabled":true},"contrast":{"enabled":true},"page-structure":{"enabled":true},"sitemap":{"enabled":false,"url":"https://alison.ai/wp-sitemap.xml"},"reading-mask":{"enabled":true},"hide-images":{"enabled":true},"pause-animations":{"enabled":true},"highlight-links":{"enabled":true},"focus-outline":{"enabled":true},"screen-reader":{"enabled":false},"remove-elementor-label":{"enabled":false}},"accessibilityStatementURL":"","analytics":{"enabled":false,"url":null}};
+//# sourceURL=ea11y-widget-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="ea11y-widget-js" data-rocket-src="https://cdn.elementor.com/a11y/widget.js?api_key=ea11y-7d0fcf1c-c4f3-4f4d-8808-d574b2c5c415&#038;ver=4.1.4"referrerPolicy="origin"></script>
+<script type="text/rocketlazyloadscript" id="ea11y-remediation-module-chunk-lib-postcss-js" data-rocket-src="https://alison.ai/wp-content/plugins/pojo-accessibility/assets/build/lib-postcss.js?ver=dd3d6ae95e727956a431"></script>
+<script type="text/rocketlazyloadscript" id="wp-hooks-js" data-rocket-src="https://alison.ai/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script type="text/rocketlazyloadscript" id="wp-i18n-js" data-rocket-src="https://alison.ai/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script type="text/rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="text/rocketlazyloadscript" id="remediation-module-js" data-rocket-src="https://alison.ai/wp-content/plugins/pojo-accessibility/assets/build/remediation-module.js?ver=dd3d6ae95e727956a431"></script>
+<script type="text/rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://alison.ai","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,a,c){function l(t,e){if(!a[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(u)return u(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=a[t]={exports:{}},n[t][0].call(r.exports,function(e){return l(n[t][1][e]||e)},r,r.exports,o,n,a,c)}return a[t].exports}for(var u="function"==typeof require&&require,e=0;e<c.length;e++)l(c[e]);return l}({1:[function(e,t,r){{let r="undefined"==typeof rocket_pairs?[]:rocket_pairs,o=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var a=rocket_lazyload_css_data.threshold||300;let n=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&r.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,o.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{n.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:a+"px"});function c(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&r.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(n.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}c(),(()=>{let r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}})()(document.querySelector("body"),c)}},{}]},{},[1]);
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="text/rocketlazyloadscript" id="swiper-js-js" data-rocket-src="https://alison.ai/wp-content/themes/alison-theme/js/swiper.js?ver=11.1.4"></script>
+<script type="text/rocketlazyloadscript" id="custom-js" data-rocket-src="https://alison.ai/wp-content/themes/alison-theme/js/main.js?ver=1788798239"></script>
+<script type="text/rocketlazyloadscript" id="swv-js" data-rocket-src="https://alison.ai/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.7"></script>
+<script type="text/rocketlazyloadscript" id="contact-form-7-js-before">
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/alison.ai\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    },
+    "cached": 1
+};
+//# sourceURL=contact-form-7-js-before
+</script>
+<script type="text/rocketlazyloadscript" id="contact-form-7-js" data-rocket-src="https://alison.ai/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.7"></script>
+<script id="wpcf7cf-scripts-js-extra">
+var wpcf7cf_global_settings = {"ajaxurl":"https://alison.ai/wp-admin/admin-ajax.php"};
+//# sourceURL=wpcf7cf-scripts-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="wpcf7cf-scripts-js" data-rocket-src="https://alison.ai/wp-content/plugins/cf7-conditional-fields/js/scripts.js?ver=2.7.13"></script>
+<script id="google-recaptcha-js" src="https://www.google.com/recaptcha/api.js?render=6Lf9_BwrAAAAALCazoe82C0OMgj_n_B4DvOAPjuv&#038;ver=3.0"></script>
+<script type="text/rocketlazyloadscript" id="wp-polyfill-js" data-rocket-src="https://alison.ai/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0"></script>
+<script id="wpcf7-recaptcha-js-before">
+var wpcf7_recaptcha = {
+    "sitekey": "6Lf9_BwrAAAAALCazoe82C0OMgj_n_B4DvOAPjuv",
+    "actions": {
+        "homepage": "homepage",
+        "contactform": "contactform"
+    }
+};
+//# sourceURL=wpcf7-recaptcha-js-before
+</script>
+<script id="wpcf7-recaptcha-js" src="https://alison.ai/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.1.7"></script>
+<script id="cf7apps-honeypot-refill-js-extra">
+var cf7appsHoneypotRefill = {"forceRefillOnInit":"1"};
+//# sourceURL=cf7apps-honeypot-refill-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="cf7apps-honeypot-refill-js" data-rocket-src="https://alison.ai/wp-content/plugins/contact-form-7-honeypot/legacy-honeypot/includes/js/honeypot-refill.js?ver=3.7.1"></script>
+<script id="comeet_script-js-extra">
+var comeetvar = {"comeet_token":"9AD43BB9AD571526B40571501D073061","comeet_uid":"A9.00D","comeet_color":"","comeet_bgcolor":"","comeet_css_url":"","comeet_css_cache":"unset_cache","comeet_apply_as_employee":"true","comeet_field_email_required":"true","comeet_field_phone_required":"true","comeet_field_resume":"true","comeet_field_linkedin":"true","comeet_require_profile":"resume","comeet_field_website":"false","comeet_field_website_required":"false","comeet_field_coverletter":"true","comeet_field_coverletter_required":"false","comeet_field_portfolio":"true","comeet_field_portfolio_required":"false","comeet_field_personalnote":"true","comeet_field_personalnote_required":"false","comeet_button_text":"","comeet_font_size":"","comeet_button_font_size":"","comeet_labels_position":"responsive","comeet_button_color":"","comeet_social_pinterest":"true","comeet_social_whatsapp":"false","comeet_social_employees":"false","comeet_social_show_title":"false","comeet_social_share_url":"","comeet_social_color":"white"};
+//# sourceURL=comeet_script-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="comeet_script-js" data-rocket-src="https://alison.ai/wp-content/plugins/comeet-wp-plugin-Version-3.0.2/js/comeet.js?ver=10"></script>
+<script type="text/rocketlazyloadscript" id="comeet_src_script-js" data-rocket-src="https://alison.ai/wp-content/plugins/comeet-wp-plugin-Version-3.0.2/js/comeet-src.js?ver=3.0.2"></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://alison.ai/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script type="text/rocketlazyloadscript">!function () {var reb2b = window.reb2b = window.reb2b || []; if (reb2b.invoked) return;reb2b.invoked = true;reb2b.methods = ["identify", "collect"]; reb2b.factory = function (method) {return function () {var args = Array.prototype.slice.call(arguments); args.unshift(method);reb2b.push(args);return reb2b;};}; for (var i = 0; i < reb2b.methods.length; i++) {var key = reb2b.methods[i];reb2b[key] = reb2b.factory(key);} reb2b.load = function (key) {var script = document.createElement("script");script.type = "text/javascript";script.async = true; script.src = "https://s3-us-west-2.amazonaws.com/b2bjsstore/b/" + key + "/reb2b.js.gz"; var first = document.getElementsByTagName("script")[0]; first.parentNode.insertBefore(script, first);}; reb2b.SNIPPET_VERSION = "1.0.1";reb2b.load("0NW1GH7W1VO4");}();</script> 
+
+<!-- Start of HubSpot Embed Code -->
+
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/143584806.js"></script>
+
+<!-- End of HubSpot Embed Code -->
+
+</body>
+
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1790600409 -->
