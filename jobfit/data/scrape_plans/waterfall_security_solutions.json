@@ -1,0 +1,78 @@
+{
+  "company_id": "waterfall_security_solutions",
+  "schema_version": 1,
+  "career_url": "https://waterfall-security.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:30:32.829189Z",
+  "verified_at": "2026-09-28T11:30:32.829189Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?waterfall\\-security\\.com/about\\-waterfall/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?waterfall\\-security\\.com/about\\-waterfall/[^/?#]+/?$",
+      "^https?://(www\\.)?waterfall\\.my\\.site\\.com/s/[^/?#]+/?$"
+    ],
+    "url_shape": "waterfall-security.com|about-waterfall/careers/co/israel/8E.F6B/legal-counsel|7",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 40,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 44,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 46,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 47,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 48,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": null,
+  "notes": []
+}

@@ -1,0 +1,57 @@
+{
+  "company_id": "webzio",
+  "schema_version": 1,
+  "career_url": "https://webz.io/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:30:32.829189Z",
+  "verified_at": "2026-09-28T11:30:32.829189Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?webz\\.io/job/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?webz\\.io/[^/?#]+/?$"
+    ],
+    "url_shape": "webz.io|job|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 45,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 46,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 53,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": null,
+  "notes": []
+}

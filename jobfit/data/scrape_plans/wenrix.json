@@ -1,0 +1,72 @@
+{
+  "company_id": "wenrix",
+  "schema_version": 1,
+  "career_url": "https://www.wenrix.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:30:32.829189Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?wenrix\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "ats.rippling.com|wenrix/jobs/eb005726-354e-4ba9-9fb6-4532aff5b26d|4",
+    "explicit_accept": [
+      "https://ats.rippling.com/wenrix/jobs/eb005726-354e-4ba9-9fb6-4532aff5b26d/apply?step=application",
+      "https://ats.rippling.com/wenrix/jobs/9262bc43-1ecc-4288-9e96-2d13e1b80f5e/apply?step=application",
+      "https://ats.rippling.com/wenrix/jobs/3c567fb1-e748-4bfa-9686-e2ec4b6dc0ca/apply?step=application",
+      "https://ats.rippling.com/wenrix/jobs/1e00f45e-ba88-43df-8b08-af085489b743/apply?step=application"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 4
+  },
+  "rediscover_after": null,
+  "notes": []
+}

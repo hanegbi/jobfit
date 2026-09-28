@@ -1,0 +1,82 @@
+{
+  "company_id": "unipaas_payments_technologies",
+  "schema_version": 1,
+  "career_url": "https://www.unipaas.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:30:32.829189Z",
+  "verified_at": "2026-09-28T11:30:32.829189Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?unipaas\\.com/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?unipaas\\.com/company/[^/?#]+/?$"
+    ],
+    "url_shape": "unipaas.com|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 39,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 44,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 45,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 7
+  },
+  "rediscover_after": null,
+  "notes": []
+}

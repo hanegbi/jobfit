@@ -1,0 +1,188 @@
+{
+  "company_id": "vishay",
+  "schema_version": 1,
+  "career_url": "https://jobs.vishay.com/locations/israel/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:30:32.829189Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?jobs\\.vishay\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?vishay\\.wd3\\.myworkdayjobs\\.com/en\\-US/VishayCareers/[^/?#]+/?$",
+      "^https?://(www\\.)?jobs\\.vishay\\.com/wp\\-content/uploads/2026/08/[^/?#]+/?$",
+      "^https?://(www\\.)?eeoc\\.gov/sites/default/files/2022\\-10/[^/?#]+/?$",
+      "^https?://(www\\.)?jobs\\.vishay\\.com/wp\\-content/uploads/2025/07/[^/?#]+/?$",
+      "^https?://(www\\.)?jobs\\.vishay\\.com/wp\\-content/uploads/2025/04/[^/?#]+/?$"
+    ],
+    "url_shape": "jobs.vishay.com|jobs|2",
+    "explicit_accept": [
+      "https://jobs.vishay.com/jobs/planner-4/",
+      "https://jobs.vishay.com/jobs/electronics-technician/",
+      "https://jobs.vishay.com/jobs/hr-student/",
+      "https://jobs.vishay.com/jobs/buyer-general-spare-parts/",
+      "https://jobs.vishay.com/jobs/process-engineer-5/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 18,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 19,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 20,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 21,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 22,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 24,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 31,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 32,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 35,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": null,
+  "notes": []
+}

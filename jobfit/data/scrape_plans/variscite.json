@@ -1,0 +1,80 @@
+{
+  "company_id": "variscite",
+  "schema_version": 1,
+  "career_url": "https://www.variscite.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:30:32.829189Z",
+  "verified_at": "2026-09-28T11:30:32.829189Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?variscite\\.com/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?variscite\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?variscite\\.de/[^/?#]+/?$",
+      "^https?://(www\\.)?variscite\\.it/[^/?#]+/?$",
+      "^https?://(www\\.)?variscite\\.com/wp\\-content/uploads/2018/03/[^/?#]+/?$"
+    ],
+    "url_shape": "variscite.com|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 42,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 45,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 46,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 47,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 48,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 58,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}
