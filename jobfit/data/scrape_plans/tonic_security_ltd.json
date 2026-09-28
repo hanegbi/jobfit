@@ -1,0 +1,60 @@
+{
+  "company_id": "tonic_security_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.tonicsecurity.com/about/#careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T15:10:05.249501Z",
+  "verified_at": "2026-09-28T15:10:05.249501Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?tonicsecurity\\.com/join\\-team/[^/?#]+/?$",
+    "exclude_url": [],
+    "url_shape": "tonicsecurity.com|join-team|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 19,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 20,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 21,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 22,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 4
+  },
+  "rediscover_after": null,
+  "notes": []
+}

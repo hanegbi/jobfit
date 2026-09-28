@@ -1,0 +1,54 @@
+{
+  "company_id": "taggzzoo_ltd_admaven",
+  "schema_version": 1,
+  "career_url": "https://www.ad-maven.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T15:10:05.249501Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?ad\\-maven\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "cdn.prod.website-files.com|65367d1a669d72b13cc2df99|2",
+    "explicit_accept": [
+      "https://cdn.prod.website-files.com/65367d1a669d72b13cc2df99/6ab3a70b3336e6d9a5cff544_assistant-controller.pdf"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

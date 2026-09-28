@@ -1,0 +1,469 @@
+<!DOCTYPE html><!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Thu Dec 11 2025 13:51:01 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="www.tymely.ai" data-wf-page="67b09defa3b03ecab8c1f2c1" data-wf-site="646a453afb9d4d54cc870d83" lang="en"><head><meta charset="utf-8"/><link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous"/><title>Careers v2</title><meta content="Careers v2" property="og:title"/><meta content="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/64a9534893be72508a153e2d_Ope%20graph.webp" property="og:image"/><meta content="Careers v2" name="twitter:title"/><meta content="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/64a9534893be72508a153e2d_Ope%20graph.webp" name="twitter:image"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="Webflow" name="generator"/><link href="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/css/tymely-v1.webflow.shared.b413bcf8b.css" rel="stylesheet" type="text/css"/><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/6489c5f75b05d3806661bae7_Favicon.png" rel="shortcut icon" type="image/x-icon"/><link href="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/6489c5ffc8a48752252a746a_Webclip.png" rel="apple-touch-icon"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LX03ZHC2EZ"></script><script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('set', 'developer_id.dZGVlNj', true);gtag('js', new Date());gtag('config', 'G-LX03ZHC2EZ');</script><!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K4VNQM43');</script>
+<!-- End Google Tag Manager -->
+<!-- Finsweet Cookie Consent -->
+<script async src="https://cdn.jsdelivr.net/npm/@finsweet/cookie-consent@1/fs-cc.js" fs-cc-mode="opt-in" ></script>
+
+<style>
+  /* cancel the deafult select arrow*/
+  select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
+
+<!-- Start Reb2B and Apollo-->
+<script>
+  const tracingOptOutKey = 'tracingOptOut';
+
+  async function isUserInUS() {
+    const apiKey = '0792bfec40c189';
+    try {
+      const response = await fetch(`https://ipinfo.io/json?token=${apiKey}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data.country === 'US';
+    } catch (error) {
+      return false; // Default to not in the US if the check fails
+    }
+  }
+
+  function loadReb2b() {
+    var reb2b = window.reb2b = window.reb2b || [];
+    if (reb2b.invoked) return;
+    reb2b.invoked = true;
+    reb2b.methods = ["identify", "collect"];
+    reb2b.factory = function (method) {
+      return function () {
+        var args = Array.prototype.slice.call(arguments);
+        args.unshift(method);
+        reb2b.push(args);
+        return reb2b;
+      };
+    };
+    for (var i = 0; i < reb2b.methods.length; i++) {
+      var key = reb2b.methods[i];
+      reb2b[key] = reb2b.factory(key);
+    }
+    reb2b.load = function (key) {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = "https://s3-us-west-2.amazonaws.com/b2bjsstore/b/" + key + "/reb2b.js.gz";
+      var first = document.getElementsByTagName("script")[0];
+      first.parentNode.insertBefore(script, first);
+    };
+    reb2b.SNIPPET_VERSION = "1.0.1";
+    reb2b.load("3961Y0HR4MNG");
+  }
+
+  function initApollo() {
+    const n = Math.random().toString(36).substring(7), o = document.createElement("script");
+    o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n, o.async = !0, o.defer = !0,
+            o.onload = function () {
+              window.trackingFunctions.onLoad({appId: "6633532ed8d9450a638f8aea"})
+            },
+            document.head.appendChild(o)
+  }
+
+  async function initializeTracking() {
+    const isOptedOut = localStorage.getItem(tracingOptOutKey);
+    if (isOptedOut) {
+      console.log('User has opted out. Skipping reb2b load.');
+      return;
+    }
+
+    const isInUS = await isUserInUS();
+    if (isInUS) {
+      loadReb2b();
+      initApollo();
+    }
+  }
+
+  function optOutReb2b() {
+    if (window.reb2b) {
+      // Unload the script
+      var script = document.querySelector('script[src*="b2bjsstore/b"]');
+      if (script) {
+        script.parentNode.removeChild(script);
+      }
+      // Clear the reb2b array
+      window.reb2b = [];
+      // Store opt-out in local storage
+      localStorage.setItem(tracingOptOutKey, 'true');
+      console.log('User opt-out from Reb2b.');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeTracking();
+    const denyButton = document.getElementById('cookie-consent-deny-button');
+    if (denyButton) {
+      denyButton.addEventListener('click', optOutReb2b);
+    }
+  });
+</script>
+<!-- End Reb2B -->
+
+<!-- Start Leadsy -->
+<script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="9kiNFGFcWhqi5vIs" data-version="062024"></script>
+<!-- End Leadsy --><script>
+  window.comeetsubmit = function() {
+   // Code to handle the submission event
+   console.log("Comeet form submitted!");
+};
+   window.comeetInit = function() {
+      COMEET.init({
+         "token":       "82930F628CD28CD8291052082941484971",
+         "company-uid": "28.009",
+         "company-name":"tymely",
+         "candidate-source-storage": false,
+		 //"css-url":"https://code.grafov.co.il/nimble-comeet.css" ,
+		  "css-cache": true,
+         "color":       "f54670", //optional
+         "font-size":   "14px", //optional
+		  "field-portfolio": false, //optional
+		  "field-coverletter": false,
+		  "field-personalnote": false,
+      "social-whatsapp": true,
+		  "labels-position": "top"
+         //add more parameters here
+      });
+	   
+   };
+ 
+   (function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return; } js = d.createElement(s); js.id = id;
+   js.src = "//www.comeet.co/careers-api/api.js"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'comeet-jsapi'));
+</script>
+<!-- Comeet source attribution -->
+<script>(function(){var a=function(){window.COMEET.set("candidate-source-storage",!0)};window.COMEET?a():window.comeetUpdate=a})();</script>
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<style>
+  #empty-state {
+    display: none;
+  }
+
+  #data-jobs-wrap {
+  opacity: 1;
+  transition: opacity 100ms ease;
+}
+.job_item.hidden {
+  opacity: 0; /* Fade out */
+  pointer-events: none; /* Prevent interaction during the fade */
+  display: none; /* Hide the element completely and remove from layout */
+  
+  }
+
+</style>
+</head><body class="body"><div fs-cc="banner" class="cookie_banner"><div class="cookie_p-holder"><p class="paragraph cookies">This website uses cookies to enhance your visit and to provide us with analytics. For more information on our use of cookies please see our <a href="/privacy" class="cookie-link">Privacy Notice</a>.</p></div><div class="cookie_buttons-holder"><div id="cookie-consent-deny-button" fs-cc="deny" class="btn_secondery white"><div>Deny</div></div><div id="cookie-consent-approve-button" fs-cc="allow" class="btn_secondery"><div>Accept</div></div></div></div><div data-animation="over-right" class="navbar w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" data-w-id="48e03fc1-1039-ddf7-319a-a5762e93cff6" role="banner" data-duration="400" data-doc-height="1"><div class="navbar_css w-embed"><style>
+.navbar.active .nav_link{
+color:#1B1A39;
+}
+.navbar.active.nav-open-bg .nav_link{
+color:#ffffff;
+}
+.navbar.active .nav_link:hover{
+color:#6456ff;
+}
+.navbar.active .nav_link.w--current{
+color:#45d78e;
+font-weight:700;
+}
+
+.navbar.active .logo{
+opacity:0;
+}
+
+.navbar.active .logo.active{
+opacity:1;
+}
+.navbar.active.nav-open-bg .logo{
+opacity:1;
+}
+.navbar.active.nav-open-bg .logo.active{
+opacity:0;
+}
+
+.navbar.active .burger_icon{
+filter: brightness(0) saturate(100%) invert(11%) sepia(23%) saturate(1593%) hue-rotate(203deg) brightness(92%) contrast(98%);
+}
+
+.drop-trigger.w--open > .drop-icon {
+	transform: rotate(180deg);
+}
+
+/*
+.drop-trigger.w--open > .nav_link {
+	font-weight: 700;
+}
+.drop-trigger.w--open > .nav_link:hover {
+	color: #ffffff;
+}
+*/
+.navbar.active .drop-icon{
+	color:#1B1A39;
+}
+
+.drop-link.w--current {
+	font-weight: 700;
+  color: #45d78e;
+}
+@media screen and (min-width: 1024px) {
+	.drop-list { box-shadow: 0px 4px 35px 0px rgba(0, 0, 0, 0.07); }
+}
+</style></div><div class="container nav_container"><div class="nav_content"><a href="/" class="brand w-nav-brand"><div class="nav_logo-holder"><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/646c98582c2d24d335105fd5_tymely%20logo.svg" loading="lazy" width="146" height="40" alt="" class="logo"/><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/646cca9184cc8b39d03eb982_Logo%20black.svg" loading="lazy" width="146" height="40" alt="" class="logo active"/></div></a><nav role="navigation" class="nav_menu w-nav-menu"><div class="nav-links-holder"><a href="/" class="nav_link w-nav-link">Home</a><a href="/calculators" class="nav_link w-nav-link">Free Calculators</a><a href="/pricing" class="nav_link w-nav-link">Pricing</a><div data-hover="true" data-delay="0" class="drop-wrap w-dropdown"><div class="drop-trigger w-dropdown-toggle"><div id="drop_resources" class="nav_link">Resources</div><div class="drop-icon w-embed"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.72559 10L12.7256 15L17.7256 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div><nav class="drop-list w-dropdown-list"><div class="dropdown_all-columns"><div class="dropdown_column _1"><a href="/blog" class="drop-link w-inline-block"><div class="flex hor-center w-embed"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.5 1.5H6.5C3.5 1.5 2 3 2 6V15.75C2 16.1625 2.3375 16.5 2.75 16.5H12.5C15.5 16.5 17 15 17 12V6C17 3 15.5 1.5 12.5 1.5Z" stroke="#6456FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.75 7.125H13.25" stroke="#6456FF" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.75 10.875H11" stroke="#6456FF" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div><div>Blog</div></a><a href="/news" class="drop-link w-inline-block"><div class="flex hor-center w-embed"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.5 1.5V3.75" stroke="#6456FF" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.5 1.5V3.75" stroke="#6456FF" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.125 6.81641H15.875" stroke="#6456FF" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.25 6.375V12.75C16.25 15 15.125 16.5 12.5 16.5H6.5C3.875 16.5 2.75 15 2.75 12.75V6.375C2.75 4.125 3.875 2.625 6.5 2.625H12.5C15.125 2.625 16.25 4.125 16.25 6.375Z" stroke="#6456FF" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.49588 10.2734H9.50262" stroke="#6456FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.72244 10.2734H6.72918" stroke="#6456FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.72244 12.5234H6.72918" stroke="#6456FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div><div>Media &amp; events</div></a><a href="/video" class="drop-link w-inline-block"><div class="flex hor-center w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+<g clip-path="url(#clip0_5255_10755)">
+<path d="M1.25 6C1.25 4.89543 2.0791 4 3.10185 4H11.8981C12.9209 4 13.75 4.89543 13.75 6V12.5C13.75 13.6046 12.9209 14.5 11.8981 14.5H3.10185C2.0791 14.5 1.25 13.6046 1.25 12.5V6Z" stroke="#6456FF" stroke-width="1.5"/>
+<path d="M13.75 7.75L17.75 5.25V13.25L13.75 11" stroke="#6456FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.75 11.5H4.25" stroke="#6456FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.26 7H4.25" stroke="#6456FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_5255_10755">
+<rect width="18" height="18" fill="white" transform="translate(0.5 0.5)"/>
+</clipPath>
+</defs>
+</svg></div><div>Videos</div></a></div><div class="dropdown_column _2"><div class="drop-link not-link"><div class="flex hor-center hide-mobile w-embed"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 12.5543V3.50179C17 2.60179 16.265 1.93429 15.3725 2.00929H15.3275C13.7525 2.14429 11.36 2.94679 10.025 3.78679L9.8975 3.86929C9.68 4.00429 9.32 4.00429 9.1025 3.86929L8.915 3.75679C7.58 2.92429 5.195 2.12929 3.62 2.00179C2.7275 1.92679 2 2.60179 2 3.49429V12.5543C2 13.2743 2.585 13.9493 3.305 14.0393L3.5225 14.0693C5.15 14.2868 7.6625 15.1118 9.1025 15.8993L9.1325 15.9143C9.335 16.0268 9.6575 16.0268 9.8525 15.9143C11.2925 15.1193 13.8125 14.2868 15.4475 14.0693L15.695 14.0393C16.415 13.9493 17 13.2743 17 12.5543Z" stroke="#6456FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.5 4.11719V15.3672" stroke="#6456FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.3125 6.36719H4.625" stroke="#6456FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.875 8.61719H4.625" stroke="#6456FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div><div>Case studies</div></div><a href="/case-studies/underoutfit-case-study" class="drop-link w-inline-block"><div>Underoutfit</div></a><a href="/case-studies/gigantic-case-study" class="drop-link w-inline-block"><div>Gigantic</div></a><a href="/case-studies/kuru-case-study-2-minutes" class="drop-link w-inline-block"><div>Kuru</div></a><a href="/case-studies/dailylook" class="drop-link w-inline-block"><div>Dailylook</div></a></div></div></nav></div><div data-hover="true" data-delay="0" class="drop-wrap w-dropdown"><div class="drop-trigger w-dropdown-toggle"><div id="drop_usecases" class="nav_link">Use Cases</div><div class="drop-icon w-embed"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.72559 10L12.7256 15L17.7256 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div><nav class="drop-list is-2 w-dropdown-list"><a href="/use-cases/informational-inquiries" class="drop-link w-inline-block"><div>Informational inquiries</div></a><a href="/use-cases/white-glove-service-instead-of-self-service" class="drop-link w-inline-block"><div>White-glove service for all instead of self service</div></a><a href="/use-cases/complex-inquiries" class="drop-link w-inline-block"><div>Complex actions inquiries</div></a><a href="/use-cases/post-inquiry-sales" class="drop-link w-inline-block"><div>Post inquiry upsell</div></a></nav></div><a href="/contact" class="btn_secondery nav-mobile w-inline-block"><div>Book a demo</div></a></div></nav><div class="menu-button w-nav-button"><div class="menu-icons_holder"><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/6477197b49031242bba9d7f9_burger.svg" loading="lazy" width="20" height="18" alt="" class="burger_icon"/><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/647f3f9498f1f83d49f1e812_x%20icon.svg" loading="lazy" width="20" height="18" alt="" class="x-icon"/></div></div></div></div><div class="nav-bg"></div><div class="navbar_script w-embed w-script"><script>
+const drop_resources = document.querySelector('#drop_resources');
+const drop_usecases = document.querySelector('#drop_usecases');
+
+document.addEventListener('DOMContentLoaded', () => {
+	if (document.location.href.includes('underoutfit-case-study') || document.location.href.includes('news') || document.location.href.includes('blog')|| document.location.href.includes('video')) {
+		drop_resources.style.color = '#45d78e';
+		drop_resources.style.fontWeight = '600';
+	}
+	if (document.location.href.includes('use-cases')) {
+		drop_usecases.style.color = '#45d78e';
+		drop_usecases.style.fontWeight = '600';
+	}
+});
+
+</script></div></div><main class="main"><section class="career_hero-section"><div class="container"><div class="join_content"><div class="join_heading-button"><div class="join_heading-holder"><h1 class="h1 white-text">Join us at <span class="purple-gradient_text">Tymely</span></h1></div><a href="#jobs" class="btn_main w-inline-block"><div>See open positions</div></a></div><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/64787a85af69e9b944e00e3f_two-ellipse.svg" loading="lazy" width="551" height="427" alt="" class="join_deco"/><div class="visual_gradient-purple-blur join-us"></div><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/64787a23d6e755344d085b40_obile%20hero%20icon%20header.svg" loading="lazy" width="50" height="47" alt="" class="join_white-icon mobile"/><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/64787aaabfa3ce143efd3441_hero-white%20icon.svg" loading="lazy" width="80" height="72" alt="" class="join_white-icon desktop"/></div></div></section><section class="who_section"><div class="container"><div class="who_content"><div class="who_img-holder"><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/647771f3a4ea991a0da7f42c_bot-img%20career.webp" loading="lazy" width="297" height="472" alt="robot" class="who_img-bot"/><div class="visual_gradient-purple-blur carrer-who"></div><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/64eb501a19b3764ab9effe33_bg%20(1).png" loading="lazy" width="345" height="345" alt="" srcset="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/64eb501a19b3764ab9effe33_bg%20(1)-p-500.png 500w, https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/64eb501a19b3764ab9effe33_bg%20(1).png 690w" sizes="(max-width: 479px) 100vw, 345px" class="who_visual"/></div><div class="who_right"><div class="who_header-holder"><h2 class="h2">Who we are <span class="purple-gradient_text">?</span></h2></div><div class="who_p-holder margin-15"><p class="paragraph">At Tymely we’re aiming to finally solve poor, slow, and annoying customer service, and increase customer happiness. We’ll do that by replacing over 10 million human customer service agents with AI. We have already partnered with major US brands, acquired a couple of design partners, and raised money from leading VC’s.</p></div><div class="who_p-holder margin-15"><p class="paragraph">Our solution is high scale, has deep engineering and algorithmic challenges, and is impactful to the everyday lives of just about anyone. You’ll be working with a top-notch team (self-pat-on-shoulder) and receive a very competitive equity package (because that’s only fair).</p></div><div class="who_p-holder margin-15"><p class="paragraph">Reach out to us at <a href="mailto:careers@tymely.ai" class="purple-gradient_text bold">careers@tymely.ai</a></p></div></div></div></div></section><section id="jobs" class="jobs_section"><div class="container"><div class="jobs_content"><div class="jobs_header-holder"><h2 class="h2">Be part of Tymely</h2></div><div id="job-board" class="jobs_board grid"></div></div><a id="hide" href="#" class="job_item w-inline-block"><div class="jobs_item-content"><div class="jobs_item-left"><div class="job_name-holder"><h4 data-name="" class="h4">Heading</h4></div><div class="job_location-holder"><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/6478609e5f600a2d8390213b_location.svg" loading="lazy" width="24" height="24" alt="location icon" class="location_img"/><div data-city="" class="subtitle">This is some text inside of a div block.</div></div></div><div class="job_type-holder"><div class="read-more_holder"><div data-employment_type="" class="paragraph read-more">This is some text inside of a div block.</div><img width="34" height="14" src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/6470b6c4d221531d22e15d68_Right%20long.svg" loading="lazy" alt="arrow right" class="read-more_arrow"/></div></div></div></a></div></section></main><div class="rem_code w-embed"><style>
+  html { font-size: calc(0.3437500000000001rem + 0.23437499999999992vw); }
+  @media screen and (max-width:1920px) { html { font-size: calc(0.34374999999999994rem + 0.23437500000000006vw); } }
+  @media screen and (max-width:1280px) { html { font-size: calc(0.170138888888889rem + 0.45138888888888873vw); } }
+  @media screen and (max-width:992px) { html { font-size: 0.625rem; } }
+</style></div><div class="css w-embed"><style>
+@media (max-width:992px){
+[desktop]{
+display:none;
+ }
+}
+@media (min-width:991px){
+[tablet]{
+display:none;
+ }
+}
+@media (max-width:766px){
+[desktop-tablet]{
+display:none;
+ }
+}
+@media (min-width:767px){
+[mobile-only]{
+display:none;
+ }
+}
+.swiper.is--news{
+overflow:visible!important;
+}
+/*Global CSS*/
+/*.w-select:focus{
+border-color:transparent;
+}
+.w-input:focus{
+border-color:transparent;
+}*/
+.form_input{
+padding-left:2.4rem!important;
+}
+.purple-gradient_text{
+background: linear-gradient(92.86deg, #6557FF 8.98%, #A941FF 95.21%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+}
+
+/*.hyper_img{
+filter:drop-shadow(0px 61.517px 133.078px rgba(162, 159, 198, 0.22));
+}*/
+.gradient-underline {
+  display: inline;
+  background-image: linear-gradient(to right, #A941FF, #45D79A);
+  background-repeat: no-repeat;
+  background-size: 100% 4px;       /* thickness */
+  background-position: 0 90%;      /* move it UP (100% = bottom, 90% = higher) */
+}
+
+</style></div><section class="footer"><div class="container"><div class="footer_content"><div class="footer_top"><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/646cca9184cc8b39d03eb982_Logo%20black.svg" loading="lazy" width="145" height="40" alt="" class="footer_logo"/><div class="footer-contact"><div class="footer_location-mail-holder"><a href="mailto:info@tymely.ai" class="footer_mail w-inline-block"><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/646ccb66b151ef9cc6b29de5_mail.svg" loading="lazy" width="17" height="14" alt="" class="mail_image"/><p class="paragraph">info@tymely.ai</p></a><a href="mailto:info@tymely.ai" class="footer_mail w-inline-block"><img src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/67963ee67dda8553d4f4fed4_Group.svg" loading="lazy" width="18" height="20" alt="" class="location_icon"/><p class="paragraph">459 Columbus Ave, New York, NY 100</p></a></div><a href="https://www.linkedin.com/company/tymelyinc/" target="_blank" class="sm-link linkedin-footer w-inline-block"><div class="flex w-embed"><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.64847 19.623V6.6387H1.18569V19.623H5.64847ZM3.41706 4.86591C4.97332 4.86591 5.94196 3.86886 5.94196 2.62283C5.91296 1.34876 4.97332 0.37937 3.44658 0.37937C1.92 0.37937 0.921875 1.34876 0.921875 2.62283C0.921875 3.86886 1.89031 4.86591 3.38797 4.86591H3.41706Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.61328 19.623H11.9988V12.3186C11.9988 11.9277 12.0273 11.5372 12.1431 11.2577C12.4601 10.4767 13.1818 9.66773 14.3933 9.66773C15.9802 9.66773 16.615 10.8672 16.615 12.6256V19.623H21.0002V12.1232C21.0002 8.10559 18.8366 6.23614 15.9512 6.23614C13.5853 6.23614 12.5467 7.54708 11.9696 8.44001H11.9989V6.54307H7.6134C7.67095 7.77041 7.61328 19.623 7.61328 19.623Z" fill="black"/>
+</svg></div></a><div class="p_hide"><a href="#" class="sm-link w-inline-block"><div class="flex w-embed"><svg width="11" height="22" viewBox="0 0 11 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.9219 7.70004H7.57271V5.50005C7.57271 4.36486 7.65252 3.64986 9.05774 3.64986H10.8326V0.151868C9.96891 0.0484686 9.1005 -0.00213124 8.23114 6.87498e-05C5.65347 6.87498e-05 3.77223 1.82276 3.77223 5.16895V7.70004H0.921875V12.1L3.77223 12.0989V22H7.57271V12.0967L10.4858 12.0956L10.9219 7.70004Z" fill="black"/>
+</svg></div></a><a href="#" class="sm-link w-inline-block"><div class="flex w-embed"><svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M24 0.5C23.064 1.04978 21.186 1.79904 20.082 2.01516C20.0496 2.02347 20.0232 2.03415 19.992 2.04247C19.0164 1.09015 17.6796 0.5 16.2 0.5C13.218 0.5 10.8 2.89266 10.8 5.84342C10.8 5.99897 10.7868 6.28514 10.8 6.43713C6.7764 6.43713 3.714 4.35201 1.518 1.68743C1.2792 2.28114 1.1748 3.2192 1.1748 4.10027C1.1748 5.76386 2.4888 7.39776 4.5348 8.41063C4.158 8.50681 3.7428 8.57568 3.3108 8.57568C2.6136 8.57568 1.8756 8.39401 1.2 7.84304C1.2 7.86323 1.2 7.88223 1.2 7.9036C1.2 10.2286 3.6936 11.8114 5.9112 12.252C5.4612 12.5144 4.554 12.5405 4.1112 12.5405C3.7992 12.5405 2.6952 12.3992 2.4 12.3446C3.0168 14.2504 5.2416 15.3214 7.362 15.3594C5.7036 16.6466 4.5528 17.124 1.1568 17.124H0C2.1456 18.4848 4.878 19.5 7.6164 19.5C16.5324 19.5 21.6 12.7756 21.6 6.43713C21.6 6.33501 21.5976 6.12127 21.594 5.90635C21.594 5.88498 21.6 5.86479 21.6 5.84342C21.6 5.81136 21.5904 5.78048 21.5904 5.74842C21.5868 5.58693 21.5832 5.43613 21.5796 5.35776C22.5276 4.68093 23.3496 3.83667 24 2.87485C23.13 3.2572 22.1964 3.51369 21.216 3.63005C22.2168 3.03634 23.6388 1.62093 24 0.5Z" fill="black"/>
+</svg></div></a></div></div></div><div class="footer_center"><div class="footer_menu-item"><h3 class="footer-title">Company &amp; product</h3><ul role="list" class="list footer-list w-list-unstyled"><li><a href="/#how-it-works" class="footer_link">How it works</a></li><li><a href="/calculators" class="footer_link">Calculators</a></li><li><a href="/pricing" class="footer_link">Pricing</a></li><li><a href="/careers" aria-current="page" class="footer_link w--current">Careers</a></li></ul></div><div class="footer_menu-item"><h3 class="footer-title">Resources</h3><ul role="list" class="list footer-list w-list-unstyled"><li><a href="/blog" class="footer_link">Blog</a></li><li><a href="/news" class="footer_link">Media &amp; events</a></li><li><a href="/case-study-underoutfit" class="footer_link">Case study</a></li><li><a href="/video" class="footer_link">Videos</a></li></ul></div><div class="footer_menu-item"><h3 class="footer-title">Use cases</h3><ul role="list" class="list footer-list w-list-unstyled"><li><a href="/use-cases/informational-inquiries" class="footer_link">Informational inquiries</a></li><li><a href="/use-cases/white-glove-service-instead-of-self-service" class="footer_link">White-glove service for all instead of self service</a></li><li><a href="/use-cases/complex-inquiries" class="footer_link">Complex actions inquiries</a></li><li><a href="/use-cases/post-inquiry-sales" class="footer_link">Post inquiry upsell</a></li></ul></div></div><div class="footer_low"><div class="paragraph small">Tymely Inc. © 2025. All rights reserved</div><div class="terms-privacy_holder"><a href="/privacy" class="paragraph small black-mobile">Privacy policy</a><div class="grey_divider"></div><a href="/terms" class="paragraph small black-mobile">Terms &amp; Conditions</a></div></div></div></div></section><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=646a453afb9d4d54cc870d83" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/js/webflow.schunk.36b8fb49256177c8.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/js/webflow.schunk.d2b92e545deee755.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/646a453afb9d4d54cc870d83/js/webflow.10bbb59e.be6a680a2012776d.js" type="text/javascript"></script><script src="https://cdn.enable.co.il/licenses/enable-L20604w2ykdom5is-0623-47126/init.js"></script>
+
+<script>
+  //smooth-scrolling
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+    direction: 'vertical', // vertical, horizontal
+    gestureDirection: 'vertical', // vertical, horizontal, both
+    smooth: true,
+    mouseMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false,
+  })
+  
+  //get scroll value
+  lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
+    // console.log({ scroll, limit, velocity, direction, progress })
+  })
+  
+  function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+  
+  requestAnimationFrame(raf)
+  
+//disable scroll when mobile menu open
+$('.menu-button').on('click', function() {
+  $('.body').toggleClass('no-scroll');
+});
+
+$('.menu-button').on('click', function() {
+  $('.navbar').toggleClass('nav-open-bg');
+});
+
+
+window.addEventListener("scroll", function() {
+  
+    if (window.scrollY <= 10) {
+      $('.navbar').removeClass('active');
+    } else {
+      $('.navbar').addClass('active');
+    }
+  
+});
+</script><script>
+  const API_BASE_URL = "https://www.comeet.co/careers-api/2.0/company";
+  const TOKEN = "82930F628CD28CD8291052082941484971";
+  const COMPANY_UID = "28.009";
+
+  async function fetchJobs() {
+    const apiUrl = `https://www.comeet.co/careers-api/2.0/company/28.009/positions?token=82930F628CD28CD8291052082941484971`;
+    try {
+      //showLoading();
+      
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch jobs: ${response.status}`);
+      }
+
+      const jobs = await response.json();
+      //console.log("API Response:", jobs); // Log the response to check the structure
+      
+      hideLoading();
+
+      if (!jobs || jobs.length === 0) {
+        displayNoJobsMessage();
+        return;
+      }
+
+      renderJobs(jobs);
+    } catch (error) {
+      console.error("Error fetching jobs:", error);
+      displayErrorMessage("Unable to load jobs at this time.");
+    }
+  }
+
+  function renderJobs(jobs) {
+    let count = 0;
+    jobs.forEach(job => {
+      generatePositionItem(job, count);
+      count++;
+    });
+    
+    // After all jobs are rendered, hide the original item with ID "hide"
+    document.getElementById("hide").style.display = 'none';
+  }
+
+  function generatePositionItem(job, count) {
+    if (!job || !job.name) return console.error("Invalid job object:", job);
+
+    const cardSample = document.querySelector(".job_item").cloneNode(true);
+
+    // Generate a unique ID for each job
+    cardSample.id = `job-item-${count}`;
+
+    // Set the job title, department, country, and employment type
+    cardSample.querySelector("[data-name]").textContent = job.name || "No Name Available";
+    cardSample.querySelector("[data-city]").textContent = job.location?.name || "Unknown Location";
+    cardSample.querySelector("[data-employment_type]").textContent = job.workplace_type || "Unknown Type";
+
+    // Set the link
+  // Convert the job name to lowercase and create a slug
+  const slug = job.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+
+  // Set the link with the slug and uid in the URL
+  cardSample.href = `/open-position?${slug}&uid=${job.uid}`;
+  
+    // Append the job card to the main container
+    document.querySelector(".jobs_board").appendChild(cardSample);
+  }
+
+  function showLoading() {
+    document.querySelector(".jobs_board").innerHTML = "<p>Loading...</p>";
+  }
+
+  function hideLoading() {
+    document.querySelector(".jobs_board").innerHTML = "";
+  }
+
+  function displayNoJobsMessage() {
+    document.querySelector(".jobs_board").innerHTML = '<h2 class="h2">No jobs available.</h2>';
+  }
+
+  function displayErrorMessage(message) {
+    document.querySelector(".jobs_board").innerHTML = `<h2 class="h2">${message}</h2>`;
+  }
+
+  fetchJobs();
+</script>
+</body></html>
