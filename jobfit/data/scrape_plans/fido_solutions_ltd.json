@@ -1,0 +1,99 @@
+{
+  "company_id": "fido_solutions_ltd",
+  "schema_version": 1,
+  "career_url": "https://gh.fido.money/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:43:08.676808Z",
+  "verified_at": "2026-09-28T13:43:08.676808Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?gh\\.fido\\.money/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?gh\\.fido\\.money/[^/?#]+/?$",
+      "^https?://(www\\.)?support\\.fido\\.money/support/solutions/articles/[^/?#]+/?$",
+      "^https?://(www\\.)?cdn\\.prod\\.website\\-files\\.com/62fa16d8d83816b0fc5defc4/[^/?#]+/?$"
+    ],
+    "url_shape": "gh.fido.money|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 18,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 19,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 22,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": null,
+  "notes": []
+}

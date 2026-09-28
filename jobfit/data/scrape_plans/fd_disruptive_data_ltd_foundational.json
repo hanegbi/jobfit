@@ -1,0 +1,52 @@
+{
+  "company_id": "fd_disruptive_data_ltd_foundational",
+  "schema_version": 1,
+  "career_url": "https://www.foundational.io/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:43:08.676808Z",
+  "verified_at": "2026-09-28T13:43:08.676808Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?foundational\\.io/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?foundational\\.io/[^/?#]+/?$"
+    ],
+    "url_shape": "foundational.io|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

@@ -1,0 +1,60 @@
+{
+  "company_id": "euno_data_and_analytics_ltd_formerly_delphi",
+  "schema_version": 1,
+  "career_url": "https://euno.ai/about/career",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:43:08.676808Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?euno\\.ai/about/[^/?#]+/?$"
+    ],
+    "url_shape": "euno.ai|career|2",
+    "explicit_accept": [
+      "https://euno.ai/career/solutions-architect",
+      "https://euno.ai/career/enterprise-account-executive"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": null,
+  "notes": []
+}

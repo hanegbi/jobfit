@@ -1,0 +1,69 @@
+{
+  "company_id": "firearc_systems_ltd",
+  "schema_version": 1,
+  "career_url": "https://fire-arc.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:43:08.676808Z",
+  "verified_at": "2026-09-28T13:43:08.676808Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?fire\\-arc\\.com/careers/co/firearc/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?fire\\-arc\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?fire\\-arc\\.com/careers/co/marketing/[^/?#]+/?$",
+      "^https?://(www\\.)?fire\\-arc\\.com/careers/co/rd/[^/?#]+/?$"
+    ],
+    "url_shape": "fire-arc.com|careers/co/firearc/A5.272/media-affiliation-manager|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": null,
+  "notes": []
+}

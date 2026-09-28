@@ -1,0 +1,102 @@
+{
+  "company_id": "fireberry_ltd_formerly_powerlink_software",
+  "schema_version": 1,
+  "career_url": "https://www.fireberry.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:43:08.676808Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?fireberry\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?fireberry\\.com/comparisons/[^/?#]+/?$"
+    ],
+    "url_shape": "fireberry.com|careers|2",
+    "explicit_accept": [
+      "https://www.fireberry.com/careers/ai-engineer-tech-lead",
+      "https://www.fireberry.com/careers/csm-team-lead",
+      "https://www.fireberry.com/careers/sales-team-lead",
+      "https://www.fireberry.com/careers/senior-csm",
+      "https://www.fireberry.com/careers/csm",
+      "https://www.fireberry.com/careers/technical-support-engineer",
+      "https://www.fireberry.com/careers/sales-manager",
+      "https://www.fireberry.com/careers/senior-full-stack-developer"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 34,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 46,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": null,
+  "notes": []
+}
