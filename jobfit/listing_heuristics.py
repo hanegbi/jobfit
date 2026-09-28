@@ -27,7 +27,21 @@ _URL_TEXT_RE = re.compile(r"^(https?://|www\.)", re.I)
 # of its text - real case: a careers page's "office location" links point at
 # Google Maps, and their anchor text ("USA Office", a street address) passes
 # every other heuristic just fine.
-NON_JOB_LINK_HREF_MARKERS = ("google.com/maps", "maps.google.com", "goo.gl/maps")
+#
+# The path-segment markers below cover the other real case: a careers page
+# often shares a site-wide footer/nav with links into the rest of the
+# marketing site (docs, blog, trust/compliance pages, ...), and a link's own
+# anchor text there ("OpenTelemetry", "Code Governance & Compliance" - both
+# caught live, scraped as "jobs" from otherwise-correct careers pages) can
+# read as a perfectly plausible job title with nothing in the text itself
+# to reject it. Slash-wrapped so "/docs/" doesn't also match an unrelated
+# word containing "docs" as a substring.
+NON_JOB_LINK_HREF_MARKERS = (
+    "google.com/maps", "maps.google.com", "goo.gl/maps",
+    "/docs/", "/documentation/", "/blog/", "/resources/", "/resource-library/",
+    "/legal/", "/trust-center/", "/security-center/", "/press/", "/newsroom/",
+    "/case-studies/", "/case-study/", "/webinars/", "/community/", "/partners/",
+)
 
 
 def looks_like_job_link_href(href: str) -> bool:

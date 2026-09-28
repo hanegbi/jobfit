@@ -73,6 +73,16 @@ def test_looks_like_job_link_href_accepts_a_normal_job_url():
     assert looks_like_job_link_href("https://acme.com/careers/backend-engineer") is True
 
 
+def test_looks_like_job_link_href_rejects_docs_and_marketing_content_pages():
+    """Real bug caught live: Coralogix's careers page shares a site-wide
+    footer linking into /docs/, and the link text there ("OpenTelemetry")
+    passes looks_like_job_title just fine - only the link destination
+    reveals it's a docs page, not a job posting."""
+    assert looks_like_job_link_href("https://coralogix.com/docs/opentelemetry/getting-started/") is False
+    assert looks_like_job_link_href("https://acme.com/blog/how-we-scaled") is False
+    assert looks_like_job_link_href("https://acme.com/resources/whitepaper") is False
+
+
 # --- drop_category_prefix_links --------------------------------------------
 
 def test_drops_a_department_overview_link_that_is_a_prefix_of_a_real_posting():
