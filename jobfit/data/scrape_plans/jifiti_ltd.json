@@ -1,0 +1,84 @@
+{
+  "company_id": "jifiti_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.jifiti.com/jobs/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:04:02.892055Z",
+  "verified_at": "2026-09-28T14:04:02.892055Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?jifiti\\.com/jobs/co/israel\\-modiin/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?jifiti\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?jifiti\\.com/jobs/co/administration/[^/?#]+/?$",
+      "^https?://(www\\.)?jifiti\\.com/jobs/co/operations/[^/?#]+/?$"
+    ],
+    "url_shape": "jifiti.com|jobs/co/israel-modiin/FD.27D/head-of-administration|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 57,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 76,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 77,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 78,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 79,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 80,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 81,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 4
+  },
+  "rediscover_after": null,
+  "notes": []
+}

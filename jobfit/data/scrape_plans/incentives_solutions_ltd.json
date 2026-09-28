@@ -1,0 +1,65 @@
+{
+  "company_id": "incentives_solutions_ltd",
+  "schema_version": 1,
+  "career_url": "https://incentives-solutions.com/about/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:04:02.892055Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?incentives\\-solutions\\.com/about/[^/?#]+/?$",
+      "^https?://(www\\.)?incentives\\-solutions\\.com/wp\\-content/uploads/2023/02/[^/?#]+/?$"
+    ],
+    "url_shape": "incentives-solutions.com|job|2",
+    "explicit_accept": [
+      "https://incentives-solutions.com/job/7937/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

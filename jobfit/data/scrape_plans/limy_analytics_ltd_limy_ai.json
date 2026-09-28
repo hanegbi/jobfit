@@ -1,0 +1,96 @@
+{
+  "company_id": "limy_analytics_ltd_limy_ai",
+  "schema_version": 1,
+  "career_url": "https://www.limy.ai/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:04:02.892055Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?limy\\.ai/[^/?#]+/?$"
+    ],
+    "url_shape": "limy.ai|careers|2",
+    "explicit_accept": [
+      "https://www.limy.ai/careers/growth-manager-nyc",
+      "https://www.limy.ai/careers/engagement-manager",
+      "https://www.limy.ai/careers/enterprise-account-executive",
+      "https://www.limy.ai/careers/founding-account-executive",
+      "https://www.limy.ai/careers/sales-development-representative",
+      "https://www.limy.ai/careers/senior-devops-and-software-engineer",
+      "https://www.limy.ai/careers/data-engineer",
+      "https://www.limy.ai/careers/marketing-designer"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 18,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 19,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 20,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 21,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 22,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": null,
+  "notes": []
+}
