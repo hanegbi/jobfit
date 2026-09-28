@@ -1,0 +1,76 @@
+{
+  "company_id": "bridger_ai_ltd_bridgerpay",
+  "schema_version": 1,
+  "career_url": "https://www.bridgerpay.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:14:52.945781Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?bridgerpay\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "bridgerpay.com|careers|2",
+    "explicit_accept": [
+      "https://bridgerpay.com/careers/sox8qmbtcbak6rrzlnqsw3jz",
+      "https://bridgerpay.com/careers/oklqvr7wj8x9xdhdoxjw0r6o",
+      "https://bridgerpay.com/careers/q5qvei4qajbvsbul7fol3ugd"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}

@@ -1,0 +1,1183 @@
+
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js no-svg ie ie6 lt-ie9 lt-ie8 lt-ie7" lang="en-GB"> <![endif]-->
+<!--[if IE 7]><html class="no-js no-svg ie ie7 lt-ie9 lt-ie8" lang="en-GB"> <![endif]-->
+<!--[if IE 8]><html class="no-js no-svg ie ie8 lt-ie9" lang="en-GB"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js no-svg" lang="en-GB"> <!--<![endif]-->
+<head><meta charset="UTF-8" /><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="1.2.6",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this.t.bind(this),this.touchStartHandler=this.i.bind(this),this.touchMoveHandler=this.o.bind(this),this.touchEndHandler=this.h.bind(this),this.clickHandler=this.u.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this.l(this),window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.everythingLoaded&&this.m()})),this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))})),document.addEventListener("DOMContentLoaded",(()=>{this.k()})),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}p(t){document.hidden?t.t():(this.triggerEvents.forEach((e=>window.addEventListener(e,t.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler))}_(){this.triggerEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}i(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this.L(t.target,!0),this.S(t.target,"onclick","rocket-onclick"),this.C())}o(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.M()}h(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}u(t){t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this.M()}O(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))}))}l(t){EventTarget.prototype.addEventListenerWPRocketBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(e,i,o){"click"!==e||t.windowLoaded||i===t.clickHandler||t.interceptedClickListeners.push({target:this,func:i,options:o}),(this||window).addEventListenerWPRocketBase(e,i,o)}}L(t,e){this.interceptedClickListeners.forEach((i=>{i.target===t&&(e?t.removeEventListener("click",i.func,i.options):t.addEventListener("click",i.func,i.options))})),t.parentNode!==document.documentElement&&this.L(t.parentNode,e)}D(){return new Promise((t=>{this.P?this.M=t:t()}))}C(){this.P=!0}M(){this.P=!1}S(t,e,i){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(i,event.target.getAttribute(e)),event.target.removeAttribute(e))}t(){this._(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this.R.bind(this)):this.R()}k(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.T(t,"preconnect")}async R(){this.lastBreath=Date.now(),this.j(this),this.F(this),this.I(),this.W(),this.q(),await this.A(this.delayedScripts.normal),await this.A(this.delayedScripts.defer),await this.A(this.delayedScripts.async);try{await this.U(),await this.H(this),await this.J()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.D().then((()=>{this.O()})),this.N()}W(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async B(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),i.hasAttribute("src")?(i.addEventListener("load",o),i.addEventListener("error",(function(){i.setAttribute("data-rocket-status","failed-network"),e()})),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: data-uri blocked by CSP -> fallback"),t.removeAttribute("src"),this.B(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())})),s?(t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async A(t){const e=t.shift();return e&&e.isConnected?(await this.B(e),this.A(t)):Promise.resolve()}q(){this.T([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}T(t,e){var i=document.createDocumentFragment();t.forEach((t=>{const o=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(o&&!o.startsWith("data:")){const s=document.createElement("link");s.href=o,s.rel=e,"preconnect"!==e&&(s.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(s.crossOrigin=!0),t.crossOrigin&&(s.crossOrigin=t.crossOrigin),t.integrity&&(s.integrity=t.integrity),i.appendChild(s),this.trash.push(s)}})),document.head.appendChild(i)}j(t){let e={};function i(i,o){return e[o].eventsToRewrite.indexOf(i)>=0&&!t.everythingLoaded?"rocket-"+i:i}function o(t,o){!function(t){e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(o)}function s(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o||function(){},set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}o(document,"DOMContentLoaded"),o(window,"DOMContentLoaded"),o(window,"load"),o(window,"pageshow"),o(document,"readystatechange"),s(document,"onreadystatechange"),s(window,"onload"),s(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}F(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(t){const e=o.fn[t];o.fn[t]=o.fn.init.prototype[t]=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),e.apply(this,arguments),this}}o&&o.fn&&!t.allJQueries.includes(o)&&(o.fn.ready=o.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(o):document.addEventListener("rocket-DOMContentLoaded",(()=>e.bind(document)(o))),o([])},s("on"),s("one"),t.allJQueries.push(o)),e=o}o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}async H(t){const e=document.querySelector("script[data-webpack]");e&&(await async function(){return new Promise((t=>{e.addEventListener("load",t),e.addEventListener("error",t)}))}(),await t.K(),await t.H(t))}async U(){this.domReadyFired=!0;try{document.readyState="interactive"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async J(){try{document.readyState="complete"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}m(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}I(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+e);const o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async G(){Date.now()-this.lastBreath>45&&(await this.K(),this.lastBreath=Date.now())}async K(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}N(){this.trash.forEach((t=>t.remove()))}static run(){const t=new RocketLazyLoadScripts;t.p(t)}}RocketLazyLoadScripts.run()})();</script>
+    
+    <link rel="stylesheet" href="https://www.blossom-kc.com/app/themes/blossom/style.css" type="text/css" media="screen" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="pingback" href="https://www.blossom-kc.com/wp/xmlrpc.php" />
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer>
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+	<!-- This site is optimized with the Yoast SEO plugin v23.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Careers - Blossom</title><link rel="preload" data-rocket-preload as="image" href="https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-graphic-right.svg" fetchpriority="high">
+	<link rel="canonical" href="https://www.blossom-kc.com/company/careers/" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Careers - Blossom" />
+	<meta property="og:url" content="https://www.blossom-kc.com/company/careers/" />
+	<meta property="og:site_name" content="Blossom" />
+	<meta property="article:modified_time" content="2024-08-15T06:16:28+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.blossom-kc.com/company/careers/","url":"https://www.blossom-kc.com/company/careers/","name":"Careers - Blossom","isPartOf":{"@id":"https://www.blossom-kc.com/#website"},"datePublished":"2023-10-31T12:15:17+00:00","dateModified":"2024-08-15T06:16:28+00:00","breadcrumb":{"@id":"https://www.blossom-kc.com/company/careers/#breadcrumb"},"inLanguage":"en-GB","potentialAction":[{"@type":"ReadAction","target":["https://www.blossom-kc.com/company/careers/"]}]},{"@type":"BreadcrumbList","@id":"https://www.blossom-kc.com/company/careers/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.blossom-kc.com/"},{"@type":"ListItem","position":2,"name":"Company","item":"https://www.blossom-kc.com/company/"},{"@type":"ListItem","position":3,"name":"Careers"}]},{"@type":"WebSite","@id":"https://www.blossom-kc.com/#website","url":"https://www.blossom-kc.com/","name":"Blossom","description":"The Learning Transformation Platform","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.blossom-kc.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-GB"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//js-eu1.hs-scripts.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//unpkg.com' />
+<link rel='dns-prefetch' href='//youtube.com' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+
+<link rel="alternate" type="application/rss+xml" title="Blossom &raquo; Feed" href="https://www.blossom-kc.com/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.blossom-kc.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.blossom-kc.com%2Fcompany%2Fcareers%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.blossom-kc.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.blossom-kc.com%2Fcompany%2Fcareers%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.blossom-kc.com/wp/wp-includes/css/dist/block-library/style.min.css' media='all' />
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="safe-svg-svg-icon-style-inline-css">
+.safe-svg-cover{text-align:center}.safe-svg-cover .safe-svg-inside{display:inline-block;max-width:100%}.safe-svg-cover svg{height:100%;max-height:100%;max-width:100%;width:100%}
+
+/*# sourceURL=https://www.blossom-kc.com/app/plugins/safe-svg/dist/safe-svg-block-frontend.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:where(.wp-block-gallery.is-layout-flex){gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}:where(.wp-block-gallery.is-layout-grid){gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}
+:where(.wp-block-latest-posts.is-layout-flex){gap: 1.25em;}:where(.wp-block-latest-posts.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-term-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-term-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link data-minify="1" rel='stylesheet' id='contact-form-7-css' href='https://www.blossom-kc.com/app/cache/min/1/app/plugins/contact-form-7/includes/css/styles.css?ver=1790486779' media='all' />
+<link data-minify="1" rel='stylesheet' id='megamenu-css' href='https://www.blossom-kc.com/app/cache/min/1/app/uploads/maxmegamenu/style.css?ver=1790486779' media='all' />
+<link data-minify="1" rel='stylesheet' id='dashicons-css' href='https://www.blossom-kc.com/app/cache/min/1/wp/wp-includes/css/dashicons.min.css?ver=1790486779' media='all' />
+<link data-minify="1" rel='stylesheet' id='sage/css-css' href='https://www.blossom-kc.com/app/cache/background-css/www.blossom-kc.com/app/cache/min/1/app/themes/blossom/dist/css/app.min.css?ver=1790486779&wpr_t=1790565898' media='all' />
+<link data-minify="1" rel='stylesheet' id='moove_gdpr_frontend-css' href='https://www.blossom-kc.com/app/cache/min/1/app/plugins/gdpr-cookie-compliance/dist/styles/gdpr-main.css?ver=1790486779' media='all' />
+<style id="moove_gdpr_frontend-inline-css">
+#moove_gdpr_cookie_modal,#moove_gdpr_cookie_info_bar,.gdpr_cookie_settings_shortcode_content{font-family:Nunito,sans-serif}#moove_gdpr_save_popup_settings_button{background-color:#373737;color:#fff}#moove_gdpr_save_popup_settings_button:hover{background-color:#000}#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton,#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton{background-color:#0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder a.mgbutton,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder button.mgbutton,.gdpr_cookie_settings_shortcode_content .gdpr-shr-button.button-green{background-color:#0C4DA2;border-color:#0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder a.mgbutton:hover,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder button.mgbutton:hover,.gdpr_cookie_settings_shortcode_content .gdpr-shr-button.button-green:hover{background-color:#fff;color:#0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close span.gdpr-icon{background-color:#0C4DA2;border:1px solid #0C4DA2}#moove_gdpr_cookie_info_bar span.change-settings-button.focus-g,#moove_gdpr_cookie_info_bar span.change-settings-button:focus,#moove_gdpr_cookie_info_bar button.change-settings-button.focus-g,#moove_gdpr_cookie_info_bar button.change-settings-button:focus{-webkit-box-shadow:0 0 1px 3px #0C4DA2;-moz-box-shadow:0 0 1px 3px #0C4DA2;box-shadow:0 0 1px 3px #0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close i:hover,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close span.gdpr-icon:hover,#moove_gdpr_cookie_info_bar span[data-href]>u.change-settings-button{color:#0C4DA2}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected a span.gdpr-icon,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected button span.gdpr-icon{color:inherit}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a span.gdpr-icon,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button span.gdpr-icon{color:inherit}#moove_gdpr_cookie_modal .gdpr-acc-link{line-height:0;font-size:0;color:transparent;position:absolute}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close:hover i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-tab-main .moove-gdpr-tab-main-content a:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content span.change-settings-button:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.change-settings-button:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content u.change-settings-button:hover,#moove_gdpr_cookie_info_bar span[data-href]>u.change-settings-button,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton:focus,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton:focus,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a:focus,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button:focus,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content span.change-settings-button.focus-g,span.change-settings-button:focus,button.change-settings-button.focus-g,button.change-settings-button:focus,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content u.change-settings-button.focus-g,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content u.change-settings-button:focus{color:#0C4DA2}#moove_gdpr_cookie_modal.gdpr_lightbox-hide{display:none}
+/*# sourceURL=moove_gdpr_frontend-inline-css */
+</style>
+
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+
+<!-- Google Analytics snippet added by Site Kit -->
+<script type="rocketlazyloadscript" id="google_gtagjs-js" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=GT-5DFVFJC" async></script>
+<script type="rocketlazyloadscript" id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["www.blossom-kc.com"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-5DFVFJC");
+//# sourceURL=google_gtagjs-js-after
+</script>
+
+<!-- End Google tag (gtag.js) snippet added by Site Kit -->
+<script type="rocketlazyloadscript" data-minify="1" id="jquery-js" data-rocket-src="https://www.blossom-kc.com/app/cache/min/1/ajax/libs/jquery/3.6.0/jquery.min.js?ver=1780223871" defer></script>
+<script id="whp6433front.js2040-js-extra">
+var whp_local_data = {"add_url":"https://www.blossom-kc.com/wp-admin/post-new.php?post_type=event","ajaxurl":"https://www.blossom-kc.com/wp/wp-admin/admin-ajax.php"};
+//# sourceURL=whp6433front.js2040-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" id="whp6433front.js2040-js" data-rocket-src="https://www.blossom-kc.com/app/cache/min/1/app/plugins/wp-security-hardening/modules/js/front.js?ver=1780223871" defer></script>
+<link rel="https://api.w.org/" href="https://www.blossom-kc.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.blossom-kc.com/wp-json/wp/v2/pages/2296" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.blossom-kc.com/wp/xmlrpc.php?rsd" />
+
+<link rel='shortlink' href='https://www.blossom-kc.com/?p=2296' />
+<meta name="generator" content="Site Kit by Google 1.131.0" />			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.1.34-->
+			<script type="rocketlazyloadscript" class="hsq-set-content-id" data-content-id="standard-page">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", "standard-page"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+			<!-- Linkedin Insight Base Code --!><script type="rocketlazyloadscript" data-rocket-type='text/javascript'>_linkedin_partner_id = '513345';window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];window._linkedin_data_partner_ids.push(_linkedin_partner_id);</script><script type="rocketlazyloadscript" data-rocket-type='text/javascript'>(function(){var s = document.getElementsByTagName('script')[0];var b = document.createElement('script');b.type = 'text/javascript';b.async = true;b.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';s.parentNode.insertBefore(b, s);})();</script><noscript><img height='1' width='1' style='display:none;' alt='' src='https://dc.ads.linkedin.com/collect/?pid=513345&fmt=gif' /></noscript><!-- End Linkedin Insight Base Code --!>
+<!-- Stream WordPress user activity plugin v4.0.0 -->
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<!-- GTM Container placement set to off -->
+<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+	var dataLayer_content = {"pagePostType":"page","pagePostType2":"single-page","pagePostAuthor":"blossom-admin"};
+	dataLayer.push( dataLayer_content );
+</script>
+<script type="rocketlazyloadscript">
+	console.warn && console.warn("[GTM4WP] Google Tag Manager container code placement set to OFF !!!");
+	console.warn && console.warn("[GTM4WP] Data layer codes are active but GTM container must be loaded using custom coding !!!");
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><meta name="generator" content="Elementor 4.0.3; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<!-- Hotjar Tracking Code for https://www.blossom-kc.com/ -->
+
+<script type="rocketlazyloadscript">
+
+    (function(h,o,t,j,a,r){
+
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+
+        h._hjSettings={hjid:5086936,hjsv:6};
+
+        a=o.getElementsByTagName('head')[0];
+
+        r=o.createElement('script');r.async=1;
+
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+
+        a.appendChild(r);
+
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
+</script>
+<!-- Google Tag Manager snippet added by Site Kit -->
+<script type="rocketlazyloadscript">
+			( function( w, d, s, l, i ) {
+				w[l] = w[l] || [];
+				w[l].push( {'gtm.start': new Date().getTime(), event: 'gtm.js'} );
+				var f = d.getElementsByTagName( s )[0],
+					j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore( j, f );
+			} )( window, document, 'script', 'dataLayer', 'GTM-PX6938M5' );
+			
+</script>
+
+<!-- End Google Tag Manager snippet added by Site Kit -->
+<link rel="icon" href="https://www.blossom-kc.com/app/uploads/2023/04/cropped-blossom-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.blossom-kc.com/app/uploads/2023/04/cropped-blossom-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.blossom-kc.com/app/uploads/2023/04/cropped-blossom-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.blossom-kc.com/app/uploads/2023/04/cropped-blossom-favicon-270x270.png" />
+<style id="wp-custom-css">
+select {
+	-webkit-appearance: none;
+}
+</style>
+<style type="text/css">/** Mega Menu CSS: fs **/</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
+			<style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion">.subpage-hero.deco-side-graphics:after{--wpr-bg-81e1dc4b-c412-4709-84e7-7499c3f44b97: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-graphic-right.svg');}.subpage-hero.deco-side-graphics:after{--wpr-bg-95337994-adbe-4f48-a4b6-c51869d0ab27: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-graphic-right.svg');}.video-block .aspect-ratio-video:before{--wpr-bg-1178c32d-94bb-472d-8d9f-5cf4e68d723f: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/video-flower-graphics-left.svg');}.video-block .aspect-ratio-video:after{--wpr-bg-4bd67060-880d-4192-a21e-c3a6080d0d31: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/video-flower-graphics-right.svg');}.infinite-logo-marquee-block.deco-side-graphics:after{--wpr-bg-4780f218-448a-47b0-b410-0a9f8b310795: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-graphic-right.svg');}.card-grid-and-icons.decor-dark{--wpr-bg-b1fbc796-3e05-4b8b-b23f-629cde1e0ac3: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-graphic-right.svg');}</style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">header .global-header .nav-elements-wrapper .main-menu li a.login-link{--wpr-bg-cbe848d0-d7c5-40b6-a1db-3684e89332ca: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/icon-login.svg');}.page-404.deco-side-graphics:before{--wpr-bg-2845863c-9585-4bff-8ba1-e668fe420fb4: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/homepage-hero-left-graphics2.svg');}.page-404.deco-side-graphics:after{--wpr-bg-9b91f897-2424-4ecd-a372-5c11d5feddfd: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/homepage-hero-right-graphics2.svg');}.banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves-flower:before{--wpr-bg-dd7ddcce-28b0-432b-bc73-1817ea63f784: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-left-up.svg');}.banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves-flower:after{--wpr-bg-cded48d1-2654-4a71-a3e4-456a758952ac: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/right-leaf-with-flower.svg');}.banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves:before{--wpr-bg-f619556e-a57f-4f2f-9b3e-969995fd0c54: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-left-down.svg');}.banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves:after{--wpr-bg-c0b09cdc-c7b6-4782-8370-c189d8a631f5: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-right-up.svg');}.contact-us:after{--wpr-bg-ef3531d7-64a2-4068-8261-db1de41bed60: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/lamp-graphics.svg');}.contact-us .form-wrapper:before{--wpr-bg-ce6e1647-41b4-4bef-a589-2a95476a6a13: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/gear-graphics-black-white.svg');}.contact-us .form-wrapper:after{--wpr-bg-455a753c-1321-4727-9093-9b546e37c350: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-graphics-black-white.svg');}.subpage-hero.deco-centered-graphics:before{--wpr-bg-d293397a-b1c8-4e84-bbad-0bae40b1343d: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-flower-graphics-02.svg');}.subpage-hero.deco-centered-graphics:after{--wpr-bg-5b14972e-254c-48d5-b0ae-be5a75cb5613: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-flower-graphics-03.svg');}.subpage-hero.deco-side-graphics:before{--wpr-bg-cead4b21-ecf8-4950-88b1-5a537705d501: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-graphic-left.svg');}.subpage-hero.deco-side-graphics:before{--wpr-bg-8913c6ef-3807-4237-a318-6d1655904149: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-graphic-left.svg');}.subpage-hero.deco-side-graphics.height--350:after{--wpr-bg-aeb682d4-4303-49e1-8034-b06033f4b1ae: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-min-graphic-right.svg');}.subpage-hero.deco-side-graphics.height--350:after{--wpr-bg-caf7f844-5217-42b6-9282-9b8a9e77a49e: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-min-graphic-right.svg');}.subpage-hero.deco-side-bottom-graphics:before{--wpr-bg-ecc213d4-b770-42e2-a7b0-82d00165b6b3: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-leaf-graphic-left.svg');}.subpage-hero.deco-side-bottom-graphics:before{--wpr-bg-41db2066-2d7b-4523-b185-f1b65f0e9b8e: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-leaf-graphic-left.svg');}.subpage-hero.deco-side-bottom-graphics:after{--wpr-bg-cfe1f77d-ceba-4678-acf0-67ce96865765: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-leaf-graphic-right.svg');}.subpage-hero.deco-side-bottom-graphics:after{--wpr-bg-74423f5d-9254-45ce-82d1-3a1f5953dd68: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-leaf-graphic-right.svg');}.form-banner .content-wrapper:before{--wpr-bg-f0cc6408-5b51-43bc-b5f3-4d41ef09e7a8: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/bubble-graphics.svg');}.timeline-block .timeline:before{--wpr-bg-ea3b41dc-3eb7-40ec-b485-dcbbbd0fac48: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/timeline-graphics-roots-wide.svg');}.timeline-block .timeline:after{--wpr-bg-f8c0ecdb-bdc7-413c-97d8-2b0b4abc88bf: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/timeline-graphics-roots-end.svg');}.timeline-block .timeline .uk-grid-large .timeline-left-side:before{--wpr-bg-b6665eef-5148-423d-9e99-015ece181a30: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/timeline-line-graphics.svg');}.timeline-block .timeline .uk-grid-large .timeline-left-side:after{--wpr-bg-c46b22ca-1269-40b5-9b38-802882fdc110: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/timeline-point-graphics.svg');}.alternating-image-and-content-and-cta{--wpr-bg-0750d0d8-5538-489b-891b-2d540045878f: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg11.svg');}.alternating-image-and-content-and-cta{--wpr-bg-df537450-11d6-440d-aeb8-dbcaf5a03052: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg10.svg');}.infinite-logo-marquee-block.deco-side-graphics:before{--wpr-bg-e5c48d75-172c-46e7-aee1-8cf3017d54d0: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-graphic-left.svg');}.solutions-tabs .content-wrapper .uk-nav .uk-active .tab-title:before{--wpr-bg-dfd5be47-64b0-4c35-bbe2-787d4ae33d46: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/arrow-dark-blue-right.svg');}.content-and-bullets-and-testimonial .content-wrapper .check-green-circle-filled{--wpr-bg-87c09c9f-3245-434a-aca2-db19c358a08e: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/check-green-circle-filled.svg');}.content-and-bullets-and-testimonial .background-wrapper{--wpr-bg-59ecfd4a-7492-4a85-829c-5690bea6183c: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg11.svg');}.content-and-bullets-and-testimonial .background-wrapper{--wpr-bg-b206f798-71da-401d-a8cb-90c539e3bf58: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg13.svg');}.richtext-content ul li,table:not(.acf-table)>tbody>tr>td ul li{--wpr-bg-404625f1-bd9f-41dc-9350-3e4674657bac: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/icon-list-check.svg');}div.img-quote-decor.case-study-logo:before,div.img-quote-decor:before{--wpr-bg-cf624aa8-75a6-44b9-9c7a-6b6701fd2913: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/decor-yellow-quote.svg');}div.img-scroll-decor:after{--wpr-bg-f3b526d8-ba2e-4c7b-afbb-5b937aea5d46: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/decor-purple-scroll.svg');}div.quote-divider{--wpr-bg-4a2daba7-65bb-4800-9506-5ce105beea65: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/decor-quote-divider-gray-dark.svg');}.blossom-select{--wpr-bg-d373a3a3-a706-4c99-88d5-90226c9c4d79: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/chevron-icon-down.svg');}.card-grid-and-icons.decor-light{--wpr-bg-fe8ea48a-bc2d-4734-a257-54b55f575553: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg11.svg');}.card-grid-and-icons.decor-light{--wpr-bg-48285a5b-83f8-4f68-a00b-cedc338087e5: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg12.svg');}.card-grid-and-icons.decor-light{--wpr-bg-1493e9fa-b6ac-43ea-b8c4-92de0b8f806d: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg7.svg');}.card-grid-and-icons.decor-dark{--wpr-bg-0d8c54fd-fd14-4cdd-85f0-7bd5228e961b: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-side-graphic-left.svg');}.card-slider .blossom-previous-icon{--wpr-bg-deb14711-a269-4afc-a736-944b6723d536: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/card-slider-previous.svg');}.card-slider .blossom-next-icon{--wpr-bg-94b94b31-05e8-4272-9c37-50da1d0781d5: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/card-slider-next.svg');}.subpage-hero.deco-centered-graphics{--wpr-bg-1e546245-51f8-47b2-bb75-0105e0e27d76: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/subpage-hero-flower-graphics-01.svg');}.testimonials-slider .uk-slider .uk-slider-container ul.uk-slider-items li .slide-wrapper .avatar-wrapper:after{--wpr-bg-997cf62e-f5bf-472d-bf6a-13d0b9af9334: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/icon-quote-yellow.svg');}.block-accordion.deco--left{--wpr-bg-a5dfc58f-7062-487b-b986-c06cde89791d: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg11.svg');}.block-accordion.deco--right{--wpr-bg-4ed94853-3452-4af9-ad74-e051c56b7920: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg9.svg');}.block-accordion .uk-accordion li.uk-open>.uk-accordion-title:before{--wpr-bg-0abbc326-35a2-4482-a07c-98541be33e69: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/minus-green.svg');}.block-accordion .uk-accordion-title:before{--wpr-bg-882c1d6b-bc69-404e-9066-20585c0b820f: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/plus-green.svg');}.cards-list .content-wrapper .cta-group:before{--wpr-bg-27ad2227-51bc-4944-99bf-fac158e17d33: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg3.svg');}.cards-list .content-wrapper .cta-group:after{--wpr-bg-0677746f-9ad9-45d9-bf39-3a103f30d751: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg4.svg');}.timeline-block{--wpr-bg-bc8fd0de-31df-4f9d-bf3e-dbb62c56aa7d: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/timeline-graphics-roots-wide.svg');}.timeline-block{--wpr-bg-257908c9-67fb-4ef0-bf5b-20606f527ac0: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg7.svg');}.timeline-block{--wpr-bg-e45c136a-e0e6-4f61-bcba-786e12fdb20f: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg8.svg');}.timeline-block{--wpr-bg-14816002-79c7-4a58-b511-a79c0ac138fe: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg12.svg');}.solutions-tabs .deco-tabs-style-top{--wpr-bg-c02a9edf-7856-4afe-bae4-c81652dda115: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/homepage-deco-right.svg');}.deco-tabs-style-bottom{--wpr-bg-a40e148b-c7ab-4ef7-9940-cef63cc429a1: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/homepage-deco-right.svg');}.image-grid-and-content-on-hover .cards-container .uk-card .front .top-container .top .blossom-bg{--wpr-bg-673a9f8a-5339-4dae-aff8-d68e03ea173f: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/blossom-bg-img.svg');}.image-grid-and-content-on-hover .cards-container .uk-card .front .bottom-container .linkedin-icon{--wpr-bg-a4551ef3-9704-4a34-b0a6-f980f83f37fe: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/linkedin-icon.svg');}.image-grid-and-content-on-hover.deco-centered-graphics{--wpr-bg-972f3c75-4d7e-41ab-9c89-129f1a4cf1e3: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/flower-graphics-bottom-01.svg');}.colored-hover-card-grid.deco--left{--wpr-bg-6ab9659a-eccc-46e1-b8be-5c7544316239: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-bg11.svg');}.colored-card-grid .background-wrapper.right-offset-decor{--wpr-bg-f196f783-f79b-40d8-945a-630c7f3622f7: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-flower-offset-decor-right.svg');}.colored-card-grid .background-wrapper.left-offset-decor{--wpr-bg-f83776e4-fd15-4d9b-9577-d6c037c58f13: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/leaf-flower-offset-decor-left.svg');}.before-and-after-card .uk-card .list-wrapper ul.before-list li{--wpr-bg-70436691-8357-4232-bca8-fe7adb613794: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/icon-list-cross.svg');}.before-and-after-card .uk-card .list-wrapper ul.after-list li{--wpr-bg-3aba4416-6414-4ec1-91de-4e882cd70d85: url('https://www.blossom-kc.com/app/themes/blossom/dist/images/icon-list-check.svg');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":"header .global-header .nav-elements-wrapper .main-menu li a.login-link","style":"header .global-header .nav-elements-wrapper .main-menu li a.login-link{--wpr-bg-cbe848d0-d7c5-40b6-a1db-3684e89332ca: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/icon-login.svg');}","hash":"cbe848d0-d7c5-40b6-a1db-3684e89332ca","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/icon-login.svg"},{"selector":".page-404.deco-side-graphics","style":".page-404.deco-side-graphics:before{--wpr-bg-2845863c-9585-4bff-8ba1-e668fe420fb4: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/homepage-hero-left-graphics2.svg');}","hash":"2845863c-9585-4bff-8ba1-e668fe420fb4","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/homepage-hero-left-graphics2.svg"},{"selector":".page-404.deco-side-graphics","style":".page-404.deco-side-graphics:after{--wpr-bg-9b91f897-2424-4ecd-a372-5c11d5feddfd: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/homepage-hero-right-graphics2.svg');}","hash":"9b91f897-2424-4ecd-a372-5c11d5feddfd","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/homepage-hero-right-graphics2.svg"},{"selector":".banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves-flower","style":".banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves-flower:before{--wpr-bg-dd7ddcce-28b0-432b-bc73-1817ea63f784: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-left-up.svg');}","hash":"dd7ddcce-28b0-432b-bc73-1817ea63f784","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-left-up.svg"},{"selector":".banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves-flower","style":".banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves-flower:after{--wpr-bg-cded48d1-2654-4a71-a3e4-456a758952ac: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/right-leaf-with-flower.svg');}","hash":"cded48d1-2654-4a71-a3e4-456a758952ac","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/right-leaf-with-flower.svg"},{"selector":".banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves","style":".banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves:before{--wpr-bg-f619556e-a57f-4f2f-9b3e-969995fd0c54: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-left-down.svg');}","hash":"f619556e-a57f-4f2f-9b3e-969995fd0c54","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-left-down.svg"},{"selector":".banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves","style":".banner-content-and-cta .content-wrapper .content.bg-deco-left-right-leaves:after{--wpr-bg-c0b09cdc-c7b6-4782-8370-c189d8a631f5: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-right-up.svg');}","hash":"c0b09cdc-c7b6-4782-8370-c189d8a631f5","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-right-up.svg"},{"selector":".contact-us","style":".contact-us:after{--wpr-bg-ef3531d7-64a2-4068-8261-db1de41bed60: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/lamp-graphics.svg');}","hash":"ef3531d7-64a2-4068-8261-db1de41bed60","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/lamp-graphics.svg"},{"selector":".contact-us .form-wrapper","style":".contact-us .form-wrapper:before{--wpr-bg-ce6e1647-41b4-4bef-a589-2a95476a6a13: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/gear-graphics-black-white.svg');}","hash":"ce6e1647-41b4-4bef-a589-2a95476a6a13","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/gear-graphics-black-white.svg"},{"selector":".contact-us .form-wrapper","style":".contact-us .form-wrapper:after{--wpr-bg-455a753c-1321-4727-9093-9b546e37c350: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-graphics-black-white.svg');}","hash":"455a753c-1321-4727-9093-9b546e37c350","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-graphics-black-white.svg"},{"selector":".subpage-hero.deco-centered-graphics","style":".subpage-hero.deco-centered-graphics:before{--wpr-bg-d293397a-b1c8-4e84-bbad-0bae40b1343d: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-flower-graphics-02.svg');}","hash":"d293397a-b1c8-4e84-bbad-0bae40b1343d","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-flower-graphics-02.svg"},{"selector":".subpage-hero.deco-centered-graphics","style":".subpage-hero.deco-centered-graphics:after{--wpr-bg-5b14972e-254c-48d5-b0ae-be5a75cb5613: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-flower-graphics-03.svg');}","hash":"5b14972e-254c-48d5-b0ae-be5a75cb5613","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-flower-graphics-03.svg"},{"selector":".subpage-hero.deco-side-graphics","style":".subpage-hero.deco-side-graphics:before{--wpr-bg-cead4b21-ecf8-4950-88b1-5a537705d501: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-left.svg');}","hash":"cead4b21-ecf8-4950-88b1-5a537705d501","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-left.svg"},{"selector":".subpage-hero.deco-side-graphics","style":".subpage-hero.deco-side-graphics:before{--wpr-bg-8913c6ef-3807-4237-a318-6d1655904149: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-left.svg');}","hash":"8913c6ef-3807-4237-a318-6d1655904149","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-left.svg"},{"selector":".subpage-hero.deco-side-graphics.height--350","style":".subpage-hero.deco-side-graphics.height--350:after{--wpr-bg-aeb682d4-4303-49e1-8034-b06033f4b1ae: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-min-graphic-right.svg');}","hash":"aeb682d4-4303-49e1-8034-b06033f4b1ae","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-min-graphic-right.svg"},{"selector":".subpage-hero.deco-side-graphics.height--350","style":".subpage-hero.deco-side-graphics.height--350:after{--wpr-bg-caf7f844-5217-42b6-9282-9b8a9e77a49e: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-min-graphic-right.svg');}","hash":"caf7f844-5217-42b6-9282-9b8a9e77a49e","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-min-graphic-right.svg"},{"selector":".subpage-hero.deco-side-bottom-graphics","style":".subpage-hero.deco-side-bottom-graphics:before{--wpr-bg-ecc213d4-b770-42e2-a7b0-82d00165b6b3: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-leaf-graphic-left.svg');}","hash":"ecc213d4-b770-42e2-a7b0-82d00165b6b3","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-leaf-graphic-left.svg"},{"selector":".subpage-hero.deco-side-bottom-graphics","style":".subpage-hero.deco-side-bottom-graphics:before{--wpr-bg-41db2066-2d7b-4523-b185-f1b65f0e9b8e: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-leaf-graphic-left.svg');}","hash":"41db2066-2d7b-4523-b185-f1b65f0e9b8e","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-leaf-graphic-left.svg"},{"selector":".subpage-hero.deco-side-bottom-graphics","style":".subpage-hero.deco-side-bottom-graphics:after{--wpr-bg-cfe1f77d-ceba-4678-acf0-67ce96865765: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-leaf-graphic-right.svg');}","hash":"cfe1f77d-ceba-4678-acf0-67ce96865765","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-leaf-graphic-right.svg"},{"selector":".subpage-hero.deco-side-bottom-graphics","style":".subpage-hero.deco-side-bottom-graphics:after{--wpr-bg-74423f5d-9254-45ce-82d1-3a1f5953dd68: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-leaf-graphic-right.svg');}","hash":"74423f5d-9254-45ce-82d1-3a1f5953dd68","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-leaf-graphic-right.svg"},{"selector":".form-banner .content-wrapper","style":".form-banner .content-wrapper:before{--wpr-bg-f0cc6408-5b51-43bc-b5f3-4d41ef09e7a8: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/bubble-graphics.svg');}","hash":"f0cc6408-5b51-43bc-b5f3-4d41ef09e7a8","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/bubble-graphics.svg"},{"selector":".timeline-block .timeline","style":".timeline-block .timeline:before{--wpr-bg-ea3b41dc-3eb7-40ec-b485-dcbbbd0fac48: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/timeline-graphics-roots-wide.svg');}","hash":"ea3b41dc-3eb7-40ec-b485-dcbbbd0fac48","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/timeline-graphics-roots-wide.svg"},{"selector":".timeline-block .timeline","style":".timeline-block .timeline:after{--wpr-bg-f8c0ecdb-bdc7-413c-97d8-2b0b4abc88bf: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/timeline-graphics-roots-end.svg');}","hash":"f8c0ecdb-bdc7-413c-97d8-2b0b4abc88bf","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/timeline-graphics-roots-end.svg"},{"selector":".timeline-block .timeline .uk-grid-large .timeline-left-side","style":".timeline-block .timeline .uk-grid-large .timeline-left-side:before{--wpr-bg-b6665eef-5148-423d-9e99-015ece181a30: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/timeline-line-graphics.svg');}","hash":"b6665eef-5148-423d-9e99-015ece181a30","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/timeline-line-graphics.svg"},{"selector":".timeline-block .timeline .uk-grid-large .timeline-left-side","style":".timeline-block .timeline .uk-grid-large .timeline-left-side:after{--wpr-bg-c46b22ca-1269-40b5-9b38-802882fdc110: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/timeline-point-graphics.svg');}","hash":"c46b22ca-1269-40b5-9b38-802882fdc110","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/timeline-point-graphics.svg"},{"selector":".alternating-image-and-content-and-cta","style":".alternating-image-and-content-and-cta{--wpr-bg-0750d0d8-5538-489b-891b-2d540045878f: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg11.svg');}","hash":"0750d0d8-5538-489b-891b-2d540045878f","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg11.svg"},{"selector":".alternating-image-and-content-and-cta","style":".alternating-image-and-content-and-cta{--wpr-bg-df537450-11d6-440d-aeb8-dbcaf5a03052: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg10.svg');}","hash":"df537450-11d6-440d-aeb8-dbcaf5a03052","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg10.svg"},{"selector":".infinite-logo-marquee-block.deco-side-graphics","style":".infinite-logo-marquee-block.deco-side-graphics:before{--wpr-bg-e5c48d75-172c-46e7-aee1-8cf3017d54d0: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-left.svg');}","hash":"e5c48d75-172c-46e7-aee1-8cf3017d54d0","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-left.svg"},{"selector":".solutions-tabs .content-wrapper .uk-nav .uk-active .tab-title","style":".solutions-tabs .content-wrapper .uk-nav .uk-active .tab-title:before{--wpr-bg-dfd5be47-64b0-4c35-bbe2-787d4ae33d46: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/arrow-dark-blue-right.svg');}","hash":"dfd5be47-64b0-4c35-bbe2-787d4ae33d46","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/arrow-dark-blue-right.svg"},{"selector":".content-and-bullets-and-testimonial .content-wrapper .check-green-circle-filled","style":".content-and-bullets-and-testimonial .content-wrapper .check-green-circle-filled{--wpr-bg-87c09c9f-3245-434a-aca2-db19c358a08e: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/check-green-circle-filled.svg');}","hash":"87c09c9f-3245-434a-aca2-db19c358a08e","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/check-green-circle-filled.svg"},{"selector":".content-and-bullets-and-testimonial .background-wrapper","style":".content-and-bullets-and-testimonial .background-wrapper{--wpr-bg-59ecfd4a-7492-4a85-829c-5690bea6183c: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg11.svg');}","hash":"59ecfd4a-7492-4a85-829c-5690bea6183c","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg11.svg"},{"selector":".content-and-bullets-and-testimonial .background-wrapper","style":".content-and-bullets-and-testimonial .background-wrapper{--wpr-bg-b206f798-71da-401d-a8cb-90c539e3bf58: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg13.svg');}","hash":"b206f798-71da-401d-a8cb-90c539e3bf58","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg13.svg"},{"selector":".richtext-content ul li,table:not(.acf-table)>tbody>tr>td ul li","style":".richtext-content ul li,table:not(.acf-table)>tbody>tr>td ul li{--wpr-bg-404625f1-bd9f-41dc-9350-3e4674657bac: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/icon-list-check.svg');}","hash":"404625f1-bd9f-41dc-9350-3e4674657bac","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/icon-list-check.svg"},{"selector":"div.img-quote-decor.case-study-logo,div.img-quote-decor","style":"div.img-quote-decor.case-study-logo:before,div.img-quote-decor:before{--wpr-bg-cf624aa8-75a6-44b9-9c7a-6b6701fd2913: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/decor-yellow-quote.svg');}","hash":"cf624aa8-75a6-44b9-9c7a-6b6701fd2913","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/decor-yellow-quote.svg"},{"selector":"div.img-scroll-decor","style":"div.img-scroll-decor:after{--wpr-bg-f3b526d8-ba2e-4c7b-afbb-5b937aea5d46: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/decor-purple-scroll.svg');}","hash":"f3b526d8-ba2e-4c7b-afbb-5b937aea5d46","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/decor-purple-scroll.svg"},{"selector":"div.quote-divider","style":"div.quote-divider{--wpr-bg-4a2daba7-65bb-4800-9506-5ce105beea65: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/decor-quote-divider-gray-dark.svg');}","hash":"4a2daba7-65bb-4800-9506-5ce105beea65","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/decor-quote-divider-gray-dark.svg"},{"selector":".blossom-select","style":".blossom-select{--wpr-bg-d373a3a3-a706-4c99-88d5-90226c9c4d79: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/chevron-icon-down.svg');}","hash":"d373a3a3-a706-4c99-88d5-90226c9c4d79","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/chevron-icon-down.svg"},{"selector":".card-grid-and-icons.decor-light","style":".card-grid-and-icons.decor-light{--wpr-bg-fe8ea48a-bc2d-4734-a257-54b55f575553: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg11.svg');}","hash":"fe8ea48a-bc2d-4734-a257-54b55f575553","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg11.svg"},{"selector":".card-grid-and-icons.decor-light","style":".card-grid-and-icons.decor-light{--wpr-bg-48285a5b-83f8-4f68-a00b-cedc338087e5: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg12.svg');}","hash":"48285a5b-83f8-4f68-a00b-cedc338087e5","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg12.svg"},{"selector":".card-grid-and-icons.decor-light","style":".card-grid-and-icons.decor-light{--wpr-bg-1493e9fa-b6ac-43ea-b8c4-92de0b8f806d: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg7.svg');}","hash":"1493e9fa-b6ac-43ea-b8c4-92de0b8f806d","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg7.svg"},{"selector":".card-grid-and-icons.decor-dark","style":".card-grid-and-icons.decor-dark{--wpr-bg-0d8c54fd-fd14-4cdd-85f0-7bd5228e961b: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-left.svg');}","hash":"0d8c54fd-fd14-4cdd-85f0-7bd5228e961b","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-left.svg"},{"selector":".card-slider .blossom-previous-icon","style":".card-slider .blossom-previous-icon{--wpr-bg-deb14711-a269-4afc-a736-944b6723d536: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/card-slider-previous.svg');}","hash":"deb14711-a269-4afc-a736-944b6723d536","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/card-slider-previous.svg"},{"selector":".card-slider .blossom-next-icon","style":".card-slider .blossom-next-icon{--wpr-bg-94b94b31-05e8-4272-9c37-50da1d0781d5: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/card-slider-next.svg');}","hash":"94b94b31-05e8-4272-9c37-50da1d0781d5","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/card-slider-next.svg"},{"selector":".subpage-hero.deco-centered-graphics","style":".subpage-hero.deco-centered-graphics{--wpr-bg-1e546245-51f8-47b2-bb75-0105e0e27d76: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-flower-graphics-01.svg');}","hash":"1e546245-51f8-47b2-bb75-0105e0e27d76","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-flower-graphics-01.svg"},{"selector":".testimonials-slider .uk-slider .uk-slider-container ul.uk-slider-items li .slide-wrapper .avatar-wrapper","style":".testimonials-slider .uk-slider .uk-slider-container ul.uk-slider-items li .slide-wrapper .avatar-wrapper:after{--wpr-bg-997cf62e-f5bf-472d-bf6a-13d0b9af9334: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/icon-quote-yellow.svg');}","hash":"997cf62e-f5bf-472d-bf6a-13d0b9af9334","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/icon-quote-yellow.svg"},{"selector":".block-accordion.deco--left","style":".block-accordion.deco--left{--wpr-bg-a5dfc58f-7062-487b-b986-c06cde89791d: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg11.svg');}","hash":"a5dfc58f-7062-487b-b986-c06cde89791d","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg11.svg"},{"selector":".block-accordion.deco--right","style":".block-accordion.deco--right{--wpr-bg-4ed94853-3452-4af9-ad74-e051c56b7920: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg9.svg');}","hash":"4ed94853-3452-4af9-ad74-e051c56b7920","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg9.svg"},{"selector":".block-accordion .uk-accordion li.uk-open>.uk-accordion-title","style":".block-accordion .uk-accordion li.uk-open>.uk-accordion-title:before{--wpr-bg-0abbc326-35a2-4482-a07c-98541be33e69: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/minus-green.svg');}","hash":"0abbc326-35a2-4482-a07c-98541be33e69","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/minus-green.svg"},{"selector":".block-accordion .uk-accordion-title","style":".block-accordion .uk-accordion-title:before{--wpr-bg-882c1d6b-bc69-404e-9066-20585c0b820f: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/plus-green.svg');}","hash":"882c1d6b-bc69-404e-9066-20585c0b820f","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/plus-green.svg"},{"selector":".cards-list .content-wrapper .cta-group","style":".cards-list .content-wrapper .cta-group:before{--wpr-bg-27ad2227-51bc-4944-99bf-fac158e17d33: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg3.svg');}","hash":"27ad2227-51bc-4944-99bf-fac158e17d33","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg3.svg"},{"selector":".cards-list .content-wrapper .cta-group","style":".cards-list .content-wrapper .cta-group:after{--wpr-bg-0677746f-9ad9-45d9-bf39-3a103f30d751: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg4.svg');}","hash":"0677746f-9ad9-45d9-bf39-3a103f30d751","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg4.svg"},{"selector":".timeline-block","style":".timeline-block{--wpr-bg-bc8fd0de-31df-4f9d-bf3e-dbb62c56aa7d: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/timeline-graphics-roots-wide.svg');}","hash":"bc8fd0de-31df-4f9d-bf3e-dbb62c56aa7d","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/timeline-graphics-roots-wide.svg"},{"selector":".timeline-block","style":".timeline-block{--wpr-bg-257908c9-67fb-4ef0-bf5b-20606f527ac0: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg7.svg');}","hash":"257908c9-67fb-4ef0-bf5b-20606f527ac0","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg7.svg"},{"selector":".timeline-block","style":".timeline-block{--wpr-bg-e45c136a-e0e6-4f61-bcba-786e12fdb20f: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg8.svg');}","hash":"e45c136a-e0e6-4f61-bcba-786e12fdb20f","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg8.svg"},{"selector":".timeline-block","style":".timeline-block{--wpr-bg-14816002-79c7-4a58-b511-a79c0ac138fe: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg12.svg');}","hash":"14816002-79c7-4a58-b511-a79c0ac138fe","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg12.svg"},{"selector":".solutions-tabs .deco-tabs-style-top","style":".solutions-tabs .deco-tabs-style-top{--wpr-bg-c02a9edf-7856-4afe-bae4-c81652dda115: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/homepage-deco-right.svg');}","hash":"c02a9edf-7856-4afe-bae4-c81652dda115","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/homepage-deco-right.svg"},{"selector":".deco-tabs-style-bottom","style":".deco-tabs-style-bottom{--wpr-bg-a40e148b-c7ab-4ef7-9940-cef63cc429a1: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/homepage-deco-right.svg');}","hash":"a40e148b-c7ab-4ef7-9940-cef63cc429a1","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/homepage-deco-right.svg"},{"selector":".image-grid-and-content-on-hover .cards-container .uk-card .front .top-container .top .blossom-bg","style":".image-grid-and-content-on-hover .cards-container .uk-card .front .top-container .top .blossom-bg{--wpr-bg-673a9f8a-5339-4dae-aff8-d68e03ea173f: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/blossom-bg-img.svg');}","hash":"673a9f8a-5339-4dae-aff8-d68e03ea173f","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/blossom-bg-img.svg"},{"selector":".image-grid-and-content-on-hover .cards-container .uk-card .front .bottom-container .linkedin-icon","style":".image-grid-and-content-on-hover .cards-container .uk-card .front .bottom-container .linkedin-icon{--wpr-bg-a4551ef3-9704-4a34-b0a6-f980f83f37fe: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/linkedin-icon.svg');}","hash":"a4551ef3-9704-4a34-b0a6-f980f83f37fe","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/linkedin-icon.svg"},{"selector":".image-grid-and-content-on-hover.deco-centered-graphics","style":".image-grid-and-content-on-hover.deco-centered-graphics{--wpr-bg-972f3c75-4d7e-41ab-9c89-129f1a4cf1e3: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/flower-graphics-bottom-01.svg');}","hash":"972f3c75-4d7e-41ab-9c89-129f1a4cf1e3","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/flower-graphics-bottom-01.svg"},{"selector":".colored-hover-card-grid.deco--left","style":".colored-hover-card-grid.deco--left{--wpr-bg-6ab9659a-eccc-46e1-b8be-5c7544316239: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg11.svg');}","hash":"6ab9659a-eccc-46e1-b8be-5c7544316239","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-bg11.svg"},{"selector":".colored-card-grid .background-wrapper.right-offset-decor","style":".colored-card-grid .background-wrapper.right-offset-decor{--wpr-bg-f196f783-f79b-40d8-945a-630c7f3622f7: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-flower-offset-decor-right.svg');}","hash":"f196f783-f79b-40d8-945a-630c7f3622f7","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-flower-offset-decor-right.svg"},{"selector":".colored-card-grid .background-wrapper.left-offset-decor","style":".colored-card-grid .background-wrapper.left-offset-decor{--wpr-bg-f83776e4-fd15-4d9b-9577-d6c037c58f13: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-flower-offset-decor-left.svg');}","hash":"f83776e4-fd15-4d9b-9577-d6c037c58f13","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/leaf-flower-offset-decor-left.svg"},{"selector":".before-and-after-card .uk-card .list-wrapper ul.before-list li","style":".before-and-after-card .uk-card .list-wrapper ul.before-list li{--wpr-bg-70436691-8357-4232-bca8-fe7adb613794: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/icon-list-cross.svg');}","hash":"70436691-8357-4232-bca8-fe7adb613794","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/icon-list-cross.svg"},{"selector":".before-and-after-card .uk-card .list-wrapper ul.after-list li","style":".before-and-after-card .uk-card .list-wrapper ul.after-list li{--wpr-bg-3aba4416-6414-4ec1-91de-4e882cd70d85: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/icon-list-check.svg');}","hash":"3aba4416-6414-4ec1-91de-4e882cd70d85","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/icon-list-check.svg"}]; const rocket_excluded_pairs = [{"selector":".subpage-hero.deco-side-graphics","style":".subpage-hero.deco-side-graphics:after{--wpr-bg-81e1dc4b-c412-4709-84e7-7499c3f44b97: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-right.svg');}","hash":"81e1dc4b-c412-4709-84e7-7499c3f44b97","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-right.svg"},{"selector":".subpage-hero.deco-side-graphics","style":".subpage-hero.deco-side-graphics:after{--wpr-bg-95337994-adbe-4f48-a4b6-c51869d0ab27: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-right.svg');}","hash":"95337994-adbe-4f48-a4b6-c51869d0ab27","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-right.svg"},{"selector":".video-block .aspect-ratio-video","style":".video-block .aspect-ratio-video:before{--wpr-bg-1178c32d-94bb-472d-8d9f-5cf4e68d723f: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/video-flower-graphics-left.svg');}","hash":"1178c32d-94bb-472d-8d9f-5cf4e68d723f","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/video-flower-graphics-left.svg"},{"selector":".video-block .aspect-ratio-video","style":".video-block .aspect-ratio-video:after{--wpr-bg-4bd67060-880d-4192-a21e-c3a6080d0d31: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/video-flower-graphics-right.svg');}","hash":"4bd67060-880d-4192-a21e-c3a6080d0d31","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/video-flower-graphics-right.svg"},{"selector":".infinite-logo-marquee-block.deco-side-graphics","style":".infinite-logo-marquee-block.deco-side-graphics:after{--wpr-bg-4780f218-448a-47b0-b410-0a9f8b310795: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-right.svg');}","hash":"4780f218-448a-47b0-b410-0a9f8b310795","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-right.svg"},{"selector":".card-grid-and-icons.decor-dark","style":".card-grid-and-icons.decor-dark{--wpr-bg-b1fbc796-3e05-4b8b-b23f-629cde1e0ac3: url('https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-right.svg');}","hash":"b1fbc796-3e05-4b8b-b23f-629cde1e0ac3","url":"https:\/\/www.blossom-kc.com\/app\/themes\/blossom\/dist\/images\/subpage-hero-side-graphic-right.svg"}];</script></head>
+
+	<body class="wp-singular page-template-default page page-id-2296 page-child parent-pageid-1540 wp-theme-blossom mega-menu-max-mega-menu-1 page-careers elementor-default wp-front" data-template="base.twig">
+		<header uk-sticky>
+							<div id="mega-menu-wrap-max_mega_menu_1" class="mega-menu-wrap"><div class="mega-menu-toggle"><div class="mega-toggle-blocks-left"><div class='mega-toggle-block mega-logo-block mega-toggle-block-1' id='mega-toggle-block-1'><a class="mega-menu-logo" href="https://www.blossom-kc.com" target="_self"><img width="512" height="512" class="mega-menu-logo" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3C/svg%3E" data-lazy-src="https://www.blossom-kc.com/app/uploads/2023/04/blossom-favicon.png" /><noscript><img width="512" height="512" class="mega-menu-logo" src="https://www.blossom-kc.com/app/uploads/2023/04/blossom-favicon.png" /></noscript></a></div></div><div class="mega-toggle-blocks-center"></div><div class="mega-toggle-blocks-right"><div class='mega-toggle-block mega-menu-toggle-custom-block mega-toggle-block-2 mega-menu-toggle-animated-block' id='mega-toggle-block-2'><span class="mega-menu-toggle-block mega-toggle-label" role="button" aria-expanded="false" tabindex="0"><span class="mega-toggle-label-closed"><img width="44" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2044%2024'%3E%3C/svg%3E" data-lazy-src="https://www.blossom-kc.com/app/uploads/2023/12/Group-15507.svg"><noscript><img width="44" height="24" src="https://www.blossom-kc.com/app/uploads/2023/12/Group-15507.svg"></noscript></img></span><span class="mega-toggle-label-open"><img width="44" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2044%2024'%3E%3C/svg%3E" data-lazy-src="https://www.blossom-kc.com/app/uploads/2023/12/Group-15507.svg"><noscript><img width="44" height="24" src="https://www.blossom-kc.com/app/uploads/2023/12/Group-15507.svg"></noscript></img></span></span></div></div></div><ul id="mega-menu-max_mega_menu_1" class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js" data-event="hover_intent" data-effect="fade" data-effect-speed="200" data-effect-mobile="slide" data-effect-speed-mobile="200" data-panel-inner-width="1440px" data-mobile-force-width="false" data-second-click="go" data-document-click="collapse" data-vertical-behaviour="accordion" data-breakpoint="1200" data-unbind="true" data-mobile-state="collapse_all" data-hover-intent-timeout="300" data-hover-intent-interval="100"><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-home mega-align-bottom-left mega-menu-flyout mega-item-align-float-left mega-hide-on-mobile mega-menu-item-2934' id='mega-menu-item-2934'><a class='mega-menu-link mega-menu-logo' href='https://www.blossom-kc.com/'><img class='mega-menu-logo' width='135' height='42' src='https://www.blossom-kc.com/app/uploads/2023/04/Logo-main.svg' /></a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-left mega-menu-grid mega-menu-item-2298' id='mega-menu-item-2298'><a class="mega-menu-link" href="https://www.blossom-kc.com/why-blossom/" aria-haspopup="true" aria-expanded="false" tabindex="0">Why Blossom<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-row mega-textwidget-none textwidget-none' id='mega-menu-2298-0'>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-4-of-10' id='mega-menu-2298-0-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-11' id='mega-menu-item-text-11'>			<div class="textwidget"><p class="mega-hidden">WHY BLOSSOM</p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2287' id='mega-menu-item-2287'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/why-blossom/">Why Choose Blossom?</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-5345' id='mega-menu-item-5345'><a class="mega-menu-link" href="https://www.blossom-kc.com/why-blossom/support-services/">Services & Support</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-5347' id='mega-menu-item-5347'><a class="mega-menu-link" href="https://www.blossom-kc.com/why-blossom/customers/">Customers</a></li>		</ul>
+</li><li class='mega-menu-column mega-bg-neutral mega-menu-columns-6-of-10 mega-hide-on-mobile bg-neutral' id='mega-menu-2298-0-1'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_media_image mega-menu-item-media_image-4' id='mega-menu-item-media_image-4'><img width="300" height="200" src="https://www.blossom-kc.com/app/uploads/2024/01/blossom-success-stories-300x200.jpg" class="image wp-image-7272  attachment-medium size-medium" alt="Blossom case studies and success stories" style="max-width: 100%; height: auto;" decoding="async" srcset="https://www.blossom-kc.com/app/uploads/2024/01/blossom-success-stories-300x200.jpg 300w, https://www.blossom-kc.com/app/uploads/2024/01/blossom-success-stories.jpg 600w" sizes="(max-width: 300px) 100vw, 300px" /></li><li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-10' id='mega-menu-item-text-10'>			<div class="textwidget"><h5>Our Success Stories</h5>
+<p>Find out why our customers choose Blossom</p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-2' id='mega-menu-item-custom_html-2'><div class="textwidget custom-html-widget"><a href="https://www.blossom-kc.com/resources/case-studies/" class="button button--primary-outline">VIEW OUR CASE STUDIES</a></div></li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-left mega-menu-grid mega-menu-item-2292' id='mega-menu-item-2292'><a class="mega-menu-link" href="https://www.blossom-kc.com/platform/" aria-haspopup="true" aria-expanded="false" tabindex="0">Platform<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-row mega-textwidget-none textwidget-none' id='mega-menu-2292-0'>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-flex-middle mega-menu-columns-4-of-10 flex-middle' id='mega-menu-2292-0-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-12' id='mega-menu-item-text-12'>			<div class="textwidget"><p class="mega-hidden">PLATFORM</p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2309' id='mega-menu-item-2309'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/platform/">Overview</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-has-icon mega-icon-left mega-menu-item-2308' id='mega-menu-item-2308'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/platform/features/">Features</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-has-icon mega-icon-left mega-menu-item-2307' id='mega-menu-item-2307'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/platform/reporting/">Dashboards & Reporting</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-has-icon mega-icon-left mega-menu-item-2306' id='mega-menu-item-2306'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/platform/security-hosting/">Integrations and API</a></li>		</ul>
+</li><li class='mega-menu-column mega-bg-neutral mega-menu-columns-6-of-10 mega-hide-on-mobile bg-neutral' id='mega-menu-2292-0-1'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_media_image mega-menu-item-media_image-5' id='mega-menu-item-media_image-5'><img width="300" height="198" src="https://www.blossom-kc.com/app/uploads/2023/11/Group-15424-300x198.png" class="image wp-image-3348  attachment-medium size-medium" alt="Blossom LMS features" style="max-width: 100%; height: auto;" decoding="async" srcset="https://www.blossom-kc.com/app/uploads/2023/11/Group-15424-300x198.png 300w, https://www.blossom-kc.com/app/uploads/2023/11/Group-15424.png 568w" sizes="(max-width: 300px) 100vw, 300px" /></li><li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-5' id='mega-menu-item-text-5'>			<div class="textwidget"><h5>Explore Blossom&#8217;s features</h5>
+<p>Discover the depth of Blossom&#8217;s capabilities</p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-3' id='mega-menu-item-custom_html-3'><div class="textwidget custom-html-widget"><a href="https://www.blossom-kc.com/platform/features/" class="button button--primary-outline">EXPLORE ALL FEATURES</a></div></li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-right mega-menu-grid mega-menu-item-1351' id='mega-menu-item-1351'><a class="mega-menu-link" href="https://www.blossom-kc.com/solutions/" aria-haspopup="true" aria-expanded="false" tabindex="0">Solutions<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-row mega-textwidget-none textwidget-none' id='mega-menu-1351-0'>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-1351-0-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-8' id='mega-menu-item-text-8'>			<div class="textwidget"><p>BY USE CASE</p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-1857' id='mega-menu-item-1857'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/compliance-training/">Compliance Training</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-1856' id='mega-menu-item-1856'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/employee-onboarding/">Onboarding</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-1865' id='mega-menu-item-1865'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/learning-skills/">Learning & Skills</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-3972' id='mega-menu-item-3972'><a class="mega-menu-link" href="https://www.blossom-kc.com/solutions/collaboration-knowledge-sharing/">Collaboration & Knowledge Sharing</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-3973' id='mega-menu-item-3973'><a class="mega-menu-link" href="https://www.blossom-kc.com/solutions/ilt-virtual-classrooms/">ILT & Virtual Classrooms</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-1858' id='mega-menu-item-1858'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/qualification-certification-management/">Qualification & Certification Management</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-1859' id='mega-menu-item-1859'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/performance-evaluation/">Performance Evaluation</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-1860' id='mega-menu-item-1860'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/hybrid-teams/">Hybrid Teams</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-1861' id='mega-menu-item-1861'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/customer-support/">Customer Support</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-3974' id='mega-menu-item-3974'><a class="mega-menu-link" href="https://www.blossom-kc.com/solutions/extended-enterprise/">Extended Enterprise</a></li>		</ul>
+</li><li class='mega-menu-column mega-menu-columns-4-of-12' id='mega-menu-1351-0-1'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-9' id='mega-menu-item-text-9'>			<div class="textwidget"><p>BY INDUSTRY</p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2321' id='mega-menu-item-2321'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/financial-services/">Financial Services</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2323' id='mega-menu-item-2323'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/healthcare/">Healthcare</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2325' id='mega-menu-item-2325'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/manufacturing/">Manufacturing</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2320' id='mega-menu-item-2320'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/energy-utilities/">Energy & Utilities</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2324' id='mega-menu-item-2324'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/logistics/">Transportation & Logistics</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2322' id='mega-menu-item-2322'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/government-public-sector/">Government & Public Sector</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2319' id='mega-menu-item-2319'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/aviation-aerospace/">Aviation & Aerospace</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2326' id='mega-menu-item-2326'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/telecoms-technology/">IT, Telecoms & Technology</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2328' id='mega-menu-item-2328'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/retail/">Retail</a></li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-2329' id='mega-menu-item-2329'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/solutions/hospitality-travel/">Hospitality & Travel</a></li>		</ul>
+</li><li class='mega-menu-column mega-bg-neutral mega-menu-columns-4-of-12 mega-hide-on-mobile bg-neutral' id='mega-menu-1351-0-2'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_media_image mega-menu-item-media_image-8' id='mega-menu-item-media_image-8'><a href="https://www.blossom-kc.com/guide/7-steps-to-building-a-successful-ld-programme-e-book/"><img width="300" height="200" src="https://www.blossom-kc.com/app/uploads/2024/01/ebook-banner-7-steps-300x200.jpg" class="image wp-image-8037  attachment-medium size-medium" alt="L&amp;D ebook 7 steps to make your L&amp;D programme a success" style="max-width: 100%; height: auto;" decoding="async" srcset="https://www.blossom-kc.com/app/uploads/2024/01/ebook-banner-7-steps-300x200.jpg 300w, https://www.blossom-kc.com/app/uploads/2024/01/ebook-banner-7-steps.jpg 600w" sizes="(max-width: 300px) 100vw, 300px" /></a></li><li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-2' id='mega-menu-item-text-2'>			<div class="textwidget"><h5>7 Steps to Building a Successful L&amp;D Programme</h5>
+<p>Actionable steps to help you drive engagement and build a strong learning culture</p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-7' id='mega-menu-item-custom_html-7'><div class="textwidget custom-html-widget"><a href="https://www.blossom-kc.com/guide/7-steps-to-building-a-successful-ld-programme-e-book/" class="button button--primary-outline">GET YOUR FREE EBOOK</a></div></li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-right mega-menu-grid mega-menu-item-1353' id='mega-menu-item-1353'><a class="mega-menu-link" href="https://www.blossom-kc.com/resources/" aria-haspopup="true" aria-expanded="false" tabindex="0">Resources<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-row mega-textwidget-none textwidget-none' id='mega-menu-1353-0'>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-flex-middle mega-menu-columns-4-of-10 flex-middle' id='mega-menu-1353-0-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-13' id='mega-menu-item-text-13'>			<div class="textwidget"><p class="mega-hidden">RESOURCES</p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-5311' id='mega-menu-item-5311'><a class="mega-menu-link" href="https://www.blossom-kc.com/resources/blossom-blog/">Blossom Blog</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-6448' id='mega-menu-item-6448'><a class="mega-menu-link" href="https://www.blossom-kc.com/resources/guides/">Ebooks &#038; Guides</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-4896' id='mega-menu-item-4896'><a class="mega-menu-link" href="https://www.blossom-kc.com/resources/case-studies/">Case Studies</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-8058' id='mega-menu-item-8058'><a class="mega-menu-link" href="https://www.blossom-kc.com/resources/news/">Company News &#038; Product Updates</a></li><li class='mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-4' id='mega-menu-item-custom_html-4'><div class="textwidget custom-html-widget"><a href="https://www.blossom-kc.com/resources/" class="button button--primary-outline uk-padding-remove">BROWSE ALL RESOURCES</a></div></li>		</ul>
+</li><li class='mega-menu-column mega-bg-neutral mega-menu-columns-6-of-10 mega-hide-on-mobile bg-neutral' id='mega-menu-1353-0-1'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_media_image mega-menu-item-media_image-7' id='mega-menu-item-media_image-7'><img width="300" height="200" src="https://www.blossom-kc.com/app/uploads/2024/01/roi-ebook-banner-1-300x200.png" class="image wp-image-7293  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" decoding="async" srcset="https://www.blossom-kc.com/app/uploads/2024/01/roi-ebook-banner-1-300x200.png 300w, https://www.blossom-kc.com/app/uploads/2024/01/roi-ebook-banner-1.png 600w" sizes="(max-width: 300px) 100vw, 300px" /></li><li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-7' id='mega-menu-item-text-7'>			<div class="textwidget"><h5>Guide to Proving ROI of L&#038;D</h5>
+<p>A step-by-step guide to help C-Level buy-in and continued investment in L&#038;D</p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-6' id='mega-menu-item-custom_html-6'><div class="textwidget custom-html-widget"><a href="https://www.blossom-kc.com/guide/a-step-by-step-guide-to-proving-the-return-on-investment-of-ld/" class="button button--primary-outline">GET YOUR FREE EBOOK</a></div></li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-current-menu-ancestor mega-current-menu-parent mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-right mega-menu-grid mega-menu-item-2293' id='mega-menu-item-2293'><a class="mega-menu-link" href="https://www.blossom-kc.com/company/" aria-haspopup="true" aria-expanded="false" tabindex="0">Company<span class="mega-indicator"></span></a>
+<ul class="mega-sub-menu">
+<li class='mega-menu-row mega-textwidget-none textwidget-none' id='mega-menu-2293-0'>
+	<ul class="mega-sub-menu">
+<li class='mega-menu-column mega-flex-middle mega-duplicate-link mega-menu-columns-4-of-10 flex-middle duplicate-link' id='mega-menu-2293-0-0'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-14' id='mega-menu-item-text-14'>			<div class="textwidget"><p class="mega-hidden">COMPANY</p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-current-page-ancestor mega-current-page-parent mega-has-icon mega-icon-left mega-menu-item-2310' id='mega-menu-item-2310'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/company/">About Blossom</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-has-icon mega-icon-left mega-menu-item-2314' id='mega-menu-item-2314'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/company/blossom-partners/">Blossom Partners</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-current-menu-item mega-page_item mega-page-item-2296 mega-current_page_item mega-has-icon mega-icon-left mega-menu-item-2311' id='mega-menu-item-2311'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/company/careers/" aria-current="page">Careers</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-6428' id='mega-menu-item-6428'><a class="mega-menu-link" href="https://www.blossom-kc.com/resources/news/">News & Updates</a></li><li class='mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-has-icon mega-icon-left mega-menu-item-2313' id='mega-menu-item-2313'><a class="mega-custom-icon mega-menu-link" href="https://www.blossom-kc.com/company/contact/">Contact Us</a></li>		</ul>
+</li><li class='mega-menu-column mega-bg-neutral mega-menu-columns-6-of-10 mega-hide-on-mobile bg-neutral' id='mega-menu-2293-0-1'>
+		<ul class="mega-sub-menu">
+<li class='mega-menu-item mega-menu-item-type-widget widget_media_image mega-menu-item-media_image-6' id='mega-menu-item-media_image-6'><img width="300" height="177" src="https://www.blossom-kc.com/app/uploads/2024/01/blossom-team-300x177.png" class="image wp-image-7277  attachment-medium size-medium" alt="Meet the blossomers" style="max-width: 100%; height: auto;" decoding="async" srcset="https://www.blossom-kc.com/app/uploads/2024/01/blossom-team-300x177.png 300w, https://www.blossom-kc.com/app/uploads/2024/01/blossom-team-768x452.png 768w, https://www.blossom-kc.com/app/uploads/2024/01/blossom-team.png 968w" sizes="(max-width: 300px) 100vw, 300px" /></li><li class='mega-menu-item mega-menu-item-type-widget widget_text mega-menu-item-text-6' id='mega-menu-item-text-6'>			<div class="textwidget"><h5>Meet the Blossomers!</h5>
+<p>Learn about Blossom&#8217;s origins and why care so much about our customers</p>
+<p>
+</div>
+		</li><li class='mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-5' id='mega-menu-item-custom_html-5'><div class="textwidget custom-html-widget"><a href="https://www.blossom-kc.com/company/" class="button button--primary-outline">MEET BLOSSOM</a></div></li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class='mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-menu-item-1868' id='mega-menu-item-1868'><a href="https://www.blossom-kc.com/book-a-demo/" class="button button--primary">Book a demo</a></li></ul></div>
+<div id="global-header-desktop" class="uk-hidden global-header desktop uk-visible@m">     <div class="content-wrapper">
+        <div class="nav-elements-wrapper uk-flex uk-flex-between uk-flex-middle">
+            <div class="desktop-header__logo-container">
+                                                    <a href="https://www.blossom-kc.com"><img width="135" height="42" src="https://www.blossom-kc.com/app/uploads/2023/04/Logo-main.svg" alt="logo"></a>
+                                            </div>
+            <div class="desktop-header__menu-container">
+                                <ul class="uk-navbar-nav main-menu uk-visible@m">
+		<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2934 main-menu-item">
+		<a  class="" href="https://www.blossom-kc.com/">Home</a>
+			</li>
+			<li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-2298 menu-item-has-children main-menu-item">
+		<a  class=".why-choose-blossom" href="https://www.blossom-kc.com/why-blossom/">Why Blossom <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+				<div class="uk-navbar-dropdown">
+			<ul class="uk-nav uk-navbar-dropdown-nav">
+								<li><a  href="https://www.blossom-kc.com/why-blossom/">Why Choose Blossom?</a></li>
+								<li><a  href="https://www.blossom-kc.com/why-blossom/support-services/">Services & Support</a></li>
+								<li><a  href="https://www.blossom-kc.com/why-blossom/customers/">Customers</a></li>
+							</ul>
+		</div>
+			</li>
+			<li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-2292 menu-item-has-children main-menu-item">
+		<a  class="" href="https://www.blossom-kc.com/platform/">Platform <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+				<div class="uk-navbar-dropdown">
+			<ul class="uk-nav uk-navbar-dropdown-nav">
+								<li><a  href="https://www.blossom-kc.com/platform/">Overview</a></li>
+								<li><a  href="https://www.blossom-kc.com/platform/features/">Features</a></li>
+								<li><a  href="https://www.blossom-kc.com/platform/reporting/">Dashboards & Reporting</a></li>
+								<li><a  href="https://www.blossom-kc.com/platform/security-hosting/">Integrations and API</a></li>
+							</ul>
+		</div>
+			</li>
+			<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-1351 menu-item-has-children main-menu-item">
+		<a  class="" href="https://www.blossom-kc.com/solutions/">Solutions <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+				<div class="uk-navbar-dropdown">
+			<ul class="uk-nav uk-navbar-dropdown-nav">
+								<li><a  href="https://www.blossom-kc.com/solutions/compliance-training/">Compliance Training</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/employee-onboarding/">Onboarding</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/learning-skills/">Learning & Skills</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/collaboration-knowledge-sharing/">Collaboration & Knowledge Sharing</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/ilt-virtual-classrooms/">ILT & Virtual Classrooms</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/qualification-certification-management/">Qualification & Certification Management</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/performance-evaluation/">Performance Evaluation</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/hybrid-teams/">Hybrid Teams</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/customer-support/">Customer Support</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/extended-enterprise/">Extended Enterprise</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/financial-services/">Financial Services</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/healthcare/">Healthcare</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/manufacturing/">Manufacturing</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/energy-utilities/">Energy & Utilities</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/logistics/">Transportation & Logistics</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/government-public-sector/">Government & Public Sector</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/aviation-aerospace/">Aviation & Aerospace</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/telecoms-technology/">IT, Telecoms & Technology</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/retail/">Retail</a></li>
+								<li><a  href="https://www.blossom-kc.com/solutions/hospitality-travel/">Hospitality & Travel</a></li>
+							</ul>
+		</div>
+			</li>
+			<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-1353 menu-item-has-children main-menu-item">
+		<a  class="" href="https://www.blossom-kc.com/resources/">Resources <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+				<div class="uk-navbar-dropdown">
+			<ul class="uk-nav uk-navbar-dropdown-nav">
+								<li><a  href="https://www.blossom-kc.com/resources/blossom-blog/">Blossom Blog</a></li>
+								<li><a  href="https://www.blossom-kc.com/resources/news/">Company News &#038; Product Updates</a></li>
+								<li><a  href="https://www.blossom-kc.com/resources/guides/">Ebooks &#038; Guides</a></li>
+								<li><a  href="https://www.blossom-kc.com/resources/case-studies/">Case Studies</a></li>
+							</ul>
+		</div>
+			</li>
+			<li class=" menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-2293 menu-item-has-children main-menu-item">
+		<a  class="" href="https://www.blossom-kc.com/company/">Company <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+				<div class="uk-navbar-dropdown">
+			<ul class="uk-nav uk-navbar-dropdown-nav">
+								<li><a  href="https://www.blossom-kc.com/company/">About Blossom</a></li>
+								<li><a  href="https://www.blossom-kc.com/company/blossom-partners/">Blossom Partners</a></li>
+								<li><a  href="https://www.blossom-kc.com/company/careers/">Careers</a></li>
+								<li><a  href="https://www.blossom-kc.com/resources/news/">News & Updates</a></li>
+								<li><a  href="https://www.blossom-kc.com/company/contact/">Contact Us</a></li>
+							</ul>
+		</div>
+			</li>
+			<li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-1868 main-menu-item">
+		<a  class="" href="">Book a demo</a>
+			</li>
+	             
+</ul>            </div>
+        </div>
+    </div>
+</div>
+
+<div class="uk-hidden">
+    <div id="global-header-mobile" class="global-header mobile uk-hidden@m">     <div class="content-wrapper">
+        <div class="nav-elements-wrapper uk-flex uk-flex-between uk-flex-middle">
+            <div class="desktop-header__logo-container">
+                                <a href="https://www.blossom-kc.com"><img width="135" height="42" src="https://www.blossom-kc.com/app/uploads/2023/04/Logo-main.svg" alt="logo"></a>
+                            </div>
+            <div class="desktop-header__menu-container">
+                <a href="#main-mobile-drawer" uk-toggle class="mobile-menu-button">
+                                        <svg viewBox="0 0 100 80" width="30" height="30">
+                        <rect width="100" height="10" rx="4"></rect>
+                        <rect y="30" width="100" height="10" rx="4"></rect>
+                        <rect y="60" width="100" height="10" rx="4"></rect>
+                    </svg>
+                </a>
+                <nav id="main-mobile-drawer" uk-offcanvas="mode: none; overlay: true" class="mobile-drawer-offcanvas uk-animation-fade uk-animation-fast">
+    <div class="uk-offcanvas-bar canvas-bar uk-width-1-1 uk-padding-remove">
+        <div class="uk-width-1-1 content-wrapper">
+            <div class="header uk-flex uk-flex-between uk-flex-middle">
+                <div class="logo-standard">
+                    <a href="https://www.blossom-kc.com">
+                        <img width="135" height="42" src="https://www.blossom-kc.com/app/uploads/2023/04/Logo-main.svg" alt="Logo-main.svg">
+                    </a>
+                </div>
+                <a class="uk-offcanvas-close offcanvas-close" type="button" uk-close></a>
+            </div>
+            <ul class="md-list uk-list uk-text-center">
+                                                    <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2934 md-menu-item">
+                        <a  class=" text-black uk-text-bold md-menu-item-link" href="https://www.blossom-kc.com/">Home</a>
+                                            </li>
+                                                                    <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-2298 menu-item-has-children md-menu-item">
+                        <a  class=".why-choose-blossom text-black uk-text-bold md-menu-item-link" href="https://www.blossom-kc.com/why-blossom/">Why Blossom</a>
+                                                <div class="">
+                            <ul class="submenu-list">
+                                                                <li><a  href="https://www.blossom-kc.com/why-blossom/">Why Choose Blossom?</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/why-blossom/support-services/">Services & Support</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/why-blossom/customers/">Customers</a></li>
+                                                            </ul>
+                        </div>
+                                            </li>
+                                                                    <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-2292 menu-item-has-children md-menu-item">
+                        <a  class=" text-black uk-text-bold md-menu-item-link" href="https://www.blossom-kc.com/platform/">Platform</a>
+                                                <div class="">
+                            <ul class="submenu-list">
+                                                                <li><a  href="https://www.blossom-kc.com/platform/">Overview</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/platform/features/">Features</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/platform/reporting/">Dashboards & Reporting</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/platform/security-hosting/">Integrations and API</a></li>
+                                                            </ul>
+                        </div>
+                                            </li>
+                                                                    <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-1351 menu-item-has-children md-menu-item">
+                        <a  class=" text-black uk-text-bold md-menu-item-link" href="https://www.blossom-kc.com/solutions/">Solutions</a>
+                                                <div class="">
+                            <ul class="submenu-list">
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/compliance-training/">Compliance Training</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/employee-onboarding/">Onboarding</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/learning-skills/">Learning & Skills</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/collaboration-knowledge-sharing/">Collaboration & Knowledge Sharing</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/ilt-virtual-classrooms/">ILT & Virtual Classrooms</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/qualification-certification-management/">Qualification & Certification Management</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/performance-evaluation/">Performance Evaluation</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/hybrid-teams/">Hybrid Teams</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/customer-support/">Customer Support</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/extended-enterprise/">Extended Enterprise</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/financial-services/">Financial Services</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/healthcare/">Healthcare</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/manufacturing/">Manufacturing</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/energy-utilities/">Energy & Utilities</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/logistics/">Transportation & Logistics</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/government-public-sector/">Government & Public Sector</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/aviation-aerospace/">Aviation & Aerospace</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/telecoms-technology/">IT, Telecoms & Technology</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/retail/">Retail</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/solutions/hospitality-travel/">Hospitality & Travel</a></li>
+                                                            </ul>
+                        </div>
+                                            </li>
+                                                                    <li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-1353 menu-item-has-children md-menu-item">
+                        <a  class=" text-black uk-text-bold md-menu-item-link" href="https://www.blossom-kc.com/resources/">Resources</a>
+                                                <div class="">
+                            <ul class="submenu-list">
+                                                                <li><a  href="https://www.blossom-kc.com/resources/blossom-blog/">Blossom Blog</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/resources/news/">Company News &#038; Product Updates</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/resources/guides/">Ebooks &#038; Guides</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/resources/case-studies/">Case Studies</a></li>
+                                                            </ul>
+                        </div>
+                                            </li>
+                                                                    <li class=" menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-2293 menu-item-has-children md-menu-item">
+                        <a  class=" text-black uk-text-bold md-menu-item-link" href="https://www.blossom-kc.com/company/">Company</a>
+                                                <div class="">
+                            <ul class="submenu-list">
+                                                                <li><a  href="https://www.blossom-kc.com/company/">About Blossom</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/company/blossom-partners/">Blossom Partners</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/company/careers/">Careers</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/resources/news/">News & Updates</a></li>
+                                                                <li><a  href="https://www.blossom-kc.com/company/contact/">Contact Us</a></li>
+                                                            </ul>
+                        </div>
+                                            </li>
+                                                                    <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-1868 md-menu-item">
+                        <a  class=" text-black uk-text-bold md-menu-item-link" href="">Book a demo</a>
+                                            </li>
+                                            </ul>
+        </div>
+    </div>
+</nav>            </div>
+        </div>
+    </div>
+</div>
+</div>					</header>
+
+		<section id="content" role="main" class="section-wrapper">
+			<div class="wrapper ">
+				
+<style>
+
+    .content-wrapper {
+        max-width: 1214px;
+        margin: 0 auto;
+    }
+
+    .content-wrapper.narrow {
+        max-width: 960px;
+    }
+
+    
+    @media screen and (min-width: 640px) and (max-width: 1199px) {
+        .content-wrapper {
+            padding: 0 60px !important;
+        }
+    }
+
+        @media screen and (min-width: 1200px) and (max-width: 1440px ) {
+        .content-wrapper {
+            max-width: 80%;
+        }
+    }
+
+    @media screen and (max-width: 1264px ) {
+        .content-wrapper {
+            padding: 0 25px;
+        }
+    }
+
+    
+    .padding {
+        padding: 35px 0;
+    }
+
+     @media screen and (min-width: 960px) {
+         .padding {
+            padding: 70px 0;
+        }
+     }
+
+
+                        
+    .wp-front .button--primary {
+        min-height: 40px;
+        padding: 0 24px;
+        font-family: sofia-pro;
+        font-weight: 400;
+        font-size: 14px;
+        
+        background-color: #00AB60;
+        color: #FFF;
+
+        border: 1px solid #00AB60;
+        border-radius: 8px;
+        min-width: 190px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    .wp-front .button--primary-outline {
+        min-height: 40px;
+        padding: 0 24px;
+        font-family: sofia-pro;
+        font-weight: 400;
+        font-size: 14px;
+        
+        background-color: #fff;
+        color: #00AB60;
+
+        border: 1px solid #00AB60;
+        border-radius: 8px;
+        min-width: 190px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    .wp-front .button--secondary {
+        min-height: 40px;
+        padding: 0 24px;
+        font-family: sofia-pro;
+        font-weight: 400;
+        font-size: 14px;
+
+        background-color: #619BD3;
+        color: #fff;
+
+        border: 1px solid #619BD3;
+        border-radius: 8px;
+        min-width: 190px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    .wp-front .button--secondary-outline {
+        min-height: 40px;
+        padding: 0 24px;
+        font-family: sofia-pro;
+        font-weight: 400;
+        font-size: 14px;
+
+        background-color: #fff;
+        color: #619BD3;
+
+        border: 1px solid #619BD3;
+        border-radius: 8px;
+        min-width: 190px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    .wp-front .button--dark {
+        min-height: 40px;
+        padding: 0 24px;
+        font-family: sofia-pro;
+        font-weight: 400;
+        font-size: 14px;
+
+        background-color: #06364B;
+        color: #fff;
+
+        border: 1px solid #06364B;
+        border-radius: 8px;
+        min-width: 190px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    .wp-front .button--dark-outline {
+        min-height: 40px;
+        padding: 0 24px;
+        font-family: sofia-pro;
+        font-weight: 400;
+        font-size: 14px;
+
+        background-color: transparent;
+        color: #06364B;
+
+        border: 1px solid #06364B;
+        border-radius: 8px;
+        min-width: 190px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+                        
+        
+    .wp-front h1,
+    .wp-front .h1 {
+        font-family: sofia-pro;
+        font-weight: 900;
+        font-size: clamp(36px, 1rem + 2vw, 45px);
+        letter-spacing: 0.2px;
+    }
+
+    .wp-front h2,
+    .wp-front .h2 {
+        font-family: sofia-pro;
+        font-weight: 900;
+        font-size: clamp(26px, 1rem + 2vw, 35px);
+        letter-spacing: 0.1px;
+    }
+
+    .wp-front h3,
+    .wp-front .h3 {
+        font-family: sofia-pro;
+        font-weight: 700;
+        font-size: clamp(18px, 1rem + 2vw, 22px);
+        letter-spacing: 0.1px;
+    }
+
+    .wp-front h4,
+    .wp-front .h4 {
+        font-family: sofia-pro;
+        font-weight: 600;
+        font-size: clamp(18px, 1rem + 2vw, 18px);
+        letter-spacing: 0.1px;
+    }
+
+    .wp-front h5,
+    .wp-front .h5 {
+        font-family: sofia-pro;
+        font-weight: 600;
+        font-size: clamp(16px, 1rem + 2vw, 16px);
+        letter-spacing: 0.1px;
+    }
+
+    .wp-front body,
+    .wp-front p {
+        font-family: sofia-pro;
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: 0.2px;
+    }
+
+    @media screen and (min-width: 960px) {
+        .wp-front h1 {
+            font-family: sofia-pro;
+            font-weight: 900;
+            font-size: 45px;
+            letter-spacing: 0.2px;
+        }
+
+        .wp-front h2 {
+            font-family: sofia-pro;
+            font-weight: 900;
+            font-size: 35px;
+            letter-spacing: 0.1px;
+        }
+
+        .wp-front h3 {
+            font-family: sofia-pro;
+            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: 0.1px;
+        }
+
+        .wp-front h4 {
+            font-family: sofia-pro;
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 0.1px;
+        }
+
+        .wp-front h5 {
+            font-family: sofia-pro;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.1px;
+        }
+
+        .wp-front body,
+        .wp-front p {
+            font-family: sofia-pro;
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: 0.2px;
+        }
+    }
+</style>
+<div class="subpage-hero page-hero uk-width-1-1 bg--dark deco-side-graphics ">
+	<div class="content-wrapper">
+		<div class="content">
+			
+							<h1 class="uk-margin-remove-top">Careers at Blossom</h1>
+			
+							<div class="richtext-content">
+					<p><span style="font-weight: 400;">Interested in joining an Israeli tech startup looking to grow our talented team as we continue our global expansion?</span></p>
+<p><span style="font-weight: 400;">Check out our current vacancies below, and apply today!</span></p>
+
+				</div>
+			
+					</div>
+	</div>
+</div>
+
+
+<div class="image-and-content-and-cta uk-width-1-1 bg--light padding remove- uk-flex uk-flex-column uk-flex-column-reverse">
+	
+	    <div class="content-wrapper">
+
+		
+		<div
+			uk-grid class="uk-grid uk-flex-middle">
+
+						<div class="content uk-width-1-1  uk-width-1-2@m " style="order: 0">
+
+				
+									<div class="uk-text-left richtext-content bullets-as-column">
+						<h2>Working at Blossom</h2>
+<p><span style="font-weight: 400;">HR/Learning Technologies is one of the most innovative industries to work in right now. And working at Blossom, you know that the work you do is helping people all over the world grow and perform to the best of their abilities throughout their chosen careers.</span></p>
+<p><span style="font-weight: 400;">We might have been founded in 2007, but we still like to think of ourselves as a startup &#8211; with agile working practices that embrace innovative problem-solving.</span></p>
+<p><span style="font-weight: 400;">As a young business, there are always new opportunities opening as we continue our global growth and mission to create software that builds stronger, smarter, more effective organisations.</span></p>
+<h3><b>Teammates</b></h3>
+<p><span style="font-weight: 400;">As a software development company, most of our team are in some sort of developer or customer support role, but we’ve also got dedicated sales/account managers, and an operations team that helps ensure our client projects run as seamlessly as possible.</span></p>
+<p><span style="font-weight: 400;">The people you’ll be working with day-to-day will depend on which department you’re working in, and whether you’re based in one of </span><a href="https://www.blossom-kc.com/company/contact/"><span style="font-weight: 400;">our offices</span></a><span style="font-weight: 400;">, or working remotely. </span></p>
+<p><span style="font-weight: 400;">Either way, you can rest assured that you’ll be part of a talented team of professionals &#8211; all ready to play their part in helping you achieve your own career and growth aspirations, under the stewardship of a highly-experienced, </span><a href="https://www.blossom-kc.com/company/"><span style="font-weight: 400;">leadership team</span></a><span style="font-weight: 400;">.</span></p>
+
+					</div>
+				
+							</div>
+
+			
+			<div class="uk-text-center image uk-width-1-1   uk-width-1-2@m uk-width-4-5@s uk-align-center ">
+									<img width="563" height="612" decoding="async" src="https://www.blossom-kc.com/app/uploads/2024/01/working-at-blossom.png" alt="image" class="border-rounded">
+							</div>
+		</div>
+	</div>
+	</div>
+
+
+<div class="image-and-content-and-cta uk-width-1-1 bg--neutral padding remove- uk-flex uk-flex-column uk-flex-column-reverse">
+	
+	    <div class="content-wrapper">
+
+		
+		<div
+			uk-grid class="uk-grid uk-flex-middle">
+
+						<div class="content uk-width-1-1  uk-width-1-2@m " style="order: 1">
+
+				
+									<div class="uk-text-left richtext-content bullets-as-column">
+						<h2>Current Vacancies</h2>
+<p><span style="font-weight: 400;">You can find details of our current vacancies and how to apply below:</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><a href="https://www.linkedin.com/hiring/jobs/540780892/detail/">Sales Development Representative &#8211; UK</a></li>
+</ul>
+<p><b>Can’t see something that matches your current skills and experience but you think you’d be a good fit?</b></p>
+<p><span style="font-weight: 400;">If you’d like to have a chat about other ways you might be able to help us on either a full-time or contract basis, we’d love to hear from you.</span></p>
+<p><span style="font-weight: 400;">Just fill out your details on our general enquiry form, and we’ll be in touch to discuss things further if we think it’s something that might work for us too. </span></p>
+<p><b>Want to be the first to hear of any new openings?</b></p>
+<p><a href="https://www.linkedin.com/company/blossom--kc/"><span style="font-weight: 400;">Follow Blossom on LinkedIn</span></a><span style="font-weight: 400;"> and subscribe to our newsletter.</span></p>
+
+					</div>
+				
+							</div>
+
+			
+			<div class="uk-text-center image uk-width-1-1   uk-width-1-2@m uk-width-4-5@s uk-align-center ">
+									<img width="577" height="596" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20577%20596'%3E%3C/svg%3E" alt="image" class="border-rounded" data-lazy-src="https://www.blossom-kc.com/app/uploads/2023/10/got-a-learning-challenge.png"><noscript><img width="577" height="596" decoding="async" src="https://www.blossom-kc.com/app/uploads/2023/10/got-a-learning-challenge.png" alt="image" class="border-rounded"></noscript>
+							</div>
+		</div>
+	</div>
+	</div>
+
+
+			</div>
+					</section>
+
+					<footer id="footer">
+				
+
+<div class="uk-width-1-1 global-footer padding">
+    <div class="content-wrapper">
+        <div class="uk-flex newsletter-form uk-margin-large-bottom uk-flex uk-flex-middle uk-flex-wrap">
+            <div class="uk-width-1-1 uk-width-2-5@m padding-left">
+                <p class="h3 newsletter-form-header uk-margin-small-bottom">Join 1000s other L&D professionals growing with Blossom
+                <img width="120" height="6" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%206'%3E%3C/svg%3E" class="uk-margin-left" data-lazy-src="https://www.blossom-kc.com/app/themes/blossom/dist/images/long-arrow-green-right.svg"><noscript><img width="120" height="6" src="https://www.blossom-kc.com/app/themes/blossom/dist/images/long-arrow-green-right.svg" class="uk-margin-left"></noscript>
+                </p>
+                <p class="uk-margin-remove">Subscribe to our Newsletter</p>
+            </div>
+
+            <div class="uk-width-1-1 uk-width-3-5@m padding-right">
+
+                
+					<script type="rocketlazyloadscript">
+						window.hsFormsOnReady = window.hsFormsOnReady || [];
+						window.hsFormsOnReady.push(()=>{
+							hbspt.forms.create({
+								portalId: 141323911,
+								formId: "e1baa218-c6d9-45a9-ba42-3ab0de8d1042",
+								target: "#hbspt-form-1790565897000-9334635596",
+								region: "eu1",
+								
+						})});
+					</script>
+					<div class="hbspt-form" id="hbspt-form-1790565897000-9334635596"></div>
+                            </div>
+        </div>
+
+        <div uk-grid class="uk-grid uk-text-center uk-text-left@m uk-flex-between">
+                        <div class="uk-width-1-1 uk-width-1-4@m main-column">
+                                <div>
+                    <div class="logo uk-margin-bottom">
+                        <img width="135" height="43" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20135%2043'%3E%3C/svg%3E" alt="LOGO" data-lazy-src="https://www.blossom-kc.com/app/uploads/2023/04/Logo-white.svg"><noscript><img width="135" height="43" src="https://www.blossom-kc.com/app/uploads/2023/04/Logo-white.svg" alt="LOGO"></noscript>
+                    </div>
+                    <div>
+                        <div class="address">
+                            Established in 2007, Blossom is a highly-flexible learning transformation platform that helps organisations train, collaborate, and stay compliant as they grow.
+                        </div>
+                        <div class="contact-details">
+                            
+                        </div>
+                        <div class="certificates uk-margin-medium-top uk-width-5-6 uk-width-2-5@s uk-width-1-1@m uk-align-center">
+                            <div class="uk-child-width-1-3 uk-flex-center uk-flex-left@m uk-grid uk-grid-small" uk-grid>
+                                                                                            <div>
+                                    <img width="300" height="300" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" alt="Certificate" data-lazy-src="https://www.blossom-kc.com/app/uploads/2024/01/ISO-27001-Certified-300x300-1.png"><noscript><img width="300" height="300" src="https://www.blossom-kc.com/app/uploads/2024/01/ISO-27001-Certified-300x300-1.png" alt="Certificate"></noscript>
+                                </div>
+                                                                                                                            <div>
+                                    <img width="359" height="357" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20359%20357'%3E%3C/svg%3E" alt="Certificate" data-lazy-src="https://www.blossom-kc.com/app/uploads/2024/01/21972-312_SOC_NonCPA.png"><noscript><img width="359" height="357" src="https://www.blossom-kc.com/app/uploads/2024/01/21972-312_SOC_NonCPA.png" alt="Certificate"></noscript>
+                                </div>
+                                                                                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                                    <div class="uk-width-3-4@m uk-width-2-3@l secondary-column">
+                <div uk-grid class="uk-grid uk-flex-between">
+                                        <div class="uk-width-1-1 uk-width-auto@m">
+                            <div class="footer-menu-wrapper">
+        <p class="column-title h3">Blossom Platform</p>
+        <div class="footer-menu">
+                                            <a  href="https://www.blossom-kc.com/platform/" class="">Platform Overview</a>
+                                                            <a  href="https://www.blossom-kc.com/best-enterprise-lms-alternative/" class="">Learning Management System (LMS)</a>
+                                                            <a  href="https://www.blossom-kc.com/enterprise-lxp-alternative/" class="">Learning Experience Platform (LXP)</a>
+                                    </div>
+    </div>
+
+                    </div>
+                                        <div class="uk-width-1-1 uk-width-auto@m">
+                            <div class="footer-menu-wrapper">
+        <p class="column-title h3">Blossom Company</p>
+        <div class="footer-menu">
+                                            <a  href="https://www.blossom-kc.com/company/" class="">About Blossom</a>
+                                                            <a  href="https://www.blossom-kc.com/company/blossom-partners/" class="">Blossom Partners</a>
+                                                            <a  href="https://www.blossom-kc.com/company/careers/" class="">Careers</a>
+                                                            <a  href="https://www.blossom-kc.com/resources/blossom-blog/" class="">News & Updates</a>
+                                                            <a  href="https://www.blossom-kc.com/resources/" class="">Resources</a>
+                                    </div>
+    </div>
+
+                    </div>
+                                        <div class="uk-width-1-1 uk-width-auto@m">
+                            <div class="footer-menu-wrapper">
+        <p class="column-title h3">Get In Touch</p>
+        <div class="footer-menu">
+                                            <a  href="https://www.blossom-kc.com/company/contact/" class="">Contact Us</a>
+                                                            <a  href="https://www.blossom-kc.com/book-a-demo/" class="">Book a demo</a>
+                                                            <a  href="https://www.blossom-kc.com/company/contact/" class="">Send a message</a>
+                                                            <a target="_blank" href="https://www.linkedin.com/company/blossom--kc" class="uk-display-inline-block social-link "><img width="41" height="41" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2041%2041'%3E%3C/svg%3E" alt="LinkedIn" data-lazy-src="https://www.blossom-kc.com/app/uploads/2023/04/linkedin.svg"><noscript><img width="41" height="41" src="https://www.blossom-kc.com/app/uploads/2023/04/linkedin.svg" alt="LinkedIn"></noscript></a>
+                                                            <a target="_blank" href="https://www.facebook.com/profile.php?id=100094903431035" class="uk-display-inline-block social-link "><img width="41" height="41" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2041%2041'%3E%3C/svg%3E" alt="Facebook" data-lazy-src="https://www.blossom-kc.com/app/uploads/2023/04/facebook.svg"><noscript><img width="41" height="41" src="https://www.blossom-kc.com/app/uploads/2023/04/facebook.svg" alt="Facebook"></noscript></a>
+                                                            <a target="_blank" href="https://www.youtube.com/@BlossomPlatform" class="uk-display-inline-block social-link "><img width="40" height="40" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E" alt="YouTube" data-lazy-src="https://www.blossom-kc.com/app/uploads/2023/11/youtube.svg"><noscript><img width="40" height="40" src="https://www.blossom-kc.com/app/uploads/2023/11/youtube.svg" alt="YouTube"></noscript></a>
+                                    </div>
+    </div>
+
+                    </div>
+                                    </div>
+            </div>
+                    </div>
+        <div class="copyright uk-grid uk-child-width-1-1 uk-child-width-1-2@m" uk-grid>
+            <p class="uk-margin-remove uk-text-center uk-text-left@m">© Blossom KC All Rights Reserved 2024.</p>
+            <p class="uk-margin-remove uk-text-center uk-text-right@m">Review the <a href="/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="/terms-and-conditions/" target="_blank">Terms of Service</a>.</p>
+        </div>
+    </div>
+</div>			</footer>
+			<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp/wp-*.php","/wp/wp-admin/*","/app/uploads/*","/app/*","/app/plugins/*","/app/themes/blossom/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+  <!--copyscapeskip-->
+  <aside id="moove_gdpr_cookie_info_bar" class="moove-gdpr-info-bar-hidden moove-gdpr-align-center moove-gdpr-dark-scheme gdpr_infobar_postion_bottom" aria-label="GDPR Cookie Banner" style="display: none;">
+    <div class="moove-gdpr-info-bar-container">
+      <div class="moove-gdpr-info-bar-content">
+        
+<div class="moove-gdpr-cookie-notice">
+  <p>We are using cookies to give you the best experience on our website.</p><p>You can find out more about which cookies we are using or switch them off in <button  data-href="#moove_gdpr_cookie_modal" class="change-settings-button">settings</button>.</p></div>
+<!--  .moove-gdpr-cookie-notice -->        
+<div class="moove-gdpr-button-holder">
+		  <button class="mgbutton moove-gdpr-infobar-allow-all gdpr-fbo-0" aria-label="Accept" >Accept</button>
+	  </div>
+<!--  .button-container -->      </div>
+      <!-- moove-gdpr-info-bar-content -->
+    </div>
+    <!-- moove-gdpr-info-bar-container -->
+  </aside>
+  <!-- #moove_gdpr_cookie_info_bar -->
+  <!--/copyscapeskip-->
+			<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+					<!-- Google Tag Manager (noscript) snippet added by Site Kit -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX6938M5" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) snippet added by Site Kit -->
+		<link data-minify="1" rel='stylesheet' id='whp9697tw-bs4.css-css' href='https://www.blossom-kc.com/app/cache/min/1/app/plugins/wp-security-hardening/modules/inc/assets/css/tw-bs4.css?ver=1790486779' media='all' />
+<link data-minify="1" rel='stylesheet' id='whp3792font-awesome.min.css-css' href='https://www.blossom-kc.com/app/cache/min/1/app/plugins/wp-security-hardening/modules/inc/fa/css/font-awesome.min.css?ver=1790486779' media='all' />
+<link data-minify="1" rel='stylesheet' id='whp5928front.css-css' href='https://www.blossom-kc.com/app/cache/min/1/app/plugins/wp-security-hardening/modules/css/front.css?ver=1790486779' media='all' />
+<script type="rocketlazyloadscript" id="wp-hooks-js" data-rocket-src="https://www.blossom-kc.com/wp/wp-includes/js/dist/hooks.min.js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js" data-rocket-src="https://www.blossom-kc.com/wp/wp-includes/js/dist/i18n.min.js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" data-minify="1" id="swv-js" data-rocket-src="https://www.blossom-kc.com/app/cache/min/1/app/plugins/contact-form-7/includes/swv/js/index.js?ver=1780223871" defer></script>
+<script id="contact-form-7-js-extra">
+var wpcf7 = {"api":{"root":"https://www.blossom-kc.com/wp-json/","namespace":"contact-form-7/v1"},"cached":"1"};
+//# sourceURL=contact-form-7-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" id="contact-form-7-js" data-rocket-src="https://www.blossom-kc.com/app/cache/min/1/app/plugins/contact-form-7/includes/js/index.js?ver=1780223871" defer></script>
+<script id="leadin-script-loader-js-js-extra">
+var leadin_wordpress = {"userRole":"visitor","pageType":"page","leadinPluginVersion":"11.1.34"};
+//# sourceURL=leadin-script-loader-js-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" id="leadin-script-loader-js-js" data-rocket-src="https://www.blossom-kc.com/app/cache/min/1/141323911.js?ver=1780223871" defer></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://www.blossom-kc.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,c,a){function u(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(s)return s(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return u(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var s="function"==typeof require&&require,e=0;e<a.length;e++)u(a[e]);return u}({1:[function(e,t,r){"use strict";{const c="undefined"==typeof rocket_pairs?[]:rocket_pairs,a=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var o=rocket_lazyload_css_data.threshold||300;const u=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&c.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,a.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{u.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:o+"px"});function n(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&c.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(u.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}n(),function(){const r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}}()(document.querySelector("body"),n)}},{}]},{},[1]);
+//# sourceMappingURL=lazyload-css.min.js.map
+
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="module" data-rocket-src="https://www.blossom-kc.com/app/themes/blossom/dist/js/app.min.js" defer></script><script type="rocketlazyloadscript" data-minify="1" id="counterup2-js" data-rocket-src="https://www.blossom-kc.com/app/cache/min/1/counterup2@2.0.2/dist/index.js?ver=1780223872" defer></script>
+<script type="rocketlazyloadscript" id="sticky-script-js" data-rocket-src="https://www.blossom-kc.com/app/themes/blossom/assets/js-vendor/sticky.min.js" defer></script>
+<script id="moove_gdpr_frontend-js-extra">
+var moove_frontend_gdpr_scripts = {"ajaxurl":"https://www.blossom-kc.com/wp/wp-admin/admin-ajax.php","post_id":"2296","plugin_dir":"https://www.blossom-kc.com/app/plugins/gdpr-cookie-compliance","show_icons":"all","is_page":"1","ajax_cookie_removal":"false","strict_init":"1","enabled_default":{"third_party":0,"advanced":0},"geo_location":"false","force_reload":"false","is_single":"","hide_save_btn":"false","current_user":"0","cookie_expiration":"365","script_delay":"2000","close_btn_action":"1","close_btn_rdr":"","scripts_defined":"{\"cache\":true,\"header\":\"\",\"body\":\"\",\"footer\":\"\",\"thirdparty\":{\"header\":\"\",\"body\":\"\",\"footer\":\"\"},\"advanced\":{\"header\":\"\",\"body\":\"\",\"footer\":\"\"}}","gdpr_scor":"true","wp_lang":"","wp_consent_api":"false"};
+//# sourceURL=moove_gdpr_frontend-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" id="moove_gdpr_frontend-js" data-rocket-src="https://www.blossom-kc.com/app/cache/min/1/app/plugins/gdpr-cookie-compliance/dist/scripts/main.js?ver=1780223872" defer></script>
+<script type="rocketlazyloadscript" id="moove_gdpr_frontend-js-after">
+var gdpr_consent__strict = "false"
+var gdpr_consent__thirdparty = "false"
+var gdpr_consent__advanced = "false"
+var gdpr_consent__cookies = ""
+//# sourceURL=moove_gdpr_frontend-js-after
+</script>
+<script type="rocketlazyloadscript" id="hoverIntent-js" data-rocket-src="https://www.blossom-kc.com/wp/wp-includes/js/hoverIntent.min.js" defer></script>
+<script id="megamenu-js-extra">
+var megamenu = {"timeout":"300","interval":"100"};
+//# sourceURL=megamenu-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" id="megamenu-js" data-rocket-src="https://www.blossom-kc.com/app/cache/min/1/app/plugins/megamenu/js/maxmegamenu.js?ver=1780223872" defer></script>
+<script type="rocketlazyloadscript" data-minify="1" id="megamenu-pro-js" data-rocket-src="https://www.blossom-kc.com/app/cache/min/1/app/plugins/megamenu-pro/assets/public.js?ver=1780223872" defer></script>
+<script type="rocketlazyloadscript" id="leadin-forms-v2-js" defer data-rocket-src="https://js-eu1.hsforms.net/forms/embed/v2.js"></script>
+
+    
+  <!--copyscapeskip-->
+  <!-- V1 -->
+  <div id="moove_gdpr_cookie_modal" class="gdpr_lightbox-hide" role="complementary" aria-label="GDPR Settings Screen">
+    <div class="moove-gdpr-modal-content moove-clearfix logo-position-left moove_gdpr_modal_theme_v1">
+          
+        <button class="moove-gdpr-modal-close" aria-label="Close GDPR Cookie Settings">
+          <span class="gdpr-sr-only">Close GDPR Cookie Settings</span>
+          <span class="gdpr-icon moovegdpr-arrow-close"></span>
+        </button>
+            <div class="moove-gdpr-modal-left-content">
+        
+<div class="moove-gdpr-company-logo-holder">
+  <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20350%20233'%3E%3C/svg%3E" alt="Blossom"   width="350"  height="233"  class="img-responsive" data-lazy-src="https://www.blossom-kc.com/app/plugins/gdpr-cookie-compliance/dist/images/gdpr-logo.png" /><noscript><img src="https://www.blossom-kc.com/app/plugins/gdpr-cookie-compliance/dist/images/gdpr-logo.png" alt="Blossom"   width="350"  height="233"  class="img-responsive" /></noscript>
+</div>
+<!--  .moove-gdpr-company-logo-holder -->        <ul id="moove-gdpr-menu">
+          
+<li class="menu-item-on menu-item-privacy_overview menu-item-selected">
+  <button data-href="#privacy_overview" class="moove-gdpr-tab-nav" aria-label="Privacy Overview">
+    <span class="gdpr-nav-tab-title">Privacy Overview</span>
+  </button>
+</li>
+
+  <li class="menu-item-strict-necessary-cookies menu-item-off">
+    <button data-href="#strict-necessary-cookies" class="moove-gdpr-tab-nav" aria-label="Strictly Necessary Cookies">
+      <span class="gdpr-nav-tab-title">Strictly Necessary Cookies</span>
+    </button>
+  </li>
+
+
+
+
+        </ul>
+        
+<div class="moove-gdpr-branding-cnt">
+  		<a href="https://wordpress.org/plugins/gdpr-cookie-compliance/" rel="noopener noreferrer" target="_blank" class='moove-gdpr-branding'>Powered by&nbsp; <span>GDPR Cookie Compliance</span></a>
+		</div>
+<!--  .moove-gdpr-branding -->      </div>
+      <!--  .moove-gdpr-modal-left-content -->
+      <div class="moove-gdpr-modal-right-content">
+        <div class="moove-gdpr-modal-title">
+           
+        </div>
+        <!-- .moove-gdpr-modal-ritle -->
+        <div class="main-modal-content">
+
+          <div class="moove-gdpr-tab-content">
+            
+<div id="privacy_overview" class="moove-gdpr-tab-main">
+      <span class="tab-title">Privacy Overview</span>
+    <div class="moove-gdpr-tab-main-content">
+  	<p>This website uses cookies so that we can provide you with the best user experience possible. Cookie information is stored in your browser and performs functions such as recognising you when you return to our website and helping our team to understand which sections of the website you find most interesting and useful.</p>
+  	  </div>
+  <!--  .moove-gdpr-tab-main-content -->
+
+</div>
+<!-- #privacy_overview -->            
+  <div id="strict-necessary-cookies" class="moove-gdpr-tab-main" style="display:none">
+    <span class="tab-title">Strictly Necessary Cookies</span>
+    <div class="moove-gdpr-tab-main-content">
+      <p>Strictly Necessary Cookie should be enabled at all times so that we can save your preferences for cookie settings.</p>
+      <div class="moove-gdpr-status-bar ">
+        <div class="gdpr-cc-form-wrap">
+          <div class="gdpr-cc-form-fieldset">
+            <label class="cookie-switch" for="moove_gdpr_strict_cookies">    
+              <span class="gdpr-sr-only">Enable or Disable Cookies</span>        
+              <input type="checkbox" aria-label="Strictly Necessary Cookies"  value="check" name="moove_gdpr_strict_cookies" id="moove_gdpr_strict_cookies">
+              <span class="cookie-slider cookie-round" data-text-enable="Enabled" data-text-disabled="Disabled"></span>
+            </label>
+          </div>
+          <!-- .gdpr-cc-form-fieldset -->
+        </div>
+        <!-- .gdpr-cc-form-wrap -->
+      </div>
+      <!-- .moove-gdpr-status-bar -->
+              <div class="moove-gdpr-strict-warning-message" style="margin-top: 10px;">
+          <p>If you disable this cookie, we will not be able to save your preferences. This means that every time you visit this website you will need to enable or disable cookies again.</p>
+        </div>
+        <!--  .moove-gdpr-tab-main-content -->
+                                              
+    </div>
+    <!--  .moove-gdpr-tab-main-content -->
+  </div>
+  <!-- #strict-necesarry-cookies -->
+            
+            
+            
+          </div>
+          <!--  .moove-gdpr-tab-content -->
+        </div>
+        <!--  .main-modal-content -->
+        <div class="moove-gdpr-modal-footer-content">
+          <div class="moove-gdpr-button-holder">
+			  		<button class="mgbutton moove-gdpr-modal-allow-all button-visible" aria-label="Enable All">Enable All</button>
+		  					<button class="mgbutton moove-gdpr-modal-save-settings button-visible" aria-label="Save Settings">Save Settings</button>
+				</div>
+<!--  .moove-gdpr-button-holder -->        </div>
+        <!--  .moove-gdpr-modal-footer-content -->
+      </div>
+      <!--  .moove-gdpr-modal-right-content -->
+
+      <div class="moove-clearfix"></div>
+
+    </div>
+    <!--  .moove-gdpr-modal-content -->
+  </div>
+  <!-- #moove_gdpr_cookie_modal -->
+  <!--/copyscapeskip-->
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.blossom-kc.com/app/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+			<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1790565898 -->

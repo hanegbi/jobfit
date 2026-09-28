@@ -1,0 +1,72 @@
+{
+  "company_id": "bria_artificial_intelligence_ltd_briaai",
+  "schema_version": 1,
+  "career_url": "https://www.bria.ai/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:14:52.945781Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?bria\\.ai/[^/?#]+/?$"
+    ],
+    "url_shape": "linkedin.com|jobs/view|3",
+    "explicit_accept": [
+      "https://www.linkedin.com/jobs/view/4361390827/?eBP=NON_CHARGEABLE_CHANNEL&refId=SqxS%2BpuAm3ugpWVusbx80w%3D%3D&trackingId=ucD7P6gHy7ND3rL2vhq%2FtA%3D%3D&trk=flagship3_search_srp_jobs&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_jobs%3B5nHqxkt5RQyXuH%2B%2FC9S%2FGQ%3D%3D&lici=ucD7P6gHy7ND3rL2vhq%2FtA%3D%3D",
+      "https://www.linkedin.com/jobs/view/4431602354/?trackingId=jWNgZneRrmfg8%2Bv9kXDgWQ%3D%3D&refId=oILwU3vicUMJGMyLYes93w%3D%3D&alternateChannel=search&isJobSearch=false",
+      "https://www.linkedin.com/jobs/view/4435132516/?trackingId=OFubB6dlirNwVSYPUaolCQ%3D%3D&refId=v%2F4HlUFnbx2nmHf8o01AjQ%3D%3D&eBP=NON_CHARGEABLE_CHANNEL&alternateChannel=search&isJobSearch=false",
+      "https://www.linkedin.com/jobs/view/4435121640/?alternateChannel=search&eBP=NON_CHARGEABLE_CHANNEL&refId=v%2F4HlUFnbx2nmHf8o01AjQ%3D%3D&trackingId=%2BZhxLx3FjYjgmPxyBe%2BF%2FA%3D%3D"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 39,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 4
+  },
+  "rediscover_after": null,
+  "notes": []
+}

@@ -1,0 +1,77 @@
+{
+  "company_id": "c2a_security_ltd",
+  "schema_version": 1,
+  "career_url": "https://c2a-sec.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:14:52.945781Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?c2a\\-sec\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "c2a-sec.com|career|2",
+    "explicit_accept": [
+      "https://c2a-sec.com/career/director-of-business-development-partnerships/",
+      "https://c2a-sec.com/career/lead-ai-engineer/",
+      "https://c2a-sec.com/career/sales-manager-of-north-america-based-in-east-us/",
+      "https://c2a-sec.com/career/sales-manager-of-europe-based-in-germany/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 19,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 20,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 21,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 22,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 4
+  },
+  "rediscover_after": null,
+  "notes": []
+}

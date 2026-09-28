@@ -1,0 +1,58 @@
+{
+  "company_id": "blossom_kc_ltd_formerly_blossom_e_learning_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.blossom-kc.com/company/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:14:52.945781Z",
+  "verified_at": "2026-09-28T13:14:52.945781Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?linkedin\\.com/hiring/jobs/540780892/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?blossom\\-kc\\.com/solutions/[^/?#]+/?$",
+      "^https?://(www\\.)?blossom\\-kc\\.com/company/[^/?#]+/?$"
+    ],
+    "url_shape": "linkedin.com|hiring/jobs/540780892|4",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

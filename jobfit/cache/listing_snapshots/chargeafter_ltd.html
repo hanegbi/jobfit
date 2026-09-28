@@ -1,0 +1,2026 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="address=no">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "q5n84rjtt8");
+</script>
+	
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Fintech Careers and Job Openings at ChargeAfter</title>
+<link data-rocket-prefetch href="https://fonts.googleapis.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://cookie-cdn.cookiepro.com" rel="dns-prefetch">
+<link data-rocket-preload as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&#038;family=Open+Sans:ital,wght@0,400;0,700;1,400&#038;display=swap" rel="preload">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&#038;family=Open+Sans:ital,wght@0,400;0,700;1,400&#038;display=swap" media="print" onload="this.media=&#039;all&#039;" rel="stylesheet">
+<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&#038;family=Open+Sans:ital,wght@0,400;0,700;1,400&#038;display=swap"></noscript><link rel="preload" data-rocket-preload as="image" href="https://chargeafter.com/wp-content/themes/chargeafter/images/bg.jpg" fetchpriority="high">
+	<meta name="description" content="Explore career opportunities at ChargeAfter and join a fintech team focused on innovation, shared success and transforming embedded lending worldwide." />
+	<link rel="canonical" href="https://chargeafter.com/careers/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Fintech Careers and Job Openings at ChargeAfter" />
+	<meta property="og:description" content="Explore career opportunities at ChargeAfter and join a fintech team focused on innovation, shared success and transforming embedded lending worldwide." />
+	<meta property="og:url" content="https://chargeafter.com/careers/" />
+	<meta property="og:site_name" content="ChargeAfter" />
+	<meta property="article:publisher" content="https://www.facebook.com/ChargeAfter/" />
+	<meta property="article:modified_time" content="2026-08-02T16:20:49+00:00" />
+	<meta property="og:image" content="https://chargeafter.com/wp-content/uploads/2025/08/OG-Images.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="1200" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@chargeafter" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="1 minute" />
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//js.hs-scripts.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="ChargeAfter &raquo; Feed" href="https://chargeafter.com/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://chargeafter.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fchargeafter.com%2Fcareers%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://chargeafter.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fchargeafter.com%2Fcareers%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel='stylesheet' id='megamenu-css' href='https://chargeafter.com/wp-content/cache/min/1/wp-content/uploads/maxmegamenu/style.css?ver=1790498328' media='all' />
+<link data-minify="1" rel='stylesheet' id='dashicons-css' href='https://chargeafter.com/wp-content/cache/min/1/wp-includes/css/dashicons.min.css?ver=1790498328' media='all' />
+<link data-minify="1" rel='stylesheet' id='chargeafter-slick-css-css' href='https://chargeafter.com/wp-content/cache/min/1/wp-content/themes/chargeafter/assets/css/slick.css?ver=1790498328' media='all' />
+<link data-minify="1" rel='stylesheet' id='chargeafter-swiper-css-css' href='https://chargeafter.com/wp-content/cache/min/1/wp-content/themes/chargeafter/assets/css/swiper-bundle.min.css?ver=1790498328' media='all' />
+<link data-minify="1" rel='stylesheet' id='chargeafter-main-css-css' href='https://chargeafter.com/wp-content/cache/min/1/wp-content/themes/chargeafter/assets/css/main.css?ver=1790498328' media='all' />
+<link data-minify="1" rel='stylesheet' id='chargeafter-style-css' href='https://chargeafter.com/wp-content/cache/min/1/wp-content/themes/chargeafter/style.css?ver=1790498328' media='all' />
+<link data-minify="1" rel='stylesheet' id='chargeafter-breadcrumbs-css' href='https://chargeafter.com/wp-content/cache/min/1/wp-content/themes/chargeafter/assets/css/breadcrumbs.css?ver=1790498328' media='all' />
+<link data-minify="1" rel='stylesheet' id='heateor_sss_frontend_css-css' href='https://chargeafter.com/wp-content/cache/min/1/wp-content/plugins/sassy-social-share/public/css/sassy-social-share-public.css?ver=1790498328' media='all' />
+<style id="heateor_sss_frontend_css-inline-css">
+.heateor_sss_button_instagram span.heateor_sss_svg,a.heateor_sss_instagram span.heateor_sss_svg{background:radial-gradient(circle at 30% 107%,#fdf497 0,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}div.heateor_sss_horizontal_sharing a.heateor_sss_button_instagram span{background:#7C56FE!important;}div.heateor_sss_standard_follow_icons_container a.heateor_sss_button_instagram span{background:#7C56FE}div.heateor_sss_horizontal_sharing a.heateor_sss_button_instagram span:hover{background:#20EF8A!important;}div.heateor_sss_standard_follow_icons_container a.heateor_sss_button_instagram span:hover{background:#20EF8A}.heateor_sss_horizontal_sharing .heateor_sss_svg,.heateor_sss_standard_follow_icons_container .heateor_sss_svg{background-color:#7C56FE!important;background:#7C56FE!important;color:#fff;border-width:0px;border-style:solid;border-color:transparent}.heateor_sss_horizontal_sharing .heateorSssTCBackground{color:#666}.heateor_sss_horizontal_sharing span.heateor_sss_svg:hover,.heateor_sss_standard_follow_icons_container span.heateor_sss_svg:hover{background-color:#20EF8A!important;background:#20EF8A!importantborder-color:transparent;}.heateor_sss_vertical_sharing span.heateor_sss_svg,.heateor_sss_floating_follow_icons_container span.heateor_sss_svg{color:#fff;border-width:0px;border-style:solid;border-color:transparent;}.heateor_sss_vertical_sharing .heateorSssTCBackground{color:#666;}.heateor_sss_vertical_sharing span.heateor_sss_svg:hover,.heateor_sss_floating_follow_icons_container span.heateor_sss_svg:hover{border-color:transparent;}@media screen and (max-width:783px) {.heateor_sss_vertical_sharing{display:none!important}}
+/*# sourceURL=heateor_sss_frontend_css-inline-css */
+</style>
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://chargeafter.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+<script type="text/rocketlazyloadscript" data-minify="1" data-wp-strategy="defer" defer id="stop-user-enumeration-js" data-rocket-src="https://chargeafter.com/wp-content/cache/min/1/wp-content/plugins/stop-user-enumeration/frontend/js/frontend.js?ver=1790498328"></script>
+<script type="text/rocketlazyloadscript" id="jquery-core-js" data-rocket-src="https://chargeafter.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="jquery-migrate-js" data-rocket-src="https://chargeafter.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" data-rocket-defer defer></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://chargeafter.com/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://chargeafter.com/?p=1301' />
+<!-- HFCM by 99 Robots - Snippet # 2: CookiePro -->
+<!-- CookiePro Cookies Consent Notice start for chargeafter.com -->
+
+<script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="277d6224-b54d-4fa6-9a51-dde49f6358b8" ></script>
+
+<script type="text/javascript">
+
+function OptanonWrapper() { }
+
+</script>
+
+<!-- CookiePro Cookies Consent Notice end for chargeafter.com -->
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 3: Google Tag Manager (GTM-PRSBJRKC) -->
+<!-- Google Tag Manager -->
+
+<script type="text/rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+})(window,document,'script','dataLayer','GTM-PRSBJRKC');</script>
+
+<!-- End Google Tag Manager -->
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 4: 6sense -->
+<script type="text/rocketlazyloadscript">
+
+window._6si = window._6si || [];
+
+window._6si.push(['enableEventTracking', true]);
+
+window._6si.push(['setToken', '3b3ca5d70fa8e4e23df9f09141f041e1']);
+
+window._6si.push(['setEndpoint', 'b.6sc.co']);
+
+
+
+(function() {
+
+var gd = document.createElement('script');
+
+gd.type = 'text/javascript';
+
+gd.async = true;
+
+gd.src = '//j.6sc.co/6si.min.js';
+
+var s = document.getElementsByTagName('script')[0];
+
+s.parentNode.insertBefore(gd, s);
+
+})();
+
+</script>
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 5: Zoom Info Footer -->
+<noscript>
+
+        <img src="https://ws.zoominfo.com/pixel/6182f4b3114c81001a291fd7" width="1" height="1" style="display: none;" />
+
+      </noscript>
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 6: Zoom INfo -->
+<script type="text/rocketlazyloadscript">
+
+        (function () {
+
+          var zi = document.createElement('script');
+
+          zi.type = 'text/javascript';
+
+          zi.async = true;
+
+          zi.referrerPolicy = 'unsafe-url';
+
+          zi.src = 'https://ws.zoominfo.com/pixel/6182f4b3114c81001a291fd7';
+
+          var s = document.getElementsByTagName('script')[0];
+
+          s.parentNode.insertBefore(zi, s);
+
+        })();
+
+      </script>
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 10: LinkedIn -->
+<script type="text/rocketlazyloadscript">
+
+!function(){var e="dreamdata",dreamdata=window[e]=window[e]||[];if(!dreamdata.initialize)if(dreamdata.invoked)window.console&&console.error&&console.error("Dreamdata snippet included twice.");else{dreamdata.invoked=!0,dreamdata.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"],dreamdata.factory=function(t){return function(){if(window[e].initialized)return window[e][t].apply(window[e],arguments);var a=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(t)>-1){var r=document.querySelector("link[rel='canonical']");a.push({__t:"bpc",c:r&&r.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}return a.unshift(t),dreamdata.push(a),dreamdata}};for(var t=0;t<dreamdata.methods.length;t++){var a=dreamdata.methods[t];dreamdata[a]=dreamdata.factory(a)}dreamdata.load=function(t,a){var r=document.createElement("script");r.id="dreamdata-analytics",r.type="text/javascript",r.async=!0,r.setAttribute("data-global-dreamdata-analytics-key",e),r.src=https://cdn.dreamdata.cloud/scripts/analytics/next/dreamdata.min.js;var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i),dreamdata._loadOptions=a},dreamdata._writeKey="77de1eb2-32f5-4d5e-bc3e-50baff4f459e",dreamdata.SNIPPET_VERSION="dreamdata-2.0.1",dreamdata.load("77de1eb2-32f5-4d5e-bc3e-50baff4f459e", {"formTracking":{"html":true,"hubspot":true},"intentSources":{"autoGroup":true}}),dreamdata.page()}}();
+
+</script>
+
+<script type="text/rocketlazyloadscript">
+
+!function(){if(!window.dreamdata||!window.dreamdata.initialized){if(window.dreamdata){var e=document.getElementById("dreamdata-analytics");if(e&&e.type&&"text/javascript"==e.type)return}var a="dreamdata-cl",dreamdata=window[a]=window[a]||[];if(!dreamdata.initialize)if(dreamdata.invoked)window.console&&console.error&&console.error("Dreamdata CL snippet included twice.");else{dreamdata.invoked=!0,dreamdata.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"],dreamdata.factory=function(e){return function(){if(window[a].initialized)return window[a][e].apply(window[a],arguments);var t=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(e)>-1){var r=document.querySelector("link[rel='canonical']");t.push({__t:"bpc",c:r&&r.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}return t.unshift(e),dreamdata.push(t),dreamdata}};for(var t=0;t<dreamdata.methods.length;t++){var r=dreamdata.methods[t];dreamdata[r]=dreamdata.factory(r)}dreamdata.load=function(e,t){var r=document.createElement("script");r.id="dreamdata-analytics-cl",r.type="text/javascript",r.async=!0,r.setAttribute("data-global-dreamdata-cl-analytics-key",a),r.src=https://cdn.drda.io/scripts/analytics/next/dreamdata.cl.min.js;var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i),dreamdata._loadOptions=t},dreamdata._writeKey="77de1eb2-32f5-4d5e-bc3e-50baff4f459e",dreamdata.SNIPPET_VERSION="dreamdata-cl-2.0.0",dreamdata.load("77de1eb2-32f5-4d5e-bc3e-50baff4f459e"),dreamdata.page()}}}();
+
+</script>
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 11: DreamData -->
+<script type="text/rocketlazyloadscript" id="init-dreamdata">
+
+	!function(){var e="dreamdata",dreamdata=window[e]=window[e]||[];if(!dreamdata.initialize)if(dreamdata.invoked)window.console&&console.error&&console.error("Dreamdata snippet included twice.");else{dreamdata.invoked=!0,dreamdata.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"],dreamdata.factory=function(t){return function(){if(window[e].initialized)return window[e][t].apply(window[e],arguments);var a=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(t)>-1){var r=document.querySelector("link[rel='canonical']");a.push({__t:"bpc",c:r&&r.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}return a.unshift(t),dreamdata.push(a),dreamdata}};for(var t=0;t<dreamdata.methods.length;t++){var a=dreamdata.methods[t];dreamdata[a]=dreamdata.factory(a)}dreamdata.load=function(t,a){var r=document.createElement("script");r.id="dreamdata-analytics",r.type="text/javascript",r.async=!0,r.setAttribute("data-global-dreamdata-analytics-key",e),r.src="https://cdn.dreamdata.cloud/scripts/analytics/next/dreamdata.min.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i),dreamdata._loadOptions=a},dreamdata._writeKey="77de1eb2-32f5-4d5e-bc3e-50baff4f459e",dreamdata.SNIPPET_VERSION="dreamdata-2.0.1",dreamdata.load("77de1eb2-32f5-4d5e-bc3e-50baff4f459e", {"formTracking":{"html":true,"hubspot":true},"intentSources":{"autoGroup":true}}),dreamdata.page()}}();
+
+</script>
+
+<script type="text/rocketlazyloadscript" id="init-dreamdata-cl">
+
+	!function(){if(!window.dreamdata||!window.dreamdata.initialized){if(window.dreamdata){var e=document.getElementById("dreamdata-analytics");if(e&&e.type&&"text/javascript"==e.type)return}var a="dreamdata-cl",dreamdata=window[a]=window[a]||[];if(!dreamdata.initialize)if(dreamdata.invoked)window.console&&console.error&&console.error("Dreamdata CL snippet included twice.");else{dreamdata.invoked=!0,dreamdata.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"],dreamdata.factory=function(e){return function(){if(window[a].initialized)return window[a][e].apply(window[a],arguments);var t=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(e)>-1){var r=document.querySelector("link[rel='canonical']");t.push({__t:"bpc",c:r&&r.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}return t.unshift(e),dreamdata.push(t),dreamdata}};for(var t=0;t<dreamdata.methods.length;t++){var r=dreamdata.methods[t];dreamdata[r]=dreamdata.factory(r)}dreamdata.load=function(e,t){var r=document.createElement("script");r.id="dreamdata-analytics-cl",r.type="text/javascript",r.async=!0,r.setAttribute("data-global-dreamdata-cl-analytics-key",a),r.src="https://cdn.drda.io/scripts/analytics/next/dreamdata.cl.min.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i),dreamdata._loadOptions=t},dreamdata._writeKey="77de1eb2-32f5-4d5e-bc3e-50baff4f459e",dreamdata.SNIPPET_VERSION="dreamdata-cl-2.0.0",dreamdata.load("77de1eb2-32f5-4d5e-bc3e-50baff4f459e"),dreamdata.page()}}}();
+
+</script>
+
+
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 14: Stitcher -->
+<script type="text/rocketlazyloadscript">
+
+!function(e){"use strict";var t=e&&e.namespace;if(t&&e.profileId&&e.cdn){var i=window[t];if(i&&Array.isArray(i)||(i=window[t]=[]),!i.initialized&&!i._loaded)if(i._loaded)console&&console.warn("[Radar] Duplicate initialization attempted");else{i._loaded=!0;["track","page","identify","group","alias","ready","debug","on","off","once","trackClick","trackSubmit","trackLink","trackForm","pageview","screen","reset","register","setAnonymousId","addSourceMiddleware","addIntegrationMiddleware","addDestinationMiddleware","giveCookieConsent"].forEach((function(e){var a;i[e]=(a=e,function(){var e=window[t];if(e.initialized)return e[a].apply(e,arguments);var i=[].slice.call(arguments);return i.unshift(a),e.push(i),e})})),-1===e.apiEndpoint.indexOf("http")&&(e.apiEndpoint="https://"+e.apiEndpoint),i.bootstrap=function(){var t,i=document.createElement("script");i.async=!0,i.type="text/javascript",i.id="__radar__",i.setAttribute("data-settings",JSON.stringify(e)),i.src=[-1!==(t=e.cdn).indexOf("http")?"":"https://",t,"/releases/latest/radar.min.js"].join("");var a=document.scripts[0];a.parentNode.insertBefore(i,a)},i.bootstrap()}}else"undefined"!=typeof console&&console.error("[Radar] Configuration incomplete")}({
+
+  "apiEndpoint": "radar.snitcher.com",
+
+  "cdn": "cdn.snitcher.com",
+
+  "namespace": "Snitcher",
+
+  "profileId": "sBGzbx9rwS"
+
+});
+
+</script>
+
+
+<!-- /end HFCM by 99 Robots -->
+<!-- HFCM by 99 Robots - Snippet # 15: Apollo -->
+<script type="text/rocketlazyloadscript">function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+
+o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+
+o.onload=function(){window.trackingFunctions.onLoad({appId:"664b29ba600c78034857dde5"})},
+
+document.head.appendChild(o)}initApollo();</script>
+<!-- /end HFCM by 99 Robots -->
+			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.75-->
+			<script type="text/rocketlazyloadscript" class="hsq-set-content-id" data-content-id="standard-page">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", "standard-page"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+			<meta name="application-name" itemprop="name" content="Comeet Jobs" />
+<meta name="application-url" itemprop="url" content="https://chargeafter.com/careers-2/" />
+<link rel="icon" href="https://chargeafter.com/wp-content/uploads/2023/08/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://chargeafter.com/wp-content/uploads/2023/08/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://chargeafter.com/wp-content/uploads/2023/08/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://chargeafter.com/wp-content/uploads/2023/08/cropped-favicon-270x270.png" />
+<style id="wp-custom-css">
+
+.take-full-control{
+	display: none;
+}
+.appliance-financing-logos {
+	display: none;
+}
+.lenders-logos-list {
+	padding-bottom: 30px;
+}
+body.page-template-page-newsroom .blog-all-list .blog-post-caption {
+    padding-top: 0;
+    padding-bottom: 30px;
+}
+/***21-10-2024 for appliance-financing**/
+body.page-id-1866 .vs-hero-image {
+/*     position: unset;
+    width: 50%; */
+}
+body.page-id-1866 .vs-hero .wrapper {
+/* 	padding-bottom: 120px;
+	display: flex;
+	align-items: center; */
+}
+body.page-id-1866 .logos.appliance-financing-logos {  
+      padding: 0 0 120px 0;
+}
+.info-text-appliance-fin{
+    position:relative;
+}
+.info-text-appliance-fin:after{
+    background: linear-gradient(90deg, rgba(206, 206, 206, 0) 0%, #CECECE 51.56%, rgba(206, 206, 206, 0) 100%);
+    display: block;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    right: 5.5555555556vw;
+    /* bottom: 1px; */
+    left: 5.5555555556vw;
+        content: "";
+	}
+.logos.appliance-financing-logos:before{
+content : none;
+}
+/**********End*************/
+/***12-08-2024 for banner**/
+header#masthead {
+    padding-bottom: 0;
+}
+.announce_sticky_header p{
+	margin-bottom: 0;
+}
+.announce_sticky_header a{
+	text-decoration: underline;
+}
+.announce_sticky_header strong{
+	font-weight: 700;
+}
+.announce_sticky_header .wrapper{
+	 justify-content: center;
+}
+.site-main {
+       transform:translateY(76px);
+				transition:0.5s ease-in-out;
+    }
+.announce_sticky_header.hide_bar{
+display: none;
+}
+body:has(.announce_sticky_header.hide_bar) main#primary {
+    transform: translateY(0px);
+}
+body:has(.announce_sticky_header.hide_bar) header#masthead {
+padding-bottom : 16px;
+}
+.announce_sticky_header {
+    padding: 25px 0;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+	  color: #302F36;
+		position: relative;
+    margin-top: 15px;
+}
+span.announce_close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    background-color: #000;
+    color: #20ef8a;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+		cursor: pointer;
+}
+/***End****/
+.resources-hero {
+    margin: 0 0 60px 0;
+}
+
+.hero video {
+    top: 66%;
+}
+@media only screen and (min-width:1024px) {
+		  .page-template-page-career   .career-job .comeet-list>ul li .comeet-position a.btn-primary {
+    position: absolute;
+    bottom: 27px;
+}
+	  .page-template-page-career   .career-job .comeet-list>ul li .comeet-position {
+        min-height: 321px;
+			position: relative;
+    }
+	.page-template-page-career .comeet_dp > .comeet-g-r:nth-child(2) .comeet-u-1-2:nth-child(2) li:first-child {
+			position: relative;
+			top: -360px;
+			left: 610px;
+	}
+	.page-template-page-career .comeet_dp > .comeet-g-r:nth-child(2) .comeet-u-1-2:nth-child(2) li:nth-child(2) {
+			position: absolute;
+			left:0px;
+	}
+	.page-template-page-career .comeet_dp > .comeet-g-r:nth-child(3) {
+			margin: 0px 22px;
+	}
+	.page-template-page-career .comeet_dp > .comeet-g-r:nth-child(3),.page-template-page-career .comeet_dp > .comeet-g-r:nth-child(4),
+	.comeet_dp > .comeet-g-r:nth-child(2){
+		 float:left;
+	}
+	.page-template-page-career .comeet_dp {
+			position: relative;
+	}
+}
+/*
+@media (min-width: 1240px) {
+    .hero .wrapper {
+        padding: 80px 0 205px 0;
+    }
+	.page-id-1609 .vs-hero-image,   .page-id-2300 .vs-hero-image,
+	.page-id-1875 .vs-hero-image
+	{
+	  width: 550px;
+  }
+}
+*/
+@media (max-width: 991px) {
+	  .page-id-1609 .vs-hero-image, .page-id-2300 .vs-hero-image, .page-id-1875 .vs-hero-image{
+			top: 169vw;
+	}
+    .lenders-logos-list-item img {
+        height: 15.222222vw;
+}
+
+button.wahout.aicon_link {
+    top: 25px;
+    padding-right: 9px;
+}
+
+.pri_pol_table .table table tr td:first-child {
+    text-align: right;
+}
+
+.page-id-2271 #careers {
+    display: none !important;
+}
+
+.newspress-sec .platformlogos ul {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.newspress-sec .platformlogos ul li {
+    padding: 0 10px;
+}
+
+.table {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.table table {
+    border-spacing: inherit;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.table_dev ul,
+.table_dev ol {
+    padding: 0 0 0 30px;
+}
+
+.table_dev ul li ul li {
+    list-style-type: circle;
+}
+
+.privacy_policy_page a {
+    line-break: anywhere;
+}
+
+.privacy_policy_page p {
+    scroll-margin-top: 12.2rem;
+}
+
+.table table ul {
+    padding-left: 17px;
+}
+
+.table table p {
+    padding: 0;
+}
+
+.table table td {
+    padding: 10px;
+}
+
+.table table thead td p {
+    color: white;
+}
+
+.table table thead td {
+    background: #999999;
+    color: white;
+}
+
+.table table td {
+    border: 1px solid #CCCCCC;
+    vertical-align: top;
+    color: #727891;
+}
+
+.table table.table_first thead td {
+    background: transparent;
+    color: #727891;
+}
+
+.table_one tr td:first-child {
+    background: #999999;
+    color: black;
+}
+
+.table .table_one>tbody tr:first-child td:first-child {
+    background: black;
+    color: white;
+}
+
+.table .table_one>tbody tr:nth-child(2) td {
+    border: none;
+    background: transparent;
+}
+
+.table_two tr td {
+    text-align: center;
+}
+
+.table_two tr:first-child {
+    background: #999999;
+    color: black;
+    text-align: left;
+}
+
+.table table tr td:first-child {
+    text-align: left;
+}
+
+.table_three ul li,
+.table_five ul li {
+    list-style-type: square;
+}
+
+.table_three tr td:first-child,
+.table_four tr td:first-child,
+table.table_five tr:first-child,
+table.table_five tr:nth-child(3),
+table.table_five tr:nth-child(7),
+table.table_five tr:nth-child(11) {
+    background: #999999;
+    color: black;
+}
+
+.table_six {
+    text-align: end;
+}
+
+.table_dev ol {
+    counter-reset: item
+}
+
+.table_dev ol>li {
+    display: block
+}
+
+.table_dev ol>li:before {
+    content: counters(item, ".") ". ";
+    counter-increment: item
+}
+
+.no_right_ul li {
+    list-style-type: disc;
+}
+
+ul.contents_ul li {
+    list-style: square;
+    color: #4b74ff;
+}
+
+#collect_personal_info ul li,
+#personal_info_we_collect ul li,
+#why_collect_personal_section ul li,
+#how_share_personal_section ul li,
+#restrict_sharing_section ul li,
+#accessing_correcting ul li,
+#we_retain_info_section ul li,
+#how_protect_personal_info ul li,
+#age_restriction_section ul li,
+#links_to_other_website ul li,
+#International_data_transsect ul li,
+#changes_to_pp_section ul li,
+#notice_outside_canda_section ul li,
+#charge_after_ci_section ul li {
+    list-style-type: disc;
+}
+
+#collect_personal_info>li,
+#agreement_section>li,
+#personal_info_we_collect>li,
+#why_collect_personal_section>li,
+#how_share_personal_section>li,
+#restrict_sharing_section>li,
+#accessing_correcting>li,
+#we_retain_info_section>li,
+#how_protect_personal_info>li,
+#age_restriction_section>li,
+#links_to_other_website>li,
+#International_data_transsect>li,
+#changes_to_pp_section>li,
+#notice_outside_canda_section>li,
+#charge_after_ci_section>li {
+    list-style-type: square;
+}
+
+#collect_personal_info>li p:first-child,
+#agreement_section>li p:first-child,
+#personal_info_we_collect>li p:first-child,
+#why_collect_personal_section>li p:first-child,
+#how_share_personal_section>li p:first-child,
+#restrict_sharing_section>li p:first-child,
+#accessing_correcting>li p:first-child,
+#we_retain_info_section>li p:first-child,
+#how_protect_personal_info>li p:first-child,
+#age_restriction_section>li p:first-child,
+#links_to_other_website>li p:first-child,
+#International_data_transsect>li p:first-child,
+#changes_to_pp_section>li p:first-child,
+#notice_outside_canda_section>li p:first-child,
+#charge_after_ci_section>li p:first-child {
+    padding-left: 2rem;
+}
+
+#restrict_sharing_section ul li ul li {
+    list-style-type: circle;
+}
+
+ul.square_disk li {
+    list-style-type: square;
+}
+
+ul.square_disk li ul li {
+    list-style-type: disc;
+}
+
+ul.cirle_point li ul li {
+    list-style-type: circle;
+}
+
+.aside_me {
+    padding-left: 5rem;
+}
+
+.table_dev ol>li div {
+    display: contents;
+}
+
+.aside_me p {
+    padding-left: 0 !important;
+}
+
+div.agreement_topics>p {
+    padding-bottom: 0 !important;
+}
+
+.pri_pol_table ol>li>p:first-child {
+    margin-top: -27px;
+    margin-left: 19px;
+}
+
+.pri_pol_table ol>li>ol>li>p {
+    margin-left: 34px!important;
+}
+
+.heading_para {
+    padding-top: 2rem;
+}
+
+.agreement_topics {
+    padding-bottom: 1rem;
+    display: flow-root;
+}
+
+
+/*#info_we_collect, .privacy_right_display{
+    display: contents;
+}*/
+
+.dsply_inlflx {
+    display: inline-flex !important;
+}
+
+#collect_personal_info,
+#agreement_section,
+#personal_info_we_collect,
+#why_collect_personal_section,
+#how_share_personal_section,
+#restrict_sharing_section,
+#accessing_correcting,
+#we_retain_info_section,
+#how_protect_personal_info,
+#age_restriction_section,
+#links_to_other_website,
+#International_data_transsect,
+#changes_to_pp_section,
+#notice_outside_canda_section,
+#charge_after_ci_section {
+    padding-top: 2rem;
+}
+
+ul.square_disk {
+    padding-top: 2rem;
+}
+
+ul.starting_points.square_disk {
+    padding-top: 0;
+}
+
+.padng_bottom_privacy {
+    padding-bottom: 2rem !important;
+}
+
+article#post-1516,
+article#post-1518 {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.table_dev p {
+    color: #727891;
+    font-size: 17px;
+    line-height: 26px;
+    float: left;
+    width: 100%;
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+.table_dev strong {
+    font-weight: bold;
+}
+
+.table_dev ul,
+.table_dev ol {
+    padding: 0 0 0 30px;
+    display: flow-root;
+}
+
+.table_dev ul li {
+    font-size: 17px;
+    color: #727891;
+    line-height: 28px;
+    list-style: disc;
+}
+
+.table_dev a {
+    color: #4b74ff;
+}
+
+article#post-1516 h1.entry-title,
+article#post-1518 h1.entry-title {
+    font-size: 42px;
+    color: #505255;
+    font-weight: 400;
+    line-height: 52px;
+    text-align: center;
+    padding-bottom: 70px;
+    padding-top: 70px;
+}
+
+.table_dev {
+    font-size: 17px;
+    line-height: 28px;
+}
+
+
+/*22-03-2024*/
+
+body .career-job .comeet-list>ul li .comeet-position {
+    padding-bottom: 100px;
+    position: relative;
+}
+
+body .comeet-position a.btn-primary {
+    position: absolute;
+    bottom: 30px;
+    background: #7C56FE;
+    color: white;
+    font-size: 18px;
+}
+
+.position-single:has(.commet_not_found):before {
+    background: url('https://chargeafter.com/wp-content/uploads/2024/03/Background.png');
+    content: "";
+    background-position: bottom center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 573px;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    z-index: -1;
+}
+
+.position-single .commet_not_found .all-jobs-link a {
+    color: #7C56FE;
+    font-weight: 600;
+    letter-spacing: 0.36px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: fit-content;
+}
+
+.position-single .commet_not_found .all-jobs-link a:before {
+    background-color: #7C56FE;
+    bottom: -8px;
+}
+
+.wrapper.commet_not_found {
+    background: white;
+    border-radius: 40px;
+    padding: 40px;
+    max-width: fit-content;
+    box-shadow: 0px 0px 40px 0px rgba(124, 86, 254, 0.10);
+}
+
+.commet_not_found img {
+    margin: 0 auto
+}
+
+.position-single .commet_not_found .all-jobs-link {
+    margin-bottom: 32px;
+}
+
+.position-single .commet_not_found .comeet-outer-wrapper>div {
+    justify-content: center;
+    display: grid;
+    gap: 32px;
+}
+
+.commet_not_found a.btn-primary {
+    width: fit-content;
+    margin: 0 auto;
+    line-height: 100%;
+    letter-spacing: 0.36px;
+    text-transform: capitalize;
+}
+
+.commet_not_found .not_found_text {
+    max-width: 692px;
+    color: #302F36;
+    text-align: center;
+    font-family: Inter;
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: -1.35px;
+}
+/**20-06-2024 for single page press release***/
+.single-page-content-left.news_and_press_custom_left {
+    width: 100%;
+}
+.single-page-content-right.news_and_press_custom_right {
+    display: none;
+}
+/*****End**/
+
+@media (max-width: 991px) {
+    .commet_not_found .not_found_text {
+        font-size: 6.6666666667vw;
+    }
+/***21-10-2024 for appliance-financing**/
+body.page-id-1866 .vs-hero .wrapper {
+    flex-wrap: wrap;
+}
+
+body.page-id-1866 .vs-hero-image {
+    width: 100%;
+}
+body.page-id-1866 .logos.appliance-financing-logos {
+    padding: 0 0 0px 0;
+        margin: 0 0 0 0;
+}
+
+/*****End****/
+}
+
+@media (max-width:768px) {
+    .table {
+        display: block !important;
+    }
+    .aside_me {
+        padding-left: 1rem;
+    }
+    .table_dev ul,
+    .table_dev ol {
+        padding: 0 0 0 15px;
+    }
+    /*22-03-2024*/
+    .position-single:has(.commet_not_found):before {
+        height: 273px;
+    }
+
+}
+</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<script type="text/rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+	jQuery(document).ready(function() {
+			jQuery(".announce_close").click(function() {
+			jQuery("header#masthead").css("padding-bottom", "16px");
+			jQuery(".site-main").css("transform", "translateY(0px)");
+				jQuery(".announce_sticky_header").fadeOut("slow");
+
+			});
+		});
+	});</script>
+	<style>
+		.announce_sticky_header.hide_bar {
+			display: none;
+		}
+	</style>
+	    <meta property="og:image" content="https://chargeafter.com/wp-content/uploads/2025/08/OG-Images.png" />
+<link data-minify="1" rel='stylesheet' id='comeet_style-css' href='https://chargeafter.com/wp-content/cache/min/1/wp-content/plugins/comeet-wp-plugin-Version-3.0.2/css/comeet-cards.css?ver=1790499200' media='all' />
+<link data-minify="1" rel='stylesheet' id='comeet_reset_style-css' href='https://chargeafter.com/wp-content/cache/min/1/wp-content/plugins/comeet-wp-plugin-Version-3.0.2/css/comeet-reset.css?ver=1790499200' media='all' />
+
+<style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><meta name="generator" content="WP Rocket 3.23.3.3" data-wpr-features="wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_preconnect_external_domains wpr_automatic_lazy_rendering wpr_oci wpr_minify_css wpr_cdn wpr_preload_links wpr_desktop" /></head>
+
+<body class="wp-singular page-template page-template-page-career page-template-page-career-php page page-id-1301 wp-theme-chargeafter mega-menu-menu-1 no-sidebar">
+<div  id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#primary">Skip to content</a>
+
+		
+	<header  id="masthead" class="site-header">
+	<!--<div class="notification_bar" ><div  class="wrapper">Help us win! Vote ChargeAfter in the Furniture Today Awards. <div class="header-button"><a href="https://chargeafter.com/chargeafter-nominated-for-4-furniture-today-awards/" target="" class="btn-primary btn-primary--small" >Learn more</a></div></div></div>-->
+		<div  class="wrapper">
+		
+			
+			
+			<div class="site-header-left">
+				
+				
+									<figure class="site-branding">
+						<a href="https://chargeafter.com">
+							<img src="https://chargeafter.com/wp-content/uploads/2023/08/logo.svg" alt="ChargeAfter Logo">
+						</a>
+					</figure><!-- .site-branding -->
+								
+				<button class="burger disable-on-desktop">
+					<span></span>
+				</button>
+				
+			</div>
+			
+			
+			
+			<div class="site-header-dropdown">
+				
+			
+				<div class="site-header-center">
+					<nav id="site-navigation" class="main-navigation">
+						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Primary Menu</button>
+						<div id="mega-menu-wrap-menu-1" class="mega-menu-wrap"><div class="mega-menu-toggle"><div class="mega-toggle-blocks-left"></div><div class="mega-toggle-blocks-center"></div><div class="mega-toggle-blocks-right"><div class='mega-toggle-block mega-menu-toggle-animated-block mega-toggle-block-0' id='mega-toggle-block-0'><button aria-controls="mega-menu-menu-1" aria-expanded="false" aria-haspopup="true" aria-label="Toggle Menu" class="mega-toggle-animated mega-toggle-animated-slider" type="button">
+                  <span class="mega-toggle-animated-box">
+                    <span class="mega-toggle-animated-inner"></span>
+                  </span>
+                </button></div></div></div><ul id="mega-menu-menu-1" class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js" data-event="hover_intent" data-effect="fade_up" data-effect-speed="200" data-effect-mobile="disabled" data-effect-speed-mobile="0" data-mobile-force-width="false" data-second-click="go" data-document-click="collapse" data-vertical-behaviour="standard" data-breakpoint="991" data-unbind="true" data-mobile-state="collapse_all" data-mobile-direction="vertical"><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-8" id="mega-menu-item-8"><a class="mega-menu-link" href="/platform/">Platform</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-align-bottom-left mega-menu-flyout mega-menu-item-596" id="mega-menu-item-596"><a class="mega-menu-link" href="https://chargeafter.com/merchants/" aria-expanded="false" aria-controls="mega-sub-menu-596">Merchants<span class="mega-indicator" aria-hidden="true"></span></a>
+<ul class="mega-sub-menu" id='mega-sub-menu-596'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3702" id="mega-menu-item-3702"><a class="mega-menu-link" href="https://chargeafter.com/buy-now-pay-later-aftermarket-car-parts/">Aftermarket car parts</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3703" id="mega-menu-item-3703"><a class="mega-menu-link" href="https://chargeafter.com/appliance-financing/">Appliances</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3704" id="mega-menu-item-3704"><a class="mega-menu-link" href="https://chargeafter.com/consumer-electronics-financing/">Consumer electronics</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3705" id="mega-menu-item-3705"><a class="mega-menu-link" href="https://chargeafter.com/furniture-financing/">Furniture</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3706" id="mega-menu-item-3706"><a class="mega-menu-link" href="https://chargeafter.com/home-improvement-financing/">Home improvement</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3707" id="mega-menu-item-3707"><a class="mega-menu-link" href="https://chargeafter.com/jewelry-and-luxury-items-financing/">Jewelry & luxury items</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3708" id="mega-menu-item-3708"><a class="mega-menu-link" href="https://chargeafter.com/mattress-financing/">Mattresses</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3709" id="mega-menu-item-3709"><a class="mega-menu-link" href="https://chargeafter.com/sports-and-gym-equipment-financing/">Sports & fitness</a></li></ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-1290" id="mega-menu-item-1290"><a class="mega-menu-link" href="https://chargeafter.com/financial-institutions/">Financial Institutions</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-1289" id="mega-menu-item-1289"><a class="mega-menu-link" href="https://chargeafter.com/lenders/">Lending Partners</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-current-menu-ancestor mega-current-menu-parent mega-menu-item-has-children mega-align-bottom-left mega-menu-flyout mega-menu-item-12" id="mega-menu-item-12"><a class="mega-menu-link" href="/about/" aria-expanded="false" aria-controls="mega-sub-menu-12">Company<span class="mega-indicator" aria-hidden="true"></span></a>
+<ul class="mega-sub-menu" id='mega-sub-menu-12'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-1288" id="mega-menu-item-1288"><a class="mega-menu-link" href="https://chargeafter.com/about/">About us</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-188" id="mega-menu-item-188"><a class="mega-menu-link" href="/about#investors">Investors</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-189" id="mega-menu-item-189"><a class="mega-menu-link" href="/about#management">Management</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-current-menu-item mega-menu-item-190" id="mega-menu-item-190"><a class="mega-menu-link" href="/careers/" aria-current="page">Careers</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-1287" id="mega-menu-item-1287"><a class="mega-menu-link" href="https://chargeafter.com/contact-us/">Contact us</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-4229" id="mega-menu-item-4229"><a class="mega-menu-link" href="https://chargeafter.com/why-choose-chargeafter/">Why ChargeAfter</a></li></ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-align-bottom-left mega-menu-flyout mega-menu-item-1298" id="mega-menu-item-1298"><a class="mega-menu-link" href="https://chargeafter.com/resources/" aria-expanded="false" aria-controls="mega-sub-menu-1298">Resources<span class="mega-indicator" aria-hidden="true"></span></a>
+<ul class="mega-sub-menu" id='mega-sub-menu-1298'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-1214" id="mega-menu-item-1214"><a class="mega-menu-link" href="https://chargeafter.com/blog/">Blog</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-1457" id="mega-menu-item-1457"><a class="mega-menu-link" href="https://chargeafter.com/resources/">Case studies & eBooks</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-2727" id="mega-menu-item-2727"><a class="mega-menu-link" href="https://chargeafter.com/news-and-press/">News and Press</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-196" id="mega-menu-item-196"><a class="mega-menu-link" href="https://chargeafter.com/resource/documentation/">Documentation</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-2534" id="mega-menu-item-2534"><a class="mega-menu-link" href="https://chargeafter.com/faq/">FAQ</a></li></ul>
+</li></ul></div>					</nav><!-- #site-navigation -->
+				</div>
+
+
+
+				<div class="site-header-right">
+
+					<div class="header-authorization disable-on-mobile">
+						<a href="https://operate.chargeafter.com/" class="js-data-text" title="Sign in" target="_blank">Sign in</a>
+					</div>
+
+					<div class="header-button">
+																											<a href="/demo/" class="btn-primary btn-primary--small">
+																			Book a demo																	</a>
+																		</div>
+
+				</div>
+			</div>
+		</div>
+						<div  class="announce_sticky_header hide_bar" style="background-color: #20ef8a">
+					<div class="wrapper">
+													<p><strong>Meet ChargeAfter at MAG Payments Conference 2026 | Booth 115. <a id="announce_sticky_bar_main_div" href="https://chargeafter.com/meet-the-chargeafter-at-mag-payments-conference-2026/"><strong>Meet the Team</strong></a><strong>&gt;&gt;</strong></strong></p>
+											</div>
+				<span class="announce_close">X</span>
+				</div>
+				
+	</header><!-- #masthead -->
+
+
+
+	<main  id="primary" class="site-main">
+
+		
+		
+							
+									<section  class="career-hero">
+					<div class="wrapper ca-breadcrumbs-wrapper ca-breadcrumbs-wrapper--on-hero">
+				<nav class="ca-breadcrumbs ca-breadcrumbs--on-hero" aria-label="Breadcrumb"><ol><li><a href="https://chargeafter.com/">Home</a></li><li><span aria-current="page">Careers</span></li></ol></nav>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://chargeafter.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Careers",
+            "item": "https://chargeafter.com/careers/"
+        }
+    ]
+}
+</script>
+			</div>
+		
+						<div class="wrapper">
+							
+															<figure class="career-hero-image">
+									<img src="https://chargeafter.com/wp-content/uploads/2023/12/career-bg-scaled-1.jpg" alt="fast track growth with consumer finance">
+								</figure>
+							
+															<div class="career-hero-text">
+									<h1>Take charge of your future</h1>
+<p>Be at the forefront and work for a thriving FinTech leader operating the world’s most innovative and advanced embedded lending platform. We have enjoyed the most exciting and phenomenal growth and we want you to join our journey. Come grow with us, follow your purpose and witness your personal and direct impact as ChargeAfter continues to evolve. You grow, we grow.</p>
+								</div>
+							
+						</div>
+					</section>
+				
+							
+		
+		
+		
+		
+		
+							
+									<section  class="career-job">
+						<div class="wrapper">
+
+															<div class="career-job-text">
+									<h2>Job openings</h2>
+									
+									<div class="comeet-outer-wrapper">
+    <div id="d" class="comeet-groups-list comeet_dp">
+			<div class="comeet-g-r">
+<!--				<div class="comeet-u-1-2">-->
+<!--					<div class="comeet-list comeet-group-name">-->
+<!--						--><!--					</div>-->
+<!--				</div>-->
+				<div class="comeet-u-1-2">
+					<div class="comeet-list">
+                        <ul class="comeet-positions-list">
+						                                        <li>
+                                            <div class="comeet-position" >
+                                            <a class="" href="//chargeafter.com/careers-2/co/remote/41.B6E/customer-success-manager-home-improvement/all">
+                                                <div class="comeet-position-name">
+                                                    <!--<a href="//chargeafter.com/careers-2/co/remote/41.B6E/customer-success-manager-home-improvement/all">Customer Success Manager, Home Improvement</a> -->
+                                                    Customer Success Manager, Home Improvement                                                </div>
+                                                <div class="comeet-position-meta">
+                                        Remote  &middot;  Full-time                                                </div>
+                                            </a>
+                                                <a class="btn-primary" href="//chargeafter.com/careers-2/co/remote/41.B6E/customer-success-manager-home-improvement/all">View Position</a>
+                                        </div>
+                                        </li>
+                                                                                <li>
+                                            <div class="comeet-position" >
+                                            <a class="" href="//chargeafter.com/careers-2/co/new-york-hybrid/80.37F/customer-support-analyst-part-time/all">
+                                                <div class="comeet-position-name">
+                                                    <!--<a href="//chargeafter.com/careers-2/co/new-york-hybrid/80.37F/customer-support-analyst-part-time/all">Customer Support Analyst (Part Time)</a> -->
+                                                    Customer Support Analyst (Part Time)                                                </div>
+                                                <div class="comeet-position-meta">
+                                        New York (Hybrid)  &middot;  Part-time                                                </div>
+                                            </a>
+                                                <a class="btn-primary" href="//chargeafter.com/careers-2/co/new-york-hybrid/80.37F/customer-support-analyst-part-time/all">View Position</a>
+                                        </div>
+                                        </li>
+                                                                                <li>
+                                            <div class="comeet-position" >
+                                            <a class="" href="//chargeafter.com/careers-2/co/east-coast/F4.765/enterprise-sales-director-home-improvement/all">
+                                                <div class="comeet-position-name">
+                                                    <!--<a href="//chargeafter.com/careers-2/co/east-coast/F4.765/enterprise-sales-director-home-improvement/all">Enterprise Sales Director, Home Improvement</a> -->
+                                                    Enterprise Sales Director, Home Improvement                                                </div>
+                                                <div class="comeet-position-meta">
+                                        East coast  &middot;  Full-time                                                </div>
+                                            </a>
+                                                <a class="btn-primary" href="//chargeafter.com/careers-2/co/east-coast/F4.765/enterprise-sales-director-home-improvement/all">View Position</a>
+                                        </div>
+                                        </li>
+                                                                                <li>
+                                            <div class="comeet-position" >
+                                            <a class="" href="//chargeafter.com/careers-2/co/east-coast/FA.278/enterprise-sales-director-retail-consumer-travel/all">
+                                                <div class="comeet-position-name">
+                                                    <!--<a href="//chargeafter.com/careers-2/co/east-coast/FA.278/enterprise-sales-director-retail-consumer-travel/all">Enterprise Sales Director, Retail & Consumer Travel</a> -->
+                                                    Enterprise Sales Director, Retail & Consumer Travel                                                </div>
+                                                <div class="comeet-position-meta">
+                                        East coast  &middot;  Full-time  &middot;  Management                                                </div>
+                                            </a>
+                                                <a class="btn-primary" href="//chargeafter.com/careers-2/co/east-coast/FA.278/enterprise-sales-director-retail-consumer-travel/all">View Position</a>
+                                        </div>
+                                        </li>
+                                                                                <li>
+                                            <div class="comeet-position" >
+                                            <a class="" href="//chargeafter.com/careers-2/co/east-coast/22.F62/enterprise-solution-architect/all">
+                                                <div class="comeet-position-name">
+                                                    <!--<a href="//chargeafter.com/careers-2/co/east-coast/22.F62/enterprise-solution-architect/all">Enterprise Solution Architect</a> -->
+                                                    Enterprise Solution Architect                                                </div>
+                                                <div class="comeet-position-meta">
+                                        East coast  &middot;  Full-time                                                </div>
+                                            </a>
+                                                <a class="btn-primary" href="//chargeafter.com/careers-2/co/east-coast/22.F62/enterprise-solution-architect/all">View Position</a>
+                                        </div>
+                                        </li>
+                                                                                <li>
+                                            <div class="comeet-position" >
+                                            <a class="" href="//chargeafter.com/careers-2/co/tel-aviv-israel/FA.D53/fullstack-engineer-intern/all">
+                                                <div class="comeet-position-name">
+                                                    <!--<a href="//chargeafter.com/careers-2/co/tel-aviv-israel/FA.D53/fullstack-engineer-intern/all">Fullstack Engineer Intern</a> -->
+                                                    Fullstack Engineer Intern                                                </div>
+                                                <div class="comeet-position-meta">
+                                        Tel Aviv, Israel  &middot;  Part-time  &middot;  Entry-level                                                </div>
+                                            </a>
+                                                <a class="btn-primary" href="//chargeafter.com/careers-2/co/tel-aviv-israel/FA.D53/fullstack-engineer-intern/all">View Position</a>
+                                        </div>
+                                        </li>
+                                                                                <li>
+                                            <div class="comeet-position" >
+                                            <a class="" href="//chargeafter.com/careers-2/co/new-york-hybrid/4C.84E/merchant-sales-manager/all">
+                                                <div class="comeet-position-name">
+                                                    <!--<a href="//chargeafter.com/careers-2/co/new-york-hybrid/4C.84E/merchant-sales-manager/all">Merchant Sales Manager</a> -->
+                                                    Merchant Sales Manager                                                </div>
+                                                <div class="comeet-position-meta">
+                                        New York (Hybrid)  &middot;  Full-time  &middot;  Senior                                                </div>
+                                            </a>
+                                                <a class="btn-primary" href="//chargeafter.com/careers-2/co/new-york-hybrid/4C.84E/merchant-sales-manager/all">View Position</a>
+                                        </div>
+                                        </li>
+                                                                                <li>
+                                            <div class="comeet-position" >
+                                            <a class="" href="//chargeafter.com/careers-2/co/new-york-hybrid/CE.F60/program-manager/all">
+                                                <div class="comeet-position-name">
+                                                    <!--<a href="//chargeafter.com/careers-2/co/new-york-hybrid/CE.F60/program-manager/all">Program Manager</a> -->
+                                                    Program Manager                                                </div>
+                                                <div class="comeet-position-meta">
+                                        New York (Hybrid)  &middot;  Full-time                                                </div>
+                                            </a>
+                                                <a class="btn-primary" href="//chargeafter.com/careers-2/co/new-york-hybrid/CE.F60/program-manager/all">View Position</a>
+                                        </div>
+                                        </li>
+                                                                                <li>
+                                            <div class="comeet-position" >
+                                            <a class="" href="//chargeafter.com/careers-2/co/new-york-hybrid/65.85F/project-manager/all">
+                                                <div class="comeet-position-name">
+                                                    <!--<a href="//chargeafter.com/careers-2/co/new-york-hybrid/65.85F/project-manager/all">Project Manager</a> -->
+                                                    Project Manager                                                </div>
+                                                <div class="comeet-position-meta">
+                                        New York (Hybrid)                                                </div>
+                                            </a>
+                                                <a class="btn-primary" href="//chargeafter.com/careers-2/co/new-york-hybrid/65.85F/project-manager/all">View Position</a>
+                                        </div>
+                                        </li>
+                                                                                <li>
+                                            <div class="comeet-position" >
+                                            <a class="" href="//chargeafter.com/careers-2/co/new-york-or-atlanta/C5.F6F/technical-project-manager/all">
+                                                <div class="comeet-position-name">
+                                                    <!--<a href="//chargeafter.com/careers-2/co/new-york-or-atlanta/C5.F6F/technical-project-manager/all">Technical Project Manager</a> -->
+                                                    Technical Project Manager                                                </div>
+                                                <div class="comeet-position-meta">
+                                        New York or Atlanta                                                </div>
+                                            </a>
+                                                <a class="btn-primary" href="//chargeafter.com/careers-2/co/new-york-or-atlanta/C5.F6F/technical-project-manager/all">View Position</a>
+                                        </div>
+                                        </li>
+                                                                </ul>
+					</div>
+				</div>
+			</div>
+	</div>
+    <div class="comeet-social">
+	<script type="comeet-social"></script>
+</div>
+<!--
+Plugin version data
+
+Comeet Plugin version: 3.0.2
+
+end plugin version data
+-->
+
+</div>
+
+
+<style>
+    .comeet-outer-wrapper .comeet-groups-list .comeet-list .comeet-positions-list {
+        flex-wrap: wrap;
+    }
+</style>
+
+								</div>
+							
+						</div>
+					</section>
+				
+							
+		
+		
+		
+		
+		
+					<section  class="career-benefits box-bg">
+				<div class="box-bg-bottom">
+					<div class="wrapper">
+						<div class="career-benefits-list">
+							
+													
+									<div class="career-benefits-list-item">
+
+																					<figure class="career-benefits-list-image">
+												<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="consumer financing merchant planning" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/career-img-01.jpg"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/career-img-01.jpg" alt="consumer financing merchant planning"></noscript>
+											</figure>
+										
+																					<div class="career-benefits-list-text">
+												<h2>Fearless innovation</h2>
+<p>If our fast-paced, unpredictable and exciting environment is what you enjoy best, then come join us on our mission. Thrive in collectively innovating, failing, learning and succeeding.</p>
+											</div>
+										
+									</div>
+								
+							
+													
+									<div class="career-benefits-list-item">
+
+																					<figure class="career-benefits-list-image">
+												<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="benefits of consumer financing" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/career-img-02.jpg"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/career-img-02.jpg" alt="benefits of consumer financing"></noscript>
+											</figure>
+										
+																					<div class="career-benefits-list-text">
+												<h2>Backed by top investors</h2>
+<p>We are not your run-of-the-mill company. Every team member takes full accountability to deliver service excellence. This is the reason why global powerhouse investors such as Visa, Citi Bank and BBVA have provided us with solid backing.</p>
+											</div>
+										
+									</div>
+								
+							
+													
+									<div class="career-benefits-list-item">
+
+																					<figure class="career-benefits-list-image">
+												<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="chargeafter potential growth with consumer financing" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/career-img-03.jpg"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/career-img-03.jpg" alt="chargeafter potential growth with consumer financing"></noscript>
+											</figure>
+										
+																					<div class="career-benefits-list-text">
+												<h2>Shared success</h2>
+<p>You will love working within our team, having direct access to our co-founders and global multicultural, multidisciplined bright minds.</p>
+											</div>
+										
+									</div>
+								
+													</div>
+					</div>
+				</div>
+			</section>
+				
+		
+		
+		
+		
+		
+							
+									<section data-wpr-lazyrender="1" class="career-basics">
+						<div class="wrapper">
+
+															<div class="career-basics-text">
+									<h2>Working at ChargeAfter: the basics</h2>
+<p>When you come work with us, you&#8217;ll quickly discover that we are not your ordinary fintech. That&#8217;s because we don&#8217;t care about protocol and hierarchy. It’s your results that we are interested in. Nevertheless, we do work from a set of core principles. These are the basics we feel define us:</p>
+								</div>
+														
+															<div class="career-basics-list">
+									
+										<div class="career-basics-list-item">
+
+																							<figure class="career-basics-list-image">
+													<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="chargeafter - growth icon - copyright" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/basics-icon-01.png"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/basics-icon-01.png" alt="chargeafter - growth icon - copyright"></noscript>
+												</figure>
+											
+																							<div class="career-basics-list-text">
+													<h3>You grow, we grow</h3>
+<p>We do it together: trying, failing, learning and succeeding. You will love our open culture, easy access to leadership and the way we cheer each other on. We evolve as you evolve.</p>
+												</div>
+											
+										</div>
+
+									
+										<div class="career-basics-list-item">
+
+																							<figure class="career-basics-list-image">
+													<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="chargeafter - strength icon - copyright" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/basics-icon-02.png"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/basics-icon-02.png" alt="chargeafter - strength icon - copyright"></noscript>
+												</figure>
+											
+																							<div class="career-basics-list-text">
+													<h3>Reputably stable</h3>
+<p>We are no rookies. You’ll join a proven and award winning global company, serving the world’s financial giants. We’re proud to only offer responsible, compliant and regulated financing.</p>
+												</div>
+											
+										</div>
+
+									
+										<div class="career-basics-list-item">
+
+																							<figure class="career-basics-list-image">
+													<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="chargeafter secure icon - copyright" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/basics-icon-03.png"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/basics-icon-03.png" alt="chargeafter secure icon - copyright"></noscript>
+												</figure>
+											
+																							<div class="career-basics-list-text">
+													<h3>Fearless to innovate</h3>
+<p>Innovation takes courage. So we definitely will try that far-out idea of yours. When it doesn’t work, we’ll simply try again. It’s this approach that made use the most agile embedded lending platform there is.</p>
+												</div>
+											
+										</div>
+
+									
+										<div class="career-basics-list-item">
+
+																							<figure class="career-basics-list-image">
+													<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="chargeafter - we got the power icon - copyright" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/basics-icon-04.png"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/basics-icon-04.png" alt="chargeafter - we got the power icon - copyright"></noscript>
+												</figure>
+											
+																							<div class="career-basics-list-text">
+													<h3>Teamwork with impact</h3>
+<p>Your team’s work has impact. It reaches millions, sometimes within weeks. So we make sure our teams can run smoothly. No walls and segregation, but support and training all the way.</p>
+												</div>
+											
+										</div>
+
+									
+										<div class="career-basics-list-item">
+
+																							<figure class="career-basics-list-image">
+													<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="chargeafter - we care icon - copyright" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/basics-icon-05.png"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/basics-icon-05.png" alt="chargeafter - we care icon - copyright"></noscript>
+												</figure>
+											
+																							<div class="career-basics-list-text">
+													<h3>Be well, work well</h3>
+<p>When you’re with us, expect to be fully engaged to get results. But that doesn’t mean working all the time. You’ll find we promote a healthy work-life balance and reward your efforts handsomely.</p>
+												</div>
+											
+										</div>
+
+																	</div>
+							
+						</div>
+					</section>
+				
+							
+		
+		
+		
+		
+		
+							
+									<section data-wpr-lazyrender="1" class="career-values">
+						<div class="wrapper">
+
+															<h2 class="career-values-title">
+									Our core values								</h2>
+														
+															<div class="career-values-list">
+									
+										<div class="career-values-list-item">
+
+																							<figure class="career-values-list-icon">
+													<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="chargeafter partnership icon - copyright" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/values-icon-01.png"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/values-icon-01.png" alt="chargeafter partnership icon - copyright"></noscript>
+												</figure>
+											
+																							<div class="career-values-list-text">
+													<h3>Passionate &amp; Committed</h3>
+<p>We are passionate and committed about what we do</p>
+												</div>
+											
+										</div>
+
+									
+										<div class="career-values-list-item">
+
+																							<figure class="career-values-list-icon">
+													<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="chargeafter financial growth icon - copyright" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/values-icon-02.png"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/values-icon-02.png" alt="chargeafter financial growth icon - copyright"></noscript>
+												</figure>
+											
+																							<div class="career-values-list-text">
+													<h3>Open &amp; Direct</h3>
+<p>Be Better &#8211; together</p>
+												</div>
+											
+										</div>
+
+									
+										<div class="career-values-list-item">
+
+																							<figure class="career-values-list-icon">
+													<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="chargeafter - award winner icon - copyright" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/values-icon-03.png"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/values-icon-03.png" alt="chargeafter - award winner icon - copyright"></noscript>
+												</figure>
+											
+																							<div class="career-values-list-text">
+													<h3>Excellence &amp; accountability</h3>
+<p>Quality and outstanding results in everything we do</p>
+												</div>
+											
+										</div>
+
+									
+										<div class="career-values-list-item">
+
+																							<figure class="career-values-list-icon">
+													<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="chargeafter innovative idea icon - copyright" data-lazy-src="https://chargeafter.com/wp-content/uploads/2023/12/values-icon-04.png"><noscript><img src="https://chargeafter.com/wp-content/uploads/2023/12/values-icon-04.png" alt="chargeafter innovative idea icon - copyright"></noscript>
+												</figure>
+											
+																							<div class="career-values-list-text">
+													<h3>Innovation</h3>
+<p>Be innovative</p>
+												</div>
+											
+										</div>
+
+																	</div>
+							
+						</div>
+					</section>
+				
+							
+		
+		
+	</main><!-- #main -->
+
+
+
+
+
+
+	<footer data-wpr-lazyrender="1" id="colophon" class="site-footer">
+		<div class="wrapper">
+
+					
+		
+			
+						
+						
+											
+															<div class="site-footer-top">
+
+																			<div class="site-footer-top-title">
+											It's embed time										</div>
+									
+																			<a href="/demo/" class="btn-primary" target="_blank">
+																							Book a demo																					</a>
+									
+								</div>
+							
+														
+							
+			
+
+			
+			
+			
+
+			<div class="site-footer-middle">
+
+				<!-- Column 01 -->
+									
+													<div class="site-footer-menu column-01">
+
+																	<div class="site-footer-menu-title">
+										Platform									</div>
+																
+																	<ul>
+																				
+											<li>
+
+																									<a href="/platform" class="js-data-text">
+																										
+																											Platform overview													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/platform#integrations" class="js-data-text">
+																										
+																											Integrations													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/lenders" class="js-data-text">
+																										
+																											Lending partners													
+																									</a>
+												
+											</li>
+
+																			</ul>
+								
+							</div>
+						
+													
+				<!-- Column 02 -->
+									
+													<div class="site-footer-menu column-02">
+
+																	<div class="site-footer-menu-title">
+										About ChargeAfter									</div>
+																
+																	<ul>
+																				
+											<li>
+
+																									<a href="/" class="js-data-text">
+																										
+																											Home													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/about" class="js-data-text">
+																										
+																											About us													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/why-choose-chargeafter/" class="js-data-text">
+																										
+																											Why Choose ChargeAfter													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/careers" class="js-data-text">
+																										
+																											Careers													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/sitemap-html" class="js-data-text">
+																										
+																											Sitemap													
+																									</a>
+												
+											</li>
+
+																			</ul>
+								
+							</div>
+						
+													
+				<!-- Column 03 -->
+									
+													<div class="site-footer-menu column-03">
+
+																	<div class="site-footer-menu-title">
+										Resources									</div>
+																
+																	<ul>
+																				
+											<li>
+
+																									<a href="/blog" class="js-data-text">
+																										
+																											Blog													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/resources" class="js-data-text">
+																										
+																											Case studies & eBooks 													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="https://chargeafter.com/resource/documentation/" class="js-data-text">
+																										
+																											Documentation													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/faq/" class="js-data-text">
+																										
+																											FAQ													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/glossary/" class="js-data-text">
+																										
+																											Glossary													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/appliance-financing/" class="js-data-text">
+																										
+																											Appliance financing													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/buy-now-pay-later-aftermarket-car-parts/" class="js-data-text">
+																										
+																											Aftermarket car parts financing													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="https://chargeafter.com/consumer-electronics-financing/" class="js-data-text">
+																										
+																											Consumer electronics financing													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/furniture/" class="js-data-text">
+																										
+																											Furniture financing													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/home-improvement-financing/" class="js-data-text">
+																										
+																											Home improvement													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/jewelry-and-luxury-items-financing/" class="js-data-text">
+																										
+																											Jewelry and luxury items													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="https://chargeafter.com/mattress-financing/" class="js-data-text">
+																										
+																											Mattress financing													
+																									</a>
+												
+											</li>
+
+																				
+											<li>
+
+																									<a href="/sports-amp-gym-equipment-financing/" class="js-data-text">
+																										
+																											Sport/Fitness													
+																									</a>
+												
+											</li>
+
+																			</ul>
+								
+							</div>
+										
+						<!-- Column 04 -->
+													
+																	<div class="site-footer-menu column-04">
+
+																					<div class="site-footer-menu-title">
+												contact us											</div>
+										
+																					<ul>
+												
+													<li>
+
+																													<a href="/contact-us/" class="js-data-text">
+														
+																															Contact details															
+																													</a>
+														
+													</li>
+
+												
+													<li>
+
+																													<a href="/demo/" class="js-data-text">
+														
+																															Merchants															
+																													</a>
+														
+													</li>
+
+												
+													<li>
+
+																													<a href="/demo/" class="js-data-text">
+														
+																															Financial Institutions															
+																													</a>
+														
+													</li>
+
+												
+													<li>
+
+																													<a href="/demo/" class="js-data-text">
+														
+																															Lenders															
+																													</a>
+														
+													</li>
+
+												
+													<li>
+
+																													<a href="/demo/" class="js-data-text">
+														
+																															Support															
+																													</a>
+														
+													</li>
+
+																							</ul>
+										
+									</div>
+								
+																	
+						<!-- Column 05 -->
+						<div class="column-05">
+															<a href="/demo/" class="btn-primary btn-primary--small" target="_blank">
+																			Book a demo																	</a>
+														
+															
+									
+																					<div class="social">
+												
+													<div class="social-item">
+														<figure>
+
+																															<a href="https://il.linkedin.com/company/chargeafter" target="_blank">
+															
+																																	<svg width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<g clip-path="url(#clip0_765_4257)">
+
+<path d="M0.835449 16.3958C0.920231 15.778 0.98252 15.1559 1.09412 14.5424C1.78622 10.7214 3.60298 7.52686 6.51067 4.9631C8.99444 2.77226 11.8935 1.43889 15.1758 1.00626C19.4028 0.449033 23.314 1.35842 26.816 3.79673C30.5127 6.37001 32.852 9.89075 33.6851 14.3278C34.5883 19.1404 33.5484 23.5523 30.5914 27.4564C28.0479 30.8145 24.6627 32.8911 20.524 33.7131C19.9443 33.8282 19.35 33.8732 18.7634 33.9528C18.6587 33.9666 18.5549 33.9917 18.4503 34.0116H16.3783C15.9743 33.9614 15.5685 33.9182 15.1654 33.8602C11.8433 33.3843 8.91052 32.0492 6.41031 29.8099C3.55973 27.2574 1.77757 24.0914 1.09499 20.3197C0.98252 19.708 0.920231 19.0859 0.835449 18.4681C0.835449 17.7776 0.835449 17.0863 0.835449 16.3958ZM17.419 2.40539C9.14843 2.40279 2.39786 9.14144 2.38921 17.409C2.38056 25.6965 9.12421 32.4541 17.4069 32.4576C25.6766 32.4611 32.4263 25.7233 32.4367 17.4531C32.4471 9.16653 25.7026 2.40798 17.419 2.40539Z" fill="#F9F6FF"/>
+
+<path d="M18.9467 15.3346C19.2694 15.0491 19.5584 14.7142 19.9165 14.491C21.4426 13.5427 24.2664 13.8767 24.9732 16.4811C25.1064 16.9717 25.1782 17.4935 25.1851 18.0022C25.2111 19.7319 25.1912 21.4633 25.2007 23.1929C25.2024 23.4248 25.1324 23.4949 24.9066 23.4923C24.0665 23.4828 23.2256 23.4819 22.3856 23.4923C22.146 23.4949 22.0707 23.4127 22.0707 23.1748C22.0741 21.5109 22.0707 19.847 22.0586 18.1831C22.0551 17.7626 21.9548 17.355 21.6935 17.0132C21.2038 16.3738 20.1691 16.3081 19.5315 16.8748C19.1613 17.2045 18.9502 17.6155 18.9493 18.1225C18.9493 19.7951 18.9467 21.4667 18.945 23.1393C18.945 23.4819 18.9415 23.4863 18.5955 23.4871C17.7632 23.4888 16.9318 23.4837 16.0996 23.4897C15.8928 23.4914 15.8124 23.4335 15.8132 23.2068C15.821 20.303 15.8202 17.4 15.8141 14.4962C15.8141 14.2877 15.8764 14.228 16.0823 14.2306C16.9474 14.2409 17.8125 14.2409 18.6777 14.2306C18.8879 14.228 18.9562 14.3006 18.9476 14.5031C18.9355 14.7852 18.9441 15.0681 18.9441 15.332L18.9467 15.3346Z" fill="#F9F6FF"/>
+
+<path d="M11.0766 18.8251C11.0766 17.4026 11.0766 15.9801 11.0766 14.5576C11.0766 14.3442 11.1865 14.2372 11.4063 14.2366C12.23 14.2366 13.0537 14.2453 13.8774 14.2314C14.1232 14.2271 14.2088 14.2868 14.208 14.5472C14.1993 17.4251 14.2002 20.3038 14.208 23.1817C14.208 23.43 14.1171 23.4949 13.8878 23.4923C13.0477 23.4836 12.2075 23.4828 11.3673 23.4923C11.1415 23.4949 11.0714 23.4222 11.0723 23.1912C11.0827 21.7358 11.0775 20.2796 11.0775 18.8242L11.0766 18.8251Z" fill="#F9F6FF"/>
+
+<path d="M12.622 13.032C11.7039 13.0286 11.0524 12.5051 10.9217 11.6744C10.7695 10.7019 11.4219 10.0512 12.0942 9.87814C12.9257 9.66442 13.7719 9.93006 14.1422 10.566C14.4615 11.1155 14.4875 11.6891 14.1604 12.2438C13.8186 12.8244 13.2657 13.0268 12.622 13.0329V13.032Z" fill="#F9F6FF"/>
+
+</g>
+
+<defs>
+
+<clipPath id="clip0_765_4257">
+
+<rect width="33.1646" height="33.1646" fill="white" transform="translate(0.835449 0.8479)"/>
+
+</clipPath>
+
+</defs>
+
+</svg>																
+																															</a>
+															
+														</figure>
+													</div>
+
+												
+													<div class="social-item">
+														<figure>
+
+																															<a href="https://www.youtube.com/@ChargeAfter" target="_blank">
+															
+																																	<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<g clip-path="url(#clip0_765_4263)">
+
+<path d="M0.917725 16.3958C1.00251 15.778 1.0648 15.1559 1.1764 14.5424C1.8685 10.7214 3.68526 7.52686 6.59294 4.9631C9.07672 2.77226 11.9757 1.43889 15.258 1.00626C19.485 0.449033 23.3963 1.35842 26.8983 3.79673C30.595 6.37001 32.9343 9.89075 33.7674 14.3278C34.6706 19.1404 33.6307 23.5523 30.6737 27.4564C28.1302 30.8145 24.745 32.8911 20.6062 33.7131C20.0266 33.8282 19.4323 33.8732 18.8457 33.9528C18.741 33.9666 18.6372 33.9917 18.5325 34.0116H16.4606C16.0565 33.9614 15.6508 33.9182 15.2477 33.8602C11.9256 33.3843 8.9928 32.0492 6.49259 29.8099C3.642 27.2574 1.85985 24.0914 1.17726 20.3197C1.0648 19.708 1.00251 19.0859 0.917725 18.4681C0.917725 17.7776 0.917725 17.0863 0.917725 16.3958ZM17.5013 2.40539C9.23071 2.40279 2.48014 9.14144 2.47149 17.409C2.46284 25.6965 9.20649 32.4541 17.4892 32.4576C25.7589 32.4611 32.5086 25.7233 32.519 17.4531C32.5294 9.16653 25.7849 2.40798 17.5013 2.40539Z" fill="#F9F6FF"/>
+
+<path d="M25.727 14.156C25.567 13.551 25.094 13.078 24.489 12.918C23.361 12.614 17.501 12.614 17.501 12.614C17.501 12.614 11.642 12.614 10.513 12.918C9.908 13.078 9.435 13.551 9.275 14.156C8.972 15.284 8.972 17.643 8.972 17.643C8.972 17.643 8.972 20.002 9.275 21.13C9.435 21.735 9.908 22.208 10.513 22.368C11.642 22.672 17.501 22.672 17.501 22.672C17.501 22.672 23.361 22.672 24.489 22.368C25.094 22.208 25.567 21.735 25.727 21.13C26.031 20.002 26.031 17.643 26.031 17.643C26.031 17.643 26.031 15.284 25.727 14.156ZM15.795 19.799V15.486L19.566 17.643L15.795 19.799Z" fill="#F9F6FF"/>
+
+</g>
+
+<defs>
+
+<clipPath id="clip0_765_4263">
+
+<rect width="33.1646" height="33.1646" fill="white" transform="translate(0.917725 0.8479)"/>
+
+</clipPath>
+
+</defs>
+
+</svg>
+
+																
+																															</a>
+															
+														</figure>
+													</div>
+
+												
+													<div class="social-item">
+														<figure>
+
+																															<a href="https://x.com/chargeafter" target="_blank">
+															
+																																	<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<g clip-path="url(#clip0_765_4263)">
+
+<path d="M0.917725 16.3958C1.00251 15.778 1.0648 15.1559 1.1764 14.5424C1.8685 10.7214 3.68526 7.52686 6.59294 4.9631C9.07672 2.77226 11.9757 1.43889 15.258 1.00626C19.485 0.449033 23.3963 1.35842 26.8983 3.79673C30.595 6.37001 32.9343 9.89075 33.7674 14.3278C34.6706 19.1404 33.6307 23.5523 30.6737 27.4564C28.1302 30.8145 24.745 32.8911 20.6062 33.7131C20.0266 33.8282 19.4323 33.8732 18.8457 33.9528C18.741 33.9666 18.6372 33.9917 18.5325 34.0116H16.4606C16.0565 33.9614 15.6508 33.9182 15.2477 33.8602C11.9256 33.3843 8.9928 32.0492 6.49259 29.8099C3.642 27.2574 1.85985 24.0914 1.17726 20.3197C1.0648 19.708 1.00251 19.0859 0.917725 18.4681C0.917725 17.7776 0.917725 17.0863 0.917725 16.3958ZM17.5013 2.40539C9.23071 2.40279 2.48014 9.14144 2.47149 17.409C2.46284 25.6965 9.20649 32.4541 17.4892 32.4576C25.7589 32.4611 32.5086 25.7233 32.519 17.4531C32.5294 9.16653 25.7849 2.40798 17.5013 2.40539Z" fill="#F9F6FF"/>
+
+<path d="M21.758 11.000H23.906L19.213 16.364L24.733 23.666H20.410L17.025 19.241L13.151 23.666H11.001L16.021 17.929L10.767 11.000H15.197L18.258 15.047L21.758 11.000ZM21.004 22.381H22.194L14.549 12.222H13.272L21.004 22.381Z" fill="#F9F6FF"/>
+
+</g>
+
+<defs>
+
+<clipPath id="clip0_765_4263">
+
+<rect width="33.1646" height="33.1646" fill="white" transform="translate(0.917725 0.8479)"/>
+
+</clipPath>
+
+</defs>
+
+</svg>
+
+																
+																															</a>
+															
+														</figure>
+													</div>
+
+																							</div>
+										
+									
+																					</div>
+
+													
+			</div>
+			
+			
+			
+
+
+
+							
+											<div class="site-footer-bottom">
+
+															<div class="site-info">
+									<p>All Rights Reserved 2026 © ChargeAfter</p>
+<p><a href="/privacy-policy/">Privacy Policy</a> | <a href="/cookie-policy/">Cookie Policy</a> | <a href="/mobile-terms/">Mobile Terms</a></p>
+								</div>
+							
+						</div>
+					
+									
+		
+			
+		</div>
+	</footer><!-- #colophon -->
+
+
+
+	
+
+
+	
+
+
+</div><!-- #page -->
+
+
+<!----Added FAQ Accordion js 11-11-2025----->
+<script type="text/rocketlazyloadscript">window.addEventListener('DOMContentLoaded', function() {
+	jQuery(document).ready(function()
+	{
+		jQuery('.glossary-template-default .faq_list .list .question').on('click',function(){
+			if(jQuery(this).hasClass("collapse"))
+			{
+				jQuery(this).removeClass("collapse");
+				jQuery(this).parents(".list").find(".answer").slideUp();
+			}
+			else
+			{
+				jQuery(this).addClass("collapse");
+				jQuery(this).parents(".list").find(".answer").slideDown();
+			}
+		});
+	});
+});</script>
+<!--End---> 
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/chargeafter/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!-- HFCM by 99 Robots - Snippet # 13: Google Tag Manager (GTM-PRSBJRKC) - Body -->
+<!-- Google Tag Manager (noscript) -->
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRSBJRKC"
+
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- End Google Tag Manager (noscript) -->
+<!-- /end HFCM by 99 Robots -->
+<script id="leadin-script-loader-js-js-extra">
+var leadin_wordpress = {"userRole":"visitor","pageType":"page","leadinPluginVersion":"11.3.75"};
+//# sourceURL=leadin-script-loader-js-js-extra
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" async defer id='hs-script-loader' data-rocket-src="https://chargeafter.com/wp-content/cache/min/1/20831387.js?ver=1790498328"></script>
+<script type="text/rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/qualified-remodeler/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://chargeafter.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="chargeafter-navigation-js" data-rocket-src="https://chargeafter.com/wp-content/cache/min/1/wp-content/themes/chargeafter/js/navigation.js?ver=1790498328" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="chargeafter-jquery-js" data-rocket-src="https://chargeafter.com/wp-content/cache/min/1/wp-content/themes/chargeafter/js/jquery.js?ver=1790498328" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="chargeafter-slick-js-js" data-rocket-src="https://chargeafter.com/wp-content/themes/chargeafter/js/slick.min.js?ver=1.0.9" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="chargeafter-swiper-js-js" data-rocket-src="https://chargeafter.com/wp-content/themes/chargeafter/js/swiper-bundle.min.js?ver=1.0.9" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="chargeafter-main-js" data-rocket-src="https://chargeafter.com/wp-content/cache/min/1/wp-content/themes/chargeafter/js/main.js?ver=1790498328" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="heateor_sss_sharing_js-js-before">
+function heateorSssLoadEvent(e) {var t=window.onload;if (typeof window.onload!="function") {window.onload=e}else{window.onload=function() {t();e()}}};	var heateorSssSharingAjaxUrl = 'https://chargeafter.com/wp-admin/admin-ajax.php', heateorSssCloseIconPath = 'https://chargeafter.com/wp-content/plugins/sassy-social-share/public/../images/close.png', heateorSssPluginIconPath = 'https://chargeafter.com/wp-content/plugins/sassy-social-share/public/../images/logo.png', heateorSssHorizontalSharingCountEnable = 0, heateorSssVerticalSharingCountEnable = 0, heateorSssSharingOffset = -10; var heateorSssMobileStickySharingEnabled = 0;var heateorSssCopyLinkMessage = "Link copied.";var heateorSssUrlCountFetched = [], heateorSssSharesText = 'Shares', heateorSssShareText = 'Share';function heateorSssPopup(e) {window.open(e,"popUpWindow","height=400,width=600,left=400,top=100,resizable,scrollbars,toolbar=0,personalbar=0,menubar=no,location=no,directories=no,status")}
+//# sourceURL=heateor_sss_sharing_js-js-before
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="heateor_sss_sharing_js-js" data-rocket-src="https://chargeafter.com/wp-content/cache/min/1/wp-content/plugins/sassy-social-share/public/js/sassy-social-share-public.js?ver=1790498328" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="hoverIntent-js" data-rocket-src="https://chargeafter.com/wp-includes/js/hoverIntent.min.js?ver=1.10.2" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="megamenu-js" data-rocket-src="https://chargeafter.com/wp-content/plugins/megamenu/js/maxmegamenu.min.js?ver=3.10.8" data-rocket-defer defer></script>
+<script id="comeet_script-js-extra">
+var comeetvar = {"comeet_token":"5C41CD433E422980B88285C2E20114C1CD4","comeet_uid":"C5.004","comeet_color":"","comeet_bgcolor":"","comeet_css_url":"","comeet_css_cache":"unset_cache","comeet_apply_as_employee":"true","comeet_field_email_required":"true","comeet_field_phone_required":"true","comeet_field_resume":"true","comeet_field_linkedin":"true","comeet_require_profile":"resume","comeet_field_website":"false","comeet_field_website_required":"false","comeet_field_coverletter":"true","comeet_field_coverletter_required":"false","comeet_field_portfolio":"true","comeet_field_portfolio_required":"false","comeet_field_personalnote":"true","comeet_field_personalnote_required":"false","comeet_button_text":"","comeet_font_size":"","comeet_button_font_size":"","comeet_labels_position":"responsive","comeet_button_color":"","comeet_social_pinterest":"true","comeet_social_whatsapp":"false","comeet_social_employees":"true","comeet_social_show_title":"false","comeet_social_share_url":"","comeet_social_color":"white"};
+//# sourceURL=comeet_script-js-extra
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="comeet_script-js" data-rocket-src="https://chargeafter.com/wp-content/cache/min/1/wp-content/plugins/comeet-wp-plugin-Version-3.0.2/js/comeet.js?ver=1790499200" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="comeet_src_script-js" data-rocket-src="https://chargeafter.com/wp-content/cache/min/1/wp-content/plugins/comeet-wp-plugin-Version-3.0.2/js/comeet-src.js?ver=1790499200" data-rocket-defer defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://chargeafter.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt,l){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="Play Youtube video"></button>';if(l){t=t.replace('data-lazy-','');t=t.replace('loading="lazy"','');t=t.replace(/<noscript>.*?<\/noscript>/g,'');}t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?"":"&"+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow","accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var exclusions=["icon-arrow-right-big.svg","https:\/\/chargeafter.com\/wp-content\/themes\/chargeafter\/images\/icon-arrow-right-big.svg"];var e,t,p,u,l,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)(e=document.createElement("div")),(u='https://i.ytimg.com/vi/ID/hqdefault.jpg'),(u=u.replace('ID',a[t].dataset.id)),(l=exclusions.some(exclusion=>u.includes(exclusion))),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query",a[t].dataset.query),e.setAttribute("data-src",a[t].dataset.src),(e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt,l)),a[t].appendChild(e),(p=e.querySelector(".play")),(p.onclick=lazyLoadYoutubeIframe)});</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a422ffc7dc9a8e4b',t:'MTc5MDYwMTE0MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
