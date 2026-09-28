@@ -37,8 +37,15 @@ YEARS_TOTAL_RE = re.compile(
     re.IGNORECASE,
 )
 
+# The month prefix accepts either a name (Jan/January/...) or a numeric
+# MM/ form (04/2022) - a real CV in this pipeline (see cv_extractor.py)
+# uses "04/2022 - 07/2026"-style numeric dates throughout, and without the
+# numeric form every one of its roles except one bare-year entry was
+# invisible to _parse_roles: DATE_RANGE_RE never matched their date lines
+# at all, so almost the whole work history silently vanished from the
+# candidate profile scoring is built on.
 DATE_RANGE_RE = re.compile(
-    rf"((?:{MONTH_RE_FRAGMENT}\.?\s+)?\d{{4}})\s*(?:[-–—]|to)\s*"
-    rf"((?:{MONTH_RE_FRAGMENT}\.?\s+)?\d{{4}}|present|current|now|ongoing)",
+    rf"((?:{MONTH_RE_FRAGMENT}\.?\s+|\d{{1,2}}/)?\d{{4}})\s*(?:[-–—]|to)\s*"
+    rf"((?:{MONTH_RE_FRAGMENT}\.?\s+|\d{{1,2}}/)?\d{{4}}|present|current|now|ongoing)",
     re.IGNORECASE,
 )

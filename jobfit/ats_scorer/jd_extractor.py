@@ -26,12 +26,26 @@ _RESPONSIBILITY_HEADER_WORDS = frozenset({
 # Design systems. Requirements: 5+ years Python..." and each section's
 # content runs from right after its own header to the position of the next
 # recognized header (or end of text).
+#
+# The colon is optional: a real <h3>Requirements</h3> heading, once the page
+# is flattened to plain text with no line breaks, commonly survives as just
+# the bare word with a single space on either side and no punctuation at all
+# (real case caught live: "...commercial issues Requirements 7+ years of
+# full cycle B2B SaaS sales experience..." - zero colons anywhere in a
+# genuine, fully-labeled job posting, which meant must_have/nice_to_have
+# came back empty on the vast majority of real jobs even after headers were
+# made position-based). Without a colon, the header word must instead be
+# followed by whitespace and then a capital letter, a digit, or a bullet
+# character - the start of real section content - so an ordinary mid-sentence
+# use ("the job requirements before applying") doesn't get misread as a
+# heading, since it's followed by a lowercase word instead.
 _HEADER_RE = re.compile(
-    r"(requirements|qualifications|what you'?ll need|what you need|"
+    r"\b(requirements|qualifications|what you'?ll need|what you need|"
     r"what we're looking for|minimum qualifications|nice to have|nice-to-have|"
     r"advantages?|bonus(?: points)?|preferred qualifications|preferred|"
     r"responsibilities|what you'?ll do|what you will do|about the role|"
-    r"the role|role overview|your role)\s*:",
+    r"the role|role overview|your role)"
+    r"(?:\s*:\s*|\s*(?=(?-i:[A-Z0-9•●‣⁃])))",
     re.IGNORECASE,
 )
 # Breaks a section's text into bullet-like units. Handles both a real line
@@ -40,7 +54,35 @@ _HEADER_RE = re.compile(
 # case here) - a period/exclamation/question mark followed by a capital
 # letter or digit reads as "next bullet", not just "next sentence in the
 # same bullet", which is an acceptable approximation once formatting is gone.
-_SEGMENT_SPLIT_RE = re.compile(r"[\r\n]+|[•●‣⁃]+|(?<=[.!?])\s+(?=[A-Z0-9])")
+#
+# The third alternative below handles the case with NO punctuation at all
+# between bullets - real case caught live: a scraped <ul><li>...</li><li>...
+# </li></ul> requirements list, once flattened to plain text with no line
+# breaks, often has nothing between adjacent items but a single space (no
+# period, no bullet character survives) - e.g. "...Strategy consulting
+# Strong customer-facing..." with zero punctuation between two distinct
+# bullets. Without this, the whole list becomes one giant merged "bullet",
+# and if even one clause anywhere in it carries a softener word (e.g. one
+# "degree preferred" near the end), the WHOLE merged blob - genuinely-must
+# bullets included - gets misclassified as nice-to-have. A lowercase
+# letter/digit/closing-paren followed by whitespace then a capitalized,
+# lowercase-continuing word reads as "next bullet starts here"; this is a
+# heuristic, not a real sentence boundary, so it will occasionally
+# over-split a legitimate multi-word bullet - guarded against the single
+# most common false-positive shape ("experience with Python", "skills in
+# Kubernetes", "built on AWS", ...: a short connector word immediately
+# followed by a capitalized proper noun/skill name) via the negative
+# lookbehinds below, since splitting mid-bullet there would fragment one
+# requirement into two and inflate the apparent requirement count.
+_SEGMENT_CONNECTOR_GUARD = (
+    r"(?<!\bwith)(?<!\bin)(?<!\bon)(?<!\bof)(?<!\bto)(?<!\bfor)(?<!\band)(?<!\bor)"
+    r"(?<!\bas)(?<!\bby)(?<!\bvia)(?<!\bat)(?<!\bfrom)(?<!\binto)(?<!\busing)"
+    r"(?<!\ba)(?<!\ban)(?<!\bthe)(?<!\bour)(?<!\byour)(?<!\btheir)"
+)
+_SEGMENT_SPLIT_RE = re.compile(
+    r"[\r\n]+|[•●‣⁃]+|(?<=[.!?])\s+(?=[A-Z0-9])"
+    r"|(?<=[a-z0-9)%])" + _SEGMENT_CONNECTOR_GUARD + r"\s+(?=[A-Z][a-z]{2,})"
+)
 
 _SOFTENER_RE = re.compile(
     r"\b(advantage|plus|nice to have|preferred|bonus|familiarity with|familiar with|"

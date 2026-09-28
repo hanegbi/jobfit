@@ -159,6 +159,32 @@ Foo Inc | 2017 - 2020
     assert len(profile.roles[0].bullets) == 2
 
 
+def test_cv_extractor_parses_roles_with_numeric_mm_yyyy_dates():
+    """Real bug caught live in production: DATE_RANGE_RE only recognized a
+    month NAME (Jan/January/...) or a bare year before the separator, never
+    a numeric MM/YYYY date - the real CV this whole pipeline scores against
+    uses exactly that format ("04/2022 - 07/2026") for every role except
+    its oldest, bare-year one, so 4 of 5 real roles were invisible to
+    _parse_roles and the candidate profile silently looked like someone
+    with almost no work history at all."""
+    cv = """Jane Doe
+
+Senior Backend Engineer
+Acme Corp | 04/2022 - 07/2026
+- Designed and owned distributed systems in production
+
+Backend Engineer
+Foo Inc | 08/2020 - 03/2022
+- Developed microservices in Python
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    assert len(profile.roles) == 2
+    assert profile.roles[0].start == "2022"
+    assert profile.roles[0].end == "2026"
+    assert profile.roles[1].start == "2020"
+    assert profile.roles[1].end == "2022"
+
+
 def test_cv_extractor_gives_strong_evidence_for_a_role_bullet_skill():
     cv = """Senior Backend Engineer
 Acme Corp | 2023 - Present
