@@ -146,6 +146,18 @@ def test_score_job_treats_a_docs_page_with_a_body_only_role_family_hit_as_unpars
     assert result["score_default"] == 0
 
 
+def test_empty_scrape_evidence_zero_scores_even_a_parseable_looking_body():
+    """A marketing page can contain enough incidental structure to extract a
+    requirement or two; when the scrape-time evidence says the page had no
+    JSON-LD, no apply CTA, no requirement sections and a title with no role
+    family, the job is not a job."""
+    job = {"title": "Code Governance and Compliance", "description": "Requirements: 5+ years of Python and Kubernetes.",
+           "job_evidence": {"jsonld_jobposting": False, "apply_cta": False, "requirement_sections": 0, "role_family_from_title": None, "url_shape": "x||1"}}
+    result = scoring.score_job(job, cv_text="Backend Engineer\nAcme | 2020 - Present\n- Python, Kubernetes")
+    assert result["score"] == 0
+    assert result["confidence"] == "title_only"
+
+
 def test_score_job_an_unrelated_job_scores_lower_than_a_relevant_one():
     """No exclude-keyword list needed: a sales job with a real requirements
     section naturally scores lower against a backend-engineering CV

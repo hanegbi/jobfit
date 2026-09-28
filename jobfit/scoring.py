@@ -11,6 +11,7 @@ hardcode and are unchanged.
 """
 
 import hashlib
+import json
 import re
 from functools import lru_cache
 from pathlib import Path
@@ -129,7 +130,7 @@ def _cached_candidate_profile(cv_text: str):
     return cv_extractor.extract_candidate_profile(cv_text)
 
 
-def _looks_unparseable(job_req: JobRequirements) -> bool:
+def _looks_unparseable(job_req: JobRequirements, evidence: dict | None = None) -> bool:
     """Whether a job's text yielded no structured signal at all - no
     must_have, no nice_to_have, and no title that itself reads as a real
     role.
@@ -142,7 +143,7 @@ def _looks_unparseable(job_req: JobRequirements) -> bool:
     returning marketing/product copy instead of a real posting extracts
     nothing at all - scoring that as a neutral/default match would
     silently defeat every "0 score = not a real job" gate built around
-    scoring elsewhere in the pipeline (e.g. update_jobs._any_job_scores_positive).
+    scoring elsewhere in the pipeline (e.g. the evidence check above).
 
     domain deliberately does NOT count as parseable signal on its own -
     it's a single skills-taxonomy keyword hit anywhere in the text, and a
@@ -161,7 +162,21 @@ def _looks_unparseable(job_req: JobRequirements) -> bool:
     alone), even though the title itself obviously isn't a job title. The
     gate re-derives role family from the title ALONE, which is a much more
     reliable "is this actually a job posting" signal than a keyword scan
-    over an entire scraped page."""
+    over an entire scraped page.
+
+    When scrape-time evidence is present (job_evidence on the job dict -
+    see jobfit.scrape.enrich), a page with no JSON-LD JobPosting, no apply
+    CTA, no requirement sections, and no role family derivable from its own
+    title is unparseable regardless of what its body text happens to
+    contain - this is the evidence-based replacement for the old CV-score
+    tier gates in update_jobs.py."""
+    if evidence:
+        has_signal = any([
+            evidence.get("jsonld_jobposting"), evidence.get("apply_cta"),
+            (evidence.get("requirement_sections") or 0) >= 1, evidence.get("role_family_from_title"),
+        ])
+        if not has_signal:
+            return True
     if job_req.must_have or job_req.nice_to_have:
         return False
     from jobfit.ats_scorer.taxonomy import load_role_families
@@ -204,6 +219,9 @@ def score_cache_key(job: dict, profile: dict) -> str:
         job.get("employment_type") or "",
         cv_text,
     ]
+    evidence = job.get("job_evidence")
+    if evidence:
+        parts.append(json.dumps(evidence, sort_keys=True))
     combined = "\x00".join(parts).encode("utf-8")
     return hashlib.sha256(combined).hexdigest()[:16]
 
@@ -229,7 +247,7 @@ def score_job(job: dict, cv_text: str = "", context: JobRequirements | None = No
     description = job.get("description") or ""
     job_req = context if context is not None else jd_extractor.extract_job_requirements(description, title=title)
 
-    if _looks_unparseable(job_req):
+    if _looks_unparseable(job_req, job.get("job_evidence")):
         return {
             "score": 0, "confidence": "title_only", "matched": [],
             "requirements": [], "coverage_pct": None,

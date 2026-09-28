@@ -23,6 +23,20 @@ _CHROME_TAGS = {"nav", "header", "footer"}
 _SKIP_SCHEMES = ("#", "javascript:", "mailto:", "tel:")
 
 
+def _has_job_url_hint(path: str, absolute: str) -> bool:
+    """job-shape word in the path or a query PARAMETER NAME (Check Point's
+    ?joborderid=... - "job" is in the key), or a 3+ digit id anywhere in the
+    query (Wiz's ?gh_jid=4702745006 - the digits are in the value). Deliberately
+    does NOT word-match query VALUES: a tracking/CTA link's value can carry an
+    unrelated "career" substring (?cta_source=careers on a "Get a demo" link,
+    caught live) that has nothing to do with the link being a job posting."""
+    query = urlsplit(absolute).query
+    keys = "&".join(kv.split("=", 1)[0] for kv in query.split("&") if kv)
+    if JOB_URL_HINT_RE.search(path) or JOB_URL_HINT_RE.search(keys):
+        return True
+    return bool(re.search(r"\d{3,}", query))
+
+
 def _clean(text: str) -> str:
     return " ".join((text or "").split())
 
@@ -123,7 +137,7 @@ class CandidateExtractor:
                 sibling_anchor_count=max(1, sibling_anchor_count),
                 same_host=_host(absolute) == career_host,
                 under_career_path=bool(career_path) and path.startswith(career_path) and path != career_path,
-                has_job_url_hint=JOB_URL_HINT_RE.search(absolute) is not None,
+                has_job_url_hint=_has_job_url_hint(path, absolute),
                 role_family=families.classify(text),
                 in_chrome=in_chrome,
                 href_shape=shape,

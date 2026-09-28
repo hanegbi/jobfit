@@ -64,6 +64,13 @@ def test_score_cache_key_is_stable_for_identical_inputs_including_new_fields():
     assert scoring.score_cache_key(job, profile) == scoring.score_cache_key(job, profile)
 
 
+def test_score_cache_key_changes_when_job_evidence_is_present():
+    profile = {"text": "Backend engineer with Python experience"}
+    plain = {"description": "Python required"}
+    with_evidence = {"description": "Python required", "job_evidence": {"jsonld_jobposting": True}}
+    assert scoring.score_cache_key(plain, profile) != scoring.score_cache_key(with_evidence, profile)
+
+
 def test_recompute_skips_a_job_whose_cache_key_is_already_current(tmp_path, monkeypatch):
     monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
     profiles = {"default": {"text": "Backend engineer with Python experience"}}

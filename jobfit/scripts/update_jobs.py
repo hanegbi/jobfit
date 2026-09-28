@@ -20,7 +20,6 @@ Usage:
 """
 
 import argparse
-import asyncio
 import hashlib
 import json
 import logging
@@ -36,18 +35,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from jobfit import ats_fetchers, company_registry, company_review, config, connections, cv, pipeline_lock, scoring, techmap_source, translation  # noqa: E402
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
+from jobfit.scrape import bootstrap as scrape_bootstrap  # noqa: E402
 
 logger = logging.getLogger("jobfit.update_jobs")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 COMPANIES_DIR = config.ROOT / "companies"
 META_PATH = COMPANIES_DIR / "_meta.json"
-# A low cap here silently biases toward whatever section a career page lists
-# first - usually R&D/Engineering - and starves every other department of a
-# slot before the location filter in diff_and_update() even gets a chance to
-# drop the ones that aren't Israel-relevant anyway. High enough that a large
-# company's full listing (Sales, HR, Ops, ... alongside R&D) fits.
-MAX_LINKS_PER_COMPANY = 50
 
 _ATS_ID_PATTERNS = [
     re.compile(r"greenhouse\.io/[^/]+/jobs/(\d+)", re.I),
@@ -137,103 +131,6 @@ def save_meta(meta: dict) -> None:
     atomic_write_json(META_PATH, meta)
 
 
-MIN_SCORE_FOR_REAL_MATCH = 50
-"""jobfit.ats_scorer's hard gates cap a weak/mismatched candidate's score
-(e.g. a role-family mismatch caps at 40) rather than zeroing it out - a
-capped-but-nonzero score still means "not a fit" or "weak match" in that
-engine's own band semantics, not "this scored, so the tier worked". 50 is
-the floor of "partial match" (config.ScoringConfig.bands): clear relevant
-background, not junk - that's the bar for treating a fetch tier as having
-found something real."""
-
-
-def _any_job_scores_positive(jobs: list[dict], profiles: dict) -> bool:
-    """Whether at least one fetched job looks like a real, relevant posting.
-
-    Used to decide "did this fetch actually work" - a scrape that returns a
-    handful of nav-link junk (a career page's own "Careers Homepage"/"Why Us"
-    links, misidentified as job titles) still returns a non-empty list, so
-    counting entries alone isn't enough; checking that something actually
-    clears MIN_SCORE_FOR_REAL_MATCH is what tells a real result from junk.
-    """
-    for job in jobs:
-        title = (job.get("title") or "").strip()
-        if not title:
-            continue
-        if scoring.score_job_both(job, profiles)["best_score"] >= MIN_SCORE_FOR_REAL_MATCH:
-            return True
-    return False
-
-
-MIN_DESCRIPTION_LEN = 50
-MIN_DESCRIPTION_RATIO = 0.5
-
-
-def _has_real_descriptions(jobs: list[dict]) -> bool:
-    """Whether enough of the fetched jobs actually have a description, not
-    just a title. The description is what scoring's coverage check (70% of
-    a job's score) runs against - a title alone can still score positive on
-    role/keyword match, which let jobs with no description at all silently
-    pass as "this tier worked" and skip the richer Playwright tier that
-    might have gotten the real content (real case: Adaptive6's job pages are
-    a Webflow SPA - the static HTML plain HTTP sees has no description at
-    all, just site chrome, but the *title* alone scored well enough that
-    Playwright was never tried)."""
-    if not jobs:
-        return False
-    with_description = sum(1 for j in jobs if len(j.get("description") or "") >= MIN_DESCRIPTION_LEN)
-    return (with_description / len(jobs)) >= MIN_DESCRIPTION_RATIO
-
-
-MIN_JOB_URL_RATIO = 0.3
-# A job-indicating path token, or a run of 3+ digits (a job/req ID - real
-# postings are routinely id-numbered even when the surrounding path has no
-# English job word at all, e.g. Check Point's ?joborderid=0936589).
-_JOB_URL_HINT_RE = re.compile(r"(job|career|position|opening|vacan|opportunit|\d{3,})", re.I)
-
-
-def _looks_like_real_job_urls(jobs: list[dict]) -> bool:
-    """Whether enough of the fetched jobs' own URLs actually look like job
-    postings, not a company's regular marketing/product pages that happened
-    to score positively purely on vocabulary overlap with the CV. Real case
-    caught live: agatsoftware.com/careers/ has zero real job links anywhere
-    in its HTML (confirmed via Playwright too - same result rendered) - only
-    product pages ("Guardian Agent", "AI Gateway", ...) whose long marketing
-    copy scores well on AI/security keyword coverage despite not being jobs
-    at all. A real job-posting URL almost always carries a job-indicating
-    path token or a numeric job/req ID; a product page's URL almost never
-    does, since it's named after the product, not a listing convention."""
-    if not jobs:
-        return False
-    matching = sum(1 for j in jobs if j.get("url") and _JOB_URL_HINT_RE.search(j["url"]))
-    return (matching / len(jobs)) >= MIN_JOB_URL_RATIO
-
-
-async def _fetch_via_playwright(company: str, url: str) -> list[dict]:
-    from jobfit.scripts.playwright_listings import _scrape_company_inner  # noqa: E402
-    from playwright.async_api import async_playwright
-
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        context = await browser.new_context(user_agent=ats_fetchers.USER_AGENT)
-        try:
-            jobs = await _scrape_company_inner(context, company, url)
-        finally:
-            await browser.close()
-    return [{"title": j["title"], "location": None, "url": j["url"], "description": j["description"]} for j in jobs]
-
-
-def _techmap_fallback_jobs(company: str, techmap_index: dict[str, list[dict]]) -> list[dict]:
-    """Raw techmap rows (title/location/level, no description) for this company,
-    keyed by the same normalize_company() used for LinkedIn-connections matching."""
-    rows = techmap_index.get(connections.normalize_company(company), [])
-    return [
-        {"title": r["title"], "location": r["location"], "url": r["url"], "description": ""}
-        for r in rows
-        if r.get("title")
-    ]
-
-
 def load_companies_to_scrape() -> dict[str, str | None]:
     """Every company scrape_stage() should touch: companies with a real
     career URL, plus companies with no URL that were explicitly approved
@@ -261,152 +158,25 @@ def load_techmap_index() -> dict[str, list[dict]]:
     return index
 
 
-def _ats_api_jobs(session, url: str) -> list[dict] | None:
-    """When url itself resolves to a known ATS platform (boards.greenhouse.io,
-    jobs.lever.co, jobs.ashbyhq.com, apply.workable.com, comeet.com/jobs/...),
-    fetch the whole board through that platform's own JSON API instead of
-    scraping HTML - real location/department/employment_type/posted_at come
-    back structured, not left as None/dropped the way generic <a> scraping
-    leaves them. Returns None (not []) when url isn't a recognized ATS URL at
-    all, so the caller can tell "not applicable" from "resolved but 0 jobs
-    posted right now" (the latter is a legitimate result, not a failure)."""
-    resolved = ats_fetchers.resolve_ats(url)
-    if not resolved:
-        return None
-    ats, token = resolved
-    try:
-        jobs = ats_fetchers.fetch_company_board(session, ats, token, url)
-    except Exception as error:  # noqa: BLE001 - a bad guess/expired board must never abort the run
-        logger.debug("ATS API fetch failed (%s/%s): %s", ats, token, error)
-        return []
-    if jobs is None:
-        return []
-    return [
-        {
-            "title": j.get("title"),
-            "location": j.get("location"),
-            "url": j.get("url"),
-            "description": j.get("description") or "",
-            "department": j.get("department"),
-            "employment_type": j.get("employment_type"),
-            "posted_at": j.get("posted_at"),
-        }
-        for j in jobs
-    ]
-
-
-async def fetch_company_jobs_async(
-    company: str, url: str | None, session, profiles: dict, techmap_index: dict[str, list[dict]]
-) -> list[dict]:
-    """Four-tier cascade, escalating only when the previous tier found
-    nothing that actually scores as a real job AND has real descriptions
-    (not just "found zero links" - a page whose only extractable links are
-    nav junk needs the same rescue, and so does a page whose titles score
-    fine but whose descriptions are empty site-chrome, since the description
-    is what scoring's coverage check runs against):
-      0. Direct ATS API (url itself is a Greenhouse/Lever/Ashby/Workable/
-         Comeet board) - richest data, skips HTML scraping entirely.
-      1. Plain HTTP listing scrape (fast, cheap, works for most sites).
-      2. Playwright render (JS-rendered listing pages plain HTTP can't see -
-         also the rescue path for JS-rendered *descriptions*, since a site
-         like a Webflow SPA can have static titles but only render the
-         actual description text client-side).
-      3. techmap's own row for this company (title/location/level only, no
-         description) - better than nothing when the company's own site
-         can't be parsed by either of the above.
-
-    url=None means this company has no known career page at all and was
-    reviewed via company_review.py with the "techmap" decision - go
-    straight to tier 3, there is no site to scrape.
-    """
-    if not url:
-        return _techmap_fallback_jobs(company, techmap_index)
-
-    for host_fragment, special_fetcher in ats_fetchers.SPECIAL_CASE_FETCHERS.items():
-        if host_fragment in url.lower():
-            try:
-                special_jobs = special_fetcher(session)
-            except Exception as error:  # noqa: BLE001
-                logger.debug("%s: special-case fetcher failed: %s", company, error)
-                special_jobs = []
-            if special_jobs:
-                return special_jobs
-            break
-
-    ats_jobs = _ats_api_jobs(session, url)
-    if ats_jobs is not None:
-        if _any_job_scores_positive(ats_jobs, profiles):
-            return ats_jobs
-        if ats_jobs:
-            logger.info("%s: ATS API board resolved but nothing scored (%d jobs) - falling through", company, len(ats_jobs))
-        # else: board resolved but genuinely has 0 open jobs right now - still
-        # worth trying generic scraping in case the URL also renders a normal
-        # page (rare, but cheap to check), otherwise this naturally ends up
-        # with 0 jobs either way.
-
-    links = ats_fetchers.fetch_listing_links(session, url, max_links=MAX_LINKS_PER_COMPANY)
+def fetch_company_jobs(company: str, url: str | None, service) -> list[dict]:
+    """Run the company's stored (or synthesised) ScrapePlan through
+    CompanyScrapeService and convert each JobPosting to the dict shape
+    diff_and_update stores. Pure Python; no model call on this path."""
+    result = service.scrape(company, url)
     jobs = []
-    for title, job_url in links:
-        details = ats_fetchers.fetch_generic_job_details(session, job_url)
-        jobs.append({
-            "title": title, "url": job_url,
-            "location": details["location"], "description": details["description"],
-            "employment_type": details["employment_type"], "posted_at": details["posted_at"],
-        })
-
-    plain_scored = _any_job_scores_positive(jobs, profiles)
-    plain_urls_look_real = _looks_like_real_job_urls(jobs)
-    if plain_scored and _has_real_descriptions(jobs) and plain_urls_look_real:
-        return jobs
-
-    if plain_scored and not plain_urls_look_real:
-        logger.info("%s: plain-HTTP scored but URLs don't look like real jobs (%d entries, likely marketing pages) - trying Playwright", company, len(jobs))
-    elif plain_scored:
-        logger.info("%s: plain-HTTP scored but has no real descriptions (%d entries) - trying Playwright for richer data", company, len(jobs))
-    else:
-        logger.info("%s: plain-HTTP found nothing scoring (%d raw entries) - trying Playwright", company, len(jobs))
-    try:
-        pw_jobs = await _fetch_via_playwright(company, url)
-    except Exception as error:  # noqa: BLE001
-        logger.debug("%s: playwright fallback failed: %s", company, error)
-        pw_jobs = []
-    pw_scored = _any_job_scores_positive(pw_jobs, profiles)
-    pw_urls_look_real = _looks_like_real_job_urls(pw_jobs)
-    if pw_scored and _has_real_descriptions(pw_jobs) and pw_urls_look_real:
-        return pw_jobs
-
-    # Neither tier fully qualified (scored + real description + job-shaped
-    # URLs). If a tier scored and described but its URLs still don't look
-    # like real jobs, both tiers rendered the same marketing content (real
-    # case: agatsoftware.com/careers/ has zero real job links anywhere, in
-    # static HTML or Playwright-rendered - only product pages whose long
-    # copy scores well on keyword overlap) - prefer techmap's thin-but-real
-    # data over storing product pages as fake jobs, when techmap has it.
-    plain_fully_qualified = plain_scored and _has_real_descriptions(jobs) and plain_urls_look_real
-    pw_fully_qualified = pw_scored and _has_real_descriptions(pw_jobs) and pw_urls_look_real
-    if not plain_fully_qualified and not pw_fully_qualified:
-        techmap_jobs = _techmap_fallback_jobs(company, techmap_index)
-        if techmap_jobs:
-            logger.info("%s: still nothing scoring after Playwright - falling back to techmap (%d rows)", company, len(techmap_jobs))
-            return techmap_jobs
-
-    # Prefer whichever tier at least scored (a title-only or marketing-page
-    # match beats nothing), Playwright's attempt first since it's the richer
-    # of the two when both scored.
-    if pw_scored:
-        return pw_jobs
-    if plain_scored:
-        return jobs
-
-    techmap_jobs = _techmap_fallback_jobs(company, techmap_index)
-    if techmap_jobs:
-        logger.info("%s: still nothing scoring after Playwright - falling back to techmap (%d rows)", company, len(techmap_jobs))
-        return techmap_jobs
-
-    # Nothing worked at all - return whatever plain-HTTP had (even if empty/junk)
-    # rather than silently discarding a company; diff_and_update will correctly
-    # mark any previously-seen jobs as closed if this really is empty.
+    for posting in result.postings:
+        job = posting.model_dump(mode="json")
+        job["job_evidence"] = job.pop("evidence", None)
+        job["scrape_source"] = job.pop("source", None)
+        jobs.append(job)
     return jobs
+
+
+async def fetch_company_jobs_async(company: str, url: str | None, session, profiles: dict, techmap_index: dict, service=None) -> list[dict]:
+    """Kept for callers of the old async signature; `profiles` is unused
+    (scrape health no longer depends on CV score)."""
+    service = service or scrape_bootstrap.build_scrape_service(session, techmap_index)
+    return fetch_company_jobs(company, url, service)
 
 
 def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict) -> tuple[dict, int, int]:
@@ -436,6 +206,8 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
         if job_id in existing_by_id:
             existing = existing_by_id[job_id]
             existing["last_seen"] = now
+            if job.get("job_evidence") is not None:
+                existing["job_evidence"] = job["job_evidence"]
             if existing.get("status") in ("new", "closed"):
                 existing["status"] = "seen"  # a job that was "new" last run has now been seen again
         else:
@@ -461,6 +233,8 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
                 "first_seen": job.get("posted_at") or now,
                 "last_seen": now,
                 "status": "new",
+                "job_evidence": job.get("job_evidence"),
+                "scrape_source": job.get("scrape_source"),
             }
             new_job.update(scores)
             new_job["years_required"] = scoring.required_years(f"{title}\n{new_job['description'] or ''}")
@@ -506,13 +280,14 @@ def _should_skip_company(record: dict, force: bool) -> bool:
     return age_hours < config.COMPANY_RECHECK_TTL_HOURS
 
 
-def _process_company(company, url, session, profiles, techmap_index, force):
+def _process_company(company, url, session, profiles, techmap_index, force, service=None):
     """Runs in a worker thread. Returns (company, new_count, closed_count, skipped, error)."""
     record = load_company_file(company)
     if _should_skip_company(record, force):
         return company, 0, 0, True, None
     try:
-        fetched = asyncio.run(fetch_company_jobs_async(company, url, session, profiles, techmap_index))
+        service = service or scrape_bootstrap.build_scrape_service(session, techmap_index)
+        fetched = fetch_company_jobs(company, url, service)
         for job in fetched:
             translation.translate_job_if_needed(job)
         updated, new_count, closed_count = diff_and_update(company, url, fetched, profiles)
@@ -539,6 +314,7 @@ def scrape_stage(
         session = ats_fetchers.make_session()
         logger.info("loading techmap data (fallback source for companies whose own site can't be parsed)...")
         techmap_index = load_techmap_index()
+        service = scrape_bootstrap.build_scrape_service(session, techmap_index)
 
         stats = RunStats()
         with ThreadPoolExecutor(max_workers=WORKERS) as pool:
@@ -547,7 +323,7 @@ def scrape_stage(
                 if cancel_event is not None and cancel_event.is_set():
                     logger.info("stop requested - not queuing the remaining companies")
                     break
-                futures.append(pool.submit(_process_company, company, url, session, profiles, techmap_index, force))
+                futures.append(pool.submit(_process_company, company, url, session, profiles, techmap_index, force, service))
             for future in as_completed(futures):
                 company, new_count, closed_count, skipped, error = future.result()
                 if skipped:
