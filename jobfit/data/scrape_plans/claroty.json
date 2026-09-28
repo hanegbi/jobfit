@@ -1,0 +1,58 @@
+{
+  "company_id": "claroty",
+  "schema_version": 1,
+  "career_url": "https://claroty.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:09:47.410825Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 81,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 84,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 92,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "b4a2847b096c073b4816f33f3a389dd0f6c45ef6",
+    "candidate_count": 106
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 0
+  },
+  "rediscover_after": "2026-10-05T10:09:47.410825Z",
+  "notes": []
+}

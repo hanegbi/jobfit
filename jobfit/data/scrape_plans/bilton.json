@@ -1,0 +1,142 @@
+{
+  "company_id": "bilton",
+  "schema_version": 1,
+  "career_url": "https://careers.bilton.tech/jobs",
+  "derived_by": "rules",
+  "model": null,
+  "derived_at": "2026-09-28T10:08:35.107969Z",
+  "verified_at": "2026-09-28T10:08:35.107969Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?careers\\.bilton\\.tech/jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?careers\\.bilton\\.tech/[^/?#]+/?$",
+      "^https?://(www\\.)?careers\\.bilton\\.tech/[^/?#]+/?$",
+      "^https?://(www\\.)?app\\.teamtailor\\.com/companies/Pt06CLSLXY4@eu/[^/?#]+/?$",
+      "^https?://(www\\.)?careers\\.bilton\\.tech/connect/[^/?#]+/?$",
+      "^https?://(www\\.)?bilton\\.tech/[^/?#]+/?$",
+      "^https?://(www\\.)?linkedin\\.com/company/beti\\-software/mycompany/[^/?#]+/?$"
+    ],
+    "url_shape": "careers.bilton.tech|jobs|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "rules: singleton url shape without a job hint"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "rules: singleton url shape without a job hint"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "rules: singleton url shape without a job hint"
+      },
+      {
+        "index": 6,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 8,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 9,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 13,
+        "is_job": false,
+        "reason": "rules: inside nav/header/footer"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "rules: singleton url shape without a job hint"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "3f9645ce4f7eb17f50fb588dbd5fb7b97d95fa1c",
+    "candidate_count": 18
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": "2026-10-05T10:08:35.107969Z",
+  "notes": [
+    "classifier failed (no recorded labels for https://careers.bilton.tech/jobs); fell back to rules"
+  ]
+}

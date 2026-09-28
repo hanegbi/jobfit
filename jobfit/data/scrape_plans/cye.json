@@ -1,0 +1,117 @@
+{
+  "company_id": "cye",
+  "schema_version": 1,
+  "career_url": "https://cyesec.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:09:19.751853Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?cyesec\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "cyesec.com|careers|2",
+    "explicit_accept": [
+      "https://cyesec.com/careers/eb9f7bcc-4f09-4b63-9b16-f362dd72dc21",
+      "https://cyesec.com/careers/f8afa49c-c5b1-4c7d-8a86-e1a6edf66787",
+      "https://cyesec.com/careers/d2b9d2ff-edb8-4fb4-80ca-9b5cdefa8a57",
+      "https://cyesec.com/careers/93eb9bab-30e3-4ff4-83e6-09f8f8727a81",
+      "https://cyesec.com/careers/eee7d9cb-13be-4faf-8ee1-50ba3837cd79",
+      "https://cyesec.com/careers/874ab08d-922c-4fbd-8ba8-c9109fc9ac2b",
+      "https://cyesec.com/careers/6d8de0b9-1969-41ab-ba0f-e3dd7ac6b6dd",
+      "https://cyesec.com/careers/ba6f695a-5512-4fcb-bcb0-aa7d42c9c6c4",
+      "https://cyesec.com/careers/3fd1c2c4-f731-4e4b-87b2-d63403563a25",
+      "https://cyesec.com/careers/3245ba1b-0412-404c-8b1e-538103bf99b6",
+      "https://cyesec.com/careers/54b694d0-6181-4ee7-99d5-128eecd67b5a"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 6,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 8,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 9,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "3a807972c48e7dc89318759b2ba09ef5223a1656",
+    "candidate_count": 30
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 11
+  },
+  "rediscover_after": "2026-10-05T10:09:19.751853Z",
+  "notes": []
+}

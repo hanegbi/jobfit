@@ -1,0 +1,326 @@
+{
+  "company_id": "bagira_systems",
+  "schema_version": 1,
+  "career_url": "https://www.bagirasys.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:08:31.340928Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?bagirasys\\.com/careers/[^/?#]+/?$",
+      "^https?://(www\\.)?bagirasys\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?bagirasys\\.com/careers/co/bagira\\-systems\\-ltd/23\\.F61/[^/?#]+/?$",
+      "^https?://(www\\.)?bagirasys\\.com/careers/co/bagira\\-netherlands/D6\\.72A/[^/?#]+/?$",
+      "^https?://(www\\.)?bagirasys\\.com/careers/co/bagira\\-czech\\-republic/F1\\.F68/[^/?#]+/?$"
+    ],
+    "url_shape": "bagirasys.com|careers/co/bagira-systems-ltd/92.155|5",
+    "explicit_accept": [
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/92.155/net-developer-wpf",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/6E.F6C/3d-artist-realtime-assets-environments-buildings-vehicles",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/2B.337/c-developer-ig",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/1D.468/devops-lead",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/D9.B6A/firmware-tech-lead",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/EF.A22/integration-specialist",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/74.76B/junior-software-developer-test-automation",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/57.956/qa-automation-specialist",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/78.A38/render-vyvojar-c-vyvoj-komplexnich-simulatoru-pro-bezpecnostni-slozky",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/EA.56E/senior-full-stack-developer-backend-oriented",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/FA.563/senior-full-stack-developer-frontend-oriented",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/D1.D22/senior-software-developer-c",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/32.A65/sw-hw-qa-lead",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/C8.953/technical-lead-for-real-time-training-simulators-for-security-forces",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/7B.A68/technical-product-manager",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/60.63F/wpf-developer",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/FC.D48/elektrovyvojar-testovacich-zarizeni-hw-fw-vyvoj-unikatnich-treninkovych-simulatoru",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/D2.D60/hw-change-management-specialist",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/55.749/process-engineer",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/83.E6D/quality-engineer",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/53.D68/senior-data-engineer",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/D5.439/senior-electronic-design-engineer",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/B8.635/senior-mechanical-design-engineer",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/19.D5F/senior-rd-engineer",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/53.A60/european-marketing-business-development-manager-defense-simulation",
+      "https://www.bagirasys.com/careers/co/bagira-netherlands/53.A60-C2.509/european-marketing-business-development-manager-defense-simulation",
+      "https://www.bagirasys.com/careers/co/germany/53.A60-DE.403/european-marketing-business-development-manager-defense-simulation",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/57.F31/indirect-procurement-specialist",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/05.868/strategic-buyer",
+      "https://www.bagirasys.com/careers/co/bagira-czech-republic/A3.E69/it-operations-lead-cz",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/93.65E/it-support-help-desk",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/CC.F52/%d7%98%d7%9b%d7%a0%d7%90%d7%99-%d7%aa-%d7%9e%d7%a2%d7%a8%d7%9b%d7%95%d7%aa-it-%d7%9e%d7%a9%d7%a8%d7%aa-%d7%a9%d7%98%d7%97",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/3B.03C/%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%97%d7%99%d7%a8",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/7B.B25/%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%97%d7%aa%d7%9d",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/F0.35E/%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%97%d7%aa%d7%9d-%d7%a0%d7%99%d7%99%d7%93",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/DB.B20/%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%aa-%d7%97%d7%99%d7%a8-%d7%a0%d7%99%d7%99%d7%93-%d7%aa",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/50.D47/%d7%9e%d7%94%d7%a0%d7%93%d7%a1-%d7%90%d7%97%d7%96%d7%a7%d7%94",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/5F.F2B/%d7%9e%d7%a0%d7%94%d7%9c-%d7%90%d7%aa%d7%a8-%d7%a0%d7%99%d7%99%d7%93%d7%aa-%d7%94%d7%a4%d7%a2%d7%9c%d7%aa-%d7%90%d7%a9-%d7%95%d7%aa%d7%a7%d7%99%d7%a4%d7%94",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/1F.D2A/%d7%9e%d7%a0%d7%94%d7%9c-%d7%90%d7%aa%d7%a8-%d7%a1%d7%99%d7%9e%d7%95%d7%9c%d7%98%d7%95%d7%a8%d7%99%d7%9d-%d7%91%d7%99%d7%97%d7%99%d7%93%d7%95%d7%aa-%d7%97%d7%99%d7%a8",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/29.B2A/%d7%9e%d7%a0%d7%94%d7%9c-%d7%90%d7%aa%d7%a8-%d7%a1%d7%99%d7%9e%d7%95%d7%9c%d7%98%d7%95%d7%a8%d7%99%d7%9d-%d7%97%d7%aa%d7%9d",
+      "https://www.bagirasys.com/careers/co/bagira-systems-ltd/95.65F/%d7%a7%d7%a6%d7%99%d7%9f-%d7%aa-%d7%91%d7%98%d7%99%d7%97%d7%95%d7%aa-%d7%91%d7%aa%d7%a2%d7%91%d7%95%d7%a8%d7%94-%d7%94%d7%99%d7%a7%d7%a3-%d7%9e%d7%a9%d7%a8%d7%94-%d7%a9%d7%9c-60-80"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 13,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 44,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 45,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 46,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 47,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 48,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 53,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 54,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 55,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 56,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 57,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 58,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 59,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 60,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 61,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 62,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 63,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 64,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 65,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 66,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 67,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 68,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 69,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 70,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 71,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 72,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 73,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 74,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 75,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 76,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 77,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 78,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 79,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 80,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 81,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 82,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 83,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 84,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 85,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 86,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "0988a287ce63a0acaee5d82d6e521c00e68262f4",
+    "candidate_count": 90
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 41
+  },
+  "rediscover_after": "2026-10-05T10:08:31.340928Z",
+  "notes": []
+}
