@@ -1,0 +1,48 @@
+{
+  "company_id": "ta9",
+  "schema_version": 1,
+  "career_url": "https://t-a9.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:17:38.570680Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "99f40bb3672b3be21e104a61c69abb1e77db1c89",
+    "candidate_count": 12
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 0
+  },
+  "rediscover_after": "2026-10-05T11:17:38.570680Z",
+  "notes": []
+}

@@ -1,0 +1,122 @@
+{
+  "company_id": "sap",
+  "schema_version": 1,
+  "career_url": "https://jobs.sap.com/search/?q=Israel",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:15:54.552002Z",
+  "verified_at": "2026-09-28T11:15:54.552002Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?jobs\\.sap\\.com/en/jobs/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?jobs\\.sap\\.com/en/[^/?#]+/?$",
+      "^https?://(www\\.)?jobs\\.sap\\.com/en/jobs/[^/?#]+/?$",
+      "^https?://(www\\.)?dremio\\.com/careers/[^/?#]+/?$",
+      "^https?://(www\\.)?reltio\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?taulia\\.com/company/[^/?#]+/?$",
+      "^https?://(www\\.)?walkme\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?linkedin\\.com/company/sap/[^/?#]+/?$",
+      "^https?://(www\\.)?careers\\.sap\\.com/en/lp/Talent_Community_HD/[^/?#]+/?$"
+    ],
+    "url_shape": "jobs.sap.com|en/jobs/744000152133269|4",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 35,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 39,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "2bb0ada2b4954091cbadf35f5d7adda6933c6f72",
+    "candidate_count": 44
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 4
+  },
+  "rediscover_after": "2026-10-05T11:15:54.552002Z",
+  "notes": []
+}

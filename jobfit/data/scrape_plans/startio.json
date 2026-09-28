@@ -1,0 +1,75 @@
+{
+  "company_id": "startio",
+  "schema_version": 1,
+  "career_url": "https://www.start.io/career/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:17:20.702864Z",
+  "verified_at": "2026-09-28T11:17:20.702864Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?start\\.io/career/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?start\\.io/[^/?#]+/?$"
+    ],
+    "url_shape": "start.io|career/co/operations/00.177/professional-services-engineer|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "8e6192d0f6b2e131f1d05e6556fc0c92863c31f0",
+    "candidate_count": 24
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": "2026-10-05T11:17:20.702864Z",
+  "notes": []
+}

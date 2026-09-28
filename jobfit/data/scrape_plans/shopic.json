@@ -1,0 +1,66 @@
+{
+  "company_id": "shopic",
+  "schema_version": 1,
+  "career_url": "https://www.shopic.co/career/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:16:38.882409Z",
+  "verified_at": "2026-09-28T11:16:38.882409Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?shopic\\.co/job/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?shopic\\.co/[^/?#]+/?$",
+      "^https?://(www\\.)?shopic\\.co/career/[^/?#]+/?$"
+    ],
+    "url_shape": "shopic.co|job|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "cca562aaa5d98f6c0b197b68c97b29c1a9b5c397",
+    "candidate_count": 18
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": "2026-10-05T11:16:38.882409Z",
+  "notes": []
+}
