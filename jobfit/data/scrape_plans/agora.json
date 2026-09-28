@@ -1,0 +1,104 @@
+{
+  "company_id": "agora",
+  "schema_version": 1,
+  "career_url": "https://www.agorareal.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:00:41.366035Z",
+  "verified_at": "2026-09-28T10:00:41.366035Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?agorareal\\.com/co/sales/40\\.377/sdr\\-team\\-lead/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?agorareal\\.com/blog/[^/?#]+/?$",
+      "^https?://(www\\.)?themarker\\.com/labels/cfo/2026\\-06\\-08/ty\\-article\\-labels/[^/?#]+/?$",
+      "^https?://(www\\.)?mako\\.co\\.il/nexter\\-news/[^/?#]+/?$",
+      "^https?://(www\\.)?agorareal\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?iubenda\\.com/dsar\\-form/en/[^/?#]+/?$"
+    ],
+    "url_shape": "agorareal.com|co/sales/40.377/sdr-team-lead|5",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 6,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 24,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 64,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 90,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "c063d10249ce97794745db3144d3a0ca3bbbe760",
+    "candidate_count": 91
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": "2026-10-05T10:00:41.366035Z",
+  "notes": []
+}

@@ -1,0 +1,55 @@
+{
+  "company_id": "argu",
+  "schema_version": 1,
+  "career_url": "https://argu.ai/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:01:18.898008Z",
+  "verified_at": "2026-09-28T10:01:18.898008Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?argu\\.ai/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?argu\\.ai/[^/?#]+/?$"
+    ],
+    "url_shape": "argu.ai|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "0f54fd4ee8050b808e66778b53b48dc0bb90dc2d",
+    "candidate_count": 18
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": "2026-10-05T10:01:18.898008Z",
+  "notes": []
+}

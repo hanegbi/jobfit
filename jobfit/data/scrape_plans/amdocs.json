@@ -1,0 +1,50 @@
+{
+  "company_id": "amdocs",
+  "schema_version": 1,
+  "career_url": "https://www.amdocs.com/careers",
+  "derived_by": "rules",
+  "model": null,
+  "derived_at": "2026-09-28T10:00:59.791189Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "rules: no filter accepted this link"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "e35bf905036a3c511cbc7bc69a6e1520d444e3ba",
+    "candidate_count": 1
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 0
+  },
+  "rediscover_after": "2026-10-05T10:00:59.791189Z",
+  "notes": [
+    "classifier failed (no recorded labels for https://www.amdocs.com/careers); fell back to rules"
+  ]
+}

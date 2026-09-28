@@ -1,0 +1,129 @@
+{
+  "company_id": "btg",
+  "schema_version": 1,
+  "career_url": "https://www.btgil.com/vacancies/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:01:49.113514Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?btgil\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "minisite.niloos.ai|vacancy|2",
+    "explicit_accept": [
+      "https://minisite.hunter-edge.me/vacancy/665c64e0677ed7c38152ba6a",
+      "https://minisite.niloos.ai/vacancy/6a27d20d9e6592a44174fedd",
+      "https://minisite.niloos.ai/vacancy/6a54c9259c3e6a91c8974527",
+      "https://minisite.niloos.ai/vacancy/6a4b5bc521336df1521ea658",
+      "https://minisite.niloos.ai/vacancy/6a5e0baa8e0cb7b9454a41fa",
+      "https://minisite.niloos.ai/vacancy/6a7315819376fc20627e461a",
+      "https://minisite.niloos.ai/vacancy/6aabc88a4b6ca5d1fbe55246",
+      "https://minisite.niloos.ai/vacancy/6aabc8b5e11bc8e5b33e34a5",
+      "https://minisite.niloos.ai/vacancy/6aabc93a55760c4fc1d1782e",
+      "https://minisite.niloos.ai/vacancy/6aabc99355760c4fc1d17831",
+      "https://minisite.niloos.ai/vacancy/6aabc9d755760c4fc1d17832",
+      "https://minisite.niloos.ai/vacancy/6aabca1e55760c4fc1d17834",
+      "https://minisite.niloos.ai/vacancy/6aabca6d55760c4fc1d1783b"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 20,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 22,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 23,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 34,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "38b16bb4e4e87efcf0781fda79ca368d1e65a690",
+    "candidate_count": 46
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 13
+  },
+  "rediscover_after": "2026-10-05T10:01:49.113514Z",
+  "notes": []
+}

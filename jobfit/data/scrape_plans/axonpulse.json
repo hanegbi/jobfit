@@ -1,0 +1,81 @@
+{
+  "company_id": "axonpulse",
+  "schema_version": 1,
+  "career_url": "https://axon-pulse.com/career/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:01:39.748962Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?axon\\-pulse\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "linkedin.com|jobs/view|3",
+    "explicit_accept": [
+      "https://www.linkedin.com/jobs/view/4465402526/",
+      "https://www.linkedin.com/jobs/view/4464513834/",
+      "https://www.linkedin.com/jobs/view/4464522733/",
+      "https://www.linkedin.com/jobs/view/4467550332/",
+      "https://www.linkedin.com/jobs/view/4374919433/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 5,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 6,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 8,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "a448b9ed9aeb2f85153fe306806efcd152bb34bb",
+    "candidate_count": 11
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": "2026-10-05T10:01:39.748962Z",
+  "notes": []
+}

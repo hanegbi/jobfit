@@ -1,0 +1,48 @@
+{
+  "company_id": "appsflyer",
+  "schema_version": 1,
+  "career_url": "https://careers.appsflyer.com/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:01:10.687991Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "4f8976b2fbd89659a60d847ee5b93d4ec1eb622e",
+    "candidate_count": 82
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 0
+  },
+  "rediscover_after": "2026-10-05T10:01:10.687991Z",
+  "notes": []
+}

@@ -1,0 +1,116 @@
+{
+  "company_id": "activefence",
+  "schema_version": 1,
+  "career_url": "https://alice.io/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:00:33.435052Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?alice\\.io/blog/[^/?#]+/?$",
+      "^https?://(www\\.)?alice\\.io/[^/?#]+/?$"
+    ],
+    "url_shape": "alice.io|positions|2",
+    "explicit_accept": [
+      "https://alice.io/positions/position-91_37a",
+      "https://alice.io/positions/position-2f_27e",
+      "https://alice.io/positions/position-d9_27d",
+      "https://alice.io/positions/position-96_279",
+      "https://alice.io/positions/position-96_277",
+      "https://alice.io/positions/position-96_270",
+      "https://alice.io/positions/position-66_27b",
+      "https://alice.io/positions/position-cd_171",
+      "https://alice.io/positions/position-be_070"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 34,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 35,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 36,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 38,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 39,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "07d73ea1c0cce6687e6b2db935b22806cabe6dc6",
+    "candidate_count": 52
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 9
+  },
+  "rediscover_after": "2026-10-05T10:00:33.435052Z",
+  "notes": []
+}

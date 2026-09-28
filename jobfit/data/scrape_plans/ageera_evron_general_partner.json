@@ -1,0 +1,93 @@
+{
+  "company_id": "ageera_evron_general_partner",
+  "schema_version": 1,
+  "career_url": "https://www.ageera.org/jobs/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:00:37.957435Z",
+  "verified_at": "2026-09-28T10:00:37.957435Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?ageera\\.org/jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?google\\.com/maps/place/AGEERA\\+Smart\\+Energy\\+Storage\\+Systems/@32\\.070236,34\\.783476,15z/[^/?#]+/?$",
+      "^https?://(www\\.)?ageera\\.org/wp\\-content/uploads/2026/03/[^/?#]+/?$",
+      "^https?://(www\\.)?ageera\\.org/wp\\-content/uploads/2026/02/[^/?#]+/?$",
+      "^https?://(www\\.)?ageera\\.org/wp\\-content/uploads/2026/09/[^/?#]+/?$"
+    ],
+    "url_shape": "ageera.org|jobs|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 1,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 2,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 3,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 4,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "db82cd529b986cf4c9466e8c485f68b21dc01beb",
+    "candidate_count": 20
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": "2026-10-05T10:00:37.957435Z",
+  "notes": []
+}
