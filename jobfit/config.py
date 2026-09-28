@@ -48,6 +48,14 @@ PAGE_CACHE_TTL_HOURS = GENERIC_DESC_TTL_HOURS
 # URL regexes the audit marked "not a job" - consulted by RejectListFilter.
 LINK_REJECTS_PATH = ROOT / "data" / "link_rejects.json"
 
+# Discovery (`update_jobs --discover`): the ONLY place a model is called.
+# A Haiku-class model - the user asked for "a small llm"; one classification
+# call per company, once. Never silently substitute a larger model here.
+SCRAPE_PLAN_LLM_MODEL = "claude-haiku-4-5"
+DISCOVERY_MAX_PER_RUN = 200      # companies per --discover invocation (0 = unbounded, one-time full pass)
+DISCOVERY_COOLDOWN_DAYS = 7      # minimum gap before a company is re-discovered
+DISCOVERY_CONCURRENCY = 4
+
 # The curated {company: url|null} map (781 companies) that drives which
 # companies scrape_stage() checks - distinct from COMPANY_CAREER_PAGES_CACHE
 # above, which is the older pipeline.py's tiered scrape-result cache.
