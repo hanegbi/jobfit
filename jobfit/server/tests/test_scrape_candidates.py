@@ -61,6 +61,28 @@ def test_extracts_features_for_each_anchor():
     assert docs.has_job_url_hint is False
 
 
+def test_job_url_hint_ignores_marketing_query_values_but_keeps_id_query_values():
+    """Real regression caught live: Wiz's "Get a demo" nav link carries
+    ?cta_source=careers&cta_page=/careers in its tracking params - a naive
+    full-URL substring search matches "career" there and, combined with
+    same_host, was enough to make this the sole "job" found on the page,
+    which then blocked the Playwright fallback that would have found the
+    real JS-rendered listings. A job/req id in a query VALUE (Check Point's
+    ?joborderid=0936589, Wiz's own ?gh_jid=4702745006) must still count."""
+    html = """
+    <html><body><main>
+      <a href="/demo?cta_source=careers&cta_page=/careers&cta_placement=nav">Get a demo</a>
+      <a href="/careers/job/4702745006?gh_jid=4702745006">Account Executive</a>
+      <a href="https://careers.checkpoint.com/index.php?a=show&joborderid=0936589">Security Engineer</a>
+    </main></body></html>
+    """
+    candidates = CandidateExtractor().extract(_page(html), CAREER_URL)
+    by_text = {c.text: c for c in candidates}
+    assert by_text["Get a demo"].has_job_url_hint is False
+    assert by_text["Account Executive"].has_job_url_hint is True
+    assert by_text["Security Engineer"].has_job_url_hint is True
+
+
 def test_skips_fragment_javascript_and_mailto_links_and_dedupes_by_absolute_url():
     html = """
     <a href="#top">Top of page link</a>
