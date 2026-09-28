@@ -1,0 +1,111 @@
+{
+  "company_id": "solidcam_ltd_formerly_cadtech",
+  "schema_version": 1,
+  "career_url": "https://solidcam.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:52:30.848947Z",
+  "verified_at": "2026-09-28T14:52:30.848947Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?solidcam\\.com/sc_job/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?solidcam\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?solidcam\\.com/highlights/[^/?#]+/?$",
+      "^https?://(www\\.)?solidcam\\.com/videos/[^/?#]+/?$",
+      "^https?://(www\\.)?solidcam\\.com/subscription/[^/?#]+/?$",
+      "^https?://(www\\.)?info\\.solidcam\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "solidcam.com|sc_job|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 39,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 40,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 80,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 81,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 82,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 85,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 106,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 107,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 108,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 109,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 110,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 114,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": null,
+  "notes": []
+}

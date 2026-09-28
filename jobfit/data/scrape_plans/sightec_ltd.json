@@ -1,0 +1,68 @@
+{
+  "company_id": "sightec_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.sightec.com/career",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:52:30.848947Z",
+  "verified_at": "2026-09-28T14:52:30.848947Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?sightec\\.com/career/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?sightec\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?sightec\\.com/wp\\-content/uploads/2025/11/[^/?#]+/?$"
+    ],
+    "url_shape": "sightec.com|career|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 4,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 5,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}

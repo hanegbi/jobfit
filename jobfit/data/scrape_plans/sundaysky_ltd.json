@@ -1,0 +1,74 @@
+{
+  "company_id": "sundaysky_ltd",
+  "schema_version": 1,
+  "career_url": "https://sundaysky.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:52:30.848947Z",
+  "verified_at": "2026-09-28T14:52:30.848947Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?sundaysky\\.com/careers/co/us/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?sundaysky\\.com/solutions/[^/?#]+/?$",
+      "^https?://(www\\.)?sundaysky\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?sundaysky\\.com/jp/[^/?#]+/?$"
+    ],
+    "url_shape": "sundaysky.com|careers/co/us/2C.27E/senior-full-stack-engineer|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 47,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 48,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 64,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}

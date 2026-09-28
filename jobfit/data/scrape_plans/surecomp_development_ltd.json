@@ -1,0 +1,118 @@
+{
+  "company_id": "surecomp_development_ltd",
+  "schema_version": 1,
+  "career_url": "https://surecomp.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:52:30.848947Z",
+  "verified_at": "2026-09-28T14:52:30.848947Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?surecomp\\.com/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?surecomp\\.com/solutions/for\\-financial\\-institutions/[^/?#]+/?$",
+      "^https?://(www\\.)?surecomp\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?surecomp\\.com/careers/co/global\\-business\\-growth/[^/?#]+/?$",
+      "^https?://(www\\.)?surecomp\\.com/careers/co/global\\-delivery/[^/?#]+/?$",
+      "^https?://(www\\.)?surecomp\\.com/careers/co/global\\-operations/[^/?#]+/?$",
+      "^https?://(www\\.)?surecomp\\.com/careers/co/global\\-rd/[^/?#]+/?$",
+      "^https?://(www\\.)?surecomp\\.com/wp\\-content/uploads/2020/06/[^/?#]+/?$"
+    ],
+    "url_shape": "surecomp.com|careers/co/kfar-saba-israel/A9.968/sales-business-operations-manager|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 34,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 35,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 39,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 7
+  },
+  "rediscover_after": null,
+  "notes": []
+}

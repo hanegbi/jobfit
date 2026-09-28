@@ -1,0 +1,108 @@
+{
+  "company_id": "slice_global_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.sliceglobal.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:52:30.848947Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?sliceglobal\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "linkedin.com|jobs/view|3",
+    "explicit_accept": [
+      "https://www.linkedin.com/jobs/view/4423969436/",
+      "https://www.linkedin.com/jobs/view/4466898729/",
+      "https://www.linkedin.com/jobs/view/4451407934/",
+      "https://www.linkedin.com/jobs/view/4462925709/",
+      "https://www.linkedin.com/jobs/view/4426050384/",
+      "https://www.linkedin.com/jobs/view/4450976457/",
+      "https://www.linkedin.com/jobs/view/4426045462/",
+      "https://www.linkedin.com/jobs/view/4462693752/",
+      "https://www.linkedin.com/jobs/view/4463510775/",
+      "https://www.linkedin.com/jobs/view/4467508586/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 34,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 35,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 36,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 38,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 39,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 10
+  },
+  "rediscover_after": null,
+  "notes": []
+}

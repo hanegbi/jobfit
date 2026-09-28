@@ -1,0 +1,123 @@
+{
+  "company_id": "solidus_labs_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.soliduslabs.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:52:30.848947Z",
+  "verified_at": "2026-09-28T14:52:30.848947Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?soliduslabs\\.com/positions/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?soliduslabs\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?soliduslabs\\.com/reports/[^/?#]+/?$"
+    ],
+    "url_shape": "soliduslabs.com|positions|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 36,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 40,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 53,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 54,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 55,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 56,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 57,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 58,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 59,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 60,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 61,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 12
+  },
+  "rediscover_after": null,
+  "notes": []
+}

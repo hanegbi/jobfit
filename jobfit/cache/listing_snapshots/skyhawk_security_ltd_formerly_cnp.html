@@ -1,0 +1,2023 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+	window.dataLayer = window.dataLayer || [];
+
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+
+	gtag("consent", "default", {
+		ad_personalization: "denied",
+		ad_storage: "denied",
+		ad_user_data: "denied",
+		analytics_storage: "denied",
+		functionality_storage: "denied",
+		personalization_storage: "denied",
+		security_storage: "granted",
+		wait_for_update: 500,
+	});
+	gtag("set", "ads_data_redaction", true);
+	</script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+		(function (w, d, s, l, i) {
+		w[l] = w[l] || [];
+		w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+		var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l !== 'dataLayer' ? '&l=' + l : '';
+		j.async = true;
+		j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+		f.parentNode.insertBefore(j, f);
+	})(
+		window,
+		document,
+		'script',
+		'dataLayer',
+		'GTM-NJGS5ZWP'
+	);
+</script>
+<script type="text/javascript"
+		id="Cookiebot"
+		src="https://consent.cookiebot.com/uc.js"
+		data-implementation="wp"
+		data-cbid="74ebe664-3fcf-43ed-bec9-b7a5e6140dff"
+		data-georegions="{'region':'US','cbid':'f702c1f9-ceec-4e4e-a70a-9814ae67f82e'},{'region':'US-06','cbid':'6570d7b2-7c1f-450e-85dd-58493f99fb18'}"						></script>
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v27.7 (Yoast SEO v27.8) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+	<title>Join Us! - Skyhawk Security</title>
+<link data-rocket-prefetch href="https://consent.cookiebot.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://fonts.googleapis.com" rel="dns-prefetch">
+<link data-rocket-preload as="style" href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" rel="preload">
+<link crossorigin data-rocket-preload as="font" href="https://skyhawk.security/wp-content/uploads/2024/02/AlbertSans-Regular.ttf" rel="preload">
+<link href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" media="print" onload="this.media=&#039;all&#039;" rel="stylesheet">
+<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap"></noscript><link rel="preload" data-rocket-preload as="image" href="https://skyhawk.security/wp-content/plugins/wp-job-openings/assets/img/loading.svg" fetchpriority="high">
+	<link rel="canonical" href="https://skyhawk.security/join-us/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Join Us!" />
+	<meta property="og:description" content="Open Positions Join Skyhawk to help customers realize a proactive cloud security strategy for the very first time." />
+	<meta property="og:url" content="https://skyhawk.security/join-us/" />
+	<meta property="og:site_name" content="Skyhawk Security" />
+	<meta property="article:modified_time" content="2025-11-17T16:38:45+00:00" />
+	<meta property="og:image" content="https://skyhawk.security/wp-content/uploads/2025/08/BgTop3-response.png" />
+	<meta property="og:image:width" content="200" />
+	<meta property="og:image:height" content="200" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://skyhawk.security/wp-content/uploads/2025/08/BgTop3-response.png" />
+	<meta name="twitter:site" content="@SkyhawkCloudSec" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="1 minute" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/skyhawk.security\/join-us\/","url":"https:\/\/skyhawk.security\/join-us\/","name":"Join Us! - Skyhawk Security","isPartOf":{"@id":"https:\/\/skyhawk.security\/#website"},"primaryImageOfPage":{"@id":"https:\/\/skyhawk.security\/join-us\/#primaryimage"},"image":{"@id":"https:\/\/skyhawk.security\/join-us\/#primaryimage"},"thumbnailUrl":"https:\/\/skyhawk.security\/wp-content\/uploads\/2025\/10\/skysecurity-logo.png","datePublished":"2025-03-17T20:58:32+00:00","dateModified":"2025-11-17T16:38:45+00:00","breadcrumb":{"@id":"https:\/\/skyhawk.security\/join-us\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/skyhawk.security\/join-us\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/skyhawk.security\/join-us\/#primaryimage","url":"https:\/\/skyhawk.security\/wp-content\/uploads\/2025\/10\/skysecurity-logo.png","contentUrl":"https:\/\/skyhawk.security\/wp-content\/uploads\/2025\/10\/skysecurity-logo.png","width":200,"height":200},{"@type":"BreadcrumbList","@id":"https:\/\/skyhawk.security\/join-us\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/skyhawk.security\/"},{"@type":"ListItem","position":2,"name":"Join Us!"}]},{"@type":"WebSite","@id":"https:\/\/skyhawk.security\/#website","url":"https:\/\/skyhawk.security\/","name":"Skyhawk Security","description":"","publisher":{"@id":"https:\/\/skyhawk.security\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/skyhawk.security\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/skyhawk.security\/#organization","name":"Skyhawk Security","url":"https:\/\/skyhawk.security\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/skyhawk.security\/#\/schema\/logo\/image\/","url":"https:\/\/skyhawk.security\/wp-content\/uploads\/2023\/09\/skyhalk-logo2.png","contentUrl":"https:\/\/skyhawk.security\/wp-content\/uploads\/2023\/09\/skyhalk-logo2.png","width":222,"height":63,"caption":"Skyhawk Security"},"image":{"@id":"https:\/\/skyhawk.security\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/x.com\/SkyhawkCloudSec","https:\/\/www.linkedin.com\/company\/skyhawkcloudsecurity\/"]}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Skyhawk Security &raquo; Feed" href="https://skyhawk.security/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Skyhawk Security &raquo; Comments Feed" href="https://skyhawk.security/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://skyhawk.security/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fskyhawk.security%2Fjoin-us%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://skyhawk.security/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fskyhawk.security%2Fjoin-us%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-styles-placeholder-inline-css">
+:root { --wp-internal-comment: "Placeholder for wp_hoist_late_printed_styles() to replace with the block styles printed at wp_footer." }
+/*# sourceURL=wp-block-styles-placeholder-inline-css */
+</style>
+<link rel='stylesheet' id='jet-engine-frontend-css' href='https://skyhawk.security/wp-content/plugins/jet-engine/assets/css/frontend.css?ver=3.8.10.1' media='all' />
+<style id="wp-global-styles-placeholder-inline-css">
+:root { --wp-internal-comment: "Placeholder for wp_hoist_late_printed_styles() to replace with the global-styles printed at wp_footer." }
+/*# sourceURL=wp-global-styles-placeholder-inline-css */
+</style>
+<link rel='stylesheet' id='awsm-jobs-general-css' href='https://skyhawk.security/wp-content/plugins/wp-job-openings/assets/css/general.min.css?ver=4.0.1' media='all' />
+<link rel='stylesheet' id='awsm-jobs-style-css' href='https://skyhawk.security/wp-content/cache/background-css/1/skyhawk.security/wp-content/plugins/wp-job-openings/assets/css/style.min.css?ver=4.0.1&wpr_t=1790616479' media='all' />
+<link rel='stylesheet' id='hello-elementor-css' href='https://skyhawk.security/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.4.9' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://skyhawk.security/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.4.9' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://skyhawk.security/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.4.9' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://skyhawk.security/wp-content/uploads/elementor/css/custom-frontend.min.css?ver=1790411050' media='all' />
+<link rel='stylesheet' id='elementor-post-1476-css' href='https://skyhawk.security/wp-content/cache/background-css/1/skyhawk.security/wp-content/uploads/elementor/css/post-1476.css?ver=1790411050&wpr_t=1790616479' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://skyhawk.security/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.1.3' media='all' />
+<link rel='stylesheet' id='widget-nav-menu-css' href='https://skyhawk.security/wp-content/uploads/elementor/css/custom-pro-widget-nav-menu.min.css?ver=1790411050' media='all' />
+<link rel='stylesheet' id='e-sticky-css' href='https://skyhawk.security/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=4.1.1' media='all' />
+<link rel='stylesheet' id='widget-divider-css' href='https://skyhawk.security/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=4.1.3' media='all' />
+<link rel='stylesheet' id='widget-menu-anchor-css' href='https://skyhawk.security/wp-content/plugins/elementor/assets/css/widget-menu-anchor.min.css?ver=4.1.3' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://skyhawk.security/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.1.3' media='all' />
+<link rel='stylesheet' id='widget-form-css' href='https://skyhawk.security/wp-content/plugins/elementor-pro/assets/css/widget-form.min.css?ver=4.1.1' media='all' />
+<link rel='stylesheet' id='widget-social-icons-css' href='https://skyhawk.security/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=4.1.3' media='all' />
+<link rel='stylesheet' id='e-apple-webkit-css' href='https://skyhawk.security/wp-content/uploads/elementor/css/custom-apple-webkit.min.css?ver=1790411050' media='all' />
+<link rel='stylesheet' id='widget-icon-list-css' href='https://skyhawk.security/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css?ver=1790411050' media='all' />
+<link rel='stylesheet' id='e-animation-fadeIn-css' href='https://skyhawk.security/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=4.1.3' media='all' />
+<link rel='stylesheet' id='e-popup-css' href='https://skyhawk.security/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=4.1.1' media='all' />
+<link rel='stylesheet' id='widget-spacer-css' href='https://skyhawk.security/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=4.1.3' media='all' />
+<link rel='stylesheet' id='elementor-post-2637-css' href='https://skyhawk.security/wp-content/uploads/elementor/css/post-2637.css?ver=1790413442' media='all' />
+<link rel='stylesheet' id='elementor-post-1524-css' href='https://skyhawk.security/wp-content/cache/background-css/1/skyhawk.security/wp-content/uploads/elementor/css/post-1524.css?ver=1790411051&wpr_t=1790616479' media='all' />
+<link rel='stylesheet' id='elementor-post-1551-css' href='https://skyhawk.security/wp-content/cache/background-css/1/skyhawk.security/wp-content/uploads/elementor/css/post-1551.css?ver=1790411051&wpr_t=1790616479' media='all' />
+<link rel='stylesheet' id='elementor-post-1844-css' href='https://skyhawk.security/wp-content/uploads/elementor/css/post-1844.css?ver=1790411051' media='all' />
+<link rel='stylesheet' id='tablepress-default-css' href='https://skyhawk.security/wp-content/tablepress-combined.min.css?ver=4' media='all' />
+<style id="elementor-pro-custom-fonts-inline-css">
+@font-face {
+	font-family: 'Albert Sans';
+	font-style: normal;
+	font-weight: 100;
+	font-display: auto;
+	src: url('https://skyhawk.security/wp-content/uploads/2024/02/AlbertSans-Thin.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Albert Sans';
+	font-style: normal;
+	font-weight: 200;
+	font-display: auto;
+	src: url('https://skyhawk.security/wp-content/uploads/2024/02/AlbertSans-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Albert Sans';
+	font-style: normal;
+	font-weight: 300;
+	font-display: auto;
+	src: url('https://skyhawk.security/wp-content/uploads/2024/02/AlbertSans-Light.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Albert Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-display: auto;
+	src: url('https://skyhawk.security/wp-content/uploads/2024/02/AlbertSans-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Albert Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-display: auto;
+	src: url('https://skyhawk.security/wp-content/uploads/2024/02/AlbertSans-Medium.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Albert Sans';
+	font-style: normal;
+	font-weight: 600;
+	font-display: auto;
+	src: url('https://skyhawk.security/wp-content/uploads/2024/02/AlbertSans-SemiBold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Albert Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-display: auto;
+	src: url('https://skyhawk.security/wp-content/uploads/2024/02/AlbertSans-Bold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Albert Sans';
+	font-style: normal;
+	font-weight: 800;
+	font-display: auto;
+	src: url('https://skyhawk.security/wp-content/uploads/2024/02/AlbertSans-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Albert Sans';
+	font-style: normal;
+	font-weight: 900;
+	font-display: auto;
+	src: url('https://skyhawk.security/wp-content/uploads/2024/02/AlbertSans-Black.ttf') format('truetype');
+}
+
+/*# sourceURL=elementor-pro-custom-fonts-inline-css */
+</style>
+<link rel='stylesheet' id='jquery-chosen-css' href='https://skyhawk.security/wp-content/cache/background-css/1/skyhawk.security/wp-content/plugins/jet-search/assets/lib/chosen/chosen.min.css?ver=1.8.7&wpr_t=1790616479' media='all' />
+<link rel='stylesheet' id='jet-search-css' href='https://skyhawk.security/wp-content/plugins/jet-search/assets/css/jet-search.css?ver=3.6.1.1' media='all' />
+<link rel='stylesheet' id='awsm-job-pro-flatpickr-css' href='https://skyhawk.security/wp-content/plugins/pro-pack-for-wp-job-openings/assets/css/flatpickr.min.css?ver=4.6.9' media='all' />
+<link rel='stylesheet' id='awsm-job-pro-country-select-css' href='https://skyhawk.security/wp-content/cache/background-css/1/skyhawk.security/wp-content/plugins/pro-pack-for-wp-job-openings/assets/css/intlTelInput.min.css?ver=17.0.16&wpr_t=1790616479' media='all' />
+<link rel='stylesheet' id='awsm-job-pro-style-css' href='https://skyhawk.security/wp-content/plugins/pro-pack-for-wp-job-openings/assets/css/style.min.css?ver=4.0.1' media='all' />
+<link rel='stylesheet' id='eael-general-css' href='https://skyhawk.security/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/general.min.css?ver=6.6.7' media='all' />
+
+<script id="jquery-core-js" src="https://skyhawk.security/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script type="text/rocketlazyloadscript" id="jquery-migrate-js" data-rocket-src="https://skyhawk.security/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" data-rocket-defer defer></script>
+<script id="wp-consent-api-js-extra">
+var consent_api = {"consent_type":"optin","waitfor_consent_hook":"","cookie_expiration":"30","cookie_prefix":"wp_consent","services":[]};
+//# sourceURL=wp-consent-api-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="wp-consent-api-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/wp-consent-api/assets/js/wp-consent-api.min.js?ver=2.0.1" data-rocket-defer defer></script>
+<script id="cookiebot-wp-consent-level-api-integration-js-extra">
+var cookiebot_category_mapping = {"n=1;p=1;s=1;m=1":{"preferences":1,"statistics":1,"statistics-anonymous":0,"marketing":1},"n=1;p=1;s=1;m=0":{"preferences":1,"statistics":1,"statistics-anonymous":1,"marketing":0},"n=1;p=1;s=0;m=1":{"preferences":1,"statistics":0,"statistics-anonymous":0,"marketing":1},"n=1;p=1;s=0;m=0":{"preferences":1,"statistics":0,"statistics-anonymous":0,"marketing":0},"n=1;p=0;s=1;m=1":{"preferences":0,"statistics":1,"statistics-anonymous":0,"marketing":1},"n=1;p=0;s=1;m=0":{"preferences":0,"statistics":1,"statistics-anonymous":0,"marketing":0},"n=1;p=0;s=0;m=1":{"preferences":0,"statistics":0,"statistics-anonymous":0,"marketing":1},"n=1;p=0;s=0;m=0":{"preferences":0,"statistics":0,"statistics-anonymous":0,"marketing":0}};
+var cookiebot_consent_type = {"type":"optin"};
+//# sourceURL=cookiebot-wp-consent-level-api-integration-js-extra
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="cookiebot-wp-consent-level-api-integration-js" data-rocket-src="https://skyhawk.security/wp-content/cache/min/1/wp-content/plugins/cookiebot/assets/js/frontend/cb_frame/cookiebot-wp-consent-level-api-integration.js?ver=1783009140" data-rocket-defer defer></script>
+<link rel="https://api.w.org/" href="https://skyhawk.security/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://skyhawk.security/wp-json/wp/v2/pages/2637" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://skyhawk.security/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://skyhawk.security/?p=2637' />
+<script type="text/rocketlazyloadscript">
+
+            if (typeof console !== "undefined") {
+
+                console.log = function() {};
+
+                console.error = function() {};
+
+                console.warn = function() {};
+
+                console.debug = function() {};
+
+            }
+
+        </script>
+
+
+
+
+
+<meta name="generator" content="Elementor 4.1.3; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<script type="text/rocketlazyloadscript">// Parse the URL
+
+function getParameterByName(name) {
+
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+
+        results = regex.exec(location.search);
+
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+
+}
+
+// Give the URL parameters variable names
+
+var source = getParameterByName('utm_source');
+
+var medium = getParameterByName('utm_medium');
+
+var campaign = getParameterByName('utm_campaign');
+
+ 
+
+// Put the variable names into the hidden fields in the form.
+
+document.getElementsByName("utm_source").value = source;
+
+document.getElementsByName("utm_medium").value = medium;
+
+document.getElementsByName("utm_campaign").value = campaign;
+
+</script><link rel="icon" href="https://skyhawk.security/wp-content/uploads/2022/11/cropped-pavicon-03-e1669803230108-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://skyhawk.security/wp-content/uploads/2022/11/cropped-pavicon-03-e1669803230108-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://skyhawk.security/wp-content/uploads/2022/11/cropped-pavicon-03-e1669803230108-180x180.png" />
+<meta name="msapplication-TileImage" content="https://skyhawk.security/wp-content/uploads/2022/11/cropped-pavicon-03-e1669803230108-270x270.png" />
+<style id="wp-custom-css">
+:root {
+	--inline-padding: clamp(16px, calc(1rem + ((1vw - 5.99px) * 8.4784)), 128px);
+	--block-padding: 212px;
+}
+
+body {	
+	--color-light-bg: var(--e-global-color-6383a9c);
+	
+	--color-carbon-50: var(--e-global-color-2d56fab);
+	--color-carbon-100: var(--e-global-color-53d56dd);
+	--color-carbon-500: var(--e-global-color-725163f);
+	--color-carbon-600: var(--e-global-color-f2a466a);
+	--color-carbon-800: var( --e-global-color-ea67619 );
+	--color-carbon-900: var(--e-global-color-705ca1e);
+	--color-primary-900: #002470;
+	--header-content-color: white;
+	--scrolled-header-content-color: white;
+	--footer-content-color: white;;
+	
+	
+}
+
+body.light-hero {
+	--header-content-color: var(--color-carbon-900);
+	--scrolled-header-content-color: var(--color-carbon-900);
+}
+
+body.light-footer {
+	--footer-content-color: var(--color-primary-900);
+}
+
+body.light-footer footer.footer {
+	 background-image: none!important; 
+	 background-color: #EBF1FF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+
+.dynamic-font-fix {
+	min-height: 0vw;
+}
+
+a,a:hover {
+	color: unset;
+}
+
+a.content-cta-link {
+    background-color: #6C00DB;
+    color: white!important;
+    padding: .25em .75em;
+    border-radius: 5px;
+    text-decoration: none!important;
+    border: 1px solid #6C00DB;
+}
+
+a.content-cta-link:hover {
+    background-color: white;
+    color: #6C00DB!important;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.post-password-required {
+    background-color: var(--e-global-color-primary);
+    color: white;
+    padding: calc(var(--header-height) + 3rem) 3rem 3rem;
+}
+
+.eyebrow .elementor-heading-title {
+	background-color: #D6E3FF;
+	padding: 4px 6px;
+	border-radius: 4px;
+	border: 1px solid rgba(255,255,255,0.5);
+	font-weight: 600;
+	line-height: 1.35;
+	color: #1D60F0;
+}
+
+.eyebrow.light .elementor-heading-title {
+	border-color #FFF;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.primary-button .elementor-button {
+	display: inline-flex;
+	padding: 24px 56px;
+	justify-content: center;
+	align-items: center;
+	gap: 24px;
+	border-radius: 38px;
+	background: linear-gradient(179deg, #FFF 18.89%, rgba(255, 255, 255, 0.40) 176.2%);
+	color: var(--carbon-900, #142033);
+	font-size: clamp(16px, calc(1rem + ((1vw - 6px) * 0.303)), 20px);
+	font-weight: 600;
+	line-height: 1; 
+}
+
+.primary-button .elementor-button:hover {
+	background: linear-gradient(179deg, rgba(255, 255, 255, 0.80) 18.89%, rgba(255, 255, 255, 0.40) 176.2%);
+}
+
+.primary-button.primary-color .elementor-button {
+	background: var(--color-primary-900);
+	color: white;
+}
+
+@media (min-width: 1025px) {
+	.main-nav a.elementor-item-active:after {
+			content: "";
+			height: 1px;
+			width: calc(100% - 40px);
+			background-color: var(--header-content-color);
+			position: absolute;
+			bottom: 1.5em;
+			left: 1.5em;
+	}
+	
+	.scrolled .main-nav a.elementor-item-active:after {
+		background-color: var(--scrolled-header-content-color);
+	}
+	
+	.main-nav .menu-item-has-children a.elementor-item-active:after {
+		width: calc(100% - 60px);
+	}
+
+	.main-nav a.elementor-item-active:hover:after {
+		left: 1.5em;
+	}
+
+	
+
+	.main-nav a.elementor-sub-item.elementor-item-active:after {
+			left: -4px;
+			width: calc(100% - 10px);
+			background-color: var(--color-carbon-900);
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			top: 50%;
+			transform: translateY(-50%);
+	}
+
+	.main-nav a.elementor-sub-item.elementor-item-active:hover:after {
+			left: -4px;
+	}
+
+
+	.main-nav .sub-menu li.menu-item:hover {
+			background-color: #F0F3F7;
+			border-radius: 10px;
+	}
+
+}
+
+
+input[type="checkbox"]{
+	
+    --checkbox-border-width: 0px;
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    opacity: 0;
+    width: 18px;
+    height: 18px;
+    z-index: 1;
+}
+
+input[type="checkbox"] ~ label {
+		--checkbox-bg: 	rgba(255,255,255,0.3);
+    --checkbox-bg-icon: url(/wp-content/uploads/2023/11/checkbox-checked-light.svg);
+    align-items: center;
+    gap: 1em;
+    position: relative;
+    padding-left: 28px;
+    line-height: 18px!important;
+}
+
+input[type="checkbox"] ~ label:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-color: var(--checkbox-bg);
+    border-radius: 4px;
+    position: absolute!important;
+    left: 0;
+    top: 0;
+    border: var(--checkbox-border-width) solid #97A2B6;
+}
+
+input[type="checkbox"]:checked ~ label:before {
+    background-color: transparent;
+}
+
+input[type="checkbox"]:checked ~ label:after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    position: absolute!important;
+    left: 0;
+    top: 0;
+	background-image: var(--checkbox-bg-icon);
+	background-repeat: no-repeat;
+	background-size: cover;
+    border: none;
+}
+
+.light-bg input[type="checkbox"] ~ label{
+    --checkbox-bg: 	transparent;
+    --checkbox-bg-icon: url(/wp-content/uploads/2023/11/checkbox-checked-dark.svg);
+    --checkbox-border-width: 2px;
+}
+
+.dark-bg {
+	background-color: var(--e-global-color-secondary);
+	color: white;
+}
+
+
+.opacity-0 {
+	opacity: 0;
+}
+
+.opacity-50 {
+	opacity: 0.5;
+}
+
+.opacity-60 {
+	opacity: 0.6;
+}
+
+.opacity-88 {
+	opacity: 0.88;
+}
+
+
+.section-padding.e-con{
+    --padding-block-start: var(--container-default-padding-block-start, clamp(100px, calc(6.25rem + ((1vw - 6px) * 8.4848)), 212px));
+    --padding-inline-end: var(--container-default-padding-inline-end, clamp(16px, calc(1rem + ((1vw - 5.99px) * 8.4784)), 128px));
+    --padding-block-end: var(--container-default-padding-block-end, clamp(100px, calc(6.25rem + ((1vw - 6px) * 8.4848)), 212px));
+    --padding-inline-start: var(--container-default-padding-inline-start, clamp(16px, calc(1rem + ((1vw - 5.99px) * 8.4784)), 128px));
+}
+
+.inline-padding.e-con {
+    --padding-inline-start: var(--container-default-padding-inline-start, clamp(16px, calc(1rem + ((1vw - 5.99px) * 8.4784)), 128px));
+    --padding-inline-end: var(--container-default-padding-inline-end, clamp(16px, calc(1rem + ((1vw - 5.99px) * 8.4784)), 128px));
+}
+
+.block-padding.e-con {
+    --padding-block-start: var(--container-default-padding-block-start, clamp(100px, calc(6.25rem + ((1vw - 6px) * 8.4848)), 212px));
+    --padding-block-end: var(--container-default-padding-block-end, clamp(100px, calc(6.25rem + ((1vw - 6px) * 8.4848)), 212px));
+}
+
+.elementor-widget.elementor-widget-jet-listing-grid {
+    flex-basis: unset;
+}
+
+
+
+@media (min-width: 1025px) {
+    .desktop-hidden {
+        display: none!important;
+    }
+}
+
+
+@media (max-width: 1281px) {
+	:root {
+		--block-padding: 104px;
+	}
+	
+
+}
+
+@media (max-width: 1024px) {
+	
+}
+
+@media (max-width: 1024px) and (min-width: 600px) {
+    .tablet-hidden {
+        display: none!important;
+    }
+}
+
+
+@media (max-width: 599px) {
+    .mobile-hidden {
+        display: none!important;
+    }
+}
+
+
+.header__logo svg path,
+.elementor-menu-toggle svg path {
+    fill: var(--header-content-color)!important;
+}
+
+.scrolled .header__logo svg path,
+.scrolled .elementor-menu-toggle svg path {
+    fill: var(--scrolled-header-content-color)!important;
+}
+
+
+body.light-footer .footer-divider .elementor-divider-separator {
+    --divider-color: transparent;
+}
+
+/* SINGLE POSTS TEMPLATE */
+.single-post__info .elementor-post-info__item--type-author {
+    padding: 4px 6px;
+    border-radius: 4px;
+    background: #D6E3FF;
+		color: #1D60F0!important;
+}
+
+.single-post__cats .elementor-post-info__terms-list-item,
+.single-post__cats .jet-listing-dynamic-terms__link {
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: 1px solid #C2D5FF;
+    color: #1D60F0;
+}
+
+/* POST LISTING */
+.news-loop__tag {
+    background-image: linear-gradient(95.56deg, rgba(255, 255, 255, 0.4) 6.15%, rgba(255, 255, 255, 0) 89.51%);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: capitalize;
+    padding: 1px 3px 1px 1px;
+    width: max-content;
+}
+
+.news-loop__tag > div {
+    padding: 8px 12px;
+    background-color: #0d1933;
+    border-radius: 7px;
+}
+
+
+.resource-loop__tag-tag .jet-listing-dynamic-terms {
+    display: flex;
+		flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.resource-loop__cat-tag .jet-listing-dynamic-terms__link {
+    border-radius: 8px;
+    background-color:var(--color-carbon-50);
+    width: max-content;
+    padding: 0.25em 0.75em;
+		color: rgba(0, 0, 0, 0.88);
+}
+
+.resource-loop__tag-tag .jet-listing-dynamic-terms__link {
+	color: var(--color-carbon-600);
+	border: 1px solid var(--color-carbon-100);
+	width: max-content;
+	padding: 0.25em 0.75em;
+	border-radius: 8px;
+}
+
+.resource-loop__title {
+    min-height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
+
+.resource-loop .elementor-widget-image a {
+    display: block;
+}
+
+
+
+/* INFO BOX */
+.semi-transparent-box {
+    padding: clamp(15px, calc(0.9375rem + ((1vw - 6px) * 1.1364)), 30px);
+    aspect-ratio: 1;
+    border-radius: 40px;
+    border: 1.5px solid rgba(255, 255, 255, 0.90);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1.5px);
+}
+
+.semi-transparent-box__tag .elementor-heading-title {
+    color: #8C9AFF;
+    font-family: Albert Sans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.96px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(140, 154, 255, 0.50);
+    background: rgba(140, 154, 255, 0.05);
+}
+
+.hp-hero-box__tag .elementor-heading-title {
+	font-size: 16px; 
+}
+
+@media (max-width: 1024px) {
+	.semi-transparent-box {
+		border-radius: 28px;
+		aspect-ratio: unset;
+	}
+}
+
+@media (max-width: 599px) {
+	.semi-transparent-box {
+		border-radius: 20px;
+	}
+	.semi-transparent-box__tag .elementor-heading-title {
+		font-size: 16px;
+		letter-spacing: -0.24px;
+		border-radius: 4px;
+        border: 0.5px solid rgba(200, 166, 255, 0.50);
+        background: rgba(200, 166, 255, 0.05);
+	}
+}
+
+.hero-box {
+    background-image: linear-gradient(156.81deg, rgba(255, 255, 255, 0.9) 1.47%, rgba(255, 255, 255, 0.2) 69.81%);
+    border-radius: 40px;
+		padding: 1px;
+		width: 30%;
+		aspect-ratio: 54 / 38;
+}
+
+.hero-box-internal {
+    padding: clamp(24px, calc(1.5rem + ((1vw - 5.99px) * 1.8168)), 48px) clamp(16px, calc(1rem + ((1vw - 5.99px) * 1.8168)), 40px) ;
+    border-radius: 40px;
+		background-color: var(--e-global-color-secondary)
+}
+
+@media (max-width: 600px) {
+	.hero-box {
+		width: 100%;
+		aspect-ratio: unset;
+		border-radius: 24px;
+	}
+	.hero-box-internal {
+		padding: 24px;
+		border-radius: 24px;
+	}
+}
+
+.grecaptcha-badge {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* FIX FOR MENU BULLET POINTS - Added 2025 */
+.menu-item, 
+.elementor-sub-item,
+.main-nav li,
+.elementor-nav-menu li,
+nav li {
+    list-style: none !important;
+}
+
+/* Also target parent UL elements */
+.elementor-nav-menu ul,
+.elementor-nav-menu--main ul,
+.elementor-nav-menu--dropdown ul,
+.main-nav ul,
+nav ul {
+    list-style: none !important;
+}
+
+/* Make Elementor menu dropdown arrows white */
+.elementor-nav-menu--dropdown .elementor-nav-menu--indicator,
+.elementor-nav-menu .elementor-item .sub-arrow {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+/* Some themes use SVG arrows */
+.elementor-nav-menu .elementor-sub-item svg,
+.elementor-nav-menu .elementor-item svg {
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
+.header__logo svg path {
+    fill: #ffffff !important;
+}
+
+.scrolled .header__logo svg path {
+    fill: #ffffff !important;
+}
+
+
+
+
+
+</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion">.awsm-job-listings::after{--wpr-bg-14e8d42d-5fb6-412b-b9c3-7dc71e105270: url('https://skyhawk.security/wp-content/plugins/wp-job-openings/assets/img/loading.svg');}</style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.main-nav .menu-item-has-children > a .sub-arrow i:before{--wpr-bg-3609eb6c-7b91-4cb1-9ed5-b4ed2beb304a: url('https://skyhawk.security/wp-content/uploads/2024/01/down-icon-carbon900.svg');}.main-nav  .menu-item-has-children > a .sub-arrow i:before{--wpr-bg-e62475e2-9dde-41c3-b25e-3301302b6faa: url('https://skyhawk.security/wp-content/uploads/2024/01/down-icon.svg');}.menu-item-has-children > a .sub-arrow i:before{--wpr-bg-b360f092-ae39-4b39-8784-55a597c8ac68: url('https://skyhawk.security/wp-content/uploads/2024/01/down-icon.svg');}.light-hero .menu-item-has-children > a .sub-arrow i:before{--wpr-bg-40e792c6-e3b7-4b3e-94d5-98fbe488cd1e: url('https://skyhawk.security/wp-content/uploads/2024/01/down-icon-carbon900.svg');}.main-nav  .menu-item-has-children > a .sub-arrow i:before,
+
+    .light-hero .menu-item-has-children > a .sub-arrow i:before{--wpr-bg-53d85538-79a5-4a31-a8b3-e0c5ab217831: url('https://skyhawk.security/wp-content/uploads/2024/01/down-icon.svg');}.elementor-1551 .elementor-element.elementor-element-f093e63:not(.elementor-motion-effects-element-type-background), .elementor-1551 .elementor-element.elementor-element-f093e63 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-da77989f-2248-41a4-bdb3-1ee6284080c4: url('https://skyhawk.security/wp-content/uploads/2023/11/footer-bg.webp');}.elementor-1551 .elementor-element.elementor-element-f093e63:not(.elementor-motion-effects-element-type-background), .elementor-1551 .elementor-element.elementor-element-f093e63 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-377adb25-e6f8-49a9-a669-61f1b1631e31: url('https://skyhawk.security/wp-content/uploads/2023/11/footer-bg-tablet.webp');}.elementor-1551 .elementor-element.elementor-element-f093e63:not(.elementor-motion-effects-element-type-background), .elementor-1551 .elementor-element.elementor-element-f093e63 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-353cc234-f4be-4736-9231-c2081185a37f: url('https://skyhawk.security/wp-content/uploads/2023/11/footer-bg-mobile.webp');}.chosen-container-single .chosen-single abbr{--wpr-bg-cb4c5660-cc21-4127-bb59-56e4348b4161: url('https://skyhawk.security/wp-content/plugins/jet-search/assets/lib/chosen/chosen-sprite.png');}.chosen-container-single .chosen-single div b{--wpr-bg-8775395f-fe5f-4d80-a779-b4922cc4e00b: url('https://skyhawk.security/wp-content/plugins/jet-search/assets/lib/chosen/chosen-sprite.png');}.chosen-container-single .chosen-search input[type=text]{--wpr-bg-2e5311ac-a28b-4c0b-9e54-6ca517b62e0b: url('https://skyhawk.security/wp-content/plugins/jet-search/assets/lib/chosen/chosen-sprite.png');}.chosen-container-multi .chosen-choices li.search-choice .search-choice-close{--wpr-bg-eb43c9a0-b089-4c55-abe7-90dbfc475c3c: url('https://skyhawk.security/wp-content/plugins/jet-search/assets/lib/chosen/chosen-sprite.png');}.chosen-rtl .chosen-search input[type=text]{--wpr-bg-9cc775f4-7ca7-4fca-8598-01aee022d86c: url('https://skyhawk.security/wp-content/plugins/jet-search/assets/lib/chosen/chosen-sprite.png');}.chosen-container .chosen-results-scroll-down span,.chosen-container .chosen-results-scroll-up span,.chosen-container-multi .chosen-choices .search-choice .search-choice-close,.chosen-container-single .chosen-search input[type=text],.chosen-container-single .chosen-single abbr,.chosen-container-single .chosen-single div b,.chosen-rtl .chosen-search input[type=text]{--wpr-bg-446bbddf-fd10-48b7-86ad-91850d0bfbe5: url('https://skyhawk.security/wp-content/plugins/jet-search/assets/lib/chosen/chosen-sprite@2x.png');}.iti__flag{--wpr-bg-26dde68a-5505-4f38-a0c6-8d12ec735fa6: url('https://skyhawk.security/wp-content/plugins/pro-pack-for-wp-job-openings/assets/img/flags.png');}.iti__flag{--wpr-bg-48ce8318-47b7-4472-b66b-a9545b414dab: url('https://skyhawk.security/wp-content/plugins/pro-pack-for-wp-job-openings/assets/img/flags@2x.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":".main-nav .menu-item-has-children > a .sub-arrow i","style":".main-nav .menu-item-has-children > a .sub-arrow i:before{--wpr-bg-3609eb6c-7b91-4cb1-9ed5-b4ed2beb304a: url('https:\/\/skyhawk.security\/wp-content\/uploads\/2024\/01\/down-icon-carbon900.svg');}","hash":"3609eb6c-7b91-4cb1-9ed5-b4ed2beb304a","url":"https:\/\/skyhawk.security\/wp-content\/uploads\/2024\/01\/down-icon-carbon900.svg"},{"selector":".main-nav  .menu-item-has-children > a .sub-arrow i","style":".main-nav  .menu-item-has-children > a .sub-arrow i:before{--wpr-bg-e62475e2-9dde-41c3-b25e-3301302b6faa: url('https:\/\/skyhawk.security\/wp-content\/uploads\/2024\/01\/down-icon.svg');}","hash":"e62475e2-9dde-41c3-b25e-3301302b6faa","url":"https:\/\/skyhawk.security\/wp-content\/uploads\/2024\/01\/down-icon.svg"},{"selector":".menu-item-has-children > a .sub-arrow i","style":".menu-item-has-children > a .sub-arrow i:before{--wpr-bg-b360f092-ae39-4b39-8784-55a597c8ac68: url('https:\/\/skyhawk.security\/wp-content\/uploads\/2024\/01\/down-icon.svg');}","hash":"b360f092-ae39-4b39-8784-55a597c8ac68","url":"https:\/\/skyhawk.security\/wp-content\/uploads\/2024\/01\/down-icon.svg"},{"selector":".light-hero .menu-item-has-children > a .sub-arrow i","style":".light-hero .menu-item-has-children > a .sub-arrow i:before{--wpr-bg-40e792c6-e3b7-4b3e-94d5-98fbe488cd1e: url('https:\/\/skyhawk.security\/wp-content\/uploads\/2024\/01\/down-icon-carbon900.svg');}","hash":"40e792c6-e3b7-4b3e-94d5-98fbe488cd1e","url":"https:\/\/skyhawk.security\/wp-content\/uploads\/2024\/01\/down-icon-carbon900.svg"},{"selector":".main-nav  .menu-item-has-children > a .sub-arrow i,\r\n    .light-hero .menu-item-has-children > a .sub-arrow i","style":".main-nav  .menu-item-has-children > a .sub-arrow i:before,\r\n    .light-hero .menu-item-has-children > a .sub-arrow i:before{--wpr-bg-53d85538-79a5-4a31-a8b3-e0c5ab217831: url('https:\/\/skyhawk.security\/wp-content\/uploads\/2024\/01\/down-icon.svg');}","hash":"53d85538-79a5-4a31-a8b3-e0c5ab217831","url":"https:\/\/skyhawk.security\/wp-content\/uploads\/2024\/01\/down-icon.svg"},{"selector":".elementor-1551 .elementor-element.elementor-element-f093e63:not(.elementor-motion-effects-element-type-background), .elementor-1551 .elementor-element.elementor-element-f093e63 > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":".elementor-1551 .elementor-element.elementor-element-f093e63:not(.elementor-motion-effects-element-type-background), .elementor-1551 .elementor-element.elementor-element-f093e63 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-da77989f-2248-41a4-bdb3-1ee6284080c4: url('https:\/\/skyhawk.security\/wp-content\/uploads\/2023\/11\/footer-bg.webp');}","hash":"da77989f-2248-41a4-bdb3-1ee6284080c4","url":"https:\/\/skyhawk.security\/wp-content\/uploads\/2023\/11\/footer-bg.webp"},{"selector":".elementor-1551 .elementor-element.elementor-element-f093e63:not(.elementor-motion-effects-element-type-background), .elementor-1551 .elementor-element.elementor-element-f093e63 > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":".elementor-1551 .elementor-element.elementor-element-f093e63:not(.elementor-motion-effects-element-type-background), .elementor-1551 .elementor-element.elementor-element-f093e63 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-377adb25-e6f8-49a9-a669-61f1b1631e31: url('https:\/\/skyhawk.security\/wp-content\/uploads\/2023\/11\/footer-bg-tablet.webp');}","hash":"377adb25-e6f8-49a9-a669-61f1b1631e31","url":"https:\/\/skyhawk.security\/wp-content\/uploads\/2023\/11\/footer-bg-tablet.webp"},{"selector":".elementor-1551 .elementor-element.elementor-element-f093e63:not(.elementor-motion-effects-element-type-background), .elementor-1551 .elementor-element.elementor-element-f093e63 > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":".elementor-1551 .elementor-element.elementor-element-f093e63:not(.elementor-motion-effects-element-type-background), .elementor-1551 .elementor-element.elementor-element-f093e63 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-353cc234-f4be-4736-9231-c2081185a37f: url('https:\/\/skyhawk.security\/wp-content\/uploads\/2023\/11\/footer-bg-mobile.webp');}","hash":"353cc234-f4be-4736-9231-c2081185a37f","url":"https:\/\/skyhawk.security\/wp-content\/uploads\/2023\/11\/footer-bg-mobile.webp"},{"selector":".chosen-container-single .chosen-single abbr","style":".chosen-container-single .chosen-single abbr{--wpr-bg-cb4c5660-cc21-4127-bb59-56e4348b4161: url('https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite.png');}","hash":"cb4c5660-cc21-4127-bb59-56e4348b4161","url":"https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite.png"},{"selector":".chosen-container-single .chosen-single div b","style":".chosen-container-single .chosen-single div b{--wpr-bg-8775395f-fe5f-4d80-a779-b4922cc4e00b: url('https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite.png');}","hash":"8775395f-fe5f-4d80-a779-b4922cc4e00b","url":"https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite.png"},{"selector":".chosen-container-single .chosen-search input[type=text]","style":".chosen-container-single .chosen-search input[type=text]{--wpr-bg-2e5311ac-a28b-4c0b-9e54-6ca517b62e0b: url('https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite.png');}","hash":"2e5311ac-a28b-4c0b-9e54-6ca517b62e0b","url":"https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite.png"},{"selector":".chosen-container-multi .chosen-choices li.search-choice .search-choice-close","style":".chosen-container-multi .chosen-choices li.search-choice .search-choice-close{--wpr-bg-eb43c9a0-b089-4c55-abe7-90dbfc475c3c: url('https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite.png');}","hash":"eb43c9a0-b089-4c55-abe7-90dbfc475c3c","url":"https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite.png"},{"selector":".chosen-rtl .chosen-search input[type=text]","style":".chosen-rtl .chosen-search input[type=text]{--wpr-bg-9cc775f4-7ca7-4fca-8598-01aee022d86c: url('https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite.png');}","hash":"9cc775f4-7ca7-4fca-8598-01aee022d86c","url":"https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite.png"},{"selector":".chosen-container .chosen-results-scroll-down span,.chosen-container .chosen-results-scroll-up span,.chosen-container-multi .chosen-choices .search-choice .search-choice-close,.chosen-container-single .chosen-search input[type=text],.chosen-container-single .chosen-single abbr,.chosen-container-single .chosen-single div b,.chosen-rtl .chosen-search input[type=text]","style":".chosen-container .chosen-results-scroll-down span,.chosen-container .chosen-results-scroll-up span,.chosen-container-multi .chosen-choices .search-choice .search-choice-close,.chosen-container-single .chosen-search input[type=text],.chosen-container-single .chosen-single abbr,.chosen-container-single .chosen-single div b,.chosen-rtl .chosen-search input[type=text]{--wpr-bg-446bbddf-fd10-48b7-86ad-91850d0bfbe5: url('https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite@2x.png');}","hash":"446bbddf-fd10-48b7-86ad-91850d0bfbe5","url":"https:\/\/skyhawk.security\/wp-content\/plugins\/jet-search\/assets\/lib\/chosen\/chosen-sprite@2x.png"},{"selector":".iti__flag","style":".iti__flag{--wpr-bg-26dde68a-5505-4f38-a0c6-8d12ec735fa6: url('https:\/\/skyhawk.security\/wp-content\/plugins\/pro-pack-for-wp-job-openings\/assets\/img\/flags.png');}","hash":"26dde68a-5505-4f38-a0c6-8d12ec735fa6","url":"https:\/\/skyhawk.security\/wp-content\/plugins\/pro-pack-for-wp-job-openings\/assets\/img\/flags.png"},{"selector":".iti__flag","style":".iti__flag{--wpr-bg-48ce8318-47b7-4472-b66b-a9545b414dab: url('https:\/\/skyhawk.security\/wp-content\/plugins\/pro-pack-for-wp-job-openings\/assets\/img\/flags@2x.png');}","hash":"48ce8318-47b7-4472-b66b-a9545b414dab","url":"https:\/\/skyhawk.security\/wp-content\/plugins\/pro-pack-for-wp-job-openings\/assets\/img\/flags@2x.png"}]; const rocket_excluded_pairs = [{"selector":".awsm-job-listings","style":".awsm-job-listings::after{--wpr-bg-14e8d42d-5fb6-412b-b9c3-7dc71e105270: url('https:\/\/skyhawk.security\/wp-content\/plugins\/wp-job-openings\/assets\/img\/loading.svg');}","hash":"14e8d42d-5fb6-412b-b9c3-7dc71e105270","url":"https:\/\/skyhawk.security\/wp-content\/plugins\/wp-job-openings\/assets\/img\/loading.svg"}];</script><meta name="generator" content="WP Rocket 3.21.3" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_preconnect_external_domains wpr_auto_preload_fonts wpr_oci wpr_desktop" /></head>
+<body class="wp-singular page-template page-template-elementor_header_footer page page-id-2637 wp-embed-responsive wp-theme-hello-elementor listing-page-awsm_job_openings light-hero light-footer hello-elementor-default elementor-default elementor-template-full-width elementor-kit-1476 elementor-page elementor-page-2637">
+
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header  data-elementor-type="header" data-elementor-id="1524" class="elementor elementor-1524 elementor-location-header" data-elementor-post-type="elementor_library">
+			<header class="elementor-element elementor-element-08c26ac e-con-full e-flex e-con e-parent" data-id="08c26ac" data-element_type="container" data-e-type="container" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_effects_offset&quot;:80,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;laptop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+		<div  class="elementor-element elementor-element-9726ec4 e-con-full header e-flex e-con e-child" data-id="9726ec4" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-d4b16a9 e-con-full header-logo-container e-flex e-con e-child" data-id="d4b16a9" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-80e497a header__logo blend-it elementor-view-default elementor-widget elementor-widget-icon" data-id="80e497a" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="/">
+			<svg xmlns="http://www.w3.org/2000/svg" width="115" height="40" viewBox="0 0 115 40" fill="none"><g id="Logo"><path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M13.8762 30.5501C11.5404 30.5501 9.38502 29.7778 7.65134 28.4747C6.99541 28.0384 6.3848 27.4429 5.84472 26.7405C4.38286 24.9531 3.50586 22.6686 3.50586 20.1793C3.50586 20.146 3.50602 20.1127 3.50633 20.0794C3.50277 19.7306 3.51932 19.3859 3.55742 19.0483V19.0271C3.5554 19.0251 3.55281 19.0237 3.54998 19.0231V19.0191L3.55106 19.0139C3.56215 18.9601 3.57312 18.9069 3.58032 18.8553C3.62644 18.5169 3.68914 18.1824 3.76783 17.8528C4.82384 13.2454 8.9487 9.80859 13.8762 9.80859C19.6036 9.80859 24.2466 14.4517 24.2466 20.1793C24.2466 25.907 19.6036 30.5501 13.8762 30.5501ZM13.8762 29.0262C18.7621 29.0262 22.7228 25.0653 22.7228 20.1793C22.7228 15.2933 18.7621 11.3325 13.8762 11.3325C11.0777 11.3325 8.58266 12.632 6.96161 14.6605C6.48294 15.3209 6.06917 16.0745 5.72406 16.9176C7.24974 15.7192 9.12965 15.0603 11.0697 15.0441C11.9913 15.0901 12.8897 15.3496 13.6939 15.8022C14.4981 16.2549 15.1861 16.8882 15.7035 17.6523C16.6861 17.922 17.7345 18.4912 18.3374 20.7186L18.7084 22.0882L17.419 21.4927C13.784 19.8602 8.38308 22.422 8.56142 27.2523C10.0411 28.3661 11.8816 29.0262 13.8762 29.0262ZM13.7717 18.135C12.5692 18.8141 11.5838 18.2776 10.8309 16.4916C10.8309 16.4916 11.8129 17.0282 13.7705 18.135H13.7717ZM31.5822 21.7378C30.971 21.4972 30.4378 21.0933 30.0408 20.5701C29.6481 20.0274 29.4352 19.3754 29.4318 18.7055H32.3061C32.324 19.0623 32.4768 19.3989 32.7336 19.6472C32.9968 19.8714 33.3351 19.9876 33.6804 19.9724C34.0183 19.9897 34.3521 19.8919 34.6272 19.6949C34.7418 19.6035 34.8331 19.4863 34.8936 19.3529C34.9542 19.2194 34.9823 19.0735 34.9757 18.9271C34.9794 18.8007 34.9567 18.6749 34.9089 18.5578C34.8611 18.4407 34.7893 18.3349 34.6982 18.2472C34.5004 18.0602 34.2699 17.9112 34.0182 17.8077C33.6434 17.6564 33.2612 17.5242 32.873 17.4116C32.2726 17.2344 31.6863 17.0128 31.1188 16.7486C30.6566 16.5203 30.2561 16.1842 29.951 15.7686C29.6048 15.2747 29.4323 14.6798 29.4607 14.0773C29.44 13.6127 29.5311 13.1499 29.7264 12.7278C29.9216 12.3057 30.2152 11.9366 30.5826 11.6514C31.4288 11.0352 32.4595 10.7253 33.5053 10.7725C34.5596 10.7262 35.5989 11.0358 36.4561 11.6514C36.8261 11.9425 37.1262 12.3128 37.3341 12.7351C37.5421 13.1574 37.6527 13.621 37.6578 14.0917H34.7358C34.7336 13.9308 34.6971 13.7722 34.6288 13.6265C34.5605 13.4808 34.4619 13.3513 34.3397 13.2467C34.0769 13.0339 33.7451 12.9249 33.4073 12.9403C33.1206 12.9259 32.8388 13.0188 32.6169 13.2009C32.5139 13.2962 32.4335 13.4132 32.3815 13.5436C32.3296 13.6739 32.3075 13.8142 32.3167 13.9542C32.3142 14.1269 32.3599 14.2969 32.4486 14.445C32.5374 14.5932 32.6656 14.7137 32.819 14.793C33.3214 15.063 33.8506 15.2798 34.398 15.4396C34.9944 15.6343 35.5776 15.8671 36.1441 16.1365C36.6003 16.3651 36.9979 16.6955 37.3062 17.1021C37.6488 17.5733 37.8217 18.1467 37.7966 18.7287C37.8072 19.3376 37.6398 19.9363 37.315 20.4515C36.9723 20.9845 36.4876 21.4113 35.9156 21.6838C35.24 22.0024 34.4993 22.1589 33.7526 22.1409C33.0063 22.1552 32.2646 22.0205 31.5709 21.7447L31.5822 21.7378ZM38.0052 26.6936C38.2029 26.3505 38.4909 26.0682 38.8378 25.8774C39.2117 25.6749 39.6322 25.5738 40.0573 25.584C40.4824 25.5943 40.8975 25.7155 41.2613 25.9358C41.6322 26.1705 41.9164 26.5199 42.0706 26.9309H41.1884C41.0856 26.709 40.9165 26.5246 40.7044 26.4029C40.4847 26.2844 40.2382 26.2247 39.9886 26.2296C39.7114 26.2248 39.4379 26.2939 39.1963 26.4299C38.9636 26.565 38.7746 26.7642 38.6519 27.0037C38.5154 27.2729 38.4473 27.5715 38.4535 27.8732C38.4463 28.175 38.5145 28.4739 38.6519 28.7427C38.7757 28.9824 38.9643 29.1826 39.1963 29.3203C39.4373 29.4579 39.7111 29.5277 39.9886 29.5225C40.2382 29.5274 40.4847 29.4677 40.7044 29.3492C40.9165 29.2275 41.0856 29.043 41.1884 28.8212H42.0706C41.9182 29.2326 41.6335 29.5817 41.2613 29.8138C40.8783 30.0489 40.4361 30.1697 39.9867 30.1622C39.5832 30.1667 39.1856 30.0654 38.8334 29.8684C38.4886 29.6762 38.2025 29.3941 38.0052 29.0522C37.8041 28.6912 37.6986 28.2849 37.6986 27.8716C37.6986 27.4584 37.8041 27.052 38.0052 26.6911V26.6936ZM29.6385 29.5623C29.7832 29.7594 29.9784 29.9136 30.2036 30.0087L30.1986 30.0225H30.203C30.4592 30.1316 30.7357 30.1849 31.0142 30.1789C31.301 30.1863 31.5853 30.1233 31.8423 29.9955C32.0619 29.8852 32.2468 29.7164 32.3766 29.5077C32.4967 29.3142 32.5603 29.0908 32.5599 28.863C32.5721 28.6199 32.5022 28.3798 32.3615 28.1812C32.2365 28.0174 32.0722 27.8878 31.8837 27.8045C31.6477 27.7066 31.4052 27.625 31.1579 27.5603C30.9783 27.5168 30.8019 27.461 30.6299 27.3933C30.512 27.345 30.4052 27.2732 30.316 27.1823C30.2738 27.1371 30.2409 27.084 30.2194 27.026C30.1978 26.968 30.188 26.9064 30.1904 26.8445C30.185 26.7567 30.2003 26.6689 30.2351 26.5881C30.2699 26.5073 30.3232 26.4358 30.3907 26.3793C30.5387 26.2677 30.7209 26.2109 30.9062 26.2186C31.1079 26.2082 31.3067 26.2696 31.4675 26.3919C31.5333 26.4417 31.588 26.5047 31.6279 26.577C31.6678 26.6492 31.6921 26.729 31.6991 26.8113H32.5103C32.502 26.6384 32.4565 26.4693 32.377 26.3156C32.2975 26.1619 32.1858 26.0271 32.0495 25.9204C31.7415 25.6926 31.3649 25.577 30.9821 25.5927C30.706 25.5875 30.4318 25.6401 30.1772 25.7471C29.9572 25.8397 29.7688 25.9941 29.6348 26.1916C29.5031 26.3919 29.4354 26.6275 29.4408 26.8672C29.4287 27.1057 29.4971 27.3413 29.6348 27.5364C29.755 27.6991 29.9162 27.8271 30.1019 27.9074C30.3329 28.0027 30.5707 28.0808 30.8132 28.141C30.9987 28.185 31.1811 28.2407 31.3595 28.308C31.4843 28.3555 31.5969 28.4304 31.6891 28.5271C31.7799 28.6274 31.8279 28.7592 31.8228 28.8944C31.8253 28.9845 31.8074 29.074 31.7706 29.1562C31.7337 29.2385 31.6788 29.3114 31.61 29.3696C31.4403 29.4988 31.2303 29.5638 31.0173 29.5529C30.8098 29.5652 30.6055 29.4978 30.446 29.3646C30.312 29.2402 30.2306 29.0693 30.2187 28.8868H29.432C29.4274 29.1282 29.4997 29.3648 29.6385 29.5623ZM34.7342 27.5442V26.2302V26.2258H36.474V25.6275H33.9978V30.1132H36.474V29.5149H34.7342V28.1425H36.2819V27.5442H34.7342ZM44.2244 28.5023V25.647H43.493V28.4897C43.4829 28.8145 43.5631 29.1357 43.7246 29.4176C43.8733 29.664 44.0918 29.8607 44.3525 29.9826C44.6276 30.1106 44.928 30.175 45.2314 30.171C45.5358 30.1744 45.8371 30.11 46.1136 29.9826C46.3775 29.8614 46.5996 29.6648 46.7521 29.4176C46.9177 29.1371 47.0002 28.8153 46.9901 28.4897V25.647H46.2561V28.5023C46.2666 28.6417 46.2483 28.7818 46.2024 28.9139C46.1565 29.0459 46.0839 29.1672 45.9893 29.2701C45.7819 29.4521 45.5112 29.545 45.2359 29.5287C45.098 29.5438 44.9586 29.5275 44.828 29.481C44.6973 29.4346 44.5789 29.3591 44.4816 29.2604C44.3843 29.1616 44.3106 29.0421 44.2661 28.9108C44.2215 28.7795 44.2073 28.6398 44.2244 28.5023ZM50.8329 30.1258L49.8026 28.334H49.2413V30.1258H48.5073V25.6457H50.0549C50.3559 25.6364 50.6548 25.6986 50.927 25.8272C51.1486 25.9326 51.3342 26.1009 51.4607 26.3112C51.5893 26.5387 51.6502 26.7982 51.6362 27.0592C51.6222 27.3201 51.5338 27.5716 51.3816 27.784C51.1888 28.0369 50.9097 28.2099 50.5974 28.27L51.7068 30.1264L50.8329 30.1258ZM49.2413 27.7483H50.0524C50.2794 27.7647 50.5037 27.6904 50.6759 27.5417C50.7468 27.4684 50.8019 27.3814 50.8378 27.2859C50.8736 27.1904 50.8895 27.0886 50.8843 26.9867C50.8897 26.8863 50.8741 26.7859 50.8385 26.6919C50.803 26.5979 50.7482 26.5123 50.6778 26.4405C50.5021 26.2956 50.277 26.2244 50.0499 26.2421H49.2388V27.7439L49.2413 27.7483ZM53.8845 30.1263V25.6463H53.15V30.1263H53.8845ZM58.3151 25.647V26.2453H57.1222V30.1245H56.3876V26.2453H55.1884V25.647H58.3151ZM61.4633 28.5015L62.9462 25.6463H62.9444H62.1332L61.0947 27.8436L60.0563 25.6463H59.2401L60.7294 28.5015V30.1263H61.4633V28.5015ZM42.9475 17.1247L46.675 22.0217L46.6794 22.0223H49.9831L45.5254 16.3676L49.8224 10.932H46.6455L42.9475 15.7982V10.932H40.2478V22.0217H42.9475V17.1247ZM61.1298 10.932L57.2899 18.359V22.0235H54.5901V18.359L50.7483 10.932H53.8147L55.9632 15.5778L58.0979 10.932H61.1285H61.1298ZM78.1595 20.065H82.3002L82.9663 22.0238H85.8262L81.813 10.9342H78.6844L74.6712 22.0238H77.4965L78.1595 20.065ZM80.2289 13.9188L81.6033 17.9795H78.8709L80.2289 13.9188ZM102.157 10.932L99.2648 22.0217H95.9944L94.2232 14.7234L92.3899 22.0217H89.1194L86.3061 10.932H89.1992L90.7952 19.0038L92.7704 10.932H95.7407L97.6368 19.0038L99.2491 10.932H102.157ZM107.456 17.1247L111.183 22.0217L111.187 22.0223H114.491L110.034 16.3676L114.331 10.932H111.154L107.456 15.7982V10.932H104.756V22.0217H107.456V17.1247ZM70.0858 10.932V15.2727H65.883V10.932H63.1832V22.0217H65.883V17.4562V17.4518H70.0757V17.4562H70.0839V22.0217H72.7874V10.932H70.0858Z" fill="white" fill-opacity="0.96"></path></g></svg>			</a>
+		</div>
+						</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-3a0daf4 desktop-hidden nav-toggle open-nav elementor-view-default elementor-widget elementor-widget-icon" data-id="3a0daf4" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg aria-hidden="true" class="e-font-icon-svg e-fas-bars" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>			</div>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-1b211a8 e-con-full nav-wrapper e-flex e-con e-child" data-id="1b211a8" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-fb4b4cd desktop-hidden e-flex e-con-boxed e-con e-child" data-id="fb4b4cd" data-element_type="container" data-e-type="container">
+					<div  class="e-con-inner">
+				<div class="elementor-element elementor-element-56521b6 elementor-widget elementor-widget-image" data-id="56521b6" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="115" height="40" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20115%2040'%3E%3C/svg%3E" class="attachment-large size-large wp-image-1554" alt="" data-lazy-src="https://skyhawk.security/wp-content/uploads/2023/11/skyhawk-logo-white.svg" /><noscript><img width="115" height="40" src="https://skyhawk.security/wp-content/uploads/2023/11/skyhawk-logo-white.svg" class="attachment-large size-large wp-image-1554" alt="" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-8c73d44 nav-toggle elementor-view-default elementor-widget elementor-widget-icon" data-id="8c73d44" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><g id="icon/close"><path id="close" d="M6.4 19.002L5 17.602L10.6 12.002L5 6.40195L6.4 5.00195L12 10.602L17.6 5.00195L19 6.40195L13.4 12.002L19 17.602L17.6 19.002L12 13.402L6.4 19.002Z" fill="white"></path><path id="close_2" d="M6.52109 18.8809L5.12109 17.4809L10.5998 12.0022L5.12109 6.52354L6.52109 5.12354L11.9998 10.6022L17.4785 5.12354L18.8785 6.52354L13.3998 12.0022L18.8785 17.4809L17.4785 18.8809L11.9998 13.4022L6.52109 18.8809Z" fill="white"></path></g></svg>			</div>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-10f3379 elementor-nav-menu__align-justify elementor-nav-menu--dropdown-none main-nav elementor-widget elementor-widget-nav-menu" data-id="10f3379" data-element_type="widget" data-e-type="widget" data-settings="{&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;fa-svg-chevron-down e-font-icon-svg e-fas-chevron-down\&quot; viewBox=\&quot;0 0 448 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;layout&quot;:&quot;horizontal&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-10f3379" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1997"><a href="/platform/" class="elementor-item">Platform</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3690"><a href="#" class="elementor-item elementor-item-anchor">Use Cases</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4573"><a href="https://skyhawk.security/aws-cloud-org-takeover/" class="elementor-sub-item">AWS Cloud Organization Takeover</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4396"><a href="https://skyhawk.security/stop-ai-autonomous-attacks/" class="elementor-sub-item">Stop AI Autonomous Attacks</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3998"><a href="https://skyhawk.security/adversarial-ai/" class="elementor-sub-item">Adversarial AI</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3596"><a href="https://skyhawk.security/skyhawk-reduces-wiz-cnapp-alert-noise/" class="elementor-sub-item">Reduce CNAPP Alert Noise</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3736"><a href="https://skyhawk.security/ctem-purple-team-2/" class="elementor-sub-item">CTEM</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3731"><a href="https://skyhawk.security/cloud-detection-and-response-cdr/" class="elementor-sub-item">Cloud Threat Detection</a></li>
+</ul>
+</li>
+<li class="about-item menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-682"><a href="https://skyhawk.security/about-us/" class="elementor-item">About Us</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-868"><a href="https://skyhawk.security/about-us/" class="elementor-sub-item">About Us</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2637 current_page_item menu-item-2645"><a href="https://skyhawk.security/join-us/" aria-current="page" class="elementor-sub-item elementor-item-active">Careers</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2588"><a href="/partner-with-skyhawk/" class="elementor-item">Partners</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2390"><a href="https://skyhawk.security/partner-with-skyhawk/" class="elementor-sub-item">Partner with Skyhawk</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2586"><a href="https://skyhawk.security/mssp/" class="elementor-sub-item">Become an MSSP</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2847"><a href="https://partners.skyhawk.security/" class="elementor-sub-item">Partner Portal</a></li>
+</ul>
+</li>
+<li class="resources-item menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-314"><a href="https://skyhawk.security/resources/" class="elementor-item">Resources</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2026"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:73" class="elementor-sub-item">Blogs</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2031"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:68" class="elementor-sub-item">News</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-869"><a href="https://skyhawk.security/resources/" class="elementor-sub-item">Resources</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2027"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:69" class="elementor-sub-item">Case Studies</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2032"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:72" class="elementor-sub-item">Press Releases</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2029"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:70" class="elementor-sub-item">White Papers</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2030"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:71" class="elementor-sub-item">Videos and Webinars</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2028"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:67" class="elementor-sub-item">Data Sheets</a></li>
+</ul>
+</li>
+<li class="menu-item-contact menu-item menu-item-type-post_type menu-item-object-page menu-item-1801"><a href="https://skyhawk.security/contact/" class="elementor-item">Contact</a></li>
+<li class="nav-button start-trial-btn pointer menu-item menu-item-type-custom menu-item-object-custom menu-item-1376"><a target="_blank" href="https://app.skyhawk.security/#/sign-up" class="elementor-item elementor-item-anchor">Start free 30-day trial</a></li>
+<li class="nav-button get-demo-item pointer menu-item menu-item-type-custom menu-item-object-custom menu-item-2861"><a target="_blank" class="elementor-item">Book a demo</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-10f3379" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1997"><a href="/platform/" class="elementor-item" tabindex="-1">Platform</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3690"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Use Cases</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4573"><a href="https://skyhawk.security/aws-cloud-org-takeover/" class="elementor-sub-item" tabindex="-1">AWS Cloud Organization Takeover</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4396"><a href="https://skyhawk.security/stop-ai-autonomous-attacks/" class="elementor-sub-item" tabindex="-1">Stop AI Autonomous Attacks</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3998"><a href="https://skyhawk.security/adversarial-ai/" class="elementor-sub-item" tabindex="-1">Adversarial AI</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3596"><a href="https://skyhawk.security/skyhawk-reduces-wiz-cnapp-alert-noise/" class="elementor-sub-item" tabindex="-1">Reduce CNAPP Alert Noise</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3736"><a href="https://skyhawk.security/ctem-purple-team-2/" class="elementor-sub-item" tabindex="-1">CTEM</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3731"><a href="https://skyhawk.security/cloud-detection-and-response-cdr/" class="elementor-sub-item" tabindex="-1">Cloud Threat Detection</a></li>
+</ul>
+</li>
+<li class="about-item menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-682"><a href="https://skyhawk.security/about-us/" class="elementor-item" tabindex="-1">About Us</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-868"><a href="https://skyhawk.security/about-us/" class="elementor-sub-item" tabindex="-1">About Us</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2637 current_page_item menu-item-2645"><a href="https://skyhawk.security/join-us/" aria-current="page" class="elementor-sub-item elementor-item-active" tabindex="-1">Careers</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2588"><a href="/partner-with-skyhawk/" class="elementor-item" tabindex="-1">Partners</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2390"><a href="https://skyhawk.security/partner-with-skyhawk/" class="elementor-sub-item" tabindex="-1">Partner with Skyhawk</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2586"><a href="https://skyhawk.security/mssp/" class="elementor-sub-item" tabindex="-1">Become an MSSP</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2847"><a href="https://partners.skyhawk.security/" class="elementor-sub-item" tabindex="-1">Partner Portal</a></li>
+</ul>
+</li>
+<li class="resources-item menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-314"><a href="https://skyhawk.security/resources/" class="elementor-item" tabindex="-1">Resources</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2026"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:73" class="elementor-sub-item" tabindex="-1">Blogs</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2031"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:68" class="elementor-sub-item" tabindex="-1">News</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-869"><a href="https://skyhawk.security/resources/" class="elementor-sub-item" tabindex="-1">Resources</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2027"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:69" class="elementor-sub-item" tabindex="-1">Case Studies</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2032"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:72" class="elementor-sub-item" tabindex="-1">Press Releases</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2029"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:70" class="elementor-sub-item" tabindex="-1">White Papers</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2030"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:71" class="elementor-sub-item" tabindex="-1">Videos and Webinars</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2028"><a href="/resources/?action=filter:resources-listing&#038;tax=resource-type:67" class="elementor-sub-item" tabindex="-1">Data Sheets</a></li>
+</ul>
+</li>
+<li class="menu-item-contact menu-item menu-item-type-post_type menu-item-object-page menu-item-1801"><a href="https://skyhawk.security/contact/" class="elementor-item" tabindex="-1">Contact</a></li>
+<li class="nav-button start-trial-btn pointer menu-item menu-item-type-custom menu-item-object-custom menu-item-1376"><a target="_blank" href="https://app.skyhawk.security/#/sign-up" class="elementor-item elementor-item-anchor" tabindex="-1">Start free 30-day trial</a></li>
+<li class="nav-button get-demo-item pointer menu-item menu-item-type-custom menu-item-object-custom menu-item-2861"><a target="_blank" class="elementor-item" tabindex="-1">Book a demo</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-8ea6854 e-con-full mobile-hidden  tablet-hidden e-flex e-con e-child" data-id="8ea6854" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-b169360 elementor-hidden-desktop elementor-hidden-laptop elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-button" data-id="b169360" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://app.skyhawk.security/?_gl=1*1aw7se4*_gcl_au*OTExNjQ0MzEuMTc1MDIzNDkyMg..*_ga*MTc5NTM4NjM5NC4xNzUwMjM0OTIy*_ga_ZLKH0K15Q8*czE3NTAyMzQ5MjIkbzEkZzEkdDE3NTAyMzQ5NDAkajQyJGwwJGg2NDU2Mjk2OA..#/sign-up" target="_blank">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Start free 30-day trial</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-40c3e6f elementor-widget elementor-widget-button" data-id="40c3e6f" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://skyhawk.security/get-a-demo/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Get a demo</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				</div>
+				</header>
+				</header>
+				<div  data-elementor-type="wp-page" data-elementor-id="2637" class="elementor elementor-2637" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-947437c inline-padding block-padding e-flex e-con-boxed e-con e-parent" data-id="947437c" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div  class="e-con-inner">
+				<div class="elementor-element elementor-element-3de6a3c elementor-widget elementor-widget-heading" data-id="3de6a3c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">Open Positions</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-4eb4cca elementor-widget elementor-widget-heading" data-id="4eb4cca" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">Join Skyhawk to help customers realize a proactive cloud security strategy for the very first time.<br></h3>				</div>
+				</div>
+				<div class="elementor-element elementor-element-c3e881d elementor-widget elementor-widget-spacer" data-id="c3e881d" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-2a32f23 elementor-widget elementor-widget-shortcode" data-id="2a32f23" data-element_type="widget" data-e-type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-shortcode">	<div class="awsm-job-wrap">
+
+		<div class="awsm-filter-wrap"><form action="https://skyhawk.security/wp-admin/admin-ajax.php" method="POST"><div class="awsm-filter-item-search"><div class="awsm-filter-item-search-in"><label for="awsm-jq-1" class="awsm-sr-only">Search</label><input type="text" id="awsm-jq-1" name="jq" value="" placeholder="Search" class="awsm-job-search awsm-job-form-control"><span class="awsm-job-search-btn awsm-job-search-icon-wrapper"><i class="awsm-job-icon-search"></i></span><span class="awsm-job-search-close-btn awsm-job-search-icon-wrapper awsm-job-hide"><i class="awsm-job-icon-close-circle"></i></span></div></div><input type="hidden" name="action" value="jobfilter"></form></div>
+		<div class="awsm-job-listings awsm-row awsm-grid-col-3" data-listings="10">
+					<div class="awsm-job-listing-item awsm-grid-item" id="awsm-grid-item-3608">		<a href="https://skyhawk.security/jobs/junior-backend-developer-golangjava/" class="awsm-job-item">			<div class="awsm-grid-left-col">
+				
+				
+				<h2 class="awsm-job-post-title">
+					Junior Backend Developer (GoLang\Java)				</h2>
+
+							</div>
+
+			<div class="awsm-grid-right-col">
+				<div class="awsm-job-more-container"><span class="awsm-job-more">More Details <span></span></span></div>			</div>
+		</a>	</div><div class="awsm-job-listing-item awsm-grid-item" id="awsm-grid-item-3540">		<a href="https://skyhawk.security/jobs/senior-golang-backend-engineer/" class="awsm-job-item">			<div class="awsm-grid-left-col">
+				
+				
+				<h2 class="awsm-job-post-title">
+					Senior GoLang Backend Engineer				</h2>
+
+							</div>
+
+			<div class="awsm-grid-right-col">
+				<div class="awsm-job-more-container"><span class="awsm-job-more">More Details <span></span></span></div>			</div>
+		</a>	</div><div class="awsm-job-listing-item awsm-grid-item" id="awsm-grid-item-2690">		<a href="https://skyhawk.security/jobs/data-engineer/" class="awsm-job-item">			<div class="awsm-grid-left-col">
+				
+				
+				<h2 class="awsm-job-post-title">
+					Data Engineer				</h2>
+
+							</div>
+
+			<div class="awsm-grid-right-col">
+				<div class="awsm-job-more-container"><span class="awsm-job-more">More Details <span></span></span></div>			</div>
+		</a>	</div><div class="awsm-job-listing-item awsm-grid-item" id="awsm-grid-item-2631">		<a href="https://skyhawk.security/jobs/senior-devops/" class="awsm-job-item">			<div class="awsm-grid-left-col">
+				
+				
+				<h2 class="awsm-job-post-title">
+					Senior DevOps				</h2>
+
+							</div>
+
+			<div class="awsm-grid-right-col">
+				<div class="awsm-job-more-container"><span class="awsm-job-more">More Details <span></span></span></div>			</div>
+		</a>	</div>				</div>
+	</div>
+
+
+</div>
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+				<footer data-elementor-type="footer" data-elementor-id="1551" class="elementor elementor-1551 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<footer class="elementor-element elementor-element-f093e63 footer e-flex e-con-boxed e-con e-parent" data-id="f093e63" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-069a155 elementor-widget__width-inherit footer-divider footer-top-divider mobile-hidden elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="069a155" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-5413494 e-con-full footer-left-box e-flex e-con e-child" data-id="5413494" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-9fe1d5f elementor-widget elementor-widget-menu-anchor" data-id="9fe1d5f" data-element_type="widget" data-e-type="widget" data-widget_type="menu-anchor.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-menu-anchor" id="see-the-purple-team"></div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-b515aa2 elementor-widget elementor-widget-heading" data-id="b515aa2" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">See the Purple Team</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7348b92 opacity-60 elementor-widget elementor-widget-heading" data-id="7348b92" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<p class="elementor-heading-title elementor-size-default">See the breach before it happens</p>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-0374178 e-con-full footer-form-wrapper e-flex e-con e-child" data-id="0374178" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-a7532dc elementor-button-align-start footer-form elementor-widget elementor-widget-form" data-id="a7532dc" data-element_type="widget" data-e-type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+							<form class="elementor-form" method="post" name="footer form" aria-label="footer form">
+			<input type="hidden" name="post_id" value="1551"/>
+			<input type="hidden" name="form_id" value="a7532dc"/>
+			<input type="hidden" name="referer_title" value="Cloud Visionary, CSPM Pioneer Chen Burshan Joins Skyhawk Security as CEO - Skyhawk Security" />
+
+							<input type="hidden" name="queried_id" value="244"/>
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-fname elementor-col-50 elementor-field-required">
+												<label for="form-field-fname" class="elementor-field-label elementor-screen-only">
+								First Name							</label>
+														<input size="1" type="text" name="form_fields[fname]" id="form-field-fname" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="First Name *" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-lname elementor-col-50 elementor-field-required">
+												<label for="form-field-lname" class="elementor-field-label elementor-screen-only">
+								Last Name							</label>
+														<input size="1" type="text" name="form_fields[lname]" id="form-field-lname" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Last Name *" required="required">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required">
+												<label for="form-field-email" class="elementor-field-label elementor-screen-only">
+								Email							</label>
+														<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Email *" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-company elementor-col-50 elementor-field-required">
+												<label for="form-field-company" class="elementor-field-label elementor-screen-only">
+								Company							</label>
+														<input size="1" type="text" name="form_fields[company]" id="form-field-company" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Company *" required="required">
+											</div>
+								<div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-accept elementor-col-100 elementor-field-required">
+							<div class="elementor-field-subgroup">
+			<span class="elementor-field-option">
+				<input type="checkbox" name="form_fields[accept]" id="form-field-accept" class="elementor-field elementor-size-sm  elementor-acceptance-field" required="required">
+				<label for="form-field-accept">I agree to Skyhawk <a href="/privacy-policy">privacy policy & terms</a></label>			</span>
+		</div>
+						</div>
+								<div class="elementor-field-type-hidden elementor-field-group elementor-column elementor-field-group-utm_campaign elementor-col-100">
+													<input size="1" type="hidden" name="form_fields[utm_campaign]" id="form-field-utm_campaign" class="elementor-field elementor-size-sm  elementor-field-textual">
+											</div>
+								<div class="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_31b9e27 elementor-col-100 recaptcha_v3-bottomright">
+					<div class="elementor-field" id="form-field-field_31b9e27"><div class="elementor-g-recaptcha" data-sitekey="6Lf6J3MpAAAAALL2SCKrDZVSn-uJKVgyhrL6dNDe" data-type="v3" data-action="Form" data-badge="bottomright" data-size="invisible"></div></div>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Send</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-41cbafa elementor-widget elementor-widget-heading" data-id="41cbafa" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">This site is protected by reCAPTCHA and the Google
+    <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+    <a href="https://policies.google.com/terms">Terms of Service</a> apply.</div>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-b9a20a9 e-con-full footer-menus e-flex e-con e-child" data-id="b9a20a9" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-71814d7 e-con-full e-flex e-con e-child" data-id="71814d7" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-71824c0 elementor-view-default elementor-widget elementor-widget-icon" data-id="71824c0" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="/">
+			<svg xmlns="http://www.w3.org/2000/svg" width="115" height="40" viewBox="0 0 115 40" fill="none"><g id="Logo"><path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M13.8762 30.5501C11.5404 30.5501 9.38502 29.7778 7.65134 28.4747C6.99541 28.0384 6.3848 27.4429 5.84472 26.7405C4.38286 24.9531 3.50586 22.6686 3.50586 20.1793C3.50586 20.146 3.50602 20.1127 3.50633 20.0794C3.50277 19.7306 3.51932 19.3859 3.55742 19.0483V19.0271C3.5554 19.0251 3.55281 19.0237 3.54998 19.0231V19.0191L3.55106 19.0139C3.56215 18.9601 3.57312 18.9069 3.58032 18.8553C3.62644 18.5169 3.68914 18.1824 3.76783 17.8528C4.82384 13.2454 8.9487 9.80859 13.8762 9.80859C19.6036 9.80859 24.2466 14.4517 24.2466 20.1793C24.2466 25.907 19.6036 30.5501 13.8762 30.5501ZM13.8762 29.0262C18.7621 29.0262 22.7228 25.0653 22.7228 20.1793C22.7228 15.2933 18.7621 11.3325 13.8762 11.3325C11.0777 11.3325 8.58266 12.632 6.96161 14.6605C6.48294 15.3209 6.06917 16.0745 5.72406 16.9176C7.24974 15.7192 9.12965 15.0603 11.0697 15.0441C11.9913 15.0901 12.8897 15.3496 13.6939 15.8022C14.4981 16.2549 15.1861 16.8882 15.7035 17.6523C16.6861 17.922 17.7345 18.4912 18.3374 20.7186L18.7084 22.0882L17.419 21.4927C13.784 19.8602 8.38308 22.422 8.56142 27.2523C10.0411 28.3661 11.8816 29.0262 13.8762 29.0262ZM13.7717 18.135C12.5692 18.8141 11.5838 18.2776 10.8309 16.4916C10.8309 16.4916 11.8129 17.0282 13.7705 18.135H13.7717ZM31.5822 21.7378C30.971 21.4972 30.4378 21.0933 30.0408 20.5701C29.6481 20.0274 29.4352 19.3754 29.4318 18.7055H32.3061C32.324 19.0623 32.4768 19.3989 32.7336 19.6472C32.9968 19.8714 33.3351 19.9876 33.6804 19.9724C34.0183 19.9897 34.3521 19.8919 34.6272 19.6949C34.7418 19.6035 34.8331 19.4863 34.8936 19.3529C34.9542 19.2194 34.9823 19.0735 34.9757 18.9271C34.9794 18.8007 34.9567 18.6749 34.9089 18.5578C34.8611 18.4407 34.7893 18.3349 34.6982 18.2472C34.5004 18.0602 34.2699 17.9112 34.0182 17.8077C33.6434 17.6564 33.2612 17.5242 32.873 17.4116C32.2726 17.2344 31.6863 17.0128 31.1188 16.7486C30.6566 16.5203 30.2561 16.1842 29.951 15.7686C29.6048 15.2747 29.4323 14.6798 29.4607 14.0773C29.44 13.6127 29.5311 13.1499 29.7264 12.7278C29.9216 12.3057 30.2152 11.9366 30.5826 11.6514C31.4288 11.0352 32.4595 10.7253 33.5053 10.7725C34.5596 10.7262 35.5989 11.0358 36.4561 11.6514C36.8261 11.9425 37.1262 12.3128 37.3341 12.7351C37.5421 13.1574 37.6527 13.621 37.6578 14.0917H34.7358C34.7336 13.9308 34.6971 13.7722 34.6288 13.6265C34.5605 13.4808 34.4619 13.3513 34.3397 13.2467C34.0769 13.0339 33.7451 12.9249 33.4073 12.9403C33.1206 12.9259 32.8388 13.0188 32.6169 13.2009C32.5139 13.2962 32.4335 13.4132 32.3815 13.5436C32.3296 13.6739 32.3075 13.8142 32.3167 13.9542C32.3142 14.1269 32.3599 14.2969 32.4486 14.445C32.5374 14.5932 32.6656 14.7137 32.819 14.793C33.3214 15.063 33.8506 15.2798 34.398 15.4396C34.9944 15.6343 35.5776 15.8671 36.1441 16.1365C36.6003 16.3651 36.9979 16.6955 37.3062 17.1021C37.6488 17.5733 37.8217 18.1467 37.7966 18.7287C37.8072 19.3376 37.6398 19.9363 37.315 20.4515C36.9723 20.9845 36.4876 21.4113 35.9156 21.6838C35.24 22.0024 34.4993 22.1589 33.7526 22.1409C33.0063 22.1552 32.2646 22.0205 31.5709 21.7447L31.5822 21.7378ZM38.0052 26.6936C38.2029 26.3505 38.4909 26.0682 38.8378 25.8774C39.2117 25.6749 39.6322 25.5738 40.0573 25.584C40.4824 25.5943 40.8975 25.7155 41.2613 25.9358C41.6322 26.1705 41.9164 26.5199 42.0706 26.9309H41.1884C41.0856 26.709 40.9165 26.5246 40.7044 26.4029C40.4847 26.2844 40.2382 26.2247 39.9886 26.2296C39.7114 26.2248 39.4379 26.2939 39.1963 26.4299C38.9636 26.565 38.7746 26.7642 38.6519 27.0037C38.5154 27.2729 38.4473 27.5715 38.4535 27.8732C38.4463 28.175 38.5145 28.4739 38.6519 28.7427C38.7757 28.9824 38.9643 29.1826 39.1963 29.3203C39.4373 29.4579 39.7111 29.5277 39.9886 29.5225C40.2382 29.5274 40.4847 29.4677 40.7044 29.3492C40.9165 29.2275 41.0856 29.043 41.1884 28.8212H42.0706C41.9182 29.2326 41.6335 29.5817 41.2613 29.8138C40.8783 30.0489 40.4361 30.1697 39.9867 30.1622C39.5832 30.1667 39.1856 30.0654 38.8334 29.8684C38.4886 29.6762 38.2025 29.3941 38.0052 29.0522C37.8041 28.6912 37.6986 28.2849 37.6986 27.8716C37.6986 27.4584 37.8041 27.052 38.0052 26.6911V26.6936ZM29.6385 29.5623C29.7832 29.7594 29.9784 29.9136 30.2036 30.0087L30.1986 30.0225H30.203C30.4592 30.1316 30.7357 30.1849 31.0142 30.1789C31.301 30.1863 31.5853 30.1233 31.8423 29.9955C32.0619 29.8852 32.2468 29.7164 32.3766 29.5077C32.4967 29.3142 32.5603 29.0908 32.5599 28.863C32.5721 28.6199 32.5022 28.3798 32.3615 28.1812C32.2365 28.0174 32.0722 27.8878 31.8837 27.8045C31.6477 27.7066 31.4052 27.625 31.1579 27.5603C30.9783 27.5168 30.8019 27.461 30.6299 27.3933C30.512 27.345 30.4052 27.2732 30.316 27.1823C30.2738 27.1371 30.2409 27.084 30.2194 27.026C30.1978 26.968 30.188 26.9064 30.1904 26.8445C30.185 26.7567 30.2003 26.6689 30.2351 26.5881C30.2699 26.5073 30.3232 26.4358 30.3907 26.3793C30.5387 26.2677 30.7209 26.2109 30.9062 26.2186C31.1079 26.2082 31.3067 26.2696 31.4675 26.3919C31.5333 26.4417 31.588 26.5047 31.6279 26.577C31.6678 26.6492 31.6921 26.729 31.6991 26.8113H32.5103C32.502 26.6384 32.4565 26.4693 32.377 26.3156C32.2975 26.1619 32.1858 26.0271 32.0495 25.9204C31.7415 25.6926 31.3649 25.577 30.9821 25.5927C30.706 25.5875 30.4318 25.6401 30.1772 25.7471C29.9572 25.8397 29.7688 25.9941 29.6348 26.1916C29.5031 26.3919 29.4354 26.6275 29.4408 26.8672C29.4287 27.1057 29.4971 27.3413 29.6348 27.5364C29.755 27.6991 29.9162 27.8271 30.1019 27.9074C30.3329 28.0027 30.5707 28.0808 30.8132 28.141C30.9987 28.185 31.1811 28.2407 31.3595 28.308C31.4843 28.3555 31.5969 28.4304 31.6891 28.5271C31.7799 28.6274 31.8279 28.7592 31.8228 28.8944C31.8253 28.9845 31.8074 29.074 31.7706 29.1562C31.7337 29.2385 31.6788 29.3114 31.61 29.3696C31.4403 29.4988 31.2303 29.5638 31.0173 29.5529C30.8098 29.5652 30.6055 29.4978 30.446 29.3646C30.312 29.2402 30.2306 29.0693 30.2187 28.8868H29.432C29.4274 29.1282 29.4997 29.3648 29.6385 29.5623ZM34.7342 27.5442V26.2302V26.2258H36.474V25.6275H33.9978V30.1132H36.474V29.5149H34.7342V28.1425H36.2819V27.5442H34.7342ZM44.2244 28.5023V25.647H43.493V28.4897C43.4829 28.8145 43.5631 29.1357 43.7246 29.4176C43.8733 29.664 44.0918 29.8607 44.3525 29.9826C44.6276 30.1106 44.928 30.175 45.2314 30.171C45.5358 30.1744 45.8371 30.11 46.1136 29.9826C46.3775 29.8614 46.5996 29.6648 46.7521 29.4176C46.9177 29.1371 47.0002 28.8153 46.9901 28.4897V25.647H46.2561V28.5023C46.2666 28.6417 46.2483 28.7818 46.2024 28.9139C46.1565 29.0459 46.0839 29.1672 45.9893 29.2701C45.7819 29.4521 45.5112 29.545 45.2359 29.5287C45.098 29.5438 44.9586 29.5275 44.828 29.481C44.6973 29.4346 44.5789 29.3591 44.4816 29.2604C44.3843 29.1616 44.3106 29.0421 44.2661 28.9108C44.2215 28.7795 44.2073 28.6398 44.2244 28.5023ZM50.8329 30.1258L49.8026 28.334H49.2413V30.1258H48.5073V25.6457H50.0549C50.3559 25.6364 50.6548 25.6986 50.927 25.8272C51.1486 25.9326 51.3342 26.1009 51.4607 26.3112C51.5893 26.5387 51.6502 26.7982 51.6362 27.0592C51.6222 27.3201 51.5338 27.5716 51.3816 27.784C51.1888 28.0369 50.9097 28.2099 50.5974 28.27L51.7068 30.1264L50.8329 30.1258ZM49.2413 27.7483H50.0524C50.2794 27.7647 50.5037 27.6904 50.6759 27.5417C50.7468 27.4684 50.8019 27.3814 50.8378 27.2859C50.8736 27.1904 50.8895 27.0886 50.8843 26.9867C50.8897 26.8863 50.8741 26.7859 50.8385 26.6919C50.803 26.5979 50.7482 26.5123 50.6778 26.4405C50.5021 26.2956 50.277 26.2244 50.0499 26.2421H49.2388V27.7439L49.2413 27.7483ZM53.8845 30.1263V25.6463H53.15V30.1263H53.8845ZM58.3151 25.647V26.2453H57.1222V30.1245H56.3876V26.2453H55.1884V25.647H58.3151ZM61.4633 28.5015L62.9462 25.6463H62.9444H62.1332L61.0947 27.8436L60.0563 25.6463H59.2401L60.7294 28.5015V30.1263H61.4633V28.5015ZM42.9475 17.1247L46.675 22.0217L46.6794 22.0223H49.9831L45.5254 16.3676L49.8224 10.932H46.6455L42.9475 15.7982V10.932H40.2478V22.0217H42.9475V17.1247ZM61.1298 10.932L57.2899 18.359V22.0235H54.5901V18.359L50.7483 10.932H53.8147L55.9632 15.5778L58.0979 10.932H61.1285H61.1298ZM78.1595 20.065H82.3002L82.9663 22.0238H85.8262L81.813 10.9342H78.6844L74.6712 22.0238H77.4965L78.1595 20.065ZM80.2289 13.9188L81.6033 17.9795H78.8709L80.2289 13.9188ZM102.157 10.932L99.2648 22.0217H95.9944L94.2232 14.7234L92.3899 22.0217H89.1194L86.3061 10.932H89.1992L90.7952 19.0038L92.7704 10.932H95.7407L97.6368 19.0038L99.2491 10.932H102.157ZM107.456 17.1247L111.183 22.0217L111.187 22.0223H114.491L110.034 16.3676L114.331 10.932H111.154L107.456 15.7982V10.932H104.756V22.0217H107.456V17.1247ZM70.0858 10.932V15.2727H65.883V10.932H63.1832V22.0217H65.883V17.4562V17.4518H70.0757V17.4562H70.0839V22.0217H72.7874V10.932H70.0858Z" fill="white" fill-opacity="0.96"></path></g></svg>			</a>
+		</div>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-5b65fe6 e-con-full e-flex e-con e-child" data-id="5b65fe6" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-b577e63 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="b577e63" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="800" height="859" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20859'%3E%3C/svg%3E" class="attachment-large size-large wp-image-3509" alt="" data-lazy-srcset="https://skyhawk.security/wp-content/uploads/2023/11/Decrypt-Compliance-Skyhawk-SOC2-Badge_black.png 954w, https://skyhawk.security/wp-content/uploads/2023/11/Decrypt-Compliance-Skyhawk-SOC2-Badge_black-279x300.png 279w, https://skyhawk.security/wp-content/uploads/2023/11/Decrypt-Compliance-Skyhawk-SOC2-Badge_black-768x824.png 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://skyhawk.security/wp-content/uploads/2023/11/Decrypt-Compliance-Skyhawk-SOC2-Badge_black.png" /><noscript><img width="800" height="859" src="https://skyhawk.security/wp-content/uploads/2023/11/Decrypt-Compliance-Skyhawk-SOC2-Badge_black.png" class="attachment-large size-large wp-image-3509" alt="" srcset="https://skyhawk.security/wp-content/uploads/2023/11/Decrypt-Compliance-Skyhawk-SOC2-Badge_black.png 954w, https://skyhawk.security/wp-content/uploads/2023/11/Decrypt-Compliance-Skyhawk-SOC2-Badge_black-279x300.png 279w, https://skyhawk.security/wp-content/uploads/2023/11/Decrypt-Compliance-Skyhawk-SOC2-Badge_black-768x824.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-c14e533 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="c14e533" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="750" height="917" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20750%20917'%3E%3C/svg%3E" class="attachment-large size-large wp-image-3959" alt="" data-lazy-srcset="https://skyhawk.security/wp-content/uploads/2025/12/PS-Badges-ISO_27001.png 750w, https://skyhawk.security/wp-content/uploads/2025/12/PS-Badges-ISO_27001-245x300.png 245w" data-lazy-sizes="(max-width: 750px) 100vw, 750px" data-lazy-src="https://skyhawk.security/wp-content/uploads/2025/12/PS-Badges-ISO_27001.png" /><noscript><img width="750" height="917" src="https://skyhawk.security/wp-content/uploads/2025/12/PS-Badges-ISO_27001.png" class="attachment-large size-large wp-image-3959" alt="" srcset="https://skyhawk.security/wp-content/uploads/2025/12/PS-Badges-ISO_27001.png 750w, https://skyhawk.security/wp-content/uploads/2025/12/PS-Badges-ISO_27001-245x300.png 245w" sizes="(max-width: 750px) 100vw, 750px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-211ccdd elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="211ccdd" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="800" height="743" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20743'%3E%3C/svg%3E" class="attachment-large size-large wp-image-3779" alt="" data-lazy-srcset="https://skyhawk.security/wp-content/uploads/2023/11/CSA-Startup-Membership-badge.png 800w, https://skyhawk.security/wp-content/uploads/2023/11/CSA-Startup-Membership-badge-300x279.png 300w, https://skyhawk.security/wp-content/uploads/2023/11/CSA-Startup-Membership-badge-768x713.png 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://skyhawk.security/wp-content/uploads/2023/11/CSA-Startup-Membership-badge.png" /><noscript><img width="800" height="743" src="https://skyhawk.security/wp-content/uploads/2023/11/CSA-Startup-Membership-badge.png" class="attachment-large size-large wp-image-3779" alt="" srcset="https://skyhawk.security/wp-content/uploads/2023/11/CSA-Startup-Membership-badge.png 800w, https://skyhawk.security/wp-content/uploads/2023/11/CSA-Startup-Membership-badge-300x279.png 300w, https://skyhawk.security/wp-content/uploads/2023/11/CSA-Startup-Membership-badge-768x713.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>															</div>
+				</div>
+				<div class="elementor-element elementor-element-1c32b4f elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="1c32b4f" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="120" height="120" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%20120'%3E%3C/svg%3E" class="attachment-large size-large wp-image-3780" alt="" data-lazy-srcset="https://skyhawk.security/wp-content/uploads/2023/11/badge.png 120w, https://skyhawk.security/wp-content/uploads/2023/11/badge-60x60.png 60w" data-lazy-sizes="(max-width: 120px) 100vw, 120px" data-lazy-src="https://skyhawk.security/wp-content/uploads/2023/11/badge.png" /><noscript><img width="120" height="120" src="https://skyhawk.security/wp-content/uploads/2023/11/badge.png" class="attachment-large size-large wp-image-3780" alt="" srcset="https://skyhawk.security/wp-content/uploads/2023/11/badge.png 120w, https://skyhawk.security/wp-content/uploads/2023/11/badge-60x60.png 60w" sizes="(max-width: 120px) 100vw, 120px" /></noscript>															</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-5924992 e-con-full e-flex e-con e-child" data-id="5924992" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-fc09f28 elementor-widget elementor-widget-heading" data-id="fc09f28" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default"><a href="/platform/">Platform</a></div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-5524140 elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="5524140" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-text e--animation-none">
+				<ul id="menu-1-5524140" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1352"><a href="https://skyhawk.security/cloud-detection-and-response-cdr/" class="elementor-item">CDR</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1353"><a href="https://skyhawk.security/cloud-infrastructure-entitlement-management/" class="elementor-item">CIEM</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1354"><a href="https://skyhawk.security/cloud-security-posture-management-cspm/" class="elementor-item">CSPM</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2064"><a href="https://skyhawk.security/ctem-purple-team-2/" class="elementor-item">CTEM-Purple Team</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748"><a href="https://skyhawk.security/cadr/" class="elementor-item">CADR</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-5524140" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1352"><a href="https://skyhawk.security/cloud-detection-and-response-cdr/" class="elementor-item" tabindex="-1">CDR</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1353"><a href="https://skyhawk.security/cloud-infrastructure-entitlement-management/" class="elementor-item" tabindex="-1">CIEM</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1354"><a href="https://skyhawk.security/cloud-security-posture-management-cspm/" class="elementor-item" tabindex="-1">CSPM</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2064"><a href="https://skyhawk.security/ctem-purple-team-2/" class="elementor-item" tabindex="-1">CTEM-Purple Team</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2748"><a href="https://skyhawk.security/cadr/" class="elementor-item" tabindex="-1">CADR</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-7b24770 e-con-full e-flex e-con e-child" data-id="7b24770" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-686aa76 elementor-widget elementor-widget-heading" data-id="686aa76" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">Use Cases</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-be15055 elementor-nav-menu--dropdown-none elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-nav-menu" data-id="be15055" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-text e--animation-none">
+				<ul id="menu-1-be15055" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3692"><a href="https://skyhawk.security/breach-and-attack-simulation/" class="elementor-item">BAS/Red TeamaaS</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3691"><a href="https://skyhawk.security/skyhawk-reduces-wiz-cnapp-alert-noise/" class="elementor-item">Reduce CNAPP Alert Noise</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3880"><a href="https://skyhawk.security/ctem-purple-team-2/" class="elementor-item">CTEM</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3894"><a href="https://skyhawk.security/cloud-detection-and-response-cdr/" class="elementor-item">Cloud Threat Detection</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3896"><a href="https://skyhawk.security/cloud-security-posture-management-cspm/" class="elementor-item">CSPM</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-be15055" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3692"><a href="https://skyhawk.security/breach-and-attack-simulation/" class="elementor-item" tabindex="-1">BAS/Red TeamaaS</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3691"><a href="https://skyhawk.security/skyhawk-reduces-wiz-cnapp-alert-noise/" class="elementor-item" tabindex="-1">Reduce CNAPP Alert Noise</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3880"><a href="https://skyhawk.security/ctem-purple-team-2/" class="elementor-item" tabindex="-1">CTEM</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3894"><a href="https://skyhawk.security/cloud-detection-and-response-cdr/" class="elementor-item" tabindex="-1">Cloud Threat Detection</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3896"><a href="https://skyhawk.security/cloud-security-posture-management-cspm/" class="elementor-item" tabindex="-1">CSPM</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-9a9893c e-con-full e-flex e-con e-child" data-id="9a9893c" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-9293b7b elementor-widget elementor-widget-heading" data-id="9293b7b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">About Us</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7ce4e6e elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="7ce4e6e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-text e--animation-none">
+				<ul id="menu-1-7ce4e6e" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2637 current_page_item menu-item-2646"><a href="https://skyhawk.security/join-us/" aria-current="page" class="elementor-item elementor-item-active">Join Us!</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-news_category menu-item-851"><a href="https://skyhawk.security/news_category/press-releases/" class="elementor-item">Press Releases</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-news_category menu-item-852"><a href="https://skyhawk.security/news_category/news/" class="elementor-item">News</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2391"><a href="https://skyhawk.security/partner-with-skyhawk/" class="elementor-item">Partner with Skyhawk</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2639"><a href="https://skyhawk.security/contact/" class="elementor-item">Contact Us</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-7ce4e6e" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2637 current_page_item menu-item-2646"><a href="https://skyhawk.security/join-us/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">Join Us!</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-news_category menu-item-851"><a href="https://skyhawk.security/news_category/press-releases/" class="elementor-item" tabindex="-1">Press Releases</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-news_category menu-item-852"><a href="https://skyhawk.security/news_category/news/" class="elementor-item" tabindex="-1">News</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2391"><a href="https://skyhawk.security/partner-with-skyhawk/" class="elementor-item" tabindex="-1">Partner with Skyhawk</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2639"><a href="https://skyhawk.security/contact/" class="elementor-item" tabindex="-1">Contact Us</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-f18691d e-con-full e-flex e-con e-child" data-id="f18691d" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-350db17 elementor-widget elementor-widget-heading" data-id="350db17" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">Partners</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-ba09f0f elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="ba09f0f" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-text e--animation-none">
+				<ul id="menu-1-ba09f0f" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2589"><a href="/partner-with-skyhawk/" class="elementor-item">Partner with Skyhawk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2590"><a href="/mssp/" class="elementor-item">Become an MSSP</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2848"><a href="https://partners.skyhawk.security/" class="elementor-item">Partner Portal</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-ba09f0f" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2589"><a href="/partner-with-skyhawk/" class="elementor-item" tabindex="-1">Partner with Skyhawk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2590"><a href="/mssp/" class="elementor-item" tabindex="-1">Become an MSSP</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2848"><a href="https://partners.skyhawk.security/" class="elementor-item" tabindex="-1">Partner Portal</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-826da8d e-con-full e-flex e-con e-child" data-id="826da8d" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-c335ada elementor-widget elementor-widget-heading" data-id="c335ada" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">Resources</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-01161c8 elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="01161c8" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-text e--animation-none">
+				<ul id="menu-1-01161c8" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-804"><a href="https://skyhawk.security/blogs/" class="elementor-item">Blogs</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-resource_category menu-item-847"><a href="https://skyhawk.security/resource_category/case-studies/" class="elementor-item">Case Studies</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-resource_category menu-item-848"><a href="https://skyhawk.security/resource_category/white-papers/" class="elementor-item">White Papers</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-resource_category menu-item-849"><a href="https://skyhawk.security/resource_category/videos-and-webinars/" class="elementor-item">Videos and Webinars</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-resource_category menu-item-850"><a href="https://skyhawk.security/resource_category/datasheets/" class="elementor-item">Datasheets</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-01161c8" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-804"><a href="https://skyhawk.security/blogs/" class="elementor-item" tabindex="-1">Blogs</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-resource_category menu-item-847"><a href="https://skyhawk.security/resource_category/case-studies/" class="elementor-item" tabindex="-1">Case Studies</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-resource_category menu-item-848"><a href="https://skyhawk.security/resource_category/white-papers/" class="elementor-item" tabindex="-1">White Papers</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-resource_category menu-item-849"><a href="https://skyhawk.security/resource_category/videos-and-webinars/" class="elementor-item" tabindex="-1">Videos and Webinars</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-resource_category menu-item-850"><a href="https://skyhawk.security/resource_category/datasheets/" class="elementor-item" tabindex="-1">Datasheets</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-bea6ee0 elementor-widget__width-inherit footer-divider  elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="bea6ee0" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-4913f39 e-grid-align-left footer__socials elementor-widget-mobile__width-initial elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="4913f39" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-96d10b3" href="https://il.linkedin.com/company/skyhawkcloudsecurity" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-0aed280" href="https://www.facebook.com/profile.php?id=61553405139837" target="_blank">
+						<span class="elementor-screen-only">Facebook</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-facebook" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-02a6388" href="https://twitter.com/SkyhawkCloudSec" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-9f4bec7 elementor-icon-list--layout-inline opacity-88 elementor-mobile-align-end elementor-widget-mobile__width-initial elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="9f4bec7" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://skyhawk.security/privacy-policy/" target="_blank">
+
+											<span class="elementor-icon-list-text">Privacy</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://skyhawk.security/terms-and-conditions/">
+
+											<span class="elementor-icon-list-text">Terms</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-1dbd534 opacity-60 elementor-widget elementor-widget-heading" data-id="1dbd534" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">2026 Skyhawk Security</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-3c27337 elementor-widget__width-inherit elementor-widget elementor-widget-html" data-id="3c27337" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+
+    if ( undefined !== window.jQuery ) {
+
+        jQuery(document).ready(function($){
+
+            
+
+            // Select the target element
+
+              var targetElement = $('.footer-form');
+
+            
+
+              // Create a MutationObserver to watch for changes in the DOM
+
+              var observer = new MutationObserver(function(mutations) {
+
+                mutations.forEach(function(mutation) {
+
+                  // Check if nodes were added
+
+                  if (mutation.addedNodes.length > 0) {
+
+                    // Check if any added node has the class .elementor-message-success
+
+                    var successMessage = $(mutation.addedNodes).filter('.elementor-message-success');
+
+                    if (successMessage.length > 0) {
+
+                      // If the success message is found, add the .completed class to .footer__contact-form
+
+                      targetElement.addClass('completed');
+
+                    }
+
+                  }
+
+                });
+
+              });
+
+              
+
+              // Define the options for the MutationObserver
+
+              var config = { childList: true, subtree: true };
+
+            
+
+              // Start observing the target element with the specified options
+
+              observer.observe(targetElement[0], config);
+
+            
+
+        });
+
+    }
+
+</script> 				</div>
+				</div>
+				</div>
+					</div>
+				</footer>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+    <script type="text/rocketlazyloadscript">
+
+        jQuery(document).ready(function($){
+
+
+
+            function getCookie(cname) {
+
+                let name = cname + "=";
+
+                let ca = document.cookie.split(';');
+
+                for(let i = 0; i < ca.length; i++) {
+
+                    let c = ca[i];
+
+                    while (c.charAt(0) == ' ') {
+
+                        c = c.substring(1);
+
+                    }
+
+                    if (c.indexOf(name) == 0) {
+
+                        return c.substring(name.length, c.length);
+
+                    }
+
+                }
+
+                return "";
+
+            }
+
+
+
+            setTimeout(function() {
+
+                const urlParams = new URLSearchParams(window.location.search);
+
+
+
+                var fields = [
+
+                    'utm_source',
+
+                    'utm_medium',
+
+                    'utm_campaign',
+
+                    'utm_term',
+
+                    'utm_content'
+
+                ];
+
+
+
+                $(".elementor-form input[type=hidden]").each(function() {
+
+
+
+                    var field_id = $(this).attr('id');
+
+
+
+                    if( typeof field_id !='undefined' && field_id !=='') {
+
+                        $.each(fields , function(index, val) {
+
+                            if(typeof field_id.indexOf(val) !='undefined') {
+
+
+
+                                if (field_id.indexOf(val) >= 0) {
+
+                                    var utm_val = urlParams.get(val) || decodeURIComponent(getCookie(val));
+
+                                    if( utm_val !== '') {
+
+                                        $(`input[name="form_fields[${val}]"]`).each(function(){
+
+                                            $(this).val(utm_val);
+
+                                        });
+
+                                    }
+
+                                }
+
+                            }
+
+                        });
+
+
+
+                    }
+
+                });
+
+            }, 2500);
+
+        });
+
+    </script>
+
+
+
+		<div data-elementor-type="popup" data-elementor-id="1844" class="elementor elementor-1844 elementor-location-popup" data-elementor-settings="{&quot;entrance_animation&quot;:&quot;fadeIn&quot;,&quot;exit_animation&quot;:&quot;fadeIn&quot;,&quot;entrance_animation_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.7,&quot;sizes&quot;:[]},&quot;open_selector&quot;:&quot;.get-demo-item&quot;,&quot;prevent_close_on_background_click&quot;:&quot;yes&quot;,&quot;prevent_scroll&quot;:&quot;yes&quot;,&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+			<div  class="elementor-element elementor-element-4dc06cc e-flex e-con-boxed e-con e-parent" data-id="4dc06cc" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-8e121df opacity-88 elementor-widget elementor-widget-heading" data-id="8e121df" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">See the Purple Team</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-f2e689a opacity-50 elementor-widget elementor-widget-heading" data-id="f2e689a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">See the breach before it happens</div>				</div>
+				</div>
+				<div class="elementor-element elementor-element-23cb831 popup-form light-bg elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="23cb831" data-element_type="widget" data-e-type="widget" id="demoForm" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+							<form class="elementor-form" method="post" name="popup form" aria-label="popup form">
+			<input type="hidden" name="post_id" value="1844"/>
+			<input type="hidden" name="form_id" value="23cb831"/>
+			<input type="hidden" name="referer_title" value="Cloud Visionary, CSPM Pioneer Chen Burshan Joins Skyhawk Security as CEO - Skyhawk Security" />
+
+							<input type="hidden" name="queried_id" value="244"/>
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-popup_fname elementor-col-50 elementor-field-required">
+												<label for="form-field-popup_fname" class="elementor-field-label elementor-screen-only">
+								First Name							</label>
+														<input size="1" type="text" name="form_fields[popup_fname]" id="form-field-popup_fname" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="First Name *" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-popup_lname elementor-col-50 elementor-field-required">
+												<label for="form-field-popup_lname" class="elementor-field-label elementor-screen-only">
+								Last Name							</label>
+														<input size="1" type="text" name="form_fields[popup_lname]" id="form-field-popup_lname" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Last Name *" required="required">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-popup_email elementor-col-50 elementor-field-required">
+												<label for="form-field-popup_email" class="elementor-field-label elementor-screen-only">
+								Email							</label>
+														<input size="1" type="email" name="form_fields[popup_email]" id="form-field-popup_email" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Email *" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-popup_company elementor-col-50 elementor-field-required">
+												<label for="form-field-popup_company" class="elementor-field-label elementor-screen-only">
+								Company							</label>
+														<input size="1" type="text" name="form_fields[popup_company]" id="form-field-popup_company" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Company*" required="required">
+											</div>
+								<div class="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-popup_country elementor-col-100 elementor-field-required">
+												<label for="form-field-popup_country" class="elementor-field-label elementor-screen-only">
+								Country *							</label>
+								<div class="elementor-field elementor-select-wrapper remove-before ">
+			<div class="select-caret-down-wrapper">
+				<svg aria-hidden="true" class="e-font-icon-svg e-eicon-caret-down" viewBox="0 0 571.4 571.4" xmlns="http://www.w3.org/2000/svg"><path d="M571 393Q571 407 561 418L311 668Q300 679 286 679T261 668L11 418Q0 407 0 393T11 368 36 357H536Q550 357 561 368T571 393Z"></path></svg>			</div>
+			<select name="form_fields[popup_country]" id="form-field-popup_country" class="elementor-field-textual elementor-size-sm" required="required">
+									<option value="">Country *</option>
+									<option value="Afghanistan">Afghanistan</option>
+									<option value="Albania">Albania</option>
+									<option value="Algeria">Algeria</option>
+									<option value="Andorra">Andorra</option>
+									<option value="Angola">Angola</option>
+									<option value="Antigua and Barbuda">Antigua and Barbuda</option>
+									<option value="Argentina">Argentina</option>
+									<option value="Armenia">Armenia</option>
+									<option value="Australia">Australia</option>
+									<option value="Austria">Austria</option>
+									<option value="Azerbaijan">Azerbaijan</option>
+									<option value="The Bahamas">The Bahamas</option>
+									<option value="Bahrain">Bahrain</option>
+									<option value="Bangladesh">Bangladesh</option>
+									<option value="Barbados">Barbados</option>
+									<option value="Belarus">Belarus</option>
+									<option value="Belgium">Belgium</option>
+									<option value="Belize">Belize</option>
+									<option value="Benin">Benin</option>
+									<option value="Bhutan">Bhutan</option>
+									<option value="Bolivia">Bolivia</option>
+									<option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+									<option value="Botswana">Botswana</option>
+									<option value="Brazil">Brazil</option>
+									<option value="Brunei">Brunei</option>
+									<option value="Bulgaria">Bulgaria</option>
+									<option value="Burkina Faso">Burkina Faso</option>
+									<option value="Burundi">Burundi</option>
+									<option value="Cabo Verde">Cabo Verde</option>
+									<option value="Cambodia">Cambodia</option>
+									<option value="Cameroon">Cameroon</option>
+									<option value="Canada">Canada</option>
+									<option value="Central African Republic">Central African Republic</option>
+									<option value="Chad">Chad</option>
+									<option value="Chile">Chile</option>
+									<option value="China">China</option>
+									<option value="Colombia">Colombia</option>
+									<option value="Comoros">Comoros</option>
+									<option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the</option>
+									<option value="Congo, Republic of the">Congo, Republic of the</option>
+									<option value="Costa Rica">Costa Rica</option>
+									<option value="Côte d’Ivoire">Côte d’Ivoire</option>
+									<option value="Croatia">Croatia</option>
+									<option value="Cuba">Cuba</option>
+									<option value="Cyprus">Cyprus</option>
+									<option value="Czech Republic">Czech Republic</option>
+									<option value="Denmark">Denmark</option>
+									<option value="Djibouti">Djibouti</option>
+									<option value="Dominica">Dominica</option>
+									<option value="Dominican Republic">Dominican Republic</option>
+									<option value="East Timor (Timor-Leste)">East Timor (Timor-Leste)</option>
+									<option value="Ecuador">Ecuador</option>
+									<option value="Egypt">Egypt</option>
+									<option value="El Salvador">El Salvador</option>
+									<option value="Equatorial Guinea">Equatorial Guinea</option>
+									<option value="Eritrea">Eritrea</option>
+									<option value="Estonia">Estonia</option>
+									<option value="Eswatini">Eswatini</option>
+									<option value="Ethiopia">Ethiopia</option>
+									<option value="Fiji">Fiji</option>
+									<option value="Finland">Finland</option>
+									<option value="France">France</option>
+									<option value="Gabon">Gabon</option>
+									<option value="The Gambia">The Gambia</option>
+									<option value="Georgia">Georgia</option>
+									<option value="Germany">Germany</option>
+									<option value="Ghana">Ghana</option>
+									<option value="Greece">Greece</option>
+									<option value="Grenada">Grenada</option>
+									<option value="Guatemala">Guatemala</option>
+									<option value="Guinea">Guinea</option>
+									<option value="Guinea-Bissau">Guinea-Bissau</option>
+									<option value="Guyana">Guyana</option>
+									<option value="Haiti">Haiti</option>
+									<option value="Honduras">Honduras</option>
+									<option value="Hungary">Hungary</option>
+									<option value="Iceland">Iceland</option>
+									<option value="India">India</option>
+									<option value="Indonesia">Indonesia</option>
+									<option value="Iran">Iran</option>
+									<option value="Iraq">Iraq</option>
+									<option value="Ireland">Ireland</option>
+									<option value="Israel">Israel</option>
+									<option value="Italy">Italy</option>
+									<option value="Jamaica">Jamaica</option>
+									<option value="Japan">Japan</option>
+									<option value="Jordan">Jordan</option>
+									<option value="Kazakhstan">Kazakhstan</option>
+									<option value="Kenya">Kenya</option>
+									<option value="Kiribati">Kiribati</option>
+									<option value="Korea, North">Korea, North</option>
+									<option value="Korea, South">Korea, South</option>
+									<option value="Kosovo">Kosovo</option>
+									<option value="Kuwait">Kuwait</option>
+									<option value="Kyrgyzstan">Kyrgyzstan</option>
+									<option value="Laos">Laos</option>
+									<option value="Latvia">Latvia</option>
+									<option value="Lebanon">Lebanon</option>
+									<option value="Lesotho">Lesotho</option>
+									<option value="Liberia">Liberia</option>
+									<option value="Libya">Libya</option>
+									<option value="Liechtenstein">Liechtenstein</option>
+									<option value="Lithuania">Lithuania</option>
+									<option value="Luxembourg">Luxembourg</option>
+									<option value="Madagascar">Madagascar</option>
+									<option value="Malawi">Malawi</option>
+									<option value="Malaysia">Malaysia</option>
+									<option value="Maldives">Maldives</option>
+									<option value="Mali">Mali</option>
+									<option value="Malta">Malta</option>
+									<option value="Marshall Islands">Marshall Islands</option>
+									<option value="Mauritania">Mauritania</option>
+									<option value="Mauritius">Mauritius</option>
+									<option value="Mexico">Mexico</option>
+									<option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+									<option value="Moldova">Moldova</option>
+									<option value="Monaco">Monaco</option>
+									<option value="Mongolia">Mongolia</option>
+									<option value="Montenegro">Montenegro</option>
+									<option value="Morocco">Morocco</option>
+									<option value="Mozambique">Mozambique</option>
+									<option value="Myanmar (Burma)">Myanmar (Burma)</option>
+									<option value="Namibia">Namibia</option>
+									<option value="Nauru">Nauru</option>
+									<option value="Nepal">Nepal</option>
+									<option value="Netherlands">Netherlands</option>
+									<option value="New Zealand">New Zealand</option>
+									<option value="Nicaragua">Nicaragua</option>
+									<option value="Niger">Niger</option>
+									<option value="Nigeria">Nigeria</option>
+									<option value="North Macedonia">North Macedonia</option>
+									<option value="Norway">Norway</option>
+									<option value="Oman">Oman</option>
+									<option value="Pakistan">Pakistan</option>
+									<option value="Palau">Palau</option>
+									<option value="Panama">Panama</option>
+									<option value="Papua New Guinea">Papua New Guinea</option>
+									<option value="Paraguay">Paraguay</option>
+									<option value="Peru">Peru</option>
+									<option value="Philippines">Philippines</option>
+									<option value="Poland">Poland</option>
+									<option value="Portugal">Portugal</option>
+									<option value="Qatar">Qatar</option>
+									<option value="Romania">Romania</option>
+									<option value="Russia">Russia</option>
+									<option value="Rwanda">Rwanda</option>
+									<option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+									<option value="Saint Lucia">Saint Lucia</option>
+									<option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+									<option value="Samoa">Samoa</option>
+									<option value="San Marino">San Marino</option>
+									<option value="Sao Tome and Principe">Sao Tome and Principe</option>
+									<option value="Saudi Arabia">Saudi Arabia</option>
+									<option value="Senegal">Senegal</option>
+									<option value="Serbia">Serbia</option>
+									<option value="Seychelles">Seychelles</option>
+									<option value="Sierra Leone">Sierra Leone</option>
+									<option value="Singapore">Singapore</option>
+									<option value="Slovakia">Slovakia</option>
+									<option value="Slovenia">Slovenia</option>
+									<option value="Solomon Islands">Solomon Islands</option>
+									<option value="Somalia">Somalia</option>
+									<option value="South Africa">South Africa</option>
+									<option value="Spain">Spain</option>
+									<option value="Sri Lanka">Sri Lanka</option>
+									<option value="Sudan">Sudan</option>
+									<option value="Sudan, South">Sudan, South</option>
+									<option value="Suriname">Suriname</option>
+									<option value="Sweden">Sweden</option>
+									<option value="Switzerland">Switzerland</option>
+									<option value="Syria">Syria</option>
+									<option value="Taiwan">Taiwan</option>
+									<option value="Tajikistan">Tajikistan</option>
+									<option value="Tanzania">Tanzania</option>
+									<option value="Thailand">Thailand</option>
+									<option value="Togo">Togo</option>
+									<option value="Tonga">Tonga</option>
+									<option value="Trinidad and Tobago">Trinidad and Tobago</option>
+									<option value="Tunisia">Tunisia</option>
+									<option value="Turkey">Turkey</option>
+									<option value="Turkmenistan">Turkmenistan</option>
+									<option value="Tuvalu">Tuvalu</option>
+									<option value="Uganda">Uganda</option>
+									<option value="Ukraine">Ukraine</option>
+									<option value="United Arab Emirates">United Arab Emirates</option>
+									<option value="United Kingdom">United Kingdom</option>
+									<option value="United States">United States</option>
+									<option value="Uruguay">Uruguay</option>
+									<option value="Uzbekistan">Uzbekistan</option>
+									<option value="Vanuatu">Vanuatu</option>
+									<option value="Vatican City">Vatican City</option>
+									<option value="Venezuela">Venezuela</option>
+									<option value="Vietnam">Vietnam</option>
+									<option value="Yemen">Yemen</option>
+									<option value="Zambia">Zambia</option>
+									<option value="Zimbabwe">Zimbabwe</option>
+							</select>
+		</div>
+						</div>
+								<div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-popup_accept elementor-col-100 elementor-field-required">
+												<label for="form-field-popup_accept" class="elementor-field-label elementor-screen-only">
+								Agree							</label>
+								<div class="elementor-field-subgroup">
+			<span class="elementor-field-option">
+				<input type="checkbox" name="form_fields[popup_accept]" id="form-field-popup_accept" class="elementor-field elementor-size-sm  elementor-acceptance-field" required="required">
+				<label for="form-field-popup_accept">I agree to Skyhawk <a href="/privacy-policy">privacy policy & terms</a></label>			</span>
+		</div>
+						</div>
+								<div class="elementor-field-type-hidden elementor-field-group elementor-column elementor-field-group-utm_campaign elementor-col-100">
+													<input size="1" type="hidden" name="form_fields[utm_campaign]" id="form-field-utm_campaign" class="elementor-field elementor-size-sm  elementor-field-textual">
+											</div>
+								<div class="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_f068266 elementor-col-100 recaptcha_v3-bottomright">
+					<div class="elementor-field" id="form-field-field_f068266"><div class="elementor-g-recaptcha" data-sitekey="6Lf6J3MpAAAAALL2SCKrDZVSn-uJKVgyhrL6dNDe" data-type="v3" data-action="Form" data-badge="bottomright" data-size="invisible"></div></div>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Send</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-a5aef2a elementor-widget elementor-widget-html" data-id="a5aef2a" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+
+    if (undefined !== window.jQuery) {
+
+        jQuery(document).ready(function($) {
+
+            const form = $('#demoForm');
+
+            const submitBtn = $('#demoForm button[type="submit"]');
+
+            const fields = form.find('input[required], select[required]');
+
+        
+
+            function checkFields() {
+
+                let allFilled = true;
+
+                fields.each(function() {
+
+                    if (!$.trim($(this).val())) {
+
+                        allFilled = false;
+
+                    }
+
+                });
+
+        
+
+                if (allFilled) {
+
+                    submitBtn.removeClass('disabled');
+
+                } else {
+
+                    submitBtn.addClass('disabled');
+
+                }
+
+            }
+
+        
+
+            fields.on('input change', checkFields);
+
+        
+
+            // Initial check
+
+            checkFields();
+
+        });
+
+    }
+
+</script>
+
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-c5aef9e elementor-widget elementor-widget-heading" data-id="c5aef9e" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-heading-title elementor-size-default">This site is protected by reCAPTCHA and the Google
+    <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+    <a href="https://policies.google.com/terms">Terms of Service</a> apply.</div>				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+					<script type="text/rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script type="text/rocketlazyloadscript">jQuery(document).ready(function($) {
+
+    // Function to check if the URL contains #get-demo
+
+    function urlHasGetDemo() {
+
+        return window.location.hash.includes('#get-a-demo');
+
+    }
+
+
+
+    // Check if the URL has #get-demo and open the popup if true
+
+    if (urlHasGetDemo()) {
+
+      setTimeout(function() {
+
+      	$('.get-demo-item').trigger('click');
+
+	  }, 1500);
+
+    }
+
+});</script><script type="text/rocketlazyloadscript" defer>
+
+        const theBody = document.body;
+
+        
+
+        window.onscroll = function() {
+
+            if(window.scrollY > 60){
+
+              theBody.classList.add('scrolled')
+
+            } else{
+
+              theBody.classList.remove('scrolled')
+
+            }
+
+        }
+
+
+
+</script> 
+
+
+
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+
+    if ( undefined !== window.jQuery ) {
+
+        jQuery(document).ready(function($){
+
+            
+
+            $('.nav-toggle').on('click', function(event) {
+
+                event.preventDefault();
+
+                $('.nav-wrapper').toggleClass('open');
+
+            });
+
+            
+
+            
+
+        });
+
+    }
+
+</script> <style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<script type="text/rocketlazyloadscript" data-minify="1" id="awsm-job-block-pro-scripts-js" data-rocket-src="https://skyhawk.security/wp-content/cache/min/1/wp-content/plugins/pro-pack-for-wp-job-openings/assets/js/public/job-block.js?ver=1783009140" data-rocket-defer defer></script>
+<script id="awsm-job-scripts-js-extra">
+var awsmJobsPublic = {"ajaxurl":"https://skyhawk.security/wp-admin/admin-ajax.php","is_tax_archive":"","is_search":"","job_id":"0","wp_max_upload_size":"52428800","deep_linking":{"search":true,"spec":true,"pagination":true},"i18n":{"loading_text":"Loading...","form_error_msg":{"general":"Error in submitting your application. Please refresh the page and retry.","file_validation":"The file you have selected is too large.","captcha_failed":"reCAPTCHA failed to load. Please check your configuration."}},"vendors":{"selectric":true,"jquery_validation":true},"is_homepage":"","block_nonce":"42411d08f6","view_count_nonce":"8b3a986514"};
+//# sourceURL=awsm-job-scripts-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="awsm-job-scripts-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/wp-job-openings/assets/js/script.min.js?ver=4.0.1" data-rocket-defer defer></script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,c,a){function u(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(s)return s(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return u(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var s="function"==typeof require&&require,e=0;e<a.length;e++)u(a[e]);return u}({1:[function(e,t,r){"use strict";{const c="undefined"==typeof rocket_pairs?[]:rocket_pairs,a=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var o=rocket_lazyload_css_data.threshold||300;const u=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&c.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,a.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{u.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:o+"px"});function n(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&c.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(u.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}n(),function(){const r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}}()(document.querySelector("body"),n)}},{}]},{},[1]);
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="hello-theme-frontend-js" data-rocket-src="https://skyhawk.security/wp-content/cache/min/1/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=1783009140" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="elementor-webpack-runtime-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.1.3" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="elementor-frontend-modules-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.1.3" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="jquery-ui-core-js" data-rocket-src="https://skyhawk.security/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":600,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":599,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1025,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1440,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":true},"version":"4.1.3","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"landing-pages":true,"nested-elements":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true,"e_pro_atomic_form":true,"mega-menu":true,"e_pro_variables":true,"e_pro_interactions":true},"urls":{"assets":"https:\/\/skyhawk.security\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/skyhawk.security\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/skyhawk.security\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"e42c028377","atomicFormsSendForm":"9ec1a6c852"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet","viewport_laptop"],"viewport_mobile":599,"viewport_laptop":1440,"body_background_background":"classic","global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":2637,"title":"Join%20Us%21%20-%20Skyhawk%20Security","excerpt":"","featuredImage":"https:\/\/skyhawk.security\/wp-content\/uploads\/2025\/10\/skysecurity-logo.png"}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="text/rocketlazyloadscript" id="elementor-frontend-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.1.3" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="smartmenus-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="e-sticky-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=4.1.1" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="awsm-job-pro-flatpickr-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/pro-pack-for-wp-job-openings/assets/js/flatpickr.min.js?ver=4.6.9" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="awsm-job-pro-country-select-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/pro-pack-for-wp-job-openings/assets/js/intlTelInput.min.js?ver=17.0.16" data-rocket-defer defer></script>
+<script id="awsm-job-pro-scripts-js-extra">
+var awsmProJobsPublic = {"datepicker":"default","iti":{"show_country_code":false,"utils_url":"https://skyhawk.security/wp-content/plugins/pro-pack-for-wp-job-openings/assets/js/intlTelInput-utils.min.js"},"remove_file_nonce":"2aec8e225c","i18n":{"repeater":{"add_more":"Add More","edit":"Edit","update":"Update","remove":"Delete"},"file_upload":{"uploading":"Uploading....","cancel_upload":"Cancel","upload_canceled":"Upload canceled.","cancel_upload_confirmation":"Are you sure you want to cancel this upload?","remove_file":"Remove","max_files":"You are not allowed to upload more than the file limit: {{maxFiles}}.","invalid_file_type":"You can't upload files of this type.","file_size":"File upload failed. Maximum allowed file size is {{maxFilesize}}MB"}}};
+//# sourceURL=awsm-job-pro-scripts-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="awsm-job-pro-scripts-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/pro-pack-for-wp-job-openings/assets/js/script.min.js?ver=4.0.1" data-rocket-defer defer></script>
+<script id="eael-general-js-extra">
+var localize = {"ajaxurl":"https://skyhawk.security/wp-admin/admin-ajax.php","nonce":"36922905c9","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https://skyhawk.security/join-us/","cart_redirectition":"","cart_page_url":"","el_breakpoints":{"mobile":{"label":"Mobile Portrait","value":599,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1025,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1440,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}};
+//# sourceURL=eael-general-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="eael-general-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=6.6.7" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="elementor-recaptcha_v3-api-js" data-rocket-src="https://www.google.com/recaptcha/api.js?render=explicit&#038;ver=4.1.1"></script>
+<script type="text/rocketlazyloadscript" id="elementor-pro-webpack-runtime-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.1.1" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="wp-hooks-js" data-rocket-src="https://skyhawk.security/wp-includes/js/dist/hooks.min.js?ver=7496969728ca0f95732d"></script>
+<script type="text/rocketlazyloadscript" id="wp-i18n-js" data-rocket-src="https://skyhawk.security/wp-includes/js/dist/i18n.min.js?ver=781d11515ad3d91786ec"></script>
+<script type="text/rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="text/rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/skyhawk.security\/wp-admin\/admin-ajax.php","nonce":"26c5874cdc","urls":{"assets":"https:\/\/skyhawk.security\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/skyhawk.security\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/skyhawk.security\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="text/rocketlazyloadscript" id="elementor-pro-frontend-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.1.1" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="pro-elements-handlers-js" data-rocket-src="https://skyhawk.security/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.1.1" data-rocket-defer defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://skyhawk.security/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>(()=>{class RocketElementorPreload{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}t(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this.i(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this.o(t)}catch(t){}})}o(t){const e=JSON.parse(t.dataset.settings),i=e.m||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let o=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this.l(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(o)})}i(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}l(t,e){this.i().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorPreload;requestAnimationFrame(t.t.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorPreload.run)})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4238fa52af254b5',t:'MTc5MDYwNzAzMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
