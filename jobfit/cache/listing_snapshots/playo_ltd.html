@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69036313d8a76c37af7ebf2c/2bc2507c2_playoailogo.png" rel="icon" type="image/svg+xml"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Careers | Playo
+  </title>
+  <script crossorigin="" src="/assets/index-dR3vVrH8.js" type="module">
+  </script>
+  <link crossorigin="" href="/assets/index-DlL9vwnF.css" rel="stylesheet"/>
+  <meta content="Careers on Playo. The first AI gameplay foundation model that generates full 3D games in under one." name="description"/>
+  <meta content="Careers | Playo" property="og:title"/>
+  <meta content="Careers on Playo. The first AI gameplay foundation model that generates full 3D games in under one." property="og:description"/>
+  <meta content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/69036313d8a76c37af7ebf2c/2bc2507c2_playoailogo.png?width=1200&amp;height=630&amp;resize=contain" property="og:image"/>
+  <meta content="https://playo.ai/careers" property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <meta content="Playo" property="og:site_name"/>
+  <meta content="Careers | Playo" name="twitter:title"/>
+  <meta content="Careers on Playo. The first AI gameplay foundation model that generates full 3D games in under one." name="twitter:description"/>
+  <meta content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/69036313d8a76c37af7ebf2c/2bc2507c2_playoailogo.png?width=1200&amp;height=630&amp;resize=contain" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://playo.ai/careers" name="twitter:url"/>
+  <script>
+   (function () {
+  var titles = {"/": "Playo", "/blog": "Blog | Playo", "/blog-post": "Blog Post | Playo", "/blogpost": "Blog Post | Playo", "/dashboard": "Dashboard | Playo", "/intro": "Intro | Playo", "/ruins-of-the-earth-privacy": "Ruins Of The Earth Privacy | Playo", "/ruinsoftheearthprivacy": "Ruins Of The Earth Privacy | Playo", "/ruinsoftheearthtnc": "Ruins Of The Earth Tnc | Playo", "/ruins-of-the-earth-tnc": "Ruins Of The Earth Tnc | Playo", "/threedsite": "Three DSite | Playo", "/three-d-site": "Three DSite | Playo", "/careers": "Careers | Playo", "/privacy-policy": "Privacy Policy | Playo", "/data-request": "Data Request | Playo", "/terms-of-service": "Terms Of Service | Playo", "/accessibility": "Accessibility | Playo", "/investors": "Investor Inquiry | Playo", "/home": "Playo"};
+  // PascalCase boundaries -> "-", mirroring _PASCAL_BOUNDARY_RE without lookbehind
+  // (old Safari fails to PARSE a lookbehind, taking the whole script down).
+  var dashed = function (s) {
+    return s.replace(/([a-z0-9])([A-Z])/g, "$1-$2").replace(/([A-Z])([A-Z][a-z])/g, "$1-$2");
+  };
+  var decode = function (s) {
+    // A %2F inside ONE segment must not become a structural separator: /blog/foo%2Fbar is a
+    // dynamic slug, and letting it split would match a static /blog/foo/bar and write ITS title.
+    try { var d = decodeURIComponent(s); return d.indexOf("/") < 0 ? d : s; } catch (e) { return s; }
+  };
+  var segments = function (path) { return path.split("/").filter(Boolean).map(decode); };
+  var norm = function (path) {
+    var parts = segments(path).map(function (s) { return dashed(s).toLowerCase(); });
+    return parts.length ? "/" + parts.join("/") : "/";
+  };
+  var lastPath = location.pathname, written = document.title, on = true;
+  var sync = function () {
+    // Path only: a hash/query change is the same page, and the SDK strips its own auth
+    // params with replaceState -- neither must clobber a server-rendered title in place.
+    if (!on || location.pathname === lastPath) return;
+    lastPath = location.pathname;
+    if (document.title !== written) { on = false; return; }
+    // Write ONLY a title the map proves. An unmapped path is a dynamic route (/blog/:slug) the
+    // map cannot carry, and writing a placeholder there is destructive, not merely vague: the
+    // prerender worker runs no setUserAgent, so its capture browser reads as human and executes
+    // this script, and coordinator.js's settle wait explicitly tolerates a full navigation --
+    // a redirect landing on an unmapped path would bake the placeholder into the stored
+    // snapshot. Leaving the title alone degrades to today's behavior instead.
+    // Exact lookup only. A dash-stripped retry here would let a genuinely different /set-up
+    // claim /setup: the map carries a dash-free key only where a PascalCase boundary put the
+    // dashes there, and the client cannot tell the two apart. The map emits every reachable
+    // shape per segment instead (_client_url_variants).
+    var title = titles[norm(location.pathname)];
+    if (title === undefined) return;
+    document.title = title;
+    // Re-read: the setter stores verbatim but the getter strips and collapses whitespace, so
+    // keeping the assigned string would make the next sync() read our own write as the app's.
+    written = document.title;
+  };
+  var wrap = function (fn) {
+    // The history entry is already pushed by the time sync() runs, so a throw here would
+    // surface inside the host app's router and break navigation. This is injected into apps
+    // we cannot test, so it swallows rather than trusting the trace.
+    return function () {
+      var r = fn.apply(this, arguments);
+      try { sync(); } catch (e) {}
+      return r;
+    };
+  };
+  history.pushState = wrap(history.pushState);
+  history.replaceState = wrap(history.replaceState);
+  window.addEventListener("popstate", sync);
+})();
+  </script>
+  <meta content="yes" name="mobile-web-app-capable"/>
+  <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="Playo" name="apple-mobile-web-app-title"/>
+  <link href="https://playo.ai/careers" rel="canonical"/>
+  <script data-seo-source="builder" type="application/ld+json">
+   {"name": "Playo", "@context": "https://schema.org", "@type": "WebSite", "url": "https://playo.ai"}
+  </script>
+  <script data-seo-source="builder" type="application/ld+json">
+   {"name": "Playo", "logo": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69036313d8a76c37af7ebf2c/2bc2507c2_playoailogo.png", "@context": "https://schema.org", "@type": "Organization", "url": "https://playo.ai"}
+  </script>
+  <script data-seo-source="builder" type="application/ld+json">
+   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://playo.ai/"}, {"@type": "ListItem", "position": 2, "name": "Careers | Playo", "item": "https://playo.ai/careers"}]}
+  </script>
+ </head>
+ <body>
+  <div id="root">
+   <div data-seo-source="builder" id="seo-snapshot" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+    <main>
+     <header>
+      <h1>
+       Careers | Playo
+      </h1>
+      <p>
+       Careers on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+      </p>
+     </header>
+     <nav aria-label="Pages">
+      <h2>
+       Pages
+      </h2>
+      <ul>
+       <li>
+        <a href="/">
+         Home
+        </a>
+       </li>
+       <li>
+        <a href="/Blog">
+         Blog
+        </a>
+        — Blog on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/BlogPost">
+         Blog Post
+        </a>
+        — Blog Post on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/Dashboard">
+         Dashboard
+        </a>
+        — Dashboard on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/Intro">
+         Intro
+        </a>
+        — Intro on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/RuinsOfTheEarthPrivacy">
+         Ruins Of The Earth Privacy
+        </a>
+        — Ruins Of The Earth Privacy on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/RuinsOfTheEarthTnc">
+         Ruins Of The Earth Tnc
+        </a>
+        — Ruins Of The Earth Tnc on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/ThreeDSite">
+         Three D Site
+        </a>
+        — Three DSite on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/careers">
+         Careers
+        </a>
+        — Careers on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/privacy-policy">
+         Privacy Policy
+        </a>
+        — Privacy Policy on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/data-request">
+         Data Request
+        </a>
+        — Data Request on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/terms-of-service">
+         Terms Of Service
+        </a>
+        — Terms Of Service on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/accessibility">
+         Accessibility
+        </a>
+        — Accessibility on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+       <li>
+        <a href="/investors">
+         Investor Inquiry
+        </a>
+        — Investor Inquiry on Playo. The first AI gameplay foundation model that generates full 3D games in under one.
+       </li>
+      </ul>
+     </nav>
+    </main>
+   </div>
+  </div>
+ </body>
+</html>

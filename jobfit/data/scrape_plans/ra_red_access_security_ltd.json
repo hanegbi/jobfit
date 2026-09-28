@@ -1,0 +1,84 @@
+{
+  "company_id": "ra_red_access_security_ltd",
+  "schema_version": 1,
+  "career_url": "https://redaccess.io/career",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:37:36.447180Z",
+  "verified_at": "2026-09-28T14:37:36.447180Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?redaccess\\.io/career/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?redaccess\\.io/[^/?#]+/?$",
+      "^https?://(www\\.)?redaccess\\.io/career_category/[^/?#]+/?$",
+      "^https?://(www\\.)?redaccess\\.io/wp\\-content/uploads/2025/09/[^/?#]+/?$"
+    ],
+    "url_shape": "redaccess.io|career|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 22,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}

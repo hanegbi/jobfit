@@ -1,0 +1,90 @@
+{
+  "company_id": "prime_security_bm_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.primesec.ai/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:37:36.447180Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?primesec\\.ai/use\\-cases/[^/?#]+/?$",
+      "^https?://(www\\.)?ats\\.rippling\\.com/primesecurity/[^/?#]+/?$",
+      "^https?://(www\\.)?primesec\\.ai/[^/?#]+/?$"
+    ],
+    "url_shape": "ats.rippling.com|primesecurity/jobs|3",
+    "explicit_accept": [
+      "https://ats.rippling.com/primesecurity/jobs/57372d55-1704-4e23-9112-c16bdd36d3fa",
+      "https://ats.rippling.com/primesecurity/jobs/4d7719f0-0b4a-4a40-8763-f7c378ba45dc",
+      "https://ats.rippling.com/primesecurity/jobs/70366d66-5815-4ac2-b42e-a130a451e0da",
+      "https://ats.rippling.com/primesecurity/jobs/47c8c909-f22a-4cba-93df-3b94c8c04a07",
+      "https://ats.rippling.com/primesecurity/jobs/32a15aa1-5bfa-498d-a4dd-1a952d458c37"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": null,
+  "notes": []
+}

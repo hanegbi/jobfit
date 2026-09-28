@@ -1,0 +1,90 @@
+{
+  "company_id": "qedma_quantum_computing_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.qedma.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:37:36.447180Z",
+  "verified_at": "2026-09-28T14:37:36.447180Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?qedma\\.com/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?qedma\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?qedma\\.com/careers/co/engineering/[^/?#]+/?$",
+      "^https?://(www\\.)?qedma\\.com/careers/co/people\\-operations/[^/?#]+/?$",
+      "^https?://(www\\.)?qedma\\.com/careers/co/research/[^/?#]+/?$"
+    ],
+    "url_shape": "qedma.com|careers/co/israel/EC.078/senior-software-engineer-algorithms|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 34,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 35,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": null,
+  "notes": []
+}

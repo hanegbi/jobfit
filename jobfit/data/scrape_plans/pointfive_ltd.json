@@ -1,0 +1,125 @@
+{
+  "company_id": "pointfive_ltd",
+  "schema_version": 1,
+  "career_url": "https://pointfive.co/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:37:36.447180Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?pointfive\\.co/[^/?#]+/?$"
+    ],
+    "url_shape": "pointfive.co|careers|2",
+    "explicit_accept": [
+      "https://www.pointfive.co/careers/6e1c4d79-a7c3-473d-bb25-c670dca0b3e4",
+      "https://www.pointfive.co/careers/d421e4e5-85cd-4ebb-a480-442e83057c6f",
+      "https://www.pointfive.co/careers/7772cf77-a47d-4852-b09f-c286ed0ddb3a",
+      "https://www.pointfive.co/careers/b13d179d-433f-4e2a-8994-0775ff3c53ef",
+      "https://www.pointfive.co/careers/f3e101d7-7ce7-4280-8eb4-f6ccde097472",
+      "https://www.pointfive.co/careers/1098c46b-4cf6-43e8-a342-58ed8e0b3f5c",
+      "https://www.pointfive.co/careers/943baa93-67da-4c72-b610-a6b9aec48f7c",
+      "https://www.pointfive.co/careers/5cee7d05-e155-4a9a-a6ae-27068e251d2b",
+      "https://www.pointfive.co/careers/4e3fda32-c387-46bd-ab47-bb8cb6937918",
+      "https://www.pointfive.co/careers/26ed9572-2119-48fd-a9b2-3e17e5c73ce8",
+      "https://www.pointfive.co/careers/bf0b9450-79ff-4234-a690-17ffafcece86",
+      "https://www.pointfive.co/careers/dd08d676-3748-4346-9b8e-118619c432a5"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 45,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 50,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 53,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 54,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 55,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 56,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 57,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 58,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 59,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 60,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 61,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 62,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 12
+  },
+  "rediscover_after": null,
+  "notes": []
+}
