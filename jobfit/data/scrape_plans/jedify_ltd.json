@@ -1,0 +1,89 @@
+{
+  "company_id": "jedify_ltd",
+  "schema_version": 1,
+  "career_url": "https://jedify.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:43:29.498556Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?jedify\\.com/solutions/[^/?#]+/?$",
+      "^https?://(www\\.)?jedify\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?infoworld\\.com/article/4203114/[^/?#]+/?$"
+    ],
+    "url_shape": "jedify.com|careers|2",
+    "explicit_accept": [
+      "https://jedify.com/careers/technical-account-manager/",
+      "https://jedify.com/careers/ai-solutions-engineer/",
+      "https://jedify.com/careers/acount-executive/",
+      "https://jedify.com/careers/backend-engineer/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 4
+  },
+  "rediscover_after": null,
+  "notes": []
+}

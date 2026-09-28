@@ -1,0 +1,54 @@
+{
+  "company_id": "engage_media_tv_ltd_emtv",
+  "schema_version": 1,
+  "career_url": "https://www.app.engagemedia.tv/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:43:29.498556Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?app\\.engagemedia\\.tv/[^/?#]+/?$"
+    ],
+    "url_shape": "linkedin.com|jobs/view|3",
+    "explicit_accept": [
+      "https://www.linkedin.com/jobs/view/4255841892/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

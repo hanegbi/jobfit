@@ -1,0 +1,47 @@
+{
+  "company_id": "lima_inc",
+  "schema_version": 1,
+  "career_url": "https://www.lima-ai.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:43:29.498556Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": "lima-ai.com|careers|2",
+    "explicit_accept": [
+      "https://www.lima-ai.com/careers/lead-technical-architect"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

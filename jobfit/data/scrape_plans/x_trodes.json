@@ -1,0 +1,52 @@
+{
+  "company_id": "x_trodes",
+  "schema_version": 1,
+  "career_url": "https://xtrodes.applytojob.com/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:43:29.498556Z",
+  "verified_at": "2026-09-28T11:43:29.498556Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?xtrodes\\.applytojob\\.com/apply/04LsFG57MS/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?info\\.jazzhr\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "xtrodes.applytojob.com|apply/04LsFG57MS|3",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 2,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

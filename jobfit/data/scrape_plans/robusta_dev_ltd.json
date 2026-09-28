@@ -1,0 +1,69 @@
+{
+  "company_id": "robusta_dev_ltd",
+  "schema_version": 1,
+  "career_url": "https://home.robusta.dev/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:43:29.498556Z",
+  "verified_at": "2026-09-28T11:43:29.498556Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?home\\.robusta\\.dev/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?home\\.robusta\\.dev/__l5e/assets\\-v1/589d3620\\-6516\\-46a9\\-a279\\-675430951258/[^/?#]+/?$",
+      "^https?://(www\\.)?home\\.robusta\\.dev/[^/?#]+/?$",
+      "^https?://(www\\.)?stats\\.pingdom\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "home.robusta.dev|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": null,
+  "notes": []
+}
