@@ -13,18 +13,45 @@
       "last_seen": "2026-09-15T19:57:34Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 8,
-      "best_confidence": "title_only",
-      "score_default": 8,
+      "best_score": 23,
+      "best_confidence": "full",
+      "score_default": 23,
       "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 8,
+      "coverage_default": 12,
+      "confidence_default": "full",
+      "requirements_default": [
+        "PENTERA MAPS VALIDATED FINDINGS TO CONTROLS AND RECORDS RUNS, REVALIDATION RESULTS, AND CONTROL RESPONSES.",
+        "PENTERA DOES NOT CERTIFY COMPLIANCE OR CLAIM FEDRAMP AUTHORIZATION.",
+        "EXPOSURE BY ROLE One",
+        "Platform.",
+        "Multiple",
+        "Stakeholders.",
+        "Pentera transforms validated attack execution into actionable intelligence for every security function.",
+        "From executives tracking exposure trends to practitioners validating controls and remediation, a single source of validated attack evidence aligns teams around real, proven risk.",
+        "Vulnerability",
+        "Management tea"
+      ],
+      "score_infra": 23,
       "matched_infra": [],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "coverage_infra": 12,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "PENTERA MAPS VALIDATED FINDINGS TO CONTROLS AND RECORDS RUNS, REVALIDATION RESULTS, AND CONTROL RESPONSES.",
+        "PENTERA DOES NOT CERTIFY COMPLIANCE OR CLAIM FEDRAMP AUTHORIZATION.",
+        "EXPOSURE BY ROLE One",
+        "Platform.",
+        "Multiple",
+        "Stakeholders.",
+        "Pentera transforms validated attack execution into actionable intelligence for every security function.",
+        "From executives tracking exposure trends to practitioners validating controls and remediation, a single source of validated attack evidence aligns teams around real, proven risk.",
+        "Vulnerability",
+        "Management tea"
+      ],
+      "_score_cache_keys": {
+        "default": "2d20539a6d077ed0",
+        "infra": "5e1e2093a8c0546d"
+      },
+      "years_required": null
     },
     {
       "id": "f75dddf2d20b1124be89",
@@ -36,32 +63,29 @@
       "last_seen": "2026-09-15T19:57:34Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 49,
       "best_confidence": "full",
-      "score_default": 0,
+      "score_default": 49,
       "matched_default": [
-        "llm",
-        "off-target title(-50)"
+        "Large Language Models",
+        "Docker"
       ],
-      "coverage_default": 33,
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "kubernetes",
-        "llm",
-        "scalability"
-      ],
-      "score_infra": 0,
+      "requirements_default": [],
+      "score_infra": 49,
       "matched_infra": [
-        "llm",
-        "off-target title(-50)"
+        "Large Language Models",
+        "Docker"
       ],
-      "coverage_infra": 33,
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "kubernetes",
-        "llm",
-        "scalability"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "39cefc695539090e",
+        "infra": "5badf1294c5aad77"
+      },
+      "years_required": null
     },
     {
       "id": "fdc920bee3537f6099cf",
@@ -74,39 +98,22 @@
       "status": "closed",
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full",
+      "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 60,
-      "confidence_default": "full",
-      "requirements_default": [
-        "kubernetes",
-        "aws",
-        "linux",
-        "llm",
-        "api"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "aws",
-        "linux",
-        "llm",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 60,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "kubernetes",
-        "aws",
-        "linux",
-        "llm",
-        "api"
-      ]
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "5cdfb3f32b8e7a97",
+        "infra": "abf8a414415d5391"
+      },
+      "years_required": null
     },
     {
       "id": "7d93796a70b532a45e68",
@@ -121,19 +128,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "c7cf2fb7414b3b52",
+        "infra": "f1ee68d83e64e3d4"
+      },
+      "years_required": null
     },
     {
       "id": "2fd332717048d68b56b2",
@@ -148,19 +156,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "9124f0e0cce22dd2",
+        "infra": "37680bb6266b6d54"
+      },
+      "years_required": null
     },
     {
       "id": "4ec3a8e8554d596104ea",
@@ -175,19 +184,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "00f926edbc8b9917",
+        "infra": "e143e069349049a5"
+      },
+      "years_required": null
     },
     {
       "id": "pentera:3C.179",
@@ -196,39 +206,28 @@
       "url": "https://www.comeet.com/jobs/pentera/C5.00D/cloud-product-manager/3C.179",
       "description": "Requires 6+ years of experience. 6+ years of Product Management experience (inbound and outbound), preferably in a fast-paced startup or Enterprise SaaS environment Deep hands-on experience with cloud platforms (AWS, Azure, or GCP), including cloud architecture, security, and operations Proven track record of driving product strategy and managing roadmaps for complex, highly technical products",
       "first_seen": "2026-09-15T21:02:04Z",
-      "last_seen": "2026-09-24T16:15:03Z",
+      "last_seen": "2026-09-28T06:12:13Z",
       "status": "seen",
       "is_referral": true,
       "referral_contact": null,
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 66,
       "best_confidence": "full",
-      "score_default": 0,
-      "matched_default": [
-        "aws",
-        "exp:6y",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
+      "score_default": 66,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "aws",
-        "gcp",
-        "azure"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "aws",
-        "exp:6y",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 33,
+      "requirements_default": [],
+      "score_infra": 66,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "aws",
-        "gcp",
-        "azure"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "5d26f12614584b8b",
+        "infra": "72b154c353cf8289"
+      },
+      "years_required": 6
     },
     {
       "id": "pentera:2F.074",
@@ -239,23 +238,24 @@
       "first_seen": "2026-09-23T16:05:17Z",
       "last_seen": "2026-09-24T16:15:03Z",
       "status": "seen",
-      "score_default": 49,
-      "matched_default": [
-        "backend engineer"
-      ],
-      "coverage_default": null,
+      "score_default": 64,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 49,
-      "matched_infra": [
-        "backend engineer"
-      ],
-      "coverage_infra": null,
+      "score_infra": 64,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 49,
-      "best_confidence": "title_only"
+      "best_score": 64,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "c4a0196474b160b9",
+        "infra": "e6cd4acaeb7c1242"
+      },
+      "years_required": null
     },
     {
       "id": "pentera:55.27B",
@@ -266,19 +266,24 @@
       "first_seen": "2026-09-23T16:05:17Z",
       "last_seen": "2026-09-24T16:15:03Z",
       "status": "seen",
-      "score_default": 8,
+      "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 8,
+      "score_infra": 0,
       "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 8,
-      "best_confidence": "title_only"
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "620bd20c6abd3fe0",
+        "infra": "a36adbb01a57338f"
+      },
+      "years_required": null
     },
     {
       "id": "pentera:8C.C66",
@@ -289,23 +294,24 @@
       "first_seen": "2026-09-23T16:05:17Z",
       "last_seen": "2026-09-24T16:15:03Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "51e366aad0c6b310",
+        "infra": "5f50122d2e97241b"
+      },
+      "years_required": null
     },
     {
       "id": "pentera:3C.17A",
@@ -316,23 +322,24 @@
       "first_seen": "2026-09-23T16:05:17Z",
       "last_seen": "2026-09-24T16:15:03Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "f86f59643074b561",
+        "infra": "6851505a386963de"
+      },
+      "years_required": null
     },
     {
       "id": "pentera:65.D6A",
@@ -344,24 +351,23 @@
       "last_seen": "2026-09-24T16:15:03Z",
       "status": "seen",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "d469426281e8965d",
+        "infra": "79297bd166f2620f"
+      },
+      "years_required": null
     },
     {
       "id": "pentera:79.D6D",
@@ -372,23 +378,24 @@
       "first_seen": "2026-09-23T16:05:17Z",
       "last_seen": "2026-09-24T16:15:03Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "b98c91f25d41f48c",
+        "infra": "8d91bb28e01adc81"
+      },
+      "years_required": null
     },
     {
       "id": "pentera:90.E69",
@@ -399,25 +406,24 @@
       "first_seen": "2026-09-23T16:05:17Z",
       "last_seen": "2026-09-24T16:15:03Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
-      "coverage_default": null,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
-      "coverage_infra": null,
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "0f712f995f46faf5",
+        "infra": "3cce66577b94dd14"
+      },
+      "years_required": null
     },
     {
       "id": "pentera:E3.F68",
@@ -428,23 +434,24 @@
       "first_seen": "2026-09-23T16:05:17Z",
       "last_seen": "2026-09-24T16:15:03Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
+      "score_default": 64,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
+      "score_infra": 64,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 64,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "0d703dccf6041a4b",
+        "infra": "c6082712b1a6dcc4"
+      },
+      "years_required": null
     }
   ]
 }

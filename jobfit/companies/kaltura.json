@@ -13,40 +13,23 @@
       "last_seen": "2026-09-24T16:09:05Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 71,
+      "best_score": 68,
       "best_confidence": "full",
-      "score_default": 71,
-      "matched_default": [
-        "python",
-        "llm",
-        "observability",
-        "ai engineer",
-        "exp:15y(-100)"
-      ],
-      "coverage_default": 75,
+      "score_default": 68,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "llm",
-        "rag",
-        "observability"
-      ],
-      "score_infra": 71,
-      "matched_infra": [
-        "python",
-        "llm",
-        "observability",
-        "ai engineer",
-        "exp:15y(-100)"
-      ],
-      "coverage_infra": 75,
+      "requirements_default": [],
+      "score_infra": 68,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "llm",
-        "rag",
-        "observability"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "a83073f4dc1c2f5e",
+        "infra": "9bc2abe621fa2056"
+      },
+      "years_required": null
     },
     {
       "id": "4d68961ab73a065647b8",
@@ -58,52 +41,23 @@
       "last_seen": "2026-09-24T16:09:05Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 58,
       "best_confidence": "full",
-      "score_default": 0,
-      "matched_default": [
-        "aws",
-        "ci/cd",
-        "observability",
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 30,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "microservices",
-        "kubernetes",
-        "aws",
-        "ci/cd",
-        "rag",
-        "databricks",
-        "devops",
-        "observability",
-        "grafana",
-        "distributed systems"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "aws",
-        "ci/cd",
-        "observability",
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 30,
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "microservices",
-        "kubernetes",
-        "aws",
-        "ci/cd",
-        "rag",
-        "databricks",
-        "devops",
-        "observability",
-        "grafana",
-        "distributed systems"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "d03689b9781684f9",
+        "infra": "dd36b689a956a067"
+      },
+      "years_required": null
     },
     {
       "id": "1e84246a1924d41a44ba",
@@ -115,84 +69,23 @@
       "last_seen": "2026-09-24T16:09:05Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 40,
+      "best_score": 58,
       "best_confidence": "full",
-      "score_default": 40,
-      "matched_default": [
-        "redis",
-        "docker",
-        "aws",
-        "ci/cd",
-        "linux",
-        "observability",
-        "inference",
-        "automation",
-        "devops engineer",
-        "exp:15y(-100)"
-      ],
-      "coverage_default": 38,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "postgres",
-        "mysql",
-        "redis",
-        "kafka",
-        "docker",
-        "kubernetes",
-        "terraform",
-        "helm",
-        "aws",
-        "gcp",
-        "ci/cd",
-        "github actions",
-        "linux",
-        "sre",
-        "observability",
-        "prometheus",
-        "grafana",
-        "distributed systems",
-        "inference",
-        "automation",
-        "gpu"
-      ],
-      "score_infra": 40,
-      "matched_infra": [
-        "redis",
-        "docker",
-        "aws",
-        "ci/cd",
-        "linux",
-        "observability",
-        "inference",
-        "automation",
-        "devops engineer",
-        "exp:15y(-100)"
-      ],
-      "coverage_infra": 38,
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "postgres",
-        "mysql",
-        "redis",
-        "kafka",
-        "docker",
-        "kubernetes",
-        "terraform",
-        "helm",
-        "aws",
-        "gcp",
-        "ci/cd",
-        "github actions",
-        "linux",
-        "sre",
-        "observability",
-        "prometheus",
-        "grafana",
-        "distributed systems",
-        "inference",
-        "automation",
-        "gpu"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "de72b33f2ba45251",
+        "infra": "bd961b83383b8788"
+      },
+      "years_required": null
     },
     {
       "id": "6bbd29f641fe42a56bad",
@@ -205,73 +98,22 @@
       "status": "closed",
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full",
+      "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "node",
-        "aws",
-        "ci/cd",
-        "linux",
-        "observability",
-        "inference",
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "node",
-        "kubernetes",
-        "terraform",
-        "helm",
-        "aws",
-        "gcp",
-        "ci/cd",
-        "github actions",
-        "linux",
-        "devops",
-        "sre",
-        "observability",
-        "prometheus",
-        "grafana",
-        "distributed systems",
-        "inference",
-        "gpu",
-        "model deployment"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "node",
-        "aws",
-        "ci/cd",
-        "linux",
-        "observability",
-        "inference",
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 33,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "node",
-        "kubernetes",
-        "terraform",
-        "helm",
-        "aws",
-        "gcp",
-        "ci/cd",
-        "github actions",
-        "linux",
-        "devops",
-        "sre",
-        "observability",
-        "prometheus",
-        "grafana",
-        "distributed systems",
-        "inference",
-        "gpu",
-        "model deployment"
-      ]
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "4ad4eb5cef11a405",
+        "infra": "0e09e5ae3e88603d"
+      },
+      "years_required": null
     },
     {
       "id": "333761bf36f3075dab7f",
@@ -283,32 +125,23 @@
       "last_seen": "2026-09-24T16:09:05Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:15y(-100)",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:15y(-100)",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "go"
-      ]
+      "best_score": 58,
+      "best_confidence": "full",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "d6ec567776e593e1",
+        "infra": "781aab8bc5138c7a"
+      },
+      "years_required": 5
     },
     {
       "id": "c107e4088a390ab33954",
@@ -320,34 +153,99 @@
       "last_seen": "2026-09-15T19:27:35Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "automation",
-        "exp:15y(-100)",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 22,
+      "best_confidence": "full",
+      "score_default": 22,
+      "matched_default": [],
+      "coverage_default": 8,
+      "confidence_default": "full",
       "requirements_default": [
-        "automation"
+        "3+ years’ experience in Enterprise",
+        "Customer",
+        "Success, Account",
+        "Management, or a hybrid CS/sales role in a SaaS business.",
+        "Proven experience managing enterprise accounts , with strong ownership of renewals, retention, and revenue growth.",
+        "Demonstrated success leading expansion cycles and negotiating commercial contracts .",
+        "Experience managing a book of business of $1M+ ARR and handling 15 + enterprise accounts concurrently.",
+        "Strong sales discipline: pipeline management, forecasting accuracy, commercial negotiation , and value‑based selling.",
+        "Ability to travel across",
+        "Europe 10–15% .",
+        "Comfortable with Salesforce, CS platforms, Excel, PowerPoint , and account planning tools.",
+        "Comfortable with Salesforce, CS platforms, Excel, PowerPoint , and account planning tools.",
+        "Highly",
+        "Desirable",
+        "Experience with video platforms, collaboration tools, or AI‑driven",
+        "SaaS products .",
+        "Knowledge of enterprise procurement cycles and stakeholder landscapes.",
+        "Passion for the role of AI in digital transformation, employee enablement, and organisational learning .",
+        "Experience working with enterprises on digital transformation initiatives .",
+        "The perks: Hybrid, flexible work environment 25 days of leave annually",
+        "Enhanced",
+        "Pension scheme (UK Site)",
+        "Group",
+        "Life",
+        "Assurance (UK Site)",
+        "Vitality",
+        "Health",
+        "Insurance (opt-in) (UK Site)",
+        "Income",
+        "Protection (UK Site)",
+        "Critical",
+        "Illness insurance (UK site)",
+        "Access to MyndUp for Coaching, Therapy, Psychology or Counselling sessions",
+        "Personal and professional development programs",
+        "Occasional",
+        "Cross company long weekends",
+        "Apply for this job"
       ],
-      "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "exp:15y(-100)",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "score_infra": 22,
+      "matched_infra": [],
+      "coverage_infra": 8,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "automation"
-      ]
+        "3+ years’ experience in Enterprise",
+        "Customer",
+        "Success, Account",
+        "Management, or a hybrid CS/sales role in a SaaS business.",
+        "Proven experience managing enterprise accounts , with strong ownership of renewals, retention, and revenue growth.",
+        "Demonstrated success leading expansion cycles and negotiating commercial contracts .",
+        "Experience managing a book of business of $1M+ ARR and handling 15 + enterprise accounts concurrently.",
+        "Strong sales discipline: pipeline management, forecasting accuracy, commercial negotiation , and value‑based selling.",
+        "Ability to travel across",
+        "Europe 10–15% .",
+        "Comfortable with Salesforce, CS platforms, Excel, PowerPoint , and account planning tools.",
+        "Comfortable with Salesforce, CS platforms, Excel, PowerPoint , and account planning tools.",
+        "Highly",
+        "Desirable",
+        "Experience with video platforms, collaboration tools, or AI‑driven",
+        "SaaS products .",
+        "Knowledge of enterprise procurement cycles and stakeholder landscapes.",
+        "Passion for the role of AI in digital transformation, employee enablement, and organisational learning .",
+        "Experience working with enterprises on digital transformation initiatives .",
+        "The perks: Hybrid, flexible work environment 25 days of leave annually",
+        "Enhanced",
+        "Pension scheme (UK Site)",
+        "Group",
+        "Life",
+        "Assurance (UK Site)",
+        "Vitality",
+        "Health",
+        "Insurance (opt-in) (UK Site)",
+        "Income",
+        "Protection (UK Site)",
+        "Critical",
+        "Illness insurance (UK site)",
+        "Access to MyndUp for Coaching, Therapy, Psychology or Counselling sessions",
+        "Personal and professional development programs",
+        "Occasional",
+        "Cross company long weekends",
+        "Apply for this job"
+      ],
+      "_score_cache_keys": {
+        "default": "e64cf9fe2d03b46b",
+        "infra": "69b0cc7cd93c7e84"
+      },
+      "years_required": null
     },
     {
       "id": "fd55b07188c49997ba33",
@@ -359,38 +257,27 @@
       "last_seen": "2026-09-24T16:09:05Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 53,
       "best_confidence": "full",
-      "score_default": 0,
+      "score_default": 53,
       "matched_default": [
-        "llm",
-        "observability",
-        "exp:15y(-100)",
-        "off-target title(-50)"
+        "Large Language Models"
       ],
-      "coverage_default": 50,
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "nlp",
-        "llm",
-        "rag",
-        "observability"
-      ],
-      "score_infra": 0,
+      "requirements_default": [],
+      "score_infra": 53,
       "matched_infra": [
-        "llm",
-        "observability",
-        "exp:15y(-100)",
-        "off-target title(-50)"
+        "Large Language Models"
       ],
-      "coverage_infra": 50,
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "nlp",
-        "llm",
-        "rag",
-        "observability"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "205ff8612d8cde9a",
+        "infra": "151e1d5139a2e3cd"
+      },
+      "years_required": null
     },
     {
       "id": "c615fc961bad27faeef2",
@@ -402,24 +289,23 @@
       "last_seen": "2026-09-24T16:09:05Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 58,
+      "best_confidence": "full",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "caeccb1acd6c2177",
+        "infra": "134cfbc92e0ff101"
+      },
+      "years_required": 6
     },
     {
       "id": "218a5d3967bc3a412051",
@@ -434,21 +320,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "4cefcded1f8ae0d5",
+        "infra": "596e61b24a02373d"
+      },
+      "years_required": null
     },
     {
       "id": "3bc62572ebd5bdbfe176",
@@ -463,21 +348,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "f2f9ba949dad57ad",
+        "infra": "a4cc914319f72cb4"
+      },
+      "years_required": 4
     },
     {
       "id": "8d7cbdbfeff72bd081db",
@@ -492,25 +376,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "go"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "go"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "2dd461617bc13819",
+        "infra": "bed021dd6f8e3c93"
+      },
+      "years_required": 3
     },
     {
       "id": "3dd6fb4ff4fa34cc161c",
@@ -523,33 +402,22 @@
       "status": "seen",
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full",
+      "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "automation",
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "scalability",
-        "automation"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 33,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "go",
-        "scalability",
-        "automation"
-      ]
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "4a9dc58ddc879f23",
+        "infra": "ed4f9be7413ada03"
+      },
+      "years_required": null
     },
     {
       "id": "kaltura:2A.274",
@@ -562,31 +430,24 @@
       "status": "closed",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 49,
-      "matched_default": [
-        "python",
-        "ai engineer",
-        "exp:7y(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "python"
-      ],
-      "score_infra": 49,
-      "matched_infra": [
-        "python",
-        "ai engineer",
-        "exp:7y(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "python"
-      ],
+      "score_default": 74,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
+      "requirements_default": [],
+      "score_infra": 74,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 49,
-      "best_confidence": "title_only"
+      "best_score": 74,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "f3d0ec652a019844",
+        "infra": "fd92364e697cf024"
+      },
+      "years_required": 7
     },
     {
       "id": "kaltura:4D.17C",
@@ -600,28 +461,23 @@
       "is_referral": true,
       "referral_contact": null,
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "scalability"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "go",
-        "scalability"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "fbf36a6079323680",
+        "infra": "62c13dde130ad686"
+      },
+      "years_required": null
     },
     {
       "id": "16613f0d7b0b3efc9e96",
@@ -633,28 +489,23 @@
       "last_seen": "2026-09-24T16:09:05Z",
       "status": "seen",
       "score_default": 0,
-      "matched_default": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "git"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "git"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "97ae2430ec4c8d03",
+        "infra": "bfc2bbcc7c3f8003"
+      },
+      "years_required": 2
     },
     {
       "id": "50769aff6eecf0e06f01",
@@ -665,25 +516,24 @@
       "first_seen": "2026-09-23T15:59:17Z",
       "last_seen": "2026-09-24T16:09:05Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "score_default": 50,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:15y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "score_infra": 50,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 50,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "9106545427912349",
+        "infra": "137039212cb6d981"
+      },
+      "years_required": null
     }
   ]
 }

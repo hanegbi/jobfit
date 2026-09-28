@@ -13,9 +13,7 @@
       "last_seen": "2026-09-24T16:21:05Z",
       "status": "seen",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -23,12 +21,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "0a1ef07f54318666",
+        "infra": "cf6dc09bb064be25"
+      },
+      "years_required": null
     },
     {
       "id": "6fc88b332bd07230395f",
@@ -40,9 +41,7 @@
       "last_seen": "2026-09-24T16:21:05Z",
       "status": "seen",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -50,12 +49,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "a8bbd7f7492ab318",
+        "infra": "8f833528143465b7"
+      },
+      "years_required": null
     },
     {
       "id": "f0b2c62315c8d5be607e",
@@ -66,51 +68,28 @@
       "first_seen": "2026-09-15T20:26:05Z",
       "last_seen": "2026-09-24T16:21:05Z",
       "status": "seen",
-      "score_infra": 34,
+      "score_infra": 60,
       "matched_infra": [
-        "python",
-        "computer vision",
-        "observability",
-        "data engineer",
-        "exp:4y(fit)",
-        "-customer success"
+        "Computer Vision"
       ],
-      "coverage_infra": 38,
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "go",
-        "sql",
-        "computer vision",
-        "airflow",
-        "etl",
-        "observability",
-        "scalability"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 34,
+      "best_score": 60,
       "best_confidence": "full",
-      "score_default": 34,
+      "score_default": 60,
       "matched_default": [
-        "python",
-        "computer vision",
-        "observability",
-        "data engineer",
-        "exp:4y(fit)",
-        "-customer success"
+        "Computer Vision"
       ],
-      "coverage_default": 38,
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "go",
-        "sql",
-        "computer vision",
-        "airflow",
-        "etl",
-        "observability",
-        "scalability"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "9ec2ac2d6564ceb8",
+        "infra": "016fe2e08fc06da4"
+      },
+      "years_required": 4
     },
     {
       "id": "b3d2248dae91171463ab",
@@ -121,33 +100,92 @@
       "first_seen": "2026-09-15T20:26:05Z",
       "last_seen": "2026-09-24T16:21:05Z",
       "status": "seen",
-      "score_infra": 0,
+      "score_infra": 30,
       "matched_infra": [
-        "computer vision",
-        "exp:3y(fit)",
-        "off-target title(-50)"
+        "Computer Vision"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "coverage_infra": 28,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "go",
-        "computer vision"
+        "Trigo is building the AI infrastructure that’s redefining the future of retail.",
+        "Using cutting-edge computer vision and real-time data processing, we enable the world’s leading retailers to launch frictionless, checkout-free stores, protect their assets, and gain a competitive edge through superior in-store operations.",
+        "We’re scaling fast, and we’re leading in two of the most transformative arenas in retail today: Autonomous",
+        "Checkout : revolutionizing how people shop by removing friction and queues AI-Powered",
+        "Loss",
+        "Prevention : delivering the most advanced solution on the market to detect and prevent shrinkage - already trusted by major global grocery brands",
+        "With real deployments in live stores, deep partnerships with top-tier chains, and a product suite that’s proving its impact every day, Trigo is not just imagining the future of retail- we're building it.",
+        "As an Engagement",
+        "Manager, you’ll own and drive the end-to-end delivery of Trigo’s in-store systems at some of the largest and most complex retailers in the world.",
+        "From first kickoff through deployment to commercial rollout, you will be responsible for ensuring our solutions are executed on time, at the highest quality, and deliver real business impact.",
+        "You’ll act as the single point of contact for our partners - helping them navigate complex change, integrate",
+        "Trigo’s product into their operations, and unlock the full strategic value of our technology.",
+        "Internally, you'll work across engineering, product, operations, and leadership to shape what we build and how we deliver it.",
+        "This is a high-ownership , high-velocity role that blends strategic thinking, operational leadership, and entrepreneurial instinct - and requires the flexibility to travel as needed to support on-the-ground execution and build strong client relationships.",
+        "A day in the life",
+        "Launch new deployments and take full ownership of execution - from onboarding and system integration through to live performance and expansion planning.",
+        "Lead cross-functional planning and delivery , coordinating internal teams (Product, Ops, Engineering, Data) and external client stakeholders to ensure smooth go-lives and strong performance.",
+        "Serve as the main point of contact for client stakeholders, building trusted relationships and acting as their strategic advisor for scaling",
+        "Trigo’s solutions.",
+        "Shape product direction by surfacing insights from the field to inform product and engineering priorities.",
+        "Use data to generate insight , measure performance, and recommend actions that drive real results for clients.",
+        "Drive continuous improvement by identifying and solving pain points across the delivery lifecycle - whether process, product, or partnership.",
+        "Support business growth , helping the partnerships team shape new opportunities based on your deployment knowledge and strategic perspective.",
+        "You bring to the table 3-5 years of experience in consulting, investing, or entrepreneurial roles, with a track record of driving impact in complex, fast-paced environments.",
+        "A strategic, analytical problem-solver with a strong sense of ownership.",
+        "Entrepreneurial and resourceful-comfortable building in fast-moving, ambiguous environments.",
+        "A clear communicator who can influence across technical and executive stakeholders.",
+        "Operationally minded: focused on scalable systems and delivering real-world outcomes.",
+        "Background in retail, supply chain, logistics, or enterprise product rollouts.",
+        "Native",
+        "German/Spanish/French -speaking -"
       ],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
+      "best_cv": "infra",
+      "best_score": 30,
+      "best_confidence": "full",
+      "score_default": 29,
       "matched_default": [
-        "computer vision",
-        "exp:3y(fit)",
-        "off-target title(-50)"
+        "Computer Vision"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "coverage_default": 26,
+      "confidence_default": "full",
       "requirements_default": [
-        "go",
-        "computer vision"
-      ]
+        "Trigo is building the AI infrastructure that’s redefining the future of retail.",
+        "Using cutting-edge computer vision and real-time data processing, we enable the world’s leading retailers to launch frictionless, checkout-free stores, protect their assets, and gain a competitive edge through superior in-store operations.",
+        "We’re scaling fast, and we’re leading in two of the most transformative arenas in retail today: Autonomous",
+        "Checkout : revolutionizing how people shop by removing friction and queues AI-Powered",
+        "Loss",
+        "Prevention : delivering the most advanced solution on the market to detect and prevent shrinkage - already trusted by major global grocery brands",
+        "With real deployments in live stores, deep partnerships with top-tier chains, and a product suite that’s proving its impact every day, Trigo is not just imagining the future of retail- we're building it.",
+        "As an Engagement",
+        "Manager, you’ll own and drive the end-to-end delivery of Trigo’s in-store systems at some of the largest and most complex retailers in the world.",
+        "From first kickoff through deployment to commercial rollout, you will be responsible for ensuring our solutions are executed on time, at the highest quality, and deliver real business impact.",
+        "You’ll act as the single point of contact for our partners - helping them navigate complex change, integrate",
+        "Trigo’s product into their operations, and unlock the full strategic value of our technology.",
+        "Internally, you'll work across engineering, product, operations, and leadership to shape what we build and how we deliver it.",
+        "This is a high-ownership , high-velocity role that blends strategic thinking, operational leadership, and entrepreneurial instinct - and requires the flexibility to travel as needed to support on-the-ground execution and build strong client relationships.",
+        "A day in the life",
+        "Launch new deployments and take full ownership of execution - from onboarding and system integration through to live performance and expansion planning.",
+        "Lead cross-functional planning and delivery , coordinating internal teams (Product, Ops, Engineering, Data) and external client stakeholders to ensure smooth go-lives and strong performance.",
+        "Serve as the main point of contact for client stakeholders, building trusted relationships and acting as their strategic advisor for scaling",
+        "Trigo’s solutions.",
+        "Shape product direction by surfacing insights from the field to inform product and engineering priorities.",
+        "Use data to generate insight , measure performance, and recommend actions that drive real results for clients.",
+        "Drive continuous improvement by identifying and solving pain points across the delivery lifecycle - whether process, product, or partnership.",
+        "Support business growth , helping the partnerships team shape new opportunities based on your deployment knowledge and strategic perspective.",
+        "You bring to the table 3-5 years of experience in consulting, investing, or entrepreneurial roles, with a track record of driving impact in complex, fast-paced environments.",
+        "A strategic, analytical problem-solver with a strong sense of ownership.",
+        "Entrepreneurial and resourceful-comfortable building in fast-moving, ambiguous environments.",
+        "A clear communicator who can influence across technical and executive stakeholders.",
+        "Operationally minded: focused on scalable systems and delivering real-world outcomes.",
+        "Background in retail, supply chain, logistics, or enterprise product rollouts.",
+        "Native",
+        "German/Spanish/French -speaking -"
+      ],
+      "_score_cache_keys": {
+        "default": "85a581c2764214ed",
+        "infra": "cb3cd261ecc56011"
+      },
+      "years_required": 3
     },
     {
       "id": "a9803390002fd0ec41b6",
@@ -158,33 +196,24 @@
       "first_seen": "2026-09-15T20:26:05Z",
       "last_seen": "2026-09-24T16:21:05Z",
       "status": "seen",
-      "score_infra": 0,
-      "matched_infra": [
-        "computer vision",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "go",
-        "computer vision"
-      ],
+      "score_infra": 57,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "computer vision"
-      ]
+      "best_score": 57,
+      "best_confidence": "full",
+      "score_default": 57,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "20ee83ed2c5dda89",
+        "infra": "c71ad2f69cef0ab2"
+      },
+      "years_required": 5
     },
     {
       "id": "2213ddbfc7a512f0dd36",
@@ -195,35 +224,24 @@
       "first_seen": "2026-09-15T20:26:05Z",
       "last_seen": "2026-09-24T16:21:05Z",
       "status": "seen",
-      "score_infra": 0,
-      "matched_infra": [
-        "computer vision",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 33,
+      "score_infra": 49,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "go",
-        "deep learning",
-        "computer vision"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 49,
       "best_confidence": "full",
-      "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
+      "score_default": 49,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "deep learning",
-        "computer vision"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "6f37a9173af2f4ce",
+        "infra": "fd401d100c342984"
+      },
+      "years_required": null
     },
     {
       "id": "11638a84aad3b377f858",
@@ -235,9 +253,7 @@
       "last_seen": "2026-09-24T16:21:05Z",
       "status": "seen",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -245,12 +261,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "afbd5f9eb1f70271",
+        "infra": "cbf63b33f094de71"
+      },
+      "years_required": null
     },
     {
       "id": "0e4a03b913e4be0aa635",
@@ -261,23 +280,50 @@
       "first_seen": "2026-09-23T16:09:43Z",
       "last_seen": "2026-09-24T16:21:05Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
+      "score_default": 13,
+      "matched_default": [],
+      "coverage_default": 10,
+      "confidence_default": "full",
+      "requirements_default": [
+        "We care more about how you think and how fast you grow than ticking every box.",
+        "If you are excited about this role but do not meet every requirement, we would still love to hear from you.",
+        "Essential: Native or fluent",
+        "German speaker, strong",
+        "A background bridging business & tech (Business",
+        "Informatics, Information",
+        "Systems, Computer",
+        "Science, or equivalent)",
+        "Comfortable in technical environments which means being able to understand and clearly communicate issues to engineering teams.",
+        "High ownership mindset: you take initiative.",
+        "Eager to learn fast, collaborate across time zones, and embrace an AI-first way of working.",
+        "Flexibility to travel regularly."
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
+      "score_infra": 13,
+      "matched_infra": [],
+      "coverage_infra": 10,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "We care more about how you think and how fast you grow than ticking every box.",
+        "If you are excited about this role but do not meet every requirement, we would still love to hear from you.",
+        "Essential: Native or fluent",
+        "German speaker, strong",
+        "A background bridging business & tech (Business",
+        "Informatics, Information",
+        "Systems, Computer",
+        "Science, or equivalent)",
+        "Comfortable in technical environments which means being able to understand and clearly communicate issues to engineering teams.",
+        "High ownership mindset: you take initiative.",
+        "Eager to learn fast, collaborate across time zones, and embrace an AI-first way of working.",
+        "Flexibility to travel regularly."
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 13,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "dfdcc01da1306e3d",
+        "infra": "6dad174158adab46"
+      },
+      "years_required": null
     }
   ]
 }

@@ -13,9 +13,7 @@
       "last_seen": "2026-09-24T16:20:46Z",
       "status": "seen",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -23,12 +21,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "52932b0b4278fab1",
+        "infra": "dde836a289785cde"
+      },
+      "years_required": null
     },
     {
       "id": "43a6e969d2f7ad493ea0",
@@ -39,25 +40,42 @@
       "first_seen": "2026-09-15T20:25:56Z",
       "last_seen": "2026-09-24T16:20:46Z",
       "status": "seen",
-      "score_infra": 0,
+      "score_infra": 22,
       "matched_infra": [
-        "exp:8y(-75)",
-        "off-target title(-50)"
+        "Bash"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
+      "coverage_infra": 15,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "BSc or PE in Electrical",
+        "Engineering or Computer",
+        "Engineering At least 8 years of experience in analog/mixed-signal layout design",
+        "Experience with Cadence layout tools and flows",
+        "Deep understanding of physical verification processes and methodologies, including DRC, LVS, ANT, ERC & DFM Strong knowledge of common analog layout techniques and design practices",
+        "Experience in integration of large analog/mixed-signal layout blocks and taking them through physical verification to top-level integration — an"
+      ],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
+      "best_score": 22,
+      "best_confidence": "full",
+      "score_default": 22,
       "matched_default": [
-        "exp:8y(-75)",
-        "off-target title(-50)"
+        "Bash"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": []
+      "coverage_default": 15,
+      "confidence_default": "full",
+      "requirements_default": [
+        "BSc or PE in Electrical",
+        "Engineering or Computer",
+        "Engineering At least 8 years of experience in analog/mixed-signal layout design",
+        "Experience with Cadence layout tools and flows",
+        "Deep understanding of physical verification processes and methodologies, including DRC, LVS, ANT, ERC & DFM Strong knowledge of common analog layout techniques and design practices",
+        "Experience in integration of large analog/mixed-signal layout blocks and taking them through physical verification to top-level integration — an"
+      ],
+      "_score_cache_keys": {
+        "default": "1da9ce62ecb913f5",
+        "infra": "fd60c65522cb6e8f"
+      },
+      "years_required": 8
     },
     {
       "id": "02f9969c5b1737aeeff0",
@@ -69,9 +87,7 @@
       "last_seen": "2026-09-24T16:20:46Z",
       "status": "seen",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -79,12 +95,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "65e4212b75091d9f",
+        "infra": "612bb081d16be6e3"
+      },
+      "years_required": null
     },
     {
       "id": "ebb3bb42fdfa1db6e58e",
@@ -95,29 +114,50 @@
       "first_seen": "2026-09-15T20:25:56Z",
       "last_seen": "2026-09-24T16:20:46Z",
       "status": "seen",
-      "score_infra": 15,
+      "score_infra": 29,
       "matched_infra": [
-        "python",
-        "exp:4y(fit)"
+        "Python"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "coverage_infra": 48,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "python"
+        "Definition of detailed requirements for sub-systems in a variety of domains (SW, Algo, HW, Electro-optics, Image sensor, Lasers, FW, mechanics, thermal)",
+        "Hands-on work with all groups in R&D, Product, PM, Quality, and Operations to ensure compliance with all system",
+        "Plan and design system integration test scenarios and V&V process",
+        "Research and analysis of system limitations for coming up with the best-performing product",
+        "Lead risk management and DFMEA processes",
+        "Self-driven, hands-on problem solver with strong technical judgment",
+        "Team player with excellent interpersonal and communication skills",
+        "Strong technical background in electro-optics, including imaging systems, optical sensors, lasers and illumination, or related photonic technologies At least 4 years of experience in multidisciplinary system engineering, with significant hands-on experience in the design, integration, characterization, and testing of electro-optical systems",
+        "Strong system-level understanding and hands-on experience across optics, electronics, control, embedded computing, and algorithms, including building and debugging complex multidisciplinary systems",
+        "Python and/or C proficiency is an"
       ],
       "best_cv": "default",
-      "best_score": 15,
-      "best_confidence": "title_only",
-      "score_default": 15,
+      "best_score": 29,
+      "best_confidence": "full",
+      "score_default": 29,
       "matched_default": [
-        "python",
-        "exp:4y(fit)"
+        "Python"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "coverage_default": 48,
+      "confidence_default": "full",
       "requirements_default": [
-        "python"
-      ]
+        "Definition of detailed requirements for sub-systems in a variety of domains (SW, Algo, HW, Electro-optics, Image sensor, Lasers, FW, mechanics, thermal)",
+        "Hands-on work with all groups in R&D, Product, PM, Quality, and Operations to ensure compliance with all system",
+        "Plan and design system integration test scenarios and V&V process",
+        "Research and analysis of system limitations for coming up with the best-performing product",
+        "Lead risk management and DFMEA processes",
+        "Self-driven, hands-on problem solver with strong technical judgment",
+        "Team player with excellent interpersonal and communication skills",
+        "Strong technical background in electro-optics, including imaging systems, optical sensors, lasers and illumination, or related photonic technologies At least 4 years of experience in multidisciplinary system engineering, with significant hands-on experience in the design, integration, characterization, and testing of electro-optical systems",
+        "Strong system-level understanding and hands-on experience across optics, electronics, control, embedded computing, and algorithms, including building and debugging complex multidisciplinary systems",
+        "Python and/or C proficiency is an"
+      ],
+      "_score_cache_keys": {
+        "default": "fc2dd320f0d5eb37",
+        "infra": "077190a6a5f82fad"
+      },
+      "years_required": 4
     },
     {
       "id": "262552502b6c06204e50",
@@ -129,9 +169,7 @@
       "last_seen": "2026-09-24T16:20:46Z",
       "status": "seen",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -139,12 +177,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "555f6f43e62283d5",
+        "infra": "80043f89e13f6fdb"
+      },
+      "years_required": null
     },
     {
       "id": "c64a2e92bf85824c05cb",
@@ -155,25 +196,32 @@
       "first_seen": "2026-09-15T20:25:56Z",
       "last_seen": "2026-09-24T16:20:46Z",
       "status": "seen",
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
+      "score_infra": 18,
+      "matched_infra": [],
+      "coverage_infra": 20,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "PhD or MSc in Physics, EE, EO, or a closely related field 5+ years of experience in optical or electro-optical roles within high-tech industries",
+        "Experience in optical design and hands-on experience with optical systems",
+        "Experience in optical design simulation tools (such as Zeemax) - an"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
+      "best_score": 18,
+      "best_confidence": "full",
+      "score_default": 18,
+      "matched_default": [],
+      "coverage_default": 20,
+      "confidence_default": "full",
+      "requirements_default": [
+        "PhD or MSc in Physics, EE, EO, or a closely related field 5+ years of experience in optical or electro-optical roles within high-tech industries",
+        "Experience in optical design and hands-on experience with optical systems",
+        "Experience in optical design simulation tools (such as Zeemax) - an"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": []
+      "_score_cache_keys": {
+        "default": "d4cb46932534a344",
+        "infra": "a9ba20de6fa68be6"
+      },
+      "years_required": 5
     },
     {
       "id": "b15b52a501b913eedb1b",
@@ -184,33 +232,52 @@
       "first_seen": "2026-09-23T16:09:36Z",
       "last_seen": "2026-09-24T16:20:46Z",
       "status": "seen",
-      "score_default": 0,
+      "score_default": 28,
       "matched_default": [
-        "python",
-        "linux",
-        "off-target title(-50)"
+        "Linux Administration",
+        "Python"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "coverage_default": 45,
+      "confidence_default": "full",
       "requirements_default": [
-        "python",
-        "linux"
+        "B.Sc. in Electrical",
+        "Engineering or another relevant technical field",
+        "Senior-level experience in complex multidisciplinary systems, preferably in imaging or camera products",
+        "Experience leading engineering teams and driving execution",
+        "Strong system architecture background spanning embedded SW, FPGA/RTL, host-side software, HW/SW integration and interfaces",
+        "Experience with Xilinx",
+        "Zynq / MPSoC or similar heterogeneous SoC platforms",
+        "Good understanding of Linux, bare-metal development, Verilog, Vivado/Vitis and FPGA development flows",
+        "Experience with Python and C++ Strong integration and debugging skills across hardware, FPGA and software",
+        "Experience with image/data processing pipelines and platforms such as PCs, Raspberry Pi or NVIDIA Jetson is an"
       ],
-      "score_infra": 0,
+      "score_infra": 28,
       "matched_infra": [
-        "python",
-        "linux",
-        "off-target title(-50)"
+        "Linux Administration",
+        "Python"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "coverage_infra": 45,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "python",
-        "linux"
+        "B.Sc. in Electrical",
+        "Engineering or another relevant technical field",
+        "Senior-level experience in complex multidisciplinary systems, preferably in imaging or camera products",
+        "Experience leading engineering teams and driving execution",
+        "Strong system architecture background spanning embedded SW, FPGA/RTL, host-side software, HW/SW integration and interfaces",
+        "Experience with Xilinx",
+        "Zynq / MPSoC or similar heterogeneous SoC platforms",
+        "Good understanding of Linux, bare-metal development, Verilog, Vivado/Vitis and FPGA development flows",
+        "Experience with Python and C++ Strong integration and debugging skills across hardware, FPGA and software",
+        "Experience with image/data processing pipelines and platforms such as PCs, Raspberry Pi or NVIDIA Jetson is an"
       ],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 28,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "bc2afe25a788b72e",
+        "infra": "0357f69293da4911"
+      },
+      "years_required": null
     },
     {
       "id": "3b3fa13bc878ee80e01d",
@@ -221,25 +288,82 @@
       "first_seen": "2026-09-23T16:09:36Z",
       "last_seen": "2026-09-24T16:20:46Z",
       "status": "seen",
-      "score_default": 0,
+      "score_default": 32,
       "matched_default": [
-        "exp:7y(-50)",
-        "off-target title(-50)"
+        "Embedded Systems"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
+      "coverage_default": 17,
+      "confidence_default": "full",
+      "requirements_default": [
+        "BSc or MSc in Electrical",
+        "Engineering or a related field 7+ years of experience in hardware development in high-tech industries",
+        "Strong experience with analog and digital design",
+        "Proven track record of taking products from concept to production",
+        "Hands-on experience with lab equipment (oscilloscopes, spectrum analyzers, logic analyzers, etc.)",
+        "Experience with schematic capture and PCB design tools",
+        "Strong debugging and problem-solving skills",
+        "Ability to manage multiple projects in a dynamic environment",
+        "Experience with high-speed interfaces, RF systems, or sensor technologies",
+        "Hands-on experience with Altium",
+        "Fluent in English, both verbal and written",
+        "Why should you be a TriEyoneer?",
+        "Work at the edge of what’s possible",
+        "Turn scientific breakthroughs in sensing, photonics, and semiconductors into capabilities that were previously impractical or impossible.",
+        "Build what others can’t",
+        "Work across physics, hardware, software, and algorithms to build complex systems from first principles and take them all the way to real world deployment.",
+        "See your work make an impact",
+        "Build technology that moves beyond the lab into demanding real world applications across defense, robotics, industrial, and emerging markets.",
+        "Grow with exceptional people",
+        "Join a multidisciplinary team that values ownership, curiosity, technical excellence, and pushing boundaries together.",
+        "Enjoy the journey",
+        "Modern offices in Tel",
+        "General statement",
+        "TriEye is an equal-opportunity employer.",
+        "Qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or protected veteran status.",
+        "Apply for this position"
+      ],
+      "score_infra": 32,
       "matched_infra": [
-        "exp:7y(-50)",
-        "off-target title(-50)"
+        "Embedded Systems"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
+      "coverage_infra": 17,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "BSc or MSc in Electrical",
+        "Engineering or a related field 7+ years of experience in hardware development in high-tech industries",
+        "Strong experience with analog and digital design",
+        "Proven track record of taking products from concept to production",
+        "Hands-on experience with lab equipment (oscilloscopes, spectrum analyzers, logic analyzers, etc.)",
+        "Experience with schematic capture and PCB design tools",
+        "Strong debugging and problem-solving skills",
+        "Ability to manage multiple projects in a dynamic environment",
+        "Experience with high-speed interfaces, RF systems, or sensor technologies",
+        "Hands-on experience with Altium",
+        "Fluent in English, both verbal and written",
+        "Why should you be a TriEyoneer?",
+        "Work at the edge of what’s possible",
+        "Turn scientific breakthroughs in sensing, photonics, and semiconductors into capabilities that were previously impractical or impossible.",
+        "Build what others can’t",
+        "Work across physics, hardware, software, and algorithms to build complex systems from first principles and take them all the way to real world deployment.",
+        "See your work make an impact",
+        "Build technology that moves beyond the lab into demanding real world applications across defense, robotics, industrial, and emerging markets.",
+        "Grow with exceptional people",
+        "Join a multidisciplinary team that values ownership, curiosity, technical excellence, and pushing boundaries together.",
+        "Enjoy the journey",
+        "Modern offices in Tel",
+        "General statement",
+        "TriEye is an equal-opportunity employer.",
+        "Qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or protected veteran status.",
+        "Apply for this position"
+      ],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 32,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "96f3cd5e6e02b72d",
+        "infra": "5523c2c38c7280c3"
+      },
+      "years_required": 7
     }
   ]
 }

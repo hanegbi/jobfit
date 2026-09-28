@@ -13,9 +13,7 @@
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -23,12 +21,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "cbf1bcaf1aa18129",
+        "infra": "cdd4878bf96b5fab"
+      },
+      "years_required": null
     },
     {
       "id": "7e07e44816451c6a65b6",
@@ -39,41 +40,24 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
-      "score_infra": 40,
-      "matched_infra": [
-        "linux",
-        "inference",
-        "automation"
-      ],
-      "coverage_infra": 50,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "go",
-        "ansible",
-        "linux",
-        "inference",
-        "automation",
-        "vllm"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 40,
-      "best_confidence": "full",
-      "score_default": 40,
-      "matched_default": [
-        "linux",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 50,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "ansible",
-        "linux",
-        "inference",
-        "automation",
-        "vllm"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "f02bbd6463af77c3",
+        "infra": "cb536d1db39c0990"
+      },
+      "years_required": null
     },
     {
       "id": "d09a192e6556fe0abf09",
@@ -84,49 +68,24 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
-      "score_infra": 49,
-      "matched_infra": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_infra": 62,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 49,
-      "best_confidence": "full",
-      "score_default": 49,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 62,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "f0502b3634d0b4c9",
+        "infra": "296e1b8eab113a79"
+      },
+      "years_required": null
     },
     {
       "id": "ab89769158afd0f8388f",
@@ -137,53 +96,24 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "closed",
-      "score_infra": 4,
-      "matched_infra": [
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 62,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ansible",
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation",
-        "vllm",
-        "gpu"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 4,
-      "best_confidence": "full",
-      "score_default": 4,
-      "matched_default": [
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 62,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation",
-        "vllm",
-        "gpu"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "43bb8a77481d51e0",
+        "infra": "8952c29730edea5e"
+      },
+      "years_required": null
     },
     {
       "id": "afcb1863d29c193a3f60",
@@ -194,49 +124,24 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
-      "score_infra": 49,
-      "matched_infra": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_infra": 62,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 49,
-      "best_confidence": "full",
-      "score_default": 49,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 62,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "61a11a196538ae29",
+        "infra": "e7640ae35c0b840c"
+      },
+      "years_required": null
     },
     {
       "id": "4de24b144bd6b0e775a6",
@@ -247,49 +152,24 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
-      "score_infra": 49,
-      "matched_infra": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_infra": 62,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 49,
-      "best_confidence": "full",
-      "score_default": 49,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 62,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "0760030707ec540f",
+        "infra": "dbe5352a019634fb"
+      },
+      "years_required": null
     },
     {
       "id": "e9f18a1fa8a9d8d18635",
@@ -300,51 +180,24 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
-      "score_infra": 44,
-      "matched_infra": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_infra": 56,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "pytorch",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 44,
-      "best_confidence": "full",
-      "score_default": 44,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 56,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "pytorch",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "fa6d48af5674a3de",
+        "infra": "c4a0a92e1eb05c15"
+      },
+      "years_required": null
     },
     {
       "id": "f4bb0939446d070dafa2",
@@ -355,54 +208,24 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
-      "score_infra": 47,
-      "matched_infra": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation",
-        "mlops"
-      ],
-      "coverage_infra": 60,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "pytorch",
-        "llm",
-        "inference",
-        "automation",
-        "mlops",
-        "vllm"
-      ],
-      "best_cv": "infra",
-      "best_score": 47,
-      "best_confidence": "full",
-      "score_default": 40,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 50,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "pytorch",
-        "llm",
-        "inference",
-        "automation",
-        "mlops",
-        "vllm"
-      ]
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "7be5f9eef40b19dc",
+        "infra": "07f8f210ddea9163"
+      },
+      "years_required": null
     },
     {
       "id": "2f5a1b2b5a7705cfc60c",
@@ -413,53 +236,24 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-15T20:07:20Z",
       "status": "closed",
-      "score_infra": 52,
-      "matched_infra": [
-        "aws",
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation"
-      ],
-      "coverage_infra": 67,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation",
-        "vllm"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 52,
-      "best_confidence": "full",
-      "score_default": 52,
-      "matched_default": [
-        "aws",
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 67,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "aws",
-        "azure",
-        "linux",
-        "llm",
-        "observability",
-        "inference",
-        "automation",
-        "vllm"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "f8a57cceb5274a57",
+        "infra": "1376e6c8432f5219"
+      },
+      "years_required": null
     },
     {
       "id": "0e6c63aa5ede8a451574",
@@ -471,9 +265,7 @@
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -481,12 +273,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "de06f400cdfb7536",
+        "infra": "ebdd485cb7835cd1"
+      },
+      "years_required": null
     },
     {
       "id": "12218d74425831ccc6aa",
@@ -497,47 +292,24 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
-      "score_infra": 40,
-      "matched_infra": [
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_infra": 50,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ansible",
-        "linux",
-        "machine learning",
-        "deep learning",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 40,
-      "best_confidence": "full",
-      "score_default": 40,
-      "matched_default": [
-        "linux",
-        "llm",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 50,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "linux",
-        "machine learning",
-        "deep learning",
-        "llm",
-        "inference",
-        "automation",
-        "vllm"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "d7c199187c93402b",
+        "infra": "268f6092736243b5"
+      },
+      "years_required": null
     },
     {
       "id": "4429a786fbd7aad13886",
@@ -548,37 +320,24 @@
       "first_seen": "2026-09-15T20:07:20Z",
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
-      "score_infra": 33,
-      "matched_infra": [
-        "linux",
-        "automation"
-      ],
-      "coverage_infra": 40,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "kubernetes",
-        "ansible",
-        "linux",
-        "scalability",
-        "automation"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 33,
-      "best_confidence": "full",
-      "score_default": 33,
-      "matched_default": [
-        "linux",
-        "automation"
-      ],
-      "coverage_default": 40,
-      "confidence_default": "full",
-      "requirements_default": [
-        "kubernetes",
-        "ansible",
-        "linux",
-        "scalability",
-        "automation"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "84e0978677491571",
+        "infra": "1ddaa8f9e8e5e3ee"
+      },
+      "years_required": null
     },
     {
       "id": "362740c01d5b0e5e1889",
@@ -591,29 +350,24 @@
       "status": "closed",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 22,
-      "matched_default": [
-        "software engineer",
-        "senior(-30)"
-      ],
+      "score_default": 0,
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "sql"
-      ],
-      "score_infra": 22,
-      "matched_infra": [
-        "software engineer",
-        "senior(-30)"
-      ],
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "sql"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 22,
-      "best_confidence": "title_only"
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "722e769456a844f7",
+        "infra": "91fc65432e20b846"
+      },
+      "years_required": null
     },
     {
       "id": "2a267694a0033d158cf0",
@@ -624,46 +378,24 @@
       "first_seen": "2026-09-23T16:06:34Z",
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
-      "score_default": 31,
-      "matched_default": [
-        "linux",
-        "inference",
-        "automation"
-      ],
-      "coverage_default": 38,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "linux",
-        "machine learning",
-        "scalability",
-        "inference",
-        "automation",
-        "mlops",
-        "gen ai"
-      ],
-      "score_infra": 40,
-      "matched_infra": [
-        "linux",
-        "inference",
-        "automation",
-        "mlops"
-      ],
-      "coverage_infra": 50,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ansible",
-        "linux",
-        "machine learning",
-        "scalability",
-        "inference",
-        "automation",
-        "mlops",
-        "gen ai"
-      ],
-      "best_cv": "infra",
-      "best_score": 40,
-      "best_confidence": "full"
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "702be847ce8d51ba",
+        "infra": "3b14c8e28f9d89a0"
+      },
+      "years_required": null
     },
     {
       "id": "613703e2c88c5b2af1e7",
@@ -675,40 +407,23 @@
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
       "score_default": 0,
-      "matched_default": [
-        "linux",
-        "inference",
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 60,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ansible",
-        "linux",
-        "inference",
-        "automation",
-        "gen ai"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "linux",
-        "inference",
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 60,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ansible",
-        "linux",
-        "inference",
-        "automation",
-        "gen ai"
-      ],
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "52ab740ddadcbf05",
+        "infra": "0cacc94b7f74f879"
+      },
+      "years_required": null
     },
     {
       "id": "5753069998b06f4afe69",
@@ -720,40 +435,23 @@
       "last_seen": "2026-09-24T16:16:44Z",
       "status": "seen",
       "score_default": 0,
-      "matched_default": [
-        "linux",
-        "inference",
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 60,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "ansible",
-        "linux",
-        "inference",
-        "automation"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "linux",
-        "inference",
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 60,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "go",
-        "ansible",
-        "linux",
-        "inference",
-        "automation"
-      ],
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "4da1170e8462443e",
+        "infra": "bb20905642602658"
+      },
+      "years_required": null
     }
   ]
 }

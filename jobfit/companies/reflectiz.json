@@ -13,9 +13,7 @@
       "last_seen": "2026-09-24T16:17:09Z",
       "status": "seen",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -23,12 +21,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "75d827912c805b90",
+        "infra": "87968bac339f9bc6"
+      },
+      "years_required": null
     },
     {
       "id": "reflectiz:EE.27F",
@@ -41,31 +42,24 @@
       "status": "closed",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "javascript",
-        "typescript"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "javascript",
-        "typescript"
-      ],
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 58,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "60a8eeddebeacc8f",
+        "infra": "df99661c06324065"
+      },
+      "years_required": 3
     }
   ]
 }

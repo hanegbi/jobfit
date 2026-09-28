@@ -16,19 +16,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "f5fe2586023afc03",
+        "infra": "ed0377cb7f89306d"
+      },
+      "years_required": null
     },
     {
       "id": "c1ecdb70d8de4f9fec44",
@@ -43,23 +44,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "go"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "go"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "70b1c7e3c7c21638",
+        "infra": "b6b580b7670db861"
+      },
+      "years_required": null
     },
     {
       "id": "807e17dd0e7d6add4789",
@@ -74,19 +72,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "624fb1ee77b00e88",
+        "infra": "a0e72b3105502bb7"
+      },
+      "years_required": null
     },
     {
       "id": "6660afff7b98eacb4bdc",
@@ -101,19 +100,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "7fd164dff22f4225",
+        "infra": "4bcf9f36290172ad"
+      },
+      "years_required": null
     },
     {
       "id": "8ee655eb296e0a205072",
@@ -125,26 +125,27 @@
       "last_seen": "2026-09-24T15:24:44Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 8,
-      "best_confidence": "title_only",
-      "score_default": 8,
+      "best_score": 51,
+      "best_confidence": "full",
+      "score_default": 51,
       "matched_default": [
-        "observability"
+        "Large Language Models"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "observability"
-      ],
-      "score_infra": 8,
+      "coverage_default": 100,
+      "confidence_default": "full",
+      "requirements_default": [],
+      "score_infra": 51,
       "matched_infra": [
-        "observability"
+        "Large Language Models"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "observability"
-      ]
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "ce973e8e48a0b788",
+        "infra": "44f55d5a03093a51"
+      },
+      "years_required": null
     },
     {
       "id": "2668beb88c9a61800846",
@@ -159,27 +160,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "automation",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "devops",
-        "automation"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "devops",
-        "automation"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "4b1ad51907050b01",
+        "infra": "5249d52d6c4eef7b"
+      },
+      "years_required": null
     },
     {
       "id": "855766c41e9e3cb6f39c",
@@ -190,39 +184,24 @@
       "first_seen": "2026-09-23T15:50:29Z",
       "last_seen": "2026-09-24T15:24:44Z",
       "status": "seen",
-      "score_default": 42,
-      "matched_default": [
-        "ci/cd",
-        "automation",
-        "genai",
-        "-customer success"
-      ],
-      "coverage_default": 75,
-      "confidence_default": "full",
-      "requirements_default": [
-        "ci/cd",
-        "devops",
-        "automation",
-        "genai"
-      ],
-      "score_infra": 42,
-      "matched_infra": [
-        "ci/cd",
-        "automation",
-        "genai",
-        "-customer success"
-      ],
-      "coverage_infra": 75,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "ci/cd",
-        "devops",
-        "automation",
-        "genai"
-      ],
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 42,
-      "best_confidence": "full"
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "27fb235e9ed75f44",
+        "infra": "60396b1d00fa46f3"
+      },
+      "years_required": null
     }
   ]
 }

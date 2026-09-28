@@ -14,37 +14,24 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "aws",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 25,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "kubernetes",
-        "aws",
-        "spark",
-        "databricks"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "aws",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 25,
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "kubernetes",
-        "aws",
-        "spark",
-        "databricks"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      "best_score": 58,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "c46632a52734eb05",
+        "infra": "3dca4c225be1d450"
+      },
+      "years_required": 5
     },
     {
       "id": "eec437256945fe1e41fb",
@@ -57,47 +44,24 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 51,
-      "matched_default": [
-        "python",
-        "aws",
-        "bash",
-        "devops engineer",
-        "exp:6y"
-      ],
-      "coverage_default": 43,
+      "score_default": 74,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "go",
-        "kubernetes",
-        "terraform",
-        "helm",
-        "aws",
-        "bash"
-      ],
-      "score_infra": 51,
-      "matched_infra": [
-        "python",
-        "aws",
-        "bash",
-        "devops engineer",
-        "exp:6y"
-      ],
-      "coverage_infra": 43,
+      "requirements_default": [],
+      "score_infra": 74,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "go",
-        "kubernetes",
-        "terraform",
-        "helm",
-        "aws",
-        "bash"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 51,
-      "best_confidence": "full"
+      "best_score": 74,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "9152bc398e0ac1d4",
+        "infra": "74cd5baaaf0f61ff"
+      },
+      "years_required": 6
     }
   ]
 }

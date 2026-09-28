@@ -13,9 +13,7 @@
       "last_seen": "2026-09-15T20:08:11Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -23,12 +21,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "90127b2c7eefe6fb",
+        "infra": "f6f89ee59bacab89"
+      },
+      "years_required": null
     },
     {
       "id": "8d2bae0570d754268ed0",
@@ -40,9 +41,7 @@
       "last_seen": "2026-09-15T20:08:11Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -50,12 +49,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "e89464faef88b84e",
+        "infra": "5cea42cba5ba9c19"
+      },
+      "years_required": null
     },
     {
       "id": "a2760154df0ab5a2c6ad",
@@ -66,25 +68,36 @@
       "first_seen": "2026-09-15T20:08:11Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:1y(fit)",
-        "off-target title(-50)"
+      "score_infra": 10,
+      "matched_infra": [],
+      "coverage_infra": 18,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "Experience of 1+ years in advanced tech nodes (3n up to 16n TSMC)",
+        "This experience must include: · Good understanding of schematic flow · Strong understanding of: o CMOS device physics (basic level) o",
+        "Analog layout fundamentals, matching and parasitic sensitivity · Solid knowledge of: o DRC, LVS, ERC flows o",
+        "Foundry PDK usage · Understanding of high-speed, low noise layout requirements · Highly motivated · Learning abilities · Good communication skills in English · Experience in both",
+        "Mentor and Cadence tools is an"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:1y(fit)",
-        "off-target title(-50)"
+      "best_score": 10,
+      "best_confidence": "full",
+      "score_default": 10,
+      "matched_default": [],
+      "coverage_default": 18,
+      "confidence_default": "full",
+      "requirements_default": [
+        "Experience of 1+ years in advanced tech nodes (3n up to 16n TSMC)",
+        "This experience must include: · Good understanding of schematic flow · Strong understanding of: o CMOS device physics (basic level) o",
+        "Analog layout fundamentals, matching and parasitic sensitivity · Solid knowledge of: o DRC, LVS, ERC flows o",
+        "Foundry PDK usage · Understanding of high-speed, low noise layout requirements · Highly motivated · Learning abilities · Good communication skills in English · Experience in both",
+        "Mentor and Cadence tools is an"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": []
+      "_score_cache_keys": {
+        "default": "3ce4ee0f8e456548",
+        "infra": "ea01809912340abb"
+      },
+      "years_required": null
     },
     {
       "id": "f8c5bef7b9b0a3b34c55",
@@ -95,29 +108,42 @@
       "first_seen": "2026-09-15T20:08:11Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_infra": 0,
+      "score_infra": 9,
       "matched_infra": [
-        "linux",
-        "off-target title(-50)"
+        "Linux Administration"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "coverage_infra": 12,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "linux"
+        "Bachelor’s degree in electrical engineering, Computer",
+        "Engineering, or related field",
+        "Strong understanding of: Digital logic and CMOS fundamentals VLSI physical design concepts",
+        "Basic experience with Linux environments",
+        "Basic",
+        "Tcl scripting skills DFT awareness"
       ],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
+      "best_score": 9,
+      "best_confidence": "full",
+      "score_default": 9,
       "matched_default": [
-        "linux",
-        "off-target title(-50)"
+        "Linux Administration"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "coverage_default": 12,
+      "confidence_default": "full",
       "requirements_default": [
-        "linux"
-      ]
+        "Bachelor’s degree in electrical engineering, Computer",
+        "Engineering, or related field",
+        "Strong understanding of: Digital logic and CMOS fundamentals VLSI physical design concepts",
+        "Basic experience with Linux environments",
+        "Basic",
+        "Tcl scripting skills DFT awareness"
+      ],
+      "_score_cache_keys": {
+        "default": "1a70b408904fcb07",
+        "infra": "970a60e4986b58a8"
+      },
+      "years_required": null
     },
     {
       "id": "8aecfefbf21e3fbaddf7",
@@ -128,25 +154,44 @@
       "first_seen": "2026-09-15T20:08:11Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:10y(-100)",
-        "off-target title(-50)"
+      "score_infra": 19,
+      "matched_infra": [],
+      "coverage_infra": 10,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "Experience of 10+ years in sub micro process (2n up to 16n TSMC)",
+        "This experience must include: Expertise in technical leading high speed low noise layout design",
+        "Expertise in Cadence",
+        "Layout tools TSMC FIN FET and/or Gate",
+        "All",
+        "Around technologies design",
+        "Good understanding of schematic flow",
+        "Teamwork",
+        "Experience in tape-out procedures"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:10y(-100)",
-        "off-target title(-50)"
+      "best_score": 19,
+      "best_confidence": "full",
+      "score_default": 19,
+      "matched_default": [],
+      "coverage_default": 10,
+      "confidence_default": "full",
+      "requirements_default": [
+        "Experience of 10+ years in sub micro process (2n up to 16n TSMC)",
+        "This experience must include: Expertise in technical leading high speed low noise layout design",
+        "Expertise in Cadence",
+        "Layout tools TSMC FIN FET and/or Gate",
+        "All",
+        "Around technologies design",
+        "Good understanding of schematic flow",
+        "Teamwork",
+        "Experience in tape-out procedures"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": []
+      "_score_cache_keys": {
+        "default": "f9d39ba19286766f",
+        "infra": "04521836d708bf2b"
+      },
+      "years_required": null
     },
     {
       "id": "c84e4d3d09d6ba6564d7",
@@ -157,31 +202,28 @@
       "first_seen": "2026-09-15T20:08:11Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "exp:10y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "score_infra": 19,
+      "matched_infra": [],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "automation"
+        "Key"
       ],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "automation",
-        "exp:10y(-100)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 19,
+      "best_confidence": "full",
+      "score_default": 19,
+      "matched_default": [],
+      "coverage_default": 0,
+      "confidence_default": "full",
       "requirements_default": [
-        "automation"
-      ]
+        "Key"
+      ],
+      "_score_cache_keys": {
+        "default": "645160e3faccb65d",
+        "infra": "904bd3f89f9b28a4"
+      },
+      "years_required": null
     },
     {
       "id": "e0b457e526f60280b177",
@@ -193,9 +235,7 @@
       "last_seen": "2026-09-15T20:08:11Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -203,12 +243,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "2ca275a077680d95",
+        "infra": "6e8dbf92a2408c2e"
+      },
+      "years_required": null
     },
     {
       "id": "db58c9deb80ff6bc01b2",
@@ -219,25 +262,46 @@
       "first_seen": "2026-09-15T20:08:11Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
+      "score_infra": 16,
+      "matched_infra": [],
+      "coverage_infra": 16,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "Experience of 5+ years in advanced analog circuits",
+        "This experience must include: Above 5 years experience with relevant",
+        "Analog circuits: Such as PLL’s, DAC, ADC’s, SerDes, high-speed timing circuits, Phase-Interpolators etc.., including",
+        "Top-level / system understanding of such complex blocks",
+        "Design, Development, and Verification of Integrated circuits - Analog and Mixed",
+        "Signal",
+        "Circuits – especially in advanced processes",
+        "FinFet or GAA.",
+        "B.Sc/M.Sc in EE/CE from lead universities",
+        "Apply for this position"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
+      "best_score": 16,
+      "best_confidence": "full",
+      "score_default": 16,
+      "matched_default": [],
+      "coverage_default": 16,
+      "confidence_default": "full",
+      "requirements_default": [
+        "Experience of 5+ years in advanced analog circuits",
+        "This experience must include: Above 5 years experience with relevant",
+        "Analog circuits: Such as PLL’s, DAC, ADC’s, SerDes, high-speed timing circuits, Phase-Interpolators etc.., including",
+        "Top-level / system understanding of such complex blocks",
+        "Design, Development, and Verification of Integrated circuits - Analog and Mixed",
+        "Signal",
+        "Circuits – especially in advanced processes",
+        "FinFet or GAA.",
+        "B.Sc/M.Sc in EE/CE from lead universities",
+        "Apply for this position"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": []
+      "_score_cache_keys": {
+        "default": "c4a3375424245ae2",
+        "infra": "1af907b5c5060a36"
+      },
+      "years_required": 5
     },
     {
       "id": "108e4fd518b53c47bd45",
@@ -248,25 +312,38 @@
       "first_seen": "2026-09-15T20:08:11Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:10y(-100)",
-        "off-target title(-50)"
+      "score_infra": 19,
+      "matched_infra": [],
+      "coverage_infra": 5,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "Key",
+        "10+ years of experience – a must",
+        "Performed at last 2 or more full block/system verification cycles.",
+        "In depth knowledge in VLSI verification flow, languages and concepts.",
+        "Experience in data path or data protocols, specifically",
+        "Ethernet -"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:10y(-100)",
-        "off-target title(-50)"
+      "best_score": 19,
+      "best_confidence": "full",
+      "score_default": 19,
+      "matched_default": [],
+      "coverage_default": 5,
+      "confidence_default": "full",
+      "requirements_default": [
+        "Key",
+        "10+ years of experience – a must",
+        "Performed at last 2 or more full block/system verification cycles.",
+        "In depth knowledge in VLSI verification flow, languages and concepts.",
+        "Experience in data path or data protocols, specifically",
+        "Ethernet -"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": []
+      "_score_cache_keys": {
+        "default": "8d6a593eae1f40f0",
+        "infra": "acee7b038d2f982d"
+      },
+      "years_required": 10
     },
     {
       "id": "3915034434cf67c976bf",
@@ -277,25 +354,38 @@
       "first_seen": "2026-09-15T20:08:11Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
+      "score_infra": 13,
+      "matched_infra": [],
+      "coverage_infra": 5,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "Key",
+        "5+ years of experience – a must",
+        "Performed at last 2 or more full block/system verification cycles.",
+        "In depth knowledge in VLSI verification flow, languages and concepts.",
+        "Experience in data path or data protocols, specifically",
+        "Ethernet -"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
+      "best_score": 13,
+      "best_confidence": "full",
+      "score_default": 13,
+      "matched_default": [],
+      "coverage_default": 5,
+      "confidence_default": "full",
+      "requirements_default": [
+        "Key",
+        "5+ years of experience – a must",
+        "Performed at last 2 or more full block/system verification cycles.",
+        "In depth knowledge in VLSI verification flow, languages and concepts.",
+        "Experience in data path or data protocols, specifically",
+        "Ethernet -"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": []
+      "_score_cache_keys": {
+        "default": "06fc76c4f4739518",
+        "infra": "0c53d9bf245de698"
+      },
+      "years_required": 5
     },
     {
       "id": "11c37a5a8fc7b8ac2709",
@@ -306,35 +396,48 @@
       "first_seen": "2026-09-15T20:08:11Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_infra": 0,
+      "score_infra": 14,
       "matched_infra": [
-        "python",
-        "automation",
-        "exp:10y(-100)",
-        "off-target title(-50)"
+        "Python"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "coverage_infra": 7,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "python",
-        "automation"
+        "Key",
+        "10+ years of experience in digital design verification— a must .",
+        "3+ years of experience managing or leading verification teams .",
+        "Proven track record of completing two or more full block/system verification cycles .",
+        "In-depth knowledge of VLSI verification flows , concepts, methodologies and interfaces with algorithmic models and SW.",
+        "Expertise in verification using SystemVerilog , UVM , or other industry-standard methodologies (eRM, OVM).",
+        "Experience in block, cluster and full chip verification levels.",
+        "Strong problem-solving skills and the ability to debug complex functionality issues.",
+        "Excellent leadership, communication, and organizational skills to manage and inspire a team."
       ],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
+      "best_score": 14,
+      "best_confidence": "full",
+      "score_default": 14,
       "matched_default": [
-        "python",
-        "automation",
-        "exp:10y(-100)",
-        "off-target title(-50)"
+        "Python"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "coverage_default": 7,
+      "confidence_default": "full",
       "requirements_default": [
-        "python",
-        "automation"
-      ]
+        "Key",
+        "10+ years of experience in digital design verification— a must .",
+        "3+ years of experience managing or leading verification teams .",
+        "Proven track record of completing two or more full block/system verification cycles .",
+        "In-depth knowledge of VLSI verification flows , concepts, methodologies and interfaces with algorithmic models and SW.",
+        "Expertise in verification using SystemVerilog , UVM , or other industry-standard methodologies (eRM, OVM).",
+        "Experience in block, cluster and full chip verification levels.",
+        "Strong problem-solving skills and the ability to debug complex functionality issues.",
+        "Excellent leadership, communication, and organizational skills to manage and inspire a team."
+      ],
+      "_score_cache_keys": {
+        "default": "0e5ce3b3ed4f0f2f",
+        "infra": "2e1748001b680a9b"
+      },
+      "years_required": 10
     },
     {
       "id": "ba9cd84eaf25ee1a9906",
@@ -345,19 +448,32 @@
       "first_seen": "2026-09-15T20:08:11Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_infra": 8,
+      "score_infra": 13,
       "matched_infra": [],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
+      "coverage_infra": 10,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "5+ Experience in DFT specification definition, architecture, insertion, and analysis in designs",
+        "Experience in silicon bring-up, debug, and validation of DFT features on ATE, debugging ATPG patterns, Compressed ATPG patterns, MBIST, and JTAG-related issues",
+        "Experience in fault modeling"
+      ],
       "best_cv": "default",
-      "best_score": 8,
-      "best_confidence": "title_only",
-      "score_default": 8,
+      "best_score": 13,
+      "best_confidence": "full",
+      "score_default": 13,
       "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": []
+      "coverage_default": 10,
+      "confidence_default": "full",
+      "requirements_default": [
+        "5+ Experience in DFT specification definition, architecture, insertion, and analysis in designs",
+        "Experience in silicon bring-up, debug, and validation of DFT features on ATE, debugging ATPG patterns, Compressed ATPG patterns, MBIST, and JTAG-related issues",
+        "Experience in fault modeling"
+      ],
+      "_score_cache_keys": {
+        "default": "4dc7f321769cc9b6",
+        "infra": "56520727b1efa4a6"
+      },
+      "years_required": null
     },
     {
       "id": "a45272ec1af862f4ba7c",
@@ -369,22 +485,23 @@
       "last_seen": "2026-09-23T16:06:59Z",
       "status": "closed",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "e89464faef88b84e",
+        "infra": "5cea42cba5ba9c19"
+      },
+      "years_required": null
     },
     {
       "id": "4a90ff916b1c34f7d7d4",
@@ -395,23 +512,32 @@
       "first_seen": "2026-09-23T16:06:59Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
+      "score_default": 13,
+      "matched_default": [],
+      "coverage_default": 10,
+      "confidence_default": "full",
+      "requirements_default": [
+        "8+ Experience in DFT specification definition, architecture, insertion, and analysis in designs",
+        "Experience in silicon bring-up, debug, and validation of DFT features on ATE, debugging ATPG patterns, Compressed ATPG patterns, MBIST, and JTAG-related issues",
+        "Experience in fault modeling"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
+      "score_infra": 13,
+      "matched_infra": [],
+      "coverage_infra": 10,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "8+ Experience in DFT specification definition, architecture, insertion, and analysis in designs",
+        "Experience in silicon bring-up, debug, and validation of DFT features on ATE, debugging ATPG patterns, Compressed ATPG patterns, MBIST, and JTAG-related issues",
+        "Experience in fault modeling"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 13,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "e332106b6337e332",
+        "infra": "394e624136ef6c08"
+      },
+      "years_required": null
     },
     {
       "id": "730289a1fffdfa7cc3ed",
@@ -422,19 +548,46 @@
       "first_seen": "2026-09-23T16:06:59Z",
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "seen",
-      "score_default": 8,
+      "score_default": 9,
       "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 8,
+      "coverage_default": 0,
+      "confidence_default": "full",
+      "requirements_default": [
+        "Required",
+        "Experience",
+        "5 years or more of hands-on experience and a well proven record of modem algorithms development (Clock",
+        "Recovery, Equalization, Phase",
+        "Recovery, and tracking) for Single",
+        "Carrier modulation and demodulation.",
+        "Fixed point design and programming in MATLAB and C",
+        "Very good understanding of System and HW implementation restrictions (from MATLAB to RTL)",
+        "Lab hands on (algorithms debug and tuning)",
+        "Additional"
+      ],
+      "score_infra": 9,
       "matched_infra": [],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
+      "coverage_infra": 0,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "Required",
+        "Experience",
+        "5 years or more of hands-on experience and a well proven record of modem algorithms development (Clock",
+        "Recovery, Equalization, Phase",
+        "Recovery, and tracking) for Single",
+        "Carrier modulation and demodulation.",
+        "Fixed point design and programming in MATLAB and C",
+        "Very good understanding of System and HW implementation restrictions (from MATLAB to RTL)",
+        "Lab hands on (algorithms debug and tuning)",
+        "Additional"
+      ],
       "best_cv": "default",
-      "best_score": 8,
-      "best_confidence": "title_only"
+      "best_score": 9,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "023f448fb82d2234",
+        "infra": "0f6076097693f8ba"
+      },
+      "years_required": null
     },
     {
       "id": "c59f20a82c1da97507c6",
@@ -446,22 +599,23 @@
       "last_seen": "2026-09-24T16:18:37Z",
       "status": "new",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "e89464faef88b84e",
+        "infra": "5cea42cba5ba9c19"
+      },
+      "years_required": null
     }
   ]
 }

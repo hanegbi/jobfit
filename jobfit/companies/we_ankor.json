@@ -14,33 +14,24 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 15,
-      "matched_default": [
-        "aws",
-        "linux",
-        "exp:5y(fit)"
-      ],
+      "score_default": 0,
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "aws",
-        "linux"
-      ],
-      "score_infra": 15,
-      "matched_infra": [
-        "aws",
-        "linux",
-        "exp:5y(fit)"
-      ],
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "aws",
-        "linux"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 15,
-      "best_confidence": "title_only"
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "53193b8f4aed7ae5",
+        "infra": "97fe524bf1a52240"
+      },
+      "years_required": 5
     }
   ]
 }

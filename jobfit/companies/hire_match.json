@@ -10,52 +10,28 @@
       "url": "https://www.linkedin.com/jobs/view/4455850494",
       "description": "Requires 2+ years of experience. 2-5 years of hands-on experience with Python and a major ML framework (PyTorch or TensorFlow) Experience building LLM/GenAI applications (RAG pipelines, vector databases, or agent frameworks such as LangChain) Experience with MLOps practices, model deployment, monitoring, and versioning in production",
       "first_seen": "2026-09-15T21:02:04Z",
-      "last_seen": "2026-09-23T15:42:36Z",
+      "last_seen": "2026-09-28T06:12:13Z",
       "status": "seen",
       "is_referral": true,
       "referral_contact": null,
-      "best_cv": "infra",
-      "best_score": 45,
-      "best_confidence": "full",
-      "score_default": 36,
-      "matched_default": [
-        "python",
-        "llm",
-        "genai",
-        "exp:2y(fit)"
-      ],
-      "coverage_default": 38,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "pytorch",
-        "tensorflow",
-        "llm",
-        "rag",
-        "mlops",
-        "genai",
-        "model deployment"
-      ],
-      "score_infra": 45,
-      "matched_infra": [
-        "python",
-        "llm",
-        "mlops",
-        "genai",
-        "exp:2y(fit)"
-      ],
-      "coverage_infra": 50,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "pytorch",
-        "tensorflow",
-        "llm",
-        "rag",
-        "mlops",
-        "genai",
-        "model deployment"
-      ]
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "5bc63129a4ee79b3",
+        "infra": "37f7c3299b0070a2"
+      },
+      "years_required": 2
     },
     {
       "id": "fc491ce50e5e4e5c63cb",
@@ -64,43 +40,28 @@
       "url": "https://www.linkedin.com/jobs/view/4455852467",
       "description": "Requires 2+ years of experience. 2-5 years of hands-on experience with SQL and Python (or Scala) for data pipeline development Experience designing and orchestrating ETL/ELT pipelines (Airflow, dbt, or equivalent) Experience with a cloud data warehouse platform (Snowflake, BigQuery, or Redshift)",
       "first_seen": "2026-09-15T21:02:04Z",
-      "last_seen": "2026-09-23T15:42:36Z",
+      "last_seen": "2026-09-28T06:12:13Z",
       "status": "seen",
       "is_referral": true,
       "referral_contact": null,
       "best_cv": "default",
-      "best_score": 37,
+      "best_score": 50,
       "best_confidence": "full",
-      "score_default": 37,
-      "matched_default": [
-        "python",
-        "data engineer",
-        "exp:2y(fit)"
-      ],
-      "coverage_default": 20,
+      "score_default": 50,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "sql",
-        "airflow",
-        "etl",
-        "snowflake"
-      ],
-      "score_infra": 37,
-      "matched_infra": [
-        "python",
-        "data engineer",
-        "exp:2y(fit)"
-      ],
-      "coverage_infra": 20,
+      "requirements_default": [],
+      "score_infra": 50,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "sql",
-        "airflow",
-        "etl",
-        "snowflake"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "b0edc072be5f4fd6",
+        "infra": "970b4610eb0f9de7"
+      },
+      "years_required": 2
     }
   ]
 }

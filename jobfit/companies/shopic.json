@@ -12,65 +12,30 @@
       "first_seen": "2026-09-15T20:13:47Z",
       "last_seen": "2026-09-24T16:17:49Z",
       "status": "seen",
-      "score_infra": 0,
+      "score_infra": 59,
       "matched_infra": [
-        "python",
-        "docker",
-        "ci/cd",
-        "computer vision",
-        "inference",
-        "exp:6y",
-        "off-target title(-50)"
+        "Docker",
+        "CI/CD"
       ],
-      "coverage_infra": 36,
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "rust",
-        "docker",
-        "kubernetes",
-        "ci/cd",
-        "machine learning",
-        "deep learning",
-        "pytorch",
-        "computer vision",
-        "scalability",
-        "inference",
-        "gpu",
-        "cuda",
-        "ml infrastructure"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 60,
       "best_confidence": "full",
-      "score_default": 0,
+      "score_default": 60,
       "matched_default": [
-        "python",
-        "docker",
-        "ci/cd",
-        "computer vision",
-        "inference",
-        "exp:6y",
-        "off-target title(-50)"
+        "Docker",
+        "CI/CD"
       ],
-      "coverage_default": 36,
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "rust",
-        "docker",
-        "kubernetes",
-        "ci/cd",
-        "machine learning",
-        "deep learning",
-        "pytorch",
-        "computer vision",
-        "scalability",
-        "inference",
-        "gpu",
-        "cuda",
-        "ml infrastructure"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "7852720bd2db493b",
+        "infra": "e6b7f2ca7081834e"
+      },
+      "years_required": null
     },
     {
       "id": "004fe72e0344acab2e15",
@@ -81,37 +46,24 @@
       "first_seen": "2026-09-15T20:13:47Z",
       "last_seen": "2026-09-15T20:13:47Z",
       "status": "closed",
-      "score_infra": 0,
-      "matched_infra": [
-        "computer vision",
-        "exp:5y(fit)",
-        "off-target title(-50)",
-        "-qa",
-        "-manual testing"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "computer vision",
-        "qa"
-      ],
+      "score_infra": 66,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "exp:5y(fit)",
-        "off-target title(-50)",
-        "-qa",
-        "-manual testing"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "computer vision",
-        "qa"
-      ]
+      "best_score": 66,
+      "best_confidence": "full",
+      "score_default": 66,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "52b30234ec1cf0da",
+        "infra": "58c1fa871d3ac5a2"
+      },
+      "years_required": 2
     },
     {
       "id": "413117b32dd140b6b83c",
@@ -122,51 +74,24 @@
       "first_seen": "2026-09-15T20:13:47Z",
       "last_seen": "2026-09-24T16:17:49Z",
       "status": "seen",
-      "score_infra": 65,
-      "matched_infra": [
-        "python",
-        "react",
-        "ci/cd",
-        "computer vision",
-        "software engineer",
-        "exp:4y(fit)"
-      ],
-      "coverage_infra": 50,
+      "score_infra": 68,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "javascript",
-        "typescript",
-        "react",
-        "sql",
-        "ci/cd",
-        "git",
-        "computer vision"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 65,
+      "best_score": 68,
       "best_confidence": "full",
-      "score_default": 65,
-      "matched_default": [
-        "python",
-        "react",
-        "ci/cd",
-        "computer vision",
-        "software engineer",
-        "exp:4y(fit)"
-      ],
-      "coverage_default": 50,
+      "score_default": 68,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "javascript",
-        "typescript",
-        "react",
-        "sql",
-        "ci/cd",
-        "git",
-        "computer vision"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "8f4ad2296b49eaff",
+        "infra": "12701cbcac184423"
+      },
+      "years_required": null
     },
     {
       "id": "6f0af78d55c0b31c4b13",
@@ -178,9 +103,7 @@
       "last_seen": "2026-09-15T20:13:47Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -188,12 +111,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "a64ec358517078f5",
+        "infra": "d23e76758839d8e2"
+      },
+      "years_required": null
     },
     {
       "id": "90f5df5317bc4afe03a0",
@@ -204,29 +130,24 @@
       "first_seen": "2026-09-15T20:13:47Z",
       "last_seen": "2026-09-15T20:13:47Z",
       "status": "closed",
-      "score_infra": 8,
-      "matched_infra": [
-        "computer vision"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "go",
-        "computer vision"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 8,
+      "best_score": 0,
       "best_confidence": "title_only",
-      "score_default": 8,
-      "matched_default": [
-        "computer vision"
-      ],
+      "score_default": 0,
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "computer vision"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "cf39490f1680228d",
+        "infra": "da9edadea3496f84"
+      },
+      "years_required": null
     },
     {
       "id": "6d1058d6026c675c20cd",
@@ -238,30 +159,23 @@
       "last_seen": "2026-09-15T20:13:47Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "computer vision",
-        "scalability"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "computer vision",
-        "scalability"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "c8b1cb1e1fc405d8",
+        "infra": "d1b789eb01ebefb0"
+      },
+      "years_required": null
     },
     {
       "id": "3dbb87b9c2f7ecf4554e",
@@ -273,30 +187,23 @@
       "last_seen": "2026-09-15T20:13:47Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "go",
-        "computer vision"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "computer vision"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "6c819cfcbbc8a853",
+        "infra": "9f2182dc0a7e550b"
+      },
+      "years_required": null
     },
     {
       "id": "5defa9fbd50428d6886e",
@@ -308,30 +215,23 @@
       "last_seen": "2026-09-15T20:13:47Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "go",
-        "computer vision"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "computer vision"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "4bd4cb894f0ec6ba",
+        "infra": "6ef9b871d8f2d01e"
+      },
+      "years_required": null
     },
     {
       "id": "de40aba441597686c542",
@@ -343,30 +243,23 @@
       "last_seen": "2026-09-15T20:13:47Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "go",
-        "computer vision"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "computer vision"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "655633e3f7cee0ba",
+        "infra": "8918d0356d5a6684"
+      },
+      "years_required": null
     },
     {
       "id": "3dae99fdb1a9ff099f62",
@@ -378,28 +271,23 @@
       "last_seen": "2026-09-15T20:13:47Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "computer vision"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "computer vision"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "bbf4d148624a761c",
+        "infra": "f219f1085d0120bc"
+      },
+      "years_required": null
     },
     {
       "id": "dd1abd8ee01c500abe25",
@@ -411,30 +299,23 @@
       "last_seen": "2026-09-15T20:13:47Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "deep learning",
-        "computer vision"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "computer vision",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "deep learning",
-        "computer vision"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "c6f7ff31eede9131",
+        "infra": "2b4ac213ca4b1f7c"
+      },
+      "years_required": null
     },
     {
       "id": "d8ec0946c02666bf5a79",
@@ -446,9 +327,7 @@
       "last_seen": "2026-09-15T20:13:47Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -456,12 +335,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "0c5bf34a072f5ed0",
+        "infra": "c162e1c4ebeb323d"
+      },
+      "years_required": null
     }
   ]
 }

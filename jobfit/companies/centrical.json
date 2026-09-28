@@ -15,32 +15,23 @@
       "is_referral": true,
       "referral_contact": null,
       "score_default": 0,
-      "matched_default": [
-        "exp:6y",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 0,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "sql",
-        "snowflake"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "exp:6y",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 0,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "go",
-        "sql",
-        "snowflake"
-      ],
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "f619a1c9a63f1961",
+        "infra": "bdb1506240a0fa7f"
+      },
+      "years_required": 6
     }
   ]
 }

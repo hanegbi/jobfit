@@ -16,19 +16,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "e5b32c3069d5f84a",
+        "infra": "71202b820c88213e"
+      },
+      "years_required": null
     },
     {
       "id": "75e49148fd6e0964f456",
@@ -40,46 +41,31 @@
       "last_seen": "2026-09-15T18:20:13Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 50,
       "best_confidence": "full",
-      "score_default": 0,
+      "score_default": 50,
       "matched_default": [
-        "python",
-        "mongodb",
-        "ci/cd",
-        "exp:5y(fit)",
-        "off-target title(-50)"
+        "Python",
+        "MongoDB",
+        "CI/CD"
       ],
-      "coverage_default": 43,
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "go",
-        "mongodb",
-        "rest",
-        "microservices",
-        "azure",
-        "ci/cd"
-      ],
-      "score_infra": 0,
+      "requirements_default": [],
+      "score_infra": 50,
       "matched_infra": [
-        "python",
-        "mongodb",
-        "ci/cd",
-        "exp:5y(fit)",
-        "off-target title(-50)"
+        "Python",
+        "MongoDB",
+        "CI/CD"
       ],
-      "coverage_infra": 43,
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "go",
-        "mongodb",
-        "rest",
-        "microservices",
-        "azure",
-        "ci/cd"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "6a42c9c6c4607273",
+        "infra": "0d364562998f0210"
+      },
+      "years_required": null
     },
     {
       "id": "2e5f407307027930fdde",
@@ -94,21 +80,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "-recruiter"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "-recruiter"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "bf3db37b25cf60bb",
+        "infra": "c7ee314b7a803536"
+      },
+      "years_required": 5
     },
     {
       "id": "56642867a1cff01ee578",
@@ -120,26 +105,23 @@
       "last_seen": "2026-09-23T15:50:20Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:7y(-50)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 64,
+      "best_confidence": "full",
+      "score_default": 64,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:7y(-50)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "score_infra": 64,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "415867dd56ace407",
+        "infra": "dcd5c87fa30775a4"
+      },
+      "years_required": 7
     },
     {
       "id": "4a096997869c067d81c8",
@@ -151,28 +133,65 @@
       "last_seen": "2026-09-23T15:50:20Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 12,
+      "best_confidence": "full",
+      "score_default": 12,
+      "matched_default": [],
+      "coverage_default": 9,
+      "confidence_default": "full",
       "requirements_default": [
-        "go"
+        "Extensive experience in a senior leadership capacity, with a documented history of driving transformative business growth through demand generation.",
+        "Exceptional people leader with a passion for mentorship and a proven ability to build and scale world-class marketing teams.",
+        "Superior executive presence, with the ability to influence at the C-suite level and align diverse stakeholders around a common vision.",
+        "Strategic mastery of the B2B demand funnel, with the ability to balance long-term brand building with immediate pipeline requirements.",
+        "Expertise in managing large-scale, global marketing budgets and delivering significant ROI through strategic capital allocation.",
+        "Visionary thinker who can translate complex data into compelling narratives that drive organizational change and investment.",
+        "Unwavering commitment to cross-functional partnership and building a unified, high-impact Go-To-Market culture.",
+        "Unwavering commitment to cross-functional partnership and building a unified, high-impact Go-To-Market culture.",
+        "We offer several perks that include flexible PTO, medical/dental/vision insurance, 401(k) match, stock options, paid parental leave, and WFH and phone stipend.",
+        "The pay range for this position in Colorado, California, and New",
+        "York",
+        "City is $180,000 - $220,000.",
+        "This is the lowest to highest salary we in good faith believe we would pay for this role at the time of this posting.",
+        "The pay offered may vary depending on several factors including, but not limited to, relevant education, qualifications, certifications, and experience.",
+        "Augury is a people-first organization.",
+        "We believe in fostering an inclusive environment in which employees feel encouraged to share their unique perspectives, leverage their strengths, and act authentically.",
+        "We know that diverse teams are strong teams, and we welcome those from all backgrounds and varying experiences.",
+        "We are committed to providing employees with a work environment free of discrimination and harassment.",
+        "We believe that diversity is more than just good intentions, and we are committed to creating an inclusive environment for all employees.",
+        "Augury is a proud equal opportunity employer, we strive to create a work environment in which everyone, all applicants, employees, customers, guests, and vendors feel sa"
       ],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "score_infra": 12,
+      "matched_infra": [],
+      "coverage_infra": 9,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "go"
-      ]
+        "Extensive experience in a senior leadership capacity, with a documented history of driving transformative business growth through demand generation.",
+        "Exceptional people leader with a passion for mentorship and a proven ability to build and scale world-class marketing teams.",
+        "Superior executive presence, with the ability to influence at the C-suite level and align diverse stakeholders around a common vision.",
+        "Strategic mastery of the B2B demand funnel, with the ability to balance long-term brand building with immediate pipeline requirements.",
+        "Expertise in managing large-scale, global marketing budgets and delivering significant ROI through strategic capital allocation.",
+        "Visionary thinker who can translate complex data into compelling narratives that drive organizational change and investment.",
+        "Unwavering commitment to cross-functional partnership and building a unified, high-impact Go-To-Market culture.",
+        "Unwavering commitment to cross-functional partnership and building a unified, high-impact Go-To-Market culture.",
+        "We offer several perks that include flexible PTO, medical/dental/vision insurance, 401(k) match, stock options, paid parental leave, and WFH and phone stipend.",
+        "The pay range for this position in Colorado, California, and New",
+        "York",
+        "City is $180,000 - $220,000.",
+        "This is the lowest to highest salary we in good faith believe we would pay for this role at the time of this posting.",
+        "The pay offered may vary depending on several factors including, but not limited to, relevant education, qualifications, certifications, and experience.",
+        "Augury is a people-first organization.",
+        "We believe in fostering an inclusive environment in which employees feel encouraged to share their unique perspectives, leverage their strengths, and act authentically.",
+        "We know that diverse teams are strong teams, and we welcome those from all backgrounds and varying experiences.",
+        "We are committed to providing employees with a work environment free of discrimination and harassment.",
+        "We believe that diversity is more than just good intentions, and we are committed to creating an inclusive environment for all employees.",
+        "Augury is a proud equal opportunity employer, we strive to create a work environment in which everyone, all applicants, employees, customers, guests, and vendors feel sa"
+      ],
+      "_score_cache_keys": {
+        "default": "c184b52dcbc68ce1",
+        "infra": "25c35f697c248043"
+      },
+      "years_required": null
     },
     {
       "id": "57ac663238d98b4c8193",
@@ -184,24 +203,23 @@
       "last_seen": "2026-09-15T18:20:13Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:8y(-75)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 49,
+      "best_confidence": "full",
+      "score_default": 49,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:8y(-75)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "score_infra": 49,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "5dc2598d7d045274",
+        "infra": "0a9aee1425aa35b3"
+      },
+      "years_required": 8
     },
     {
       "id": "3f49f9c3680e67b024b7",
@@ -216,29 +234,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "automation",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "automation"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "automation"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "76c5afd6f915b343",
+        "infra": "ab27f915447a5d0e"
+      },
+      "years_required": null
     },
     {
       "id": "03613251bd2c194bedc2",
@@ -250,26 +259,23 @@
       "last_seen": "2026-09-15T18:20:13Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:7y(-50)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 49,
+      "best_confidence": "full",
+      "score_default": 49,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:7y(-50)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "score_infra": 49,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "1b1080d2719b29ae",
+        "infra": "fe62bb0877b1a21b"
+      },
+      "years_required": null
     },
     {
       "id": "2976a8869bfd66642d0b",
@@ -281,24 +287,23 @@
       "last_seen": "2026-09-23T15:50:20Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 49,
+      "best_confidence": "full",
+      "score_default": 49,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "score_infra": 49,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "0192d40935704d86",
+        "infra": "5ff65ab841ef45fd"
+      },
+      "years_required": 3
     },
     {
       "id": "861e9924901ac7c43a8b",
@@ -310,26 +315,23 @@
       "last_seen": "2026-09-15T18:20:13Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 58,
+      "best_confidence": "full",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:3y(fit)",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "b5547aa7afe39664",
+        "infra": "83e1d015e41ec29e"
+      },
+      "years_required": null
     },
     {
       "id": "77aae518375df941cc2f",
@@ -341,28 +343,23 @@
       "last_seen": "2026-09-23T15:50:20Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 58,
+      "best_confidence": "full",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:5y(fit)",
-        "off-target title(-50)",
-        "-account executive",
-        "-customer success"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "0aaf25ae69206e16",
+        "infra": "4dd62f935f72f4cc"
+      },
+      "years_required": null
     },
     {
       "id": "d3be3f1bac437931f044",
@@ -374,28 +371,23 @@
       "last_seen": "2026-09-23T15:50:20Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 8,
-      "best_confidence": "title_only",
-      "score_default": 8,
-      "matched_default": [
-        "automation"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "scalability",
-        "automation"
-      ],
-      "score_infra": 8,
-      "matched_infra": [
-        "automation"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "scalability",
-        "automation"
-      ]
+      "best_score": 55,
+      "best_confidence": "full",
+      "score_default": 55,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
+      "requirements_default": [],
+      "score_infra": 55,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "3f4abe9e3d72ba79",
+        "infra": "716002245509cd1f"
+      },
+      "years_required": 8
     },
     {
       "id": "08a0493f56a3c95e4abd",
@@ -406,25 +398,118 @@
       "first_seen": "2026-09-23T15:50:20Z",
       "last_seen": "2026-09-23T15:50:20Z",
       "status": "closed",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
+      "score_default": 24,
+      "matched_default": [],
+      "coverage_default": 13,
+      "confidence_default": "full",
+      "requirements_default": [
+        "5+ years of proven experience planning, executing, and measuring field and event marketing programs that drive pipeline and revenue growth in a B2B environment.",
+        "Experience collaborating closely with sales teams to align event strategy with pipeline goals and ABM programs.",
+        "Strong project management skills with the ability to execute multiple complex programs simultaneously.",
+        "Exceptional strategic thinking, with the ability to translate business goals into measurable event and field initiatives.",
+        "Track record of managing budgets and vendors, negotiating contracts, and maximizing ROI on events.",
+        "Proficiency with marketing technology and event platforms (Salesforce, Marketo, HubSpot, Zoom/Webex, or similar).",
+        "Proficiency with marketing technology and event platforms (Salesforce, Marketo, HubSpot, Zoom/Webex, or similar).",
+        "Proficiency with marketing technology and event platforms (Salesforce, Marketo, HubSpot, Zoom/Webex, or similar).",
+        "Excellent analytical skills with the ability to translate data into actionable insights and reports.",
+        "Strong organization and communication skills, with the ability to influence and collaborate across multiple functions.",
+        "Thrives in fast-paced, high-growth environments with evolving priorities and tight deadlines.",
+        "Bachelor’s degree in Marketing, Communications, a closely related field or relevant experience.",
+        "We offer several perks that include flexible PTO, medical/dental/vision insurance, 401(k) match, stock options, paid parental leave, and WFH and phone stipend.",
+        "The pay range for this position in Colorado, California, and New",
+        "York is a base salary of $120,000 - $130,000.",
+        "This is the lowest to highest salary we in good faith believe we would pay for this role at the time of this posting.",
+        "The pay offered may vary depending on several factors including, but not limited to, relevant education, qualifications, certifications, and experience.",
+        "Augury is a people-first organization.",
+        "We believe in fostering an inclusive environment in which employees feel encouraged to share their unique perspectives, leverage their strengths, and act authentically.",
+        "We know that diverse teams are strong teams, and we welcome those from all backgrounds and varying experiences.",
+        "We are committed to providing employees with a work environment free of discrimination and harassment.",
+        "We believe that diversity is more than just good intentions, and we are committed to creating an inclusive environment for all employees.",
+        "Augury is a proud equal opportunity employer, we strive to create a work environment in which everyone, all applicants, employees, customers, guests, and vendors feel safe and comfortable.",
+        "We commit to maintain a workplace that is free of any type of harassment and does not tolerate anyone intimidating, humiliating, or hurting others.",
+        "We prohibit willful discrimination based on age, gender, ethnicity, race, color, religion, political opinions, sexual orientation, sexual identity or expression, military or veteran status, disability or any other characteristic protected by law.",
+        "Apply for this position",
+        "Customer",
+        "Login",
+        "Modal",
+        "Machine",
+        "Health",
+        "Prescriptive AI machine diagnostics to predict and prevent industrial machine failure and improve machine performance.",
+        "Login",
+        "Process",
+        "Health",
+        "Prescriptive AI process optimization to achieve new levels of production efficiency, yield, and sustainability (previously known as Seebo).",
+        "Login SMRP 2026",
+        "Meet with our team at SMRP 2026 from Sept.",
+        "28th-Oct.",
+        "1st.",
+        "Schedule a 1-on-1 consultation, experience",
+        "Augury’s new",
+        "Reliability",
+        "Agent, and enter to win your very own 3D printer.",
+        "Connect",
+        "With Us"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
+      "score_infra": 24,
+      "matched_infra": [],
+      "coverage_infra": 13,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "5+ years of proven experience planning, executing, and measuring field and event marketing programs that drive pipeline and revenue growth in a B2B environment.",
+        "Experience collaborating closely with sales teams to align event strategy with pipeline goals and ABM programs.",
+        "Strong project management skills with the ability to execute multiple complex programs simultaneously.",
+        "Exceptional strategic thinking, with the ability to translate business goals into measurable event and field initiatives.",
+        "Track record of managing budgets and vendors, negotiating contracts, and maximizing ROI on events.",
+        "Proficiency with marketing technology and event platforms (Salesforce, Marketo, HubSpot, Zoom/Webex, or similar).",
+        "Proficiency with marketing technology and event platforms (Salesforce, Marketo, HubSpot, Zoom/Webex, or similar).",
+        "Proficiency with marketing technology and event platforms (Salesforce, Marketo, HubSpot, Zoom/Webex, or similar).",
+        "Excellent analytical skills with the ability to translate data into actionable insights and reports.",
+        "Strong organization and communication skills, with the ability to influence and collaborate across multiple functions.",
+        "Thrives in fast-paced, high-growth environments with evolving priorities and tight deadlines.",
+        "Bachelor’s degree in Marketing, Communications, a closely related field or relevant experience.",
+        "We offer several perks that include flexible PTO, medical/dental/vision insurance, 401(k) match, stock options, paid parental leave, and WFH and phone stipend.",
+        "The pay range for this position in Colorado, California, and New",
+        "York is a base salary of $120,000 - $130,000.",
+        "This is the lowest to highest salary we in good faith believe we would pay for this role at the time of this posting.",
+        "The pay offered may vary depending on several factors including, but not limited to, relevant education, qualifications, certifications, and experience.",
+        "Augury is a people-first organization.",
+        "We believe in fostering an inclusive environment in which employees feel encouraged to share their unique perspectives, leverage their strengths, and act authentically.",
+        "We know that diverse teams are strong teams, and we welcome those from all backgrounds and varying experiences.",
+        "We are committed to providing employees with a work environment free of discrimination and harassment.",
+        "We believe that diversity is more than just good intentions, and we are committed to creating an inclusive environment for all employees.",
+        "Augury is a proud equal opportunity employer, we strive to create a work environment in which everyone, all applicants, employees, customers, guests, and vendors feel safe and comfortable.",
+        "We commit to maintain a workplace that is free of any type of harassment and does not tolerate anyone intimidating, humiliating, or hurting others.",
+        "We prohibit willful discrimination based on age, gender, ethnicity, race, color, religion, political opinions, sexual orientation, sexual identity or expression, military or veteran status, disability or any other characteristic protected by law.",
+        "Apply for this position",
+        "Customer",
+        "Login",
+        "Modal",
+        "Machine",
+        "Health",
+        "Prescriptive AI machine diagnostics to predict and prevent industrial machine failure and improve machine performance.",
+        "Login",
+        "Process",
+        "Health",
+        "Prescriptive AI process optimization to achieve new levels of production efficiency, yield, and sustainability (previously known as Seebo).",
+        "Login SMRP 2026",
+        "Meet with our team at SMRP 2026 from Sept.",
+        "28th-Oct.",
+        "1st.",
+        "Schedule a 1-on-1 consultation, experience",
+        "Augury’s new",
+        "Reliability",
+        "Agent, and enter to win your very own 3D printer.",
+        "Connect",
+        "With Us"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 24,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "fd5a2216f686a108",
+        "infra": "ce6cf6689b0ba60a"
+      },
+      "years_required": null
     },
     {
       "id": "37bd160fff4c2e8ade20",
@@ -435,25 +520,24 @@
       "first_seen": "2026-09-23T15:50:20Z",
       "last_seen": "2026-09-23T15:50:20Z",
       "status": "closed",
-      "score_default": 0,
-      "matched_default": [
-        "exp:8y(-75)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "score_default": 49,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:8y(-75)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "score_infra": 49,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 49,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "255db49104fc3460",
+        "infra": "a594aad7ffb7b457"
+      },
+      "years_required": 8
     },
     {
       "id": "6abc6e58a630b04fc7b4",
@@ -464,35 +548,24 @@
       "first_seen": "2026-09-23T15:50:20Z",
       "last_seen": "2026-09-23T15:50:20Z",
       "status": "closed",
-      "score_default": 0,
-      "matched_default": [
-        "automation",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
+      "score_default": 49,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "data science",
-        "scalability",
-        "automation"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 33,
+      "requirements_default": [],
+      "score_infra": 49,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "data science",
-        "scalability",
-        "automation"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "full"
+      "best_score": 49,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "786ba58342ff942d",
+        "infra": "c0abbfdd1535e0bd"
+      },
+      "years_required": null
     },
     {
       "id": "4a89583260cdb9d8a8c1",
@@ -503,25 +576,24 @@
       "first_seen": "2026-09-23T15:50:20Z",
       "last_seen": "2026-09-23T15:50:20Z",
       "status": "closed",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "score_default": 50,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "score_infra": 50,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 50,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "1cd81aa3231583ae",
+        "infra": "4381c27465e5b428"
+      },
+      "years_required": null
     },
     {
       "id": "cf80555b8f73f49c8b17",
@@ -533,26 +605,23 @@
       "last_seen": "2026-09-23T15:50:20Z",
       "status": "closed",
       "score_default": 0,
-      "matched_default": [
-        "exp:10y(-100)",
-        "off-target title(-50)",
-        "-account executive"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "exp:10y(-100)",
-        "off-target title(-50)",
-        "-account executive"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "a33f555c217bf0cc",
+        "infra": "051e97e4fd7c2c10"
+      },
+      "years_required": null
     },
     {
       "id": "fb234f2cacd61e6ae66e",
@@ -564,22 +633,23 @@
       "last_seen": "2026-09-24T15:24:38Z",
       "status": "new",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "39e433660a98fa70",
+        "infra": "68938bd90cf062a5"
+      },
+      "years_required": null
     },
     {
       "id": "4a828432ce7ff2b8214b",
@@ -590,23 +660,24 @@
       "first_seen": "2026-09-24T15:24:38Z",
       "last_seen": "2026-09-24T15:24:38Z",
       "status": "new",
-      "score_default": 52,
-      "matched_default": [
-        "software engineer"
-      ],
+      "score_default": 0,
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 52,
-      "matched_infra": [
-        "software engineer"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 52,
-      "best_confidence": "title_only"
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "4239d7cbc0988c5b",
+        "infra": "05e2e535460a44e5"
+      },
+      "years_required": null
     }
   ]
 }

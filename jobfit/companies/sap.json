@@ -13,9 +13,7 @@
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -23,12 +21,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "6668c12df47d21b1",
+        "infra": "940b807425422f8b"
+      },
+      "years_required": null
     },
     {
       "id": "9085a645713656a91c91",
@@ -40,28 +41,23 @@
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "java",
-        "devops"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "java",
-        "devops"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "d2356b28d4c7430e",
+        "infra": "bff5fb871145549d"
+      },
+      "years_required": null
     },
     {
       "id": "ea5ad425e55c6c57ddf6",
@@ -73,9 +69,7 @@
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -83,12 +77,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "75472de2a4371388",
+        "infra": "fa58a4a6d0f655e2"
+      },
+      "years_required": null
     },
     {
       "id": "934000042d315f5303bc",
@@ -99,75 +96,24 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
-      "score_infra": 37,
-      "matched_infra": [
-        "node",
-        "node.js",
-        "docker",
-        "aws",
-        "ci/cd",
-        "jenkins",
-        "observability",
-        "exp:5y(fit)"
-      ],
-      "coverage_infra": 39,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "java",
-        "go",
-        "golang",
-        "node",
-        "node.js",
-        "microservices",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "ci/cd",
-        "jenkins",
-        "observability",
-        "prometheus",
-        "grafana",
-        "distributed systems",
-        "api"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 37,
-      "best_confidence": "full",
-      "score_default": 37,
-      "matched_default": [
-        "node",
-        "node.js",
-        "docker",
-        "aws",
-        "ci/cd",
-        "jenkins",
-        "observability",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 39,
-      "confidence_default": "full",
-      "requirements_default": [
-        "java",
-        "go",
-        "golang",
-        "node",
-        "node.js",
-        "microservices",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "ci/cd",
-        "jenkins",
-        "observability",
-        "prometheus",
-        "grafana",
-        "distributed systems",
-        "api"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "8e8fa8d6d90c2c44",
+        "infra": "ecda7068d732ba11"
+      },
+      "years_required": 5
     },
     {
       "id": "a6567e4c5cf6ab3ce6e3",
@@ -178,35 +124,24 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
-      "score_infra": 39,
-      "matched_infra": [
-        "automation",
-        "platform engineer"
-      ],
-      "coverage_infra": 25,
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "java",
-        "javascript",
-        "rest",
-        "automation"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 39,
+      "best_score": 58,
       "best_confidence": "full",
-      "score_default": 39,
-      "matched_default": [
-        "automation",
-        "platform engineer"
-      ],
-      "coverage_default": 25,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "java",
-        "javascript",
-        "rest",
-        "automation"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "33bf151ea840cc87",
+        "infra": "a4b665ab6bfa5f19"
+      },
+      "years_required": null
     },
     {
       "id": "c808ccc8a718704b99a6",
@@ -217,37 +152,24 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
-      "score_infra": 25,
-      "matched_infra": [
-        "aws",
-        "software developer",
-        "-qa"
-      ],
-      "coverage_infra": 25,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "aws",
-        "scalability",
-        "selenium",
-        "qa"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 25,
-      "best_confidence": "full",
-      "score_default": 25,
-      "matched_default": [
-        "aws",
-        "software developer",
-        "-qa"
-      ],
-      "coverage_default": 25,
-      "confidence_default": "full",
-      "requirements_default": [
-        "aws",
-        "scalability",
-        "selenium",
-        "qa"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "fcc072d4937e6738",
+        "infra": "ab99e2968827439f"
+      },
+      "years_required": null
     },
     {
       "id": "d5ad809a2cfbafce86c4",
@@ -258,39 +180,24 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
-      "score_infra": 28,
-      "matched_infra": [
-        "docker",
-        "aws"
-      ],
-      "coverage_infra": 33,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "golang",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure"
-      ],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 28,
-      "best_confidence": "full",
-      "score_default": 28,
-      "matched_default": [
-        "docker",
-        "aws"
-      ],
-      "coverage_default": 33,
-      "confidence_default": "full",
-      "requirements_default": [
-        "golang",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure"
-      ]
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "76784a8b8c5c369d",
+        "infra": "dcad98f6499d4c74"
+      },
+      "years_required": null
     },
     {
       "id": "bf59f7d6a96555e1d875",
@@ -301,53 +208,24 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
-      "score_infra": 47,
-      "matched_infra": [
-        "aws",
-        "ci/cd",
-        "jenkins",
-        "automation",
-        "devops engineer"
-      ],
-      "coverage_infra": 40,
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "java",
-        "go",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "ci/cd",
-        "jenkins",
-        "github actions",
-        "automation"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 47,
+      "best_score": 58,
       "best_confidence": "full",
-      "score_default": 47,
-      "matched_default": [
-        "aws",
-        "ci/cd",
-        "jenkins",
-        "automation",
-        "devops engineer"
-      ],
-      "coverage_default": 40,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "java",
-        "go",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "ci/cd",
-        "jenkins",
-        "github actions",
-        "automation"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "ea52d8e478046749",
+        "infra": "fe7e537f582b8f7a"
+      },
+      "years_required": null
     },
     {
       "id": "448795d448c37f9dcc63",
@@ -358,25 +236,82 @@
       "first_seen": "2026-09-15T20:09:01Z",
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:10y(-100)",
-        "off-target title(-50)"
+      "score_infra": 12,
+      "matched_infra": [],
+      "coverage_infra": 10,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "We are looking for someone who meets the following",
+        "Strong SAP business and technical solution architecture expertise.",
+        "Strong facilitation, negotiation, and de-escalation skills.",
+        "Excellent written and spoken communication skills, strong business acumen, and presentation skills.",
+        "Ability to think creatively and innovatively.",
+        "Strong cultural awareness, diplomacy, professionalism, and relationship-building skills.",
+        "Highly customer-service oriented with strong customer management capabilities.",
+        "Ability to build trust-based relationships and strong networks across customer IT, business organizations, and the SAP ecosystem.",
+        "Proven problem-solving skills and a strong work ethic.",
+        "Fluent spoken and written",
+        "English.",
+        "Open to travel.",
+        "Bachelor's and/or Master's degree, preferably in Business, Economics, Computer",
+        "Science, or Mathematics.",
+        "WORK EXPERIENCE 10+ years of hands-on experience with SAP Enterprise",
+        "Solutions, Industry",
+        "Solutions, Platform",
+        "Solutions, SaaS Solutions, and Third-Party and/or Partner",
+        "Technologies.",
+        "Experience with SAP S/4HANA, SAP Business",
+        "Technology",
+        "Platform (BTP), AI technologies, and/or SAP Cloud",
+        "Experience in SAP project management, value management, and quality management practices.",
+        "Experience leading design, implementation, and change management projects.",
+        "Experience in pre-sales, solutioning, procurement, contract lifecycle management, contract renewals, and customer retention.",
+        "Experience working with C-level executives, senior leaders, influencers, and trusted advisors.",
+        "Bring out your best SAP innovations help more than four hundred thousand customers worldwide work together more efficiently and use business insight more effectively.",
+        "Originally known for leadership in enterprise resource planning (ERP) software, SAP has evolved to become a market leader in end-to-end business application software and related services for database, analytics, intel"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:10y(-100)",
-        "off-target title(-50)"
+      "best_score": 12,
+      "best_confidence": "full",
+      "score_default": 12,
+      "matched_default": [],
+      "coverage_default": 10,
+      "confidence_default": "full",
+      "requirements_default": [
+        "We are looking for someone who meets the following",
+        "Strong SAP business and technical solution architecture expertise.",
+        "Strong facilitation, negotiation, and de-escalation skills.",
+        "Excellent written and spoken communication skills, strong business acumen, and presentation skills.",
+        "Ability to think creatively and innovatively.",
+        "Strong cultural awareness, diplomacy, professionalism, and relationship-building skills.",
+        "Highly customer-service oriented with strong customer management capabilities.",
+        "Ability to build trust-based relationships and strong networks across customer IT, business organizations, and the SAP ecosystem.",
+        "Proven problem-solving skills and a strong work ethic.",
+        "Fluent spoken and written",
+        "English.",
+        "Open to travel.",
+        "Bachelor's and/or Master's degree, preferably in Business, Economics, Computer",
+        "Science, or Mathematics.",
+        "WORK EXPERIENCE 10+ years of hands-on experience with SAP Enterprise",
+        "Solutions, Industry",
+        "Solutions, Platform",
+        "Solutions, SaaS Solutions, and Third-Party and/or Partner",
+        "Technologies.",
+        "Experience with SAP S/4HANA, SAP Business",
+        "Technology",
+        "Platform (BTP), AI technologies, and/or SAP Cloud",
+        "Experience in SAP project management, value management, and quality management practices.",
+        "Experience leading design, implementation, and change management projects.",
+        "Experience in pre-sales, solutioning, procurement, contract lifecycle management, contract renewals, and customer retention.",
+        "Experience working with C-level executives, senior leaders, influencers, and trusted advisors.",
+        "Bring out your best SAP innovations help more than four hundred thousand customers worldwide work together more efficiently and use business insight more effectively.",
+        "Originally known for leadership in enterprise resource planning (ERP) software, SAP has evolved to become a market leader in end-to-end business application software and related services for database, analytics, intel"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": []
+      "_score_cache_keys": {
+        "default": "af8a85e91f49605e",
+        "infra": "b478a249f924713a"
+      },
+      "years_required": null
     },
     {
       "id": "7e3db19b553f8875ea65",
@@ -388,10 +323,7 @@
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "-customer success"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -399,13 +331,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "-customer success"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "3b1bdd975c2b3c91",
+        "infra": "633c0fb6102ec313"
+      },
+      "years_required": null
     },
     {
       "id": "b38810bb0980fd5b2493",
@@ -417,9 +351,7 @@
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -427,12 +359,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "2f6cfe521a55abad",
+        "infra": "588b969e7b0816b7"
+      },
+      "years_required": null
     },
     {
       "id": "4aee7e54ec58303a0768",
@@ -444,10 +379,7 @@
       "last_seen": "2026-09-15T20:09:01Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "-recruiter"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -455,13 +387,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "-recruiter"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "6777cbbc14a3d006",
+        "infra": "13e8c1a0874e8d41"
+      },
+      "years_required": null
     },
     {
       "id": "c4dc966a67bed1ca68f4",
@@ -472,19 +406,24 @@
       "first_seen": "2026-09-23T16:07:11Z",
       "last_seen": "2026-09-23T16:07:11Z",
       "status": "closed",
-      "score_default": 8,
+      "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 8,
+      "score_infra": 0,
       "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 8,
-      "best_confidence": "title_only"
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "caf040603d691e33",
+        "infra": "c38fc6d6c0d7cdbf"
+      },
+      "years_required": null
     },
     {
       "id": "ccd20901d871025893bc",
@@ -495,23 +434,24 @@
       "first_seen": "2026-09-23T16:07:11Z",
       "last_seen": "2026-09-23T16:07:11Z",
       "status": "closed",
-      "score_default": 45,
-      "matched_default": [
-        "platform engineer"
-      ],
-      "coverage_default": null,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 45,
-      "matched_infra": [
-        "platform engineer"
-      ],
-      "coverage_infra": null,
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 45,
-      "best_confidence": "title_only"
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "9845a5bd269ebae2",
+        "infra": "a15bcf75171e8080"
+      },
+      "years_required": null
     },
     {
       "id": "6b9ca1f3e99a8b5828d3",
@@ -522,23 +462,24 @@
       "first_seen": "2026-09-23T16:07:11Z",
       "last_seen": "2026-09-23T16:07:11Z",
       "status": "closed",
-      "score_default": 39,
-      "matched_default": [
-        "devops engineer"
-      ],
-      "coverage_default": null,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 39,
-      "matched_infra": [
-        "devops engineer"
-      ],
-      "coverage_infra": null,
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 39,
-      "best_confidence": "title_only"
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "6d47aa730ad78e00",
+        "infra": "df7e163e3b96c4ed"
+      },
+      "years_required": null
     },
     {
       "id": "021c44fa67e887a22863",
@@ -550,22 +491,23 @@
       "last_seen": "2026-09-24T16:16:55Z",
       "status": "new",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "d8fdc238e1f4cb78",
+        "infra": "3ad138fa0d1bf1ca"
+      },
+      "years_required": null
     },
     {
       "id": "bf9ba256b16e7d91917e",
@@ -576,49 +518,178 @@
       "first_seen": "2026-09-24T16:16:55Z",
       "last_seen": "2026-09-24T16:16:55Z",
       "status": "new",
-      "score_default": 49,
+      "score_default": 22,
       "matched_default": [
-        "python",
-        "docker",
-        "ci/cd",
-        "jenkins",
-        "automation"
+        "Jenkins",
+        "Docker"
       ],
-      "coverage_default": 62,
+      "coverage_default": 8,
       "confidence_default": "full",
       "requirements_default": [
-        "python",
-        "docker",
-        "kubernetes",
-        "terraform",
-        "ci/cd",
-        "jenkins",
-        "devops",
-        "automation"
+        "Votre profil: Cette offre s'adresse à un développeur passionné de",
+        "DevOps",
+        "Vous avez une expériences dans le domaine.",
+        "Vous devez démontrer une approche rigoureuse et un soin particulier.",
+        "Vous avez un niveau BAC + 5 dans un des domaines informatique",
+        "Vous possédez les qualités suivantes : esprit d'équipe et d'initiative, bonne capacité d'apprentissage,autonomie, rigueur, implication, capacité rapide d'adaptation, capacité d'écoute et de communication en",
+        "Français et",
+        "Anglais",
+        "Une bonne connaissance de",
+        "Terraform, Jenkins, cluster",
+        "Terraform, Jenkins, cluster",
+        "Kubernetes, Docker, scripts, GitHub, Dynatrace et",
+        "Kubernetes, Docker, scripts, GitHub, Dynatrace et",
+        "Kibana est requise",
+        "Informations supplémentaires",
+        "Votre équipe: Nous aidons les clients et développeurs SAP à construire, faire tourner et étendre sur BTP, de la première ligne de code à un agent en production.",
+        "Nos produits sont les outils que les gens utilisent au quotidien : Joule",
+        "Studio",
+        "Classic, SAP Build",
+        "Apps, SAP Business",
+        "Application",
+        "Studio, SAP BACE Automation & Life",
+        "Cycle, et l'infrastructure",
+        "Lobby & Registry qui tient tout ensemble.",
+        "Nous prenons soin de ce qui fonctionne déjà.",
+        "De nombreux clients s'appuient sur ces produits aujourd'hui, et notre première responsabilité est de préserver cette confiance; en réduisant les frictions qui leur coûtent du temps.",
+        "Nous nous tenons au même standard que celui que nous fixons à nos clients.",
+        "Ce que nous apprenons, nous le partageons.",
+        "About SAP With a global network of customers, partners, employees, and thought leaders, SAP helps the world run better and improves people’s lives.",
+        "As a leader in enterprise applications and business AI, SAP stands at the nexus of business and technology.",
+        "For over 50 years, organizations have trusted SAP to bring out their best by uniting business-critical operations spanning finance, procurement, HR, supply chain, and customer experience.",
+        "We win with inclusion SAP’s culture of inclusion, focus on health and well-being, and flexible working models help ensure that everyone, regardless of background, feels included and can run at their best.",
+        "At SAP, we believe we are made stronger by the unique capabilities and qualities that each person brings to our company, and we invest in our employees to inspire confidence and help everyone realize their full potential.",
+        "We ultimately believe in unleashing all talent and creating a better world.",
+        "SAP is committed to the values of Equal",
+        "Employment",
+        "Opportunity and provides accessibility accommodations to applicants with physical and/or mental disabilities.",
+        "If you are interested in applying for employment with SAP and are in need of accommodation or special assistance to navigate our website or complete your application, please send an email with your request to the Recruiting",
+        "Operations",
+        "Team: [email protected] .",
+        "For SAP employees: Only permanent roles are eligible for the SAP Employee",
+        "Referral",
+        "Program, according to the eligibility rules set in the SAP Referral",
+        "Policy.",
+        "Specific conditions may apply for roles in Vocational",
+        "Training.",
+        "Qualified applicants will receive consideration for employment without regard to age, race, religion, national origin, ethnicity, gender (including pregnancy and childbirth), sexual orientation, gender identity or expression, protected veteran status, or disability, in compliance with applicable federal, state, and local legal requirements.",
+        "Successful candidates might be required to undergo a background verification with an external vendor.",
+        "AI Usage in the Recruitment",
+        "Process",
+        "For information on the responsible use of AI in our recruitment process, please refer to our Guidelines for Ethical",
+        "Usage of AI in the Recruiting",
+        "Process.",
+        "Please note that any violation of these guidelines may result in disqualification from the hiring process.",
+        "Copy link",
+        "Share on X Share on Facebook",
+        "Share on LinkedIn",
+        "Share via email",
+        "Accounting, Auditing & Finance at SAP The financial teams behind a global software and AI business.",
+        "CDD: Ingénieur",
+        "DevOps pour SAP Business",
+        "Process",
+        "Automation F/H Apply",
+        "Now SAP Careers",
+        "Change",
+        "Language : English",
+        "Our hiring process, step by step",
+        "Every role and team is different, but here's what hiring typically looks like at SAP.",
+        "Search and apply",
+        "Search and apply for roles on the SAP Careers site.",
+        "You can apply to multiple positions that match your interests and experience.",
+        "Application review",
+        "Our"
       ],
-      "score_infra": 49,
+      "score_infra": 22,
       "matched_infra": [
-        "python",
-        "docker",
-        "ci/cd",
-        "jenkins",
-        "automation"
+        "Jenkins",
+        "Docker"
       ],
-      "coverage_infra": 62,
+      "coverage_infra": 8,
       "confidence_infra": "full",
       "requirements_infra": [
-        "python",
-        "docker",
-        "kubernetes",
-        "terraform",
-        "ci/cd",
-        "jenkins",
-        "devops",
-        "automation"
+        "Votre profil: Cette offre s'adresse à un développeur passionné de",
+        "DevOps",
+        "Vous avez une expériences dans le domaine.",
+        "Vous devez démontrer une approche rigoureuse et un soin particulier.",
+        "Vous avez un niveau BAC + 5 dans un des domaines informatique",
+        "Vous possédez les qualités suivantes : esprit d'équipe et d'initiative, bonne capacité d'apprentissage,autonomie, rigueur, implication, capacité rapide d'adaptation, capacité d'écoute et de communication en",
+        "Français et",
+        "Anglais",
+        "Une bonne connaissance de",
+        "Terraform, Jenkins, cluster",
+        "Terraform, Jenkins, cluster",
+        "Kubernetes, Docker, scripts, GitHub, Dynatrace et",
+        "Kubernetes, Docker, scripts, GitHub, Dynatrace et",
+        "Kibana est requise",
+        "Informations supplémentaires",
+        "Votre équipe: Nous aidons les clients et développeurs SAP à construire, faire tourner et étendre sur BTP, de la première ligne de code à un agent en production.",
+        "Nos produits sont les outils que les gens utilisent au quotidien : Joule",
+        "Studio",
+        "Classic, SAP Build",
+        "Apps, SAP Business",
+        "Application",
+        "Studio, SAP BACE Automation & Life",
+        "Cycle, et l'infrastructure",
+        "Lobby & Registry qui tient tout ensemble.",
+        "Nous prenons soin de ce qui fonctionne déjà.",
+        "De nombreux clients s'appuient sur ces produits aujourd'hui, et notre première responsabilité est de préserver cette confiance; en réduisant les frictions qui leur coûtent du temps.",
+        "Nous nous tenons au même standard que celui que nous fixons à nos clients.",
+        "Ce que nous apprenons, nous le partageons.",
+        "About SAP With a global network of customers, partners, employees, and thought leaders, SAP helps the world run better and improves people’s lives.",
+        "As a leader in enterprise applications and business AI, SAP stands at the nexus of business and technology.",
+        "For over 50 years, organizations have trusted SAP to bring out their best by uniting business-critical operations spanning finance, procurement, HR, supply chain, and customer experience.",
+        "We win with inclusion SAP’s culture of inclusion, focus on health and well-being, and flexible working models help ensure that everyone, regardless of background, feels included and can run at their best.",
+        "At SAP, we believe we are made stronger by the unique capabilities and qualities that each person brings to our company, and we invest in our employees to inspire confidence and help everyone realize their full potential.",
+        "We ultimately believe in unleashing all talent and creating a better world.",
+        "SAP is committed to the values of Equal",
+        "Employment",
+        "Opportunity and provides accessibility accommodations to applicants with physical and/or mental disabilities.",
+        "If you are interested in applying for employment with SAP and are in need of accommodation or special assistance to navigate our website or complete your application, please send an email with your request to the Recruiting",
+        "Operations",
+        "Team: [email protected] .",
+        "For SAP employees: Only permanent roles are eligible for the SAP Employee",
+        "Referral",
+        "Program, according to the eligibility rules set in the SAP Referral",
+        "Policy.",
+        "Specific conditions may apply for roles in Vocational",
+        "Training.",
+        "Qualified applicants will receive consideration for employment without regard to age, race, religion, national origin, ethnicity, gender (including pregnancy and childbirth), sexual orientation, gender identity or expression, protected veteran status, or disability, in compliance with applicable federal, state, and local legal requirements.",
+        "Successful candidates might be required to undergo a background verification with an external vendor.",
+        "AI Usage in the Recruitment",
+        "Process",
+        "For information on the responsible use of AI in our recruitment process, please refer to our Guidelines for Ethical",
+        "Usage of AI in the Recruiting",
+        "Process.",
+        "Please note that any violation of these guidelines may result in disqualification from the hiring process.",
+        "Copy link",
+        "Share on X Share on Facebook",
+        "Share on LinkedIn",
+        "Share via email",
+        "Accounting, Auditing & Finance at SAP The financial teams behind a global software and AI business.",
+        "CDD: Ingénieur",
+        "DevOps pour SAP Business",
+        "Process",
+        "Automation F/H Apply",
+        "Now SAP Careers",
+        "Change",
+        "Language : English",
+        "Our hiring process, step by step",
+        "Every role and team is different, but here's what hiring typically looks like at SAP.",
+        "Search and apply",
+        "Search and apply for roles on the SAP Careers site.",
+        "You can apply to multiple positions that match your interests and experience.",
+        "Application review",
+        "Our"
       ],
       "best_cv": "default",
-      "best_score": 49,
-      "best_confidence": "full"
+      "best_score": 22,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "eeefd78969263d42",
+        "infra": "d63cf7f20f26a117"
+      },
+      "years_required": null
     }
   ]
 }

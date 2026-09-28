@@ -14,25 +14,28 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": "055-948-8695",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
+      "score_default": 30,
+      "matched_default": [],
+      "coverage_default": 30,
+      "confidence_default": "full",
+      "requirements_default": [
+        "Hands-on experience with AI tools and “vibe coding” (e.g., Lovable, Claude, Cursor) to prototype ideas and build quick proofs of concept"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
+      "score_infra": 30,
+      "matched_infra": [],
+      "coverage_infra": 30,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "Hands-on experience with AI tools and “vibe coding” (e.g., Lovable, Claude, Cursor) to prototype ideas and build quick proofs of concept"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 30,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "7a05e726c98d4d88",
+        "infra": "2985918f7054d334"
+      },
+      "years_required": 5
     }
   ]
 }

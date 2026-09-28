@@ -14,33 +14,22 @@
       "status": "seen",
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full",
+      "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "exp:2y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 0,
-      "confidence_default": "full",
-      "requirements_default": [
-        "sql",
-        "machine learning",
-        "snowflake",
-        "databricks"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "exp:2y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 0,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "sql",
-        "machine learning",
-        "snowflake",
-        "databricks"
-      ]
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "b5145114b2e87766",
+        "infra": "f2b5139b033840ff"
+      },
+      "years_required": null
     },
     {
       "id": "45f7cb92d728eda02257",
@@ -52,38 +41,23 @@
       "last_seen": "2026-09-24T16:14:41Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 49,
       "best_confidence": "full",
-      "score_default": 0,
-      "matched_default": [
-        "llm",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
+      "score_default": 49,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "machine learning",
-        "llm",
-        "data science",
-        "snowflake",
-        "databricks"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "llm",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 20,
+      "requirements_default": [],
+      "score_infra": 49,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "machine learning",
-        "llm",
-        "data science",
-        "snowflake",
-        "databricks"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "b1bd8e30bfb3c0ea",
+        "infra": "6615425cefac09e7"
+      },
+      "years_required": null
     },
     {
       "id": "93a49a28c303859c1178",
@@ -95,42 +69,23 @@
       "last_seen": "2026-09-24T16:14:41Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 59,
       "best_confidence": "full",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": 14,
+      "score_default": 59,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "sql",
-        "machine learning",
-        "data science",
-        "spark",
-        "snowflake",
-        "databricks"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "python",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_infra": 14,
+      "requirements_default": [],
+      "score_infra": 59,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "sql",
-        "machine learning",
-        "data science",
-        "spark",
-        "snowflake",
-        "databricks"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "650d5d2a9eb90310",
+        "infra": "11f38cd9c4e5cf3a"
+      },
+      "years_required": null
     },
     {
       "id": "97b3882a6badb5e36863",
@@ -142,36 +97,23 @@
       "last_seen": "2026-09-24T16:14:41Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 43,
       "best_confidence": "full",
-      "score_default": 0,
-      "matched_default": [
-        "exp:2y(fit)",
-        "-customer success"
-      ],
-      "coverage_default": 0,
+      "score_default": 43,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "sql",
-        "machine learning",
-        "data science",
-        "snowflake",
-        "databricks"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:2y(fit)",
-        "-customer success"
-      ],
-      "coverage_infra": 0,
+      "requirements_default": [],
+      "score_infra": 43,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "sql",
-        "machine learning",
-        "data science",
-        "snowflake",
-        "databricks"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "a98a6aae82b09d15",
+        "infra": "c0c07a60f068e413"
+      },
+      "years_required": 2
     },
     {
       "id": "703cd2473a53c43014a5",
@@ -182,60 +124,24 @@
       "first_seen": "2026-09-15T19:56:58Z",
       "last_seen": "2026-09-24T16:14:41Z",
       "status": "seen",
-      "best_cv": "infra",
-      "best_score": 33,
+      "best_cv": "default",
+      "best_score": 65,
       "best_confidence": "full",
-      "score_default": 28,
-      "matched_default": [
-        "python",
-        "docker",
-        "ml engineer",
-        "exp:10y(-100)"
-      ],
-      "coverage_default": 14,
+      "score_default": 65,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "java",
-        "microservices",
-        "docker",
-        "machine learning",
-        "scikit-learn",
-        "pandas",
-        "numpy",
-        "spark",
-        "airflow",
-        "snowflake",
-        "databricks",
-        "distributed systems",
-        "mlops"
-      ],
-      "score_infra": 33,
-      "matched_infra": [
-        "python",
-        "docker",
-        "mlops",
-        "ml engineer",
-        "exp:10y(-100)"
-      ],
-      "coverage_infra": 21,
+      "requirements_default": [],
+      "score_infra": 65,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "java",
-        "microservices",
-        "docker",
-        "machine learning",
-        "scikit-learn",
-        "pandas",
-        "numpy",
-        "spark",
-        "airflow",
-        "snowflake",
-        "databricks",
-        "distributed systems",
-        "mlops"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "9af070d74fc1845e",
+        "infra": "dc1534869173a916"
+      },
+      "years_required": 10
     },
     {
       "id": "9381535298e53702486d",
@@ -247,50 +153,23 @@
       "last_seen": "2026-09-24T16:14:41Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 59,
       "best_confidence": "full",
-      "score_default": 0,
-      "matched_default": [
-        "python",
-        "aws",
-        "inference",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 33,
+      "score_default": 59,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "sql",
-        "aws",
-        "machine learning",
-        "data science",
-        "spark",
-        "snowflake",
-        "databricks",
-        "inference"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "python",
-        "aws",
-        "inference",
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 33,
+      "requirements_default": [],
+      "score_infra": 59,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "sql",
-        "aws",
-        "machine learning",
-        "data science",
-        "spark",
-        "snowflake",
-        "databricks",
-        "inference"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "4beb1298f08433bd",
+        "infra": "91c8321e955bc3b8"
+      },
+      "years_required": 5
     },
     {
       "id": "da6f20cf1838b9e34162",
@@ -303,37 +182,22 @@
       "status": "seen",
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full",
+      "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "automation",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": 20,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "sql",
-        "machine learning",
-        "data science",
-        "automation"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_infra": 20,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "go",
-        "sql",
-        "machine learning",
-        "data science",
-        "automation"
-      ]
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "99f8a40a8f293e84",
+        "infra": "8fa88975b7b5168e"
+      },
+      "years_required": null
     },
     {
       "id": "f613c5d312fce740723d",
@@ -346,31 +210,22 @@
       "status": "seen",
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full",
+      "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": 0,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "sql",
-        "machine learning",
-        "data science"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 0,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "go",
-        "sql",
-        "machine learning",
-        "data science"
-      ]
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "e1a5d67fd7815888",
+        "infra": "10518844c69f173a"
+      },
+      "years_required": null
     },
     {
       "id": "e3bd1e064a9698176a26",
@@ -382,36 +237,23 @@
       "last_seen": "2026-09-24T16:14:41Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 49,
       "best_confidence": "full",
-      "score_default": 0,
-      "matched_default": [
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
+      "score_default": 49,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "data science",
-        "snowflake",
-        "databricks",
-        "automation",
-        "model deployment"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 20,
+      "requirements_default": [],
+      "score_infra": 49,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "data science",
-        "snowflake",
-        "databricks",
-        "automation",
-        "model deployment"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "6fe2e343cf9b72a6",
+        "infra": "64a1f9c85d35b7ec"
+      },
+      "years_required": null
     },
     {
       "id": "bdf0f8afdfcfc6b230c2",
@@ -424,29 +266,22 @@
       "status": "seen",
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full",
+      "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": 0,
-      "confidence_default": "full",
-      "requirements_default": [
-        "sql",
-        "machine learning",
-        "data science"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 0,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "sql",
-        "machine learning",
-        "data science"
-      ]
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "97e75fc8b5c172a2",
+        "infra": "a387ce3d340835d8"
+      },
+      "years_required": null
     },
     {
       "id": "9c90a60ef4eedb39b7c7",
@@ -459,35 +294,22 @@
       "status": "seen",
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "full",
+      "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": 0,
-      "confidence_default": "full",
-      "requirements_default": [
-        "go",
-        "sql",
-        "machine learning",
-        "data science",
-        "snowflake",
-        "databricks"
-      ],
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 0,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "go",
-        "sql",
-        "machine learning",
-        "data science",
-        "snowflake",
-        "databricks"
-      ]
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "407a01e9fa455039",
+        "infra": "5e8ce30f97f6a3f3"
+      },
+      "years_required": null
     },
     {
       "id": "2f74b886ae2c84d242d0",
@@ -502,25 +324,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "go",
-        "sql"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "go",
-        "sql"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "819963e85b7884a1",
+        "infra": "682b09afb6413dce"
+      },
+      "years_required": null
     },
     {
       "id": "91250f072f187b0679ad",
@@ -529,33 +346,28 @@
       "url": "https://www.linkedin.com/jobs/view/4460981688",
       "description": "Requires 3+ years of experience. 3+ years of experience working with SQL 3-5 years of industry experience in customer-facing and analytics roles",
       "first_seen": "2026-09-15T21:02:04Z",
-      "last_seen": "2026-09-23T15:42:36Z",
-      "status": "closed",
+      "last_seen": "2026-09-28T06:12:13Z",
+      "status": "seen",
       "is_referral": true,
       "referral_contact": null,
       "best_cv": "default",
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "sql"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "sql"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "d64aae9d9ee8b9fb",
+        "infra": "696c8af91444f026"
+      },
+      "years_required": 3
     }
   ]
 }

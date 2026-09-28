@@ -16,19 +16,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "9dd0573357ec92dd",
+        "infra": "f2c12bb788feb9d9"
+      },
+      "years_required": null
     },
     {
       "id": "1827983781242ef9f540",
@@ -40,24 +41,23 @@
       "last_seen": "2026-09-17T14:47:45Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 58,
+      "best_confidence": "full",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "-customer success"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "dea2c801e4e2fdd8",
+        "infra": "f66534ae7239e02f"
+      },
+      "years_required": null
     },
     {
       "id": "13ca1814709d03ab32eb",
@@ -69,26 +69,43 @@
       "last_seen": "2026-09-24T15:23:51Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:7y(-50)",
-        "off-target title(-50)",
-        "-customer success"
+      "best_score": 19,
+      "best_confidence": "full",
+      "score_default": 19,
+      "matched_default": [],
+      "coverage_default": 24,
+      "confidence_default": "full",
+      "requirements_default": [
+        "B.Sc in Electrical",
+        "Engineering, Computer",
+        "Engineering, or similar 7+ years of experience in customer-facing technical roles",
+        "Proven experience leading teams or managing technical/customer support organizations",
+        "Strong understanding of multidisciplinary systems (hardware, software, system-level integration)",
+        "Experience working with customers in complex hardware/IC/system environments",
+        "Excellent leadership, communication, and problem-solving skills",
+        "Ability to manage multiple customers, programs, and priorities simultaneously",
+        "High proficiency in English"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:7y(-50)",
-        "off-target title(-50)",
-        "-customer success"
+      "score_infra": 19,
+      "matched_infra": [],
+      "coverage_infra": 24,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "B.Sc in Electrical",
+        "Engineering, Computer",
+        "Engineering, or similar 7+ years of experience in customer-facing technical roles",
+        "Proven experience leading teams or managing technical/customer support organizations",
+        "Strong understanding of multidisciplinary systems (hardware, software, system-level integration)",
+        "Experience working with customers in complex hardware/IC/system environments",
+        "Excellent leadership, communication, and problem-solving skills",
+        "Ability to manage multiple customers, programs, and priorities simultaneously",
+        "High proficiency in English"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "_score_cache_keys": {
+        "default": "a5b836855171302e",
+        "infra": "b01c572e99333544"
+      },
+      "years_required": 7
     },
     {
       "id": "143a34bcd34d775022c7",
@@ -103,19 +120,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "0ed1c64695a05274",
+        "infra": "5278be1c460f7884"
+      },
+      "years_required": null
     },
     {
       "id": "962380904b79c4844adf",
@@ -127,38 +145,51 @@
       "last_seen": "2026-09-24T15:23:51Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 22,
+      "best_score": 43,
       "best_confidence": "full",
-      "score_default": 22,
+      "score_default": 43,
       "matched_default": [
-        "python",
-        "linux",
-        "computer vision",
-        "exp:8y(-75)",
-        "off-target title(-50)"
+        "Python",
+        "Linux Administration",
+        "Computer Vision"
       ],
-      "coverage_default": 100,
+      "coverage_default": 51,
       "confidence_default": "full",
       "requirements_default": [
-        "python",
-        "linux",
-        "computer vision"
+        "B.Sc. or higher in Electrical",
+        "Engineering, Computer",
+        "Engineering, Computer",
+        "Science, or related field 8+ years of experience developing DSP and/or embedded real-time software 3+ years of technical leadership or team management experience",
+        "Strong proficiency in C/C++, Python and Linux development",
+        "Strong proficiency in C/C++, Python and Linux development",
+        "Experience with software architecture, debugging, profiling, and optimization",
+        "Experience with adoption of AI-assisted development tools and workflows in embedded/real-time environments",
+        "Excellent communication, leadership, and cross-functional collaboration skills"
       ],
-      "score_infra": 22,
+      "score_infra": 43,
       "matched_infra": [
-        "python",
-        "linux",
-        "computer vision",
-        "exp:8y(-75)",
-        "off-target title(-50)"
+        "Python",
+        "Linux Administration",
+        "Computer Vision"
       ],
-      "coverage_infra": 100,
+      "coverage_infra": 51,
       "confidence_infra": "full",
       "requirements_infra": [
-        "python",
-        "linux",
-        "computer vision"
-      ]
+        "B.Sc. or higher in Electrical",
+        "Engineering, Computer",
+        "Engineering, Computer",
+        "Science, or related field 8+ years of experience developing DSP and/or embedded real-time software 3+ years of technical leadership or team management experience",
+        "Strong proficiency in C/C++, Python and Linux development",
+        "Strong proficiency in C/C++, Python and Linux development",
+        "Experience with software architecture, debugging, profiling, and optimization",
+        "Experience with adoption of AI-assisted development tools and workflows in embedded/real-time environments",
+        "Excellent communication, leadership, and cross-functional collaboration skills"
+      ],
+      "_score_cache_keys": {
+        "default": "e613a22cb482c3b6",
+        "infra": "15d27e1ea656d56c"
+      },
+      "years_required": 8
     },
     {
       "id": "08c6869546fbf399d47e",
@@ -170,28 +201,51 @@
       "last_seen": "2026-09-24T15:23:51Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 15,
-      "best_confidence": "title_only",
-      "score_default": 15,
+      "best_score": 22,
+      "best_confidence": "full",
+      "score_default": 22,
       "matched_default": [
-        "linux",
-        "exp:5y(fit)"
+        "Embedded Systems",
+        "Linux Administration"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "coverage_default": 32,
+      "confidence_default": "full",
       "requirements_default": [
-        "linux"
+        "B.Sc. in Computer",
+        "Engineering / Electrical",
+        "Engineering / Computer",
+        "Science 5+ years of experience in embedded software development on RTOS / bare-metal",
+        "Strong C/C++ programming skills",
+        "Experience with HW/SW interface development and debug",
+        "Self driven, fast learner, ability to work independently and drive tasks end to end",
+        "System-level thinking: ability to structure, design, and document maintainable systems",
+        "Comfortable working in a fast & dynamic environment",
+        "Team player, strong communication skills"
       ],
-      "score_infra": 15,
+      "score_infra": 22,
       "matched_infra": [
-        "linux",
-        "exp:5y(fit)"
+        "Embedded Systems",
+        "Linux Administration"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "coverage_infra": 32,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "linux"
-      ]
+        "B.Sc. in Computer",
+        "Engineering / Electrical",
+        "Engineering / Computer",
+        "Science 5+ years of experience in embedded software development on RTOS / bare-metal",
+        "Strong C/C++ programming skills",
+        "Experience with HW/SW interface development and debug",
+        "Self driven, fast learner, ability to work independently and drive tasks end to end",
+        "System-level thinking: ability to structure, design, and document maintainable systems",
+        "Comfortable working in a fast & dynamic environment",
+        "Team player, strong communication skills"
+      ],
+      "_score_cache_keys": {
+        "default": "04b8d65475c24d6b",
+        "infra": "1bb57e310ce8975e"
+      },
+      "years_required": 5
     },
     {
       "id": "3873b45596d2018310f0",
@@ -203,28 +257,49 @@
       "last_seen": "2026-09-24T15:23:51Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 15,
-      "best_confidence": "title_only",
-      "score_default": 15,
+      "best_score": 19,
+      "best_confidence": "full",
+      "score_default": 19,
       "matched_default": [
-        "python",
-        "exp:5y(fit)"
+        "Python"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "coverage_default": 26,
+      "confidence_default": "full",
       "requirements_default": [
-        "python"
+        "B.Sc in Electrical",
+        "Engineering or equivalent (Computer",
+        "Science) At least 5 years' experience as a System",
+        "Engineer",
+        "Hands-on experience in SW architecture development",
+        "Hands-on experience in Radar or other relevant fields like",
+        "Sonar, Communications, or EW Hands-on Matlab/ Python/ C experience",
+        "Sonar, Communications, or EW Hands-on Matlab/ Python/ C experience",
+        "Readiness to work in a challenging startup environment",
+        "Entrepreneurial, self-directed and motivated"
       ],
-      "score_infra": 15,
+      "score_infra": 19,
       "matched_infra": [
-        "python",
-        "exp:5y(fit)"
+        "Python"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "coverage_infra": 26,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "python"
-      ]
+        "B.Sc in Electrical",
+        "Engineering or equivalent (Computer",
+        "Science) At least 5 years' experience as a System",
+        "Engineer",
+        "Hands-on experience in SW architecture development",
+        "Hands-on experience in Radar or other relevant fields like",
+        "Sonar, Communications, or EW Hands-on Matlab/ Python/ C experience",
+        "Sonar, Communications, or EW Hands-on Matlab/ Python/ C experience",
+        "Readiness to work in a challenging startup environment",
+        "Entrepreneurial, self-directed and motivated"
+      ],
+      "_score_cache_keys": {
+        "default": "119096b568981435",
+        "infra": "97bddfd6fc6b7e44"
+      },
+      "years_required": null
     },
     {
       "id": "ed9fe48965b30aa4213b",
@@ -236,28 +311,45 @@
       "last_seen": "2026-09-24T15:23:51Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 15,
-      "best_confidence": "title_only",
-      "score_default": 15,
+      "best_score": 17,
+      "best_confidence": "full",
+      "score_default": 17,
       "matched_default": [
-        "python",
-        "exp:5y(fit)"
+        "Python"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "coverage_default": 19,
+      "confidence_default": "full",
       "requirements_default": [
-        "python"
+        "BSc in Electrical",
+        "Engineering/Computer engineering At least 5 years of experience as a System",
+        "Integration engineer",
+        "Hands-on experience in RF system integration",
+        "Hands-on experience in mixed signals board design for complex FPGAs / ASICs / Processors",
+        "Experience with test equipment and test flow",
+        "Experience with communication protocols (SPI, UART, CAN, Ethernet)",
+        "Entrepreneurial, self-­directed, and motivated"
       ],
-      "score_infra": 15,
+      "score_infra": 17,
       "matched_infra": [
-        "python",
-        "exp:5y(fit)"
+        "Python"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "coverage_infra": 19,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "python"
-      ]
+        "BSc in Electrical",
+        "Engineering/Computer engineering At least 5 years of experience as a System",
+        "Integration engineer",
+        "Hands-on experience in RF system integration",
+        "Hands-on experience in mixed signals board design for complex FPGAs / ASICs / Processors",
+        "Experience with test equipment and test flow",
+        "Experience with communication protocols (SPI, UART, CAN, Ethernet)",
+        "Entrepreneurial, self-­directed, and motivated"
+      ],
+      "_score_cache_keys": {
+        "default": "ca37c1373d699fcb",
+        "infra": "0d354355eb527c1f"
+      },
+      "years_required": 5
     },
     {
       "id": "a93b18a42e05bc8cc0a2",
@@ -269,18 +361,23 @@
       "last_seen": "2026-09-17T14:47:45Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 8,
+      "best_score": 0,
       "best_confidence": "title_only",
-      "score_default": 8,
+      "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 8,
+      "score_infra": 0,
       "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "52086048a697922e",
+        "infra": "8ffe21b5fc7262e1"
+      },
+      "years_required": null
     },
     {
       "id": "173d71064e85cc636a0c",
@@ -292,44 +389,65 @@
       "last_seen": "2026-09-24T15:23:51Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 57,
+      "best_score": 18,
       "best_confidence": "full",
-      "score_default": 57,
+      "score_default": 18,
       "matched_default": [
-        "aws",
-        "linux",
-        "bash",
-        "automation",
-        "exp:5y(fit)"
+        "Linux Administration",
+        "Bash",
+        "AWS"
       ],
-      "coverage_default": 67,
+      "coverage_default": 22,
       "confidence_default": "full",
       "requirements_default": [
-        "aws",
-        "gcp",
-        "azure",
-        "linux",
-        "bash",
-        "automation"
+        "5+ years in IT engineering/system administration",
+        "Strong hands-on experience with Windows and Linux",
+        "Hands-on experience with Active",
+        "Directory, Entra ID (Azure AD), GPO, DNS, Microsoft 365",
+        "Proficiency in PowerShell and/or bash scripting for automation",
+        "Experience with networking, firewalls, and physical infrastructure (servers, switches)",
+        "Familiarity with at least one cloud platform (AWS/Azure/GCP)",
+        "Familiarity with at least one cloud platform (AWS/Azure/GCP)",
+        "Familiarity with at least one cloud platform (AWS/Azure/GCP)",
+        "Experience with endpoint security and monitoring tools (EDR, SIEM, or similar)",
+        "Experience with MDM Solutions",
+        "Basic understanding of communication protocols",
+        "Service-oriented mindset, strong communication skills",
+        "Ability to work independently and manage projects end-to-end",
+        "Professional",
+        "English"
       ],
-      "score_infra": 57,
+      "score_infra": 18,
       "matched_infra": [
-        "aws",
-        "linux",
-        "bash",
-        "automation",
-        "exp:5y(fit)"
+        "Linux Administration",
+        "Bash",
+        "AWS"
       ],
-      "coverage_infra": 67,
+      "coverage_infra": 22,
       "confidence_infra": "full",
       "requirements_infra": [
-        "aws",
-        "gcp",
-        "azure",
-        "linux",
-        "bash",
-        "automation"
-      ]
+        "5+ years in IT engineering/system administration",
+        "Strong hands-on experience with Windows and Linux",
+        "Hands-on experience with Active",
+        "Directory, Entra ID (Azure AD), GPO, DNS, Microsoft 365",
+        "Proficiency in PowerShell and/or bash scripting for automation",
+        "Experience with networking, firewalls, and physical infrastructure (servers, switches)",
+        "Familiarity with at least one cloud platform (AWS/Azure/GCP)",
+        "Familiarity with at least one cloud platform (AWS/Azure/GCP)",
+        "Familiarity with at least one cloud platform (AWS/Azure/GCP)",
+        "Experience with endpoint security and monitoring tools (EDR, SIEM, or similar)",
+        "Experience with MDM Solutions",
+        "Basic understanding of communication protocols",
+        "Service-oriented mindset, strong communication skills",
+        "Ability to work independently and manage projects end-to-end",
+        "Professional",
+        "English"
+      ],
+      "_score_cache_keys": {
+        "default": "1e41889b5c41f982",
+        "infra": "5a48566bda14b522"
+      },
+      "years_required": null
     },
     {
       "id": "55b2ad1762c239a377e6",
@@ -344,19 +462,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "da9aef313b3435ca",
+        "infra": "0eb220a722613376"
+      },
+      "years_required": null
     },
     {
       "id": "b9599ae9b5f4e0abd38b",
@@ -368,32 +487,49 @@
       "last_seen": "2026-09-24T15:23:51Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 15,
-      "best_confidence": "title_only",
-      "score_default": 15,
+      "best_score": 13,
+      "best_confidence": "full",
+      "score_default": 13,
       "matched_default": [
-        "python",
-        "automation",
-        "exp:5y(fit)"
+        "Python"
       ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "coverage_default": 9,
+      "confidence_default": "full",
       "requirements_default": [
-        "python",
-        "automation"
+        "Experience: Minimum 5+ years of direct experience in IC/Semiconductor",
+        "Product",
+        "Engineering (post-silicon bring-up to high-volume production).",
+        "Statistical",
+        "Tools: Demonstrated hands-on proficiency with JMP , Spotfire , or equivalent statistical data analysis engines for handling STDF/wafer map data.",
+        "Yield & Parametric",
+        "Analysis: Deep understanding of statistical process control (SPC), baseline drift detection, capability metrics (Cpk ), and correlation methodologies (wafer vs. package test).",
+        "Education: Bachelor’s or Master’s degree in Electrical",
+        "Engineering, Computer",
+        "Engineering, Microelectronics, or a related field."
       ],
-      "score_infra": 15,
+      "score_infra": 13,
       "matched_infra": [
-        "python",
-        "automation",
-        "exp:5y(fit)"
+        "Python"
       ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "coverage_infra": 9,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "python",
-        "automation"
-      ]
+        "Experience: Minimum 5+ years of direct experience in IC/Semiconductor",
+        "Product",
+        "Engineering (post-silicon bring-up to high-volume production).",
+        "Statistical",
+        "Tools: Demonstrated hands-on proficiency with JMP , Spotfire , or equivalent statistical data analysis engines for handling STDF/wafer map data.",
+        "Yield & Parametric",
+        "Analysis: Deep understanding of statistical process control (SPC), baseline drift detection, capability metrics (Cpk ), and correlation methodologies (wafer vs. package test).",
+        "Education: Bachelor’s or Master’s degree in Electrical",
+        "Engineering, Computer",
+        "Engineering, Microelectronics, or a related field."
+      ],
+      "_score_cache_keys": {
+        "default": "02645ff7f462aeed",
+        "infra": "2894abb11bb90181"
+      },
+      "years_required": null
     },
     {
       "id": "c147477091a845b863cc",
@@ -408,19 +544,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "d77d05b74fd424fd",
+        "infra": "fa6d07681c7e21b5"
+      },
+      "years_required": null
     },
     {
       "id": "6c9751aacc242447fba8",
@@ -435,19 +572,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "4eae5d98bb2e5e55",
+        "infra": "a6c375d121d058f6"
+      },
+      "years_required": null
     }
   ]
 }

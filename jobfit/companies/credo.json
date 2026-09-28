@@ -14,29 +14,24 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 45,
-      "matched_default": [
-        "linux",
-        "infrastructure engineer"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "linux"
-      ],
-      "score_infra": 45,
-      "matched_infra": [
-        "linux",
-        "infrastructure engineer"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "linux"
-      ],
+      "score_default": 64,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
+      "requirements_default": [],
+      "score_infra": 64,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 45,
-      "best_confidence": "title_only"
+      "best_score": 64,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "23effdc503611eeb",
+        "infra": "6cdad96be232db18"
+      },
+      "years_required": null
     },
     {
       "id": "d02dc72830781cf9b678",
@@ -49,25 +44,24 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 58,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "c598e1c0df150d30",
+        "infra": "ecd65d5f2a993a69"
+      },
+      "years_required": 10
     }
   ]
 }

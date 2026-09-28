@@ -10,15 +10,12 @@
       "url": "https://www.linkedin.com/jobs/view/4448868474",
       "description": "Requires 8+ years of experience. Experience designing end-to-end detection and response architectures 8-12 years including hands-on SOC work (analyst, incident response, or detection engineering) Hands-on experience with at least one SIEM (Splunk, Microsoft Sentinel, QRadar, or Google SecOps)",
       "first_seen": "2026-09-15T21:02:04Z",
-      "last_seen": "2026-09-23T15:42:36Z",
+      "last_seen": "2026-09-28T06:12:13Z",
       "status": "seen",
       "is_referral": true,
       "referral_contact": null,
       "score_infra": 0,
-      "matched_infra": [
-        "exp:8y(-75)",
-        "senior(-30)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -26,13 +23,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "exp:8y(-75)",
-        "senior(-30)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "01eb34669c69b3a4",
+        "infra": "10f46fcbae242453"
+      },
+      "years_required": 8
     },
     {
       "id": "5ef33c7939b9121ae092",
@@ -41,39 +40,28 @@
       "url": "https://www.linkedin.com/jobs/view/4455198528",
       "description": "Requires 5+ years of experience. At least 5 years of experience in DevOps, Platform Engineering, Cloud Engineering, or Software Engineering Hands-on experience with AWS and/or Azure cloud platforms Mandatory hands-on experience with Kubernetes (K8s) and the cloud-native ecosystem",
       "first_seen": "2026-09-15T21:02:04Z",
-      "last_seen": "2026-09-23T15:42:36Z",
+      "last_seen": "2026-09-28T06:12:13Z",
       "status": "seen",
       "is_referral": true,
       "referral_contact": null,
-      "score_infra": 47,
-      "matched_infra": [
-        "aws",
-        "devops engineer",
-        "exp:5y(fit)"
-      ],
-      "coverage_infra": 33,
+      "score_infra": 64,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "kubernetes",
-        "aws",
-        "azure"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 47,
+      "best_score": 64,
       "best_confidence": "full",
-      "score_default": 47,
-      "matched_default": [
-        "aws",
-        "devops engineer",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 33,
+      "score_default": 64,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "kubernetes",
-        "aws",
-        "azure"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "d82180c23d9da6d5",
+        "infra": "13a545ce9815b24c"
+      },
+      "years_required": 5
     },
     {
       "id": "5c33ffdb4187e287a246",
@@ -87,24 +75,23 @@
       "is_referral": true,
       "referral_contact": null,
       "score_default": 0,
-      "matched_default": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "a9b5b6ead0dd8385",
+        "infra": "57ae4fba167aac45"
+      },
+      "years_required": 3
     }
   ]
 }

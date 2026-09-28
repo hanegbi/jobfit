@@ -16,19 +16,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "5bff5eb8827df31f",
+        "infra": "48b5517545f1cabc"
+      },
+      "years_required": null
     },
     {
       "id": "ce6d4d8da610e31f7af3",
@@ -40,38 +41,23 @@
       "last_seen": "2026-09-24T15:23:42Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 59,
+      "best_score": 58,
       "best_confidence": "full",
-      "score_default": 59,
-      "matched_default": [
-        "react",
-        "aws",
-        "full stack developer",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 50,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "react",
-        "mysql",
-        "aws",
-        "scalability"
-      ],
-      "score_infra": 59,
-      "matched_infra": [
-        "react",
-        "aws",
-        "full stack developer",
-        "exp:5y(fit)"
-      ],
-      "coverage_infra": 50,
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "react",
-        "mysql",
-        "aws",
-        "scalability"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "32e34292ecc0cde3",
+        "infra": "71a0ab38960a03df"
+      },
+      "years_required": 5
     }
   ]
 }

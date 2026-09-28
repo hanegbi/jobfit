@@ -14,35 +14,24 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": null,
-      "score_default": 57,
-      "matched_default": [
-        "python",
-        "computer vision",
-        "exp:5y(fit)"
-      ],
-      "coverage_default": 67,
-      "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "deep learning",
-        "computer vision"
-      ],
-      "score_infra": 57,
-      "matched_infra": [
-        "python",
-        "computer vision",
-        "exp:5y(fit)"
-      ],
-      "coverage_infra": 67,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "deep learning",
-        "computer vision"
-      ],
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 57,
-      "best_confidence": "full"
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "06742fa7b64227d0",
+        "infra": "d7d6a9ecc30ad52b"
+      },
+      "years_required": 5
     },
     {
       "id": "35cb7f6453017047745b",
@@ -55,23 +44,24 @@
       "status": "new",
       "is_referral": true,
       "referral_contact": "055-948-8695",
-      "score_default": 0,
-      "matched_default": [
-        "exp:10y(-100)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "score_default": 74,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:10y(-100)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "score_infra": 74,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only"
+      "best_score": 74,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "1e58f2fef7c118f5",
+        "infra": "0d2d74ed4483de0e"
+      },
+      "years_required": 10
     }
   ]
 }

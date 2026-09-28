@@ -13,9 +13,7 @@
       "last_seen": "2026-09-15T20:29:35Z",
       "status": "closed",
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
@@ -23,12 +21,15 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": []
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "8e70b0057674f7a0",
+        "infra": "9bc9ae67519b5ed6"
+      },
+      "years_required": null
     },
     {
       "id": "884a2f35510f88054266",
@@ -41,39 +42,24 @@
       "status": "closed",
       "is_referral": true,
       "referral_contact": null,
-      "score_infra": 0,
-      "matched_infra": [
-        "llm",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 20,
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "machine learning",
-        "deep learning",
-        "nlp",
-        "llm",
-        "data science"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 0,
+      "best_score": 58,
       "best_confidence": "full",
-      "score_default": 0,
-      "matched_default": [
-        "llm",
-        "exp:3y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 20,
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "machine learning",
-        "deep learning",
-        "nlp",
-        "llm",
-        "data science"
-      ]
+      "requirements_default": [],
+      "_score_cache_keys": {
+        "default": "573ed3ba9bc95dff",
+        "infra": "3b1b7b2de676aa02"
+      },
+      "years_required": 3
     },
     {
       "id": "a7f38689011c3949393e",
@@ -85,22 +71,23 @@
       "last_seen": "2026-09-24T16:22:06Z",
       "status": "seen",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "0f13c9aeba6ceabc",
+        "infra": "94b68b97cb5cb705"
+      },
+      "years_required": null
     },
     {
       "id": "e7387f357104d204315a",
@@ -111,35 +98,24 @@
       "first_seen": "2026-09-23T16:10:23Z",
       "last_seen": "2026-09-24T16:22:06Z",
       "status": "seen",
-      "score_default": 2,
-      "matched_default": [
-        "automation",
-        "genai",
-        "off-target title(-50)"
-      ],
-      "coverage_default": 67,
-      "confidence_default": "full",
-      "requirements_default": [
-        "rest",
-        "automation",
-        "genai"
-      ],
-      "score_infra": 2,
-      "matched_infra": [
-        "automation",
-        "genai",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": 67,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "rest",
-        "automation",
-        "genai"
-      ],
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 2,
-      "best_confidence": "full"
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "ba41f2daf7d89253",
+        "infra": "91d84616506884b6"
+      },
+      "years_required": null
     }
   ]
 }

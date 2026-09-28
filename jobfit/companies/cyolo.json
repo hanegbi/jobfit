@@ -16,19 +16,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "4fa0942881b54de3",
+        "infra": "5bb33f990a821334"
+      },
+      "years_required": null
     },
     {
       "id": "bdd0ecde360b86688554",
@@ -43,25 +44,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "linux",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "linux"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "linux",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "linux"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "32c065eca61d3c6c",
+        "infra": "73b325e7de68759a"
+      },
+      "years_required": null
     },
     {
       "id": "5d02a0590fd585a0c1a3",
@@ -76,23 +72,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "rest"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "rest"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "746f6fec12c0d573",
+        "infra": "319d69f2544b29cf"
+      },
+      "years_required": null
     },
     {
       "id": "62b4ef3ab8d35f365bd6",
@@ -107,19 +100,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "c153c35b09db4a50",
+        "infra": "e627e34c28801ca2"
+      },
+      "years_required": null
     },
     {
       "id": "55b9a8d98fc608c54846",
@@ -134,19 +128,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "b0eaaa38ac0ed103",
+        "infra": "03507ed669f5abbf"
+      },
+      "years_required": null
     },
     {
       "id": "6b84ae4e66d9d636aa46",
@@ -161,23 +156,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "azure"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "azure"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "c9edfc2af9597ecf",
+        "infra": "26f0c60f58f79a86"
+      },
+      "years_required": null
     },
     {
       "id": "6d0a331edf7502075737",
@@ -189,26 +181,117 @@
       "last_seen": "2026-09-15T18:37:59Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 19,
+      "best_confidence": "full",
+      "score_default": 19,
+      "matched_default": [],
+      "coverage_default": 2,
+      "confidence_default": "full",
       "requirements_default": [
-        "rest"
+        "Use these documents and the table below to match your compliance requirements with the corresponding",
+        "Cyolo control/capability.",
+        "ISA/IEC 62443 NIS2 CAF NERC CIP TSA SD2021-02C NIST 800-171 ISO/IEC 27001",
+        "Requirement",
+        "Key",
+        "Regulations",
+        "Cyolo",
+        "Capability",
+        "Multi-Factor",
+        "Authentication (MFA) NIS2, KRITIS (DE), LPM (FR), Perimetro (IT), ENS (ES), Wbni (NL), IEC 62443, ISO 27001, CAF, UK NIS, NERC CIP, TSA SD, NIST 800‑82, EO 14028, CFATS, CISA CPG, CRA, Norway SA, Sweden PSA, Finland IS MFA & Identity",
+        "Authentication",
+        "Least-Privilege & JIT Access NIS2, KRITIS (DE), LPM (FR), Perimetro (IT), ENS (ES), Wbni (NL), IEC 62443, CAF, NERC CIP, TSA SD, NIST 800‑82, EO 14028, CFATS JIT Least-Privilege",
+        "Access",
+        "Vendor / Third-Party",
+        "Isolation NIS2, KRITIS (DE), LPM (FR), Perimetro (IT), ENS (ES), Wbni (NL), CAF, NERC CIP, TSA SD, CFATS, CISA CPG Vendor",
+        "Isolation",
+        "Gateway",
+        "Network",
+        "Segmentation / Intermediate",
+        "System IEC 62443, NERC CIP, TSA SD, NIST 800‑82, CISA CPG Zero-Trust",
+        "Edge",
+        "Segmentation",
+        "End-to-End",
+        "Encryption ISO 27001, IEC 62443, NERC CIP, EO 14028, CRA TLS End-to-End",
+        "Encryption ISO 27001, IEC 62443, NERC CIP, EO 14028, CRA TLS End-to-End",
+        "Encryption",
+        "Continuous",
+        "Monitoring & Logging ISO 27001, IEC 62443, CAF, NERC CIP, TSA SD, EO 14028, CISA CPG Continuous",
+        "Monitoring & Audit",
+        "Logs",
+        "Session",
+        "Recording & Replay IEC 62443, NERC CIP, TSA SD, CAF Session",
+        "Recording & Command",
+        "Search",
+        "Real-Time",
+        "Supervision / Dual",
+        "Approval IEC 62443, TSA SD, CAF Live",
+        "Session",
+        "Supervision",
+        "Identity-Based",
+        "Audit",
+        "Trail & Reporting ISO 27001, IEC 62443, NERC CIP, CAF, CRA Tamper-Proof",
+        "Audit",
+        "Trail",
+        "Device",
+        "Posture &"
       ],
-      "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
+      "score_infra": 19,
+      "matched_infra": [],
+      "coverage_infra": 2,
+      "confidence_infra": "full",
       "requirements_infra": [
-        "rest"
-      ]
+        "Use these documents and the table below to match your compliance requirements with the corresponding",
+        "Cyolo control/capability.",
+        "ISA/IEC 62443 NIS2 CAF NERC CIP TSA SD2021-02C NIST 800-171 ISO/IEC 27001",
+        "Requirement",
+        "Key",
+        "Regulations",
+        "Cyolo",
+        "Capability",
+        "Multi-Factor",
+        "Authentication (MFA) NIS2, KRITIS (DE), LPM (FR), Perimetro (IT), ENS (ES), Wbni (NL), IEC 62443, ISO 27001, CAF, UK NIS, NERC CIP, TSA SD, NIST 800‑82, EO 14028, CFATS, CISA CPG, CRA, Norway SA, Sweden PSA, Finland IS MFA & Identity",
+        "Authentication",
+        "Least-Privilege & JIT Access NIS2, KRITIS (DE), LPM (FR), Perimetro (IT), ENS (ES), Wbni (NL), IEC 62443, CAF, NERC CIP, TSA SD, NIST 800‑82, EO 14028, CFATS JIT Least-Privilege",
+        "Access",
+        "Vendor / Third-Party",
+        "Isolation NIS2, KRITIS (DE), LPM (FR), Perimetro (IT), ENS (ES), Wbni (NL), CAF, NERC CIP, TSA SD, CFATS, CISA CPG Vendor",
+        "Isolation",
+        "Gateway",
+        "Network",
+        "Segmentation / Intermediate",
+        "System IEC 62443, NERC CIP, TSA SD, NIST 800‑82, CISA CPG Zero-Trust",
+        "Edge",
+        "Segmentation",
+        "End-to-End",
+        "Encryption ISO 27001, IEC 62443, NERC CIP, EO 14028, CRA TLS End-to-End",
+        "Encryption ISO 27001, IEC 62443, NERC CIP, EO 14028, CRA TLS End-to-End",
+        "Encryption",
+        "Continuous",
+        "Monitoring & Logging ISO 27001, IEC 62443, CAF, NERC CIP, TSA SD, EO 14028, CISA CPG Continuous",
+        "Monitoring & Audit",
+        "Logs",
+        "Session",
+        "Recording & Replay IEC 62443, NERC CIP, TSA SD, CAF Session",
+        "Recording & Command",
+        "Search",
+        "Real-Time",
+        "Supervision / Dual",
+        "Approval IEC 62443, TSA SD, CAF Live",
+        "Session",
+        "Supervision",
+        "Identity-Based",
+        "Audit",
+        "Trail & Reporting ISO 27001, IEC 62443, NERC CIP, CAF, CRA Tamper-Proof",
+        "Audit",
+        "Trail",
+        "Device",
+        "Posture &"
+      ],
+      "_score_cache_keys": {
+        "default": "a7779b91a8863973",
+        "infra": "2342d9e7d5aa3ed6"
+      },
+      "years_required": null
     },
     {
       "id": "dfd5cfe2c30fdda04332",
@@ -223,23 +306,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "scalability"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "scalability"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "6e321b20c4c2bf03",
+        "infra": "82e52b389fa66b7d"
+      },
+      "years_required": null
     },
     {
       "id": "e0fcc3e2096ded9c73c9",
@@ -254,23 +334,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "scalability"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "scalability"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "44b460a9ebb70870",
+        "infra": "212ced55ae3b3281"
+      },
+      "years_required": null
     },
     {
       "id": "2783c5df39451721fc1e",
@@ -282,18 +359,43 @@
       "last_seen": "2026-09-24T15:26:23Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 8,
-      "best_confidence": "title_only",
-      "score_default": 8,
+      "best_score": 24,
+      "best_confidence": "full",
+      "score_default": 24,
       "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 8,
+      "coverage_default": 13,
+      "confidence_default": "full",
+      "requirements_default": [
+        "As AI infrastructure increasingly overlaps with critical infrastructure, operators face rising pressure around operational resilience, third-party access, auditability, and cybersecurity.",
+        "Cyolo is",
+        "Built to Secure AI Infrastructure's",
+        "Grey",
+        "Space",
+        "Cyolo PRO (Privileged",
+        "Remote",
+        "Operations) provides secure, controlled access to critical grey space systems, enabling OEMs, vendors, contractors, facilities teams, and remote operators to work efficiently without exposing the wider environment.",
+        "Built for cyber-phys"
+      ],
+      "score_infra": 24,
       "matched_infra": [],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "coverage_infra": 13,
+      "confidence_infra": "full",
+      "requirements_infra": [
+        "As AI infrastructure increasingly overlaps with critical infrastructure, operators face rising pressure around operational resilience, third-party access, auditability, and cybersecurity.",
+        "Cyolo is",
+        "Built to Secure AI Infrastructure's",
+        "Grey",
+        "Space",
+        "Cyolo PRO (Privileged",
+        "Remote",
+        "Operations) provides secure, controlled access to critical grey space systems, enabling OEMs, vendors, contractors, facilities teams, and remote operators to work efficiently without exposing the wider environment.",
+        "Built for cyber-phys"
+      ],
+      "_score_cache_keys": {
+        "default": "1d05cf08882840f1",
+        "infra": "0ea0f4eee5a0a7ce"
+      },
+      "years_required": null
     },
     {
       "id": "e3570350fa3f9267b2c0",
@@ -308,25 +410,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "automation",
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "automation"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "automation"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "2866f4be40eddc39",
+        "infra": "3b2edc851a194e74"
+      },
+      "years_required": null
     },
     {
       "id": "904c9c9515c551e91fb6",
@@ -341,19 +438,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "f4e51a8402f4e9d4",
+        "infra": "ee01c2673f0a6334"
+      },
+      "years_required": null
     },
     {
       "id": "cyolo:F4.F6F",
@@ -362,29 +460,28 @@
       "url": "https://www.comeet.com/jobs/cyolo/F5.005/senior-product-manager/F4.F6F",
       "description": "Requires 5+ years of experience. 5+ years of experience in Product Management, Technical Product Management, Pre-Sales Engineering, Solution Engineering, Network Security Engineering, or similar technical roles Strong technical background in Networking and Cyber Security, with hands-on experience in Network Security technologies, protocols, architectures, and enterprise security solutions Previous experience supporting pre-sales activities, customer presentations, technical demonstrations, and strategic technical discussions",
       "first_seen": "2026-09-15T21:02:04Z",
-      "last_seen": "2026-09-15T21:02:04Z",
-      "status": "closed",
+      "last_seen": "2026-09-28T06:12:13Z",
+      "status": "seen",
       "is_referral": true,
       "referral_contact": null,
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
+      "best_score": 58,
+      "best_confidence": "full",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
       "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [
-        "exp:5y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": []
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "003a62ef763451b2",
+        "infra": "5bcb13b30ce71f48"
+      },
+      "years_required": 5
     },
     {
       "id": "598b5efaa959b3226bd0",
@@ -396,28 +493,23 @@
       "last_seen": "2026-09-24T15:26:23Z",
       "status": "seen",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "-qa"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "qa"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "-qa"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "qa"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "ea06a056ffdb74d8",
+        "infra": "3a43eb667e6f6449"
+      },
+      "years_required": null
     },
     {
       "id": "52f84e2ba0e85b704007",
@@ -429,22 +521,23 @@
       "last_seen": "2026-09-24T15:26:23Z",
       "status": "seen",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "ad6fe595d580b7df",
+        "infra": "a8cbaaf96c3b9bfd"
+      },
+      "years_required": null
     },
     {
       "id": "31e8680bc1e3a5a753c1",
@@ -455,19 +548,24 @@
       "first_seen": "2026-09-23T15:53:18Z",
       "last_seen": "2026-09-24T15:26:23Z",
       "status": "seen",
-      "score_default": 8,
+      "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
-      "score_infra": 8,
+      "score_infra": 0,
       "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 8,
-      "best_confidence": "title_only"
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "20fa70e9e37211b9",
+        "infra": "5c563c22e17c5c69"
+      },
+      "years_required": null
     },
     {
       "id": "f5ac2065d0f98a263718",
@@ -479,22 +577,23 @@
       "last_seen": "2026-09-24T15:26:23Z",
       "status": "seen",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "ebe5073c6ed899c3",
+        "infra": "8236e38df97fe707"
+      },
+      "years_required": null
     }
   ]
 }

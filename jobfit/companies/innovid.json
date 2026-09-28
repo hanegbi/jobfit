@@ -16,19 +16,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "84ff29088a9eb44f",
+        "infra": "a987eaf1b9d45f53"
+      },
+      "years_required": null
     },
     {
       "id": "innovid:8784012002",
@@ -43,29 +44,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "automation",
-        "exp:6y",
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "automation"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "exp:6y",
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "automation"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "57a582ee34fe83f8",
+        "infra": "e47424a3e727b652"
+      },
+      "years_required": null
     },
     {
       "id": "innovid:8624027002",
@@ -77,60 +69,35 @@
       "last_seen": "2026-09-24T16:08:42Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 59,
+      "best_score": 50,
       "best_confidence": "full",
-      "score_default": 59,
+      "score_default": 50,
       "matched_default": [
-        "react",
-        "node",
-        "node.js",
-        "aws",
-        "linux",
-        "software engineer",
-        "exp:3y(fit)"
+        "Linux Administration",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "AWS"
       ],
-      "coverage_default": 42,
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "java",
-        "javascript",
-        "typescript",
-        "react",
-        "node",
-        "node.js",
-        "sql",
-        "kafka",
-        "kubernetes",
-        "aws",
-        "linux",
-        "snowflake"
-      ],
-      "score_infra": 59,
+      "requirements_default": [],
+      "score_infra": 50,
       "matched_infra": [
-        "react",
-        "node",
-        "node.js",
-        "aws",
-        "linux",
-        "software engineer",
-        "exp:3y(fit)"
+        "Linux Administration",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "AWS"
       ],
-      "coverage_infra": 42,
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "java",
-        "javascript",
-        "typescript",
-        "react",
-        "node",
-        "node.js",
-        "sql",
-        "kafka",
-        "kubernetes",
-        "aws",
-        "linux",
-        "snowflake"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "33ee5f4271ec2858",
+        "infra": "8065e5a9c89f9301"
+      },
+      "years_required": null
     },
     {
       "id": "innovid:8521480002",
@@ -142,50 +109,29 @@
       "last_seen": "2026-09-24T16:08:42Z",
       "status": "seen",
       "best_cv": "default",
-      "best_score": 56,
+      "best_score": 59,
       "best_confidence": "full",
-      "score_default": 56,
+      "score_default": 59,
       "matched_default": [
-        "python",
-        "react",
-        "docker",
-        "aws",
-        "software engineer"
+        "AWS",
+        "Docker"
       ],
-      "coverage_default": 44,
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "react",
-        "sql",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "scalability"
-      ],
-      "score_infra": 56,
+      "requirements_default": [],
+      "score_infra": 59,
       "matched_infra": [
-        "python",
-        "react",
-        "docker",
-        "aws",
-        "software engineer"
+        "AWS",
+        "Docker"
       ],
-      "coverage_infra": 44,
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "react",
-        "sql",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "scalability"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "7aa32e76eaee2c0b",
+        "infra": "925eeae364888811"
+      },
+      "years_required": null
     },
     {
       "id": "innovid:8584896002",
@@ -197,48 +143,29 @@
       "last_seen": "2026-09-23T15:58:41Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 48,
+      "best_score": 49,
       "best_confidence": "full",
-      "score_default": 48,
+      "score_default": 49,
       "matched_default": [
-        "react",
-        "docker",
-        "aws",
-        "software engineer"
+        "AWS",
+        "Docker"
       ],
-      "coverage_default": 33,
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "typescript",
-        "react",
-        "sql",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "scalability"
-      ],
-      "score_infra": 48,
+      "requirements_default": [],
+      "score_infra": 49,
       "matched_infra": [
-        "react",
-        "docker",
-        "aws",
-        "software engineer"
+        "AWS",
+        "Docker"
       ],
-      "coverage_infra": 33,
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "typescript",
-        "react",
-        "sql",
-        "docker",
-        "kubernetes",
-        "aws",
-        "gcp",
-        "azure",
-        "scalability"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "52015d0cfdbbfc19",
+        "infra": "3c6197fa5ef7778f"
+      },
+      "years_required": null
     },
     {
       "id": "innovid:8646848002",
@@ -250,36 +177,27 @@
       "last_seen": "2026-09-15T19:23:43Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 80,
+      "best_score": 60,
       "best_confidence": "full",
-      "score_default": 80,
+      "score_default": 60,
       "matched_default": [
-        "python",
-        "aws",
-        "automation",
-        "exp:1y(fit)"
+        "Jira"
       ],
       "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "aws",
-        "automation"
-      ],
-      "score_infra": 80,
+      "requirements_default": [],
+      "score_infra": 60,
       "matched_infra": [
-        "python",
-        "aws",
-        "automation",
-        "exp:1y(fit)"
+        "Jira"
       ],
       "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "aws",
-        "automation"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "5f2cdff68f68c231",
+        "infra": "0e1301f40c0e8d5b"
+      },
+      "years_required": null
     },
     {
       "id": "innovid:8558099002",
@@ -294,21 +212,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": []
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "43c3be496c011fea",
+        "infra": "bd002a1fb9536fce"
+      },
+      "years_required": null
     },
     {
       "id": "innovid:8647851002",
@@ -320,30 +237,23 @@
       "last_seen": "2026-09-23T15:58:41Z",
       "status": "closed",
       "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "score_default": 0,
-      "matched_default": [
-        "automation",
-        "exp:4y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [
-        "automation"
-      ],
-      "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "exp:4y(fit)",
-        "off-target title(-50)"
-      ],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [
-        "automation"
-      ]
+      "best_score": 58,
+      "best_confidence": "full",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "full",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "full",
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "4460b5ef75140b6e",
+        "infra": "fb42b332b95a882f"
+      },
+      "years_required": null
     },
     {
       "id": "innovid:8675957002",
@@ -358,31 +268,20 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "score_default": 0,
-      "matched_default": [
-        "automation",
-        "exp:8y(-75)",
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
-      "requirements_default": [
-        "api",
-        "automation"
-      ],
+      "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "automation",
-        "exp:8y(-75)",
-        "off-target title(-50)",
-        "senior(-30)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
-      "requirements_infra": [
-        "api",
-        "automation"
-      ]
+      "requirements_infra": [],
+      "_score_cache_keys": {
+        "default": "9b532fc883696b41",
+        "infra": "c90ba71f9ac51dc9"
+      },
+      "years_required": null
     },
     {
       "id": "innovid:8713410002",
@@ -394,22 +293,23 @@
       "last_seen": "2026-09-24T16:08:42Z",
       "status": "seen",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "ab851fb6f8dbfc2e",
+        "infra": "d3ce1552977fc0dc"
+      },
+      "years_required": null
     },
     {
       "id": "innovid:8816460002",
@@ -420,61 +320,34 @@
       "first_seen": "2026-09-23T15:58:41Z",
       "last_seen": "2026-09-24T16:08:42Z",
       "status": "seen",
-      "score_default": 68,
+      "score_default": 56,
       "matched_default": [
-        "python",
-        "react",
-        "node",
-        "node.js",
-        "postgresql",
-        "mongodb",
-        "software engineer",
-        "exp:5y(fit)"
+        "Python",
+        "JavaScript",
+        "React",
+        "Node.js"
       ],
-      "coverage_default": 55,
+      "coverage_default": 100,
       "confidence_default": "full",
-      "requirements_default": [
-        "python",
-        "typescript",
-        "react",
-        "node",
-        "node.js",
-        "postgresql",
-        "mongodb",
-        "pandas",
-        "spark",
-        "airflow",
-        "snowflake"
-      ],
-      "score_infra": 68,
+      "requirements_default": [],
+      "score_infra": 56,
       "matched_infra": [
-        "python",
-        "react",
-        "node",
-        "node.js",
-        "postgresql",
-        "mongodb",
-        "software engineer",
-        "exp:5y(fit)"
+        "Python",
+        "JavaScript",
+        "React",
+        "Node.js"
       ],
-      "coverage_infra": 55,
+      "coverage_infra": 100,
       "confidence_infra": "full",
-      "requirements_infra": [
-        "python",
-        "typescript",
-        "react",
-        "node",
-        "node.js",
-        "postgresql",
-        "mongodb",
-        "pandas",
-        "spark",
-        "airflow",
-        "snowflake"
-      ],
+      "requirements_infra": [],
       "best_cv": "default",
-      "best_score": 68,
-      "best_confidence": "full"
+      "best_score": 56,
+      "best_confidence": "full",
+      "_score_cache_keys": {
+        "default": "566850a8876e1e7a",
+        "infra": "ec4b6976bd48f200"
+      },
+      "years_required": null
     },
     {
       "id": "f7ed1556f8f77866729c",
@@ -486,22 +359,23 @@
       "last_seen": "2026-09-24T16:08:42Z",
       "status": "new",
       "score_default": 0,
-      "matched_default": [
-        "off-target title(-50)"
-      ],
+      "matched_default": [],
       "coverage_default": null,
       "confidence_default": "title_only",
       "requirements_default": [],
       "score_infra": 0,
-      "matched_infra": [
-        "off-target title(-50)"
-      ],
+      "matched_infra": [],
       "coverage_infra": null,
       "confidence_infra": "title_only",
       "requirements_infra": [],
       "best_cv": "default",
       "best_score": 0,
-      "best_confidence": "title_only"
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "1e9b03792c330e05",
+        "infra": "c0d3fd19b8437491"
+      },
+      "years_required": null
     }
   ]
 }
