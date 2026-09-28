@@ -1,0 +1,108 @@
+{
+  "company_id": "codium_ltd_qodo",
+  "schema_version": 1,
+  "career_url": "https://www.qodo.ai/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:25:13.432628Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?qodo\\.ai/[^/?#]+/?$",
+      "^https?://(www\\.)?plugins\\.jetbrains\\.com/plugin/[^/?#]+/?$"
+    ],
+    "url_shape": "qodo.ai|careers/co/tel-aviv/45.F68/data-analyst|6",
+    "explicit_accept": [
+      "https://www.qodo.ai/careers/co/tel-aviv/45.F68/data-analyst/all",
+      "https://www.qodo.ai/careers/co/boston/CE.A69/forward-deployed-engineer/all",
+      "https://www.qodo.ai/careers/co/tel-aviv/00.F6F/forward-deployed-engineer/all",
+      "https://www.qodo.ai/careers/co/tel-aviv/FD.669/research-engineer/all",
+      "https://www.qodo.ai/careers/co/tel-aviv/88.86D/senior-backend-engineer/all",
+      "https://www.qodo.ai/careers/co/united-states/DB.271/senior-devops-engineer/all",
+      "https://www.qodo.ai/careers/co/new-york/B0.76A/senior-software-engineer/all",
+      "https://www.qodo.ai/careers/co/boston/E0.F6C/senior-people-talent-partner/all",
+      "https://www.qodo.ai/careers/co/tel-aviv/28.E68/product-manager/all"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 34,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 35,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 9
+  },
+  "rediscover_after": null,
+  "notes": []
+}

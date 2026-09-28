@@ -1,0 +1,144 @@
+{
+  "company_id": "city_hive_ltd",
+  "schema_version": 1,
+  "career_url": "https://cityhive.net/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:25:13.432628Z",
+  "verified_at": "2026-09-28T13:25:13.432628Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?cityhive\\.net/distributors/[^/?#]+/?$",
+      "^https?://(www\\.)?cityhive\\.net/suppliers/[^/?#]+/?$",
+      "^https?://(www\\.)?cityhive\\.net/[^/?#]+/?$"
+    ],
+    "url_shape": "cityhive.net|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 34,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 45,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 52,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 54,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 55,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 56,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 57,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 58,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 59,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 60,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 61,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 62,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 63,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 64,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 65,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 66,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 67,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 68,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 69,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 16
+  },
+  "rediscover_after": null,
+  "notes": []
+}

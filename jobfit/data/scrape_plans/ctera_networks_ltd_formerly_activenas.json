@@ -1,0 +1,90 @@
+{
+  "company_id": "ctera_networks_ltd_formerly_activenas",
+  "schema_version": 1,
+  "career_url": "https://www.ctera.com/company/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:25:13.432628Z",
+  "verified_at": "2026-09-28T13:25:13.432628Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?ctera\\.com/position/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?ctera\\.com/news/[^/?#]+/?$",
+      "^https?://(www\\.)?ctera\\.com/company/[^/?#]+/?$",
+      "^https?://(www\\.)?ctera\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?www2\\.ctera\\.com/l/14552/2014\\-07\\-15/[^/?#]+/?$"
+    ],
+    "url_shape": "ctera.com|position|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 49,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 64,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 65,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 66,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 67,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 68,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 72,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": null,
+  "notes": []
+}

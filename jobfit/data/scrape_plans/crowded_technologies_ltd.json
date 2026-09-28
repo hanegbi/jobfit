@@ -1,0 +1,89 @@
+{
+  "company_id": "crowded_technologies_ltd",
+  "schema_version": 1,
+  "career_url": "https://crowdedfinance.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:25:13.432628Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?crowded\\.navattic\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?crowdedfinance\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?skyscrapercenter\\.com/building/toha\\-tower\\-1/[^/?#]+/?$",
+      "^https?://(www\\.)?linkedin\\.com/company/banking\\-crowded/[^/?#]+/?$"
+    ],
+    "url_shape": "notion.so|crowdedwiki|2",
+    "explicit_accept": [
+      "https://www.notion.so/crowdedwiki/Account-Executive-2adc6317bdeb80ee9422e0afc51e1576",
+      "https://crowdedwiki.notion.site/Technical-Implementation-Specialist-349c6317bdeb80e893d1fcb9c131d863?pvs=143",
+      "https://www.notion.so/crowdedwiki/Senior-Frontend-Developer-2adc6317bdeb802ca814fb9cfd8eb167"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 46,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 47,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 48,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 50,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 70,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}
