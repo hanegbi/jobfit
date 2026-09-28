@@ -1,0 +1,103 @@
+{
+  "company_id": "beamup_ltd",
+  "schema_version": 1,
+  "career_url": "https://beamup.ai/company#careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T16:12:33.369454Z",
+  "verified_at": "2026-09-28T16:12:33.369454Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "playwright",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?job\\-boards\\.eu\\.greenhouse\\.io/beamup/jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?beamup\\.ai/[^/?#]+/?$",
+      "^https?://(www\\.)?beamup\\.ai/who\\-we\\-serve/[^/?#]+/?$",
+      "^https?://(www\\.)?beamup\\.ai/utility\\-pages/[^/?#]+/?$"
+    ],
+    "url_shape": "job-boards.eu.greenhouse.io|beamup/jobs|3",
+    "explicit_accept": [],
+    "fallbacks": [
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 8,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 9,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 4
+  },
+  "rediscover_after": null,
+  "notes": []
+}
