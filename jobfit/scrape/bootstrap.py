@@ -44,12 +44,25 @@ def build_scrape_service(session, techmap_index: dict[str, list[dict]], plans_di
     return CompanyScrapeService(store, factory, health, registry, special_hosts=list(ats_fetchers.SPECIAL_CASE_FETCHERS))
 
 
-def build_discovery_planner(session, classifier=None, playwright_available: bool = True):
-    """The discovery graph. `classifier` defaults to RulesPlanClassifier;
-    Task 16 passes an LLMPlanClassifier built from a lazily-imported
-    llm_client. This function is called only by the discovery command."""
+def build_discovery_planner(session, classifier=None, playwright_available: bool = True, use_llm: bool = False, model: str | None = None):
+    """The discovery graph. classifier precedence: an explicit `classifier`;
+    else, with use_llm, an LLMPlanClassifier over AnthropicLLMClient
+    (imported lazily HERE and nowhere else); else RulesPlanClassifier. If
+    the model client cannot be constructed (no credentials), log a warning
+    and fall back to rules so discovery still produces plans."""
+    import logging
     from jobfit.scrape.classifiers import RulesPlanClassifier
     from jobfit.scrape.planner import PlanInducer, PlanValidator, ScrapePlanner
+
+    if classifier is None and use_llm:
+        try:
+            from jobfit.scrape.classifiers import LLMPlanClassifier
+            from jobfit.scrape.llm_client import AnthropicLLMClient
+            model = model or config.SCRAPE_PLAN_LLM_MODEL
+            classifier = LLMPlanClassifier(AnthropicLLMClient(model), model)
+        except Exception as error:  # noqa: BLE001 - missing SDK or credentials: degrade to rules, loudly
+            logging.getLogger("jobfit.scrape.discovery").warning("LLM classifier unavailable (%s); using rules", error)
+            classifier = None
 
     registry = default_registry(session)
     fetchers = PageFetcherFactory(session, playwright_available)
@@ -60,5 +73,5 @@ def build_discovery_planner(session, classifier=None, playwright_available: bool
     )
     return ScrapePlanner(
         registry, fetchers, CandidateExtractor(), classifier or RulesPlanClassifier(), PlanInducer(), PlanValidator(factory.chain_for),
-        special_hosts=list(ats_fetchers.SPECIAL_CASE_FETCHERS),
+        special_hosts=list(ats_fetchers.SPECIAL_CASE_FETCHERS), cooldown_days=config.DISCOVERY_COOLDOWN_DAYS,
     )

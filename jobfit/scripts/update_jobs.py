@@ -722,6 +722,90 @@ def print_plan_summary(store) -> None:
             print(f"    {p.company_id}: {p.strategy.reason} [{p.status}]")
 
 
+@dataclass
+class DiscoveryStats:
+    selected: int = 0
+    discovered: int = 0
+    verified: int = 0
+    unverified: int = 0
+    broken: int = 0
+    failed: list[str] = field(default_factory=list)
+
+
+def select_for_discovery(companies: dict[str, str | None], store, now: datetime, max_per_run: int, force_company: str | None = None) -> list[tuple[str, str | None]]:
+    """Missing plans first, then stale/stale_suspect past their cooldown,
+    then rules-derived unverified plans past their cooldown; capped."""
+    from jobfit.scrape.ids import plan_id_for
+
+    if force_company:
+        return [(force_company, companies[force_company])]
+    missing, stale, rules = [], [], []
+    for company, url in companies.items():
+        plan = store.get(plan_id_for(company))
+        if plan is None:
+            missing.append((company, url))
+            continue
+        cooling = plan.rediscover_after is not None and plan.rediscover_after > now
+        if plan.status in ("stale_suspect", "stale") and not cooling:
+            stale.append((company, url))
+        elif plan.status == "unverified" and plan.derived_by == "rules" and not cooling:
+            rules.append((company, url))
+    ordered = missing + stale + rules
+    return ordered if max_per_run == 0 else ordered[:max_per_run]
+
+
+def discover_plans(companies: dict[str, str | None], planner, store, snapshots_dir: Path, max_per_run: int, concurrency: int,
+                   force_company: str | None = None, now=None) -> DiscoveryStats:
+    """The discovery batch - the only code path that may call a model
+    (through the planner's classifier). Writes one plan per company and
+    the listing snapshot it was derived from."""
+    from jobfit.scrape.errors import FetchFailed
+    from jobfit.scrape.ids import plan_id_for
+
+    now = now or (lambda: datetime.now(timezone.utc))
+    stats = DiscoveryStats()
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="discover", scope=force_company or "batch"):
+        selected = select_for_discovery(companies, store, now(), max_per_run, force_company)
+        stats.selected = len(selected)
+        logger.info("discovery: %d companies selected (max %s)", len(selected), max_per_run or "unbounded")
+
+        def one(company, url):
+            company_id = plan_id_for(company)
+            plan, page = planner.discover(company_id, url)
+            store.put(plan)
+            if page is not None:
+                snapshots_dir.mkdir(parents=True, exist_ok=True)
+                tmp = snapshots_dir / f"{company_id}.html.tmp"
+                tmp.write_text(page.html, encoding="utf-8")
+                tmp.replace(snapshots_dir / f"{company_id}.html")
+            return company, plan
+
+        with ThreadPoolExecutor(max_workers=max(1, concurrency)) as pool:
+            futures = {pool.submit(one, company, url): company for company, url in selected}
+            for future in as_completed(futures):
+                company = futures[future]
+                try:
+                    _, plan = future.result()
+                except FetchFailed as error:
+                    stats.failed.append(company)
+                    logger.warning("%s: discovery failed - %s", company, error)
+                    continue
+                except Exception as error:  # noqa: BLE001 - one bad company must never abort the batch
+                    stats.failed.append(company)
+                    logger.warning("%s: discovery crashed - %s: %s", company, type(error).__name__, error)
+                    continue
+                stats.discovered += 1
+                if plan.strategy.kind == "broken_url":
+                    stats.broken += 1
+                if plan.status == "verified":
+                    stats.verified += 1
+                else:
+                    stats.unverified += 1
+                logger.info("%s: plan %s/%s via %s", company, plan.strategy.kind, plan.status, plan.derived_by)
+        stats.failed.sort()
+    return stats
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None, help="only process the first N companies (testing)")
@@ -732,7 +816,14 @@ def main() -> None:
     parser.add_argument("--force-rescore", action="store_true", help="rescore every job regardless of the score cache")
     parser.add_argument("--force-aggregate", action="store_true", help="ignore the per-company aggregate cache")
     parser.add_argument("--plans", action="store_true", help="print a summary of stored scrape plans and exit")
+    parser.add_argument("--discover", action="store_true", help="derive scrape plans for companies that need one (missing/stale/rules-unverified) before scraping; the only mode that may call a model")
+    parser.add_argument("--discover-max", type=int, default=config.DISCOVERY_MAX_PER_RUN, help="companies per --discover run (0 = unbounded)")
+    parser.add_argument("--rediscover", action="store_true", help="force re-discovery of --company, ignoring budget and cooldown")
+    parser.add_argument("--no-llm", action="store_true", help="discovery with the rules classifier only")
     args = parser.parse_args()
+
+    if args.rediscover and not args.company:
+        parser.error("--rediscover requires --company")
 
     if args.plans:
         from jobfit.scrape.plan_store import FilePlanStore
@@ -749,6 +840,20 @@ def main() -> None:
             companies = {args.company: companies[args.company]}
         elif args.limit:
             companies = dict(list(companies.items())[: args.limit])
+
+        if args.discover or args.rediscover:
+            from jobfit.scrape.plan_store import FilePlanStore
+            session = ats_fetchers.make_session()
+            planner = scrape_bootstrap.build_discovery_planner(session, use_llm=not args.no_llm)
+            discovery = discover_plans(
+                companies, planner, FilePlanStore(config.SCRAPE_PLANS_DIR), config.LISTING_SNAPSHOTS_DIR,
+                max_per_run=0 if args.rediscover else args.discover_max, concurrency=config.DISCOVERY_CONCURRENCY,
+                force_company=args.company if args.rediscover else None,
+            )
+            print()
+            print("=== Discovery summary ===")
+            print(f"selected: {discovery.selected}, discovered: {discovery.discovered} (verified {discovery.verified}, unverified {discovery.unverified}, broken {discovery.broken})")
+            print(f"failed: {len(discovery.failed)}" + (f" ({', '.join(discovery.failed)})" if discovery.failed else ""))
 
         started = time.time()
         profiles = cv.load_profiles()
