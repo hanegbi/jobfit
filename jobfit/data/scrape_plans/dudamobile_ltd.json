@@ -1,0 +1,105 @@
+{
+  "company_id": "dudamobile_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.duda.co/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:33:24.885204Z",
+  "verified_at": "2026-09-28T13:33:24.885204Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?duda\\.co/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?duda\\.co/[^/?#]+/?$",
+      "^https?://(www\\.)?duda\\.co/es/[^/?#]+/?$",
+      "^https?://(www\\.)?duda\\.co/pt/[^/?#]+/?$",
+      "^https?://(www\\.)?support\\.duda\\.co/hc/en\\-us/articles/[^/?#]+/?$"
+    ],
+    "url_shape": "duda.co|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 39,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 44,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 45,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 46,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 63,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 68,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 69,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 72,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": null,
+  "notes": []
+}

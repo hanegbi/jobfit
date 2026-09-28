@@ -1,0 +1,45 @@
+{
+  "company_id": "dalet_sa",
+  "schema_version": 1,
+  "career_url": "https://jobs.dalet.com/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:33:24.885204Z",
+  "verified_at": "2026-09-28T13:33:24.885204Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?jobs\\.dalet\\.com/p/[^/?#]+/?$",
+    "exclude_url": [],
+    "url_shape": "jobs.dalet.com|p|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 2,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

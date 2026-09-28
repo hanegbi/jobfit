@@ -1,0 +1,72 @@
+{
+  "company_id": "datarx_ltd_datricks",
+  "schema_version": 1,
+  "career_url": "https://datricks.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:33:24.885204Z",
+  "verified_at": "2026-09-28T13:33:24.885204Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?datricks\\.com/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?datricks\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "datricks.com|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 22,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 23,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": null,
+  "notes": []
+}

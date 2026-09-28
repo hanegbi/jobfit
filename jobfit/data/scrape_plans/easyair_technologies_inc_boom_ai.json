@@ -1,0 +1,57 @@
+{
+  "company_id": "easyair_technologies_inc_boom_ai",
+  "schema_version": 1,
+  "career_url": "https://www.boomnow.com/careers.html",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:33:24.885204Z",
+  "verified_at": "2026-09-28T13:33:24.885204Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?jobs\\.deel\\.com/job\\-boards/bc8ec313\\-d5a9\\-4de7\\-84a1\\-0cc5a9dd0197/job\\-details/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?boomnow\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "jobs.deel.com|job-boards/bc8ec313-d5a9-4de7-84a1-0cc5a9dd0197/job-details|4",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 1,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 2,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": null,
+  "notes": []
+}

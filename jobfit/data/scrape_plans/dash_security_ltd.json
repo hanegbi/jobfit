@@ -1,0 +1,71 @@
+{
+  "company_id": "dash_security_ltd",
+  "schema_version": 1,
+  "career_url": "https://dash.security/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:33:24.885204Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?dash\\.security/[^/?#]+/?$"
+    ],
+    "url_shape": "dash.security|careers|2",
+    "explicit_accept": [
+      "https://dash.security/careers/product-manager",
+      "https://dash.security/careers/ai-security-researcher",
+      "https://dash.security/careers/software-engineer"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}

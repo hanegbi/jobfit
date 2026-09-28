@@ -1,0 +1,106 @@
+{
+  "company_id": "dragonflydb_ltd_formerly_attos_technologies",
+  "schema_version": 1,
+  "career_url": "https://dragonflydb.io/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:33:24.885204Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?dragonflydb\\.io/[^/?#]+/?$",
+      "^https?://(www\\.)?dragonflydb\\.io/careers/categories/[^/?#]+/?$"
+    ],
+    "url_shape": "dragonflydb.io|careers|2",
+    "explicit_accept": [
+      "https://www.dragonflydb.io/careers/growth-engineer",
+      "https://www.dragonflydb.io/careers/account-executive",
+      "https://www.dragonflydb.io/careers/senior-control-plane-backend-engineer-golang",
+      "https://www.dragonflydb.io/careers/principal-software-engineer-c-",
+      "https://www.dragonflydb.io/careers/technical-solutions-engineer",
+      "https://www.dragonflydb.io/careers/senior-core-cpp-engineer",
+      "https://www.dragonflydb.io/careers/sales-development-representative"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 34,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 35,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 38,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 39,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 7
+  },
+  "rediscover_after": null,
+  "notes": []
+}

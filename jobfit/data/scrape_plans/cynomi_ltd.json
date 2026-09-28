@@ -1,0 +1,74 @@
+{
+  "company_id": "cynomi_ltd",
+  "schema_version": 1,
+  "career_url": "https://cynomi.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:33:24.885204Z",
+  "verified_at": "2026-09-28T13:33:24.885204Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?cynomi\\.com/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?cta\\-service\\-cms2\\.hubspot\\.com/web\\-interactives/public/v1/track/[^/?#]+/?$",
+      "^https?://(www\\.)?cynomi\\.com/frameworks/[^/?#]+/?$",
+      "^https?://(www\\.)?cynomi\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "cynomi.com|careers/co/london-remote/8C.D66-1C.609/finance-operations-specialist|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 44,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}

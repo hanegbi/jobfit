@@ -1,0 +1,72 @@
+{
+  "company_id": "dbmaestro_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.dbmaestro.com/about-us/#about-positions",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:33:24.885204Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?474307\\.fs1\\.hubspotusercontent\\-na1\\.net/hubfs/474307/[^/?#]+/?$",
+      "^https?://(www\\.)?dbmaestro\\-my\\.sharepoint\\.com/:f:/p/dbm/[^/?#]+/?$"
+    ],
+    "url_shape": "dbmaestro.com|position|2",
+    "explicit_accept": [
+      "https://www.dbmaestro.com/position/application-lead-developer/",
+      "https://www.dbmaestro.com/position/lead-developer-backend-engineering/",
+      "https://www.dbmaestro.com/position/technical-success-manager/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 39,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}

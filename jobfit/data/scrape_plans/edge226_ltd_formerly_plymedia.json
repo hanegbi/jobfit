@@ -1,0 +1,69 @@
+{
+  "company_id": "edge226_ltd_formerly_plymedia",
+  "schema_version": 1,
+  "career_url": "https://www.edge226.com/company/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:33:24.885204Z",
+  "verified_at": "2026-09-28T13:33:24.885204Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?edge226\\.com/jobs\\-openings/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?edge226\\.com/company/[^/?#]+/?$",
+      "^https?://(www\\.)?edge226\\.com/es/company/[^/?#]+/?$",
+      "^https?://(www\\.)?edge226\\.com/zh/company/[^/?#]+/?$"
+    ],
+    "url_shape": "edge226.com|jobs-openings|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 21,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 22,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": null,
+  "notes": []
+}
