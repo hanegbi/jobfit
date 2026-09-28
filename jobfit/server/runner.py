@@ -7,7 +7,7 @@ import time
 import uuid
 from datetime import datetime, timezone
 
-from jobfit import config
+from jobfit import config, pipeline_lock
 from jobfit.atomic_io import write_json_atomic
 from jobfit.scripts import update_jobs
 from jobfit.server.logging_stream import attach, detach
@@ -83,6 +83,16 @@ def start_run(force: bool, companies: list[str] | None = None) -> str:
     update" button); a list scopes the scrape to just those names - e.g. the
     companies a referral upload just added, so you don't have to re-check
     everything else to pick up a handful of new ones."""
+    # Fail fast and synchronously if a CLI run (or another process) holds
+    # the pipeline lock - PipelineBusy is a RuntimeError, so app.py's
+    # existing `except RuntimeError` -> 409 handles it with no extra code.
+    # This is a best-effort check (a TOCTOU race with the thread started
+    # below is possible and acceptable); the real enforcement is the lock
+    # scrape_stage/recompute_stage take themselves, inside _run_worker.
+    probe = pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="update", scope="probe")
+    probe.__enter__()
+    probe.__exit__(None, None, None)
+
     with _lock:
         if _state["running"]:
             raise RuntimeError(f"run {_state['run_id']} already active")
@@ -117,6 +127,8 @@ def _run_worker(run_id: str, force: bool, companies: list[str] | None, cancel_ev
         stats = update_jobs.scrape_stage(scrape_targets, profiles, force=force, cancel_event=cancel_event)
         update_jobs.recompute_stage()
         _finish_run(run_id, started, stats, stopped=cancel_event.is_set())
+    except pipeline_lock.PipelineBusy as error:
+        _finish_run(run_id, started, update_jobs.RunStats(failures=[str(error)]), stopped=True)
     finally:
         detach(attached)
         if line_queue is not None:

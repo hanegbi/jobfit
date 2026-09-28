@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit import config, cv  # noqa: E402
+from jobfit import config, cv, pipeline_lock  # noqa: E402
 from jobfit.scripts import update_jobs as uj  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -50,16 +50,17 @@ def _to_fetched_jobs(raw_jobs: list[dict]) -> list[dict]:
 
 
 def main() -> None:
-    profiles = cv.load_profiles()
-    for company, json_path, career_url in SOURCES:
-        raw_jobs = json.loads(json_path.read_text(encoding="utf-8"))
-        fetched = _to_fetched_jobs(raw_jobs)
-        record, new_count, closed_count = uj.diff_and_update(company, career_url, fetched, profiles, rescore_all=True)
-        uj.save_company_file(company, record)
-        print(f"{company}: {len(record['jobs'])} jobs on file ({new_count} new, {closed_count} closed)")
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="import-workday", scope="all"):
+        profiles = cv.load_profiles()
+        for company, json_path, career_url in SOURCES:
+            raw_jobs = json.loads(json_path.read_text(encoding="utf-8"))
+            fetched = _to_fetched_jobs(raw_jobs)
+            record, new_count, closed_count = uj.diff_and_update(company, career_url, fetched, profiles, rescore_all=True)
+            uj.save_company_file(company, record)
+            print(f"{company}: {len(record['jobs'])} jobs on file ({new_count} new, {closed_count} closed)")
 
-    count = uj.aggregate_to_jobs_v2()
-    print(f"aggregated {count} jobs total into {config.JOBS_OUTPUT_JSON}")
+        count = uj.aggregate_to_jobs_v2()
+        print(f"aggregated {count} jobs total into {config.JOBS_OUTPUT_JSON}")
 
 
 if __name__ == "__main__":

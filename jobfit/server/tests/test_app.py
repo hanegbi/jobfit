@@ -68,6 +68,7 @@ def client(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "CONNECTIONS_CSV", tmp_path / "connections.csv")
     monkeypatch.setattr(config, "REFERRAL_UPLOADS_DIR", tmp_path / "referrals")
     monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
+    monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
     monkeypatch.setattr(config, "OUTPUT_HTML", tmp_path / "jobfit.html")
     monkeypatch.setattr(config, "COMPANIES_CAREER_PAGES_PATH", tmp_path / "companies_career_pages.json")
     monkeypatch.setattr(config, "COMPANY_REVIEW_PATH", tmp_path / "data" / "company_review.json")
@@ -390,6 +391,19 @@ def test_start_run_returns_409_when_already_running(client):
     finally:
         with runner._lock:
             runner._state.update(running=False, run_id=None, started_at=None, queue=None)
+
+
+def test_api_run_returns_409_when_pipeline_lock_is_held(client, monkeypatch):
+    from jobfit import pipeline_lock
+
+    monkeypatch.setattr(pipeline_lock, "_pid_alive", lambda pid: pid == 999999)
+    config.PIPELINE_LOCK_PATH.write_text(json.dumps({
+        "pid": 999999, "stage": "update", "scope": "all", "started_at": "x", "argv": ["update_jobs"],
+    }), encoding="utf-8")
+
+    response = client.post("/api/run", json={})
+    assert response.status_code == 409
+    assert "pipeline busy" in response.json()["detail"]
 
 
 def test_stop_run_returns_409_when_nothing_is_running(client):

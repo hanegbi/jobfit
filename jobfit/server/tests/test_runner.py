@@ -2,12 +2,15 @@ import json
 import threading
 import time
 
-from jobfit import config
+import pytest
+
+from jobfit import config, pipeline_lock
 from jobfit.server import runner
 
 
 def test_start_run_marks_running_then_finishes(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
+    monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
     monkeypatch.setattr(runner, "_LOGGER_NAMES", [])
 
     seen_companies = {}
@@ -46,6 +49,7 @@ def test_start_run_marks_running_then_finishes(tmp_path, monkeypatch):
 
 def test_start_run_scopes_scrape_to_the_given_companies(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
+    monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
     monkeypatch.setattr(runner, "_LOGGER_NAMES", [])
 
     seen_companies = {}
@@ -98,6 +102,7 @@ def test_stop_run_sets_the_cancel_event_for_the_active_run():
 
 def test_scrape_stage_receives_the_cancel_event_and_marks_the_run_stopped(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
+    monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
     monkeypatch.setattr(runner, "_LOGGER_NAMES", [])
 
     received_event = {}
@@ -130,6 +135,7 @@ def test_scrape_stage_receives_the_cancel_event_and_marks_the_run_stopped(tmp_pa
 
 def test_start_run_rejects_a_second_concurrent_run(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
+    monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
     with runner._lock:
         runner._state.update(running=True, run_id="already-running", started_at="x", queue=None)
     try:
@@ -141,6 +147,19 @@ def test_start_run_rejects_a_second_concurrent_run(tmp_path, monkeypatch):
     finally:
         with runner._lock:
             runner._state.update(running=False, run_id=None, started_at=None, queue=None)
+
+
+def test_start_run_raises_when_another_pipeline_run_holds_the_lock(monkeypatch, tmp_path):
+    """A CLI `update_jobs` run holding the pipeline lock must be visible to
+    the server as a conflict, not just other server-triggered runs."""
+    monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
+    monkeypatch.setattr(pipeline_lock, "_pid_alive", lambda pid: pid == 999999)
+    config.PIPELINE_LOCK_PATH.write_text(json.dumps({
+        "pid": 999999, "stage": "update", "scope": "all", "started_at": "x", "argv": ["update_jobs"],
+    }), encoding="utf-8")
+
+    with pytest.raises(RuntimeError, match="pipeline busy"):
+        runner.start_run(force=False)
 
 
 def test_mark_orphaned_runs_crashed_flags_unfinished_entries(tmp_path, monkeypatch):

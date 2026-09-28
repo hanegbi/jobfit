@@ -8,9 +8,9 @@ from pathlib import Path
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
 
-from jobfit import company_review, config, cv
+from jobfit import company_review, config, cv, pipeline_lock
 from jobfit.scripts import update_jobs
-from jobfit.server import dashboard, runner, singleton_lock
+from jobfit.server import dashboard, runner
 
 STATIC_DIR = Path(__file__).parent / "static"
 LOCK_PATH = config.ROOT / "data" / ".server.lock"
@@ -19,11 +19,15 @@ LOCK_PATH = config.ROOT / "data" / ".server.lock"
 @asynccontextmanager
 async def _lifespan(app: FastAPI):
     # Two server processes writing companies/*.json and profiles.json at once
-    # silently corrupt/lose data - see singleton_lock's own docstring.
-    singleton_lock.acquire(LOCK_PATH)
+    # silently corrupt/lose data - see pipeline_lock's own docstring. This
+    # reuses the same lock mechanism as the pipeline stages, at a different
+    # path and for a different purpose (one whole server instance, for its
+    # entire lifetime, rather than one mutating stage at a time).
+    server_lock = pipeline_lock.PipelineLock(LOCK_PATH, stage="server", scope="instance")
+    server_lock.__enter__()
     runner.mark_orphaned_runs_crashed()
     yield
-    singleton_lock.release(LOCK_PATH)
+    server_lock.__exit__(None, None, None)
 
 
 app = FastAPI(title="jobfit control panel", lifespan=_lifespan)
