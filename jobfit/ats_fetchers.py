@@ -363,8 +363,9 @@ def _is_cookie_widget(tag) -> bool:
 
 
 def _contains_a_job_link(tag) -> bool:
-    from jobfit.listing_heuristics import looks_like_job_title
-    return any(looks_like_job_title(_link_title_text(a)) for a in tag.find_all("a", href=True))
+    from jobfit.scrape.candidates import link_title_text
+    from jobfit.scrape.filters import DenylistFilter
+    return any(DenylistFilter.text_ok(link_title_text(a)) for a in tag.find_all("a", href=True))
 
 
 def _strip_boilerplate(soup: BeautifulSoup) -> None:
@@ -540,25 +541,6 @@ def fetch_generic_job_details(session: requests.Session, url: str) -> dict:
     }
 
 
-def _link_title_text(a) -> str:
-    """Prefer a heading element's own text over the whole anchor's text. Many
-    career-page builders wrap an entire job card - title, department tag,
-    location, a description snippet, an "Apply Now" CTA - in one <a>, and
-    a.get_text() then concatenates all of it into one garbled "title" (real
-    example caught live: Adaptive6's Webflow careers page renders
-    "Senior Backend Developer Engineering Israel Apply Now" as the link text,
-    even though the real title lives cleanly in a nested
-    <h2 class="heading-style-h5">Senior Backend Developer</h2>). Falls back to
-    the whole anchor's text when no heading is nested inside it, so simpler
-    career pages (the link text IS just the title) are unaffected."""
-    heading = a.find(["h1", "h2", "h3", "h4", "h5", "h6"])
-    if heading:
-        heading_text = _clean(heading.get_text(" "))
-        if heading_text:
-            return heading_text
-    return _clean(a.get_text(" "))
-
-
 def fetch_elbit_sigmabit_jobs(session: requests.Session) -> list[dict]:
     """Elbit Systems Sigmabit's careers site (elbitsystemscareer.com) renders
     every one of its ~578 job cards entirely client-side with no real <a
@@ -617,64 +599,27 @@ SPECIAL_CASE_FETCHERS = {
 def fetch_listing_links(session: requests.Session, url: str, max_links: int = 8) -> list[tuple[str, str]]:
     """Pull candidate (title, absolute_url) job links off a career listing page.
 
-    Plain-HTTP first pass for a user-supplied company->careers-URL map: many
-    listing pages are static enough that BeautifulSoup already sees the real
-    links; only the JS-rendered ones need the Playwright fallback
-    (scripts/playwright_listings.py), so this keeps the fast/cheap path doing
-    as much of the work as it can.
+    Delegates to jobfit.scrape's CandidateExtractor + legacy_listing_chain
+    so the plain-HTTP and Playwright paths agree by construction. Same-host
+    links are ordered first (stable) before the cap is applied: a shared
+    marketing mega-menu (Check Point's careers.checkpoint.com page links
+    out to www.checkpoint.com ahead of its own results) would otherwise
+    fill the cap before a single real job link was reached.
     """
-    from urllib.parse import urljoin, urlsplit
-
-    from jobfit.listing_heuristics import drop_category_prefix_links, looks_like_job_link_href, looks_like_job_title
+    from jobfit.scrape.candidates import CandidateExtractor
+    from jobfit.scrape.fetchers import make_page
+    from jobfit.scrape.filters import legacy_listing_chain
 
     if not url or any(host in url.lower() for host in _SKIP_GENERIC_FETCH_HOSTS):
         return []
-    source_host = urlsplit(url).netloc.lower()
     response = _request(session, "GET", url)
     if response is None:
         return []
-    try:
-        soup = BeautifulSoup(response.text, "html.parser")
-    except Exception:  # noqa: BLE001
-        return []
-    _strip_boilerplate(soup)
-
-    seen: set[str] = set()
-    results: list[tuple[str, str]] = []
-    # Collect a wider pool than max_links before filtering: a career page that
-    # links both department overviews and individual postings (see
-    # drop_category_prefix_links) would otherwise have its cap eaten by the
-    # overview links before the filter ever runs.
-    candidate_cap = max_links * 4
-    for a in soup.find_all("a", href=True):
-        text = _link_title_text(a)
-        href = a["href"]
-        if not text or href.startswith("#") or href.lower().startswith("javascript:"):
-            continue
-        if not looks_like_job_link_href(href):
-            continue
-        if not looks_like_job_title(text):
-            continue
-        absolute = urljoin(url, href)
-        if absolute in seen:
-            continue
-        seen.add(absolute)
-        results.append((text, absolute))
-        if len(results) >= candidate_cap:
-            break
-    # Prefer links on the same host as the career page itself. A page with a
-    # large marketing mega-menu can have dozens of product/solution links
-    # that individually pass every title heuristic and appear well before
-    # the real job links in document order - real case: Check Point's Israel
-    # job-search page (careers.checkpoint.com) has a shared site-wide
-    # mega-menu linking out to www.checkpoint.com ahead of its own results,
-    # so the first actual job link doesn't show up until candidate #124,
-    # long past any reasonable max_links. Stable sort: same-host candidates
-    # move first without disturbing relative order within each group, so a
-    # company that legitimately posts jobs on a different subdomain doesn't
-    # lose them outright, just loses priority for the cap.
-    results.sort(key=lambda item: urlsplit(item[1]).netloc.lower() != source_host)
-    return drop_category_prefix_links(results)[:max_links]
+    page = make_page(url, getattr(response, "url", url) or url, getattr(response, "status_code", 200), response.text or "", "http")
+    candidates = CandidateExtractor().extract(page, url, cap=max_links * 4)
+    accepted, _ = legacy_listing_chain().run(candidates)
+    accepted.sort(key=lambda c: not c.same_host)
+    return [(c.text, c.href) for c in accepted[:max_links]]
 
 
 ATS_FETCHERS = {

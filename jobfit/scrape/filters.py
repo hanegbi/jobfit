@@ -212,3 +212,14 @@ class FilterChain:
                 verdict = Verdict(accept=False, filter_name="chain", reason="no filter accepted this link")
             (accepted if verdict.accept else rejected).append(candidate if verdict.accept else (candidate, verdict))
         return accepted, rejected
+
+
+def legacy_listing_chain() -> FilterChain:
+    """Exactly what the pre-plan heuristics accepted: reject denylisted
+    text, non-job href markers and category overviews; accept everything
+    else. Used by the two legacy listing entry points until Group B wires
+    the plan-driven chain, and by RulesPlanClassifier as its base."""
+    return FilterChain([
+        DenylistFilter(), HrefMarkerFilter(), CategoryPrefixFilter(),
+        EvidenceThresholdFilter(min_signals=0, reject_chrome=False),
+    ])

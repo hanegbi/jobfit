@@ -155,26 +155,9 @@ def test_fetch_generic_job_details_returns_empty_for_no_url():
 
 
 # --- title extraction & boilerplate stripping -------------------------------
-
-def test_link_title_text_prefers_a_nested_heading_over_the_whole_anchor():
-    """Real example caught live: Adaptive6's Webflow careers page wraps an
-    entire job card - title, department tag, location, description snippet,
-    an "Apply Now" CTA - in one <a>, so a.get_text() produced "Senior Backend
-    Developer Engineering Israel Apply Now" instead of just the real title."""
-    html = (
-        '<a href="/x"><h2>Senior Backend Developer</h2>'
-        '<div class="tag">Engineering</div><div class="location">Israel</div>'
-        '<span>Apply Now</span></a>'
-    )
-    a = _soup(html).find("a")
-    assert ats_fetchers._link_title_text(a) == "Senior Backend Developer"
-
-
-def test_link_title_text_falls_back_to_full_text_when_no_heading():
-    html = '<a href="/x">Backend Engineer</a>'
-    a = _soup(html).find("a")
-    assert ats_fetchers._link_title_text(a) == "Backend Engineer"
-
+# link_title_text moved to jobfit.scrape.candidates (Plan B Task 5) - see
+# test_scrape_candidates.py::test_prefers_a_nested_heading_over_the_whole_card_text
+# for the equivalent coverage.
 
 def test_strip_boilerplate_keeps_a_header_that_contains_a_real_job_link():
     """Real bug caught live: the entire job-listing section on Adaptive6's

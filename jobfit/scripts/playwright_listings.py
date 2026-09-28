@@ -31,7 +31,6 @@ import json
 import logging
 import sys
 from pathlib import Path
-from urllib.parse import urljoin
 
 from playwright.async_api import async_playwright
 
@@ -39,12 +38,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from jobfit import config  # noqa: E402
 from jobfit.ats_fetchers import COOKIE_WIDGET_MARKERS, looks_like_boilerplate  # noqa: E402
-from jobfit.listing_heuristics import (  # noqa: E402
-    clean as _clean,
-    drop_category_prefix_links,
-    looks_like_job_link_href as _looks_like_job_link_href,
-    looks_like_job_title as _looks_like_job_title,
-)
+from jobfit.scrape.candidates import CandidateExtractor  # noqa: E402
+from jobfit.scrape.fetchers import make_page  # noqa: E402
+from jobfit.scrape.filters import legacy_listing_chain  # noqa: E402
+
+
+def _clean(text: str) -> str:
+    return " ".join((text or "").split())
 
 logger = logging.getLogger("jobfit.playwright_listings")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -70,43 +70,14 @@ INPUT_PATH = config.ROOT / "cache" / "needs_playwright.json"
 
 
 async def extract_job_links(page, base_url: str) -> list[tuple[str, str]]:
-    """Return [(title, absolute_url), ...] from the rendered page's anchors.
-
-    Prefers a nested h1-h6 heading's text over the whole anchor's text, same
-    as ats_fetchers._link_title_text - a job-card <a> commonly wraps the
-    title plus a department tag, location, and an "Apply Now" CTA into one
-    block of innerText (real case: Adaptive6's Webflow careers page), and
-    that contamination survives even after Playwright renders the page.
-    """
-    anchors = await page.eval_on_selector_all(
-        "a[href]",
-        """els => els.map(e => {
-            const heading = e.querySelector('h1, h2, h3, h4, h5, h6');
-            const headingText = heading ? (heading.innerText || heading.textContent || '').trim() : '';
-            const text = headingText || e.innerText || e.textContent || '';
-            return {text, href: e.getAttribute('href')};
-        })""",
-    )
-    seen_urls: set[str] = set()
-    results: list[tuple[str, str]] = []
-    candidate_cap = MAX_JOB_LINKS_PER_COMPANY * 4
-    for a in anchors:
-        text = _clean(a.get("text") or "")
-        href = a.get("href") or ""
-        if not href or href.startswith("#") or href.lower().startswith("javascript:"):
-            continue
-        if not _looks_like_job_link_href(href):
-            continue
-        if not _looks_like_job_title(text):
-            continue
-        url = urljoin(base_url, href)
-        if url in seen_urls:
-            continue
-        seen_urls.add(url)
-        results.append((text, url))
-        if len(results) >= candidate_cap:
-            break
-    return drop_category_prefix_links(results)[:MAX_JOB_LINKS_PER_COMPANY]
+    """Return [(title, absolute_url), ...] from the rendered DOM, through
+    the same CandidateExtractor + legacy_listing_chain the plain-HTTP path
+    uses, so the two never drift apart again."""
+    html = await page.content()
+    rendered = make_page(base_url, page.url or base_url, 200, html, "playwright")
+    candidates = CandidateExtractor().extract(rendered, base_url, cap=MAX_JOB_LINKS_PER_COMPANY * 4)
+    accepted, _ = legacy_listing_chain().run(candidates)
+    return [(c.text, c.href) for c in accepted[:MAX_JOB_LINKS_PER_COMPANY]]
 
 
 # Cookie-consent widgets (Complianz, Cookiebot, OneTrust, ...) render as plain
