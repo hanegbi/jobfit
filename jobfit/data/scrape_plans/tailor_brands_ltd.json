@@ -1,0 +1,88 @@
+{
+  "company_id": "tailor_brands_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.tailorbrands.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:30:32.829189Z",
+  "verified_at": "2026-09-28T11:30:32.829189Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?tailorbrands\\.com/career/co/https\\-www\\-tailorbrands\\-com\\-careers/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?tailorbrands\\.com/career/co/https\\-www\\-tailorbrands\\-com\\-careers/7A\\.A46/looking\\-for\\-something\\-else\\-lets\\-keep\\-in\\-touch/[^/?#]+/?$",
+      "^https?://(www\\.)?tailorbrands\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "tailorbrands.com|career/co/https-www-tailorbrands-com-careers/B9.E67/data-engineer|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 34,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 35,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 7
+  },
+  "rediscover_after": null,
+  "notes": []
+}

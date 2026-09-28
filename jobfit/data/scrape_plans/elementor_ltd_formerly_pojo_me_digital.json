@@ -1,0 +1,53 @@
+{
+  "company_id": "elementor_ltd_formerly_pojo_me_digital",
+  "schema_version": 1,
+  "career_url": "https://elementor.careers/explore/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:18:22.309663Z",
+  "verified_at": "2026-09-28T10:18:22.309663Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?elementor\\.careers/explore/co/rd/8D\\.170/appsec\\-architect/[^/?#]+/?$",
+    "exclude_url": [],
+    "url_shape": "elementor.careers|explore/co/rd/8D.170/appsec-architect|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 22,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "2516c09ba0ef21c78fff4038c0f6d3f2cc18e2ba",
+    "candidate_count": 49
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": "2026-10-05T10:18:22.309663Z",
+  "notes": []
+}

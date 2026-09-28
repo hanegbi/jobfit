@@ -1,0 +1,2312 @@
+<!doctype html>
+<html lang="en-US" class="no-js">
+
+<head><meta charset="UTF-8" /><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	
+
+	<title>Third-Party Risk Management Careers | Panorays</title>
+<link data-rocket-prefetch href="https://www.googletagmanager.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://cdn-cookieyes.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://cdn.claydar.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://js.hsforms.net" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://www.clickcease.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://static.claydar.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://panorays.chilipiper.com" rel="dns-prefetch">
+<link crossorigin data-rocket-preload as="font" href="https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-300.woff" rel="preload">
+<link crossorigin data-rocket-preload as="font" href="https://panorays.com/wp-content/themes/panorays/assets/fonts/mazzard-h/MazzardHRegular.woff2" rel="preload">
+<style id="rocket-critical-css">.container{width:100%;margin-right:auto;margin-left:auto;padding-right:15px;padding-left:15px}:root{--swiper-theme-color:#007aff}:host{position:relative;display:block;margin-left:auto;margin-right:auto;z-index:1}:root{--swiper-navigation-size:44px}@font-face{font-display:swap;font-family:"Mazzard H";font-weight:400;font-style:normal;src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/mazzard-h/MazzardHRegular.woff2) format("woff2"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/mazzard-h/MazzardHRegular.woff) format("woff")}@font-face{font-display:swap;font-family:"Mazzard H";font-weight:500;font-style:normal;src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/mazzard-h/MazzardHMedium.woff2) format("woff2"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/mazzard-h/MazzardHMedium.woff) format("woff")}@font-face{font-display:swap;font-family:"Mazzard H";font-weight:600;font-style:normal;src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/mazzard-h/MazzardHSemiBold.woff2) format("woff2"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/mazzard-h/MazzardHSemiBold.woff) format("woff")}@font-face{font-display:swap;font-family:"Mazzard H";font-weight:700;font-style:normal;src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/mazzard-h/MazzardHBold.woff2) format("woff2"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/mazzard-h/MazzardHBold.woff) format("woff")}@font-face{font-display:swap;font-family:"Museo Sans";font-weight:300;font-style:normal;src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-300.eot);src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-300.woff) format("woff"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-300.ttf) format("truetype"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-300.svg) format("svg")}@font-face{font-display:swap;font-family:"Museo Sans";font-weight:500;font-style:normal;src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-500.eot);src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-500.woff) format("woff"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-500.ttf) format("truetype"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-500.svg) format("svg")}@font-face{font-display:swap;font-family:"Museo Sans";font-weight:700;font-style:normal;src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-700.eot);src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-700.woff) format("woff"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-700.ttf) format("truetype"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/museo-sans/MuseoSans-700.svg) format("svg")}@font-face{font-family:"Icomoon";font-weight:normal;font-style:normal;font-display:swap;src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/icomoon/icomoon.eot?v=1.2);src:url(https://panorays.com/wp-content/themes/panorays/assets/fonts/icomoon/icomoon.ttf?v=1.2) format("truetype"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/icomoon/icomoon.woff?v=1.2) format("woff"),url(https://panorays.com/wp-content/themes/panorays/assets/fonts/icomoon/icomoon.svg?v=1.2) format("svg")}.icomoon{font-family:"Icomoon";font-weight:normal;font-style:normal;font-variant:normal;line-height:1;text-transform:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icomoon-search:before{content:""}.icomoon-release:before{content:""}html,body,div,span,iframe,h1,p,a,img,ul,li,form,label,figure,header,nav{font:inherit;font-size:100%;margin:0;padding:0;vertical-align:baseline;border:0}figure,header,nav{display:block}ul{list-style:none}*,*:before,*:after{box-sizing:border-box}*{min-width:0}iframe,img{max-width:100%}a{text-decoration:none;color:inherit}html{font-size:62.5%}@media only screen and (max-width:1366px){html{font-size:55%}}body{font-family:"Museo Sans",sans-serif;font-size:1.6rem;font-weight:300;line-height:1;color:#0d2159;background:#f8f8fa;-webkit-appearance:none;direction:ltr}@media only screen and (max-width:1024px){body{padding-top:70px}}img{display:block;width:auto;height:auto}#site-wrap{position:relative;min-height:100%}.container,.block-container,.wp-block-columns{max-width:1310px}@media only screen and (max-width:1366px){.container,.block-container,.wp-block-columns{max-width:1140px}}.block-container,.wp-block-columns{width:100%;margin-right:auto;margin-left:auto;padding-right:15px;padding-left:15px}.wp-block-columns{margin:auto auto 0}.wp-block-columns .block-container{padding:0}.block{background-position:center;background-size:cover}.site-header{position:relative;z-index:50;display:block}.header-desktop{display:block;height:120px;background-color:#fff}.header-desktop .site-logo img{width:120px}.header-top{position:relative;height:35px;background:#f8f8fa}.header-top .cols{display:flex;align-items:center;justify-content:space-between}.header-top .top-banner{font-size:16px}.header-top .top-banner a{font-weight:600;color:#ff776b}.header-main{z-index:999;top:0;width:100%;background-color:hsla(0,0%,100%,.9);backdrop-filter:blur(4px)}.header-main__in{display:flex;align-items:center;justify-content:space-between}.top-nav{display:flex;align-items:center}.top-nav .top-menu{display:flex;justify-content:flex-end}.top-nav .top-menu>li{position:relative;margin-right:30px}.top-nav .top-menu>li>a{font-family:"Mazzard H",sans-serif;font-size:1.5rem;display:block;padding:10px 0;color:#212457}.top-nav .top-menu>li:last-child{margin-right:0}.header-mobile{position:fixed;z-index:999;top:0;display:none;align-items:center;width:100%;height:70px;padding:0 20px;background:#fff;box-shadow:0 0 10px rgba(0,0,0,.05)}.header-mobile .site-logo img{width:120px}.btn-search-toggle{font-size:1.8rem;display:flex;margin-right:25px;color:#0d2159;border:none;background:none}.header-search{position:absolute;z-index:20;top:100%;left:0;visibility:hidden;width:100%;padding:20px;transform:translateY(10px);opacity:0;border-bottom:5px solid #ededed;background:#fff}.header-search-form{position:relative}.main-search{position:relative}@media only screen and (max-width:1024px){.header-desktop{display:none}.header-mobile{display:flex}}.main-navigation{display:flex}.main-navigation>.menu-item>a{font-family:"Mazzard H",sans-serif;font-size:1.5rem;font-weight:500;position:relative;display:flex;align-items:center;justify-content:center;height:85px;padding:0 1.5rem}.main-navigation>.menu-item>a:before{position:absolute;bottom:18px;left:50%;display:block;width:0;content:"";transform:translateX(-50%);border-bottom:2px solid #f4785b}.main-navigation>.menu-item-has-children>a:after{font-family:"Icomoon";font-size:10px;position:relative;top:1px;margin-left:5px;content:"";color:#9597af}.main-navigation>.menu-item-last{margin-right:3.5rem}.main-navigation .menu-item-button{display:flex;align-items:center}.main-navigation .menu-item-button.menu-item-button-1{margin-right:1.5rem}.main-navigation .menu-item-button.menu-item-button-1 a{padding:0 2rem}.main-navigation .sub-menu{position:absolute;z-index:5;left:0;visibility:hidden;width:100%;transform:translateX(-10px);opacity:0;border-top:1px solid #dce3e5}.main-navigation .sub-menu .sub-menu-main{display:flex;width:100%}.main-navigation .sub-menu .sub-menu-main-left{flex:1;padding:30px 40px 40px calc((100vw - 1290px)/2);background:#fff}@media only screen and (max-width:1280px){.main-navigation .sub-menu .sub-menu-main-left{padding-left:20px}}.main-navigation .sub-menu .sub-menu-main-right{padding:30px calc((100vw - 1290px)/2) 40px 40px;border-left:1px solid #dce3e5;background:#fbfcfd}@media only screen and (max-width:1280px){.main-navigation .sub-menu .sub-menu-main-right{padding-right:20px}}.main-navigation .sub-menu .sub-menu-main-right .sub-item-title{margin-bottom:20px}.main-navigation .sub-menu .sub-items{display:flex}.main-navigation .sub-item{margin-right:40px}.main-navigation .sub-item-full .sub-item-links{display:block}.main-navigation .sub-item-half{width:calc(50% - 30px)}.main-navigation .sub-item-one-fourth{width:calc(25% - 30px)}.main-navigation .sub-item .sub-item-links{display:flex;flex-wrap:wrap;justify-content:space-between}.main-navigation .sub-item .sub-item-links .sub-item-link-full{width:100%}.main-navigation .sub-item .sub-item-links .sub-item-link-half{width:calc(50% - 20px)}.main-navigation .sub-item:last-child{margin-right:0}.main-navigation .sub-item-title{font-family:"Mazzard H",sans-serif;font-size:14px;font-weight:500;display:flex;align-items:center;height:40px;margin-bottom:5px;text-transform:uppercase;border-bottom:1px solid #e4ebef}.main-navigation .sub-item-title-icon{margin-right:10px}.main-navigation .sub-item-image{display:block;box-shadow:0 3px 6px rgba(0,0,0,.15)}.main-navigation .sub-item-image img{max-width:230px}.main-navigation .sub-item-link{margin-bottom:5px}.main-navigation .sub-item-link a{display:block;margin:0 -1.5rem;padding:1.5rem;text-transform:none;border-radius:4px}.main-navigation .sub-item-link-title{font-size:14px;font-weight:700;line-height:1.3;display:block;margin-bottom:5px}.main-navigation .sub-item-link-text{font-size:12px;line-height:1.8;color:#636588}.main-navigation .featured-content-resources{width:275px}.main-navigation .featured-content-2x{width:470px}.main-navigation .featured-content-list-columns{display:flex;flex-wrap:wrap;margin:0 -5px}.main-navigation .featured-content-list-columns .featured-content-item{width:50%;padding:0 5px}.main-navigation .featured-content-positions .featured-content-item a{padding:1.5rem}.main-navigation .featured-content-positions .featured-content-item-title{font-weight:700}.main-navigation .featured-content .featured-content-item{margin-bottom:10px}.main-navigation .featured-content .featured-content-item-has-image .featured-content-item-link{flex-direction:row}.main-navigation .featured-content .featured-content-item-has-image .featured-content-item-link .featured-content-item-title{margin-bottom:0}.main-navigation .featured-content .featured-content-item-link{display:flex;flex-direction:column;height:100%;margin-bottom:10px;padding:10px;border:1px solid #e9e9ea;border-radius:4px;background-color:#fff}.main-navigation .featured-content .featured-content-item-image{flex:0 0 85px;width:85px;height:85px;margin-right:10px}.main-navigation .featured-content .featured-content-item-image img{border-radius:4px}.main-navigation .featured-content .featured-content-item-content{display:flex;flex-direction:column}.main-navigation .featured-content .featured-content-item-title{font-size:13px;line-height:1.2;display:block;margin-bottom:10px}.main-navigation .featured-content .featured-content-item-text{font-size:12px;line-height:1.6;margin-bottom:20px;color:#636588}.main-navigation .featured-content .featured-content-item-cat{font-size:12px;align-self:flex-start;margin-top:auto;padding:2px 7px;border:1px solid;border-radius:4px}.main-navigation .sub-menu-bottom{padding:1.5rem 0;border-top:1px solid #dce3e5;border-bottom:1px solid #dce3e5;background-color:#f6f8fa}.main-navigation .sub-menu-bottom .sub-menu-bottom-links{display:flex;padding:0 5px}.main-navigation .sub-menu-bottom .sub-menu-bottom-links .menu-item{display:flex}.main-navigation .sub-menu-bottom .sub-menu-bottom-links .menu-item a{font-size:12px}.main-navigation .sub-menu-bottom .sub-menu-bottom-links .menu-item:after{font-size:12px;top:0;right:0;margin:0 7px;content:"|"}.main-navigation .sub-menu-bottom .sub-menu-bottom-links .menu-item:last-child:after{display:none}.mobile-navigation .mn-trigger{position:absolute;z-index:9999;top:0;right:0;width:70px;height:70px;border:none;background:#fff}.mobile-navigation .mn-trigger .mn-icon{position:relative;display:block;width:22px;height:20px;margin:auto}.mobile-navigation .mn-trigger .mn-icon .mn-line{position:absolute;display:block;width:100%;height:2px;opacity:1;border-radius:6px;background:#707070}.mobile-navigation .mn-trigger .mn-icon .mn-line:nth-child(1){top:0}.mobile-navigation .mn-trigger .mn-icon .mn-line:nth-child(2),.mobile-navigation .mn-trigger .mn-icon .mn-line:nth-child(3){top:8px}.mobile-navigation .mn-trigger .mn-icon .mn-line:nth-child(4){top:16px}.mobile-navigation .mn-menu-wrap{position:fixed;z-index:9999;top:70px;right:0;overflow:auto;width:100%;height:calc(100% - 70px);padding:20px;transform:translate(100%,0);background:#f6f8f9}.mobile-navigation .mn-search{margin-bottom:2rem}.mobile-navigation .search-input[type=search]{height:6rem}.mobile-navigation .mn-menu{margin-bottom:40px}.mobile-navigation .mn-menu>li>a{font-size:15px;font-weight:700;display:block;padding:15px 0;color:#0d2159;border-bottom:1px solid #c9ccce}.mobile-navigation .mn-menu>li.menu-item-has-children>a{display:flex;align-items:center;justify-content:space-between}.mobile-navigation .mn-menu>li.menu-item-has-children>a:after{font-family:"Icomoon";font-size:12px;content:""}.mobile-navigation .mn-menu .sub-menu{display:none}.mobile-navigation .mn-menu .sub-item-title{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid #c9ccce}.mobile-navigation .mn-menu .sub-item-title .sub-item-title-icon{margin-right:10px}.mobile-navigation .mn-menu .sub-item-title .sub-item-title-text{font-family:"Mazzard H",sans-serif;font-size:15px;font-weight:500;color:#666885}.mobile-navigation .mn-menu .sub-item-links{padding:10px 0 20px}.mobile-navigation .mn-menu .sub-item-links .sub-item-link{font-size:15px;font-weight:400;padding:10px 0}.mobile-navigation .mn-buttons{max-width:30rem;margin:auto}.mobile-navigation .mn-buttons a{font-size:15px;width:100%;height:55px;margin-bottom:15px}button{font-family:"Mazzard H",sans-serif}.btn{font-family:"Mazzard H",sans-serif;font-size:1.8rem;font-weight:600;display:inline-flex;align-items:center;justify-content:center;min-width:16rem;height:5.5rem;padding:0 2.8rem;text-align:center;color:#fff;border:none;border-radius:4px;background:#ff776b}.btn.btn--sm{font-size:1.3rem;min-width:13rem;height:4.2rem;padding:0 2.4rem;letter-spacing:.3px}.btn.btn--outline{color:#ff776b;border:2px solid #ff776b;background:none}@media only screen and (max-width:1440px){.btn.btn--sm{padding:0 2rem}}.hs-form .hs-form-field{display:block;margin-bottom:2rem}.hs-form .hs-form-field label:not(.hs-error-msg):not(.hs-form-radio-display){position:absolute;overflow:hidden;clip:rect(0,0,0,0);width:1px;height:1px;margin:-1px;padding:0;border:0}.hs-form .hs-form-field .input{order:1}.hs-form .hs-field-desc{font-size:1.4rem;order:2;padding-top:5px}input[type=search]{font-family:"Mazzard H",sans-serif;font-size:1.8rem;font-weight:400;line-height:1.2;width:100%;height:4.8rem;padding:0 15px;color:#0d2159;border:1px solid #cccfe0;border-radius:4px}::-moz-placeholder{font-family:"Mazzard H",sans-serif;font-weight:400;color:#a4a6be}::placeholder{font-family:"Mazzard H",sans-serif;font-weight:400;color:#a4a6be}[type=search]::-ms-clear{display:none;width:0;height:0}[type=search]::-ms-reveal{display:none;width:0;height:0}[type=search]::-webkit-search-decoration,[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-results-button,[type=search]::-webkit-search-results-decoration{display:none}form.search{position:relative}.search-input[type=search]{font-size:1.6rem;width:100%;height:5rem;padding:0 18rem 0 2rem;border-radius:4px;background:#fff}.search-input[type=search]::-ms-clear{display:none}.search-submit[type=submit]{font-size:1.7rem;line-height:1;position:absolute;top:0;right:-1px;display:flex;align-items:center;height:100%;padding:0 3.5rem;color:#fff;border:none;border-radius:4px;background:#ff7866}.search-submit[type=submit] .search-submit-text{font-weight:500}.search-submit[type=submit] .icomoon{margin-right:10px}h1{font-family:"Mazzard H",sans-serif;font-weight:600;line-height:1.3;margin-bottom:20px}h1{font-size:3.6rem}body .is-layout-flex{align-items:unset}.cols{display:flex}@media only screen and (max-width:992px){body .is-layout-flex{display:block}}.skiplinks a{font-weight:bold;position:absolute;top:-3em;color:#fff}.b-button{text-align:center}.b-hero{text-align:center;background-color:#edf0f7;background-position:center;background-size:cover}.b-hero .hero__headline{font-family:"Museo Sans",sans-serif;font-size:1.4rem;font-weight:600;display:block;margin-bottom:1.5rem;letter-spacing:.2em;text-transform:uppercase;color:#0d2159}.b-hero .hero__title{font-size:6.4rem;font-weight:600;line-height:1.3;margin:auto;color:#fff}.b-hero .hero__text{margin-top:1rem}.b-hero--layout-text-only{padding:10rem 0}.b-hero--layout-text-only .hero__headline{font-size:1.8rem;margin-bottom:5px;color:#fff}.b-hero--layout-text-only .hero__text{font-size:2.3rem;font-weight:300;line-height:1.6;max-width:61rem;margin:2rem auto auto;color:#fff}@media only screen and (max-width:992px){.b-hero--layout-text-only{padding:5rem 0}.b-hero--layout-text-only .hero__title{font-size:4rem}}.b-image{text-align:center}.b-section .block .block-container{padding:0}</style><link rel="preload" data-rocket-preload as="image" href="https://panorays.com/wp-content/uploads/2023/01/careers-hero-poster.jpg" fetchpriority="high">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v28.3 (Yoast SEO v28.3) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+	<meta name="description" content="Join Panorays&#039; innovative team to transform third-party cybersecurity, risk management, and compliance in a collaborative, growth-focused environment." />
+	<link rel="canonical" href="https://panorays.com/careers/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Careers" />
+	<meta property="og:description" content="Join Panorays&#039; innovative team to transform third-party cybersecurity, risk management, and compliance in a collaborative, growth-focused environment." />
+	<meta property="og:url" content="https://panorays.com/careers/" />
+	<meta property="og:site_name" content="Panorays" />
+	<meta property="article:publisher" content="https://www.facebook.com/panorays" />
+	<meta property="article:modified_time" content="2026-03-05T19:09:10+00:00" />
+	<meta property="og:image" content="https://panorays.com/wp-content/uploads/2023/09/careers-meta-image.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@panorays" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="1 minute" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":{"0":{"@type":"WebPage","@id":"https:\/\/panorays.com\/careers\/","url":"https:\/\/panorays.com\/careers\/","name":"Third-Party Risk Management Careers | Panorays","isPartOf":{"@id":"https:\/\/panorays.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/panorays.com\/careers\/#primaryimage"},"image":{"@id":"https:\/\/panorays.com\/careers\/#primaryimage"},"thumbnailUrl":"https:\/\/panorays.com\/wp-content\/uploads\/2023\/09\/careers-meta-image.png","datePublished":"2022-05-23T10:31:22+00:00","dateModified":"2026-03-05T19:09:10+00:00","description":"Join Panorays' innovative team to transform third-party cybersecurity, risk management, and compliance in a collaborative, growth-focused environment.","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/panorays.com\/careers\/"]}]},"1":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/panorays.com\/careers\/#primaryimage","url":"https:\/\/panorays.com\/wp-content\/uploads\/2023\/09\/careers-meta-image.png","contentUrl":"https:\/\/panorays.com\/wp-content\/uploads\/2023\/09\/careers-meta-image.png","width":1200,"height":630,"caption":"Careers meta image"},"2":{"@type":"WebSite","@id":"https:\/\/panorays.com\/#website","url":"https:\/\/panorays.com\/","name":"Panorays","description":"Automated Third Party Security Management","publisher":{"@id":"https:\/\/panorays.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/panorays.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},"3":{"@type":"Organization","@id":"https:\/\/panorays.com\/#organization","name":"Panorays","url":"https:\/\/panorays.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/panorays.com\/#\/schema\/logo\/image\/","url":"https:\/\/panorays.com\/wp-content\/uploads\/2022\/07\/panorays-logo.svg","contentUrl":"https:\/\/panorays.com\/wp-content\/uploads\/2022\/07\/panorays-logo.svg","width":1,"height":1,"caption":"Panorays"},"image":{"@id":"https:\/\/panorays.com\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.facebook.com\/panorays","https:\/\/x.com\/panorays","https:\/\/www.linkedin.com\/company\/panorays","https:\/\/www.youtube.com\/@panorays4399"]},"contactPoint":{"@type":"ContactPoint","telephone":"+19295296116","contactType":"customer service","areaServed":"Global","availableLanguage":"English"},"founder":{"@type":"Person","name":"Matan Or-El"},"address":{"@type":"PostalAddress","streetAddress":"41 East 11th Street, 10th Floor","addressLocality":"New York","addressRegion":"NY","postalCode":"10003","addressCountry":"USA"}}}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//js.hs-scripts.com' />
+<link rel='dns-prefetch' href='//js.hsforms.net' />
+<link rel='dns-prefetch' href='//fast.wistia.com' />
+<link rel='dns-prefetch' href='//static.claydar.com' />
+<link rel='dns-prefetch' href='//panorays.chilipiper.com' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://panorays.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpanorays.com%2Fcareers%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://panorays.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpanorays.com%2Fcareers%2F&#038;format=xml" />
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="pdfemb-pdf-embedder-viewer-style-inline-css">
+.wp-block-pdfemb-pdf-embedder-viewer{max-width:none}
+
+/*# sourceURL=https://panorays.com/wp-content/plugins/pdf-embedder/block/build/style-index.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:where(.wp-block-gallery.is-layout-flex){gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}:where(.wp-block-gallery.is-layout-grid){gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}
+:where(.wp-block-latest-posts.is-layout-flex){gap: 1.25em;}:where(.wp-block-latest-posts.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-term-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-term-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link data-minify="1" rel='preload'  href='https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/assets/css/bootstrap-grid.css?ver=1785654345' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/assets/css/fancybox.css?ver=1785654345' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/assets/css/swiper-bundle.min.css?ver=1785654345' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link rel='preload'  href='https://panorays.com/wp-content/themes/panorays/assets/css/select2.min.css' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link rel='preload'  href='https://panorays.com/wp-content/themes/panorays/style.css' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/build/css/main.min.css?ver=1785654345' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<script type="text/rocketlazyloadscript" data-minify="1" id="hs-js" data-rocket-src="https://panorays.com/wp-content/cache/min/1/4206449.js?ver=1785654345" data-rocket-defer defer></script>
+<script id="hsforms-js" src="https://js.hsforms.net/forms/embed/v2.js"></script>
+<script id="jquery-core-js" src="https://panorays.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" data-rocket-defer defer></script>
+<script id="jquery-migrate-js" src="https://panorays.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" data-rocket-defer defer></script>
+<link rel="https://api.w.org/" href="https://panorays.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://panorays.com/wp-json/wp/v2/pages/3314" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://panorays.com/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://panorays.com/?p=3314' />
+
+			<script type="text/rocketlazyloadscript">
+				window.comeetInit = function() {
+					COMEET.init({
+						"token":       "79D2DAE1E7479D1E742DAE3CE802DAE1E74",
+						"company-uid": "97.00D",
+						"company-name": "Panorays",
+						"css-url": "https://panorays.com/wp-content/themes/panorays/partials/blocks/block-career/block-career-custom.css",
+						"css-cache": true,
+					});
+				};
+
+				(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return; } js = d.createElement(s); js.id = id;
+				js.src = "//www.comeet.co/careers-api/api.js"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'comeet-jsapi'));
+			</script>
+
+			
+<style type="text/css">
+	.b-hero[data-id="block-6335932a6a75d"] { margin:0 0 5rem; }
+.b-text-and-media[data-id="block-6335932a6a7ba"] .block-container { max-width:140rem; }
+.b-text-and-media[data-id="block-6335932a6a859"] { margin:0 0 9rem; }
+.b-text-and-media[data-id="block-6335932a6a859"] .block-container { max-width:138rem; }
+.b-careers[data-id="careers"] { padding:14rem 0 11rem;background-color:#f2f3f8; }
+.b-careers[data-id="careers"] .block-container { max-width:140rem; }
+.b-quote[data-id="block-63b2e2f5208f2"] { padding:15rem 0 20rem; }
+.b-quote[data-id="block-63b2e2f5208f2"] .block-container { max-width:123rem; }
+.b-image-slider[data-id="block-63b3035eea770"] { padding:0 0 12rem; }
+.b-title[data-id="block-63b4133357c63"] { padding:0 0 17rem; }
+
+@media only screen and (max-width:992px) { 
+.b-hero[data-id="block-6335932a6a75d"] { margin:0; }
+.b-text-and-media[data-id="block-6335932a6a859"] { margin:0 0 4rem; }
+.b-careers[data-id="careers"] { padding:6rem 0 3rem; }
+.b-quote[data-id="block-63b2e2f5208f2"] { padding:6rem 0 12rem; }
+.b-image-slider[data-id="block-63b3035eea770"] { padding:0 0 8rem; }
+.b-title[data-id="block-63b4133357c63"] { padding:0 0 8rem; }
+ }	div.b-hero .hero__title {
+    font-size: 4.4rem;
+    margin-bottom: 5rem;
+}
+div.b-hero .hero__headline {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+div.b-hero .btn.btn--narrow {
+	padding: 0px 5.5rem;
+}
+.b-careers .careers-filter .title {
+ 	margin-right: 6rem; 
+}
+#block-6335932a6a859.b-text-and-media .col-text {
+    margin-top: 7rem;
+}
+@media only screen and (max-width: 1024px) {
+  	.b-careers .careers-filter .title {
+ 		margin-right: 0; 
+	}
+}
+@media only screen and (max-width: 567px) {
+	div.b-hero .hero__title {
+		font-size: 3.8rem;
+		margin-bottom: 5rem;
+    }	
+  	div.b-hero .hero__title br {
+		display: none;
+	}  
+    #block-6335932a6a859.b-text-and-media .col-text {
+      margin-top: 0;
+  	}
+}</style>
+
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N27P5KD');</script>
+<!-- End Google Tag Manager --><link rel="icon" href="https://panorays.com/wp-content/uploads/2022/10/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://panorays.com/wp-content/uploads/2022/10/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://panorays.com/wp-content/uploads/2022/10/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://panorays.com/wp-content/uploads/2022/10/cropped-favicon-270x270.png" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><script type="text/rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script><style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><meta name="generator" content="WP Rocket 3.23.2.2" data-wpr-features="wpr_delay_js wpr_defer_js wpr_minify_js wpr_async_css wpr_lazyload_iframes wpr_preconnect_external_domains wpr_auto_preload_fonts wpr_automatic_lazy_rendering wpr_oci wpr_minify_css wpr_cdn wpr_desktop" /></head>
+
+<body class="wp-singular page-template-default page page-id-3314 wp-custom-logo wp-theme-panorays">
+	<ul class="skiplinks">
+	<li><a href="#site-navigation">Skip to Main Menu</a></li>
+	<li><a href="#content">Skip to Main Content</a></li>
+	<li><a href="#colophon">Skip to Footer</a></li>
+</ul>
+
+	<div  id="site-wrap" class="site-wrap">
+		
+		<header  id="masthead" class="site-header" role="banner">
+			<div  class="header-desktop">
+	<div class="header-top">
+		<div class="container">
+			<div class="cols">
+				<div class="top-banner">
+					<p>Just Released! Panorays is a Leader with above-average customer feedback in the Q2&#8217;26 Forrester Wave™ &#8211; <a href="https://panorays.com/resources/reports-whitepapers/forrester-wave-cybersecurity-risk-ratings-leader-2026/?utm_source=website&amp;utm_medium=top_banner&amp;utm_campaign=2026_Apr_forrester_wave_crrp&amp;utm_term=homepage" target="_blank" rel="noopener"><span style="font-weight: 400"><u>Read the report</u></span></a></p>
+				</div>
+
+				<nav class="top-nav" role="navigation">
+					<button class="btn-search-toggle" aria-label="Toggle Search" title="Toggle Search">
+						<span class="icomoon icomoon-search" aria-hidden="true"></span>
+					</button>
+
+					<div class="menu-top-navigation-container"><ul id="menu-top-navigation" class="top-menu"><li id="menu-item-3083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3083"><a href="https://panorays.com/blog/">Blog</a></li>
+<li id="menu-item-130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-130"><a target="_blank" href="https://www.panoraysapp.com/">Login</a></li>
+</ul></div>				</nav>
+
+				<div class="header-search">
+					<div class="container">
+						
+<div class="header-search-form main-search">
+	<form class="search" method="get" action="https://panorays.com" role="search">
+		<input class="search-input" type="search" name="s" placeholder="Search panorays.com"
+			value="">
+
+		<button class="search-submit" type="submit" role="button" aria-label="Search"
+			title="Search">
+			<span class="icomoon icomoon-search" aria-hidden="true"></span>
+
+						<span class="search-submit-text">
+				Search			</span>
+					</button>
+	</form>
+</div>
+
+							</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header-main">
+		<div class="container">
+			<div class="header-main__in">
+				
+<div class="site-logo">
+	<a href="https://panorays.com" aria-label="Logo">
+		<img src="https://panorays.com/wp-content/uploads/2022/07/panorays-logo.svg" class="logo" width="120" height="38" alt="Panorays logo" />
+	</a>
+</div>
+
+<div class="main-navigation-wrap">
+	<nav class="main-navigation-nav" role="navigation">
+		<ul class="main-navigation">
+			
+				<li class="menu-item menu-item-has-children">
+					<a href="#">
+						Platform					</a>
+
+					
+						<div class="sub-menu">
+							<div class="sub-menu-main">
+								<div class="sub-menu-main-left">
+									<div class="sub-items">
+										
+											<div class="sub-item sub-item-one-fourth">
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="20" height="18" src="https://panorays.com/wp-content/uploads/2022/03/icon-assessment.svg" class="attachment-thumbnail size-thumbnail" alt="Assessment icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Assessment													</span>
+												</span>
+
+												<ul class="sub-item-links">
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/cybersecurity-posture/">
+																<span class="sub-item-link-title">
+																	Risk DNA Cybersecurity Posture																</span>
+																<span class="sub-item-link-text">
+																	Risk DNA reflects the true risks within your third-party ecosystem																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/attack-surface-management/">
+																<span class="sub-item-link-title">
+																	External Attack Surface																</span>
+																<span class="sub-item-link-text">
+																	Gain visibility into your<br />
+third parties’ digital footprint																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/cybersecurity-questionnaires/">
+																<span class="sub-item-link-title">
+																	Cybersecurity Questionnaires																</span>
+																<span class="sub-item-link-text">
+																	Quickly build questionnaires with automations and auto-fill tools																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="https://panorays.com/inventory-centralized-vendor-repository/">
+																<span class="sub-item-link-title">
+																	Smart Inventory																</span>
+																<span class="sub-item-link-text">
+																	Centralized third-party inventory with context																</span>
+															</a>
+														</li>
+
+																									</ul>
+											</div>
+
+										
+											<div class="sub-item sub-item-one-fourth">
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="16" height="16" src="https://panorays.com/wp-content/uploads/2022/03/icon-engagement.svg" class="attachment-thumbnail size-thumbnail" alt="Engagement icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Engagement													</span>
+												</span>
+
+												<ul class="sub-item-links">
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/communication/">
+																<span class="sub-item-link-title">
+																	Communication																</span>
+																<span class="sub-item-link-text">
+																	Easily engage with your vendors<br />
+on a single platform																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/remediation/">
+																<span class="sub-item-link-title">
+																	Remediation																</span>
+																<span class="sub-item-link-text">
+																	Prioritized remediation plans to close vendor cyber gaps																</span>
+															</a>
+														</li>
+
+																									</ul>
+											</div>
+
+										
+											<div class="sub-item sub-item-one-fourth">
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="20" height="16" src="https://panorays.com/wp-content/uploads/2022/03/icon-monitoring.svg" class="attachment-thumbnail size-thumbnail" alt="Monitoring icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Monitoring													</span>
+												</span>
+
+												<ul class="sub-item-links">
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/cyber-security-monitoring/">
+																<span class="sub-item-link-title">
+																	Cybersecurity Monitoring																</span>
+																<span class="sub-item-link-text">
+																	Stay ahead of real-time threats in your supply chain																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/reporting-and-dashboard/">
+																<span class="sub-item-link-title">
+																	Reporting & Dashboards																</span>
+																<span class="sub-item-link-text">
+																	Present your vendor portfolio to your stakeholders and teams																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/regulatory-compliance/">
+																<span class="sub-item-link-title">
+																	Regulatory Compliance																</span>
+																<span class="sub-item-link-text">
+																	Easily check if your vendors comply with regulations 																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/vendor-portfolio-management/">
+																<span class="sub-item-link-title">
+																	Portfolio Management																</span>
+																<span class="sub-item-link-text">
+																	Seamlessly manage your vendors' security																</span>
+															</a>
+														</li>
+
+																									</ul>
+											</div>
+
+										
+											<div class="sub-item sub-item-one-fourth">
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="21" height="19" src="https://panorays.com/wp-content/uploads/2022/03/icon-security.svg" class="attachment-thumbnail size-thumbnail" alt="Security icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Security Program													</span>
+												</span>
+
+												<ul class="sub-item-links">
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/integrations/">
+																<span class="sub-item-link-title">
+																	Integrations																</span>
+																<span class="sub-item-link-text">
+																	Panorays easily integrates into your current organizational workflows																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="/platform/professional-services/">
+																<span class="sub-item-link-title">
+																	Professional Services																</span>
+																<span class="sub-item-link-text">
+																	Receive guidance about your<br />
+third-party security process																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="https://panorays.com/trust-center/">
+																<span class="sub-item-link-title">
+																	Trust Center																</span>
+																<span class="sub-item-link-text">
+																	A shareable Trust Center that proves your security posture and compliance																</span>
+															</a>
+														</li>
+
+																									</ul>
+											</div>
+
+																			</div>
+								</div>
+
+								<div class="sub-menu-main-right">
+									
+<div class="featured-content">
+	<a href="https://panorays.com/resources/reports-whitepapers/forrester-wave-cybersecurity-risk-ratings-leader-2026/" target="_blank">
+		<span class="sub-item-title">
+			New Forrester Report		</span>
+		<span class="sub-item-image">
+			<img width="464" height="600" src="https://panorays.com/wp-content/uploads/2026/04/Thumbnail_Cybersecurity-Risk-Ratings-Platforms-Q2-2026-464x600.jpg" class="attachment-medium size-medium" alt="The Forrester Wave™  in Cybersecurity Risk Ratings Platforms, 2026" decoding="async" fetchpriority="high" srcset="https://panorays.com/wp-content/uploads/2026/04/Thumbnail_Cybersecurity-Risk-Ratings-Platforms-Q2-2026-464x600.jpg 464w, https://panorays.com/wp-content/uploads/2026/04/Thumbnail_Cybersecurity-Risk-Ratings-Platforms-Q2-2026-58x75.jpg 58w, https://panorays.com/wp-content/uploads/2026/04/Thumbnail_Cybersecurity-Risk-Ratings-Platforms-Q2-2026.jpg 612w" sizes="(max-width: 464px) 100vw, 464px" />		</span>
+	</a>
+</div>
+
+								</div>
+							</div>
+
+							<div class="sub-menu-bottom">
+								<div class="container">
+									<ul class="sub-menu-bottom-links">
+										
+											<li class="menu-item">
+												<a href="/request-a-demo/" class=""><span class="btn-text">Contact Sales</span></a>											</li>
+
+										
+											<li class="menu-item">
+												<a href="/pricing/" class=""><span class="btn-text">Get a Quote</span></a>											</li>
+
+										
+											<li class="menu-item">
+												<a href="/free-account/" class=""><span class="btn-text">Get Started Free</span></a>											</li>
+
+																			</ul>
+								</div>
+							</div>
+						</div>
+
+									</li>
+
+			
+				<li class="menu-item menu-item-has-children">
+					<a href="#">
+						Solution					</a>
+
+					
+						<div class="sub-menu">
+							<div class="sub-menu-main">
+								<div class="sub-menu-main-left">
+									<div class="sub-items">
+										
+											<div class="sub-item sub-item-half">
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="14" height="21" src="https://panorays.com/wp-content/uploads/2022/03/icon-use-cases.svg" class="attachment-thumbnail size-thumbnail" alt="Use cases icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Use Cases													</span>
+												</span>
+
+												<ul class="sub-item-links">
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="https://panorays.com/solutions/third-party-cyber-risk-management/">
+																<span class="sub-item-link-title">
+																	Third-Party Cyber Risk Management																</span>
+																<span class="sub-item-link-text">
+																	Manage third-party cyber risks from onboarding to remediation																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/enterprise-security-risk-management/">
+																<span class="sub-item-link-title">
+																	Enterprise Risk Management																</span>
+																<span class="sub-item-link-text">
+																	Our enterprise security risk assessments provide a clear view of your cyber risk																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/solutions/supply-chain-risk-management/">
+																<span class="sub-item-link-title">
+																	Supply Chain Visibility																</span>
+																<span class="sub-item-link-text">
+																	Protect the security posture of your entire digital supply chain																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/mergers-acquisitions/">
+																<span class="sub-item-link-title">
+																	Mergers & Acquisitions																</span>
+																<span class="sub-item-link-text">
+																	Evaluate cyber risk as part of your M&amp;A due diligence process																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/evaluating-subsidiaries/">
+																<span class="sub-item-link-title">
+																	Evaluating Subsidiaries																</span>
+																<span class="sub-item-link-text">
+																	Thoroughly assess and monitor your subsidiaries’ cyber risk																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/executive-level-reporting/">
+																<span class="sub-item-link-title">
+																	Executive-Level Reporting																</span>
+																<span class="sub-item-link-text">
+																	Provide comprehensive visibility about your third-party cyber risk																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="https://panorays.com/solutions/dora-compliance/">
+																<span class="sub-item-link-title">
+																	DORA Compliance																</span>
+																<span class="sub-item-link-text">
+																	Achieve DORA compliance with confidence																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="https://panorays.com/product-highlights/">
+																<span class="sub-item-link-title">
+																	Product Highlights																</span>
+																<span class="sub-item-link-text">
+																	Leverage the latest cyber risk innovations																</span>
+															</a>
+														</li>
+
+																									</ul>
+											</div>
+
+										
+											<div class="sub-item sub-item-one-fourth">
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="24" height="24" src="https://panorays.com/wp-content/uploads/2024/05/icon-industry-1.svg" class="attachment-thumbnail size-thumbnail" alt="Industry icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Industries													</span>
+												</span>
+
+												<ul class="sub-item-links">
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="https://panorays.com/industries/tprm-financial-services/">
+																<span class="sub-item-link-title">
+																	Financial Services																</span>
+																<span class="sub-item-link-text">
+																	See how financial organizations safeguard sensitive information with Panorays																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="https://panorays.com/industries/tprm-healthcare/">
+																<span class="sub-item-link-title">
+																	Healthcare																</span>
+																<span class="sub-item-link-text">
+																	See how healthcare organizations manage third-party risks with Panorays																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="https://panorays.com/industries/tprm-technology/">
+																<span class="sub-item-link-title">
+																	Technology																</span>
+																<span class="sub-item-link-text">
+																	Panorays helps SaaS companies manage their third party risks																</span>
+															</a>
+														</li>
+
+																									</ul>
+											</div>
+
+										
+											<div class="sub-item sub-item-one-fourth">
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="24" height="17" src="https://panorays.com/wp-content/uploads/2022/03/icon-why-panorays.svg" class="attachment-thumbnail size-thumbnail" alt="Why icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Why Panorays													</span>
+												</span>
+
+												<ul class="sub-item-links">
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="https://panorays.com/how-it-works/">
+																<span class="sub-item-link-title">
+																	How It Works																</span>
+																<span class="sub-item-link-text">
+																	Learn how Panorays automates the entire lifecycle of third-party security																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="https://panorays.com/risk-dna/">
+																<span class="sub-item-link-title">
+																	What is Risk DNA 																</span>
+																<span class="sub-item-link-text">
+																	See your unique third-party risks in context																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="https://panorays.com/cyber-posture-rating-explained/">
+																<span class="sub-item-link-title">
+																	Cyber Posture Ratings																</span>
+																<span class="sub-item-link-text">
+																	Learn how Panorays calculates its Cyber Posture Ratings																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-full">
+															<a href="https://panorays.com/compare/">
+																<span class="sub-item-link-title">
+																	Panorays vs. The Competition																</span>
+																<span class="sub-item-link-text">
+																	Learn how Panorays compares to the competition 																</span>
+															</a>
+														</li>
+
+																									</ul>
+											</div>
+
+																			</div>
+								</div>
+
+								<div class="sub-menu-main-right">
+									
+<div class="featured-content">
+	<a href="https://panorays.com/resources/guides/secure-ai-supply-chain/" target="_blank">
+		<span class="sub-item-title">
+			New Guide		</span>
+		<span class="sub-item-image">
+			<img width="371" height="526" src="https://panorays.com/wp-content/uploads/2023/12/secure-ai-guide.png" class="attachment-medium size-medium" alt="Guide to Securing on AI-enabled Supply Chain" decoding="async" srcset="https://panorays.com/wp-content/uploads/2023/12/secure-ai-guide.png 371w, https://panorays.com/wp-content/uploads/2023/12/secure-ai-guide-53x75.png 53w" sizes="(max-width: 371px) 100vw, 371px" />		</span>
+	</a>
+</div>
+
+								</div>
+							</div>
+
+							<div class="sub-menu-bottom">
+								<div class="container">
+									<ul class="sub-menu-bottom-links">
+										
+											<li class="menu-item">
+												<a href="/request-a-demo/" class=""><span class="btn-text">Contact Sales</span></a>											</li>
+
+										
+											<li class="menu-item">
+												<a href="/pricing/" class=""><span class="btn-text">Get a Quote</span></a>											</li>
+
+										
+											<li class="menu-item">
+												<a href="/free-account/" class=""><span class="btn-text">Get Started Free</span></a>											</li>
+
+																			</ul>
+								</div>
+							</div>
+						</div>
+
+									</li>
+
+			
+				<li class="menu-item">
+					<a href="https://panorays.com/pricing/">
+						Pricing					</a>
+
+									</li>
+
+			
+				<li class="menu-item menu-item-has-children">
+					<a href="#">
+						Resources					</a>
+
+					
+						<div class="sub-menu">
+							<div class="sub-menu-main">
+								<div class="sub-menu-main-left">
+									<div class="sub-items">
+										
+											<div class="sub-item sub-item-full">
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="17" height="22" src="https://panorays.com/wp-content/uploads/2022/03/icon-resources.svg" class="attachment-thumbnail size-thumbnail" alt="Resources icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Resources													</span>
+												</span>
+
+												<ul class="sub-item-links">
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/blog/">
+																<span class="sub-item-link-title">
+																	Blog																</span>
+																<span class="sub-item-link-text">
+																	Stay updated on the latest research and developments in TPCRM																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/resources/guides/">
+																<span class="sub-item-link-title">
+																	Guides																</span>
+																<span class="sub-item-link-text">
+																	Tips and advice about third-party security, compliance and more																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/resources/case-studies/">
+																<span class="sub-item-link-title">
+																	Case Studies																</span>
+																<span class="sub-item-link-text">
+																	Discover how Panorays helps customers streamline operations and drive success																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/resources/reports-whitepapers/">
+																<span class="sub-item-link-title">
+																	Reports & Whitepapers																</span>
+																<span class="sub-item-link-text">
+																	Explore our reports for valuable insights about vendor security																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/resources/webinars/">
+																<span class="sub-item-link-title">
+																	Webinars & Videos																</span>
+																<span class="sub-item-link-text">
+																	Explore our collection of webinars on compliance, risk management, and more																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="/resources/product-corporate-collateral/">
+																<span class="sub-item-link-title">
+																	Product & Corporate Collateral																</span>
+																<span class="sub-item-link-text">
+																	Explore our data sheets to learn more about Panorays																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="https://panorays.com/release-notes/">
+																<span class="sub-item-link-title">
+																	Product Release Notes																</span>
+																<span class="sub-item-link-text">
+																	Stay up-to-date on our latest enhancements and features																</span>
+															</a>
+														</li>
+
+																									</ul>
+											</div>
+
+																			</div>
+								</div>
+
+								<div class="sub-menu-main-right">
+									
+<div class="featured-content featured-content-resources">
+	<span class="sub-item-title">
+		Featured Resources	</span>
+
+	<ul class="featured-content-list">
+		
+			<li class="featured-content-item featured-content-item-has-image featured-content-item-resource">
+				<a href="https://panorays.com/resources/guides/third-party-security-management/" class="featured-content-item-link">					<span class="featured-content-item-image">
+						<img width="85" height="85" src="https://panorays.com/wp-content/uploads/2023/04/featured-resource-1.png" class="attachment-thumbnail size-thumbnail" alt="Third-Party Security Management Guide" decoding="async" srcset="https://panorays.com/wp-content/uploads/2023/04/featured-resource-1.png 85w, https://panorays.com/wp-content/uploads/2023/04/featured-resource-1-75x75.png 75w" sizes="(max-width: 85px) 100vw, 85px" />					</span>
+					<span class="featured-content-item-content">
+						<span class="featured-content-item-title">
+							The CISO's Guide to Third-Party Security Management						</span>
+						<span class="featured-content-item-cat" style="color:#f04b51">
+							Guides						</span>
+					</span>
+				</a>
+			</li>
+
+		
+			<li class="featured-content-item featured-content-item-has-image featured-content-item-resource">
+				<a href="https://panorays.com/resources/guides/automating-third-party-cyber-risk/" class="featured-content-item-link">					<span class="featured-content-item-image">
+						<img width="85" height="85" src="https://panorays.com/wp-content/uploads/2023/04/featured-resource-2.png" class="attachment-thumbnail size-thumbnail" alt="Automating Third-Party Cyber Risk Management Guide" decoding="async" srcset="https://panorays.com/wp-content/uploads/2023/04/featured-resource-2.png 85w, https://panorays.com/wp-content/uploads/2023/04/featured-resource-2-75x75.png 75w" sizes="(max-width: 85px) 100vw, 85px" />					</span>
+					<span class="featured-content-item-content">
+						<span class="featured-content-item-title">
+							The CISO’s Guide to Automating Third-Party Cyber Risk Management						</span>
+						<span class="featured-content-item-cat" style="color:#f04b51">
+							Guides						</span>
+					</span>
+				</a>
+			</li>
+
+			</ul>
+</div>
+								</div>
+							</div>
+
+							<div class="sub-menu-bottom">
+								<div class="container">
+									<ul class="sub-menu-bottom-links">
+										
+											<li class="menu-item">
+												<a href="/request-a-demo/" class=""><span class="btn-text">Contact Sales</span></a>											</li>
+
+										
+											<li class="menu-item">
+												<a href="/pricing/" class=""><span class="btn-text">Get a Quote</span></a>											</li>
+
+										
+											<li class="menu-item">
+												<a href="/free-account/" class=""><span class="btn-text">Get Started Free</span></a>											</li>
+
+																			</ul>
+								</div>
+							</div>
+						</div>
+
+									</li>
+
+			
+				<li class="menu-item">
+					<a href="/partners/">
+						Partners					</a>
+
+									</li>
+
+			
+				<li class="menu-item menu-item-has-children menu-item-last">
+					<a href="#">
+						About					</a>
+
+					
+						<div class="sub-menu">
+							<div class="sub-menu-main">
+								<div class="sub-menu-main-left">
+									<div class="sub-items">
+										
+											<div class="sub-item sub-item-full">
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="17" height="19" src="https://panorays.com/wp-content/uploads/2022/03/icon-about.svg" class="attachment-thumbnail size-thumbnail" alt="About icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														About													</span>
+												</span>
+
+												<ul class="sub-item-links">
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="https://panorays.com/about/">
+																<span class="sub-item-link-title">
+																	Company																</span>
+																<span class="sub-item-link-text">
+																	Our mission and the dedicated leaders and supporters who make it possible																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="https://panorays.com/in-the-news/">
+																<span class="sub-item-link-title">
+																	In The News																</span>
+																<span class="sub-item-link-text">
+																	Panorays' cybersecurity and compliance experts featured in the news																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="https://panorays.com/careers/">
+																<span class="sub-item-link-title">
+																	Careers																</span>
+																<span class="sub-item-link-text">
+																	Interested in joining the Panorays team? View our open positions																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="https://panorays.com/blog/category/press-releases/">
+																<span class="sub-item-link-title">
+																	Press Releases																</span>
+																<span class="sub-item-link-text">
+																	Discover the latest Panorays product and company news																</span>
+															</a>
+														</li>
+
+													
+														<li class="sub-item-link sub-item-link-half">
+															<a href="https://panorays.com/events/">
+																<span class="sub-item-link-title">
+																	Events																</span>
+																<span class="sub-item-link-text">
+																	Join Panorays at upcoming events, conferences and webinars																</span>
+															</a>
+														</li>
+
+																									</ul>
+											</div>
+
+																			</div>
+								</div>
+
+								<div class="sub-menu-main-right">
+									
+<div class="featured-content featured-content-2x featured-content-positions">
+	<span class="sub-item-title">
+		Open Positions	</span>
+
+	<ul class="featured-content-list featured-content-list-columns">
+		
+			<li class="featured-content-item">
+				<a href="https://panorays.com/careers/senior-full-stack-developer/6E.357/" class="featured-content-item-link">					<span class="featured-content-item-title">
+						Full Stack Developer					</span>
+					<span class="featured-content-item-text">
+						We are looking for a strong Full Stack Developer with an eye for details. We are building a product with high scalability in mind and solving challenging problems on a daily basis. Our backend architecture is event-based and relies on RabbitMQ. We also really love React hooks!					</span>
+					<span class="featured-content-item-cat" style="color:#a607ed">
+						Careers					</span>
+				</a>
+			</li>
+
+			</ul>
+</div>
+								</div>
+							</div>
+
+							<div class="sub-menu-bottom">
+								<div class="container">
+									<ul class="sub-menu-bottom-links">
+										
+											<li class="menu-item">
+												<a href="/request-a-demo/" class=""><span class="btn-text">Contact Sales</span></a>											</li>
+
+										
+											<li class="menu-item">
+												<a href="/pricing/" class=""><span class="btn-text">Get a Quote</span></a>											</li>
+
+										
+											<li class="menu-item">
+												<a href="/free-account/" class=""><span class="btn-text">Get Started Free</span></a>											</li>
+
+																			</ul>
+								</div>
+							</div>
+						</div>
+
+									</li>
+
+			
+			
+			
+				<li class="menu-item-button menu-item-button-1">
+					<a href="https://panorays.com/free-account/" class="btn btn--outline btn--sm">Start Free Trial</a>				</li>
+
+			
+				<li class="menu-item-button menu-item-button-2">
+					<a href="https://panorays.com/request-a-demo/" class="btn btn--sm">Get a Demo</a>				</li>
+
+					</ul>
+	</nav>
+</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div  class="header-mobile">
+	
+<div class="mobile-navigation">
+	<div class="mn-menu-wrap">
+		<div class="mn-search">
+			
+<div class="header-search-form main-search">
+	<form class="search" method="get" action="https://panorays.com" role="search">
+		<input class="search-input" type="search" name="s" placeholder="Search panorays.com"
+			value="">
+
+		<button class="search-submit" type="submit" role="button" aria-label="Search"
+			title="Search">
+			<span class="icomoon icomoon-search" aria-hidden="true"></span>
+
+						<span class="search-submit-text">
+				Search			</span>
+					</button>
+	</form>
+</div>
+
+				</div>
+		<nav class="mn-nav" role="navigation">
+			<ul class="mn-menu">
+				
+					<li class="menu-item menu-item-has-children">
+						<a href="#">
+							Platform						</a>
+
+						
+							<div class="sub-menu">
+								<div class="sub-items">
+									
+										<div class="sub-item">
+											
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="20" height="18" src="https://panorays.com/wp-content/uploads/2022/03/icon-assessment.svg" class="attachment-thumbnail size-thumbnail" alt="Assessment icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Assessment													</span>
+												</span>
+
+											
+											<ul class="sub-item-links">
+												
+													<li class="sub-item-link">
+														<a href="/platform/cybersecurity-posture/">
+															<span class="sub-item-link-title">
+																Risk DNA Cybersecurity Posture															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/platform/attack-surface-management/">
+															<span class="sub-item-link-title">
+																External Attack Surface															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/platform/cybersecurity-questionnaires/">
+															<span class="sub-item-link-title">
+																Cybersecurity Questionnaires															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/inventory-centralized-vendor-repository/">
+															<span class="sub-item-link-title">
+																Smart Inventory															</span>
+														</a>
+													</li>
+
+																							</ul>
+										</div>
+
+									
+										<div class="sub-item">
+											
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="16" height="16" src="https://panorays.com/wp-content/uploads/2022/03/icon-engagement.svg" class="attachment-thumbnail size-thumbnail" alt="Engagement icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Engagement													</span>
+												</span>
+
+											
+											<ul class="sub-item-links">
+												
+													<li class="sub-item-link">
+														<a href="/platform/communication/">
+															<span class="sub-item-link-title">
+																Communication															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/platform/remediation/">
+															<span class="sub-item-link-title">
+																Remediation															</span>
+														</a>
+													</li>
+
+																							</ul>
+										</div>
+
+									
+										<div class="sub-item">
+											
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="20" height="16" src="https://panorays.com/wp-content/uploads/2022/03/icon-monitoring.svg" class="attachment-thumbnail size-thumbnail" alt="Monitoring icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Monitoring													</span>
+												</span>
+
+											
+											<ul class="sub-item-links">
+												
+													<li class="sub-item-link">
+														<a href="/platform/cyber-security-monitoring/">
+															<span class="sub-item-link-title">
+																Cybersecurity Monitoring															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/platform/reporting-and-dashboard/">
+															<span class="sub-item-link-title">
+																Reporting & Dashboards															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/platform/regulatory-compliance/">
+															<span class="sub-item-link-title">
+																Regulatory Compliance															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/platform/vendor-portfolio-management/">
+															<span class="sub-item-link-title">
+																Portfolio Management															</span>
+														</a>
+													</li>
+
+																							</ul>
+										</div>
+
+									
+										<div class="sub-item">
+											
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="21" height="19" src="https://panorays.com/wp-content/uploads/2022/03/icon-security.svg" class="attachment-thumbnail size-thumbnail" alt="Security icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Security Program													</span>
+												</span>
+
+											
+											<ul class="sub-item-links">
+												
+													<li class="sub-item-link">
+														<a href="/platform/integrations/">
+															<span class="sub-item-link-title">
+																Integrations															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/platform/professional-services/">
+															<span class="sub-item-link-title">
+																Professional Services															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/trust-center/">
+															<span class="sub-item-link-title">
+																Trust Center															</span>
+														</a>
+													</li>
+
+																							</ul>
+										</div>
+
+																	</div>
+							</div>
+
+											</li>
+
+				
+					<li class="menu-item menu-item-has-children">
+						<a href="#">
+							Solution						</a>
+
+						
+							<div class="sub-menu">
+								<div class="sub-items">
+									
+										<div class="sub-item">
+											
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="14" height="21" src="https://panorays.com/wp-content/uploads/2022/03/icon-use-cases.svg" class="attachment-thumbnail size-thumbnail" alt="Use cases icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Use Cases													</span>
+												</span>
+
+											
+											<ul class="sub-item-links">
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/solutions/third-party-cyber-risk-management/">
+															<span class="sub-item-link-title">
+																Third-Party Cyber Risk Management															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/enterprise-security-risk-management/">
+															<span class="sub-item-link-title">
+																Enterprise Risk Management															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/solutions/supply-chain-risk-management/">
+															<span class="sub-item-link-title">
+																Supply Chain Visibility															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/mergers-acquisitions/">
+															<span class="sub-item-link-title">
+																Mergers & Acquisitions															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/evaluating-subsidiaries/">
+															<span class="sub-item-link-title">
+																Evaluating Subsidiaries															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/executive-level-reporting/">
+															<span class="sub-item-link-title">
+																Executive-Level Reporting															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/solutions/dora-compliance/">
+															<span class="sub-item-link-title">
+																DORA Compliance															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/product-highlights/">
+															<span class="sub-item-link-title">
+																Product Highlights															</span>
+														</a>
+													</li>
+
+																							</ul>
+										</div>
+
+									
+										<div class="sub-item">
+											
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="24" height="24" src="https://panorays.com/wp-content/uploads/2024/05/icon-industry-1.svg" class="attachment-thumbnail size-thumbnail" alt="Industry icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Industries													</span>
+												</span>
+
+											
+											<ul class="sub-item-links">
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/industries/tprm-financial-services/">
+															<span class="sub-item-link-title">
+																Financial Services															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/industries/tprm-healthcare/">
+															<span class="sub-item-link-title">
+																Healthcare															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/industries/tprm-technology/">
+															<span class="sub-item-link-title">
+																Technology															</span>
+														</a>
+													</li>
+
+																							</ul>
+										</div>
+
+									
+										<div class="sub-item">
+											
+												<span class="sub-item-title">
+													<span class="sub-item-title-icon">
+														<img width="24" height="17" src="https://panorays.com/wp-content/uploads/2022/03/icon-why-panorays.svg" class="attachment-thumbnail size-thumbnail" alt="Why icon" decoding="async" />													</span>
+													<span class="sub-item-title-text">
+														Why Panorays													</span>
+												</span>
+
+											
+											<ul class="sub-item-links">
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/how-it-works/">
+															<span class="sub-item-link-title">
+																How It Works															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/risk-dna/">
+															<span class="sub-item-link-title">
+																What is Risk DNA 															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/cyber-posture-rating-explained/">
+															<span class="sub-item-link-title">
+																Cyber Posture Ratings															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/compare/">
+															<span class="sub-item-link-title">
+																Panorays vs. The Competition															</span>
+														</a>
+													</li>
+
+																							</ul>
+										</div>
+
+																	</div>
+							</div>
+
+											</li>
+
+				
+					<li class="menu-item">
+						<a href="https://panorays.com/pricing/">
+							Pricing						</a>
+
+											</li>
+
+				
+					<li class="menu-item menu-item-has-children">
+						<a href="#">
+							Resources						</a>
+
+						
+							<div class="sub-menu">
+								<div class="sub-items">
+									
+										<div class="sub-item">
+											
+											<ul class="sub-item-links">
+												
+													<li class="sub-item-link">
+														<a href="/blog/">
+															<span class="sub-item-link-title">
+																Blog															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/resources/guides/">
+															<span class="sub-item-link-title">
+																Guides															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/resources/case-studies/">
+															<span class="sub-item-link-title">
+																Case Studies															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/resources/reports-whitepapers/">
+															<span class="sub-item-link-title">
+																Reports & Whitepapers															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/resources/webinars/">
+															<span class="sub-item-link-title">
+																Webinars & Videos															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="/resources/product-corporate-collateral/">
+															<span class="sub-item-link-title">
+																Product & Corporate Collateral															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/release-notes/">
+															<span class="sub-item-link-title">
+																Product Release Notes															</span>
+														</a>
+													</li>
+
+																							</ul>
+										</div>
+
+																	</div>
+							</div>
+
+											</li>
+
+				
+					<li class="menu-item">
+						<a href="/partners/">
+							Partners						</a>
+
+											</li>
+
+				
+					<li class="menu-item menu-item-has-children">
+						<a href="#">
+							About						</a>
+
+						
+							<div class="sub-menu">
+								<div class="sub-items">
+									
+										<div class="sub-item">
+											
+											<ul class="sub-item-links">
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/about/">
+															<span class="sub-item-link-title">
+																Company															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/in-the-news/">
+															<span class="sub-item-link-title">
+																In The News															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/careers/">
+															<span class="sub-item-link-title">
+																Careers															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/blog/category/press-releases/">
+															<span class="sub-item-link-title">
+																Press Releases															</span>
+														</a>
+													</li>
+
+												
+													<li class="sub-item-link">
+														<a href="https://panorays.com/events/">
+															<span class="sub-item-link-title">
+																Events															</span>
+														</a>
+													</li>
+
+																							</ul>
+										</div>
+
+																	</div>
+							</div>
+
+											</li>
+
+				
+				
+					<li class="menu-item">
+						<a href="https://panorays.com/blog/">
+							Blog						</a>
+
+											</li>
+
+							</ul>
+		</nav>
+
+		<div class="mn-buttons">
+			<a href="https://panorays.com/free-account/" class="btn btn--outline btn--sm"><span class="btn-text">Start Free Trial</span></a><a href="https://panorays.com/request-a-demo/" class="btn btn--sm"><span class="btn-text">Get a Demo</span></a>		</div>
+	</div>
+
+	<button class="mn-trigger" type="button" aria-label="Toggle Main Menu" title="Toggle Main Menu">
+		<span class="mn-icon">
+			<span class="mn-line"></span>
+			<span class="mn-line"></span>
+			<span class="mn-line"></span>
+			<span class="mn-line"></span>
+		</span>
+	</button>
+</div>
+
+<div class="site-logo">
+	<a href="https://panorays.com" aria-label="Logo">
+		<img src="https://panorays.com/wp-content/uploads/2022/07/panorays-logo.svg" class="logo" width="120" height="38" alt="Panorays logo" />
+	</a>
+</div>
+</div>
+		</header>
+
+		
+		<div  id="content" class="site-content">
+<div  class="block b-hero b-hero--type-bg-video b-hero--layout-text-only" id="block-6335932a6a75d" data-id="block-6335932a6a75d"><div class="block-container">
+
+	<video playsinline autoplay loop muted class="video__video" poster="https://panorays.com/wp-content/uploads/2023/01/careers-hero-poster.jpg">
+
+					<source src="https://panorays.com/wp-content/uploads/2023/01/Careers-Hero-Video.webm" type="video/webm">
+		
+					<source src="https://panorays.com/wp-content/uploads/2023/01/Careers-Hero-Video.mp4" type="video/mp4">
+		
+	</video>
+
+
+<div class="hero__in">
+	<div class="hero__content">
+		<span class="hero__headline">Careers</span><h1 class="hero__title">We&#8217;re Always Looking<br />
+For Exceptional People.</h1><a href="#careers" class="hero__btn btn btn--narrow"><span class="btn-text">View Jobs</span></a>
+		
+		
+	</div>
+
+	</div>
+
+</div></div>
+
+<div  class="block b-text-and-media b-text-and-media--type-careers b-text-and-media--layout-text-right" id="block-6335932a6a7ba" data-id="block-6335932a6a7ba"><div class="block-container">
+<div class="item">
+	<div class="cols">
+		<div class="col-text" data-aos="fade-up">
+			<h2 class="item__title">Grow With Us</h2><div class="item__text"><p>We are a global, SaaS, B2B cybersecurity startup with offices in New York and Tel Aviv. We are on a mission to change the way companies do business together.</p>
+<p>The secret ingredient for making a workplace more than just work is the people. This concept is fundamental to our growth, so we encourage each person to bring their unique character and creativity to our diverse team.</p>
+<p>If you are looking for a positive, friendly, teamwork-oriented environment in an ever-growing market, Panorays is the place for you.</p>
+<p><strong>Are you in?</strong></p>
+</div>		</div>
+
+		<div class="col-media">
+			
+							<figure class="c-image"><img decoding="async" width="675" height="586" src="https://panorays.com/wp-content/uploads/2023/01/team.png" class="attachment-full size-full" alt="Panorays team" srcset="https://panorays.com/wp-content/uploads/2023/01/team.png 675w, https://panorays.com/wp-content/uploads/2023/01/team-600x521.png 600w, https://panorays.com/wp-content/uploads/2023/01/team-75x65.png 75w" sizes="(max-width: 675px) 100vw, 675px" /></figure>			
+					</div>
+	</div>
+</div>
+</div></div>
+
+<div  class="block b-text-and-media b-text-and-media--type-careers b-text-and-media--layout-text-left" id="block-6335932a6a859" data-id="block-6335932a6a859"><div class="block-container">
+<div class="item">
+	<div class="cols">
+		<div class="col-text" data-aos="fade-up">
+			<h2 class="item__title">Our Employees Have Spoken!</h2><div class="item__text"><p>Panorays has been named one of the Best Start-Up Companies to Work for 2 years running.<br />
+We are honored and humbled to be listed once again in the Dun&#8217;s 100.</p>
+<p><strong><span style="color: #ff776b;"><a class="c-link" style="color: #ff776b;" href="https://www.duns100.co.il/en/rating/Best_High_Tech_Companies_to_work_for/Best_Start_Up_Companies_to_work_for_Over_100_Employees" target="_blank" rel="noopener">Read More &gt;</a></span></strong></p>
+</div>		</div>
+
+		<div class="col-media">
+			
+							<figure class="c-image"><img loading="lazy" decoding="async" width="707" height="496" src="https://panorays.com/wp-content/uploads/2023/01/Duns100.png" class="attachment-full size-full" alt="Duns 100 - 2022 Best startups to work in" srcset="https://panorays.com/wp-content/uploads/2023/01/Duns100.png 707w, https://panorays.com/wp-content/uploads/2023/01/Duns100-600x421.png 600w, https://panorays.com/wp-content/uploads/2023/01/Duns100-75x53.png 75w" sizes="(max-width: 707px) 100vw, 707px" /></figure>			
+					</div>
+	</div>
+</div>
+</div></div>
+
+<div  class="block b-careers" id="careers" data-id="careers"><div class="block-container">
+	<div class="careers-filter">
+		<h2 class="title">
+			Open Positions		</h2>
+		<span class="label">
+			Filter By:		</span>
+
+		<div class="filter-wrap filter-wrap-department">
+			<select class="filter filter-department" data-filter-by="department">
+				<option value="all">
+					All Departments				</option>
+				
+					<option value="sales">
+						Sales					</option>
+
+				
+					<option value="support">
+						Support					</option>
+
+							</select>
+		</div>
+
+		<div class="filter-wrap filter-wrap-location">
+			<select class="filter filter-location" data-filter-by="location">
+				<option value="all">
+					All Locations				</option>
+				
+					<option value="tel-aviv">
+						Tel Aviv					</option>
+
+				
+					<option value="united-states">
+						United States					</option>
+
+							</select>
+		</div>
+
+		<div class="filter-wrap filter-wrap-search">
+			<input class="search-job-input" type="search" placeholder="Search">
+
+			<button class="search-submit" type="submit" role="button" aria-label="Find your role">
+				Find your role			</button>
+		</div>
+	</div>
+
+	<div class="careers-wrap">
+		<table class="careers desktop-only">
+			
+				<tr class="career" data-title="Enterprise Account Executive" data-department="sales" data-location="united-states">
+					<td class="info">
+						<a href="https://panorays.com/careers/enterprise-account-executive/E2.275/">
+							<div class="icon">
+								<span class="icomoon icomoon-department-sales" aria-hidden="true"></span>
+							</div>
+							<div class="titles">
+								<h3 class="title">
+									Enterprise Account Executive								</h3>
+								<div class="excerpt">
+									We are looking for a talented, highly motivated Enterprise Account Executive who will&#8230;								</div>
+							</div>
+						</a>
+					</td>
+					<td class="department">
+						<span class="dot"></span>
+						Sales					</td>
+					<td class="location">
+						<span class="icomoon icomoon-map-marker" aria-hidden="true"></span>
+						United States					</td>
+				</tr>
+
+			
+				<tr class="career" data-title="Cyber Security Support Engineer" data-department="support" data-location="tel-aviv">
+					<td class="info">
+						<a href="https://panorays.com/careers/cyber-security-support-engineer/74.279/">
+							<div class="icon">
+								<span class="icomoon icomoon-department-support" aria-hidden="true"></span>
+							</div>
+							<div class="titles">
+								<h3 class="title">
+									Cyber Security Support Engineer								</h3>
+								<div class="excerpt">
+									As a Cyber Security Support Engineer, you will be responsible for answering customer&#8230;								</div>
+							</div>
+						</a>
+					</td>
+					<td class="department">
+						<span class="dot"></span>
+						Support					</td>
+					<td class="location">
+						<span class="icomoon icomoon-map-marker" aria-hidden="true"></span>
+						Tel Aviv					</td>
+				</tr>
+
+					</table>
+
+		<div class="careers mobile-only">
+			
+				<div class="career" data-title="Enterprise Account Executive" data-department="sales" data-location="united-states">
+					<div class="info">
+						<a href="https://panorays.com/careers/enterprise-account-executive/E2.275/">
+							<div class="icon">
+								<span class="icomoon icomoon-department-sales" aria-hidden="true"></span>
+							</div>
+							<div class="titles">
+								<h3 class="title">
+									Enterprise Account Executive								</h3>
+								<div class="excerpt">
+									We are looking for a talented, highly motivated Enterprise Account Executive who will&#8230;								</div>
+							</div>
+						</a>
+					</div>
+					<div class="details">
+						<div class="department">
+							<span class="dot"></span>
+							Sales						</div>
+						<div class="location">
+							<span class="icomoon icomoon-map-marker" aria-hidden="true"></span>
+							United States						</div>
+					</div>
+				</div>
+
+			
+				<div class="career" data-title="Cyber Security Support Engineer" data-department="support" data-location="tel-aviv">
+					<div class="info">
+						<a href="https://panorays.com/careers/cyber-security-support-engineer/74.279/">
+							<div class="icon">
+								<span class="icomoon icomoon-department-support" aria-hidden="true"></span>
+							</div>
+							<div class="titles">
+								<h3 class="title">
+									Cyber Security Support Engineer								</h3>
+								<div class="excerpt">
+									As a Cyber Security Support Engineer, you will be responsible for answering customer&#8230;								</div>
+							</div>
+						</a>
+					</div>
+					<div class="details">
+						<div class="department">
+							<span class="dot"></span>
+							Support						</div>
+						<div class="location">
+							<span class="icomoon icomoon-map-marker" aria-hidden="true"></span>
+							Tel Aviv						</div>
+					</div>
+				</div>
+
+					</div>
+	</div>
+
+	<div class="careers-info">
+		<h3>Don’t see a role that fits?</h3>You can still shoot us an email to <a href="mailto:careers@panorays.com" target="_blank">careers@panorays.com</a>	</div>
+
+	<div class="careers-share">
+		<script type="comeet-social" data-social-show-title-for-all="true"></script>
+	</div>
+
+	</div></div>
+
+<div data-wpr-lazyrender="1" class="block b-quote b-quote--type-has-quotee" id="block-63b2e2f5208f2" data-id="block-63b2e2f5208f2"><div class="block-container">
+
+	<div class="blockquote">
+		<div class="cols">
+			<div class="col-image">
+				<div class="blockquote__quotee-image"><img loading="lazy" decoding="async" width="292" height="292" src="https://panorays.com/wp-content/uploads/2023/01/Matan-Or-El.png" class="attachment-medium size-medium" alt="Matan-Or-El - CEO and Co-Founder of Panorays" srcset="https://panorays.com/wp-content/uploads/2023/01/Matan-Or-El.png 292w, https://panorays.com/wp-content/uploads/2023/01/Matan-Or-El-150x150.png 150w, https://panorays.com/wp-content/uploads/2023/01/Matan-Or-El-75x75.png 75w" sizes="(max-width: 292px) 100vw, 292px" /></div>			</div>
+			<div class="col-text">
+				<div class="blockquote__text">We started Panorays with the goal of building a company where employees have an opportunity to do fulfilling work, advance their skills and careers and have fun in the process. Our focused mission drives our innovation, teamwork and success.</div><div class="blockquote__name"><strong>Matan Or-El</strong><br />
+Co-Founder &#038; CEO at Panorays</div>			</div>
+		</div>
+	</div>
+
+</div></div>
+
+<div data-wpr-lazyrender="1" class="block b-image-slider" id="block-63b3035eea770" data-id="block-63b3035eea770"><div class="block-container">
+<div class="swiper">
+	<div class="swiper-wrapper">
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-08.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="667" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-08.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-08.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-08-600x400.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-08-768x512.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-08-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-21.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="668" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-21.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-21.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-21-600x401.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-21-768x513.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-21-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-01.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="667" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-01.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-01.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-01-600x400.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-01-768x512.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-01-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-02.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="668" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-02.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-02.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-02-600x401.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-02-768x513.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-02-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-03.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="667" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-03.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-03.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-03-600x400.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-03-768x512.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-03-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-04.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="750" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-04.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-04.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-04-600x450.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-04-768x576.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-04-75x56.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-05.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="750" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-05.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-05.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-05-600x450.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-05-768x576.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-05-75x56.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-06.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="668" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-06.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-06.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-06-600x401.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-06-768x513.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-06-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-07.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="667" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-07.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-07.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-07-600x400.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-07-768x512.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-07-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-20.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="1333" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-20.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-20.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-20-450x600.jpg 450w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-20-768x1024.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-20-56x75.jpg 56w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-19.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="750" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-19.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-19.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-19-600x450.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-19-768x576.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-19-75x56.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-18.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="1333" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-18.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-18.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-18-450x600.jpg 450w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-18-768x1024.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-18-56x75.jpg 56w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-17.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="1333" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-17.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-17.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-17-450x600.jpg 450w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-17-768x1024.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-17-56x75.jpg 56w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-16.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="750" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-16.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-16.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-16-600x450.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-16-768x576.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-16-75x56.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-15.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="750" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-15.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-15.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-15-600x450.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-15-768x576.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-15-75x56.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-14.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="668" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-14.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-14.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-14-600x401.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-14-768x513.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-14-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-13.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="750" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-13.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-13.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-13-600x450.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-13-768x576.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-13-75x56.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-10.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="1333" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-10.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-10.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-10-450x600.jpg 450w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-10-768x1024.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-10-56x75.jpg 56w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-11.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="1333" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-11.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-11.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-11-450x600.jpg 450w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-11-768x1024.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-11-56x75.jpg 56w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-12.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="667" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-12.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-12.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-12-600x400.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-12-768x512.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-12-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-09.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="750" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-09.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-09.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-09-600x450.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-09-768x576.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-09-75x56.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-23-e1673259620947.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="497" height="667" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-23-e1673259620947.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-23-e1673259620947.jpg 497w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-23-e1673259620947-447x600.jpg 447w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-23-e1673259620947-56x75.jpg 56w" sizes="(max-width: 497px) 100vw, 497px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-24.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="668" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-24.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-24.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-24-600x401.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-24-768x513.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-24-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-25-e1673259666801.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="617" height="570" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-25-e1673259666801.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-25-e1673259666801.jpg 617w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-25-e1673259666801-600x554.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-25-e1673259666801-75x69.jpg 75w" sizes="(max-width: 617px) 100vw, 617px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-22-e1673259811833.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="652" height="645" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-22-e1673259811833.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-22-e1673259811833.jpg 652w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-22-e1673259811833-600x594.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-22-e1673259811833-75x75.jpg 75w" sizes="(max-width: 652px) 100vw, 652px" />					</a>
+				</figure>
+			</div>
+
+		
+			<div class="swiper-slide">
+				<figure class="c-image">
+
+					<a href="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-26.jpg" data-fancybox="image-slider">
+						<img loading="lazy" decoding="async" width="1000" height="668" src="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-26.jpg" class="attachment-full size-full" alt="Panorays employees" srcset="https://panorays.com/wp-content/uploads/2023/01/panorays-employees-26.jpg 1000w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-26-600x401.jpg 600w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-26-768x513.jpg 768w, https://panorays.com/wp-content/uploads/2023/01/panorays-employees-26-75x50.jpg 75w" sizes="(max-width: 1000px) 100vw, 1000px" />					</a>
+				</figure>
+			</div>
+
+			</div>
+</div>
+</div></div>
+
+<div data-wpr-lazyrender="1" class="block b-title b-title--style-default" id="block-63b4133357c63" data-id="block-63b4133357c63"><div class="block-container">
+<h3 class="c-title">
+	
+	Follow us on Instagram <a href="https://www.instagram.com/life.at.panorays/" target="_blank" style="color:#ff776b">@life.at.panorays</a>
+</h3>
+
+</div></div>		</div><!-- #content -->
+
+		
+		<footer data-wpr-lazyrender="1" id="colophon" class="site-footer" role="contentinfo">
+			<div  class="footer-main">
+	<div class="container">
+		<div class="row-main">
+			<div class="col-info">
+				<div class="footer__info">
+					<figure class="footer-info__logo">
+						<img src="https://panorays.com/wp-content/uploads/2022/07/panorays-logo.svg" height="39" alt="Panorays logo">
+					</figure>
+
+					<div class="footer-info__text">
+						<h3 class="footer-info__title">Contact us</h3><a href="mailto:info@panorays.com" target="_blank" class="footer-info__email">info@panorays.com</a><a href="tel:+19295296116" class="footer-info__phone">+1-929-529-6116</a><br />Panorays INC<br />155 East 44th Street, Suite 701<br />New York NY 10017<br />United States<br />					</div>
+				</div>
+
+				<div class="footer-newsletter">
+					<h3 class="footer-newsletter__title">
+						Sign up and stay updated!					</h3>
+
+					<div class="footer-newsletter__form">
+						<script>
+hbspt.forms.create({
+	region: "na1",
+	portalId: "4206449",
+	formId: "87e09bfe-420f-4a3e-81a0-77c8fa637578"
+});
+</script>
+
+							</div>
+				</div>
+			</div>
+
+			<div class="col-menus">
+				
+					<div class="col-footer-nav">
+						
+							<div class="footer-nav-wrap">
+								<h3 class="footer-nav-title">
+									Platform								</h3>
+
+								<div class="footer-nav">
+									<div class="menu-platform-footer-container"><ul id="menu-platform-footer" class="menu"><li id="menu-item-17761" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17761"><a href="https://panorays.com/platform/cybersecurity-posture/">Risk DNA Assessments</a></li>
+<li id="menu-item-16327" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16327"><a href="https://panorays.com/platform/attack-surface-management/">External Attack Surface</a></li>
+<li id="menu-item-16558" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16558"><a href="https://panorays.com/platform/cybersecurity-questionnaires/">Cybersecurity Questionnaires</a></li>
+<li id="menu-item-28130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28130"><a href="https://panorays.com/inventory-centralized-vendor-repository/">Smart Inventory</a></li>
+<li id="menu-item-7081" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7081"><a href="https://panorays.com/platform/communication/">Communication</a></li>
+<li id="menu-item-7082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7082"><a href="https://panorays.com/platform/remediation/">Remediation</a></li>
+<li id="menu-item-17030" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17030"><a href="https://panorays.com/platform/cyber-security-monitoring/">Continuous Cyber Security Monitoring</a></li>
+<li id="menu-item-7083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7083"><a href="https://panorays.com/platform/reporting-and-dashboard/">Reporting &#038; Dashboard</a></li>
+<li id="menu-item-7084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7084"><a href="https://panorays.com/platform/regulatory-compliance/">Regulatory Compliance Monitoring</a></li>
+<li id="menu-item-7087" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7087"><a href="https://panorays.com/platform/vendor-portfolio-management/">Portfolio Management</a></li>
+<li id="menu-item-7086" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7086"><a href="https://panorays.com/platform/professional-services/">Professional Services for Security Guidance</a></li>
+<li id="menu-item-23955" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23955"><a href="https://panorays.com/trust-center/">Trust Center</a></li>
+</ul></div>								</div>
+							</div>
+
+											</div>
+
+				
+					<div class="col-footer-nav">
+						
+							<div class="footer-nav-wrap">
+								<h3 class="footer-nav-title">
+									Solution								</h3>
+
+								<div class="footer-nav">
+									<div class="menu-solution-footer-container"><ul id="menu-solution-footer" class="menu"><li id="menu-item-18762" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18762"><a href="https://panorays.com/solutions/third-party-cyber-risk-management/">Third-Party Cyber Security Management</a></li>
+<li id="menu-item-7090" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7090"><a href="https://panorays.com/enterprise-security-risk-management/">Enterprise Risk Management</a></li>
+<li id="menu-item-17295" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17295"><a href="https://panorays.com/solutions/supply-chain-risk-management/">Supply Chain Visibility</a></li>
+<li id="menu-item-7092" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7092"><a href="https://panorays.com/mergers-acquisitions/">Mergers &#038; Acquisitions</a></li>
+<li id="menu-item-7091" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7091"><a href="https://panorays.com/executive-level-reporting/">Executive-Level Reporting</a></li>
+<li id="menu-item-7093" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7093"><a href="https://panorays.com/evaluating-subsidiaries/">Evaluating Subsidiaries</a></li>
+<li id="menu-item-20671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20671"><a href="https://panorays.com/solutions/dora-compliance/">DORA Compliance</a></li>
+<li id="menu-item-28132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28132"><a href="https://panorays.com/automated-third-party-cyber-risk-questionnaires/">Autonomous TPCRM</a></li>
+<li id="menu-item-7096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7096"><a href="https://panorays.com/how-it-works/">How It Works</a></li>
+<li id="menu-item-18376" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18376"><a href="https://panorays.com/risk-dna/">Risk DNA™</a></li>
+<li id="menu-item-7097" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7097"><a href="https://panorays.com/cyber-posture-rating-explained/">Ratings Transparency</a></li>
+</ul></div>								</div>
+							</div>
+
+						
+							<div class="footer-nav-wrap">
+								<h3 class="footer-nav-title">
+									Industries								</h3>
+
+								<div class="footer-nav">
+									<div class="menu-industries-footer-container"><ul id="menu-industries-footer" class="menu"><li id="menu-item-19217" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19217"><a href="https://panorays.com/industries/tprm-financial-services/">Financial Services</a></li>
+<li id="menu-item-19215" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19215"><a href="https://panorays.com/industries/tprm-healthcare/">Healthcare</a></li>
+<li id="menu-item-19216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19216"><a href="https://panorays.com/industries/tprm-technology/">Technology</a></li>
+</ul></div>								</div>
+							</div>
+
+											</div>
+
+				
+					<div class="col-footer-nav">
+						
+							<div class="footer-nav-wrap">
+								<h3 class="footer-nav-title">
+									About Us								</h3>
+
+								<div class="footer-nav">
+									<div class="menu-about-footer-container"><ul id="menu-about-footer" class="menu"><li id="menu-item-16428" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16428"><a href="https://panorays.com/about/">Company</a></li>
+<li id="menu-item-7074" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3314 current_page_item menu-item-7074"><a href="https://panorays.com/careers/" aria-current="page">Careers</a></li>
+<li id="menu-item-11716" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11716"><a href="https://panorays.com/partners/">Partners</a></li>
+<li id="menu-item-7075" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7075"><a href="https://panorays.com/in-the-news/">In the News</a></li>
+<li id="menu-item-7076" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7076"><a href="https://panorays.com/blog/category/press-releases/">Press Releases</a></li>
+</ul></div>								</div>
+							</div>
+
+						
+							<div class="footer-nav-wrap">
+								<h3 class="footer-nav-title">
+									<a href="https://panorays.com/compare/">Compare</a>								</h3>
+
+								<div class="footer-nav">
+									<div class="menu-compare-footer-container"><ul id="menu-compare-footer" class="menu"><li id="menu-item-10100" class="menu-item menu-item-type-post_type menu-item-object-compare menu-item-10100"><a href="https://panorays.com/compare/upguard-vs-panorays/">UpGuard</a></li>
+<li id="menu-item-19923" class="menu-item menu-item-type-post_type menu-item-object-compare menu-item-19923"><a href="https://panorays.com/compare/panorays-vs-securityscorecard/">SecurityScorecard</a></li>
+<li id="menu-item-19922" class="menu-item menu-item-type-post_type menu-item-object-compare menu-item-19922"><a href="https://panorays.com/compare/panorays-vs-bitsight/">Bitsight</a></li>
+<li id="menu-item-19967" class="menu-item menu-item-type-post_type menu-item-object-compare menu-item-19967"><a href="https://panorays.com/compare/panorays-vs-onetrust/">OneTrust</a></li>
+</ul></div>								</div>
+							</div>
+
+											</div>
+
+				
+					<div class="col-footer-nav">
+						
+							<div class="footer-nav-wrap">
+								<h3 class="footer-nav-title">
+									<a href="https://panorays.com/resources/">Resources</a>								</h3>
+
+								<div class="footer-nav">
+									<div class="menu-resources-footer-container"><ul id="menu-resources-footer" class="menu"><li id="menu-item-3076" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3076"><a href="https://panorays.com/blog/">Blog</a></li>
+<li id="menu-item-3077" class="menu-item menu-item-type-taxonomy menu-item-object-resource_cat menu-item-3077"><a href="https://panorays.com/resources/guides/">Guides</a></li>
+<li id="menu-item-3080" class="menu-item menu-item-type-taxonomy menu-item-object-resource_cat menu-item-3080"><a href="https://panorays.com/resources/case-studies/">Case Studies</a></li>
+<li id="menu-item-3081" class="menu-item menu-item-type-taxonomy menu-item-object-resource_cat menu-item-3081"><a href="https://panorays.com/resources/webinars/">Webinars</a></li>
+<li id="menu-item-3082" class="menu-item menu-item-type-taxonomy menu-item-object-resource_cat menu-item-3082"><a href="https://panorays.com/resources/reports-whitepapers/">Reports &amp; Whitepapers</a></li>
+<li id="menu-item-7314" class="menu-item menu-item-type-taxonomy menu-item-object-resource_cat menu-item-7314"><a href="https://panorays.com/resources/product-corporate-collateral/">Product Collateral</a></li>
+<li id="menu-item-12884" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12884"><a href="https://panorays.com/release-notes/">Product Release Notes</a></li>
+<li id="menu-item-25248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25248"><a href="https://panorays.com/glossary/">Glossary</a></li>
+<li id="menu-item-23614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23614"><a href="https://panorays.com/free-security-reports/">Free Security Reports</a></li>
+</ul></div>								</div>
+							</div>
+
+											</div>
+
+							</div>
+		</div>
+
+		<div class="row-socials">
+			<div class="col col-logos">
+				<figure class="footer-g2-tags"><img width="867" height="161" src="https://panorays.com/wp-content/uploads/2026/03/g2-tags.png" class="attachment-full size-full" alt="G2 tags" decoding="async" loading="lazy" srcset="https://panorays.com/wp-content/uploads/2026/03/g2-tags.png 867w, https://panorays.com/wp-content/uploads/2026/03/g2-tags-600x111.png 600w, https://panorays.com/wp-content/uploads/2026/03/g2-tags-768x143.png 768w, https://panorays.com/wp-content/uploads/2026/03/g2-tags-75x14.png 75w" sizes="(max-width: 867px) 100vw, 867px" /></figure><figure class="footer-logos"><img width="274" height="50" src="https://panorays.com/wp-content/uploads/2025/11/footer-compliance-1-e1764071389572.png" class="attachment-full size-full" alt="Compliance" decoding="async" loading="lazy" /></figure>			</div>
+			<div class="col-auto col-socials">
+				
+<div class="footer-socials">
+
+			
+	<a href="https://www.facebook.com/panorays" class="btn-socials facebook" target="_blank" rel="noopener"
+		aria-label="Visit us on Facebook">
+		<span class="icomoon icomoon-facebook" aria-hidden="true"></span>
+	</a>
+
+		
+	<a href="https://www.linkedin.com/company/panorays" class="btn-socials linkedin" target="_blank" rel="noopener"
+		aria-label="Visit us on LinkedIn">
+		<span class="icomoon icomoon-linkedin" aria-hidden="true"></span>
+	</a>
+
+		
+	<a href="https://twitter.com/panorays" class="btn-socials twitter" target="_blank" rel="noopener"
+		aria-label="Visit us on Twitter">
+		<span class="icomoon icomoon-twitter" aria-hidden="true"></span>
+	</a>
+
+		
+	<a href="https://www.youtube.com/@panorays" class="btn-socials youtube" target="_blank" rel="noopener"
+		aria-label="Visit us on YouTube">
+		<span class="icomoon icomoon-youtube" aria-hidden="true"></span>
+	</a>
+
+		
+</div>
+
+						</div>
+		</div>
+	</div>
+</div>
+
+<div  class="footer-bottom">
+	<div class="container">
+		<div class="d-flex justify-space-between align-items-center">
+			<div class="col col-copyright">
+				<div class="footer-copyright">
+					© 2026 Panorays. All Rights Reserved				</div>
+			</div>
+			<div class="col-auto col-terms-nav">
+				<div class="footer-terms-nav">
+					<div class="menu-footer-bottom-menu-container"><ul id="menu-footer-bottom-menu" class="menu"><li id="menu-item-5607" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5607"><a href="https://panorays.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-18623" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18623"><a href="https://panorays.com/dpf-notice/">DPF Notice</a></li>
+<li id="menu-item-3254" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3254"><a href="https://panorays.com/cookie-policy/">Cookie Policy</a></li>
+<li id="menu-item-3295" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3295"><a href="https://panorays.com/security/">Security</a></li>
+<li id="menu-item-3230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3230"><a href="https://panorays.com/terms-of-service/">Terms of Service</a></li>
+</ul></div>				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		</footer>
+
+		
+		</div><!-- #site-wrap -->
+
+		<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/panorays/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/rocketlazyloadscript" id="wistia-js" data-rocket-src="https://fast.wistia.com/assets/external/E-v1.js" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="cookies-js" data-rocket-src="https://panorays.com/wp-content/themes/panorays/assets/js/js.cookie.min.js" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="gsap-js" data-rocket-src="https://panorays.com/wp-content/themes/panorays/assets/js/gsap.min.js" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="gsap-scrolltrigger-js" data-rocket-src="https://panorays.com/wp-content/themes/panorays/assets/js/ScrollTrigger.min.js" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="select2-js" data-rocket-src="https://panorays.com/wp-content/themes/panorays/assets/js/select2.min.js" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="fancybox-js" data-rocket-src="https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/assets/js/fancybox.umd.js?ver=1785654345" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="swiper-js" data-rocket-src="https://panorays.com/wp-content/themes/panorays/assets/js/swiper-bundle.min.js" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="tinynav-js" data-rocket-src="https://panorays.com/wp-content/themes/panorays/assets/js/tinynav.min.js" data-rocket-defer defer></script>
+<script id="clay-js" src="https://static.claydar.com/init.v1.js?id=cYf9nwNV7r"></script>
+<script id="chilipiper-js" src="https://panorays.chilipiper.com/concierge-js/cjs/concierge.js"></script>
+<script id="scripts-js-extra">
+var siteObject = {"ajaxUrl":"https://panorays.com/wp-admin/admin-ajax.php","homeUrl":"https://panorays.com"};
+//# sourceURL=scripts-js-extra
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="scripts-js" data-rocket-src="https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/build/js/scripts.js?ver=1785654345" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="block-acf-hero-js" data-rocket-src="https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/partials/blocks/block-hero/block-hero.js?ver=1785654360" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="lottie-js" data-rocket-src="https://panorays.com/wp-content/themes/panorays/assets/js/lottie.min.js?ver=5.6.4" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="block-text-and-media-js-js" data-rocket-src="https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/partials/blocks/block-text-and-media/block-text-and-media.js?ver=1785654360" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="block-acf-careers-js" data-rocket-src="https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/partials/blocks/block-careers/block-careers.js?ver=1785656517" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="block-acf-image-slider-js" data-rocket-src="https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/partials/blocks/block-image-slider/block-image-slider.js?ver=1785656517" data-rocket-defer defer></script>
+<script>window.lazyLoadOptions={elements_selector:"iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://panorays.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+		<script>"use strict";function wprRemoveCPCSS(){var preload_stylesheets=document.querySelectorAll('link[data-rocket-async="style"][rel="preload"]');if(preload_stylesheets&&0<preload_stylesheets.length)for(var stylesheet_index=0;stylesheet_index<preload_stylesheets.length;stylesheet_index++){var media=preload_stylesheets[stylesheet_index].getAttribute("media")||"all";if(window.matchMedia(media).matches)return void setTimeout(wprRemoveCPCSS,200)}var elem=document.getElementById("rocket-critical-css");elem&&"remove"in elem&&elem.remove()}window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><noscript><link data-minify="1" rel='stylesheet' id='bootstrap-grid-css' href='https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/assets/css/bootstrap-grid.css?ver=1785654345' media='all' /><link data-minify="1" rel='stylesheet' id='fancybox-css' href='https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/assets/css/fancybox.css?ver=1785654345' media='all' /><link data-minify="1" rel='stylesheet' id='swiper-css' href='https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/assets/css/swiper-bundle.min.css?ver=1785654345' media='all' /><link rel='stylesheet' id='select2-css' href='https://panorays.com/wp-content/themes/panorays/assets/css/select2.min.css' media='all' /><link rel='stylesheet' id='style-css' href='https://panorays.com/wp-content/themes/panorays/style.css' media='all' /><link data-minify="1" rel='stylesheet' id='main-css' href='https://panorays.com/wp-content/cache/min/1/wp-content/themes/panorays/build/css/main.min.css?ver=1785654345' media='all' /></noscript><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a42237b8dfdd2674',t:'MTc5MDU5Mjk0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+		</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->

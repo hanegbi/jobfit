@@ -1,0 +1,92 @@
+{
+  "company_id": "gloat_ltd",
+  "schema_version": 1,
+  "career_url": "https://gloat.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:26:46.110510Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?gloat\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "gloat.com|careers-at-gloat/co/israel/90.376/ai-engineer-team-leader|6",
+    "explicit_accept": [
+      "https://gloat.com/careers-at-gloat/co/israel/90.376/ai-engineer-team-leader/all",
+      "https://gloat.com/careers-at-gloat/co/israel/4F.276/devops-engineer/all",
+      "https://gloat.com/careers-at-gloat/co/israel/44.F6B/senior-ai-engineer-agentic-systems/all",
+      "https://gloat.com/careers-at-gloat/co/israel/13.F62/senior-backend-engineer/all",
+      "https://gloat.com/careers-at-gloat/co/israel/32.F66/senior-data-engineer/all",
+      "https://gloat.com/careers-at-gloat/co/israel/14.E64/growth-marketing-lead-ai-native/all"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "6a6727e747d260271e0f73f26b340ec9c369911b",
+    "candidate_count": 37
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": "2026-10-05T10:26:46.110510Z",
+  "notes": []
+}

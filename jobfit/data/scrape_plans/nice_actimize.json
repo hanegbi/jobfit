@@ -1,0 +1,68 @@
+{
+  "company_id": "nice_actimize",
+  "schema_version": 1,
+  "career_url": "https://www.nice.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:54:54.613777Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 94,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 95,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 100,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 101,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "b3963990aeaea02102b60357169e5aa4ae84a825",
+    "candidate_count": 123
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 0
+  },
+  "rediscover_after": "2026-10-05T10:54:54.613777Z",
+  "notes": []
+}

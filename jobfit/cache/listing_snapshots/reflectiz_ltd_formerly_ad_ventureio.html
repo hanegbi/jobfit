@@ -1,0 +1,2089 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Careers &#8211; Reflectiz</title>
+<link data-rocket-prefetch href="https://js.hs-analytics.net" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://js.hubspot.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://js.hs-banner.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://js.hsforms.net" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://secure-convo-float.lovable.app" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://js.hs-scripts.com" rel="dns-prefetch">
+<link crossorigin data-rocket-preload as="font" href="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/fonts/NotoSans/NotoSans-Black.woff2" rel="preload"><link rel="preload" data-rocket-preload as="image" href="https://www.reflectiz.com/wp-content/uploads/2024/09/hi-five.svg" fetchpriority="high">
+	<link rel="canonical" href="https://www.reflectiz.com/careers/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Careers &#8211; Reflectiz" />
+	<meta property="og:url" content="https://www.reflectiz.com/careers/" />
+	<meta property="og:site_name" content="Reflectiz" />
+	<meta property="article:modified_time" content="2025-12-29T07:53:26+00:00" />
+	<meta property="og:image" content="https://www.reflectiz.com/wp-content/uploads/2025/07/383_website-preview-thumbnail_op5.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@_Reflectiz_" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/www.reflectiz.com\/careers\/","url":"https:\/\/www.reflectiz.com\/careers\/","name":"Careers &#8211; Reflectiz","isPartOf":{"@id":"https:\/\/www.reflectiz.com\/#website"},"datePublished":"2022-04-12T17:05:15+00:00","dateModified":"2025-12-29T07:53:26+00:00","breadcrumb":{"@id":"https:\/\/www.reflectiz.com\/careers\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.reflectiz.com\/careers\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/www.reflectiz.com\/careers\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/www.reflectiz.com\/"},{"@type":"ListItem","position":2,"name":"Careers"}]},{"@type":"WebSite","@id":"https:\/\/www.reflectiz.com\/#website","url":"https:\/\/www.reflectiz.com\/","name":"Reflectiz","description":"Continuous Web Threat Management","publisher":{"@id":"https:\/\/www.reflectiz.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.reflectiz.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/www.reflectiz.com\/#organization","name":"Reflectiz","url":"https:\/\/www.reflectiz.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/www.reflectiz.com\/#\/schema\/logo\/image\/","url":"https:\/\/www.reflectiz.com\/wp-content\/uploads\/2026\/05\/reflectiz-logo.svg","contentUrl":"https:\/\/www.reflectiz.com\/wp-content\/uploads\/2026\/05\/reflectiz-logo.svg","width":1,"height":1,"caption":"Reflectiz"},"image":{"@id":"https:\/\/www.reflectiz.com\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/x.com\/_Reflectiz_","https:\/\/www.linkedin.com\/company\/reflectiz\/","https:\/\/www.youtube.com\/channel\/UCFBOMzVgJyl6alJM_J35YMg"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//js.hs-scripts.com' />
+<link rel='dns-prefetch' href='//www.reflectiz.com' />
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel='stylesheet' id='main-css' href='https://www.reflectiz.com/wp-content/cache/background-css/1/www.reflectiz.com/wp-content/cache/min/1/wp-content/themes/reflectiz/assets/css/main.css?ver=1790056096&wpr_t=1790587076' media='all' />
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:var(--wpr-bg-2e621e07-c648-413f-a398-c81a5ae2a2bf) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+<script id="jquery-core-js" src="https://www.reflectiz.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://www.reflectiz.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" data-rocket-defer defer></script>
+<link rel="https://api.w.org/" href="https://www.reflectiz.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.reflectiz.com/wp-json/wp/v2/pages/6539" />			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.71-->
+			<script type="text/rocketlazyloadscript" class="hsq-set-content-id" data-content-id="standard-page">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", "standard-page"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+			<!-- Start of HubSpot Embed Code -->
+<!--
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3823784.js"></script>
+-->
+<!-- End of HubSpot Embed Code -->
+
+<script data-no-lazyload>
+// override the hbspt functionality while hubspot is loading
+var hbspt = {
+   //push form to hubcache queue
+   forms:{create:function(c){hubcache.forms.push(c)}},
+};
+
+// cache hubspot forms here
+var hubcache = {
+        forms:[],
+        letsgo:function(){
+            for (var i in hubcache.forms){
+              //hubspot is now loaded
+              hbspt.forms.create(hubcache.forms[i]);
+            }            
+        }
+    }
+</script>
+
+<script data-no-lazyload>
+function loadScript(src, callback) {
+  const script = document.createElement('script');
+  script.src = src;
+  script.onload = function() {
+    callback();
+  };
+  document.head.appendChild(script);
+}
+</script>
+
+<script data-no-lazyload>
+if (window.innerWidth > 991) {
+  loadScript("https://js.hsforms.net/forms/v2.js", function() {
+   hubcache.letsgo();
+  });
+}
+</script>
+
+<script>
+if (window.innerWidth <= 991) {
+  loadScript("https://js.hsforms.net/forms/v2.js", function() {
+   hubcache.letsgo();
+  });
+}
+</script>
+
+
+
+<!-- Google Tag Manager -->
+<script type="text/rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-54MLFFD');</script>
+<!-- End Google Tag Manager -->
+
+
+<style>
+body.page-id-13684 .mymodal__title > h2 { display:none; }
+body.page-id-13684 .sections .button-solid-green, body.page-id-13684 .sections .button-bordered-white {
+--button-font-size: 18px;
+--button-min-height: 42px;
+--button-padding: 4px 24px;
+white-space: normal;
+height: auto;
+}
+</style>
+
+
+
+
+
+<script type="text/rocketlazyloadscript" defer>document.addEventListener('load', function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "https://widget.prod.equally.ai/equally-widget.min.js";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'equallyWidget'));!window.EQUALLY_AI_API_KEY&&(window.EQUALLY_AI_API_KEY="p5raj8aj278zcky9pv9u00rnp13bmmrp",intervalId=setInterval(function(){window.EquallyAi&&(clearInterval(intervalId),window.EquallyAi=new EquallyAi)},500));</script>
+
+
+
+
+
+
+
+
+
+<style>
+@media (min-width: 991px) {
+body.home #section-sides-1 .button-solid-green {
+    padding: 12px 20px;
+    font-size: 20px;
+}
+}
+</style>
+
+<script type="text/rocketlazyloadscript">
+/* Replace Twitter bird logo with new X logo site-wide */
+(function() {
+  var X_SVG = '<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block"><path d="M18.9016 2H22.1773L15.0565 10.1247L23.5 22H16.8226L11.5922 14.8628L5.61505 22H2.33752L9.95253 13.3013L1.8335 2H8.67467L13.3982 8.54035L18.9016 2ZM17.7657 20.0146H19.5785L7.65024 3.85429H5.70636L17.7657 20.0146Z" fill="white"/></svg>';
+  function replaceXLogo() {
+    document.querySelectorAll('a[href*="twitter"]').forEach(function(a) {
+      if (!a.querySelector('svg')) { a.innerHTML = X_SVG; }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', replaceXLogo);
+  } else {
+    replaceXLogo();
+  }
+  new MutationObserver(replaceXLogo).observe(document.documentElement, {childList: true, subtree: true});
+})();
+</script>
+
+<!-- SEO/GEO Fixes for Offensive Hub page -->
+<script data-no-lazyload>
+(function() {
+  if (window.location.pathname === '/offensive-hub/' || window.location.pathname === '/offensive-hub') {
+    // Fix #6: Override og:type from 'article' to 'website'
+    document.addEventListener('DOMContentLoaded', function() {
+      var ogType = document.querySelector('meta[property="og:type"]');
+      if (ogType) { ogType.setAttribute('content', 'website'); }
+      
+      // Fix #10: Open all FAQ details elements so answers are visible in DOM for crawlers
+      var faqDetails = document.querySelectorAll('details');
+      faqDetails.forEach(function(d) { d.setAttribute('open', ''); });
+    });
+  }
+})();
+</script>
+
+<!-- SEO/GEO/AEO Fixes for Offensive Hub -->
+<script data-no-lazyload>(function(){if(window.location.pathname.indexOf('offensive-hub')>-1){var s=document.createElement('script');s.type='application/ld+json';s.text='{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Reflectiz Offensive Hub","url":"https://www.reflectiz.com/offensive-hub/","description":"Enterprise-grade agentic pentesting platform for continuous web application security testing using AI agents.","applicationCategory":"SecurityApplication","operatingSystem":"Web-based SaaS","provider":{"@type":"Organization","name":"Reflectiz","url":"https://www.reflectiz.com/"},"datePublished":"2026-06-13","dateModified":"2026-06-24","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2"]}}';document.head.appendChild(s);document.addEventListener('DOMContentLoaded',function(){var og=document.querySelector('meta[property="og:type"]');if(og)og.content='website';document.querySelectorAll('details').forEach(function(d){d.setAttribute('open','')});if(!document.querySelector('.seo-breadcrumb')){var bc=document.createElement('nav');bc.setAttribute('aria-label','Breadcrumb');bc.className='seo-breadcrumb';bc.style.cssText='font-size:0.8rem;padding:0.4rem 1.5rem;color:#888;background:#f9f9f9;border-bottom:1px solid #eee;';bc.innerHTML='<ol style="list-style:none;margin:0;padding:0;display:flex;gap:0.4rem"><li><a href="/" style="color:#4a7cc9">Home</a></li><li>›</li><li>Solutions</li><li>›</li><li aria-current="page"><strong>Offensive Hub</strong></li></ol>';var h=document.querySelector('header');if(h)h.insertAdjacentElement('afterend',bc);}});}})();</script>
+
+<style>
+body.page-id-18364 .bd-demo-row,
+body.page-id-2582 .bd-demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+body.page-id-18364 .bd-marketing-panel,
+body.page-id-2582 .bd-marketing-panel {
+  flex: 0 0 40%;
+  background: linear-gradient(135deg, #16224f 0%, #3d2a6b 50%, #a8437e 100%);
+  color: #fff;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body.page-id-18364 .bd-eyebrow,
+body.page-id-2582 .bd-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ff8aa0;
+  margin: 0 0 12px;
+}
+body.page-id-18364 h1.about_us_heading,
+body.page-id-2582 h1.about_us_heading {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 20px;
+}
+body.page-id-18364 .bd-copy,
+body.page-id-2582 .bd-copy {
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.85);
+  max-width: 360px;
+  margin: 0 0 32px;
+}
+body.page-id-18364 .bd-checklist,
+body.page-id-2582 .bd-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+body.page-id-18364 .bd-checklist li,
+body.page-id-2582 .bd-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: rgba(255,255,255,0.92);
+}
+body.page-id-18364 .bd-checklist li::before,
+body.page-id-2582 .bd-checklist li::before {
+  content: "\2713";
+  flex: 0 0 20px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #2ecc71;
+  color: #fff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+body.page-id-18364 .bd-widget-card,
+body.page-id-2582 .bd-widget-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: #f4f5f7;
+}
+body.page-id-18364 .bd-widget-card .page_content,
+body.page-id-2582 .bd-widget-card .page_content {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  overflow: hidden;
+  width: 100%;
+}
+body.page-id-18364 .bd-widget-card .page_content::before,
+body.page-id-2582 .bd-widget-card .page_content::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #ff6b81, #ff8fa3);
+  z-index: 2;
+}
+@media (max-width: 900px) {
+  body.page-id-18364 .bd-demo-row,
+  body.page-id-2582 .bd-demo-row { flex-direction: column; }
+}
+</style>
+
+<style>
+@media (max-width: 900px) {
+  body.page-id-18364 .bd-demo-row,
+  body.page-id-2582 .bd-demo-row {
+    background: linear-gradient(135deg, #16224f 0%, #3d2a6b 50%, #a8437e 100%);
+    padding: 40px 24px;
+  }
+  body.page-id-18364 .bd-marketing-panel,
+  body.page-id-2582 .bd-marketing-panel {
+    display: contents;
+  }
+  body.page-id-18364 h1.about_us_heading,
+  body.page-id-2582 h1.about_us_heading {
+    order: 1;
+  }
+  body.page-id-18364 .bd-widget-card,
+  body.page-id-2582 .bd-widget-card {
+    order: 2;
+    background: transparent;
+    padding: 16px 0;
+  }
+  body.page-id-18364 .bd-eyebrow,
+  body.page-id-2582 .bd-eyebrow {
+    order: 3;
+    margin-top: 24px;
+  }
+  body.page-id-18364 .bd-copy,
+  body.page-id-2582 .bd-copy {
+    order: 4;
+  }
+  body.page-id-18364 .bd-checklist,
+  body.page-id-2582 .bd-checklist {
+    order: 5;
+  }
+}
+</style>    <script src="https://secure-convo-float.lovable.app/api/public/widget.js" async></script>
+    <link rel="icon" href="https://www.reflectiz.com/wp-content/uploads/2018/01/cropped-cropped-Mini-Logo-192x192-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.reflectiz.com/wp-content/uploads/2018/01/cropped-cropped-Mini-Logo-192x192-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.reflectiz.com/wp-content/uploads/2018/01/cropped-cropped-Mini-Logo-192x192-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.reflectiz.com/wp-content/uploads/2018/01/cropped-cropped-Mini-Logo-192x192-270x270.png" />
+<style id="wp-custom-css">
+.nav-item.h6 .nav-link {color:#103a77;line-height:1.5;}
+
+/* Change 10x color to green on Offensive Hub page */
+.page-id-15505 #section-sides-3 .s-sides__statCard .s-sides__statCard-number-wrapper { color: #6CD88B !important; }
+
+/* Pre-open mobile form on blog/webinar single pages */
+@media (max-width: 991px) {
+  .blog .blog-single__form {
+    display: flex !important;
+  }
+}
+
+/* Change background gradient on Offensive Hub hero section */
+.page-id-15505 #section-sides-1 {
+  background: linear-gradient(180deg, #103a77 0%, #212a44 100%) !important;
+}
+
+/* Offensive Hub - "Trusted by top companies:" title: H2 style, desktop */
+@media (min-width: 1200px) {
+  .page-id-15505 #section-logoscarousel-2 .s-logosCarousel__title {
+    font-size: 40px !important;
+    line-height: 48px !important;
+    color: #000000 !important;
+    text-align: left !important;
+  }
+}
+
+/* Privacy Hub - make testimonial quotes white */
+.page-id-16391 .s-sides__testimonial-quote,
+.page-id-16391 .s-sides__testimonial-quote p { color: #ffffff !important; }
+
+/* Privacy Hub - make testimonial name & role white */
+.page-id-16391 .s-sides__testimonial-person,
+.page-id-16391 .s-sides__testimonial-name,
+.page-id-16391 .s-sides__testimonial-role { color: #ffffff !important; }
+
+/* Plans page - make "Get Quote" button bigger on all hub tabs (Security, Privacy, Offensive, PCI) */
+.page-id-17337 #hub-1 .plans-page__panel-header .button-solid-green,
+.page-id-17337 #hub-2 .plans-page__panel-header .button-solid-green,
+.page-id-17337 #hub-3 .plans-page__panel-header .button-solid-green,
+.page-id-17337 #hub-4 .plans-page__panel-header .button-solid-green {
+  font-size: 20px !important;
+  padding: 12px 32px !important;
+  line-height: 1.4 !important;
+}
+
+/* Enlarge homepage hero "Book a demo" button to match plans page */
+.page-id-17910 .s-heroBanner__buttons .button-solid-green {
+  font-size: 20px !important;
+  padding: 12px 32px !important;
+  line-height: 1.4 !important;
+}
+</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><link data-minify="1" rel='stylesheet' id='comeet_style-css' href='https://www.reflectiz.com/wp-content/cache/min/1/wp-content/plugins/Archive/css/comeet-cards.css?ver=1790056704' media='all' />
+<link data-minify="1" rel='stylesheet' id='comeet_reset_style-css' href='https://www.reflectiz.com/wp-content/cache/min/1/wp-content/plugins/Archive/css/comeet-reset.css?ver=1790056704' media='all' />
+
+<style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">.hs-form-block .hs-form-field .input select.hs-input{--wpr-bg-09ff8f0d-d3ef-4b97-a261-269f4494b661: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/components/hubspotform/icon-chevron-down.svg');}.header-modal__prevBtn.swiper-button-prev{--wpr-bg-cbb4a45b-f8b2-43be-9fab-a235a7673140: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/components/header-modal/icon-arrow-prev.svg');}.header-modal__nextBtn.swiper-button-next{--wpr-bg-c51cc8bc-d5ff-4378-8f7e-ae223955e97b: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/components/header-modal/icon-arrow-next.svg');}.s-sides__testimonials-controls .swiper-button-prev{--wpr-bg-caefc346-dd8e-434d-a026-c7b3ad5b541e: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/logostestimonials/icon-arrow-left.svg');}.s-sides__testimonials-controls .swiper-button-next{--wpr-bg-3c968e2d-fd76-4f29-ba7f-5b75863024fb: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/logostestimonials/icon-arrow-right.svg');}.s-sides__form .hs-form-block .hs-form-field .input select.hs-input{--wpr-bg-c437903f-9ba7-44df-8a12-c1e873120010: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/sides/chevron-down.svg');}.s-logosTestimonials__testimonials-controls .swiper-button-prev{--wpr-bg-8329f80c-2375-40e4-90d9-bc276c3bcc17: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/logostestimonials/icon-arrow-left.svg');}.s-logosTestimonials__testimonials-controls .swiper-button-next{--wpr-bg-5a1bda76-38ca-4489-833c-c22f9939e4d1: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/logostestimonials/icon-arrow-right.svg');}.s-tabs__nav-controls .swiper-button-prev{--wpr-bg-a4fcac17-ff29-4199-b7fb-8c94aa328ce3: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/tabs/icon-arrow-left.svg');}.s-tabs__nav-controls .swiper-button-next{--wpr-bg-40045ebc-c471-47f1-8458-12dafe2c4616: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/tabs/icon-arrow-right.svg');}.s-signup__form .hs-form-block .hs-form-field .input select.hs-input{--wpr-bg-c408c52f-3037-45f9-8705-c20d248ea58b: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/components/hubspotform/icon-chevron-down-grey.svg');}.s-signup__content-listItem-title{--wpr-bg-aa427eb1-1f69-4918-80eb-eb42ec41ba97: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/signup/icon-check.svg');}.s-plans-old__card-list li:before{--wpr-bg-4a812e68-e438-4e8f-8c88-3d84daac82e3: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/plans/icon-check.svg');}.s-caseStudies__controls .swiper-button-prev{--wpr-bg-96c6ee91-f80f-4ef3-933f-79c802ac8269: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/tabs/icon-arrow-left.svg');}.s-caseStudies__controls .swiper-button-next{--wpr-bg-dd88c1f7-6559-46e2-894b-1be49cb475b1: url('https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/tabs/icon-arrow-right.svg');}.rll-youtube-player .play{--wpr-bg-2e621e07-c648-413f-a398-c81a5ae2a2bf: url('https://www.reflectiz.com/wp-content/plugins/wp-rocket/assets/img/youtube.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":".hs-form-block .hs-form-field .input select.hs-input","style":".hs-form-block .hs-form-field .input select.hs-input{--wpr-bg-09ff8f0d-d3ef-4b97-a261-269f4494b661: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/components\/hubspotform\/icon-chevron-down.svg');}","hash":"09ff8f0d-d3ef-4b97-a261-269f4494b661","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/components\/hubspotform\/icon-chevron-down.svg"},{"selector":".header-modal__prevBtn.swiper-button-prev","style":".header-modal__prevBtn.swiper-button-prev{--wpr-bg-cbb4a45b-f8b2-43be-9fab-a235a7673140: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/components\/header-modal\/icon-arrow-prev.svg');}","hash":"cbb4a45b-f8b2-43be-9fab-a235a7673140","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/components\/header-modal\/icon-arrow-prev.svg"},{"selector":".header-modal__nextBtn.swiper-button-next","style":".header-modal__nextBtn.swiper-button-next{--wpr-bg-c51cc8bc-d5ff-4378-8f7e-ae223955e97b: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/components\/header-modal\/icon-arrow-next.svg');}","hash":"c51cc8bc-d5ff-4378-8f7e-ae223955e97b","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/components\/header-modal\/icon-arrow-next.svg"},{"selector":".s-sides__testimonials-controls .swiper-button-prev","style":".s-sides__testimonials-controls .swiper-button-prev{--wpr-bg-caefc346-dd8e-434d-a026-c7b3ad5b541e: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/logostestimonials\/icon-arrow-left.svg');}","hash":"caefc346-dd8e-434d-a026-c7b3ad5b541e","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/logostestimonials\/icon-arrow-left.svg"},{"selector":".s-sides__testimonials-controls .swiper-button-next","style":".s-sides__testimonials-controls .swiper-button-next{--wpr-bg-3c968e2d-fd76-4f29-ba7f-5b75863024fb: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/logostestimonials\/icon-arrow-right.svg');}","hash":"3c968e2d-fd76-4f29-ba7f-5b75863024fb","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/logostestimonials\/icon-arrow-right.svg"},{"selector":".s-sides__form .hs-form-block .hs-form-field .input select.hs-input","style":".s-sides__form .hs-form-block .hs-form-field .input select.hs-input{--wpr-bg-c437903f-9ba7-44df-8a12-c1e873120010: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/sides\/chevron-down.svg');}","hash":"c437903f-9ba7-44df-8a12-c1e873120010","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/sides\/chevron-down.svg"},{"selector":".s-logosTestimonials__testimonials-controls .swiper-button-prev","style":".s-logosTestimonials__testimonials-controls .swiper-button-prev{--wpr-bg-8329f80c-2375-40e4-90d9-bc276c3bcc17: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/logostestimonials\/icon-arrow-left.svg');}","hash":"8329f80c-2375-40e4-90d9-bc276c3bcc17","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/logostestimonials\/icon-arrow-left.svg"},{"selector":".s-logosTestimonials__testimonials-controls .swiper-button-next","style":".s-logosTestimonials__testimonials-controls .swiper-button-next{--wpr-bg-5a1bda76-38ca-4489-833c-c22f9939e4d1: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/logostestimonials\/icon-arrow-right.svg');}","hash":"5a1bda76-38ca-4489-833c-c22f9939e4d1","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/logostestimonials\/icon-arrow-right.svg"},{"selector":".s-tabs__nav-controls .swiper-button-prev","style":".s-tabs__nav-controls .swiper-button-prev{--wpr-bg-a4fcac17-ff29-4199-b7fb-8c94aa328ce3: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/tabs\/icon-arrow-left.svg');}","hash":"a4fcac17-ff29-4199-b7fb-8c94aa328ce3","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/tabs\/icon-arrow-left.svg"},{"selector":".s-tabs__nav-controls .swiper-button-next","style":".s-tabs__nav-controls .swiper-button-next{--wpr-bg-40045ebc-c471-47f1-8458-12dafe2c4616: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/tabs\/icon-arrow-right.svg');}","hash":"40045ebc-c471-47f1-8458-12dafe2c4616","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/tabs\/icon-arrow-right.svg"},{"selector":".s-signup__form .hs-form-block .hs-form-field .input select.hs-input","style":".s-signup__form .hs-form-block .hs-form-field .input select.hs-input{--wpr-bg-c408c52f-3037-45f9-8705-c20d248ea58b: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/components\/hubspotform\/icon-chevron-down-grey.svg');}","hash":"c408c52f-3037-45f9-8705-c20d248ea58b","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/components\/hubspotform\/icon-chevron-down-grey.svg"},{"selector":".s-signup__content-listItem-title","style":".s-signup__content-listItem-title{--wpr-bg-aa427eb1-1f69-4918-80eb-eb42ec41ba97: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/signup\/icon-check.svg');}","hash":"aa427eb1-1f69-4918-80eb-eb42ec41ba97","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/signup\/icon-check.svg"},{"selector":".s-plans-old__card-list li","style":".s-plans-old__card-list li:before{--wpr-bg-4a812e68-e438-4e8f-8c88-3d84daac82e3: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/plans\/icon-check.svg');}","hash":"4a812e68-e438-4e8f-8c88-3d84daac82e3","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/plans\/icon-check.svg"},{"selector":".s-caseStudies__controls .swiper-button-prev","style":".s-caseStudies__controls .swiper-button-prev{--wpr-bg-96c6ee91-f80f-4ef3-933f-79c802ac8269: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/tabs\/icon-arrow-left.svg');}","hash":"96c6ee91-f80f-4ef3-933f-79c802ac8269","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/tabs\/icon-arrow-left.svg"},{"selector":".s-caseStudies__controls .swiper-button-next","style":".s-caseStudies__controls .swiper-button-next{--wpr-bg-dd88c1f7-6559-46e2-894b-1be49cb475b1: url('https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/tabs\/icon-arrow-right.svg');}","hash":"dd88c1f7-6559-46e2-894b-1be49cb475b1","url":"https:\/\/www.reflectiz.com\/wp-content\/themes\/reflectiz\/assets\/images\/sections\/tabs\/icon-arrow-right.svg"},{"selector":".rll-youtube-player .play","style":".rll-youtube-player .play{--wpr-bg-2e621e07-c648-413f-a398-c81a5ae2a2bf: url('https:\/\/www.reflectiz.com\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png');}","hash":"2e621e07-c648-413f-a398-c81a5ae2a2bf","url":"https:\/\/www.reflectiz.com\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png"}]; const rocket_excluded_pairs = [];</script><meta name="generator" content="WP Rocket 3.23.3.3" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_preconnect_external_domains wpr_auto_preload_fonts wpr_oci wpr_image_dimensions wpr_minify_css wpr_cdn wpr_preload_links wpr_host_fonts_locally wpr_desktop" /></head>
+
+<body class="wp-singular page-template page-template-page-templates page-template-template-sections page-template-page-templatestemplate-sections-php page page-id-6539 wp-custom-logo wp-theme-reflectiz with-blocks">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54MLFFD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div  id="page" class="wrapper site">
+
+    
+
+
+<header  class="s-header" data-position="sticky">
+
+    
+
+    <div class="s-header__main" data-theme="dark" data-backgroundColor="blue">
+        <nav class="s-header-menu">
+            <div class="s-header-container">
+                <div class="s-header-menu__inner">
+                    <a href="https://www.reflectiz.com" class="s-header-logo" aria-label="logo">
+                        <svg width="240" height="53" viewBox="0 0 240 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#header_logo_path1)">
+                                <g clip-path="url(#header_logo_path2)">
+                                    <path d="M70.6728 0H60.8664V8.60959H67.9401C70.2979 8.60959 72.2742 10.6395 72.2742 13.3694V25.5488H64.5395V34.7183H72.2742V53.1975H81.0447V11.4795C80.9493 5.10976 76.329 0 70.6728 0Z" fill="var(--header-logo-color, #fff)"/>
+                                    <path d="M24.1783 12.8408V22.7183H16.0893C14.2834 22.7183 12.8523 24.2705 12.8523 26.246V53.1975H4V23.7061C4 17.7796 8.37504 12.8408 13.8064 12.8408H24.1783Z" fill="var(--header-logo-color, #fff)"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M60.866 30.832V34.5713L35.5888 34.7125V36.8996C35.5888 39.0868 36.4534 41.2034 37.8873 42.6145C39.2276 44.0961 41.238 45.0133 43.342 45.0133C46.6926 45.0133 49.4668 42.8261 50.6196 39.7923H60.1959C59.4321 42.8967 57.8036 45.6483 55.6924 47.9765C52.5363 51.222 48.2274 53.1975 43.4357 53.1975C33.7657 53.1975 26.0125 45.0838 26.0125 35.1358V30.9026C26.0125 20.8839 33.8594 12.8408 43.4357 12.8408C52.2409 12.8408 59.4249 19.4729 60.6715 28.2215C60.7651 28.9976 60.866 29.9854 60.866 30.832ZM48.9912 24.0589C47.6509 22.6478 45.6406 21.66 43.5365 21.66C39.7104 21.66 36.5471 24.5527 35.877 28.2215H51.1024C50.8142 26.5988 50.0504 25.1877 48.9984 24.0589H48.9912Z" fill="var(--header-logo-color, #fff)"/>
+                                    <path d="M84.7129 0H93.8849V53.1975H84.7129V0Z" fill="var(--header-logo-color, #fff)"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M130.567 30.832V34.5713L106.62 34.7125V36.8996C106.62 39.0868 107.439 41.2034 108.797 42.6145C110.067 44.0961 111.972 45.0133 113.965 45.0133C117.139 45.0133 119.767 42.8261 120.86 39.7923H129.932C129.208 42.8967 127.665 45.6483 125.672 47.9765C122.675 51.222 118.6 53.1975 114.06 53.1975C104.899 53.1975 97.5543 45.0838 97.5543 35.1358V30.9026C97.5543 20.8839 104.995 12.8408 114.06 12.8408C122.402 12.8408 129.208 19.4729 130.389 28.2215C130.478 28.9976 130.573 29.9854 130.573 30.832H130.567ZM119.317 24.0589C118.047 22.6478 116.142 21.66 114.149 21.66C110.518 21.66 107.528 24.5527 106.893 28.2215H121.317C121.044 26.5988 120.32 25.1877 119.324 24.0589H119.317Z" fill="var(--header-logo-color, #fff)"/>
+                                    <path d="M151.351 44.8016C155.051 44.8016 158.192 41.8384 158.752 38.0285V37.9579H167.819C166.617 46.5655 159.68 53.1975 151.357 53.1975C142.201 53.1975 134.8 45.2249 134.8 35.4885V30.5498C134.8 20.8134 142.201 12.8408 151.357 12.8408C159.865 12.8408 166.897 19.7551 167.819 28.6448H158.752C158.103 24.9761 155.051 22.0833 151.351 22.0833C147.186 22.0833 143.86 25.6816 143.86 30.197V36.688C143.86 41.1328 147.192 44.8016 151.351 44.8016Z" fill="var(--header-logo-color, #fff)"/>
+                                    <path d="M169.654 44.5179V53.1975H179.556C185.212 53.1975 189.832 48.1577 189.832 41.858V0H181.062V24.6388H173.327V33.8084H181.062V39.7581C181.062 42.418 179.079 44.5179 176.728 44.5179H169.654Z" fill="var(--header-logo-color, #fff)"/>
+                                    <path d="M193.5 0H202.672V7.33758H193.5V0Z" fill="var(--header-logo-color, #fff)"/>
+                                    <path d="M193.5 12.8408H202.672V53.1975H193.5V12.8408Z" fill="var(--header-logo-color, #fff)"/>
+                                    <path d="M218.726 44.4489L239.361 21.66V12.8408H206.342V21.66H226.977L206.342 44.4489V53.1975H239.361V44.4489H218.726Z" fill="var(--header-logo-color, #fff)"/>
+                                </g>
+                            </g>
+                            <defs>
+                                <clipPath id="header_logo_path1">
+                                    <rect width="240" height="53" fill="var(--header-logo-color, #fff)"/>
+                                </clipPath>
+                                <clipPath id="header_logo_path2">
+                                    <rect width="240" height="55.0318" fill="var(--header-logo-color, #fff)" transform="translate(4)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+
+                    <div class="s-header-menu__wrapper">
+                        <div class="s-header-menu__wrapper-container">
+                            <ul class="s-header-menu__list">
+
+                                                                                                                                            <li class="menu-item    ">
+                                        <a href="/customers/" >
+                                            Customers                                        </a>
+                                                                            </li>
+                                                                                                                                            <li class="menu-item   dropdown-menu-item ">
+                                        <a href="#" >
+                                            Platform                                        </a>
+                                                                                                                                    <!-- Simple Dropdown -->
+                                                <div class="dropdown">
+                                                    <ul class="dropdown-list">
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/platform/platform-overview/" >
+                                                                    Overview                                                                 </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/platform/how-it-works/" >
+                                                                    How it Works                                                                </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/platform/exposure-rating/" >
+                                                                    Exposure Rating                                                                </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/platform/remote-monitoring-solution/" >
+                                                                    Remote Monitoring                                                                </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="/platform/blocking/" >
+                                                                    Blocking                                                                </a>
+                                                            </li>
+                                                                                                            </ul>
+                                                </div>
+                                                                                                                        </li>
+                                                                                                                                            <li class="menu-item   dropdown-menu-item ">
+                                        <a href="#" >
+                                            Industries                                        </a>
+                                                                                                                                    <!-- Simple Dropdown -->
+                                                <div class="dropdown">
+                                                    <ul class="dropdown-list">
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/industries/ecommerce/" >
+                                                                    eCommerce                                                                 </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/industries/financial-services/" >
+                                                                    Financial Services                                                                 </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/industries/healthcare/" >
+                                                                    Healthcare                                                                </a>
+                                                            </li>
+                                                                                                            </ul>
+                                                </div>
+                                                                                                                        </li>
+                                                                                                                                            <li class="menu-item   dropdown-menu-item megamenu-item">
+                                        <a href="#" >
+                                            Solutions                                        </a>
+                                                                                                                                    <!-- Mega Menu -->
+                                                                                                <div class="dropdown megamenu" data-columns="4">
+                                                    <div class="megamenu__inner">
+                                                                                                                    <div class="megamenu__column">
+                                                                                                                                                                                                                                                                                        <div class="megamenu__block">
+                                                                                                                                                                    <div class="megamenu__block-title">
+                                                                                                                                                                                    <a href="/security-hub/">
+                                                                                                Security Hub                                                                                            </a>
+                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                    <ul class="megamenu__block-list">
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="https://www.reflectiz.com/use-cases/magecart-web-skimming" >
+                                                                                                        Web Skimming and Magecart                                                                                                     </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="https://www.reflectiz.com/use-cases/web-supply-chain-risks/" >
+                                                                                                        Web Supply Chain Risks                                                                                                    </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="https://www.reflectiz.com/use-cases/tag-manager-security/" >
+                                                                                                        Tag Manager Security                                                                                                     </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="https://www.reflectiz.com/use-cases/web-asset-management/" >
+                                                                                                        Web Asset Management                                                                                                    </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="/dora/" >
+                                                                                                        DORA Compliance                                                                                                    </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                            </ul>
+                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                    <div class="megamenu__column">
+                                                                                                                                                                                                                                                                                        <div class="megamenu__block">
+                                                                                                                                                                    <div class="megamenu__block-title">
+                                                                                                                                                                                    <a href="/privacy-hub/">
+                                                                                                Privacy Hub                                                                                            </a>
+                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                    <ul class="megamenu__block-list">
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="https://www.reflectiz.com/use-cases/website-privacy-compliance/" >
+                                                                                                        Website Privacy Enforcement                                                                                                    </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="https://www.reflectiz.com/use-cases/tag-manager-security/" >
+                                                                                                        Tag Manager Security                                                                                                    </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="/gdpr/" >
+                                                                                                        GDPR Web Compliance                                                                                                    </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="/ccpa/" >
+                                                                                                        CCPA Web Compliance                                                                                                    </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="/hipaa/" >
+                                                                                                        HIPAA Tracking                                                                                                    </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                            </ul>
+                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                    <div class="megamenu__column">
+                                                                                                                                                                                                                                                                                        <div class="megamenu__block">
+                                                                                                                                                                    <div class="megamenu__block-title">
+                                                                                                                                                                                    <a href="/offensive-hub/">
+                                                                                                Offensive Hub                                                                                            </a>
+                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                    <ul class="megamenu__block-list">
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="https://www.reflectiz.com/offensive-hub/" >
+                                                                                                        Agentic PT                                                                                                    </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <span>ASV Scanner (Coming Soon)</span>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                            </ul>
+                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                    <div class="megamenu__column">
+                                                                                                                                                                                                                                                                                        <div class="megamenu__block">
+                                                                                                                                                                    <div class="megamenu__block-title">
+                                                                                                                                                                                    <a href="/pci-module/">
+                                                                                                PCI Module                                                                                            </a>
+                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                    <ul class="megamenu__block-list">
+                                                                                                                                                                                                                                                                                <li class="megamenu__block-item ">
+                                                                                                                                                                                                    <a href="/use-cases/pci-compliance/" >
+                                                                                                        PCI DSS 4.0.1 Compliance                                                                                                    </a>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                            </ul>
+                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                                                                                                        </li>
+                                                                                                                                            <li class="menu-item   dropdown-menu-item ">
+                                        <a href="#" >
+                                            Resources                                        </a>
+                                                                                                                                    <!-- Simple Dropdown -->
+                                                <div class="dropdown">
+                                                    <ul class="dropdown-list">
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/blog/" >
+                                                                    Blog                                                                </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/learning-hub/" >
+                                                                    Learning Hub                                                                </a>
+                                                            </li>
+                                                                                                            </ul>
+                                                </div>
+                                                                                                                        </li>
+                                                                                                                                            <li class="menu-item   dropdown-menu-item ">
+                                        <a href="#" >
+                                            Company                                        </a>
+                                                                                                                                    <!-- Simple Dropdown -->
+                                                <div class="dropdown">
+                                                    <ul class="dropdown-list">
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/about/" >
+                                                                    About Us                                                                </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/media/" >
+                                                                    Media                                                                </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/careers/" >
+                                                                    Careers                                                                </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/events/" >
+                                                                    Events                                                                </a>
+                                                            </li>
+                                                                                                                                                                                <li class="menu-item ">
+                                                                <a href="https://www.reflectiz.com/partners/" >
+                                                                    Partners                                                                 </a>
+                                                            </li>
+                                                                                                            </ul>
+                                                </div>
+                                                                                                                        </li>
+                                                                                                                                            <li class="menu-item    ">
+                                        <a href="https://www.reflectiz.com/plans/" >
+                                            Plans                                        </a>
+                                                                            </li>
+                                                            </ul>
+
+                            <div data-theme="light" class="u-lg-visible">
+                                <div class="s-header-menu__buttons">
+                                                                            <a class="button-bordered-blue" href="https://dashboard.reflectiz.com/main/dashboard" >
+                                            Login                                            <span class="button-icon--onLeft">
+                                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="icons/ user"><path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M5.98627 11.5C5.98627 8.4661 8.45237 6 11.4863 6C14.5202 6 16.9863 8.4661 16.9863 11.5C16.9863 14.5339 14.5202 17 11.4863 17C8.45237 17 5.98627 14.5339 5.98627 11.5ZM11.3846 14.6525C10.7066 14.6525 10.0795 15.0212 9.7405 15.5975C10.2786 15.8263 10.8676 15.9534 11.4863 15.9534C12.0414 15.9534 12.571 15.8475 13.0625 15.661C12.732 15.0508 12.0625 14.6525 11.3846 14.6525ZM11.3846 13.6102C12.4778 13.6102 13.4778 14.2288 13.9863 15.1822C15.1642 14.3814 15.9397 13.0297 15.9397 11.5C15.9397 9.04661 13.9439 7.04661 11.4863 7.04661C9.02864 7.04661 7.03288 9.04237 7.02864 11.5C7.02864 12.9661 7.74474 14.2627 8.83796 15.0763C9.35915 14.1822 10.2914 13.6102 11.3846 13.6102ZM9.71073 11.6737C9.71073 10.75 10.465 9.99576 11.3887 9.99576C12.3124 9.99576 13.0667 10.75 13.0667 11.6737C13.0667 12.5975 12.3167 13.3517 11.3887 13.3517C10.4607 13.3517 9.71073 12.5975 9.71073 11.6737ZM10.7573 11.6737C10.7573 12.0212 11.0412 12.3051 11.3887 12.3051C11.7362 12.3051 12.02 12.0212 12.02 11.6737C12.02 11.3263 11.7362 11.0424 11.3887 11.0424C11.0412 11.0424 10.7573 11.3263 10.7573 11.6737Z" fill="var(--button-icon-color)"/></g></svg>
+                                          </span>
+                                        </a>
+                                    
+                                                                            <a class="button-solid-green" href="https://www.reflectiz.com/registration/" >
+                                            Try for free                                            <span class="button-icon">
+                                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <g id="icons/arrow-go"> <g id="Union"> <path d="M11.0579 8.84539C11.0987 8.48401 10.9938 8.12845 10.7607 7.84867L9.2277 5.95431C8.93626 5.59293 8.41167 5.54047 8.05028 5.83191C7.6889 6.12335 7.63644 6.64794 7.92788 7.00932L8.50493 7.72627H5.31658C4.85611 7.72627 4.47723 8.09931 4.47723 8.56561C4.47723 9.03191 4.85028 9.40496 5.31658 9.40496H8.34755L7.61312 9.99366C7.25174 10.2851 7.19928 10.8097 7.49072 11.1711C7.65393 11.3751 7.89873 11.48 8.14354 11.48C8.33006 11.48 8.51659 11.4217 8.66813 11.2935L10.5625 9.76051C10.8481 9.53319 11.023 9.20678 11.0579 8.84539Z" fill="var(--button-icon-color)"/> <path d="M11.0579 8.84539C11.0987 8.48401 10.9938 8.12845 10.7607 7.84867L9.2277 5.95431C8.93626 5.59293 8.41167 5.54047 8.05028 5.83191C7.6889 6.12335 7.63644 6.64794 7.92788 7.00932L8.50493 7.72627H5.31658C4.85611 7.72627 4.47723 8.09931 4.47723 8.56561C4.47723 9.03191 4.85028 9.40496 5.31658 9.40496H8.34755L7.61312 9.99366C7.25174 10.2851 7.19928 10.8097 7.49072 11.1711C7.65393 11.3751 7.89873 11.48 8.14354 11.48C8.33006 11.48 8.51659 11.4217 8.66813 11.2935L10.5625 9.76051C10.8481 9.53319 11.023 9.20678 11.0579 8.84539Z" fill="var(--button-icon-color)" fill-opacity="0.2"/> </g> </g> </svg>
+                                          </span>
+                                        </a>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="s-header-menu__buttons u-lg-hidden">
+                                                    <a class="button-bordered-white" href="https://dashboard.reflectiz.com/main/dashboard" >
+                                Login                                <span class="button-icon--onLeft">
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="icons/ user"><path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M5.98627 11.5C5.98627 8.4661 8.45237 6 11.4863 6C14.5202 6 16.9863 8.4661 16.9863 11.5C16.9863 14.5339 14.5202 17 11.4863 17C8.45237 17 5.98627 14.5339 5.98627 11.5ZM11.3846 14.6525C10.7066 14.6525 10.0795 15.0212 9.7405 15.5975C10.2786 15.8263 10.8676 15.9534 11.4863 15.9534C12.0414 15.9534 12.571 15.8475 13.0625 15.661C12.732 15.0508 12.0625 14.6525 11.3846 14.6525ZM11.3846 13.6102C12.4778 13.6102 13.4778 14.2288 13.9863 15.1822C15.1642 14.3814 15.9397 13.0297 15.9397 11.5C15.9397 9.04661 13.9439 7.04661 11.4863 7.04661C9.02864 7.04661 7.03288 9.04237 7.02864 11.5C7.02864 12.9661 7.74474 14.2627 8.83796 15.0763C9.35915 14.1822 10.2914 13.6102 11.3846 13.6102ZM9.71073 11.6737C9.71073 10.75 10.465 9.99576 11.3887 9.99576C12.3124 9.99576 13.0667 10.75 13.0667 11.6737C13.0667 12.5975 12.3167 13.3517 11.3887 13.3517C10.4607 13.3517 9.71073 12.5975 9.71073 11.6737ZM10.7573 11.6737C10.7573 12.0212 11.0412 12.3051 11.3887 12.3051C11.7362 12.3051 12.02 12.0212 12.02 11.6737C12.02 11.3263 11.7362 11.0424 11.3887 11.0424C11.0412 11.0424 10.7573 11.3263 10.7573 11.6737Z" fill="var(--button-icon-color)"/></g></svg>
+                              </span>
+                            </a>
+                        
+                                                    <a class="button-solid-green" href="https://www.reflectiz.com/registration/" >
+                                Try for free                                <span class="button-icon">
+                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <g id="icons/arrow-go"> <g id="Union"> <path d="M11.0579 8.84539C11.0987 8.48401 10.9938 8.12845 10.7607 7.84867L9.2277 5.95431C8.93626 5.59293 8.41167 5.54047 8.05028 5.83191C7.6889 6.12335 7.63644 6.64794 7.92788 7.00932L8.50493 7.72627H5.31658C4.85611 7.72627 4.47723 8.09931 4.47723 8.56561C4.47723 9.03191 4.85028 9.40496 5.31658 9.40496H8.34755L7.61312 9.99366C7.25174 10.2851 7.19928 10.8097 7.49072 11.1711C7.65393 11.3751 7.89873 11.48 8.14354 11.48C8.33006 11.48 8.51659 11.4217 8.66813 11.2935L10.5625 9.76051C10.8481 9.53319 11.023 9.20678 11.0579 8.84539Z" fill="var(--button-icon-color)"/> <path d="M11.0579 8.84539C11.0987 8.48401 10.9938 8.12845 10.7607 7.84867L9.2277 5.95431C8.93626 5.59293 8.41167 5.54047 8.05028 5.83191C7.6889 6.12335 7.63644 6.64794 7.92788 7.00932L8.50493 7.72627H5.31658C4.85611 7.72627 4.47723 8.09931 4.47723 8.56561C4.47723 9.03191 4.85028 9.40496 5.31658 9.40496H8.34755L7.61312 9.99366C7.25174 10.2851 7.19928 10.8097 7.49072 11.1711C7.65393 11.3751 7.89873 11.48 8.14354 11.48C8.33006 11.48 8.51659 11.4217 8.66813 11.2935L10.5625 9.76051C10.8481 9.53319 11.023 9.20678 11.0579 8.84539Z" fill="var(--button-icon-color)" fill-opacity="0.2"/> </g> </g> </svg>
+                              </span>
+                            </a>
+                                            </div>
+
+                    <a class="s-header-toggle">
+                        <div class="s-header-toggle__lines">
+                            <span class="line" data-line="1"></span>
+                            <span class="line" data-line="2"></span>
+                            <span class="line" data-line="3"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+
+
+    <script data-no-lazyload>
+        window.isSectionHeaderJsLoaded = false;
+    </script>
+
+    <div  id="content" class="site-content">
+
+<div  class="page-wrapper sections">
+    
+                            <section id="section-sides-1" class="s-sides  has-bg-color-lightgrey"
+  data-sides="2" data-ratio="50/50"
+  data-theme="light" data-text-align="start"
+  data-text-align-mobile="start"
+  data-align-content="center"
+  data-padding-top="current"
+  data-padding-bottom="current"   data-reversed-desktop="true" >
+    <div class="container" >
+
+    <div class="s-sides__inner">
+              <div class="s-sides__side">
+          
+            
+            
+
+                                                          <h1 class="s-sides__title has-font-size-h1                  has-color-theme u-no-margin has-text-align-start" data-style="default" >
+                  Join the Reflectiz Dream Team                </h1>
+                          
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+
+            
+            
+                                                          <div
+                  class="s-sides__text has-font-size-h4 tg-wysiwyg-default has-color-theme "
+                  data-style="default" >
+                  <p>Looking for an exceptional start-up spirit coupled with in-depth cybersecurity experience? You’ve found us. At Reflectiz, we use this combination to adapt to any new challenge, handle risks more effectively than any other, and make sure that we develop unique, spearhead security solutions to answer our clients needs.</p>
+                </div>
+                          
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                                                                          <div class="s-sides__buttons" data-align="left"
+                  data-full-width="0" >
+                  <div
+	class="c-buttons "
+			data-direction-mobile="column"
+					data-layout-mobile="fullwidth"
+	>
+	
+	
+		<a			class="button-solid-green "
+						href="#jobs"
+											>
+			Explore open positions
+			
+		</a>
+
+	</div>
+                </div>
+                          
+            
+
+            
+            
+                        </div>
+            <div class="s-sides__side">
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+                          <div class="s-sides__media "
+                data-media-size="stick_to_bottom"
+                data-align="left">
+                
+<div class="c-media ">
+						<img fetchpriority="high" width="708" height="521" src="https://www.reflectiz.com/wp-content/uploads/2024/09/hi-five.svg"
+			     			     alt="">
+			
+
+	
+
+
+
+
+	
+
+</div>
+              </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+                    </div>
+          </div>
+
+  </div>
+</section>
+                    <section id="section-sides-2" class="s-sides  has-bg-color-white"
+  data-sides="1" data-ratio="100"
+  data-theme="light" data-text-align="center"
+  data-text-align-mobile="center"
+  data-align-content="center"
+  data-padding-top="current"
+  data-padding-bottom="current"   >
+    <div class="container" >
+
+    <div class="s-sides__inner">
+              <div class="s-sides__side">
+          
+            
+            
+
+                                                          <h2 class="s-sides__title has-font-size-h2                  has-color-theme u-no-margin has-text-align-start" data-style="default" >
+                  What’s it like at Reflectiz?                </h2>
+                          
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+
+            
+            
+                                                          <div
+                  class="s-sides__text has-font-size-p1 tg-wysiwyg-default has-color-theme "
+                  data-style="default" >
+                  <p>Here at Reflectiz, you can enjoy working to develop an exciting and industry-leading product, learning and growing your knowledge in the cybersecurity field, and most importantly – you’ll meet and work alongside some amazing people who have lots of fun together.</p>
+<p><strong>Our employees are just as important as our customers, and so we prioritize:</strong></p>
+                </div>
+                          
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                                        <div class="c-iconsAndTexts" data-layout="top"
+                data-layout-mobile="top"
+                data-align="center" data-justify="center"
+                data-columns="3">
+                                                      
+                    <div class="c-iconsAndTexts__item  ">
+
+                      
+                        
+                                                                              <div class="c-iconsAndTexts__item-image">
+                              <img width="61" height="60" src="https://www.reflectiz.com/wp-content/uploads/2024/09/icon-office.svg"
+                                alt="">
+                            </div>
+                                                  
+                        
+                        <div class="c-iconsAndTexts__item-content">
+                                                                                    <div class="c-iconsAndTexts__item-title has-font-size-p1 has-font-weight-bold has-color-theme u-no-margin">
+                                Flexible work                              </div>
+                                                      
+                                                      <div class="c-iconsAndTexts__item-text has-font-size-p1 has-color-theme tg-wysiwyg-default">
+                              <p>Our choice-first environment means we trust that our employees know how they work best. We’re happy with any hybrid office/home set-up, so you can choose the balance that works for you.</p>
+                            </div>
+                          
+                                                  </div>
+
+                      
+                                          </div>
+
+                                      
+                    <div class="c-iconsAndTexts__item  ">
+
+                      
+                        
+                                                                              <div class="c-iconsAndTexts__item-image">
+                              <img width="61" height="60" src="https://www.reflectiz.com/wp-content/uploads/2024/09/icon-heart.svg"
+                                alt="">
+                            </div>
+                                                  
+                        
+                        <div class="c-iconsAndTexts__item-content">
+                                                                                    <div class="c-iconsAndTexts__item-title has-font-size-p1 has-font-weight-bold has-color-theme u-no-margin">
+                                Welfare and social life                              </div>
+                                                      
+                                                      <div class="c-iconsAndTexts__item-text has-font-size-p1 has-color-theme tg-wysiwyg-default">
+                              <p>We believe that you will work well if you feel well. We have team-building sessions, interesting opportunities for professional development, and of course plenty of delicious happy hours!</p>
+                            </div>
+                          
+                                                  </div>
+
+                      
+                                          </div>
+
+                                      
+                    <div class="c-iconsAndTexts__item  ">
+
+                      
+                        
+                                                                              <div class="c-iconsAndTexts__item-image">
+                              <img width="61" height="60" src="https://www.reflectiz.com/wp-content/uploads/2024/09/icon-unicorn.svg"
+                                alt="">
+                            </div>
+                                                  
+                        
+                        <div class="c-iconsAndTexts__item-content">
+                                                                                    <div class="c-iconsAndTexts__item-title has-font-size-p1 has-font-weight-bold has-color-theme u-no-margin">
+                                A unique product                              </div>
+                                                      
+                                                      <div class="c-iconsAndTexts__item-text has-font-size-p1 has-color-theme tg-wysiwyg-default">
+                              <p>Our employees are excited about the work they do, which comes from having an interesting and inspiring product that is totally one of a kind.</p>
+                            </div>
+                          
+                                                  </div>
+
+                      
+                                          </div>
+
+                                                </div>
+            
+            
+            
+            
+            
+            
+            
+
+            
+                    </div>
+          </div>
+
+  </div>
+</section>
+                    
+<section id="section-comeet-careers-" class="section-comeet-careers">
+    <div  class="container">
+        <div class="section-comeet-careers__inner">
+                            <h2 class="section-comeet-careers__title has-font-size-h2 has-color-black">Careers</h2>
+            
+            <div class="section-comeet-careers__list">
+                <div class="comeet-outer-wrapper">
+            <div class="section-comeet-careers__listItem">
+                <div class="section-comeet-careers__listItem-content">
+                    <h3 class="section-comeet-careers__listItem-title has-font-size-h3 has-color-black">
+                            <a href="//www.reflectiz.com/careers/co/boston-usa/F9.D69/account-executive/all">Account Executive</a>
+                        </h3>
+                    
+                                        <ul class="section-comeet-careers__listItem-categories has-font-size-p1 has-color-black">
+                                                    <li>Sales</li>
+                                                    <li>Full-time</li>
+                                            </ul>
+                                        
+                                        <div class="has-font-size-p1 has-color-black">
+                        <p class="section-comeet-careers__listItem-location">Boston, USA</p>
+                    </div>
+                                    </div>
+
+                <a href="//www.reflectiz.com/careers/co/boston-usa/F9.D69/account-executive/all" class="button-solid-pink">Apply now</a>
+            </div>
+                        <div class="section-comeet-careers__listItem">
+                <div class="section-comeet-careers__listItem-content">
+                    <h3 class="section-comeet-careers__listItem-title has-font-size-h3 has-color-black">
+                            <a href="//www.reflectiz.com/careers/co/uk/C6.B68/channel-manager/all">Channel Manager</a>
+                        </h3>
+                    
+                                        <ul class="section-comeet-careers__listItem-categories has-font-size-p1 has-color-black">
+                                                    <li>Sales</li>
+                                                    <li>Full-time</li>
+                                            </ul>
+                                        
+                                        <div class="has-font-size-p1 has-color-black">
+                        <p class="section-comeet-careers__listItem-location">UK</p>
+                    </div>
+                                    </div>
+
+                <a href="//www.reflectiz.com/careers/co/uk/C6.B68/channel-manager/all" class="button-solid-pink">Apply now</a>
+            </div>
+                        <div class="section-comeet-careers__listItem">
+                <div class="section-comeet-careers__listItem-content">
+                    <h3 class="section-comeet-careers__listItem-title has-font-size-h3 has-color-black">
+                            <a href="//www.reflectiz.com/careers/co/boston-usa/00.B6C/customer-success-manager/all">Customer Success Manager</a>
+                        </h3>
+                    
+                                        <ul class="section-comeet-careers__listItem-categories has-font-size-p1 has-color-black">
+                                                    <li>Support</li>
+                                                    <li>Full-time</li>
+                                            </ul>
+                                        
+                                        <div class="has-font-size-p1 has-color-black">
+                        <p class="section-comeet-careers__listItem-location">Boston, USA</p>
+                    </div>
+                                    </div>
+
+                <a href="//www.reflectiz.com/careers/co/boston-usa/00.B6C/customer-success-manager/all" class="button-solid-pink">Apply now</a>
+            </div>
+                        <div class="section-comeet-careers__listItem">
+                <div class="section-comeet-careers__listItem-content">
+                    <h3 class="section-comeet-careers__listItem-title has-font-size-h3 has-color-black">
+                            <a href="//www.reflectiz.com/careers/co/ramat-gan-israel/AD.271/sales-development-representative-sdr/all">Sales Development Representative (SDR)</a>
+                        </h3>
+                    
+                                        <ul class="section-comeet-careers__listItem-categories has-font-size-p1 has-color-black">
+                                                    <li>Sales</li>
+                                                    <li>Full-time</li>
+                                            </ul>
+                                        
+                                        <div class="has-font-size-p1 has-color-black">
+                        <p class="section-comeet-careers__listItem-location">Ramat Gan, Israel</p>
+                    </div>
+                                    </div>
+
+                <a href="//www.reflectiz.com/careers/co/ramat-gan-israel/AD.271/sales-development-representative-sdr/all" class="button-solid-pink">Apply now</a>
+            </div>
+                        <div class="section-comeet-careers__listItem">
+                <div class="section-comeet-careers__listItem-content">
+                    <h3 class="section-comeet-careers__listItem-title has-font-size-h3 has-color-black">
+                            <a href="//www.reflectiz.com/careers/co/ramat-gan-israel/85.270/sales-territory-manager/all">Sales Territory Manager</a>
+                        </h3>
+                    
+                                        <ul class="section-comeet-careers__listItem-categories has-font-size-p1 has-color-black">
+                                                    <li>Sales</li>
+                                                    <li>Full-time</li>
+                                            </ul>
+                                        
+                                        <div class="has-font-size-p1 has-color-black">
+                        <p class="section-comeet-careers__listItem-location">Ramat Gan, Israel</p>
+                    </div>
+                                    </div>
+
+                <a href="//www.reflectiz.com/careers/co/ramat-gan-israel/85.270/sales-territory-manager/all" class="button-solid-pink">Apply now</a>
+            </div>
+                        <div class="section-comeet-careers__listItem">
+                <div class="section-comeet-careers__listItem-content">
+                    <h3 class="section-comeet-careers__listItem-title has-font-size-h3 has-color-black">
+                            <a href="//www.reflectiz.com/careers/co/ramat-gan-israel/EE.27F/security-researcher/all">Security Researcher</a>
+                        </h3>
+                    
+                                        <ul class="section-comeet-careers__listItem-categories has-font-size-p1 has-color-black">
+                                                    <li>Engineering</li>
+                                                    <li>Full-time</li>
+                                            </ul>
+                                        
+                                        <div class="has-font-size-p1 has-color-black">
+                        <p class="section-comeet-careers__listItem-location">Ramat Gan, Israel</p>
+                    </div>
+                                    </div>
+
+                <a href="//www.reflectiz.com/careers/co/ramat-gan-israel/EE.27F/security-researcher/all" class="button-solid-pink">Apply now</a>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+                    <section id="section-sides-4" class="s-sides  has-bg-color-blue"
+  data-sides="2" data-ratio="50/50"
+  data-theme="dark" data-text-align="start"
+  data-text-align-mobile="start"
+  data-align-content="center"
+  data-padding-top="current"
+  data-padding-bottom="current"   >
+    <div class="container" >
+
+    <div class="s-sides__inner">
+              <div class="s-sides__side">
+          
+            
+            
+
+                                                          <h2 class="s-sides__title has-font-size-h2                  has-color-theme u-no-margin has-text-align-start" data-style="default" >
+                  Want to learn more about Reflectiz technology?                </h2>
+                          
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                                                                          <div class="s-sides__buttons" data-align="left"
+                  data-full-width="0" >
+                  <div
+	class="c-buttons "
+			data-direction-mobile="column"
+					data-layout-mobile="fullwidth"
+	>
+	
+	
+		<button			class="button-solid-green modal_class js-open-mymodal"
+									data-mymodal="demo-3823784-a40420a1-48f9-4260-be38-294b4efffa43"
+								>
+			Book a Demo
+			
+		</button>
+
+	</div>
+                </div>
+                          
+            
+
+            
+            
+                        </div>
+            <div class="s-sides__side">
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+                          <div class="s-sides__media "
+                data-media-size="stick_to_bottom"
+                data-align="left">
+                
+<div class="c-media ">
+						<img width="707" height="522" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20707%20522'%3E%3C/svg%3E"
+			     			     alt="" data-lazy-src="https://www.reflectiz.com/wp-content/uploads/2023/05/Web-Risk-Factors.svg"><noscript><img width="707" height="522" src="https://www.reflectiz.com/wp-content/uploads/2023/05/Web-Risk-Factors.svg"
+			     			     alt=""></noscript>
+			
+
+	
+
+
+
+
+	
+
+</div>
+              </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+                    </div>
+          </div>
+
+  </div>
+</section>
+            
+        </div>
+
+
+
+
+
+</div><!--/#content -->
+
+
+<section  class="s-footer">
+    <div class="container">
+        <div class="s-footer__inner">
+            <nav class="s-footer__nav">
+
+                                    
+                        <div class="s-footer__nav-col">
+                                                            <div class="has-font-size-p1 has-font-weight-bold has-color-white u-no-margin">
+                                    Platform                                </div>
+                            
+                            <ul class="s-footer__nav-list">
+                                                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/platform/platform-overview/" >Platform Overview </a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/platform/how-it-works/" >How it Works	</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/use-cases/web-exposure-management/" >Web Exposure Management</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/platform/exposure-rating/" >Exposure Rating</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="/platform/blocking/" >Blocking</a>
+                                        </li>
+                                    
+                                                                                                </ul>
+                        </div>
+
+                    
+                        <div class="s-footer__nav-col">
+                                                            <div class="has-font-size-p1 has-font-weight-bold has-color-white u-no-margin">
+                                    Industries                                </div>
+                            
+                            <ul class="s-footer__nav-list">
+                                                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/industries/ecommerce/" >eCommerce</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/industries/financial-services/" >Financial Services</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/industries/healthcare/" >Healthcare</a>
+                                        </li>
+                                    
+                                                                                                </ul>
+                        </div>
+
+                    
+                        <div class="s-footer__nav-col">
+                                                            <div class="has-font-size-p1 has-font-weight-bold has-color-white u-no-margin">
+                                    Solutions                                 </div>
+                            
+                            <ul class="s-footer__nav-list">
+                                                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/use-cases/magecart-web-skimming" >Web Skimming and Magecart</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/use-cases/pci-compliance/" >PCI Compliance</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/use-cases/web-supply-chain-risks/" >Web Supply Chain Risks</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/use-cases/website-privacy-compliance/" >Website Privacy Enforcement</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/use-cases/tag-manager-security/" >Tag Manager Security</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/use-cases/web-asset-management/" >Web Asset Management</a>
+                                        </li>
+                                    
+                                                                                                </ul>
+                        </div>
+
+                    
+                        <div class="s-footer__nav-col">
+                                                            <div class="has-font-size-p1 has-font-weight-bold has-color-white u-no-margin">
+                                    Resources                                </div>
+                            
+                            <ul class="s-footer__nav-list">
+                                                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/blog/" >Blog</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/learning-hub/" >Learning Hub</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="/customers/" >Customers</a>
+                                        </li>
+                                    
+                                                                                                </ul>
+                        </div>
+
+                    
+                        <div class="s-footer__nav-col">
+                                                            <div class="has-font-size-p1 has-font-weight-bold has-color-white u-no-margin">
+                                    Company                                </div>
+                            
+                            <ul class="s-footer__nav-list">
+                                                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/about/" >About Us</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/media/" >Media</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/careers/" >Careers</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/events/" >Events</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/partners/" >Partners </a>
+                                        </li>
+                                    
+                                                                                                </ul>
+                        </div>
+
+                    
+                        <div class="s-footer__nav-col">
+                                                            <div class="has-font-size-p1 has-font-weight-bold has-color-white u-no-margin">
+                                    Contact us                                </div>
+                            
+                            <ul class="s-footer__nav-list">
+                                                                    
+                                                                            <li>
+                                            <a href="https://www.reflectiz.com/registration/" >Sign up </a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="https://dashboard.reflectiz.com/main/dashboard" >Login</a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="/cdn-cgi/l/email-protection#9cf5f2faf3dceef9faf0f9ffe8f5e6b2fff3f1">Contact Us </a>
+                                        </li>
+                                    
+                                    
+                                                                            <li>
+                                            <a href="/cdn-cgi/l/email-protection#d2a1a7a2a2bda0a692a0b7b4beb7b1a6bba8fcb1bdbf">Support</a>
+                                        </li>
+                                    
+                                                                                                </ul>
+                        </div>
+
+                                    
+                <div class="s-footer__nav-col certs">
+                    <div class="has-font-size-p1 has-font-weight-bold has-color-white u-no-margin">
+                        Certificate by
+                    </div>
+                    <div class="certs-logos">
+                        <img width="470" height="532" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20470%20532'%3E%3C/svg%3E" alt="eng" data-lazy-src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/ISO27001-eng.png"><noscript><img width="470" height="532" src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/ISO27001-eng.png" alt="eng"></noscript>
+                                            </div>
+                </div>
+
+
+            </nav>
+
+            <div class="s-footer__logoAndSocials">
+                <a href="https://www.reflectiz.com" class="s-footer__logo">
+                    <img width="136" height="30" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20136%2030'%3E%3C/svg%3E" alt="Reflectiz" data-lazy-src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/logo.svg"><noscript><img width="136" height="30" src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/logo.svg" alt="Reflectiz"></noscript>
+                </a>
+
+                <div class="s-footer__socials">
+                                            <a href="https://www.linkedin.com/company/reflectiz/" rel="noreferrer nofollow" target="_blank"><img width="25" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2024'%3E%3C/svg%3E" alt="linkedin" data-lazy-src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/icon-linkedin.svg"><noscript><img width="25" height="24" src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/icon-linkedin.svg" alt="linkedin"></noscript></a>
+                    
+                                            <a href="https://twitter.com/intent/follow?screen_name=_Reflectiz_" rel="noreferrer nofollow" target="_blank"><img width="25" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2024'%3E%3C/svg%3E" alt="twitter" data-lazy-src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/icon-twitter.svg"><noscript><img width="25" height="24" src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/icon-twitter.svg" alt="twitter"></noscript></a>
+                    
+                                            <a href="https://www.facebook.com/Reflectiz.Cyber/" rel="noreferrer nofollow" target="_blank"><img width="25" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2025%2024'%3E%3C/svg%3E" alt="facebook" data-lazy-src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/icon-facebook.svg"><noscript><img width="25" height="24" src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/icon-facebook.svg" alt="facebook"></noscript></a>
+                    
+                                    </div>
+            </div>
+
+            <div class="s-footer__copyright">
+                                    <div class="s-footer__copyright-copy">
+                        <p>All rights reserved 2026 © Reflectiz</p>
+                    </div>
+                
+
+                                <ul class="s-footer__copyright-list">
+                    
+                                            <li>
+                            <a href="https://www.reflectiz.com/wp-content/uploads/2022/05/Reflectiz-Website-Terms-of-Use.pdf" target="_blank">Terms of Use</a>
+                        </li>
+                    
+                    
+                                            <li>
+                            <a href="https://www.reflectiz.com/wp-content/uploads/2022/05/Reflectiz-Copyright-Policy.pdf" target="_blank">Copyrights</a>
+                        </li>
+                    
+                    
+                                            <li>
+                            <a href="https://www.reflectiz.com/wp-content/uploads/2023/07/Reflectiz-Privacy-Policy-July-2023.pdf" >Privacy Policy</a>
+                        </li>
+                    
+                                    </ul>
+                            </div>
+        </div>
+    </div>
+</section>
+
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <symbol id="icon-face" viewBox="0 0 32 32">
+            <path
+                d="M2.669 16.003c0.001 3.175 1.134 6.246 3.196 8.66s4.918 4.014 8.053 4.512v-9.319h-3.383v-3.853h3.387v-2.933c-0.075-0.687 0.002-1.381 0.226-2.034s0.589-1.249 1.069-1.746 1.064-0.881 1.709-1.126c0.645-0.245 1.337-0.346 2.026-0.294 1 0.016 2 0.105 2.987 0.267v3.279h-1.685c-0.287-0.038-0.578-0.010-0.852 0.080s-0.525 0.241-0.734 0.441-0.369 0.444-0.47 0.715c-0.101 0.271-0.14 0.56-0.115 0.848v2.504h3.695l-0.591 3.855h-3.104v9.317c2.517-0.398 4.867-1.508 6.772-3.2s3.286-3.895 3.978-6.347 0.668-5.051-0.071-7.49c-0.739-2.439-2.161-4.614-4.098-6.27s-4.308-2.721-6.832-3.071c-2.524-0.35-5.095 0.031-7.409 1.097s-4.274 2.773-5.649 4.919c-1.374 2.146-2.105 4.64-2.105 7.188z"></path>
+        </symbol>
+        <symbol id="icon-linked" viewBox="0 0 32 32">
+            <path
+                d="M16 0.64c-8.483 0-15.36 6.877-15.36 15.36s6.877 15.36 15.36 15.36c8.483 0 15.36-6.877 15.36-15.36s-6.877-15.36-15.36-15.36zM12.24 22.366h-3.11v-10.010h3.11v10.010zM10.666 11.128c-0.982 0-1.618-0.696-1.618-1.557 0-0.878 0.654-1.554 1.658-1.554s1.618 0.675 1.637 1.554c0 0.861-0.634 1.557-1.677 1.557zM23.6 22.366h-3.11v-5.547c0-1.291-0.451-2.168-1.576-2.168-0.859 0-1.37 0.594-1.595 1.165-0.083 0.203-0.104 0.491-0.104 0.778v5.771h-3.112v-6.816c0-1.25-0.040-2.294-0.082-3.194h2.702l0.142 1.39h0.062c0.41-0.653 1.413-1.616 3.091-1.616 2.046 0 3.581 1.371 3.581 4.318v5.918z"></path>
+        </symbol>
+        <symbol id="icon-share" viewBox="0 0 32 32">
+            <path
+                d="M0.64 16c0-8.483 6.877-15.36 15.36-15.36s15.36 6.877 15.36 15.36c0 8.483-6.877 15.36-15.36 15.36s-15.36-6.877-15.36-15.36zM18.915 24.113c0.404 0.194 0.847 0.292 1.295 0.287 0.477 0.001 0.948-0.115 1.37-0.336s0.785-0.543 1.055-0.935c0.27-0.393 0.44-0.845 0.495-1.318s-0.007-0.952-0.179-1.396c-0.173-0.444-0.452-0.839-0.812-1.151s-0.792-0.532-1.257-0.64c-0.465-0.108-0.949-0.101-1.411 0.020s-0.887 0.353-1.239 0.674l-5.255-2.995c0.055-0.21 0.086-0.425 0.091-0.643l5.163-2.944c0.502 0.46 1.147 0.733 1.828 0.774s1.354-0.153 1.907-0.55c0.553-0.397 0.953-0.971 1.131-1.627s0.125-1.354-0.152-1.975c-0.277-0.621-0.76-1.128-1.367-1.436s-1.303-0.397-1.969-0.253c-0.666 0.144-1.262 0.512-1.688 1.043s-0.655 1.192-0.649 1.872c0.003 0.241 0.036 0.48 0.097 0.713l-4.771 2.721c-0.326-0.504-0.799-0.896-1.356-1.123s-1.17-0.278-1.756-0.145c-0.586 0.132-1.118 0.441-1.523 0.885s-0.663 1.001-0.74 1.595c-0.077 0.595 0.031 1.199 0.31 1.73s0.714 0.965 1.248 1.241c0.534 0.276 1.14 0.382 1.736 0.304s1.153-0.338 1.597-0.743l5.255 2.996c-0.116 0.432-0.129 0.885-0.040 1.323s0.279 0.85 0.553 1.203c0.275 0.353 0.628 0.638 1.032 0.832zM19.32 20.581c0.236-0.236 0.556-0.368 0.89-0.368s0.654 0.132 0.89 0.368c0.236 0.236 0.369 0.555 0.369 0.888s-0.133 0.653-0.369 0.888c-0.236 0.235-0.556 0.368-0.89 0.368s-0.654-0.132-0.89-0.368c-0.236-0.236-0.369-0.555-0.369-0.888s0.133-0.653 0.369-0.888zM9.246 14.719c0.236-0.235 0.556-0.368 0.89-0.368s0.654 0.132 0.89 0.368c0.236 0.236 0.369 0.555 0.369 0.888s-0.133 0.653-0.369 0.888c-0.236 0.235-0.556 0.368-0.89 0.368s-0.654-0.132-0.89-0.368c-0.236-0.236-0.369-0.555-0.369-0.888s0.133-0.653 0.369-0.888zM19.728 9.422c0.153-0.063 0.317-0.096 0.482-0.096 0.334 0 0.654 0.132 0.89 0.368s0.369 0.555 0.369 0.888c0 0.333-0.133 0.653-0.369 0.888s-0.556 0.368-0.89 0.368c-0.165 0-0.329-0.033-0.482-0.096s-0.292-0.156-0.409-0.272-0.21-0.255-0.273-0.408c-0.063-0.152-0.096-0.316-0.096-0.481s0.033-0.328 0.096-0.481c0.063-0.152 0.156-0.291 0.273-0.408s0.256-0.209 0.409-0.272z"></path>
+        </symbol>
+        <symbol id="icon-subtract" viewBox="0 0 32 32">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0.64 16c0-8.483 6.877-15.36 15.36-15.36s15.36 6.877 15.36 15.36c0 8.483-6.877 15.36-15.36 15.36s-15.36-6.877-15.36-15.36zM13.784 13.107c-0.228 0.275-0.41 0.583-0.539 0.913-0.173 0.447-0.244 0.925-0.208 1.4 0.061 0.839 0.439 1.628 1.063 2.221 0.293 0.278 0.766 0.277 1.057-0.003s0.29-0.732-0.003-1.010c-0.368-0.349-0.59-0.814-0.626-1.308l-0-0.003c-0.021-0.272 0.019-0.545 0.119-0.801s0.255-0.488 0.456-0.681c0.050-0.048 0.091-0.1 0.123-0.156l3.723-3.702c0.781-0.74 2.087-0.741 2.921 0.056l0.001 0.001c0.836 0.797 0.834 2.048 0.053 2.794l-0.015 0.015-1.428 1.444c-0.283 0.287-0.27 0.739 0.030 1.009s0.773 0.258 1.057-0.029l1.421-1.437c1.382-1.328 1.329-3.478-0.062-4.805-1.393-1.331-3.65-1.378-5.040-0.052l-0.011 0.010-3.956 3.933c-0.058 0.058-0.104 0.123-0.138 0.192zM11.271 16.929c0.292 0.279 0.292 0.731 0 1.010-0.195 0.186-0.49 0.462-0.735 0.689-0.123 0.114-0.234 0.217-0.314 0.291l-0.125 0.116c-0.794 0.761-0.813 2.153 0.004 2.934 0.835 0.797 2.145 0.795 2.926 0.050 0.008-0.008 0.017-0.016 0.026-0.024l3.845-3.333c0.769-0.745 0.768-1.989-0.064-2.784-0.292-0.279-0.292-0.731 0-1.009s0.765-0.279 1.057 0c1.389 1.327 1.444 3.475 0.063 4.803-0.011 0.011-0.023 0.022-0.036 0.033l-3.848 3.336c-1.392 1.315-3.639 1.263-5.027-0.063-1.412-1.348-1.373-3.648 0-4.957l0.009-0.008 0.129-0.119c0.080-0.074 0.19-0.176 0.312-0.289 0.245-0.228 0.534-0.498 0.721-0.676 0.292-0.279 0.765-0.279 1.057 0z"></path>
+        </symbol>
+        <symbol id="icon-twit" viewBox="0 0 32 32">
+            <path
+                d="M16 2c-7.731 0-14 6.269-14 14s6.269 14 14 14c7.731 0 14-6.269 14-14s-6.269-14-14-14zM22.728 12.553c0.009 0.147 0.009 0.3 0.009 0.45 0 4.588-3.494 9.872-9.878 9.872-1.969 0-3.794-0.572-5.331-1.556 0.281 0.031 0.55 0.044 0.837 0.044 1.625 0 3.119-0.55 4.309-1.481-1.525-0.031-2.806-1.031-3.244-2.406 0.534 0.078 1.016 0.078 1.566-0.063-0.785-0.16-1.491-0.586-1.997-1.207s-0.782-1.398-0.781-2.199v-0.044c0.459 0.259 1 0.419 1.566 0.441-0.476-0.317-0.865-0.746-1.135-1.25s-0.411-1.066-0.412-1.638c0-0.647 0.169-1.238 0.472-1.75 0.872 1.073 1.959 1.95 3.192 2.576s2.584 0.984 3.964 1.053c-0.491-2.359 1.272-4.269 3.391-4.269 1 0 1.9 0.419 2.534 1.094 0.784-0.147 1.534-0.441 2.203-0.834-0.259 0.803-0.803 1.481-1.525 1.909 0.7-0.075 1.375-0.269 2-0.541-0.472 0.694-1.063 1.309-1.741 1.8v0z"></path>
+        </symbol>
+    </defs>
+</svg>
+
+
+
+<div  class="overlay js-overlay-mymodal"></div>
+    <div  class="mymodal is-footer-modal" data-mymodal="demo-3823784-97f77433-45d2-4fb4-946a-546b9ad17926">
+    <svg class="mymodal__cross js-mymodal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+            d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
+    </svg>
+    <div  class="mymodal__title">
+                    <h2>Request a Demo</h2>
+                <p class="mymodal__subtitle">Tell us where to reach you - we'll set up a walkthrough of the platform on your own terms.</p>
+        <div  class="mymodal__form">
+            
+    <div
+        id="ltu-hsform--1"
+        class="ltu-hsform"
+        data-hubspot-form-id="97f77433-45d2-4fb4-946a-546b9ad17926"
+        data-portal_id="3823784"
+        data-form-id="97f77433-45d2-4fb4-946a-546b9ad17926"
+        data-form-name=""
+        data-form-category=""
+                            >
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        
+        
+        hbspt.forms.create({
+            region: "",
+            portalId: "3823784",
+            formId: "97f77433-45d2-4fb4-946a-546b9ad17926",
+            target: "#ltu-hsform--1",
+            cssClass: "ltu-hsform__form",
+            onFormReady: function($form) {
+                var populateHubSpotFields = function(attemptsRemaining) {
+                    if (window.tg && window.tg.HubSpotForms) {
+                        window.tg.HubSpotForms.populate();
+                        return;
+                    }
+
+                    if (attemptsRemaining > 0) {
+                        setTimeout(function() {
+                            populateHubSpotFields(attemptsRemaining - 1);
+                        }, 50);
+                    }
+                };
+
+                populateHubSpotFields(40);
+
+                            }
+        });
+                    </script>
+
+    
+            </div>
+        <div  class="mymodal__trust">
+            <p class="mymodal__trust-points">30-min walkthrough · No commitment · Zero data access</p>
+            <p class="mymodal__trust-privacy">
+                We’ll only use your details to schedule your demo — see our
+                <a href="https://www.reflectiz.com/wp-content/uploads/2023/07/Reflectiz-Privacy-Policy-July-2023.pdf" target="_blank" rel="noopener">Privacy Policy<span class="screen-reader-text"> (opens in a new tab)</span></a>.
+            </p>
+            <div class="mymodal__trust-iso">
+                <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2039%2044'%3E%3C/svg%3E" alt="ISO 27001 certified" width="39" height="44" data-lazy-src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/ISO27001-eng.png"><noscript><img src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/ISO27001-eng.png" alt="ISO 27001 certified" width="39" height="44"></noscript>
+                <span>ISO 27001 certified information security management</span>
+            </div>
+        </div>
+        <div  class="mymodal__schedule" style="padding-top:25px;"></div>
+    </div>
+    <script>
+        window.addEventListener('message', event => {
+            if (event.data.type === 'hsFormCallback' && event.data.id === '97f77433-45d2-4fb4-946a-546b9ad17926' && event.data.eventName === 'onFormSubmitted') {
+                $ = jQuery;
+                let form = event.target.$form;
+
+                var mymodal__title = $(form).parent().siblings('h2');
+                var mymodal__form = $(form).parent();
+                var mymodal__schedule = mymodal__form.siblings('.mymodal__schedule');
+                var titleElements = document.querySelectorAll('.is-footer-modal .mymodal__form, .is-footer-modal .mymodal__subtitle, .is-footer-modal .mymodal__trust');
+                // var scheduleElements = document.querySelectorAll('.is-footer-modal .mymodal__schedule');
+                // var scheduleElement = mymodal__form.siblings('.mymodal__schedule');
+                mymodal__schedule.show();
+
+                mymodal__title.hide();
+
+                titleElements.forEach(function (element) {
+                    element.style.display = 'none';
+                });
+
+                // scheduleElements.forEach(function (element) {
+                //     element.style.display = 'block';
+                //     scheduleElement = element;
+                // });
+
+                var email = event.data.data.submissionValues.email;
+                var firstName = event.data.data.submissionValues.firstname;
+                var lastName = event.data.data.submissionValues.lastname;
+
+                var meeting_url = "https://meetings.hubspot.com/reflectiz/book";
+
+                tg.Helpers.getCountryCode().then((countryCode) => {
+                    if (countryCode === "US" || countryCode === "CA") {
+                        meeting_url = "https://meetings.hubspot.com/reflectiz/meet";
+                    }
+
+                    if (countryCode === "AU" || countryCode === "NZ" || countryCode === "IN" || countryCode === "JP" || countryCode === "SG") {
+                        meeting_url = "https://meetings.hubspot.com/ref/asia";
+                    }
+
+                    var htmlContent = `<div class="meetings-iframe-container" data-src="${meeting_url}?embed=true&email=${email}&firstName=${firstName}&lastName=${lastName}"></div>`;
+                    mymodal__schedule.html(htmlContent);
+
+                    loadjs("https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js");
+                });
+            }
+        });
+
+
+        function loadjs(file) {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = file;
+            document.body.appendChild(script);
+        }
+    </script>
+    </div>
+    <div  class="mymodal is-footer-modal" data-mymodal="demo-3823784-a40420a1-48f9-4260-be38-294b4efffa43">
+    <svg class="mymodal__cross js-mymodal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+            d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/>
+    </svg>
+    <div  class="mymodal__title">
+                    <h2>Request a Demo</h2>
+                <p class="mymodal__subtitle">Tell us where to reach you - we'll set up a walkthrough of the platform on your own terms.</p>
+        <div class="mymodal__form">
+            
+    <div
+        id="ltu-hsform--2"
+        class="ltu-hsform"
+        data-hubspot-form-id="a40420a1-48f9-4260-be38-294b4efffa43"
+        data-portal_id="3823784"
+        data-form-id="a40420a1-48f9-4260-be38-294b4efffa43"
+        data-form-name="internal pages "
+        data-form-category="Book a Demo"
+                            >
+    </div>
+
+    <script>
+        
+        
+        hbspt.forms.create({
+            region: "",
+            portalId: "3823784",
+            formId: "a40420a1-48f9-4260-be38-294b4efffa43",
+            target: "#ltu-hsform--2",
+            cssClass: "ltu-hsform__form",
+            onFormReady: function($form) {
+                var populateHubSpotFields = function(attemptsRemaining) {
+                    if (window.tg && window.tg.HubSpotForms) {
+                        window.tg.HubSpotForms.populate();
+                        return;
+                    }
+
+                    if (attemptsRemaining > 0) {
+                        setTimeout(function() {
+                            populateHubSpotFields(attemptsRemaining - 1);
+                        }, 50);
+                    }
+                };
+
+                populateHubSpotFields(40);
+
+                            }
+        });
+                    </script>
+
+    
+            </div>
+        <div class="mymodal__trust">
+            <p class="mymodal__trust-points">30-min walkthrough · No commitment · Zero data access</p>
+            <p class="mymodal__trust-privacy">
+                We’ll only use your details to schedule your demo — see our
+                <a href="https://www.reflectiz.com/wp-content/uploads/2023/07/Reflectiz-Privacy-Policy-July-2023.pdf" target="_blank" rel="noopener">Privacy Policy<span class="screen-reader-text"> (opens in a new tab)</span></a>.
+            </p>
+            <div class="mymodal__trust-iso">
+                <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2039%2044'%3E%3C/svg%3E" alt="ISO 27001 certified" width="39" height="44" data-lazy-src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/ISO27001-eng.png"><noscript><img src="https://www.reflectiz.com/wp-content/themes/reflectiz/assets/images/sections/footer/ISO27001-eng.png" alt="ISO 27001 certified" width="39" height="44"></noscript>
+                <span>ISO 27001 certified information security management</span>
+            </div>
+        </div>
+        <div class="mymodal__schedule" style="padding-top:25px;"></div>
+    </div>
+    <script>
+        window.addEventListener('message', event => {
+            if (event.data.type === 'hsFormCallback' && event.data.id === 'a40420a1-48f9-4260-be38-294b4efffa43' && event.data.eventName === 'onFormSubmitted') {
+                $ = jQuery;
+                let form = event.target.$form;
+
+                var mymodal__title = $(form).parent().siblings('h2');
+                var mymodal__form = $(form).parent();
+                var mymodal__schedule = mymodal__form.siblings('.mymodal__schedule');
+                var titleElements = document.querySelectorAll('.is-footer-modal .mymodal__form, .is-footer-modal .mymodal__subtitle, .is-footer-modal .mymodal__trust');
+                // var scheduleElements = document.querySelectorAll('.is-footer-modal .mymodal__schedule');
+                // var scheduleElement = mymodal__form.siblings('.mymodal__schedule');
+                mymodal__schedule.show();
+
+                mymodal__title.hide();
+
+                titleElements.forEach(function (element) {
+                    element.style.display = 'none';
+                });
+
+                // scheduleElements.forEach(function (element) {
+                //     element.style.display = 'block';
+                //     scheduleElement = element;
+                // });
+
+                var email = event.data.data.submissionValues.email;
+                var firstName = event.data.data.submissionValues.firstname;
+                var lastName = event.data.data.submissionValues.lastname;
+
+                var meeting_url = "https://meetings.hubspot.com/reflectiz/book";
+
+                tg.Helpers.getCountryCode().then((countryCode) => {
+                    if (countryCode === "US" || countryCode === "CA") {
+                        meeting_url = "https://meetings.hubspot.com/reflectiz/meet";
+                    }
+
+                    if (countryCode === "AU" || countryCode === "NZ" || countryCode === "IN" || countryCode === "JP" || countryCode === "SG") {
+                        meeting_url = "https://meetings.hubspot.com/ref/asia";
+                    }
+
+                    var htmlContent = `<div class="meetings-iframe-container" data-src="${meeting_url}?embed=true&email=${email}&firstName=${firstName}&lastName=${lastName}"></div>`;
+                    mymodal__schedule.html(htmlContent);
+
+                    loadjs("https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js");
+                });
+            }
+        });
+
+
+        function loadjs(file) {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = file;
+            document.body.appendChild(script);
+        }
+    </script>
+    </div>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/reflectiz/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<style>
+/* Mobile form close - override the forced display:flex when form is closed */
+@media (max-width: 991px) {
+    .blog-single__form-wrapper.u-tablet-visible .blog-single__form.is-closed {
+        display: none !important;
+    }
+    .blog-single__form-wrapper.u-tablet-visible .blog-single__form-toggle {
+        cursor: pointer;
+        position: relative;
+    }
+}
+</style>
+<script type="text/rocketlazyloadscript">
+/* Mobile form close: runs after all document.ready handlers to override initBlogFormMobileToggle */
+jQuery(document).ready(function($) {
+    setTimeout(function() {
+        var $mobileWrapper = $('.blog-single__form-wrapper.u-tablet-visible');
+        if (!$mobileWrapper.length) return;
+
+        var $toggle = $mobileWrapper.find('.blog-single__form-toggle');
+        var $form = $mobileWrapper.find('.blog-single__form');
+
+        // Mark as opened on load (form starts open)
+        $toggle.addClass('is-opened');
+
+        // Remove ALL existing click handlers and add only ours
+        $toggle.off('click').on('click', function() {
+            if ($toggle.hasClass('is-opened')) {
+                $toggle.removeClass('is-opened');
+                $form.addClass('is-closed');
+            } else {
+                $toggle.addClass('is-opened');
+                $form.removeClass('is-closed');
+            }
+        });
+    }, 0);
+});
+</script>
+<script data-no-lazyload>
+(function() {
+  function addYouTubeButton() {
+    var socialsDiv = document.querySelector('.s-footer__socials');
+    if (socialsDiv && !document.querySelector('.s-footer__socials .yt-btn')) {
+      var ytLink = document.createElement('a');
+      ytLink.href = 'https://www.youtube.com/@reflectizsec?sub_confirmation=1';
+      ytLink.rel = 'noreferrer nofollow';
+      ytLink.target = '_blank';
+      ytLink.className = 'yt-btn';
+      
+      var ytImg = document.createElement('img');
+      var svgContent = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>';
+      var blob = new Blob([svgContent], {type: 'image/svg+xml'});
+      var url = URL.createObjectURL(blob);
+      ytImg.src = url;
+      ytImg.alt = 'youtube';
+      ytImg.style.width = '24px';
+      ytImg.style.height = '24px';
+      
+      ytLink.appendChild(ytImg);
+      socialsDiv.appendChild(ytLink);
+    }
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addYouTubeButton);
+  } else {
+    addYouTubeButton();
+  }
+})();
+</script>
+<script type="text/rocketlazyloadscript">
+// Move General Discovery tier banner above closing buttons on plans page
+(function() {
+    function moveDiscovery() {
+        var desktopDiscovery = document.querySelector('.plans-page__discovery--desktop');
+        var footerButtons = document.querySelector('.plans-page__footer-buttons');
+        if (desktopDiscovery && footerButtons && footerButtons.parentElement) {
+            footerButtons.parentElement.insertBefore(desktopDiscovery, footerButtons);
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', moveDiscovery);
+    } else {
+        moveDiscovery();
+    }
+})();
+</script>
+
+<script type="text/rocketlazyloadscript">
+jQuery(function($){
+  if (!document.body.className.match(/page-id-(18364|2582)/)) return;
+  if ($('.bd-marketing-panel').length) return;
+  var $heading = $('h1.about_us_heading');
+  var $content = $('.page_content');
+  if (!$heading.length || !$content.length) return;
+  $heading.before('<p class="bd-eyebrow">The Web Exposure Company</p>');
+  $heading.after(
+    '<p class="bd-copy">See exactly what\'s running on your website, and where your exposure is, in a live walkthrough with our team.</p>' +
+    '<ul class="bd-checklist">' +
+      '<li>Agentless setup, no code changes, live in minutes</li>' +
+      '<li>See your live Exposure Rating during the call</li>' +
+      '<li>Tailored to your stack, industry and compliance needs</li>' +
+    '</ul>'
+  );
+  $('.bd-eyebrow, h1.about_us_heading, .bd-copy, .bd-checklist').wrapAll('<div class="bd-marketing-panel"></div>');
+  $content.wrap('<div class="bd-widget-card"></div>');
+  $content.closest('.col-md-12').addClass('bd-demo-row');
+});
+</script><script id="leadin-script-loader-js-js-extra">
+var leadin_wordpress = {"userRole":"visitor","pageType":"page","leadinPluginVersion":"11.3.71"};
+//# sourceURL=leadin-script-loader-js-js-extra
+</script>
+<script async defer id='hs-script-loader' src="https://js.hs-scripts.com/3823784.js?integration=WordPress&#038;ver=11.3.71"></script>
+<script id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/book-a-meeting/|/registration/|/book-a-meeting-2/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://www.reflectiz.com","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,a,c){function l(t,e){if(!a[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(u)return u(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=a[t]={exports:{}},n[t][0].call(r.exports,function(e){return l(n[t][1][e]||e)},r,r.exports,o,n,a,c)}return a[t].exports}for(var u="function"==typeof require&&require,e=0;e<c.length;e++)l(c[e]);return l}({1:[function(e,t,r){{let r="undefined"==typeof rocket_pairs?[]:rocket_pairs,o=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var a=rocket_lazyload_css_data.threshold||300;let n=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&r.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,o.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{n.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:a+"px"});function c(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&r.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(n.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}c(),(()=>{let r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}})()(document.querySelector("body"),c)}},{}]},{},[1]);
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="tg-js" data-rocket-src="https://www.reflectiz.com/wp-content/cache/min/1/wp-content/themes/reflectiz/assets/js/tg.js?ver=1790056096" data-rocket-defer defer></script>
+<script data-minify="1" id="lottie-js" src="https://www.reflectiz.com/wp-content/cache/min/1/wp-content/themes/reflectiz/assets/js/vendor/lottie-player.js?ver=1790056096"></script>
+<script data-minify="1" id="main-js" src="https://www.reflectiz.com/wp-content/cache/min/1/wp-content/themes/reflectiz/assets/js/main.js?ver=1790056096"></script>
+<script data-minify="1" id="section-header-js" src="https://www.reflectiz.com/wp-content/cache/min/1/wp-content/themes/reflectiz/assets/js/sections/s-header.js?ver=1790056096"></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="section-sides-js" data-rocket-src="https://www.reflectiz.com/wp-content/cache/min/1/wp-content/themes/reflectiz/assets/js/sections/s-sides.js?ver=1790056096" data-rocket-defer defer></script>
+<script id="comeet_script-js-extra">
+var comeetvar = {"comeet_token":"AC84B7840B035E82058AC8564035E856402058","comeet_uid":"CA.008","comeet_color":"","comeet_bgcolor":"","comeet_css_url":"https://www.reflectiz.com/wp-content/themes/reflectiz/assets/css/comeet.css","comeet_css_cache":"unset_cache","comeet_apply_as_employee":"true","comeet_field_email_required":"true","comeet_field_phone_required":"true","comeet_field_resume":"true","comeet_field_linkedin":"true","comeet_require_profile":"resume","comeet_field_website":"false","comeet_field_website_required":"false","comeet_field_coverletter":"true","comeet_field_coverletter_required":"false","comeet_field_portfolio":"true","comeet_field_portfolio_required":"false","comeet_field_personalnote":"true","comeet_field_personalnote_required":"false","comeet_button_text":"","comeet_font_size":"","comeet_button_font_size":"","comeet_labels_position":"responsive","comeet_button_color":"","comeet_social_pinterest":"true","comeet_social_whatsapp":"false","comeet_social_employees":"true","comeet_social_show_title":"true","comeet_social_share_url":"","comeet_social_color":"white"};
+//# sourceURL=comeet_script-js-extra
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="comeet_script-js" data-rocket-src="https://www.reflectiz.com/wp-content/cache/min/1/wp-content/plugins/Archive/js/comeet.js?ver=1790056704" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="comeet_src_script-js" data-rocket-src="https://www.reflectiz.com/wp-content/cache/min/1/wp-content/plugins/Archive/js/comeet-src.js?ver=1790056704" data-rocket-defer defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.reflectiz.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt,l){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="Play Youtube video"></button>';if(l){t=t.replace('data-lazy-','');t=t.replace('loading="lazy"','');t=t.replace(/<noscript>.*?<\/noscript>/g,'');}t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?"":"&"+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow","accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var exclusions=[];var e,t,p,u,l,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)(e=document.createElement("div")),(u='https://i.ytimg.com/vi/ID/hqdefault.jpg'),(u=u.replace('ID',a[t].dataset.id)),(l=exclusions.some(exclusion=>u.includes(exclusion))),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query",a[t].dataset.query),e.setAttribute("data-src",a[t].dataset.src),(e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt,l)),a[t].appendChild(e),(p=e.querySelector(".play")),(p.onclick=lazyLoadYoutubeIframe)});</script>
+
+<img height="1" width="1" style="display:none;" alt=""
+     src="https://dc.ads.linkedin.com/collect/?pid=387425&fmt=gif https://dc.ads.linkedin.com/collect/?pid=387425&fmt=gif" data-lazy-src="https://dc.ads.linkedin.com/collect/?pid=387425&#038;fmt=gif%20https://dc.ads.linkedin.com/collect/?pid=387425&#038;fmt=gif"/><noscript><img height="1" width="1" style="display:none;" alt=""
+     src="https://dc.ads.linkedin.com/collect/?pid=387425&fmt=gif https://dc.ads.linkedin.com/collect/?pid=387425&fmt=gif"/></noscript>
+</body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1790579876 -->

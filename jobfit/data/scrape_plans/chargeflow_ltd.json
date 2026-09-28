@@ -1,0 +1,106 @@
+{
+  "company_id": "chargeflow_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.chargeflow.io/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:09:34.196148Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?chargeflow\\.io/[^/?#]+/?$"
+    ],
+    "url_shape": "chargeflow.io|positions|2",
+    "explicit_accept": [
+      "https://www.chargeflow.io/positions/position-a6_274",
+      "https://www.chargeflow.io/positions/position-84_f67",
+      "https://www.chargeflow.io/positions/position-89_e68",
+      "https://www.chargeflow.io/positions/position-f3_e6b",
+      "https://www.chargeflow.io/positions/position-04_b6b"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 31,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 39,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 59,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 72,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "676b1770b0455b68d311380c82c2f0fcca29926b",
+    "candidate_count": 74
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": "2026-10-05T10:09:34.196148Z",
+  "notes": []
+}

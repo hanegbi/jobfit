@@ -1,0 +1,652 @@
+{
+  "company_id": "wekaio_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.weka.io/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T11:30:32.829189Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?weka\\.io/[^/?#]+/?$",
+      "^https?://(www\\.)?support\\.weka\\.io/[^/?#]+/?$",
+      "^https?://(www\\.)?weka\\.io/article/[^/?#]+/?$",
+      "^https?://(www\\.)?weka\\.io/wp\\-content/uploads/files/resources/2025/06/[^/?#]+/?$"
+    ],
+    "url_shape": "weka.io|?gh_jid",
+    "explicit_accept": [
+      "https://www.weka.io/careers/?gh_jid=5226245007",
+      "https://www.weka.io/careers/?gh_jid=5226245007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5162046007",
+      "https://www.weka.io/careers/?gh_jid=5162046007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5243898007",
+      "https://www.weka.io/careers/?gh_jid=5243898007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5230528007",
+      "https://www.weka.io/careers/?gh_jid=5230528007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5226262007",
+      "https://www.weka.io/careers/?gh_jid=5226262007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5053554007",
+      "https://www.weka.io/careers/?gh_jid=5053554007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5126500007",
+      "https://www.weka.io/careers/?gh_jid=5126500007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5112517007",
+      "https://www.weka.io/careers/?gh_jid=5112517007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5123471007",
+      "https://www.weka.io/careers/?gh_jid=5123471007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5243650007",
+      "https://www.weka.io/careers/?gh_jid=5243650007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5053540007",
+      "https://www.weka.io/careers/?gh_jid=5053540007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5078496007",
+      "https://www.weka.io/careers/?gh_jid=5078496007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5146847007",
+      "https://www.weka.io/careers/?gh_jid=5146847007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5147768007",
+      "https://www.weka.io/careers/?gh_jid=5147768007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5199234007",
+      "https://www.weka.io/careers/?gh_jid=5199234007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5081744007",
+      "https://www.weka.io/careers/?gh_jid=5081744007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5218254007",
+      "https://www.weka.io/careers/?gh_jid=5218254007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5081732007",
+      "https://www.weka.io/careers/?gh_jid=5081732007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5106765007",
+      "https://www.weka.io/careers/?gh_jid=5106765007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5138263007",
+      "https://www.weka.io/careers/?gh_jid=5138263007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5173202007",
+      "https://www.weka.io/careers/?gh_jid=5173202007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5212942007",
+      "https://www.weka.io/careers/?gh_jid=5212942007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5086716007",
+      "https://www.weka.io/careers/?gh_jid=5086716007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5212504007",
+      "https://www.weka.io/careers/?gh_jid=5212504007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5233153007",
+      "https://www.weka.io/careers/?gh_jid=5233153007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5233156007",
+      "https://www.weka.io/careers/?gh_jid=5233156007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5223616007",
+      "https://www.weka.io/careers/?gh_jid=5223616007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5150322007",
+      "https://www.weka.io/careers/?gh_jid=5150322007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5228557007",
+      "https://www.weka.io/careers/?gh_jid=5228557007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5228482007",
+      "https://www.weka.io/careers/?gh_jid=5228482007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5224304007",
+      "https://www.weka.io/careers/?gh_jid=5224304007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5163573007",
+      "https://www.weka.io/careers/?gh_jid=5163573007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5186568007",
+      "https://www.weka.io/careers/?gh_jid=5186568007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5111803007",
+      "https://www.weka.io/careers/?gh_jid=5111803007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5211470007",
+      "https://www.weka.io/careers/?gh_jid=5211470007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5158226007",
+      "https://www.weka.io/careers/?gh_jid=5158226007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5129432007",
+      "https://www.weka.io/careers/?gh_jid=5129432007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5191973007",
+      "https://www.weka.io/careers/?gh_jid=5191973007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5021441007",
+      "https://www.weka.io/careers/?gh_jid=5021441007#career-position",
+      "https://www.weka.io/careers/?gh_jid=4954701007",
+      "https://www.weka.io/careers/?gh_jid=4954701007#career-position",
+      "https://www.weka.io/careers/?gh_jid=4418059007",
+      "https://www.weka.io/careers/?gh_jid=4418059007#career-position",
+      "https://www.weka.io/careers/?gh_jid=4496922007",
+      "https://www.weka.io/careers/?gh_jid=4496922007#career-position",
+      "https://www.weka.io/careers/?gh_jid=4496923007",
+      "https://www.weka.io/careers/?gh_jid=4496923007#career-position",
+      "https://www.weka.io/careers/?gh_jid=4977773007",
+      "https://www.weka.io/careers/?gh_jid=4977773007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5204468007",
+      "https://www.weka.io/careers/?gh_jid=5204468007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5239621007",
+      "https://www.weka.io/careers/?gh_jid=5239621007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5085240007",
+      "https://www.weka.io/careers/?gh_jid=5085240007#career-position",
+      "https://www.weka.io/careers/?gh_jid=5084113007",
+      "https://www.weka.io/careers/?gh_jid=5084113007#career-position"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 45,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 49,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 53,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 54,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 55,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 56,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 57,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 58,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 59,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 60,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 61,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 62,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 63,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 64,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 65,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 66,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 67,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 68,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 69,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 70,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 71,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 72,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 73,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 74,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 75,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 76,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 77,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 78,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 79,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 80,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 81,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 82,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 83,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 84,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 85,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 86,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 87,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 88,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 89,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 90,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 91,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 92,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 93,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 94,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 95,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 96,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 97,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 98,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 99,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 100,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 101,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 102,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 103,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 104,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 105,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 106,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 107,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 108,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 109,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 110,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 111,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 112,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 113,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 114,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 115,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 116,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 117,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 118,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 119,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 120,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 121,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 122,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 123,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 124,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 125,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 126,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 127,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 128,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 129,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 130,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 131,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 132,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 133,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 134,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 135,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 136,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 137,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 138,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 139,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 140,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 141,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 142,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 143,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 144,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 145,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 148,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 155,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 156,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 96
+  },
+  "rediscover_after": null,
+  "notes": []
+}

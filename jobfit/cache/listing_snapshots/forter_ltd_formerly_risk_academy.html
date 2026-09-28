@@ -1,0 +1,2214 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="Forter">
+	<meta name="apple-mobile-web-app-title" content="Forter">
+	<meta name="theme-color" content="#005de8">
+	<meta name="msapplication-navbutton-color" content="#015de7">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-starturl" content="/">
+
+	<!-- Consent and tag origins: both load on page load (excluded from WP Rocket's JS delay). -->
+	<link rel="preconnect" href="https://cdn.cookielaw.org">
+	<link rel="preconnect" href="https://www.googletagmanager.com">
+
+	<link rel="preconnect" href="//facebook.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+<!--	<link rel="preload" href="mobile-img.jpg" as="image" media="(max-width: 991px)">-->
+<!--	<link rel="preload" href="desktop-img.jpg" as="image" media="(min-width: 992x)">-->
+<!--	<link rel="preload" href="--><!--/img/particles-placeholder-new.jpg" as="image"">-->
+
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.forter.com/wp-content/themes/blank/img/favicon/faviconV2.png?t=1778682894">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.forter.com/wp-content/themes/blank/img/favicon/faviconV2-16x16.png?t=1778682894">
+
+    <!--	--><!--		<link rel="alternate" href="https://www.forter.com/request-demo/" hreflang="en" />-->
+<!--		<link rel="alternate" href="https://www.forter.com/cn/request-demo/" hreflang="zh" />-->
+<!--	-->	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<link rel="alternate" href="https://www.forter.com/careers/" hreflang="en" />
+<link rel="alternate" href="https://www.forter.com/de/careers/" hreflang="de" />
+<link rel="alternate" href="https://www.forter.com/ja/careers/" hreflang="ja" />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v28.5 (Yoast SEO v28.5) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+	<title>Careers &#8211; Forter</title>
+<link data-rocket-prefetch href="https://www.googletagmanager.com" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://cdn.cookielaw.org" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://googleads.g.doubleclick.net" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://js.hsforms.net" rel="dns-prefetch"><link rel="preload" data-rocket-preload as="image" href="https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge.png" imagesrcset="https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge.png 2480w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-34x48.png 34w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-170x240.png 170w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-551x780.png 551w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-315x446.png 315w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-450x637.png 450w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-324x458.png 324w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-560x792.png 560w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-389x550.png 389w" imagesizes="(max-width: 2480px) 100vw, 2480px" fetchpriority="high">
+	<meta name="description" content="Forter is committed to making an IMPACT and helping build trust between brands and consumers. See how we work and join our growing team!" />
+	<link rel="canonical" href="https://www.forter.com/careers/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:locale:alternate" content="de_DE" />
+	<meta property="og:locale:alternate" content="ja_JP" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Careers" />
+	<meta property="og:description" content="Forter is committed to making an IMPACT and helping build trust between brands and consumers. See how we work and join our growing team!" />
+	<meta property="og:url" content="https://www.forter.com/careers/" />
+	<meta property="og:site_name" content="Forter" />
+	<meta property="article:publisher" content="https://www.facebook.com/ForterGlobal" />
+	<meta property="article:modified_time" content="2025-07-29T16:43:46+00:00" />
+	<meta property="og:image" content="https://www.forter.com/wp-content/uploads/2023/12/Forter-hiring.png" />
+	<meta property="og:image:width" content="2048" />
+	<meta property="og:image:height" content="1070" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@ForterGlobal" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/www.forter.com\/careers\/","url":"https:\/\/www.forter.com\/careers\/","name":"Careers &#8211; Forter","isPartOf":{"@id":"https:\/\/www.forter.com\/#website"},"datePublished":"2023-09-06T14:00:32+00:00","dateModified":"2025-07-29T16:43:46+00:00","description":"Forter is committed to making an IMPACT and helping build trust between brands and consumers. See how we work and join our growing team!","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.forter.com\/careers\/"]}]},{"@type":"WebSite","@id":"https:\/\/www.forter.com\/#website","url":"https:\/\/www.forter.com\/","name":"Forter","description":"The trust platform for digital commerce","inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+
+<link data-minify="1" rel='stylesheet' id='blank-normalize-css-css' href='https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/css/normalize.css?ver=1790275327' media='all' />
+<link data-minify="1" rel='stylesheet' id='blank-bootstrap-reboot-css-css' href='https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/css/bootstrap-reboot.css?ver=1790275327' media='all' />
+<link data-minify="1" rel='stylesheet' id='blank-custom-css-css' href='https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/css/custom.css?ver=1790275327' media='all' />
+<link data-minify="1" rel='stylesheet' id='blank-aos-css-css' href='https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/css/aos.css?ver=1790275327' media='all' />
+<link data-minify="1" rel='stylesheet' id='forter-tailwind-css-css' href='https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/css/tailwind.dist.css?ver=1790275327' media='all' />
+<link data-minify="1" rel='stylesheet' id='forter-global-buttons-css-css' href='https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/css/global-buttons.css?ver=1790275327' media='all' />
+<link data-minify="1" rel='stylesheet' id='blank-slick-css-css' href='https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/css/slick.css?ver=1790275327' media='all' />
+<link data-minify="1" rel='stylesheet' id='blank-slick-theme-css-css' href='https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/css/slick-theme.css?ver=1790275327' media='all' />
+<link data-minify="1" rel='stylesheet' id='css-576-css' href='https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/css/css-576.css?ver=1790275327' media='all and (min-width: 576px)' />
+<link rel='shortlink' href='https://www.forter.com/?p=12162' />
+			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.75-->
+			<script type="text/rocketlazyloadscript" class="hsq-set-content-id" data-content-id="standard-page">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", "standard-page"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+			    <!--
+        Google Consent Mode v2 defaults.
+
+        Inline and first in the head, above OneTrust and GTM, so the consent
+        state is established before anything can read it. Any storage type left
+        unspecified is treated as granted, so all of them are listed.
+
+        Excluded from WP Rocket's Delay JavaScript Execution by the
+        "ads_data_redaction" string; without that exclusion this is deferred
+        until first interaction and the defaults arrive too late to matter.
+
+        This replaces the Consent Initialization tag inside GTM. Only one of the
+        two may exist.
+    -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        // Global default: opt-in, everything denied. Covers the EU, UK,
+        // Switzerland, Quebec and every region not listed below.
+        gtag("consent", "default", {
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+            analytics_storage: "denied",
+            functionality_storage: "denied",
+            personalization_storage: "denied",
+            security_storage: "granted",
+            wait_for_update: 2000
+        });
+
+        // US and Canada except Quebec: opt-out, analytics and functional
+        // granted. A region-specific default wins over the global one, so order
+        // does not matter. Quebec (CA-QC) is left out on purpose and falls
+        // through to the global default. Must match OneTrust's geolocation rules.
+        gtag("consent", "default", {
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+            analytics_storage: "granted",
+            functionality_storage: "granted",
+            personalization_storage: "granted",
+            security_storage: "granted",
+            wait_for_update: 2000,
+            region: [
+                "US",
+                "CA-AB", "CA-BC", "CA-MB", "CA-NB", "CA-NL", "CA-NS",
+                "CA-NT", "CA-NU", "CA-ON", "CA-PE", "CA-SK", "CA-YT"
+            ]
+        });
+
+        gtag("set", "ads_data_redaction", true);
+        gtag("set", "url_passthrough", true);
+    </script>
+
+    <!-- OneTrust Cookies Consent Notice start for forter.com -->
+    <script type="text/javascript" src="https://cdn.cookielaw.org/consent/4eb1648e-7110-4ffb-b4d8-11815dcc7ca3/OtAutoBlock.js" data-rocket-defer defer></script>
+    <script src="https://cdn.cookielaw.org/consent/4eb1648e-7110-4ffb-b4d8-11815dcc7ca3/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="4eb1648e-7110-4ffb-b4d8-11815dcc7ca3" data-rocket-defer defer></script>
+    <script type="text/javascript">
+        function OptanonWrapper() {}
+    </script>
+    <!-- End OneTrust Cookies Consent Notice -->
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TRW3GRR');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- 6sense Web Tag 2.0 — site-wide -->
+    <script type="text/rocketlazyloadscript" data-minify="1" id="6senseWebTag" data-rocket-src="https://www.forter.com/wp-content/cache/min/1/j/4f71121f-815f-4faf-92da-c4ea2dceaa2c.js?ver=1790275327" data-rocket-defer defer></script>
+    <script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" id="c04d800a6f00">
+        (function() {
+            var merchantConfig = {
+                csp: false,
+            };
+
+            var siteId = 'c04d800a6f00';
+
+            function t(t, e) {
+                for (var n = t.split(""), r = 0; r < n.length; ++r) n[r] = String.fromCharCode(n[r].charCodeAt(0) + e);
+                return n.join("")
+            }
+
+            function e(e) {
+                return t(e, -_).replace(/%SN%/g, siteId)
+            }
+
+            function n(t) {
+                try {
+                    if ("number" == typeof t && window.location && window.location.pathname) {
+                        for (var e = window.location.pathname.split("/"), n = [], r = 0; r <= Math.min(e.length - 1, Math.abs(t)); r++) n.push(e[r]);
+                        return n.join("/") || "/"
+                    }
+                } catch (t) {}
+                return "/"
+            }
+
+            function r() {
+                var t = "no" + "op" + "fn",
+                    e = "g" + "a",
+                    n = "n" + "ame";
+                return window[e] && window[e][n] === t
+            }
+
+            function o() {
+                return !(!navigator.brave || "function" != typeof navigator.brave.isBrave)
+            }
+
+            function i() {
+                return document.currentScript && document.currentScript.src
+            }
+
+            function a(t) {
+                try {
+                    z.ex = t, r() && -1 === z.ex.indexOf($.uB) && (z.ex += $.uB), o() && -1 === z.ex.indexOf($.uBr) && (z.ex += $.uBr), i() && -1 === z.ex.indexOf($.nIL) && (z.ex += $.nIL), window.ftr__snp_cwc || (z.ex += $.s), H(z)
+                } catch (t) {}
+            }
+
+            function c(t, e) {
+                function n(i) {
+                    try {
+                        i.blockedURI === t && i.disposition === o && (e(), document.removeEventListener(r, n))
+                    } catch (t) {
+                        document.removeEventListener(r, n)
+                    }
+                }
+                var r = "securitypolicyviolation",
+                    o = "enforce";
+                document.addEventListener(r, n), setTimeout(function() {
+                    document.removeEventListener(r, n)
+                }, 2 * 60 * 1e3)
+            }
+
+            function f(t, e, n, r) {
+                var o = !1;
+                t = "https://" + t, c(t, function() {
+                    r(!0), o = !0
+                });
+                var i = document.createElement("script");
+                i.onerror = function() {
+                    if (!o) try {
+                        r(!1), o = !0
+                    } catch (t) {}
+                }, i.onload = n, i.type = "text/javascript", i.id = "ftr__script", i.async = !0, i.src = t;
+                var a = document.getElementsByTagName("script")[0];
+                a.parentNode.insertBefore(i, a)
+            }
+
+            function u() {
+                setTimeout(l, B, $.uDF)
+            }
+
+            function s(t, e, n, r) {
+                var o = !1,
+                    i = new XMLHttpRequest;
+                if (c("https:" + t, function() {
+                        n(new Error("CSP Violation"), !0), o = !0
+                    }), "//" === t.slice(0, 2) && (t = "https:" + t), "withCredentials" in i) i.open("GET", t, !0);
+                else {
+                    if ("undefined" == typeof XDomainRequest) return;
+                    i = new XDomainRequest, i.open("GET", t)
+                }
+                Object.keys(r).forEach(function(t) {
+                    i.setRequestHeader(t, r[t])
+                }), i.onload = function() {
+                    "function" == typeof e && e(i)
+                }, i.onerror = function(t) {
+                    if ("function" == typeof n && !o) try {
+                        n(t, !1), o = !0
+                    } catch (t) {}
+                }, i.onprogress = function() {}, i.ontimeout = function() {
+                    "function" == typeof n && n("tim" + "eo" + "ut", !1)
+                }, setTimeout(function() {
+                    i.send()
+                }, 0)
+            }
+
+            function d(t, siteId, e) {
+                function n(t) {
+                    var e = t.toString(16);
+                    return e.length % 2 ? "0" + e : e
+                }
+
+                function r(t) {
+                    if (t <= 0) return "";
+                    for (var e = "0123456789abcdef", n = "", r = 0; r < t; r++) n += e[Math.floor(Math.random() * e.length)];
+                    return n
+                }
+
+                function o(t) {
+                    for (var e = "", r = 0; r < t.length; r++) e += n(t.charCodeAt(r));
+                    return e
+                }
+
+                function i(t) {
+                    for (var e = t.split(""), n = 0; n < e.length; ++n) e[n] = String.fromCharCode(255 ^ e[n].charCodeAt(0));
+                    return e.join("")
+                }
+                e = e ? "1" : "0";
+                var a = [];
+                return a.push(t), a.push(siteId), a.push(e),
+                    function(t) {
+                        var e = 40,
+                            n = "";
+                        return t.length < e / 2 && (n = "," + r(e / 2 - t.length - 1)), o(i(t + n))
+                    }(a.join(","))
+            }
+
+            function h() {
+                function t() {
+                    M && setTimeout(l, B, $.dUAL)
+                }
+
+                function e(t, e) {
+                    M = e ? "F" + "T" + "R" + "A" + "U" + "C" : "F" + "T" + "R" + "A" + "U", setTimeout(l, B, $.uAS)
+                }
+                window.ftr__fdad(t, e)
+            }
+
+            function w() {
+                function t() {
+                    M && setTimeout(l, B, $.uDAD)
+                }
+
+                function e(t, e) {
+                    M = e ? "F" + "T" + "R" + "A" + "U" + "C" : "F" + "T" + "R" + "A" + "U", setTimeout(l, B, $.uDS)
+                }
+                window.ftr__radd(t, e)
+            }
+
+            function l(t) {
+                function e() {
+                    for (var t = 0; t <= $.tmosSecs.length; t++) clearTimeout(et[t])
+                }
+
+                function n() {
+                    try {
+                        e(), a(t + $.uS)
+                    } catch (t) {}
+                }
+
+                function r(n) {
+                    try {
+                        e(), z.td = 1 * new Date - z.ts, a(n ? t + $.uF + $.cP : t + $.uF), t === $.uFP && u(), t === $.uDF && (j ? w() : h()), t !== $.uAS && t !== $.dUAL || j || w(), t !== $.uDS && t !== $.uDAD || j && h()
+                    } catch (t) {
+                        a($.eUoe)
+                    }
+                }
+                try {
+                    ! function(t) {
+                        for (var e = 0; e <= $.tmosSecs.length; e++) e === $.tmosSecs.length ? et[e] = setTimeout(r, 1e3 * $.tmosSecs[e - 1] + 1e3) : et[e] = setTimeout(a, 1e3 * $.tmosSecs[e], t + $.tmos[e])
+                    }(t);
+                    var o;
+                    switch (t) {
+                        case $.uFP:
+                            o = N;
+                            break;
+                        case $.uDF:
+                            o = I;
+                            break;
+                        default:
+                            o = M
+                    }
+                    if (!o) return;
+                    if (o === "F" + "T" + "R" + "A" + "U" + "C") return void r(!0);
+                    if (o === "F" + "T" + "R" + "A" + "U") return void r(!1);
+                    f(o, void 0, n, r)
+                } catch (e) {
+                    a(t + $.eTlu)
+                }
+            }
+            var g = "22g6edqo7i}x{vmo1forxgiurqw1qhw2vwdwxv",
+                v = "fort",
+                m = "erTo",
+                p = "ken",
+                _ = 3;
+            window.ftr__config = {
+                m: merchantConfig,
+                s: "29",
+                si: siteId
+            };
+            var y = !1,
+                U = !1,
+                T, x, A = v + m + p,
+                S = 400 * 24 * 60,
+                D, C = 10;
+            D = {
+                write: function(t, e, r, o) {
+                    void 0 === o && (o = !0);
+                    var i = 0;
+                    window.ftr__config && window.ftr__config.m && window.ftr__config.m.ckDepth && (i = window.ftr__config.m.ckDepth);
+                    var a, c, f = n(i);
+                    if (r ? (a = new Date, a.setTime(a.getTime() + 60 * r * 1e3), c = "; expires=" + a.toGMTString()) : c = "", !o) return void(document.cookie = escape(t) + "=" + escape(e) + c + "; path=" + f);
+                    for (var u = 1, s = document.domain.split("."), d = C, h = !0; h && s.length >= u && d > 0;) {
+                        var w = s.slice(-u).join(".");
+                        document.cookie = escape(t) + "=" + escape(e) + c + "; path=" + f + "; domain=" + w;
+                        var l = D.read(t);
+                        null != l && l == e || (w = "." + w, document.cookie = escape(t) + "=" + escape(e) + c + "; path=" + f + "; domain=" + w), h = -1 === document.cookie.indexOf(t + "=" + e), u++, d--
+                    }
+                },
+                read: function(t) {
+                    var e = null;
+                    try {
+                        for (var n = escape(t) + "=", r = document.cookie.split(";"), o = 32, i = 0; i < r.length; i++) {
+                            for (var a = r[i]; a.charCodeAt(0) === o;) a = a.substring(1, a.length);
+                            0 === a.indexOf(n) && (e = unescape(a.substring(n.length, a.length)))
+                        }
+                    } finally {
+                        return e
+                    }
+                }
+            };
+            var R = window.ftr__config.s;
+            R += "ck";
+            var L = function(t) {
+                    var e = !1,
+                        n = null,
+                        r = function() {
+                            try {
+                                if (!n || !e) return;
+                                n.remove && "function" == typeof n.remove ? n.remove() : document.head.removeChild(n), e = !1
+                            } catch (t) {}
+                        };
+                    document.head && (! function() {
+                        n = document.createElement("link"), n.setAttribute("rel", "pre" + "con" + "nect"), n.setAttribute("cros" + "sori" + "gin", "anonymous"), n.onload = r, n.onerror = r, n.setAttribute("href", t), document.head.appendChild(n), e = !0
+                    }(), setTimeout(r, 3e3))
+                },
+                E = e(g || "22g6edqo7i}x{vmo1forxgiurqw1qhw2vwdwxv"),
+                q = t("[0Uhtxhvw0LG", -_),
+                P = t("[0Fruuhodwlrq0LG", -_),
+                k = t("Li0Qrqh0Pdwfk", -_),
+                b = e("dss1vlwhshuirupdqfhwhvw1qhw"),
+                F = e("2241414142gqv0txhu|"),
+                M, O = "fgq71iruwhu1frp",
+                I, V;
+            I = e("(VQ(1" + O + "2vq2(VQ(2vfulsw1mv"), V = e("(VQ(1" + O + "2vqV2(VQ(2vfulsw1mv");
+            var N;
+            window.ftr__config && window.ftr__config.m && window.ftr__config.m.fpi && (N = e("fgq71") + window.ftr__config.m.fpi + e("2vq2(VQ(2vfulsw1mv"));
+            var j = !1;
+            j = !1;
+            var B = 10;
+            window.ftr__startScriptLoad = 1 * new Date;
+            var G = function(t) {
+                    var e = "ft" + "r:tok" + "enR" + "eady";
+                    window.ftr__tt && clearTimeout(window.ftr__tt), window.ftr__tt = setTimeout(function() {
+                        try {
+                            delete window.ftr__tt, t += "_tt";
+                            var n = document.createEvent("Event");
+                            n.initEvent(e, !1, !1), n.detail = t, document.dispatchEvent(n)
+                        } catch (t) {}
+                    }, 1e3)
+                },
+                H = function(t) {
+                    var e = function(t) {
+                            return t || ""
+                        },
+                        n = e(t.id) + "_" + e(t.ts) + "_" + e(t.td) + "_" + e(t.ex) + "_" + e(R),
+                        r = S;
+                    !isNaN(window.ftr__config.m.ckTTL) && window.ftr__config.m.ckTTL && (r = window.ftr__config.m.ckTTL), D.write(A, n, r, !0), G(n), window.ftr__gt = n
+                },
+                X = function() {
+                    var t = D.read(A) || "",
+                        e = t.split("_"),
+                        n = function(t) {
+                            return e[t] || void 0
+                        };
+                    return {
+                        id: n(0),
+                        ts: n(1),
+                        td: n(2),
+                        ex: n(3),
+                        vr: n(4)
+                    }
+                },
+                Q = function() {
+                    for (var t = {}, e = "fgu", n = [], r = 0; r < 256; r++) n[r] = (r < 16 ? "0" : "") + r.toString(16);
+                    var o = function(t, e, r, o, i) {
+                            var a = i ? "-" : "";
+                            return n[255 & t] + n[t >> 8 & 255] + n[t >> 16 & 255] + n[t >> 24 & 255] + a + n[255 & e] + n[e >> 8 & 255] + a + n[e >> 16 & 15 | 64] + n[e >> 24 & 255] + a + n[63 & r | 128] + n[r >> 8 & 255] + a + n[r >> 16 & 255] + n[r >> 24 & 255] + n[255 & o] + n[o >> 8 & 255] + n[o >> 16 & 255] + n[o >> 24 & 255]
+                        },
+                        i = function() {
+                            if (window.Uint32Array && window.crypto && window.crypto.getRandomValues) {
+                                var t = new window.Uint32Array(4);
+                                return window.crypto.getRandomValues(t), {
+                                    d0: t[0],
+                                    d1: t[1],
+                                    d2: t[2],
+                                    d3: t[3]
+                                }
+                            }
+                            return {
+                                d0: 4294967296 * Math.random() >>> 0,
+                                d1: 4294967296 * Math.random() >>> 0,
+                                d2: 4294967296 * Math.random() >>> 0,
+                                d3: 4294967296 * Math.random() >>> 0
+                            }
+                        },
+                        a = function() {
+                            var t = "",
+                                e = function(t, e) {
+                                    for (var n = "", r = t; r > 0; --r) n += e.charAt(1e3 * Math.random() % e.length);
+                                    return n
+                                };
+                            return t += e(2, "0123456789"), t += e(1, "123456789"), t += e(8, "0123456789")
+                        };
+                    return t.safeGenerateNoDash = function() {
+                        try {
+                            var t = i();
+                            return o(t.d0, t.d1, t.d2, t.d3, !1)
+                        } catch (t) {
+                            try {
+                                return e + a()
+                            } catch (t) {}
+                        }
+                    }, t.isValidNumericalToken = function(t) {
+                        return t && t.toString().length <= 11 && t.length >= 9 && parseInt(t, 10).toString().length <= 11 && parseInt(t, 10).toString().length >= 9
+                    }, t.isValidUUIDToken = function(t) {
+                        return t && 32 === t.toString().length && /^[a-z0-9]+$/.test(t)
+                    }, t.isValidFGUToken = function(t) {
+                        return 0 == t.indexOf(e) && t.length >= 12
+                    }, t
+                }(),
+                $ = {
+                    uDF: "UDF",
+                    dUAL: "dUAL",
+                    uAS: "UAS",
+                    uDS: "UDS",
+                    uDAD: "UDAD",
+                    uFP: "UFP",
+                    mLd: "1",
+                    eTlu: "2",
+                    eUoe: "3",
+                    uS: "4",
+                    uF: "9",
+                    tmos: ["T5", "T10", "T15"],
+                    tmosSecs: [5, 10, 15],
+                    bIR: "43",
+                    uB: "u",
+                    uBr: "b",
+                    cP: "c",
+                    nIL: "i",
+                    s: "s"
+                };
+            try {
+                var z = X();
+                try {
+                    z.id && (Q.isValidNumericalToken(z.id) || Q.isValidUUIDToken(z.id) || Q.isValidFGUToken(z.id)) ? window.ftr__ncd = !1 : (z.id = Q.safeGenerateNoDash(), window.ftr__ncd = !0), z.ts = window.ftr__startScriptLoad, H(z), window.ftr__snp_cwc = !!D.read(A), window.ftr__snp_cwc || (I = V);
+                    for (var J = "for" + "ter" + ".co" + "m", K = "ht" + "tps://c" + "dn9." + J, W = "ht" + "tps://" + z.id + "-" + siteId + ".cd" + "n." + J, Y = "http" + "s://cd" + "n3." + J, Z = [K, W, Y], tt = 0; tt < Z.length; tt++) L(Z[tt]);
+                    var et = new Array($.tmosSecs.length);
+                    window.ftr__fdad = function(e, n) {
+                        if (y) return window.ftr__altd2 = x, void e();
+                        y = !0;
+                        var r = {};
+                        r[k] = d(window.ftr__config.s, siteId, window.ftr__config.m.csp), s(E, function(n) {
+                            try {
+                                var r = n.getAllResponseHeaders().toLowerCase();
+                                if (r.indexOf(P.toLowerCase()) >= 0) {
+                                    var o = n.getResponseHeader(P);
+                                    x = window.ftr__altd2 = t(atob(o), -_ - 1)
+                                }
+                                if (r.indexOf(q.toLowerCase()) < 0) return;
+                                var i = n.getResponseHeader(q),
+                                    a = t(atob(i), -_ - 1);
+                                if (a) {
+                                    var c = a.split(":");
+                                    if (c && 2 === c.length) {
+                                        for (var f = c[0], u = c[1], s = "", d = 0, h = 0; d < 20; ++d) s += d % 3 > 0 && h < 12 ? siteId.charAt(h++) : z.id.charAt(d);
+                                        var w = u.split(",");
+                                        if (w.length > 1) {
+                                            var l = w[0],
+                                                g = w[1];
+                                            M = f + "/" + l + "." + s + "." + g
+                                        }
+                                    }
+                                }
+                                e()
+                            } catch (t) {}
+                        }, function(t, e) {
+                            n && n(t, e)
+                        }, r)
+                    }, window.ftr__radd = function(t, e) {
+                        function n(e) {
+                            try {
+                                var n = e.response,
+                                    r = function(t) {
+                                        function e(t, n, i) {
+                                            try {
+                                                if (i >= r) return {
+                                                    name: "",
+                                                    nextOffsetToProcess: n,
+                                                    error: "Max pointer dereference depth exceeded"
+                                                };
+                                                for (var a = [], c = n, f = t.getUint8(c), u = 0; u < o;) {
+                                                    if (u++, 192 == (192 & f)) {
+                                                        var s = (63 & f) << 8 | t.getUint8(c + 1),
+                                                            d = e(t, s, i + 1);
+                                                        if (d.error) return d;
+                                                        var h = d.name;
+                                                        return a.push(h), {
+                                                            name: a.join("."),
+                                                            nextOffsetToProcess: c + 2
+                                                        }
+                                                    }
+                                                    if (!(f > 0)) {
+                                                        if (0 !== f) return {
+                                                            name: "",
+                                                            nextOffsetToProcess: c,
+                                                            error: "Unexpected length at the end of name: " + f.toString()
+                                                        };
+                                                        return {
+                                                            name: a.join("."),
+                                                            nextOffsetToProcess: c + 1
+                                                        }
+                                                    }
+                                                    for (var w = "", l = 1; l <= f; l++) w += String.fromCharCode(t.getUint8(c + l));
+                                                    a.push(w), c += f + 1, f = t.getUint8(c)
+                                                }
+                                                return {
+                                                    name: "",
+                                                    nextOffsetToProcess: c,
+                                                    error: "Max iterations exceeded"
+                                                }
+                                            } catch (t) {
+                                                return {
+                                                    name: "",
+                                                    nextOffsetToProcess: n,
+                                                    error: "Unexpected error while parsing response: " + t.toString()
+                                                }
+                                            }
+                                        }
+                                        var n, r = 4,
+                                            o = 100,
+                                            i = 16,
+                                            a = new DataView(t),
+                                            c = a.getUint16(0),
+                                            f = a.getUint16(2),
+                                            u = a.getUint16(4),
+                                            s = a.getUint16(6),
+                                            d = a.getUint16(8),
+                                            h = a.getUint16(10),
+                                            w = 12,
+                                            l = [],
+                                            g = 0;
+                                        for (g = 0; g < u; g++) {
+                                            if (n = e(a, w, 0), n.error) throw new Error(n.error);
+                                            if (w = n.nextOffsetToProcess, !Number.isInteger(w)) throw new Error("invalid returned offset");
+                                            var v = n.name,
+                                                m = a.getUint16(w);
+                                            w += 2;
+                                            var p = a.getUint16(w);
+                                            w += 2, l.push({
+                                                qname: v,
+                                                qtype: m,
+                                                qclass: p
+                                            })
+                                        }
+                                        var _ = [];
+                                        for (g = 0; g < s; g++) {
+                                            if (n = e(a, w, 0), n.error) throw new Error(n.error);
+                                            if (w = n.nextOffsetToProcess, !Number.isInteger(w)) throw new Error("invalid returned offset");
+                                            var y = n.name,
+                                                U = a.getUint16(w);
+                                            if (U !== i) throw new Error("Unexpected record type: " + U.toString());
+                                            w += 2;
+                                            var T = a.getUint16(w);
+                                            w += 2;
+                                            var x = a.getUint32(w);
+                                            w += 4;
+                                            var A = a.getUint16(w);
+                                            w += 2;
+                                            for (var S = "", D = w, C = 0; D < w + A && C < o;) {
+                                                C++;
+                                                var R = a.getUint8(D);
+                                                D += 1;
+                                                S += (new TextDecoder).decode(t.slice(D, D + R)), D += R
+                                            }
+                                            if (C >= o) throw new Error("Max iterations exceeded while reading TXT data");
+                                            w += A, _.push({
+                                                name: y,
+                                                type: U,
+                                                class: T,
+                                                ttl: x,
+                                                data: S
+                                            })
+                                        }
+                                        return {
+                                            transactionId: c,
+                                            flags: f,
+                                            questionCount: u,
+                                            answerCount: s,
+                                            authorityCount: d,
+                                            additionalCount: h,
+                                            questions: l,
+                                            answers: _
+                                        }
+                                    }(n);
+                                if (!r) throw new Error("Error parsing DNS response");
+                                if (!("answers" in r)) throw new Error("Unexpected response");
+                                var o = r.answers;
+                                if (0 === o.length) throw new Error("No answers found");
+                                var i = o[0].data;
+                                i = i.replace(/^"(.*)"$/, "$1");
+                                var a = function(t) {
+                                    var e = 40,
+                                        n = 32,
+                                        r = 126;
+                                    try {
+                                        for (var o = atob(t), i = "", a = 0; a < o.length; a++) i += function(t) {
+                                            var o = t.charCodeAt(0),
+                                                i = o - e;
+                                            return i < n && (i = r - (n - i) + 1), String.fromCharCode(i)
+                                        }(o[a]);
+                                        return atob(i)
+                                    } catch (t) {
+                                        return
+                                    }
+                                }(i);
+                                if (!a) throw new Error("failed to decode the value");
+                                var c = function(t) {
+                                    var e = "_" + "D" + "L" + "M" + "_",
+                                        n = t.split(e);
+                                    if (!(n.length < 2)) {
+                                        var r = n[0],
+                                            o = n[1];
+                                        if (!(r.split(".").length - 1 < 1)) return {
+                                            jURL: r,
+                                            eURL: o
+                                        }
+                                    }
+                                }(a);
+                                if (!c) throw new Error("failed to parse the value");
+                                var f = c.jURL,
+                                    u = c.eURL;
+                                M = function(t) {
+                                    for (var e = "", n = 0, r = 0; n < 20; ++n) e += n % 3 > 0 && r < 12 ? siteId.charAt(r++) : z.id.charAt(n);
+                                    return t.replace("/PRM1", "").replace("/PRM2", "/main.").replace("/PRM3", e).replace("/PRM4", ".js")
+                                }(f), T = window.ftr__altd3 = u, t()
+                            } catch (t) {}
+                        }
+
+                        function r(t, n) {
+                            e && e(t, n)
+                        }
+                        if (U) return window.ftr__altd3 = T, void t();
+                        window.ftr__config.m.dr === "N" + "D" + "R" && e(new Error("N" + "D" + "R"), !1), F && b || e(new Error("D" + "P" + "P"), !1), U = !0;
+                        try {
+                            var o = function(t) {
+                                for (var e = new Uint8Array([0, 0]), n = new Uint8Array([1, 0]), r = new Uint8Array([0, 1]), o = new Uint8Array([0, 0]), i = new Uint8Array([0, 0]), a = new Uint8Array([0, 0]), c = t.split("."), f = [], u = 0; u < c.length; u++) {
+                                    var s = c[u];
+                                    f.push(s.length);
+                                    for (var d = 0; d < s.length; d++) f.push(s.charCodeAt(d))
+                                }
+                                f.push(0);
+                                var h = 16,
+                                    w = new Uint8Array([0, h]),
+                                    l = new Uint8Array([0, 1]),
+                                    g = new Uint8Array(e.length + n.length + r.length + o.length + i.length + a.length + f.length + w.length + l.length);
+                                return g.set(e, 0), g.set(n, e.length), g.set(r, e.length + n.length), g.set(o, e.length + n.length + r.length), g.set(i, e.length + n.length + r.length + o.length), g.set(a, e.length + n.length + r.length + o.length + i.length), g.set(f, e.length + n.length + r.length + o.length + i.length + a.length), g.set(w, e.length + n.length + r.length + o.length + i.length + a.length + f.length), g.set(l, e.length + n.length + r.length + o.length + i.length + a.length + f.length + w.length), g
+                            }(b);
+                            ! function(t, e, n, r, o) {
+                                var i = !1,
+                                    a = new XMLHttpRequest;
+                                if (c("https:" + t, function() {
+                                        o(new Error("CSP Violation"), !0), i = !0
+                                    }), "//" === t.slice(0, 2) && (t = "https:" + t), "withCredentials" in a) a.open("POST", t, !0);
+                                else {
+                                    if ("undefined" == typeof XDomainRequest) return;
+                                    a = new XDomainRequest, a.open("POST", t)
+                                }
+                                a.responseType = "arraybuffer", a.setRequestHeader("Content-Type", e), a.onload = function() {
+                                    "function" == typeof r && r(a)
+                                }, a.onerror = function(t) {
+                                    if ("function" == typeof o && !i) try {
+                                        o(t, !1), i = !0
+                                    } catch (t) {}
+                                }, a.onprogress = function() {}, a.ontimeout = function() {
+                                    "function" == typeof o && o("tim" + "eo" + "ut", !1)
+                                }, setTimeout(function() {
+                                    a.send(n)
+                                }, 0)
+                            }(F, "application/dns-message", o, n, r)
+                        } catch (t) {
+                            e(t, !1)
+                        }
+                    };
+                    var nt = N ? $.uFP : $.uDF;
+                    setTimeout(l, B, nt)
+                } catch (t) {
+                    a($.mLd)
+                }
+            } catch (t) {}
+        })();
+    </script>
+    <!-- OneTrust Cookies Consent Notice end for forter.com -->
+
+    <meta name="facebook-domain-verification" content="sah5lm6j7qs9oi6yshf1wptpym134h" />
+    <script type="text/rocketlazyloadscript">
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmitted') {
+                var submissionValues = event.data.data.submissionValues || {};
+                var email = submissionValues.email;
+                if (email) {
+                    var gotoStr = "/sales/thank-you/";
+                    top.location.href = gotoStr + (gotoStr.indexOf("?") > -1 ? "&" : "?") + "lb_email=" + email;
+                }
+                return false;
+            }
+        });
+    </script>
+    <noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><meta name="generator" content="WP Rocket 3.23.3.3" data-wpr-features="wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_preconnect_external_domains wpr_oci wpr_minify_css wpr_cdn wpr_desktop" /></head>
+
+<body class="wp-singular page-template page-template-views page-template-careers-v3 page-template-viewscareers-v3-php page page-id-12162 wp-embed-responsive wp-theme-blank">
+        <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRW3GRR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+	<div  id="page" class="site">
+		<header  class="sticky top-0 z-[9999]">
+			
+<div  class="hidden xl:block bg-[#002547] text-white text-xs sm:text-sm">
+    <div class="container !p-4 flex items-center gap-4 justify-evenly">
+        <div class="font-bold font-secondary md:text-base">
+            Meet your new team of Forter Agents, so you can spend more time on what matters most.        </div>
+
+        <a href="https://www.forter.com/agents" class="shrink-0 uppercase text-forter-blue-3 hover:text-white">
+            Learn More            <i class="arrow-new border-current duration-[0ms]"></i>
+        </a>
+    </div>
+</div>			
+<div
+        class="nav nav-dark lg-max:bg-white duration-300"
+        :class="{ 'nav-scrolled': $store.navIsScrolled }"
+        x-data="nav"
+                    @scroll.window.throttle.100ms="checkScroll"
+            @scroll.window.debounce="checkScroll"
+            @resize.window.throttle.100ms="checkScroll"
+        >
+    <div class="px-4 flex items-center justify-between h-16 xl:h-20">
+        <a href="https://www.forter.com/" class="nav-logo duration-[0ms] xl:w-[18rem]">
+            <svg viewBox="0 0 500 94.66027" width="120" fill="currentColor">
+                <path d="m337.099 4.185h-78.227l-2.486 21.222h26.756l-7.753 66.16h24.717l7.75-66.16h26.753z"/>
+                <path d="m361.974 57.114h42.808l2.239-19.101h-42.808l1.551-13.231h47.265l2.414-20.597h-71.727l-10.24 87.382h72.364l2.414-20.598h-47.903z"/>
+                <path d="m473.84756 35.51713-.03.24966c-.74288 6.36541-6.05392 10.36032-14.46278 10.36032h-16.30753l2.46013-20.97025h16.18c8.28067 0 12.96756 3.4956 12.16016 10.36027m19.507-21.84652c-5.28613-5.991-14.30621-9.48573-27.93658-9.48573h-42.1711l-10.2398 87.38176h24.71634l3.1014-26.46371h10.8302l14.86312 26.46371h28.53562l-17.70455-30.45773c11.6248-4.6198 19.92271-13.48321 21.49106-26.84076l.02932-.2496c1.007-8.61208-.8798-15.35455-5.515-20.34794"/>
+                <path d="m118.22092 77.049a51.04856 51.04856 0 0 0 6.72693-9.38247 36.61179 36.61179 0 0 0 3.86577-10.1477 22.921 22.921 0 0 0 -.13943-11.22021 14.94418 14.94418 0 0 0 -7.21936-8.83762c-4.38994-2.51345-10.0461-2.8311-15.13505-2.08049a46.986 46.986 0 0 0 -17.95149 6.96544 58.42682 58.42682 0 0 0 -4.87975 3.47668 3.56453 3.56453 0 0 0 -.9959 1.61307q-.399 2.16143-.61459 4.29957c0 .01981 0 .03531.00084.062.0155.51644.13513 2.26815 1.03378 1.41857a1.03885 1.03885 0 0 1 .1386-.10933 45.94018 45.94018 0 0 1 7.31319-5.78356 36.56531 36.56531 0 0 1 13.95143-5.41343c3.957-.58448 8.35128-.33571 11.76255 1.61827a11.616 11.616 0 0 1 5.61312 6.86641 17.82881 17.82881 0 0 1 .10933 8.72141 28.37141 28.37141 0 0 1 -3.005 7.88643 39.72912 39.72912 0 0 1 -5.2275 7.29335 44.86588 44.86588 0 0 1 -6.05817 5.6028 43.71881 43.71881 0 0 1 -6.33872 4.05683 36.97887 36.97887 0 0 1 -4.74463 2.07017l-.00084.00257s-1.71383.73684-.87716 1.63981a30.85989 30.85989 0 0 0 3.43281 2.26124 3.65442 3.65442 0 0 0 3.29074-.4519 56.65843 56.65843 0 0 0 8.15585-5.218 57.68776 57.68776 0 0 0 7.79264-7.20987"/>
+                <path d="m148.19266 5.04376c-10.548-5.87134-23.4433-5.12678-35.13261.79453l-.03274.01634c-.08779.04476-.173.09641-.26079.14117-1.10356.64648.27629.631.27629.631l.00174.00168c9.68631-1.90833 19.08856-2.75361 29.69418 1.91352 12.87724 6.06506 18.4198 19.51811 20.7344 30.36992h.0009s1.21451 2.7244 2.06672.09988c.29353-14.50927-5.72334-27.49753-17.34809-33.968"/>
+                <path d="m139.40075 13.55445c-9.49524-5.03469-24.57607-3.394-35.95814-.61716a6.60721 6.60721 0 0 0 -2.39982 1.27913q-1.60879 1.47447-3.13579 3.09279c-.1696.20742-1.206 1.527.18677 1.156.02842-.00688.04991-.00772.07749-.01376 12.316-3.382 27.39939-4.63614 36.00889-.01981 12.6207 6.76743 16.26 18.80628 15.59985 31.73685-.65246 12.77222-6.04608 25.68043-13.45395 36.64068l.00946.00087s-.54056 1.31528.47.76093a52.455 52.455 0 0 0 5.762-4.00949 40.55116 40.55116 0 0 0 2.55306-3.1866c6.665-10.39476 11.20387-22.449 11.51547-34.36049.35552-13.55209-4.13256-25.51171-17.23529-32.45992"/>
+                <path d="m142.63959 53.29934a32.75838 32.75838 0 0 0 -.82553-15.39668 21.79789 21.79789 0 0 0 -9.89206-12.06291c-5.92126-3.56621-13.6166-4.36846-20.64746-3.71342a67.00523 67.00523 0 0 0 -21.48669 6.03316c-.03872.06547-.07918.1283-.11795.19371q-.78113 1.33246-1.48739 2.69855c-.04135.07917-.07834.15834-.11879.23757-.20574.40281-.38993.81339-.58706 1.21882-.19024.52165-.3271 1.35747 1.11212.69381.02842-.01292.04907-.01549.07576-.02669a59.86387 59.86387 0 0 1 19.0946-5.7018c6.20192-.66965 13.02272-.04734 18.245 3.1315a18.89017 18.89017 0 0 1 8.594 10.80968 30.17339 30.17339 0 0 1 .513 13.93509 50.23472 50.23472 0 0 1 -4.37186 13.33432 73.66155 73.66155 0 0 1 -8.31855 13.27832 87.80413 87.80413 0 0 1 -9.38507 10.20883l.02065.00514s-.06026.04563-.14979.11708c-.25475.23671-.5001.48288-.75833.717-.3116.37186-.4545.74373.08953.83669a35.95309 35.95309 0 0 0 4.35379.08608l.01724-.04649a4.63183 4.63183 0 0 0 2.65551-1.08028 94.20125 94.20125 0 0 0 9.52019-10.30264 78.07644 78.07644 0 0 0 9.15355-14.54622 53.206 53.206 0 0 0 4.7016-14.65822"/>
+                <path d="m91.93628 74.14048a6.1394 6.1394 0 0 1 -2.37575-1.29721 5.56211 5.56211 0 0 1 -1.651-2.72862 9.22155 9.22155 0 0 1 .06116-4.1748 12.4783 12.4783 0 0 1 1.01655-2.72518 16.7 16.7 0 0 1 1.72412-2.76485 20.70353 20.70353 0 0 1 5.32564-4.81865 16.97417 16.97417 0 0 1 6.492-2.52033 8.66654 8.66654 0 0 1 5.47368.75234 5.41438 5.41438 0 0 1 2.6116 3.19775 8.27983 8.27983 0 0 1 .05338 4.05859 13.25673 13.25673 0 0 1 -1.39966 3.66776 18.30544 18.30544 0 0 1 -2.43339 3.39751 20.99556 20.99556 0 0 1 -2.81817 2.60555 20.45278 20.45278 0 0 1 -2.9482 1.88768 16.83781 16.83781 0 0 1 -3.042 1.23608 13.055 13.055 0 0 1 -3.0609.54486 9.193 9.193 0 0 1 -3.02906-.31848m10.01084 2.95073a30.35478 30.35478 0 0 0 4.40029-2.8156 31.34731 31.34731 0 0 0 4.20832-3.89412 27.287 27.287 0 0 0 3.62988-5.06311 19.75154 19.75154 0 0 0 2.0848-5.47542 12.36533 12.36533 0 0 0 -.0766-6.05638 8.065 8.065 0 0 0 -3.895-4.76958 12.93866 12.93866 0 0 0 -8.17044-1.12163 25.40925 25.40925 0 0 0 -9.68721 3.75818 30.988 30.988 0 0 0 -7.94585 7.19009 25.06607 25.06607 0 0 0 -2.57371 4.12311 19.35127 19.35127 0 0 0 -1.36089 3.5042c-.05248.18683-.10759.36756-.15577.56384a13.80312 13.80312 0 0 0 -.09042 6.23028 8.32372 8.32372 0 0 0 2.46444 4.07406 8.92081 8.92081 0 0 0 2.7536 1.65528c.26.09985.52075.19709.79106.27716a13.80808 13.80808 0 0 0 4.52165.47946 19.48975 19.48975 0 0 0 4.563-.81517 25.2851 25.2851 0 0 0 4.53888-1.84465"/>
+                <path d="m100.03233 67.71347a9.0382 9.0382 0 0 0 1.31612-.841 9.474 9.474 0 0 0 1.2576-1.16718 8.06362 8.06362 0 0 0 1.08543-1.51066 5.9857 5.9857 0 0 0 .62661-1.63892 3.71512 3.71512 0 0 0 -.02579-1.81628 2.40138 2.40138 0 0 0 -1.16466-1.42371 3.4578 3.4578 0 0 0 -1.78349-.38994 5.32108 5.32108 0 0 0 -.61291.05422 7.58008 7.58008 0 0 0 -2.89992 1.12336 9.34936 9.34936 0 0 0 -2.37832 2.15281 7.34917 7.34917 0 0 0 -.76957 1.23264 5.72884 5.72884 0 0 0 -.45618 1.21714 4.14824 4.14824 0 0 0 -.02412 1.86183 2.49346 2.49346 0 0 0 .736 1.22061 2.72773 2.72773 0 0 0 1.06047.58017 4.1 4.1 0 0 0 1.31355.142 5.819 5.819 0 0 0 1.3592-.24362 7.4824 7.4824 0 0 0 1.36-.55348"/>
+                <path d="m33.469 25.407h46.628l2.487-21.223h-71.346l-10.238 87.383h24.716l3.657-31.207h42.17l2.354-20.099h-42.171z"/>
+                <path d="m227.66969 35.51713-.0301.24966c-.74546 6.36541-6.05471 10.36032-14.46278 10.36032h-16.30743l2.4575-20.97025h16.18c8.28156 0 12.96587 3.4956 12.16278 10.36027m19.50266-21.84652c-5.28607-5.991-14.30443-9.48573-27.9348-9.48573h-42.17116l-10.23722 87.38176h24.71634l3.09877-26.46371h10.83117l14.86306 26.46371h28.5373l-17.707-30.45773c11.6248-4.6198 19.92528-13.48321 21.49106-26.84076l.02753-.2496c1.00882-8.61208-.87544-15.35455-5.515-20.34794"/>
+            </svg>
+
+            <span class="sr-only">Forter</span>
+        </a>
+
+        <div class="lg-max:hidden lg-max:absolute lg-max:top-full lg-max:left-0 lg-max:w-full lg-max:bg-white lg-max:shadow-md" :class="{ 'lg-max:!block': open }">
+            <ul class="xl:flex list-none m-0">
+                <li class="nav-trigger xl:-mb-8 xl:pb-8 relative lg-max:p-2 xl:px-3 lg-max:border-solid lg-max:border-0 lg-max:border-b lg-max:border-forter-gray-2">
+	
+<a href="#" class="nav-link relative" @click.prevent='toggleDropdown("solutions")'>
+	Solutions
+			<div class="xl:hidden absolute top-4 right-4 border-solid border-transparent border-t-current border-4"></div>
+	</a>
+
+	
+			<div class="nav-mega text-xs duration-150 origin-top-left xl:absolute xl:top-full xl:-left-40 xl:bg-white xl:shadow-md" :class="{ 'lg-max:hidden': dropdown !== 'solutions' }">
+	<div class="lg-max:hidden absolute -top-4 left-[13.25rem] border-solid border-transparent border-b-white border-8"></div>
+
+	<div class="xl:flex xl:divide-x xl:divide-forter-gray-2 xl:divide-solid">
+					<div class="xl:p-4 border-y-0 xl:w-[23rem]">
+														<div>
+						<div class="px-2 xl:px-4 pt-2 pb-2 xl:pt-4 uppercase text-[.8rem] tracking-[.08em] font-semibold text-[#596C95]">AI</div>
+
+						<ul class="m-0 list-none xl:grid-cols-1">
+															<li>
+									<a href="/agents/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/agents/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg width="87" height="87" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_35589_83054)">
+<mask id="mask0_35589_83054" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="87" height="87">
+<path d="M43.5 0.5C67.2552 0.5 86.5 19.4751 86.5 42.8662C86.4998 66.2753 66.5812 87.2418 42.1387 86.4795C18.4279 85.7399 0.500212 66.2821 0.5 42.8662C0.5 19.4751 19.7448 0.5 43.5 0.5Z" fill="url(#paint0_linear_35589_83054)" stroke="black"/>
+</mask>
+<g mask="url(#mask0_35589_83054)">
+<g filter="url(#filter0_f_35589_83054)" style="mix-blend-mode:overlay">
+<g clip-path="url(#paint1_angular_35589_83054_clip_path)" data-figma-skip-parse="true"><g transform="matrix(0 0.0175194 0.0358462 0 43.4448 17.8531)"><foreignObject x="-1057.08" y="-1057.08" width="2114.16" height="2114.16"><div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 90deg,rgba(193, 191, 255, 1) 0deg,rgba(227, 231, 254, 1) 360deg);height:100%;width:100%;opacity:1"></div></foreignObject></g></g><ellipse cx="35.8462" cy="17.5194" rx="35.8462" ry="17.5194" transform="matrix(-1 0 0 1 79.291 0.333694)" data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.75686275959014893,&#34;g&#34;:0.74901962280273438,&#34;b&#34;:1.0,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.89019608497619629,&#34;g&#34;:0.90588235855102539,&#34;b&#34;:0.99607843160629272,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.75686275959014893,&#34;g&#34;:0.74901962280273438,&#34;b&#34;:1.0,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.89019608497619629,&#34;g&#34;:0.90588235855102539,&#34;b&#34;:0.99607843160629272,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;transform&#34;:{&#34;m00&#34;:-4.3898939388123392e-15,&#34;m01&#34;:71.692405700683594,&#34;m02&#34;:7.5986099243164062,&#34;m10&#34;:35.038719177246094,&#34;m11&#34;:2.1455029034178575e-15,&#34;m12&#34;:0.33369445800781250},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"/>
+</g>
+<g filter="url(#filter1_f_35589_83054)" style="mix-blend-mode:overlay">
+<g clip-path="url(#paint2_angular_35589_83054_clip_path)" data-figma-skip-parse="true"><g transform="matrix(0 -0.0143492 -0.0293487 0 43.4449 79.0874)"><foreignObject x="-1069.69" y="-1069.69" width="2139.38" height="2139.38"><div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 90deg,rgba(193, 191, 255, 1) 0deg,rgba(227, 231, 254, 1) 360deg);height:100%;width:100%;opacity:1"></div></foreignObject></g></g><ellipse cx="29.3487" cy="14.3492" rx="29.3487" ry="14.3492" transform="matrix(1 0 0 -1 14.0962 93.4366)" data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.75686275959014893,&#34;g&#34;:0.74901962280273438,&#34;b&#34;:1.0,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.89019608497619629,&#34;g&#34;:0.90588235855102539,&#34;b&#34;:0.99607843160629272,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.75686275959014893,&#34;g&#34;:0.74901962280273438,&#34;b&#34;:1.0,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.89019608497619629,&#34;g&#34;:0.90588235855102539,&#34;b&#34;:0.99607843160629272,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;transform&#34;:{&#34;m00&#34;:3.5941835648651242e-15,&#34;m01&#34;:-58.697471618652344,&#34;m02&#34;:72.793663024902344,&#34;m10&#34;:-28.698379516601562,&#34;m11&#34;:-1.7572690578129932e-15,&#34;m12&#34;:93.436584472656250},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"/>
+</g>
+<g filter="url(#filter2_df_35589_83054)" style="mix-blend-mode:saturation">
+<ellipse cx="43.5001" cy="11.179" rx="28.4127" ry="13.07" fill="url(#paint3_radial_35589_83054)" fill-opacity="0.99" shape-rendering="crispEdges"/>
+</g>
+<g filter="url(#filter3_if_35589_83054)">
+<ellipse cx="43.4449" cy="6.28472" rx="12.169" ry="4.39374" fill="url(#paint4_radial_35589_83054)"/>
+</g>
+<g filter="url(#filter4_f_35589_83054)">
+<ellipse cx="25.4774" cy="25.6455" rx="25.4774" ry="25.6455" transform="matrix(0.987276 -0.159036 0.153872 0.988094 24.436 30.9218)" fill="#B0ACFF"/>
+<ellipse cx="25.4774" cy="25.6455" rx="25.4774" ry="25.6455" transform="matrix(0.987276 -0.159036 0.153872 0.988094 5.13232 13.3879)" fill="#EDC8FF"/>
+<ellipse cx="20.7247" cy="20.8614" rx="20.7247" ry="20.8614" transform="matrix(0.987276 -0.159036 0.153872 0.988094 23.9297 28.1324)" fill="white"/>
+</g>
+<g filter="url(#filter5_f_35589_83054)">
+<ellipse cx="43.4999" cy="44.4936" rx="44.0506" ry="44.4936" fill="url(#paint5_radial_35589_83054)"/>
+</g>
+<g filter="url(#filter6_if_35589_83054)">
+<ellipse cx="43.5" cy="43.9374" rx="43.5" ry="43.9374" fill="white" fill-opacity="0.01"/>
+</g>
+<g filter="url(#filter7_f_35589_83054)" style="mix-blend-mode:overlay">
+<path d="M43.4995 5.55507C64.3362 5.55507 81.3306 22.6332 81.3306 43.8266C81.3304 65.0197 64.3361 82.0971 43.4995 82.0971C22.6631 82.0969 5.66962 65.0196 5.66943 43.8266C5.66943 22.6333 22.663 5.55523 43.4995 5.55507Z" stroke="url(#paint6_linear_35589_83054)" stroke-width="12"/>
+</g>
+</g>
+<path d="M51.9791 50.5919C52.1814 50.0459 52.9535 50.046 53.1559 50.5919L54.4401 54.0617C54.7579 54.9207 55.4356 55.5983 56.2946 55.9162L59.7643 57.2003C60.31 57.4028 60.3101 58.1747 59.7643 58.3771L56.2946 59.6613C55.4357 59.9791 54.758 60.656 54.4401 61.5148L53.1559 64.9845C52.9537 65.531 52.1813 65.531 51.9791 64.9845L50.6949 61.5148C50.3771 60.6561 49.7001 59.9791 48.8414 59.6613L45.3717 58.3771C44.8253 58.1749 44.8253 57.4026 45.3717 57.2003L48.8414 55.9162C49.7003 55.5983 50.3771 54.9206 50.6949 54.0617L51.9791 50.5919ZM33.3346 31.38C33.8451 30.0004 35.7968 30.0004 36.3073 31.38L38.3502 36.9005C39.1527 39.0692 40.8623 40.7797 43.0309 41.5822L48.5524 43.6252C49.9316 44.1358 49.9317 46.0873 48.5524 46.5978L43.0309 48.6408C40.8624 49.4433 39.1527 51.1529 38.3502 53.3214L36.3073 58.8429C35.7967 60.2224 33.8451 60.2225 33.3346 58.8429L31.2916 53.3214C30.4891 51.1528 28.7795 49.4433 26.611 48.6408L21.0895 46.5978C19.7104 46.0872 19.7105 44.1359 21.0895 43.6252L26.611 41.5822C28.7796 40.7797 30.4892 39.0692 31.2916 36.9005L33.3346 31.38ZM53.2477 21.4347C53.4501 20.8889 54.222 20.8889 54.4244 21.4347L55.7086 24.9044C56.0264 25.7633 56.7033 26.441 57.5621 26.7589L61.0319 28.0431C61.5783 28.2453 61.5783 29.0177 61.0319 29.2199L57.5621 30.5041C56.7033 30.822 56.0264 31.4997 55.7086 32.3585L54.4244 35.8283C54.222 36.3741 53.4501 36.3741 53.2477 35.8283L51.9635 32.3585C51.6457 31.4995 50.968 30.8219 50.109 30.5041L46.6403 29.2199C46.0938 29.0177 46.0938 28.2453 46.6403 28.0431L50.109 26.7589C50.968 26.4411 51.6457 25.7634 51.9635 24.9044L53.2477 21.4347Z" fill="url(#paint7_linear_35589_83054)"/>
+</g>
+<rect x="0.25" y="0.25" width="86.5" height="86.5" rx="43.25" stroke="url(#paint8_linear_35589_83054)" stroke-width="0.5"/>
+<defs>
+<filter id="filter0_f_35589_83054" x="-0.401367" y="-7.66631" width="87.6924" height="51.0387" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_35589_83054"/>
+</filter>
+<clipPath id="paint1_angular_35589_83054_clip_path"><ellipse cx="35.8462" cy="17.5194" rx="35.8462" ry="17.5194" transform="matrix(-1 0 0 1 79.291 0.333694)"/></clipPath><filter id="filter1_f_35589_83054" x="-1.90381" y="48.7382" width="90.6973" height="60.6984" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="8" result="effect1_foregroundBlur_35589_83054"/>
+</filter>
+<clipPath id="paint2_angular_35589_83054_clip_path"><ellipse cx="29.3487" cy="14.3492" rx="29.3487" ry="14.3492" transform="matrix(1 0 0 -1 14.0962 93.4366)"/></clipPath><filter id="filter2_df_35589_83054" x="9.0874" y="-7.89098" width="68.8252" height="40.14" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_35589_83054"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_35589_83054" result="shape"/>
+<feGaussianBlur stdDeviation="3" result="effect2_foregroundBlur_35589_83054"/>
+</filter>
+<filter id="filter3_if_35589_83054" x="-0.724121" y="-30.109" width="88.3379" height="72.7875" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="8" dy="7"/>
+<feGaussianBlur stdDeviation="3"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.403922 0 0 0 0 0.364706 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_35589_83054"/>
+<feGaussianBlur stdDeviation="16" result="effect2_foregroundBlur_35589_83054"/>
+</filter>
+<filter id="filter4_f_35589_83054" x="-27.2329" y="-26.9897" width="142.233" height="140.866" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_35589_83054"/>
+</filter>
+<filter id="filter5_f_35589_83054" x="-8.55078" y="-8" width="104.101" height="104.987" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_35589_83054"/>
+</filter>
+<filter id="filter6_if_35589_83054" x="-16" y="-16" width="119" height="119.875" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="8"/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.484957 0 0 0 0 0.936749 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_35589_83054"/>
+<feGaussianBlur stdDeviation="8" result="effect2_foregroundBlur_35589_83054"/>
+</filter>
+<filter id="filter7_f_35589_83054" x="-24.3306" y="-24.4449" width="135.661" height="136.542" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur_35589_83054"/>
+</filter>
+<linearGradient id="paint0_linear_35589_83054" x1="-5.23884" y1="46.2301" x2="86.9581" y2="34.5872" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8457FF"/>
+<stop offset="1" stop-color="#D048FF"/>
+</linearGradient>
+<radialGradient id="paint3_radial_35589_83054" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43.5001 11.179) rotate(90) scale(13.07 28.4127)">
+<stop stop-color="#F9CCF8"/>
+<stop offset="1" stop-color="#F9E0F4"/>
+</radialGradient>
+<radialGradient id="paint4_radial_35589_83054" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43.4449 6.28472) rotate(90) scale(4.39374 23.3849)">
+<stop stop-color="#EAEAFE"/>
+<stop offset="1" stop-color="#E8D8FE"/>
+</radialGradient>
+<radialGradient id="paint5_radial_35589_83054" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43.4999 44.4936) rotate(90) scale(44.4936 44.0506)">
+<stop offset="0.92" stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="#C5C8FD"/>
+</radialGradient>
+<linearGradient id="paint6_linear_35589_83054" x1="43.4998" y1="-0.444931" x2="43.4998" y2="88.0974" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint7_linear_35589_83054" x1="58.7945" y1="21.0254" x2="31.4836" y2="59.3214" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D646FF"/>
+<stop offset="0.514423" stop-color="#A94EFF"/>
+<stop offset="0.822115" stop-color="#645DFF"/>
+<stop offset="1" stop-color="#5677FF"/>
+</linearGradient>
+<linearGradient id="paint8_linear_35589_83054" x1="77.2125" y1="73.95" x2="54.375" y2="5.075" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E9E8FF"/>
+<stop offset="0.475224" stop-color="white"/>
+<stop offset="1" stop-color="#F2C2FF"/>
+</linearGradient>
+<clipPath id="clip0_35589_83054">
+<rect width="87" height="87" rx="43.5" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Forter Agents</div>
+											<div class="lg-max:hidden mt-1">Spend more time on what actually matters and let our team of agents handle the tedious workflows that get in the way.</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/agentic-commerce/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/agentic-commerce/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg width="87" height="87" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_35589_83054)">
+<mask id="mask0_35589_83054" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="87" height="87">
+<path d="M43.5 0.5C67.2552 0.5 86.5 19.4751 86.5 42.8662C86.4998 66.2753 66.5812 87.2418 42.1387 86.4795C18.4279 85.7399 0.500212 66.2821 0.5 42.8662C0.5 19.4751 19.7448 0.5 43.5 0.5Z" fill="url(#paint0_linear_35589_83054)" stroke="black"/>
+</mask>
+<g mask="url(#mask0_35589_83054)">
+<g filter="url(#filter0_f_35589_83054)" style="mix-blend-mode:overlay">
+<g clip-path="url(#paint1_angular_35589_83054_clip_path)" data-figma-skip-parse="true"><g transform="matrix(0 0.0175194 0.0358462 0 43.4448 17.8531)"><foreignObject x="-1057.08" y="-1057.08" width="2114.16" height="2114.16"><div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 90deg,rgba(193, 191, 255, 1) 0deg,rgba(227, 231, 254, 1) 360deg);height:100%;width:100%;opacity:1"></div></foreignObject></g></g><ellipse cx="35.8462" cy="17.5194" rx="35.8462" ry="17.5194" transform="matrix(-1 0 0 1 79.291 0.333694)" data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.75686275959014893,&#34;g&#34;:0.74901962280273438,&#34;b&#34;:1.0,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.89019608497619629,&#34;g&#34;:0.90588235855102539,&#34;b&#34;:0.99607843160629272,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.75686275959014893,&#34;g&#34;:0.74901962280273438,&#34;b&#34;:1.0,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.89019608497619629,&#34;g&#34;:0.90588235855102539,&#34;b&#34;:0.99607843160629272,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;transform&#34;:{&#34;m00&#34;:-4.3898939388123392e-15,&#34;m01&#34;:71.692405700683594,&#34;m02&#34;:7.5986099243164062,&#34;m10&#34;:35.038719177246094,&#34;m11&#34;:2.1455029034178575e-15,&#34;m12&#34;:0.33369445800781250},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"/>
+</g>
+<g filter="url(#filter1_f_35589_83054)" style="mix-blend-mode:overlay">
+<g clip-path="url(#paint2_angular_35589_83054_clip_path)" data-figma-skip-parse="true"><g transform="matrix(0 -0.0143492 -0.0293487 0 43.4449 79.0874)"><foreignObject x="-1069.69" y="-1069.69" width="2139.38" height="2139.38"><div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 90deg,rgba(193, 191, 255, 1) 0deg,rgba(227, 231, 254, 1) 360deg);height:100%;width:100%;opacity:1"></div></foreignObject></g></g><ellipse cx="29.3487" cy="14.3492" rx="29.3487" ry="14.3492" transform="matrix(1 0 0 -1 14.0962 93.4366)" data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.75686275959014893,&#34;g&#34;:0.74901962280273438,&#34;b&#34;:1.0,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.89019608497619629,&#34;g&#34;:0.90588235855102539,&#34;b&#34;:0.99607843160629272,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.75686275959014893,&#34;g&#34;:0.74901962280273438,&#34;b&#34;:1.0,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.89019608497619629,&#34;g&#34;:0.90588235855102539,&#34;b&#34;:0.99607843160629272,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;transform&#34;:{&#34;m00&#34;:3.5941835648651242e-15,&#34;m01&#34;:-58.697471618652344,&#34;m02&#34;:72.793663024902344,&#34;m10&#34;:-28.698379516601562,&#34;m11&#34;:-1.7572690578129932e-15,&#34;m12&#34;:93.436584472656250},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"/>
+</g>
+<g filter="url(#filter2_df_35589_83054)" style="mix-blend-mode:saturation">
+<ellipse cx="43.5001" cy="11.179" rx="28.4127" ry="13.07" fill="url(#paint3_radial_35589_83054)" fill-opacity="0.99" shape-rendering="crispEdges"/>
+</g>
+<g filter="url(#filter3_if_35589_83054)">
+<ellipse cx="43.4449" cy="6.28472" rx="12.169" ry="4.39374" fill="url(#paint4_radial_35589_83054)"/>
+</g>
+<g filter="url(#filter4_f_35589_83054)">
+<ellipse cx="25.4774" cy="25.6455" rx="25.4774" ry="25.6455" transform="matrix(0.987276 -0.159036 0.153872 0.988094 24.436 30.9218)" fill="#B0ACFF"/>
+<ellipse cx="25.4774" cy="25.6455" rx="25.4774" ry="25.6455" transform="matrix(0.987276 -0.159036 0.153872 0.988094 5.13232 13.3879)" fill="#EDC8FF"/>
+<ellipse cx="20.7247" cy="20.8614" rx="20.7247" ry="20.8614" transform="matrix(0.987276 -0.159036 0.153872 0.988094 23.9297 28.1324)" fill="white"/>
+</g>
+<g filter="url(#filter5_f_35589_83054)">
+<ellipse cx="43.4999" cy="44.4936" rx="44.0506" ry="44.4936" fill="url(#paint5_radial_35589_83054)"/>
+</g>
+<g filter="url(#filter6_if_35589_83054)">
+<ellipse cx="43.5" cy="43.9374" rx="43.5" ry="43.9374" fill="white" fill-opacity="0.01"/>
+</g>
+<g filter="url(#filter7_f_35589_83054)" style="mix-blend-mode:overlay">
+<path d="M43.4995 5.55507C64.3362 5.55507 81.3306 22.6332 81.3306 43.8266C81.3304 65.0197 64.3361 82.0971 43.4995 82.0971C22.6631 82.0969 5.66962 65.0196 5.66943 43.8266C5.66943 22.6333 22.663 5.55523 43.4995 5.55507Z" stroke="url(#paint6_linear_35589_83054)" stroke-width="12"/>
+</g>
+</g>
+<path d="M51.9791 50.5919C52.1814 50.0459 52.9535 50.046 53.1559 50.5919L54.4401 54.0617C54.7579 54.9207 55.4356 55.5983 56.2946 55.9162L59.7643 57.2003C60.31 57.4028 60.3101 58.1747 59.7643 58.3771L56.2946 59.6613C55.4357 59.9791 54.758 60.656 54.4401 61.5148L53.1559 64.9845C52.9537 65.531 52.1813 65.531 51.9791 64.9845L50.6949 61.5148C50.3771 60.6561 49.7001 59.9791 48.8414 59.6613L45.3717 58.3771C44.8253 58.1749 44.8253 57.4026 45.3717 57.2003L48.8414 55.9162C49.7003 55.5983 50.3771 54.9206 50.6949 54.0617L51.9791 50.5919ZM33.3346 31.38C33.8451 30.0004 35.7968 30.0004 36.3073 31.38L38.3502 36.9005C39.1527 39.0692 40.8623 40.7797 43.0309 41.5822L48.5524 43.6252C49.9316 44.1358 49.9317 46.0873 48.5524 46.5978L43.0309 48.6408C40.8624 49.4433 39.1527 51.1529 38.3502 53.3214L36.3073 58.8429C35.7967 60.2224 33.8451 60.2225 33.3346 58.8429L31.2916 53.3214C30.4891 51.1528 28.7795 49.4433 26.611 48.6408L21.0895 46.5978C19.7104 46.0872 19.7105 44.1359 21.0895 43.6252L26.611 41.5822C28.7796 40.7797 30.4892 39.0692 31.2916 36.9005L33.3346 31.38ZM53.2477 21.4347C53.4501 20.8889 54.222 20.8889 54.4244 21.4347L55.7086 24.9044C56.0264 25.7633 56.7033 26.441 57.5621 26.7589L61.0319 28.0431C61.5783 28.2453 61.5783 29.0177 61.0319 29.2199L57.5621 30.5041C56.7033 30.822 56.0264 31.4997 55.7086 32.3585L54.4244 35.8283C54.222 36.3741 53.4501 36.3741 53.2477 35.8283L51.9635 32.3585C51.6457 31.4995 50.968 30.8219 50.109 30.5041L46.6403 29.2199C46.0938 29.0177 46.0938 28.2453 46.6403 28.0431L50.109 26.7589C50.968 26.4411 51.6457 25.7634 51.9635 24.9044L53.2477 21.4347Z" fill="url(#paint7_linear_35589_83054)"/>
+</g>
+<rect x="0.25" y="0.25" width="86.5" height="86.5" rx="43.25" stroke="url(#paint8_linear_35589_83054)" stroke-width="0.5"/>
+<defs>
+<filter id="filter0_f_35589_83054" x="-0.401367" y="-7.66631" width="87.6924" height="51.0387" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_35589_83054"/>
+</filter>
+<clipPath id="paint1_angular_35589_83054_clip_path"><ellipse cx="35.8462" cy="17.5194" rx="35.8462" ry="17.5194" transform="matrix(-1 0 0 1 79.291 0.333694)"/></clipPath><filter id="filter1_f_35589_83054" x="-1.90381" y="48.7382" width="90.6973" height="60.6984" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="8" result="effect1_foregroundBlur_35589_83054"/>
+</filter>
+<clipPath id="paint2_angular_35589_83054_clip_path"><ellipse cx="29.3487" cy="14.3492" rx="29.3487" ry="14.3492" transform="matrix(1 0 0 -1 14.0962 93.4366)"/></clipPath><filter id="filter2_df_35589_83054" x="9.0874" y="-7.89098" width="68.8252" height="40.14" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_35589_83054"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_35589_83054" result="shape"/>
+<feGaussianBlur stdDeviation="3" result="effect2_foregroundBlur_35589_83054"/>
+</filter>
+<filter id="filter3_if_35589_83054" x="-0.724121" y="-30.109" width="88.3379" height="72.7875" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="8" dy="7"/>
+<feGaussianBlur stdDeviation="3"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.403922 0 0 0 0 0.364706 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_35589_83054"/>
+<feGaussianBlur stdDeviation="16" result="effect2_foregroundBlur_35589_83054"/>
+</filter>
+<filter id="filter4_f_35589_83054" x="-27.2329" y="-26.9897" width="142.233" height="140.866" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="18" result="effect1_foregroundBlur_35589_83054"/>
+</filter>
+<filter id="filter5_f_35589_83054" x="-8.55078" y="-8" width="104.101" height="104.987" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_35589_83054"/>
+</filter>
+<filter id="filter6_if_35589_83054" x="-16" y="-16" width="119" height="119.875" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="8"/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.484957 0 0 0 0 0.936749 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_35589_83054"/>
+<feGaussianBlur stdDeviation="8" result="effect2_foregroundBlur_35589_83054"/>
+</filter>
+<filter id="filter7_f_35589_83054" x="-24.3306" y="-24.4449" width="135.661" height="136.542" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur_35589_83054"/>
+</filter>
+<linearGradient id="paint0_linear_35589_83054" x1="-5.23884" y1="46.2301" x2="86.9581" y2="34.5872" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8457FF"/>
+<stop offset="1" stop-color="#D048FF"/>
+</linearGradient>
+<radialGradient id="paint3_radial_35589_83054" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43.5001 11.179) rotate(90) scale(13.07 28.4127)">
+<stop stop-color="#F9CCF8"/>
+<stop offset="1" stop-color="#F9E0F4"/>
+</radialGradient>
+<radialGradient id="paint4_radial_35589_83054" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43.4449 6.28472) rotate(90) scale(4.39374 23.3849)">
+<stop stop-color="#EAEAFE"/>
+<stop offset="1" stop-color="#E8D8FE"/>
+</radialGradient>
+<radialGradient id="paint5_radial_35589_83054" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43.4999 44.4936) rotate(90) scale(44.4936 44.0506)">
+<stop offset="0.92" stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="#C5C8FD"/>
+</radialGradient>
+<linearGradient id="paint6_linear_35589_83054" x1="43.4998" y1="-0.444931" x2="43.4998" y2="88.0974" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint7_linear_35589_83054" x1="58.7945" y1="21.0254" x2="31.4836" y2="59.3214" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D646FF"/>
+<stop offset="0.514423" stop-color="#A94EFF"/>
+<stop offset="0.822115" stop-color="#645DFF"/>
+<stop offset="1" stop-color="#5677FF"/>
+</linearGradient>
+<linearGradient id="paint8_linear_35589_83054" x1="77.2125" y1="73.95" x2="54.375" y2="5.075" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E9E8FF"/>
+<stop offset="0.475224" stop-color="white"/>
+<stop offset="1" stop-color="#F2C2FF"/>
+</linearGradient>
+<clipPath id="clip0_35589_83054">
+<rect width="87" height="87" rx="43.5" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Agentic Commerce</div>
+											<div class="lg-max:hidden mt-1">Know the human behind the agent so you can approve confidently and stay ahead of the shift to agentic commerce.</div>
+										</div>
+									</a>
+								</li>
+													</ul>
+					</div>
+							</div>
+					<div class="xl:p-4 border-y-0 xl:w-[42rem]">
+														<div>
+						<div class="px-2 xl:px-4 pt-2 pb-2 xl:pt-4 uppercase text-[.8rem] tracking-[.08em] font-semibold text-[#596C95]">Products</div>
+
+						<ul class="m-0 list-none xl:grid xl:grid-cols-2 limit-li">
+															<li>
+									<a href="/platform/fraud-management/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/platform/fraud-management/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg height="36" viewBox="0 0 36 36" width="36" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="18" cy="18" class="nav-icon-circle" r="18" />
+	<g fill="none">
+		<path
+			d="m11.83 12.29 6.08-1.86 6.09 1.86v6.89c-.06.88-.41 1.72-1 2.38-.61.76-1.32 1.43-2.12 2-.94.69-1.95 1.3-3 1.81-1.05-.51-2.06-1.12-3-1.81-.8-.57-1.51-1.24-2.12-2-.57-.67-.9-1.51-.94-2.38v-6.89z"
+			stroke="#fff" />
+		<path d="m21.13 15.72-3.7 3.41" stroke="#70a9ff" />
+		<path d="m15.36 17.08 2.32 2.63" stroke="#70a9ff" />
+	</g>
+</svg>										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Fraud Management</div>
+											<div class="lg-max:hidden mt-1">Fight fraud, increase approvals, reduce chargebacks</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/platform/payment-optimization/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/platform/payment-optimization/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg height="36" viewBox="0 0 36 36" width="36" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="18" cy="18" class="nav-icon-circle" r="18" />
+	<g fill="none" stroke-width="1.12">
+		<path d="m11.8 19.1h2.8" stroke="#85b6ff" />
+		<path d="m26.4 14.6h-16.8" stroke="#fff" />
+		<path d="m15.2 24.2h-6.2v-13.5h18v8.7" stroke="#fff" />
+		<path d="m23.1 22.1 1.3 1.3 2.2-2.1" stroke="#85b6ff" />
+		<path d="m28.7 22.5c0 2.2-1.8 3.9-3.9 3.9s-3.9-1.8-3.9-3.9 1.8-3.9 3.9-3.9 3.9 1.7 3.9 3.9z"
+			stroke="#85b6ff" />
+		<path d="m9 18v6.2h6" stroke="#85b6ff" />
+		<path d="m13.5 26.4 2.2-2.2-2.2-2.2" stroke="#85b6ff" stroke-linecap="square" />
+	</g>
+</svg>										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Payment Optimization</div>
+											<div class="lg-max:hidden mt-1">Minimize friction, maximize conversions, maintain PSD2 compliance</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/platform/dispute-management/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/platform/dispute-management/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg height="36" viewBox="0 0 36 36" width="36" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="18" cy="18" class="nav-icon-circle" r="18" />
+	<g fill="none" stroke-width="1.12">
+		<path
+			d="m19.97 16.94c0-.71-.26-1.62-1.43-1.69-.8-.07-1.68.49-1.67 1.36 0 .39.2.85.76 1.11.83.33 2.45.26 2.6 1.43.04.24-.02.54-.1.76-.39.99-1.82 1.22-2.63.54-.39-.32-.58-.84-.58-1.3"
+			stroke="#85b6ff" />
+		<path d="m18.61 13.5v1.43" stroke="#85b6ff" />
+		<path d="m18.61 21.3v1.3" stroke="#85b6ff" />
+		<path
+			d="m9.74 14.72c.15-.36.32-.71.52-1.05 2.56-4.44 8.24-5.96 12.68-3.4 2.53 1.46 4.11 3.93 4.53 6.61m-18.27 3.26c.51 2.52 2.06 4.82 4.46 6.21 4.44 2.56 10.12 1.04 12.68-3.4.1-.18.2-.36.29-.54"
+			stroke="#fff" />
+		<path d="m29.11 14.36-1.55 2.68-2.68-1.55" stroke="#fff" />
+		<path d="m7.59 22.67 1.55-2.68 2.68 1.55" stroke="#fff" />
+	</g>
+</svg>										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Dispute Management</div>
+											<div class="lg-max:hidden mt-1">Automate disputes, streamline operations, improve win rates</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/platform/account-protection/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/platform/account-protection/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg height="36" viewBox="0 0 36 36" width="36" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="18" cy="18" class="nav-icon-circle" r="18" />
+	<g fill="none" stroke-width="1.03">
+		<path d="m18 8.4c-5.3 0-9.6 4.3-9.6 9.6s4.3 9.6 9.6 9.6 9.6-4.3 9.6-9.6-4.3-9.6-9.6-9.6z"
+			stroke="#fff" />
+		<path
+			d="m18 17.8c1.2 0 2.2-1 2.2-2.3 0-1.2-1-2.2-2.2-2.2s-2.2 1-2.2 2.2c-.1 1.3 1 2.3 2.2 2.3z"
+			stroke="#85b6ff" />
+		<path
+			d="m13.5 20.7c.7-1.7 2.5-2.9 4.5-2.9s3.8 1.2 4.5 2.9c-.7 1.4-2.5 2.4-4.5 2.4-2-.1-3.8-1-4.5-2.4z"
+			stroke="#85b6ff" />
+	</g>
+</svg>										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Account Protection</div>
+											<div class="lg-max:hidden mt-1">Stop ATO, block fake accounts, protect account integrity</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/platform/abuse-prevention/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/platform/abuse-prevention/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg height="36" viewBox="0 0 36 36" width="36" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="18" cy="18" class="nav-icon-circle" r="18" />
+	<g fill="none" stroke-width="1.12">
+		<path d="m20.81 13.5v-2.17c0-1.58-1.28-2.89-2.81-2.89s-2.81 1.31-2.81 2.89v2.17"
+			stroke="#fff" />
+		<path d="m16.86 27h9.3l-2.79-12.94h-10.43l-.47 2.24" stroke="#fff" />
+		<path d="m18.84 20.81h-7.31l-1.41 6.19h7.31" stroke="#85b6ff" />
+		<path d="m16.88 18.56 2.25 2.25-2.25 2.25" stroke="#85b6ff" stroke-linecap="square" />
+	</g>
+</svg>										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Abuse Prevention</div>
+											<div class="lg-max:hidden mt-1">Identify and stop policy abuse to protect revenue and customer experience</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/forter-element/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/forter-element/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="18" cy="18" r="18" class="nav-icon-circle" />
+	<path d="m967.68 539.32a7.5 7.5 0 1 1 -7.5-7.5 7.5 7.5 0 0 1 7.5 7.5z" fill="none" stroke="#fff" transform="translate(-942 -521.5)" />
+	<path d="m960.52 546.82a7.49 7.49 0 0 1 -7.83-7.13c0-.12 0-.25 0-.37" fill="none" stroke="#70a9ff" transform="translate(-942 -521.5)" />
+	<circle cx="23.46" cy="12.55" fill="#fff" r="2.22" />
+	<g fill="#70a9ff">
+		<path d="m954.9 539a2.22 2.22 0 1 1 -2.22-2.22 2.21 2.21 0 0 1 2.22 2.22z" transform="translate(-942 -521.5)" />
+		<circle cx="20.13" cy="24.77" r="2.22" />
+	</g>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Forter Element for PSP's</div>
+											<div class="lg-max:hidden mt-1">Built for payment service providers to offer their customers differentiated value</div>
+										</div>
+									</a>
+								</li>
+													</ul>
+					</div>
+							</div>
+			</div>
+</div>
+	</li><li class="nav-trigger xl:-mb-8 xl:pb-8 relative lg-max:p-2 xl:px-3 lg-max:border-solid lg-max:border-0 lg-max:border-b lg-max:border-forter-gray-2">
+	
+<a href="#" class="nav-link relative" @click.prevent='toggleDropdown("resources")'>
+	Resources
+			<div class="xl:hidden absolute top-4 right-4 border-solid border-transparent border-t-current border-4"></div>
+	</a>
+
+	
+			<div class="nav-mega text-xs duration-150 origin-top-left xl:absolute xl:top-full xl:-left-40 xl:bg-white xl:shadow-md" :class="{ 'lg-max:hidden': dropdown !== 'resources' }">
+	<div class="lg-max:hidden absolute -top-4 left-[13.25rem] border-solid border-transparent border-b-white border-8"></div>
+
+	<div class="xl:flex xl:divide-x xl:divide-forter-gray-2 xl:divide-solid">
+					<div class="xl:p-4 border-y-0 xl:w-[20rem]">
+														<div>
+						<div class="px-2 xl:px-4 pt-2 pb-2 xl:pt-4 uppercase text-[.8rem] tracking-[.08em] font-semibold text-[#596C95]">Featured Insights</div>
+
+						<ul class="m-0 list-none xl:grid-cols-1 limit-li">
+															<li>
+									<a href="/digital-insights/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/digital-insights/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.st8{fill:#005DE8;}
+	.st9{fill:none;stroke:#FFFFFF;stroke-width:2;}
+	.st10{fill:none;stroke:#85B6FF;stroke-width:2;stroke-linecap:square;}
+	.st11{fill:none;stroke:#85B6FF;stroke-width:2;}
+</style>
+<circle class="st8" cx="32" cy="32" r="32"/>
+<path class="st9" d="M37,23v-3.9c0-2.8-2.3-5.1-5-5.1s-5,2.3-5,5.1V23"/>
+<path class="st9" d="M27,47h19.6l-5-22.9H22.7l-0.8,4"/>
+<path class="st10" d="M21.9,27.7L18,47h13.3"/>
+<path class="st11" d="M32.5,30l1.9,2.8l3.3,1l-2.1,2.7l0.1,3.4l-3.2-1.1l-3.2,1.1l0.1-3.4l-2.1-2.7l3.3-1L32.5,30z"/>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Digital Insights</div>
+											<div class="lg-max:hidden mt-1">Curated resources focused on customer experience and digital trends</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/fraud-insights/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/fraud-insights/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.st12{fill:#005DE8;}
+	.st13{fill:none;stroke:#85B6FF;stroke-width:2;}
+	.st14{fill:none;stroke:#FFFFFF;stroke-width:2;}
+	.st15{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+	.st16{fill:#FFFFFF;}
+</style>
+<circle class="st12" cx="32" cy="32" r="32"/>
+<path class="st13" d="M31.9,29.9c-6.6,0-12.6,4-14.9,9.4c2.3,4.5,8.3,7.6,14.9,7.7h0.6"/>
+<path class="st13" d="M32,29.9c1.9,0,3.6-0.8,4.8-2.1c1-1.1,1.6-2.6,1.6-4.3c0-1.2-0.3-2.4-0.9-3.3C36.4,18.2,34.3,17,32,17
+	c-3.6,0-6.4,2.9-6.4,6.4S28.4,29.9,32,29.9z"/>
+<path class="st13" d="M30,47h5"/>
+<path class="st14" d="M39.3,34.1c0.8-1.4,2.7-1.4,3.5,0l5.6,9.9c0.8,1.3-0.2,3-1.7,3H35.4c-1.5,0-2.5-1.6-1.7-3L39.3,34.1z"/>
+<path class="st15" d="M41,38.5v2"/>
+<path class="st16" d="M42,43.5c0,0.6-0.4,1-1,1s-1-0.4-1-1s0.4-1,1-1S42,42.9,42,43.5z"/>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Fraud Insights</div>
+											<div class="lg-max:hidden mt-1">Curated resources focused on fraud prevention tactics and analysis</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/payment-insights/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/payment-insights/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 viewBox="0 0 36 36" style="enable-background:new 0 0 36 36;">
+<style type="text/css">
+	.st5{fill:#005DE8;}
+	.st6{fill:none;stroke:#FFFFFF;stroke-width:1.03;}
+	.st7{fill:none;stroke:#85B6FF;stroke-width:1.03;}
+</style>
+<circle class="st5" cx="18" cy="18" r="18"/>
+<path class="st6" d="M18,8.4c-5.3,0-9.6,4.3-9.6,9.6s4.3,9.6,9.6,9.6s9.6-4.3,9.6-9.6S23.3,8.4,18,8.4z"/>
+<path class="st7" d="M19.5,16.8c0-0.8-0.3-1.7-1.5-1.8c-0.8-0.1-1.8,0.5-1.8,1.4c0,0.4,0.2,0.9,0.8,1.2c0.9,0.3,2.6,0.3,2.7,1.5
+	c0,0.2,0,0.6-0.1,0.8c-0.4,1-1.9,1.3-2.8,0.6c-0.4-0.3-0.6-0.9-0.6-1.4"/>
+<path class="st7" d="M18,13.2v1.5"/>
+<path class="st7" d="M18,21.4v1.4"/>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Payment Insights</div>
+											<div class="lg-max:hidden mt-1">Curated resources focused on the payments ecosystem and best practices</div>
+										</div>
+									</a>
+								</li>
+													</ul>
+					</div>
+							</div>
+					<div class="xl:p-4 border-y-0 xl:w-[40rem]">
+														<div>
+						<div class="px-2 xl:px-4 pt-2 pb-2 xl:pt-4 uppercase text-[.8rem] tracking-[.08em] font-semibold text-[#596C95]">Resources</div>
+
+						<ul class="m-0 list-none xl:grid xl:grid-cols-2 limit-li">
+															<li>
+									<a href="/blog/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/blog/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="18" cy="18" r="18" class="nav-icon-circle" />
+	<rect fill="none" height="14" rx="1.08" stroke="#fff" width="14" x="11" y="11" />
+	<path d="m13.15 13.69h6.26v3.23h-6.26z" fill="#70a9ff" />
+	<g fill="none" stroke="#fff">
+		<path d="m13.09 21.57h9.76" />
+		<path d="m13.09 18.88h9.76" />
+	</g>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Blog</div>
+											<div class="lg-max:hidden mt-1">Get the latest on fraud prevention and digital commerce</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/events/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/events/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 viewBox="0 0 36 36" style="enable-background:new 0 0 36 36;" xml:space="preserve">
+<style type="text/css">
+	.sta{fill:#005DE8;}
+	.stb{fill:none;stroke:#85B6FF;}
+	.stc{fill:none;stroke:#FFFFFF;}
+</style>
+<circle class="sta nav-icon-circle" cx="18" cy="18" r="18"/>
+<line class="stb" x1="13.1" y1="8.5" x2="13.1" y2="11.5"/>
+<line class="stb" x1="23" y1="8.5" x2="23" y2="11.5"/>
+<rect x="19.4" y="15.9" class="stb" width="3" height="3"/>
+<rect x="10.6" y="12" class="stc" width="14.8" height="14.8"/>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Events</div>
+											<div class="lg-max:hidden mt-1">Join Forter at upcoming events</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/resources/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/resources/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+	<defs>
+		<style>.cls-1{fill:#005de8;}.cls-2{fill:#fff;}.cls-3{fill:#85b6ff;}</style>
+	</defs>
+	<circle class="cls-1 nav-icon-circle" cx="32" cy="32" r="32"/>
+	<path class="cls-2"
+		  d="M38.88,47c-2.67,0-4.86-2.27-4.88-5.06v-.25s0-.12,0-.12l.02-22.4c.36-1.83,1.93-3.16,3.74-3.16s3.46,1.46,3.72,3.4c.06,.46,.48,.81,1,.84,2.38,.14,4.25,2.2,4.25,4.71,0,.47-.07,.94-.2,1.39-.13,.45,.12,.92,.6,1.11,1.72,.7,2.88,2.47,2.88,4.4,0,1.62-.78,3.1-2.08,3.98h0c-.22,.15-.37,.37-.42,.61-.04,.23,.01,.47,.15,.66,.58,.82,.88,1.78,.88,2.8,0,2.6-2.02,4.72-4.5,4.72-.09,0-.2,0-.33-.01-.4-.02-.77,.13-.98,.42-.93,1.25-2.33,1.96-3.84,1.96Zm-2.88-27.54v22.43c.01,1.72,1.3,3.1,2.88,3.1,.87,0,1.69-.42,2.24-1.16,.62-.84,1.67-1.3,2.74-1.22,.07,0,.13,0,.17,0,1.38,0,2.5-1.22,2.5-2.72,0-.6-.18-1.17-.51-1.64-.45-.64-.62-1.42-.48-2.18,.14-.78,.6-1.46,1.27-1.91h0c.75-.5,1.2-1.37,1.2-2.32,0-1.13-.66-2.15-1.63-2.55-1.43-.58-2.19-2.1-1.76-3.53,.08-.27,.12-.55,.12-.82,0-1.45-1.04-2.64-2.36-2.71-1.47-.08-2.68-1.17-2.87-2.58-.13-.95-.87-1.67-1.73-1.67-.81,0-1.55,.62-1.75,1.46Z"/>
+	<path class="cls-2"
+		  d="M25.12,47c-1.51,0-2.91-.72-3.84-1.96-.2-.27-.54-.43-.9-.43-.22,.01-.33,.02-.42,.02-2.48,0-4.5-2.12-4.5-4.72,0-1.01,.3-1.98,.88-2.8,.14-.2,.19-.43,.15-.66-.05-.24-.19-.46-.42-.61-1.31-.87-2.08-2.36-2.08-3.98,0-1.93,1.16-3.7,2.88-4.4,.48-.19,.73-.66,.6-1.12-.13-.45-.2-.92-.2-1.39,0-2.5,1.87-4.57,4.25-4.71,.52-.03,.94-.38,1-.84,.26-1.94,1.86-3.4,3.72-3.4s3.42,1.43,3.71,3.33l.04,.32v21.76c0,.12,0,.16,0,.2v.27c-.01,2.84-2.2,5.12-4.87,5.12Zm-4.74-4.39c.99,0,1.92,.46,2.5,1.23h0c.55,.74,1.37,1.16,2.24,1.16,1.57,0,2.86-1.38,2.88-3.08l1-.1h-1s0-.1,0-.1c0-.13,0-.26,0-.39V19.76s-.02-.09-.03-.14c-.14-.92-.88-1.63-1.73-1.63s-1.61,.72-1.73,1.67c-.19,1.41-1.4,2.49-2.87,2.58-1.33,.08-2.36,1.27-2.36,2.71,0,.28,.04,.56,.12,.82,.42,1.44-.34,2.95-1.76,3.53-.98,.4-1.63,1.42-1.63,2.55,0,.95,.45,1.81,1.2,2.32,.68,.45,1.13,1.13,1.27,1.91,.14,.76-.03,1.54-.48,2.18-.34,.48-.51,1.05-.51,1.64,0,1.5,1.12,2.72,2.5,2.72,.05,0,.1,0,.17,0,.09,0,.16,0,.24,0Z"/>
+	<rect class="cls-3" x="28" y="23" width="2" height="18"/>
+	<rect class="cls-3" x="34" y="23" width="2" height="18"/>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Resource Center</div>
+											<div class="lg-max:hidden mt-1">Explore insights and best practices from Forter experts and customers</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="/impact/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/impact/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="32" fill="#005DE8" class="nav-icon-circle"/>
+<path d="M30.2491 17.386C31.0363 15.929 33.1355 15.929 33.7916 17.386L37.2028 24.2736C37.4652 24.8034 38.1212 25.3332 38.646 25.3332L46.2556 26.5253C47.9613 26.7902 48.6173 28.777 47.3053 29.9691L41.7948 35.3997C41.27 35.9295 41.1388 36.5918 41.27 37.2541L42.582 44.9364C42.8444 46.5258 41.1388 47.8504 39.6956 47.0557L37.7276 45.996L32.8731 43.3469C32.3483 43.082 31.5611 43.082 31.0363 43.3469L24.2139 46.9232C22.7707 47.7179 21.0651 46.3934 21.3275 44.8039L22.6395 37.1216C22.7707 36.4593 22.5083 35.7971 22.1147 35.2673L16.6042 29.8366C15.4234 28.777 16.0794 26.7902 17.6538 26.5253L25.2635 25.3332C25.9195 25.3332 26.4443 24.8034 26.8379 24.2736L30.2491 17.386Z" stroke="white" stroke-width="2" stroke-linecap="square"/>
+<path d="M29 32L30.1147 33.1462L31.2295 34.2924L35.2243 30.6262" stroke="#85B6FF" stroke-width="2"/>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">IMPACT Conference</div>
+											<div class="lg-max:hidden mt-1">A community where leaders can network and discuss the future of digital commerce</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="https://docs.forter.com/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = 'https://docs.forter.com/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+	<defs>
+		<style>.cls-1{fill:#005de8;}.cls-2{fill:#fff;}.cls-3{fill:#85b6ff;}</style>
+	</defs>
+	<circle class="cls-1 nav-icon-circle" cx="32" cy="32" r="32"/>
+	<path class="cls-2" d="M19.11,22.53h-6.11v-4.11c0-1.89,1.53-3.42,3.42-3.42s3.42,1.53,3.42,3.42v3.57h-.73v.54Zm-4.11-2h2.84v-2.11c0-.78-.64-1.42-1.42-1.42s-1.42,.64-1.42,1.42v2.11Z"/>
+	<path class="cls-2" d="M46.23,48.48H21.68v-2h24.54c1.01,0,1.83-.88,1.83-1.97v-2.43h2v2.43c0,2.19-1.72,3.97-3.83,3.97Z"/>
+	<path class="cls-2" d="M46.8,23.22h-2v-4.52c0-.94-.82-1.7-1.83-1.7H16.46v-2h26.52c2.11,0,3.83,1.66,3.83,3.7v4.52Z"/>
+	<path class="cls-2" d="M21.44,48.48c-1.99,0-3.6-1.62-3.6-3.6v-4.99h2v4.99c0,.88,.72,1.6,1.6,1.6s1.6-.72,1.6-1.6v-3.61h27.02v3.55h-2v-1.55H25.04v1.61c0,1.99-1.62,3.6-3.6,3.6Z"/>
+	<rect class="cls-2" x="17.84" y="18.77" width="2" height="22.81"/>
+	<rect class="cls-2" x="44.8" y="20.84" width="2" height="20.74"/>
+	<polygon class="cls-3" points="27.56 37.97 24.57 34.67 26.05 33.33 27.57 35 30.34 31.96 31.82 33.31 27.56 37.97"/>
+	<polygon class="cls-3" points="27.56 29.97 24.57 26.67 26.05 25.33 27.57 27 30.34 23.96 31.82 25.31 27.56 29.97"/>
+	<rect class="cls-3" x="33.96" y="33.56" width="7.69" height="2"/>
+	<rect class="cls-3" x="33.96" y="25.87" width="7.69" height="2"/>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">Documentation</div>
+											<div class="lg-max:hidden mt-1">Review step-by-step integration guides, API reference and SDKs
+</div>
+										</div>
+									</a>
+								</li>
+															<li>
+									<a href="https://hello.forter.com/roi-calculator/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = 'https://hello.forter.com/roi-calculator/'">
+										<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+											<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle class="nav-icon-circle" cx="32" cy="32" r="32" fill="#005DE8"/>
+<path d="M42.5 26.5L37.5 21.5M42.5 21.5L37.5 26.5" stroke="#85B6FF" stroke-width="2"/>
+<path d="M27.5711 24L20.5 24M24.0355 20.4645L24.0355 27.5355" stroke="#85B6FF" stroke-width="2"/>
+<path d="M27.5 40L20.5 40" stroke="#85B6FF" stroke-width="2"/>
+<path d="M43.5713 41.5711L36.5002 41.5711M43.5712 38.5L36.5001 38.5" stroke="#85B6FF" stroke-width="2"/>
+<rect x="16" y="16" width="16" height="16" stroke="white" stroke-width="2"/>
+<rect x="32" y="16" width="16" height="16" stroke="white" stroke-width="2"/>
+<rect x="16" y="32" width="16" height="16" stroke="white" stroke-width="2"/>
+<rect x="32" y="32" width="16" height="16" stroke="white" stroke-width="2"/>
+</svg>
+										</div>
+
+										<div>
+											<div class="text-sm font-semibold lg-max:leading-6 xl:leading-tight">ROI Calculator</div>
+											<div class="lg-max:hidden mt-1">See how Forter can help your business</div>
+										</div>
+									</a>
+								</li>
+													</ul>
+					</div>
+							</div>
+			</div>
+</div>
+	</li><li class="nav-trigger xl:-mb-8 xl:pb-8 relative lg-max:p-2 xl:px-3 lg-max:border-solid lg-max:border-0 lg-max:border-b lg-max:border-forter-gray-2">
+	
+<a href="#" class="nav-link relative" @click.prevent='toggleDropdown("customers")'>
+	Customers
+			<div class="xl:hidden absolute top-4 right-4 border-solid border-transparent border-t-current border-4"></div>
+	</a>
+
+			<div class="nav-dropdown text-xs duration-150 origin-top xl:absolute xl:top-full xl:left-1/2 xl:-translate-x-1/2 xl:p-4 xl:bg-white xl:shadow-md xl:w-[24rem]">
+	<div class="lg-max:hidden absolute -top-4 left-1/2 -translate-x-1/2 border-solid border-transparent border-b-white border-8 "></div>
+
+	<ul class="m-0 list-none limit-unique " :class="{
+		'lg-max:columns-2': dropdown === 'customers',
+		'lg-max:hidden': dropdown !== 'customers',
+	}">
+					<li class="break-inside-avoid">
+				<a href="/customers/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/customers/'">
+					<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+						<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+	<circle cx="18" cy="18" r="18" fill="#005de8" class="nav-icon-circle"/>
+	<path d="m14.4,16.88c.63-1.72,2.22-2.95,4.09-2.95s3.36,1.15,4.03,2.78" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/>
+	<path d="m20.35,11.97c0,1.02-.82,1.84-1.84,1.84s-1.84-.82-1.84-1.84.82-1.84,1.84-1.84,1.84.82,1.84,1.84Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/>
+	<path d="m19.52,24.12c.52-1.92,2.21-3.33,4.21-3.33s3.72,1.43,4.23,3.38" fill="none" stroke="#85b6ff" stroke-linecap="round" stroke-linejoin="round"/>
+	<path d="m25.59,18.83c0,1.02-.82,1.84-1.84,1.84s-1.84-.82-1.84-1.84.82-1.84,1.84-1.84,1.84.82,1.84,1.84Z" fill="none" stroke="#85b6ff" stroke-linecap="round" stroke-linejoin="round"/>
+	<path d="m8.76,24.12c.52-1.92,2.21-3.33,4.21-3.33s3.72,1.43,4.23,3.38" fill="none" stroke="#85b6ff" stroke-linecap="round" stroke-linejoin="round"/>
+	<path d="m14.83,18.83c0,1.02-.82,1.84-1.84,1.84s-1.84-.82-1.84-1.84.82-1.84,1.84-1.84,1.84.82,1.84,1.84Z" fill="none" stroke="#85b6ff" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+					</div>
+					<div>
+						<div class="text-sm font-semibold lg-max:leading-6">Customers</div>
+						<div class="lg-max:hidden">Learn how Forter helps the world’s largest brands</div>
+					</div>
+				</a>
+
+							</li>
+					<li class="break-inside-avoid">
+				<a href="/decision-makers/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/decision-makers/'">
+					<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+						<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+	<circle cx="18" cy="18" r="18" fill="#005de8" class="nav-icon-circle"/>
+	<path d="m15.75,27h0c0,1.24,1.01,2.25,2.25,2.25h0c1.24,0,2.25-1.01,2.25-2.25h0" fill="none" stroke="#85b6ff"/>
+	<path d="m21.94,23.62c.23-1.12,1.31-2.72,1.83-3.38.97-1.24,1.55-2.8,1.55-4.5,0-4.04-3.27-7.31-7.31-7.31s-7.31,3.27-7.31,7.31c0,1.7.58,3.26,1.55,4.5.52.66,1.6,2.25,1.83,3.38" fill="none" stroke="#fff"/>
+	<path d="m18,23.34v-3.94m0,0l-2.81-2.81m2.81,2.81l2.81-2.81" fill="none" stroke="#85b6ff"/>
+	<path d="m14.06,23.62h7.88v2.25c0,.31-.25.56-.56.56h-6.75c-.31,0-.56-.25-.56-.56v-2.25Z" fill="none" stroke="#fff"/>
+</svg>
+					</div>
+					<div>
+						<div class="text-sm font-semibold lg-max:leading-6">Decision Makers</div>
+						<div class="lg-max:hidden">Putting the spotlight on digital commerce leaders</div>
+					</div>
+				</a>
+
+							</li>
+			</ul>
+
+	</div>	
+	</li><li class="nav-trigger xl:-mb-8 xl:pb-8 relative lg-max:p-2 xl:px-3 lg-max:border-solid lg-max:border-0 lg-max:border-b lg-max:border-forter-gray-2">
+	
+<a href="#" class="nav-link relative" @click.prevent='toggleDropdown("company")'>
+	Company
+			<div class="xl:hidden absolute top-4 right-4 border-solid border-transparent border-t-current border-4"></div>
+	</a>
+
+			<div class="nav-dropdown text-xs duration-150 origin-top xl:absolute xl:top-full xl:left-1/2 xl:-translate-x-1/2 xl:p-4 xl:bg-white xl:shadow-md xl:w-[24rem]">
+	<div class="lg-max:hidden absolute -top-4 left-1/2 -translate-x-1/2 border-solid border-transparent border-b-white border-8 "></div>
+
+	<ul class="m-0 list-none limit-unique " :class="{
+		'lg-max:columns-2': dropdown === 'company',
+		'lg-max:hidden': dropdown !== 'company',
+	}">
+					<li class="break-inside-avoid">
+				<a href="/company/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/company/'">
+					<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+						<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="18" cy="18" r="18" class="nav-icon-circle" />
+	<g fill="#fff">
+		<path d="m17.07 23.09a9 9 0 0 0 1.14-1.62 6.21 6.21 0 0 0 .65-1.74 4.06 4.06 0 0 0 0-1.93 2.59 2.59 0 0 0 -1.22-1.52 3.92 3.92 0 0 0 -2.55-.36 7.68 7.68 0 0 0 -3 1.2 8.13 8.13 0 0 0 -.82.59.58.58 0 0 0 -.17.28c-.05.25-.08.5-.11.74 0 .09 0 .39.18.25a8 8 0 0 1 1.24-1 6.16 6.16 0 0 1 2.32-.98 3 3 0 0 1 2 .28 2 2 0 0 1 .95 1.18 3.17 3.17 0 0 1 0 1.5 5.21 5.21 0 0 1 -.51 1.36 6.72 6.72 0 0 1 -.88 1.25 7.19 7.19 0 0 1 -1 1 7.57 7.57 0 0 1 -1.07.7 8.08 8.08 0 0 1 -.8.35s-.29.13-.15.29a4.89 4.89 0 0 0 .58.39.6.6 0 0 0 .55-.08 9.09 9.09 0 0 0 1.38-.9 9.64 9.64 0 0 0 1.29-1.23z" />
+		<path d="m22.13 10.7a6.17 6.17 0 0 0 -5.93.13h-.05c-.18.11.05.11.05.11a7.66 7.66 0 0 1 5 .33c2.17 1 3.1 3.36 3.49 5.23s.21.47.35 0a6.32 6.32 0 0 0 -2.91-5.8z" />
+		<path d="m20.65 12.16c-1.61-.87-4.15-.58-6.07-.11a1.37 1.37 0 0 0 -.4.22c-.18.17-.36.35-.53.54 0 0-.21.26 0 .2 2.08-.58 4.62-.79 6.07 0 2.13 1.16 2.75 3.24 2.64 5.46a13 13 0 0 1 -2.27 6.31s-.09.23.08.13a9.46 9.46 0 0 0 1-.69c.05-.06.31-.37.43-.55a12 12 0 0 0 1.94-5.91 5.7 5.7 0 0 0 -2.89-5.6z" />
+		<path d="m21.19 19a5.65 5.65 0 0 0 -.14-2.65 3.67 3.67 0 0 0 -1.67-2.07 5.61 5.61 0 0 0 -3.48-.64 10.89 10.89 0 0 0 -3.62 1c-.09.15-.17.31-.25.46a2 2 0 0 0 -.1.21c0 .09-.06.24.19.12a9.86 9.86 0 0 1 3.22-1 4.86 4.86 0 0 1 3.08.54 3.23 3.23 0 0 1 1.42 2.03 5.35 5.35 0 0 1 .08 2.39 8.58 8.58 0 0 1 -.74 2.3 11.94 11.94 0 0 1 -1.4 2.28 15.51 15.51 0 0 1 -1.58 1.76 1.59 1.59 0 0 0 -.13.13c-.05.06-.08.12 0 .14a4.57 4.57 0 0 0 .74 0 .85.85 0 0 0 .45-.19 14.87 14.87 0 0 0 1.59-1.81 13.07 13.07 0 0 0 1.55-2.51 9 9 0 0 0 .79-2.49z" />
+		<path d="m14.33 23.1a5.27 5.27 0 0 0 .74-.49 5 5 0 0 0 .71-.67 4.27 4.27 0 0 0 .61-.87 3.35 3.35 0 0 0 .35-.94 2.15 2.15 0 0 0 0-1 1.36 1.36 0 0 0 -.66-.83 2.14 2.14 0 0 0 -1.37-.19 4.25 4.25 0 0 0 -1.64.65 5.27 5.27 0 0 0 -1.35 1.24 4.63 4.63 0 0 0 -.43.71 3.37 3.37 0 0 0 -.23.6v.1a2.57 2.57 0 0 0 0 1.07 1.36 1.36 0 0 0 .88 1h.13a2.17 2.17 0 0 0 .76.08 2.83 2.83 0 0 0 .77-.14 4 4 0 0 0 .73-.32zm-1.69-.51a1 1 0 0 1 -.4-.23 1 1 0 0 1 -.24-.46 1.74 1.74 0 0 1 0-.72 2.64 2.64 0 0 1 .17-.47 2.92 2.92 0 0 1 .29-.48 4 4 0 0 1 .9-.83 2.91 2.91 0 0 1 1.1-.43 1.39 1.39 0 0 1 .92.13.92.92 0 0 1 .44.55 1.38 1.38 0 0 1 0 .7 2.1 2.1 0 0 1 -.24.63 2.9 2.9 0 0 1 -.41.58 2.85 2.85 0 0 1 -.47.45 4.32 4.32 0 0 1 -.5.33 2.87 2.87 0 0 1 -.51.21 2.27 2.27 0 0 1 -.52.09 1.45 1.45 0 0 1 -.53-.05z" />
+		<path d="m14 21.48.22-.14a1.34 1.34 0 0 0 .21-.2 1.51 1.51 0 0 0 .18-.26 1 1 0 0 0 .11-.29.65.65 0 0 0 0-.31.38.38 0 0 0 -.19-.24.63.63 0 0 0 -.3-.07h-.11a1.18 1.18 0 0 0 -.48.19 1.62 1.62 0 0 0 -.41.37 2.39 2.39 0 0 0 -.13.21l-.1.26a.7.7 0 0 0 0 .32.42.42 0 0 0 .13.21.4.4 0 0 0 .18.1.53.53 0 0 0 .22 0h.23z" />
+	</g>
+</svg>
+					</div>
+					<div>
+						<div class="text-sm font-semibold lg-max:leading-6">About</div>
+						<div class="lg-max:hidden">Learn more about Forter’s story and leadership</div>
+					</div>
+				</a>
+
+							</li>
+					<li class="break-inside-avoid">
+				<a href="/careers/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/careers/'">
+					<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+						<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="18" cy="18" r="18" class="nav-icon-circle" />
+	<g fill="none">
+		<path d="m25.12 11.29h-11.12a1.39 1.39 0 0 0 -1.39 1.39v7a1.39 1.39 0 0 0 1.39 1.32h11.12l-2.45-4.86z" stroke="#fff" />
+		<path d="m15.38 16.16v2.78" stroke="#70a9ff" />
+		<path d="m15.38 21.72v5.57" stroke="#70a9ff" />
+	</g>
+</svg>
+					</div>
+					<div>
+						<div class="text-sm font-semibold lg-max:leading-6">Careers</div>
+						<div class="lg-max:hidden">Grow your career with our global team</div>
+					</div>
+				</a>
+
+							</li>
+					<li class="break-inside-avoid">
+				<a href="/newsroom/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/newsroom/'">
+					<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+						<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="32" cy="32" fill="#005de8" r="32" class="nav-icon-circle"/>
+	<g fill="#85b6ff">
+		<path d="m34.5 47h-11.5c-3.86 0-7-3.14-7-7v-21h28v13.5h-2v-11.5h-24v19c0 2.76 2.24 5 5 5h11.5z"/>
+		<path d="m23 27h10v2h-10z"/>
+		<path d="m23 32h5v2h-5z"/>
+		<path d="m44 47h-1v-2h1c1.65 0 3-1.35 3-3v-14h-4v-2h6v16c0 2.76-2.24 5-5 5z"/>
+	</g>
+	<path d="m42.54 51.49-3.47-3.47-3.47 3.47-1.7-.71v-9.74h2v7.32l2.46-2.46h1.42l2.47 2.46v-7.32h2v9.74z" fill="#fff"/>
+	<path d="m36.88 43.79-3.13-1.81.24-2.07-.41-.72-1.88-.83.03-3.63 1.89-.85.43-.75-.21-2.06 3.13-1.84 1.66 1.22h.83s1.67-1.25 1.67-1.25l3.13 1.81-.24 2.07.41.72 1.88.83-.03 3.63-1.89.85-.43.75.21 2.06-3.13 1.84-1.66-1.22h-.83s-1.67 1.25-1.67 1.25zm-.99-2.88.85.49 1.14-.85h2.15s1.13.82 1.13.82l.89-.52-.14-1.42 1.08-1.87 1.31-.59v-1.03s-1.28-.56-1.28-.56l-1.06-1.87.16-1.42-.85-.49-1.14.85-2.15.02-1.13-.83-.89.52.14 1.42-1.08 1.87-1.3.59v1.03s1.28.56 1.28.56l1.06 1.87-.16 1.42z"
+		  fill="#fff"/>
+	<path d="m39.65 36.88c-.21.36-.67.48-1.02.27s-.48-.67-.27-1.02c.21-.36.67-.48 1.02-.27s.48.67.27 1.02z" fill="#fff"/>
+</svg>
+					</div>
+					<div>
+						<div class="text-sm font-semibold lg-max:leading-6">Newsroom</div>
+						<div class="lg-max:hidden">See the latest Forter news and announcements</div>
+					</div>
+				</a>
+
+							</li>
+					<li class="break-inside-avoid">
+				<a href="/privacy-security-hub/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/privacy-security-hub/'">
+					<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+						<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 36 36" style="enable-background:new 0 0 36 36;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#005DE8;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-linecap:square;}
+	.st2{fill:#85B6FF;}
+	.st3{fill:none;stroke:#85B6FF;}
+</style>
+<circle class="st0 nav-icon-circle" cx="18" cy="18" r="18"/>
+<path class="st1" d="M23.9,14H12.1v10.4H24V14H23.9z"/>
+<rect x="16.9" y="18" class="st2" width="2.3" height="2.3"/>
+<path class="st3" d="M18,8.6c1.7,0,3.2,1.4,3.2,3.2V14h-6.3"/>
+<path class="st3" d="M18,8.6c-1.7,0-3.2,1.4-3.2,3.2v2.7"/>
+</svg>
+					</div>
+					<div>
+						<div class="text-sm font-semibold lg-max:leading-6">Privacy & Security</div>
+						<div class="lg-max:hidden">Learn how we keep your information secure and respect data privacy</div>
+					</div>
+				</a>
+
+							</li>
+					<li class="break-inside-avoid">
+				<a href="/contact-us/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/contact-us/'">
+					<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+						<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="18" cy="18" r="18" class="nav-icon-circle" />
+	<path d="m23.56 15.48a5.86 5.86 0 0 1 1.77 7.83l.79 2.85-2.86-.79a5.79 5.79 0 0 1 -2.72.81h-.93a5.86 5.86 0 0 1 -4.61-3.28" fill="none" stroke="#70a9ff" />
+	<path d="m17.17 9.86a6.7 6.7 0 0 1 6.69 6.4v1.06a6.69 6.69 0 0 1 -5.88 5.88h-1.06a6.66 6.66 0 0 1 -3.11-.92l-3.27.9.86-3.18a6.7 6.7 0 0 1 5.77-10.14z" fill="none" stroke="#fff" />
+	<circle cx="17.3" cy="18.95" fill="#70a9ff" r=".76" />
+	<path d="m15.82 14.65a1.37 1.37 0 0 1 1.48-1.29 1.43 1.43 0 0 1 .92 2.58 8.79 8.79 0 0 1 -.92.74v.92" fill="none" stroke="#70a9ff" />
+</svg>
+					</div>
+					<div>
+						<div class="text-sm font-semibold lg-max:leading-6">Contact Us</div>
+						<div class="lg-max:hidden">Speak with one of our Forter experts</div>
+					</div>
+				</a>
+
+							</li>
+			</ul>
+
+	</div>	
+	</li><li class="nav-trigger xl:-mb-8 xl:pb-8 relative lg-max:p-2 xl:px-3 lg-max:border-solid lg-max:border-0 lg-max:border-b lg-max:border-forter-gray-2">
+	
+<a href="#" class="nav-link relative" @click.prevent='toggleDropdown("partners")'>
+	Partners
+			<div class="xl:hidden absolute top-4 right-4 border-solid border-transparent border-t-current border-4"></div>
+	</a>
+
+			<div class="nav-dropdown text-xs duration-150 origin-top xl:absolute xl:top-full xl:left-1/2 xl:-translate-x-1/2 xl:p-4 xl:bg-white xl:shadow-md xl:w-[24rem]">
+	<div class="lg-max:hidden absolute -top-4 left-1/2 -translate-x-1/2 border-solid border-transparent border-b-white border-8 "></div>
+
+	<ul class="m-0 list-none limit-unique " :class="{
+		'lg-max:columns-2': dropdown === 'partners',
+		'lg-max:hidden': dropdown !== 'partners',
+	}">
+					<li class="break-inside-avoid">
+				<a href="/partners/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/partners/'">
+					<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+						<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="32" fill="#005DE8" class="nav-icon-circle"/>
+<path d="M28 27L24 33.5" stroke="#85B6FF" stroke-width="2"/>
+<path d="M36 27L40 33.5" stroke="#85B6FF" stroke-width="2"/>
+<path d="M28 40H35.5" stroke="#85B6FF" stroke-width="2"/>
+<path d="M32 22.4C33.2886 22.4 34.3333 21.3553 34.3333 20.0667C34.3333 18.778 33.2886 17.7333 32 17.7333C30.7113 17.7333 29.6666 18.778 29.6666 20.0667C29.6666 21.3553 30.7113 22.4 32 22.4Z" stroke="white" stroke-width="2"/>
+<path d="M27.3334 26.1333L27.8 24.9652C28.448 23.4853 30.1197 22.4 31.971 22.4C33.8222 22.4 35.5521 23.4853 36.2 24.9652L36.6667 26.1333" stroke="white" stroke-width="2"/>
+<circle cx="32" cy="21" r="7" stroke="white" stroke-width="2"/>
+<path d="M21 41.4C22.2886 41.4 23.3333 40.3553 23.3333 39.0667C23.3333 37.778 22.2886 36.7333 21 36.7333C19.7113 36.7333 18.6666 37.778 18.6666 39.0667C18.6666 40.3553 19.7113 41.4 21 41.4Z" stroke="white" stroke-width="2"/>
+<path d="M16.3334 45.1333L16.8 43.9652C17.448 42.4853 19.1197 41.4 20.971 41.4C22.8222 41.4 24.5521 42.4853 25.2 43.9652L25.6667 45.1333" stroke="white" stroke-width="2"/>
+<circle cx="21" cy="40" r="7" stroke="white" stroke-width="2"/>
+<path d="M43 41.4C44.2886 41.4 45.3333 40.3553 45.3333 39.0667C45.3333 37.778 44.2886 36.7333 43 36.7333C41.7113 36.7333 40.6666 37.778 40.6666 39.0667C40.6666 40.3553 41.7113 41.4 43 41.4Z" stroke="white" stroke-width="2"/>
+<path d="M38.3334 45.1333L38.8 43.9652C39.448 42.4853 41.1197 41.4 42.971 41.4C44.8222 41.4 46.5521 42.4853 47.2 43.9652L47.6667 45.1333" stroke="white" stroke-width="2"/>
+<circle cx="43" cy="40" r="7" stroke="white" stroke-width="2"/>
+</svg>
+					</div>
+					<div>
+						<div class="text-sm font-semibold lg-max:leading-6">Find a Forter Partner</div>
+						<div class="lg-max:hidden">Forter partners with a variety of industry leaders who can help you maximize your digital commerce revenue</div>
+					</div>
+				</a>
+
+							</li>
+					<li class="break-inside-avoid">
+				<a href="/become-a-partner/" class="nav-dropdown-item flex items-start p-2 gap-2 xl:p-4 xl:gap-4 text-forter-navy" @click="window.location = '/become-a-partner/'">
+					<div class="nav-icon w-6 h-6 xl:w-9 xl:h-9 shrink-0">
+						<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="32" fill="#005DE8" class="nav-icon-circle"/>
+<path d="M30.2491 17.386C31.0363 15.929 33.1355 15.929 33.7916 17.386L37.2028 24.2736C37.4652 24.8034 38.1212 25.3332 38.646 25.3332L46.2556 26.5253C47.9613 26.7902 48.6173 28.777 47.3053 29.9691L41.7948 35.3997C41.27 35.9295 41.1388 36.5918 41.27 37.2541L42.582 44.9364C42.8444 46.5258 41.1388 47.8504 39.6956 47.0557L37.7276 45.996L32.8731 43.3469C32.3483 43.082 31.5611 43.082 31.0363 43.3469L24.2139 46.9232C22.7707 47.7179 21.0651 46.3934 21.3275 44.8039L22.6395 37.1216C22.7707 36.4593 22.5083 35.7971 22.1147 35.2673L16.6042 29.8366C15.4234 28.777 16.0794 26.7902 17.6538 26.5253L25.2635 25.3332C25.9195 25.3332 26.4443 24.8034 26.8379 24.2736L30.2491 17.386Z" stroke="white" stroke-width="2" stroke-linecap="square"/>
+<path d="M29 32L30.1147 33.1462L31.2295 34.2924L35.2243 30.6262" stroke="#85B6FF" stroke-width="2"/>
+</svg>
+					</div>
+					<div>
+						<div class="text-sm font-semibold lg-max:leading-6">Become a Forter Partner</div>
+						<div class="lg-max:hidden">Join the Forter Partner Program today and help merchants understand who they can trust</div>
+					</div>
+				</a>
+
+							</li>
+			</ul>
+
+	</div>	
+	</li>            </ul>
+
+            <div class="p-4 flex justify-between xl:hidden">
+                <a href="/sales/" class="btn m-0">
+                    Contact Sales                </a>
+                <!--                -->                <!--                    <a href="https://resources.forter.com/c/ja-overview-brochure?x=wTXVqp" target="_blank" class="btn m-0 hover:text-white" title="資料請求">-->
+                <!--                        資料請求-->
+                <!--                    </a>-->
+                <!--                -->                <a href="https://portal.forter.com/" class="nav-link">
+                    Log In                </a>
+            </div>
+        </div>
+
+                    <div class="flex items-center gap-4 lg-max:ml-auto justify-end xl:w-[18rem]">
+
+                                <a href="/sales/" class="!min-h-[44px] !leading-[44px] btn m-0 lg-max:!hidden">
+                    Contact Sales                </a>
+
+                <a href="https://portal.forter.com/" class="nav-link lg-max:!hidden">
+                    Log In                </a>
+
+
+            </div>
+
+            <button type="button" class="xl:hidden w-6 h-6 ml-4 p-0 bg-transparent border-0 focus:outline-none" @click="open = !open">
+                <div class="w-6 h-[2px] bg-forter-blue duration-300 -translate-y-[2px]" :class="{ 'rotate-45 translate-y-[3px]': open }"></div>
+                <div class="w-6 h-[2px] bg-forter-blue duration-300 translate-y-[2px]" :class="{ '-rotate-45 -translate-y-px': open }"></div>
+                <span class="sr-only">Toggle Navigation</span>
+            </button>
+        </div>
+    </div>
+		</header>
+
+		<div  id="content" class="site-content">
+<div  class="relative py-16 md:py-24 lg:py-32 bg-forter-midnight text-white text-center" x-data="particles('everywhere')">
+	<div x-ref="particlesWrapper" x-init="setScene('resources')" class="layer object-cover overflow-hidden"></div>
+	<div class="h-20"></div>
+
+	<div class="relative container max-w-6xl">
+					<div class="flex justify-center items-center gap-4 md:gap-6 mb-12">
+									<img width="1" height="1" src="https://www.forter.com/wp-content/uploads/2025/02/Forter_US_English_2025_Certification_Badge.svg" class="w-auto max-h-[108px] lock" alt="Great Place to Work Certified Badge 2025-2026" decoding="async" />									<img width="2480" height="3508" src="https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge.png" class="w-auto max-h-[108px] lock" alt="Great Place To Work Certification Badge - Feb 2024-Feb 2025 USA" decoding="async" fetchpriority="high" srcset="https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge.png 2480w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-34x48.png 34w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-170x240.png 170w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-551x780.png 551w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-315x446.png 315w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-450x637.png 450w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-324x458.png 324w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-560x792.png 560w, https://www.forter.com/wp-content/uploads/2024/02/Forter_US_English_2024_Certification_Badge-389x550.png 389w" sizes="(max-width: 2480px) 100vw, 2480px" />									<picture class="w-auto max-h-[108px] lock" decoding="async">
+<source type="image/webp" srcset="https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge.png.webp 2048w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-560x792.png.webp 560w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-34x48.png.webp 34w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-389x550.png.webp 389w" sizes="(max-width: 2048px) 100vw, 2048px"/>
+<img width="2048" height="2897" src="https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge.png" alt="Great Place to Work Certified badge" decoding="async" srcset="https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge.png 2048w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-315x446.png 315w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-450x637.png 450w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-324x458.png 324w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-560x792.png 560w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-34x48.png 34w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-170x240.png 170w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-551x780.png 551w, https://www.forter.com/wp-content/uploads/2023/12/Forter_2022_Certification_Badge-389x550.png 389w" sizes="(max-width: 2048px) 100vw, 2048px"/>
+</picture>
+																		<picture class="w-auto max-h-[108px] lock" decoding="async">
+<source type="image/webp" srcset="https://www.forter.com/wp-content/uploads/2022/07/great-place-to-work-SG.png.webp 118w, https://www.forter.com/wp-content/uploads/2022/07/great-place-to-work-SG-28x48.png.webp 28w" sizes="(max-width: 118px) 100vw, 118px"/>
+<img width="118" height="200" src="https://www.forter.com/wp-content/uploads/2022/07/great-place-to-work-SG.png" alt="Great Place To Work Certified Badge 2021-2021 Singapore" decoding="async" srcset="https://www.forter.com/wp-content/uploads/2022/07/great-place-to-work-SG.png 118w, https://www.forter.com/wp-content/uploads/2022/07/great-place-to-work-SG-28x48.png 28w" sizes="(max-width: 118px) 100vw, 118px"/>
+</picture>
+							</div>
+		
+					<h1 class="careers-hero-title text-3xl lg:text-5xl xl:text-6xl text-current mb-0">
+				<strong>Digital commerce is built on trust.</strong> So are great companies.			</h1>
+		
+		
+					<a href="https://www.forter.com/job-opportunities/" class="btn blue mt-12" target="">View All Openings</a>
+			</div>
+</div>
+
+
+	<div  class="relative py-16 md:py-24 lg:py-32 bg-forter-midnight text-white">
+		<div class="bg-radial-grad"></div>
+
+		<div class="relative container space-y-12 lg:space-y-16">
+
+            <div class="max-w-3xl mx-auto lg:text-center">
+                <h2 class="text-3xl lg:text-5xl text-current">
+                    What we believe                </h2>
+
+                            </div>
+
+							<div class="grid grid-12 grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-12">
+					                        													<div class="space-y-4">
+
+                                
+								<h3 class="text-xl lg:text-2xl text-current mb-0">
+									Inclusive								</h3>
+
+															</div>
+											                        													<div class="space-y-4">
+
+                                
+								<h3 class="text-xl lg:text-2xl text-current mb-0">
+									Mission-driven								</h3>
+
+															</div>
+											                        													<div class="space-y-4">
+
+                                
+								<h3 class="text-xl lg:text-2xl text-current mb-0">
+									Principled								</h3>
+
+															</div>
+											                        													<div class="space-y-4">
+
+                                
+								<h3 class="text-xl lg:text-2xl text-current mb-0">
+									Attentive								</h3>
+
+															</div>
+											                        													<div class="space-y-4">
+
+                                
+								<h3 class="text-xl lg:text-2xl text-current mb-0">
+									Courageous								</h3>
+
+															</div>
+											                        													<div class="space-y-4">
+
+                                
+								<h3 class="text-xl lg:text-2xl text-current mb-0">
+									Transparent								</h3>
+
+															</div>
+															</div>
+					</div>
+	</div>
+
+	<div  class="relative py-16 md:py-24 lg:py-32 overflow-hidden space-y-12 lg:space-y-16">
+
+        <div class="container">
+                            <h2 class="text-center text-3xl lg:text-5xl text-forter-midnight" data-aos="fade-up">
+                    How we work                </h2>
+                                </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 max-w-screen-2xl container">
+                                                                                <div data-bg="https://www.forter.com/wp-content/uploads/2023/09/forter-week.jpg" class="min-h-[400px] p-6 xl:p-10 text-white bg-cover font-secondary flex flex-col justify-end items-start relative rounded-md overflow-hidden rocket-lazyload" style="">
+
+                            <div class="bg-gradient-to-b from-forter-blue/0 to-forter-blue layer"></div>
+
+                            <div class="relative lg:min-h-[78%]">
+                                
+                                <h3 class="text-xl lg:text-2xl text-current mb-0">
+                                    Mental Health and Wellness                                </h3>
+
+                                                            </div>
+
+                        </div>
+                                                                                                    <div data-bg="https://www.forter.com/wp-content/uploads/2023/09/4-day-weeks.jpg" class="min-h-[400px] p-6 xl:p-10 text-white bg-cover font-secondary flex flex-col justify-end items-start relative rounded-md overflow-hidden rocket-lazyload" style="">
+
+                            <div class="bg-gradient-to-b from-forter-blue/0 to-forter-blue layer"></div>
+
+                            <div class="relative lg:min-h-[78%]">
+                                
+                                <h3 class="text-xl lg:text-2xl text-current mb-0">
+                                    4.5 Day Weeks                                </h3>
+
+                                                            </div>
+
+                        </div>
+                                                                                                    <div data-bg="https://www.forter.com/wp-content/uploads/2023/09/remote.jpg" class="min-h-[400px] p-6 xl:p-10 text-white bg-cover font-secondary flex flex-col justify-end items-start relative rounded-md overflow-hidden rocket-lazyload" style="">
+
+                            <div class="bg-gradient-to-b from-forter-blue/0 to-forter-blue layer"></div>
+
+                            <div class="relative lg:min-h-[78%]">
+                                
+                                <h3 class="text-xl lg:text-2xl text-current mb-0">
+                                    Hybrid Environment                                </h3>
+
+                                                            </div>
+
+                        </div>
+                                                                                                    <div data-bg="https://www.forter.com/wp-content/uploads/2023/09/career-development.jpg" class="min-h-[400px] p-6 xl:p-10 text-white bg-cover font-secondary flex flex-col justify-end items-start relative rounded-md overflow-hidden rocket-lazyload" style="">
+
+                            <div class="bg-gradient-to-b from-forter-blue/0 to-forter-blue layer"></div>
+
+                            <div class="relative lg:min-h-[78%]">
+                                
+                                <h3 class="text-xl lg:text-2xl text-current mb-0">
+                                    Grow @ Forter                                </h3>
+
+                                                            </div>
+
+                        </div>
+                                                </div>
+        	</div>
+
+	<div  class="relative py-16 md:py-24 lg:py-32 bg-forter-midnight text-white text-center">
+                    <div class="bg-radial-grad"></div>
+        
+		<div class="relative container max-w-lg">
+			<img width="88" height="88" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2088%2088'%3E%3C/svg%3E" class="mb-4 lock" alt="" decoding="async" data-lazy-src="https://www.forter.com/wp-content/uploads/2023/09/Icon-64x64-flag.svg" /><noscript><img width="88" height="88" src="https://www.forter.com/wp-content/uploads/2023/09/Icon-64x64-flag.svg" class="mb-4 lock" alt="" decoding="async" /></noscript>
+                            <h2 class="text-center text-3xl lg:text-5xl text-white" data-aos="fade-up">
+                    Come work with us!                </h2>
+                        
+							<a href="https://www.forter.com/job-opportunities/" class="btn blue mt-12" target="">View All Openings</a>
+					</div>
+	</div>
+
+</div><!-- #content -->
+
+<footer  id="colophon" class="site-footer">
+    <div  id="up_btn"><a href="#" title="Back to top"><span>Back to top</span> <i
+                    class="arrow-new"></i></a></div>
+    <div  class="footer-main">
+
+        <div class="container">
+            <div class="row justify-center footer-columns">
+                <div class="col md:w-1/6 footer-column !md:flex-row">
+                    <div class="footer-logo">
+                        <a href="https://www.forter.com/" title="Forter Logo">
+                            <svg class="nav__logo" id="Layer_1" data-name="Layer 1" width="500"
+                                 viewBox="0 0 500 94.66027" aria-hidden="true">
+                                <polygon
+                                        points="337.099 4.185 258.872 4.185 256.386 25.407 283.142 25.407 275.389 91.567 300.106 91.567 307.856 25.407 334.609 25.407 337.099 4.185"
+                                ></polygon>
+                                <polygon
+                                        points="361.974 57.114 404.782 57.114 407.021 38.013 364.213 38.013 365.764 24.782 413.029 24.782 415.443 4.185 343.716 4.185 333.476 91.567 405.84 91.567 408.254 70.969 360.351 70.969 361.974 57.114"
+                                ></polygon>
+                                <path d="M473.84756,35.51713l-.03.24966c-.74288,6.36541-6.05392,10.36032-14.46278,10.36032H443.04725l2.46013-20.97025h16.18c8.28067,0,12.96756,3.4956,12.16016,10.36027m19.507-21.84652c-5.28613-5.991-14.30621-9.48573-27.93658-9.48573H423.24686l-10.2398,87.38176H437.7234l3.1014-26.46371H451.655l14.86312,26.46371h28.53562L477.34919,61.10891c11.6248-4.6198,19.92271-13.48321,21.49106-26.84076l.02932-.2496c1.007-8.61208-.8798-15.35455-5.515-20.34794"
+                                ></path>
+                                <path d="M118.22092,77.049a51.04856,51.04856,0,0,0,6.72693-9.38247,36.61179,36.61179,0,0,0,3.86577-10.1477,22.921,22.921,0,0,0-.13943-11.22021,14.94418,14.94418,0,0,0-7.21936-8.83762c-4.38994-2.51345-10.0461-2.8311-15.13505-2.08049a46.986,46.986,0,0,0-17.95149,6.96544,58.42682,58.42682,0,0,0-4.87975,3.47668,3.56453,3.56453,0,0,0-.9959,1.61307q-.399,2.16143-.61459,4.29957c0,.01981,0,.03531.00084.062.0155.51644.13513,2.26815,1.03378,1.41857a1.03885,1.03885,0,0,1,.1386-.10933,45.94018,45.94018,0,0,1,7.31319-5.78356,36.56531,36.56531,0,0,1,13.95143-5.41343c3.957-.58448,8.35128-.33571,11.76255,1.61827a11.616,11.616,0,0,1,5.61312,6.86641,17.82881,17.82881,0,0,1,.10933,8.72141,28.37141,28.37141,0,0,1-3.005,7.88643,39.72912,39.72912,0,0,1-5.2275,7.29335,44.86588,44.86588,0,0,1-6.05817,5.6028,43.71881,43.71881,0,0,1-6.33872,4.05683,36.97887,36.97887,0,0,1-4.74463,2.07017l-.00084.00257s-1.71383.73684-.87716,1.63981a30.85989,30.85989,0,0,0,3.43281,2.26124,3.65442,3.65442,0,0,0,3.29074-.4519,56.65843,56.65843,0,0,0,8.15585-5.218,57.68776,57.68776,0,0,0,7.79264-7.20987"
+                                ></path>
+                                <path d="M148.19266,5.04376c-10.548-5.87134-23.4433-5.12678-35.13261.79453l-.03274.01634c-.08779.04476-.173.09641-.26079.14117-1.10356.64648.27629.631.27629.631l.00174.00168c9.68631-1.90833,19.08856-2.75361,29.69418,1.91352,12.87724,6.06506,18.4198,19.51811,20.7344,30.36992h.0009s1.21451,2.7244,2.06672.09988c.29353-14.50927-5.72334-27.49753-17.34809-33.968"
+                                ></path>
+                                <path d="M139.40075,13.55445c-9.49524-5.03469-24.57607-3.394-35.95814-.61716a6.60721,6.60721,0,0,0-2.39982,1.27913Q99.434,15.69089,97.907,17.30921c-.1696.20742-1.206,1.527.18677,1.156.02842-.00688.04991-.00772.07749-.01376,12.316-3.382,27.39939-4.63614,36.00889-.01981,12.6207,6.76743,16.26,18.80628,15.59985,31.73685-.65246,12.77222-6.04608,25.68043-13.45395,36.64068l.00946.00087s-.54056,1.31528.47.76093a52.455,52.455,0,0,0,5.762-4.00949,40.55116,40.55116,0,0,0,2.55306-3.1866c6.665-10.39476,11.20387-22.449,11.51547-34.36049.35552-13.55209-4.13256-25.51171-17.23529-32.45992"
+                                ></path>
+                                <path d="M142.63959,53.29934a32.75838,32.75838,0,0,0-.82553-15.39668A21.79789,21.79789,0,0,0,131.922,25.83975c-5.92126-3.56621-13.6166-4.36846-20.64746-3.71342a67.00523,67.00523,0,0,0-21.48669,6.03316c-.03872.06547-.07918.1283-.11795.19371q-.78113,1.33246-1.48739,2.69855c-.04135.07917-.07834.15834-.11879.23757-.20574.40281-.38993.81339-.58706,1.21882-.19024.52165-.3271,1.35747,1.11212.69381.02842-.01292.04907-.01549.07576-.02669a59.86387,59.86387,0,0,1,19.0946-5.7018c6.20192-.66965,13.02272-.04734,18.245,3.1315a18.89017,18.89017,0,0,1,8.594,10.80968,30.17339,30.17339,0,0,1,.513,13.93509,50.23472,50.23472,0,0,1-4.37186,13.33432,73.66155,73.66155,0,0,1-8.31855,13.27832,87.80413,87.80413,0,0,1-9.38507,10.20883l.02065.00514s-.06026.04563-.14979.11708c-.25475.23671-.5001.48288-.75833.717-.3116.37186-.4545.74373.08953.83669a35.95309,35.95309,0,0,0,4.35379.08608l.01724-.04649a4.63183,4.63183,0,0,0,2.65551-1.08028,94.20125,94.20125,0,0,0,9.52019-10.30264A78.07644,78.07644,0,0,0,137.938,67.95756a53.206,53.206,0,0,0,4.7016-14.65822"
+                                ></path>
+                                <path d="M91.93628,74.14048a6.1394,6.1394,0,0,1-2.37575-1.29721,5.56211,5.56211,0,0,1-1.651-2.72862,9.22155,9.22155,0,0,1,.06116-4.1748,12.4783,12.4783,0,0,1,1.01655-2.72518,16.7,16.7,0,0,1,1.72412-2.76485A20.70353,20.70353,0,0,1,96.037,55.63117a16.97417,16.97417,0,0,1,6.492-2.52033,8.66654,8.66654,0,0,1,5.47368.75234,5.41438,5.41438,0,0,1,2.6116,3.19775,8.27983,8.27983,0,0,1,.05338,4.05859,13.25673,13.25673,0,0,1-1.39966,3.66776,18.30544,18.30544,0,0,1-2.43339,3.39751,20.99556,20.99556,0,0,1-2.81817,2.60555,20.45278,20.45278,0,0,1-2.9482,1.88768,16.83781,16.83781,0,0,1-3.042,1.23608,13.055,13.055,0,0,1-3.0609.54486,9.193,9.193,0,0,1-3.02906-.31848m10.01084,2.95073a30.35478,30.35478,0,0,0,4.40029-2.8156,31.34731,31.34731,0,0,0,4.20832-3.89412,27.287,27.287,0,0,0,3.62988-5.06311,19.75154,19.75154,0,0,0,2.0848-5.47542,12.36533,12.36533,0,0,0-.0766-6.05638,8.065,8.065,0,0,0-3.895-4.76958,12.93866,12.93866,0,0,0-8.17044-1.12163,25.40925,25.40925,0,0,0-9.68721,3.75818,30.988,30.988,0,0,0-7.94585,7.19009,25.06607,25.06607,0,0,0-2.57371,4.12311,19.35127,19.35127,0,0,0-1.36089,3.5042c-.05248.18683-.10759.36756-.15577.56384a13.80312,13.80312,0,0,0-.09042,6.23028,8.32372,8.32372,0,0,0,2.46444,4.07406,8.92081,8.92081,0,0,0,2.7536,1.65528c.26.09985.52075.19709.79106.27716a13.80808,13.80808,0,0,0,4.52165.47946,19.48975,19.48975,0,0,0,4.563-.81517,25.2851,25.2851,0,0,0,4.53888-1.84465"
+                                ></path>
+                                <path d="M100.03233,67.71347a9.0382,9.0382,0,0,0,1.31612-.841,9.474,9.474,0,0,0,1.2576-1.16718,8.06362,8.06362,0,0,0,1.08543-1.51066,5.9857,5.9857,0,0,0,.62661-1.63892,3.71512,3.71512,0,0,0-.02579-1.81628,2.40138,2.40138,0,0,0-1.16466-1.42371,3.4578,3.4578,0,0,0-1.78349-.38994,5.32108,5.32108,0,0,0-.61291.05422,7.58008,7.58008,0,0,0-2.89992,1.12336A9.34936,9.34936,0,0,0,95.453,62.25617a7.34917,7.34917,0,0,0-.76957,1.23264,5.72884,5.72884,0,0,0-.45618,1.21714,4.14824,4.14824,0,0,0-.02412,1.86183,2.49346,2.49346,0,0,0,.736,1.22061,2.72773,2.72773,0,0,0,1.06047.58017,4.1,4.1,0,0,0,1.31355.142,5.819,5.819,0,0,0,1.3592-.24362,7.4824,7.4824,0,0,0,1.36-.55348"
+                                ></path>
+                                <polygon
+                                        points="33.469 25.407 80.097 25.407 82.584 4.184 11.238 4.184 1 91.567 25.716 91.567 29.373 60.36 71.543 60.36 73.897 40.261 31.726 40.261 33.469 25.407"
+                                ></polygon>
+                                <path d="M227.66969,35.51713l-.0301.24966c-.74546,6.36541-6.05471,10.36032-14.46278,10.36032H196.86938l2.4575-20.97025h16.18c8.28156,0,12.96587,3.4956,12.16278,10.36027m19.50266-21.84652c-5.28607-5.991-14.30443-9.48573-27.9348-9.48573H177.06636L166.82914,91.56664h24.71634l3.09877-26.46371h10.83117l14.86306,26.46371h28.5373l-17.707-30.45773c11.6248-4.6198,19.92528-13.48321,21.49106-26.84076l.02753-.2496c1.00882-8.61208-.87544-15.35455-5.515-20.34794"
+                                ></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="footer-badge md:pt-[145px] md:pb-4">
+                        <!--						<a rel="noopener noreferrer" href="https://www.g2.com/products/forter/reviews" target="_blank">-->
+                        <!--							<img src="--><!--/img/badge.svg" width="80" height="104" alt="Leader Fall 2022">-->
+                        <!--						</a>-->
+                        <!--						<a rel="noopener noreferrer" href="https://www.g2.com/products/forter/reviews" target="_blank">-->
+                        <!--							<img src="--><!--/img/medal.svg" width="80" height="104" alt="Leader Winter 2023">-->
+                        <!--						</a>-->
+                        <!--						<a rel="noopener noreferrer" href="https://www.g2.com/products/forter/reviews" target="_blank">-->
+                        <!--							<img src="--><!--/img/l-badge.svg" width="80" height="104" alt="Leader Winter 2023">-->
+                        <!--						</a>-->
+                        <!--						<a rel="noopener noreferrer" href="https://www.g2.com/products/forter/reviews" target="_blank">-->
+                        <!--							<img src="--><!--/img/m-badge.svg" width="80" height="104" alt="Leader Winter 2023">-->
+                        <!--						</a>-->
+                    </div>
+                    <div class="footer-lang">
+                        <div class="flex items-center gap-2 flex-col justify-start text-left">
+							<form toolname="switch_site_language" tooldescription="Switch the Forter website to another language. Navigates to the localized version of the site. Supported: English, German (Deutsch), Chinese (中文 中国), Japanese (日本語), French (Français)." toolautosubmit id="forter-lang-tool"><select name="lang_choice_1" id="lang_choice_1" class="pll-switcher-select" toolparamdescription="Target language for the Forter site. Pick the option matching the user&#039;s preferred language; its value is the localized site URL to load." aria-label="Site language">
+	<option value="https://www.forter.com/careers/" lang="en-US" selected='selected' data-lang="{&quot;id&quot;:0,&quot;name&quot;:&quot;English&quot;,&quot;slug&quot;:&quot;en&quot;,&quot;dir&quot;:0}">English</option>
+	<option value="https://www.forter.com/de/careers/" lang="de-DE" data-lang="{&quot;id&quot;:0,&quot;name&quot;:&quot;Deutsch&quot;,&quot;slug&quot;:&quot;de&quot;,&quot;dir&quot;:0}">Deutsch</option>
+	<option value="https://www.forter.com/ja/careers/" lang="ja" data-lang="{&quot;id&quot;:0,&quot;name&quot;:&quot;\u65e5\u672c\u8a9e&quot;,&quot;slug&quot;:&quot;ja&quot;,&quot;dir&quot;:0}">日本語</option>
+
+</select>
+</form><script type="text/rocketlazyloadscript">!function(){"use strict";var t=document.getElementById("forter-lang-tool");t&&t.addEventListener("submit",function(e){e.preventDefault();var n=t.querySelector('select[name="lang_choice_1"]'),o=n&&n.value?n.value:"",a=n?n.options[n.selectedIndex]:null,l=a&&a.getAttribute("lang")||"",i=a?(a.textContent||"").trim():"";if("function"==typeof e.respondWith){e.respondWith(Promise.resolve({content:[{type:"text",text:JSON.stringify({status:o?"ok":"no_selection",tool:"switch_site_language",language:l,language_name:i,target_url:o,action:o?"Navigate the user to target_url to complete the language switch.":"No language selected - nothing to do."},null,2)}]}));return}o&&(window.location.href=o)})}();</script><script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">
+					document.getElementById( "lang_choice_1" ).addEventListener( "change", function ( event ) { location.href = event.currentTarget.value; } )
+				</script>                        </div>
+
+                    </div>
+                </div>
+
+				                    <div class="col w-1/2 md:w-1/6 footer-column">
+                        <ul>
+                            <li>Products</li>
+                            <li><a href="/platform/fraud-management/">Fraud Management</a></li>
+                            <li><a href="/platform/payment-optimization/">Payment Optimization</a></li>
+                            <li><a href="/platform/dispute-management/">Dispute Management</a></li>
+                            <li><a href="/platform/account-protection/">Account Protection</a></li>
+                            <li><a href="/platform/abuse-prevention/">Abuse Prevention</a></li>
+                            <li><a href="/forter-element/">Forter Element</a></li>
+                        </ul>
+                    </div>
+                    <div class="col w-1/2 md:w-1/6 footer-column">
+                        <ul>
+                            <li>RESOURCES</li>
+                            <!--							<li><a href="/pricing/">Pricing</a></li>-->
+                            <li><a href="/blog/">Blog</a></li>
+                            <li><a href="/resources/">Resource Center</a></li>
+                            <li><a href="/events/">Events</a></li>
+                            <li><a href="/new-at-forter/">New at Forter</a></li>
+                            <li><a href="https://hello.forter.com/roi-calculator/">ROI Calculator</a></li>
+                            <li><a href="https://docs.forter.com/">Documentation</a></li>
+                        </ul>
+                    </div>
+                    <div class="col w-1/2 md:w-1/6 footer-column">
+                        <ul>
+                            <li>COMPANY</li>
+                            <li><a href="/company/">About</a></li>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/partners/">Partners</a></li>
+                            <li><a href="/customers/">Customers</a></li>
+                            <li><a href="/privacy-security-hub/">Privacy & Security</a></li>
+                            <li><a href="/terms-of-use/">Terms of Use</a></li>
+                            <li><a href="/contact-us/">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col w-1/2 md:w-1/6 footer-column">
+                        <ul>
+                            <li>CONTACT US</li>
+                            <li>1-800-537-0601</li>
+                            <li><a href="/cdn-cgi/l/email-protection#7e171018113e18110c0a1b0c501d1113"><span class="__cf_email__" data-cfemail="ddb4b3bbb29dbbb2afa9b8aff3beb2b0">[email&#160;protected]</span></a></li>
+                            <li><a href="/cdn-cgi/l/email-protection#4734262b2234072128353322356924282a"><span class="__cf_email__" data-cfemail="d6a5b7bab3a596b0b9a4a2b3a4f8b5b9bb">[email&#160;protected]</span></a></li>
+                            <li><a target="_blank" href="https://support.forter.com/">support.forter.com</a></li>
+                            <li><a href="/cdn-cgi/l/email-protection#7a12083a1c15080e1f0854191517"><span class="__cf_email__" data-cfemail="78100a381e170a0c1d0a561b1715">[email&#160;protected]</span></a></li>
+                        </ul>
+                        <ul class="footer-social">
+                            <li class="footer-social__item"><a href="https://www.instagram.com/forter_life/" title="iIstagram"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="footer-social__item__link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                </a></li>
+                            <li class="footer-social__item"><a href="https://x.com/ForterGlobal" title="X"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="footer-social__item__link">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" role="img" aria-hidden="true" fill="currentColor">
+                                        <path d="M18.244 2H21l-6.563 7.5L22.5 22h-6.75l-5.188-6.169L3.756 22H1l7.206-8.236L1.5 2h6.75l4.875 5.794L18.244 2z"/>
+                                    </svg>
+                                </a></li>
+                            <li class="footer-social__item"><a href="https://www.linkedin.com/company/forter/"
+                                                               title="Linkedin" target="_blank"
+                                                               rel="noopener noreferrer"
+                                                               class="footer-social__item__link">
+                                    <svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"
+                                         height="18px" width="18px" xml:space="preserve"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink"><g id="comp_x5F_201-linkedin">
+                                            <g>
+                                                <rect height="316.249" width="102.59" x="26.623" y="169.75"/>
+                                                <path d="M408.65,173.458c-1.092-0.341-2.123-0.715-3.268-1.037c-1.381-0.313-2.754-0.577-4.16-0.8    c-5.443-1.095-11.414-1.871-18.408-1.871c-59.805,0-97.746,43.617-110.238,60.461V169.75h-102.59v316.249h102.588V313.501    c0,0,77.525-108.273,110.24-28.754v201.252h102.563V272.588C485.377,224.804,452.717,184.986,408.65,173.458z"/>
+                                                <path d="M76.803,126.626c27.707,0,50.176-22.522,50.176-50.313c0-27.785-22.469-50.312-50.176-50.312    c-27.711,0-50.18,22.526-50.18,50.312C26.623,104.103,49.092,126.626,76.803,126.626z"/>
+                                            </g>
+                                        </g>
+                                        <g id="Layer_1"/></svg>
+                                </a></li>
+                        </ul>
+                        <div class="footer-copy">&copy;&nbsp;Forter</div>
+                    </div>
+					
+
+            </div>
+        </div>
+    </div>
+
+
+</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script id="leadin-script-loader-js-js-extra">
+var leadin_wordpress = {"userRole":"visitor","pageType":"page","leadinPluginVersion":"11.3.75"};
+//# sourceURL=leadin-script-loader-js-js-extra
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" async defer id='hs-script-loader' data-rocket-src="https://www.forter.com/wp-content/cache/min/1/2776164.js?ver=1790275328"></script>
+<script type="text/rocketlazyloadscript" id="pll_cookie_script-js-after">
+(function() {
+				var expirationDate = new Date();
+				expirationDate.setTime( expirationDate.getTime() + 31536000 * 1000 );
+				document.cookie = "pll_language=en; expires=" + expirationDate.toUTCString() + "; path=/; secure; SameSite=Lax";
+			}());
+
+//# sourceURL=pll_cookie_script-js-after
+</script>
+<script type="text/rocketlazyloadscript" id="jquery-js" data-rocket-src="https://www.forter.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" data-rocket-defer defer></script>
+<script id="hubspot-forms-js" src="https://js.hsforms.net/forms/v2.js?ver=7.1.1"></script>
+<script type="text/rocketlazyloadscript" id="blank-custom-js-js-before">
+const forterFormInfo = {"language":"EN","requestedResource":null}
+//# sourceURL=blank-custom-js-js-before
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="blank-custom-js-js" data-rocket-src="https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/js/custom.js?ver=1790275328" data-rocket-defer defer></script>
+<script id="particles-animation-everywhere-js" src="https://www.forter.com/wp-content/themes/blank/js/particles-animation/everywhere/webgl-anim.es.js?t=1713268241&#038;ver=7.1.1" data-rocket-defer defer></script>
+<script id="forter-custom-alpine-js" src="https://www.forter.com/wp-content/themes/blank/js/custom-alpine.js?t=1787063213&#038;ver=7.1.1" data-rocket-defer defer></script>
+<script id="forter-alpine-collapse-js" src="https://www.forter.com/wp-content/themes/blank/js/alpine-collapse.js?t=1711550916&#038;ver=7.1.1" data-rocket-defer defer></script>
+<script data-minify="1" id="forter-alpine-intersect-js" src="https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/js/alpine-intersect.js?ver=1790275328" data-rocket-defer defer></script>
+<script id="forter-alpine-js" src="https://www.forter.com/wp-content/themes/blank/js/alpine.js?t=1711550916&#038;ver=7.1.1" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="blank-aos-js-js" data-rocket-src="https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/js/aos.js?ver=1790275328" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="blank-cookie-js-js" data-rocket-src="https://www.forter.com/wp-content/themes/blank/js/js.cookie.min.js?t=1689162456&#038;ver=7.1.1" data-rocket-defer defer></script>
+<script data-minify="1" id="p_utm-js" src="https://www.forter.com/wp-content/cache/min/1/wp-content/themes/blank/js/persistant-utm.js?ver=1790275328" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="blank-slick-js-js" data-rocket-src="https://www.forter.com/wp-content/themes/blank/js/slick.min.js?t=1689162456&#038;ver=7.1.1" data-rocket-defer defer></script>
+<script type="text/rocketlazyloadscript" id="blank-hoverintent-js-js" data-rocket-src="https://www.forter.com/wp-content/themes/blank/js/jquery.hoverIntent.min.js?t=1689162456&#038;ver=7.1.1" data-rocket-defer defer></script>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/blank/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+    <!--    <script type="text/rocketlazyloadscript" data-rocket-type="text/javascript" id="hs-script-loader" async defer data-rocket-src="//js.hs-scripts.com/2776164.js"></script>-->
+
+    <!-- Google Tag Manager moved to wp_head (see forter_add_head_scripts) -->
+
+    <script type="text/rocketlazyloadscript">
+        (function() {
+            if (typeof window === 'undefined') return;
+            if (typeof window.signals !== 'undefined') return;
+            var script = document.createElement('script');
+            script.src = 'https://cdn.cr-relay.com/v1/site/3a0adefe-5239-4508-8c94-70f582a75d28/signals.js';
+            script.async = true;
+            window.signals = Object.assign(
+                [], {
+                    _opts: {
+                        apiHost: 'https://api.cr-relay.com'
+                    }
+                },
+                ['page', 'identify', 'form'].reduce(function(acc, method) {
+                    acc[method] = function() {
+                        signals.push([method, arguments]);
+                        return signals;
+                    };
+                    return acc;
+                }, {})
+            );
+            document.head.appendChild(script);
+        })();
+    </script>
+    <!--    <script type="text/rocketlazyloadscript" data-rocket-src="https://consent.cookiefirst.com/banner.js" data-cookiefirst-key="87a943bc-dd30-454e-9dc5-233d95033f7e"></script>-->
+    <!-- <script type="text/rocketlazyloadscript" charset="ISO-8859-1" data-rocket-src="//fast.wistia.com/assets/external/E-v1.js" async></script> -->
+
+
+    <script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.forter.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+
+</body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->

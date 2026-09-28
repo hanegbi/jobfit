@@ -1,0 +1,2583 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:og="http://opengraphprotocol.org/schema/"
+    xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TL5ZS84');</script>
+<!-- End Google Tag Manager -->    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="EX.CO &#8211; the machine-learning video platform - ">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="">
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<!-- PostHog analytics -->
+<script>
+(function () {
+  var ENVIRONMENTS = {
+  "ex.co": "production",
+  "excowebsitestg.wpengine.com": "staging",
+  "excowebsitestg.wpenginepowered.com": "staging",
+  "newexco.wpengine.com": "newexco",
+  "newexco.wpenginepowered.com": "newexco",
+  "www.ex.co": "production"
+};
+
+  // Environments where analytics must NOT run without explicit consent.
+  // Fail closed: if production loses its CMP, nothing is collected.
+  var REQUIRE_CONSENT = {"newexco": false, "production": true, "staging": false};
+
+  var host = String(window.location.hostname || '').toLowerCase();
+  var environment = ENVIRONMENTS[host];
+
+  // Not a known EX.CO host -> do nothing at all.
+  if (!environment) { return; }
+
+  // www.ex.co runs CookieYes (GDPR, default-deny). Obey it wherever present;
+  // where consent is required but no CMP answers, refuse.
+  function analyticsAllowed() {
+    try {
+      if (typeof window.getCkyConsent === 'function') {
+        var c = window.getCkyConsent();
+        if (c && c.categories) { return c.categories.analytics === true; }
+      }
+    } catch (e) { /* CMP broken -> treat as no consent */ }
+    return REQUIRE_CONSENT[environment] !== true;
+  }
+
+  var started = false;
+
+  function startPostHog() {
+    if (started || !analyticsAllowed()) { return; }
+    started = true;
+
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+    posthog.init("phc_vkSa7cEnXGdqmCG7Ak4gHnYpymMmy5HHHRLk4Nk3gQeA", {
+      api_host: "https://us.i.posthog.com",
+      person_profiles: 'identified_only',
+      // The automatic pageview does not fire reliably here: the snippet runs in
+      // wp_head, before <body> exists, and posthog-js defers its own pageview to
+      // a DOM-ready handler that the site's jQuery event storm can break. So we
+      // turn it off and send exactly one ourselves in loaded() below --
+      // deterministic, and impossible to double-count.
+      capture_pageview: false,
+      capture_pageleave: true,
+      capture_performance: { web_vitals: true },
+      autocapture: true,
+      disable_session_recording: false,
+      session_recording: { maskAllInputs: true },
+      loaded: function (ph) {
+        // Tags every event so staging traffic can be filtered out of the real
+        // numbers instead of quietly inflating them.
+        ph.register({ environment: environment, site_host: host });
+
+        // The pageview the library would otherwise have sent.
+        ph.capture('$pageview');
+      }
+    });
+  }
+
+  startPostHog();
+  ['cookieyes_consent_update', 'cookie_consent_update'].forEach(function (evt) {
+    document.addEventListener(evt, startPostHog);
+    window.addEventListener(evt, startPostHog);
+  });
+})();
+</script>
+<!-- /PostHog analytics -->
+	
+	<!-- This site is optimized with the Yoast SEO Premium plugin v27.6 (Yoast SEO v28.4) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+	<title>Careers – EX.CO – join the team shaping video’s future</title>
+	<meta name="description" content="Work with a global team redefining video technology. Explore careers at EX.CO and help build smarter solutions for media growth." />
+	<link rel="canonical" href="https://ex.co/careers/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="EX.CO - the machine-learning video platform" />
+	<meta property="og:description" content="Work with a global team redefining video technology. Explore careers at EX.CO and help build smarter solutions for media growth." />
+	<meta property="og:url" content="https://ex.co/careers/" />
+	<meta property="og:site_name" content="EX.CO - the machine-learning video platform" />
+	<meta property="article:modified_time" content="2025-11-14T19:24:51+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="1 minute" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/ex.co\/careers\/","url":"https:\/\/ex.co\/careers\/","name":"Careers – EX.CO – join the team shaping video’s future","isPartOf":{"@id":"https:\/\/ex.co\/#website"},"datePublished":"2019-12-03T10:10:32+00:00","dateModified":"2025-11-14T19:24:51+00:00","description":"Work with a global team redefining video technology. Explore careers at EX.CO and help build smarter solutions for media growth.","breadcrumb":{"@id":"https:\/\/ex.co\/careers\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/ex.co\/careers\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/ex.co\/careers\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/ex.co\/"},{"@type":"ListItem","position":2,"name":"Careers"}]},{"@type":"WebSite","@id":"https:\/\/ex.co\/#website","url":"https:\/\/ex.co\/","name":"EX.CO - the machine-learning video platform","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/ex.co\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://ex.co/wp-includes/css/dist/block-library/style.min.css?ver=7.1.2' media='all' />
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="tg-block-cover-video-style-inline-css">
+.block-cover-video {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #FAFAFA;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+.block-cover-video p {
+  letter-spacing: 0;
+}
+
+.block-cover-video__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.block-cover-video__video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom center;
+     object-position: bottom center;
+}
+
+.block-cover-video .container {
+  position: relative;
+  z-index: 1;
+}
+
+.block-cover-video__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.block-cover-video__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.block-cover-video__title {
+  text-align: center;
+  margin-bottom: 8px !important;
+  color: var(--tg2-color-purple-700);
+}
+
+.block-cover-video__text {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--tg2-color-purple-700);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.block-cover-video__text p {
+  margin: 0;
+}
+
+.block-cover-video__text p:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.block-cover-video__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 767px) {
+  .block-cover-video {
+    min-height: 600px;
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
+  .block-cover-video__title {
+    font-size: 37px;
+    line-height: 48px;
+    letter-spacing: 0;
+    margin-bottom: 16px;
+  }
+
+  .block-cover-video__text {
+    font-size: 17px;
+    line-height: 26px;
+    letter-spacing: 0;
+    margin-bottom: 24px;
+  }
+
+  .block-cover-video__buttons {
+    flex-direction: column;
+  }
+}
+/*# sourceURL=https://ex.co/wp-content/themes/tg/inc/blocks/block-cover-video/block.css */
+</style>
+<style id="tg-block-cover-video-side-style-inline-css">
+.block-cover-video-side {
+  position: relative;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #FAFAFA;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+.block-cover-video-side p {
+  letter-spacing: 0;
+}
+
+.block-cover-video-side__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.block-cover-video-side__video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.block-cover-video-side__poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.block-cover-video-side__poster img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.block-cover-video-side__poster.is-hidden {
+  opacity: 0;
+}
+
+.block-cover-video-side .container {
+  position: relative;
+  z-index: 1;
+}
+
+.block-cover-video-side__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.block-cover-video-side__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 50%;
+  max-width: 540px;
+}
+
+.block-cover-video-side__title {
+  text-align: left;
+  margin-bottom: 8px !important;
+  color: var(--tg2-color-purple-700);
+}
+
+.block-cover-video-side__title .text-color-gradient-blue-purple {
+  padding-right: 5px;
+}
+
+.block-cover-video-side__text {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--tg2-color-purple-700);
+  text-align: left;
+  margin-bottom: 24px;
+  max-width: 420px;
+}
+
+.block-cover-video-side__text p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.block-cover-video-side__text p:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.block-cover-video-side__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1921px) {
+  .block-cover-video-side {
+    height: 850px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .block-cover-video-side {
+    height: 530px;
+  }
+
+  .block-cover-video-side__title {
+    max-width: 410px;
+  }
+
+  .block-cover-video-side__text {
+    max-width: 340px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .block-cover-video-side {
+    height: 490px;
+  }
+
+  .block-cover-video-side .container {
+    width: 100%;
+  }
+
+  .block-cover-video-side__content {
+    width: 335px;
+  }
+
+  .block-cover-video-side__text {
+    max-width: 285px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .block-cover-video-side {
+    height: 700px;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    align-items: flex-start;
+  }
+
+  .block-cover-video-side__content {
+    width: 100%;
+  }
+
+  .block-cover-video-side__title {
+    font-size: 37px;
+    line-height: 48px;
+    letter-spacing: 0;
+    margin-bottom: 16px;
+  }
+
+  .block-cover-video-side__text {
+    font-size: 17px;
+    line-height: 26px;
+    letter-spacing: 0;
+    margin-bottom: 24px;
+    max-width: unset;
+  }
+
+  .block-cover-video-side__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .block-cover-video-side__video {
+    -o-object-position: bottom;
+       object-position: bottom;
+  }
+
+  .block-cover-video-side__poster img {
+    -o-object-position: bottom;
+       object-position: bottom;
+  }
+}
+/*# sourceURL=https://ex.co/wp-content/themes/tg/inc/blocks/block-cover-video-side/block.css */
+</style>
+<style id="tg-block-features-cards-style-inline-css">
+.block-features-cards {
+  padding: 80px 0;
+}
+
+.block-features-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 730px;
+  margin: 0 auto;
+}
+
+.block-features-cards__card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.block-features-cards__card--mint {
+  background-color: var(--tg2-color-mint-100);
+}
+
+.block-features-cards__card--mint:hover {
+  background-color: var(--tg2-color-mint-200);
+}
+
+.block-features-cards__card--pink {
+  background-color: var(--tg2-color-pink-100);
+}
+
+.block-features-cards__card--pink:hover {
+  background-color: var(--tg2-color-pink-200);
+}
+
+.block-features-cards__card--purple {
+  background-color: var(--tg2-color-purple-100);
+}
+
+.block-features-cards__card--purple:hover {
+  background-color: var(--tg2-color-purple-200);
+}
+
+.block-features-cards__card--green {
+  background-color: var(--tg2-color-success-50);
+}
+
+.block-features-cards__card--green:hover {
+  background-color: #d4e8d4;
+}
+
+.block-features-cards__card--blue {
+  background-color: #ecf4ff;
+}
+
+.block-features-cards__card--blue:hover {
+  background-color: #d4e8ff;
+}
+
+.block-features-cards__card--blue .block-features-cards__title {
+  color: #102666;
+}
+
+.block-features-cards__card--blue2 {
+  background-color: #dde4fa;
+}
+
+.block-features-cards__card--blue2:hover {
+  background-color: #c5d0f7;
+}
+
+.block-features-cards__card--blue2 .block-features-cards__title {
+  color: #102666;
+}
+
+.block-features-cards__card--orange {
+  background-color: #fdeedc;
+}
+
+.block-features-cards__card--orange:hover {
+  background-color: #fbe0c2;
+}
+
+.block-features-cards__card--orange .block-features-cards__title {
+  color: #6b3a0f;
+}
+
+.block-features-cards__image {
+  flex-shrink: 0;
+  width: 90px;
+}
+
+.block-features-cards__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.block-features-cards__title {
+  margin: 0;
+  font-family: var(--tg2-font-family-base);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--tg2-color-primary-black);
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__grid {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  max-width: none;
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card {
+  display: block;
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  border-radius: 12px;
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card--mint {
+  --tg-fc-bg: var(--tg2-color-mint-50);
+  --tg-fc-bg-hover: var(--tg2-color-mint-100);
+  --tg-fc-accent: var(--tg2-color-mint-700);
+  --tg-fc-shadow: var(--tg2-color-mint-500);
+  --tg-fc-icon-bg: var(--tg2-color-mint-200);
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card--pink {
+  --tg-fc-bg: var(--tg2-color-pink-50);
+  --tg-fc-bg-hover: var(--tg2-color-pink-100);
+  --tg-fc-accent: var(--tg2-color-pink-700);
+  --tg-fc-shadow: var(--tg2-color-pink-500);
+  --tg-fc-icon-bg: var(--tg2-color-pink-200);
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card--purple {
+  --tg-fc-bg: var(--tg2-color-purple-50);
+  --tg-fc-bg-hover: var(--tg2-color-purple-100);
+  --tg-fc-accent: var(--tg2-color-purple-700);
+  --tg-fc-shadow: var(--tg2-color-purple-500);
+  --tg-fc-icon-bg: #ded7ff;
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card--green {
+  --tg-fc-bg: var(--tg2-color-mint-50);
+  --tg-fc-bg-hover: var(--tg2-color-mint-100);
+  --tg-fc-accent: var(--tg2-color-mint-700);
+  --tg-fc-shadow: var(--tg2-color-mint-500);
+  --tg-fc-icon-bg: var(--tg2-color-mint-200);
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card--blue,
+.block-features-cards[data-layout=icons] .block-features-cards__card--blue2 {
+  --tg-fc-bg: var(--tg2-color-blue-50);
+  --tg-fc-bg-hover: var(--tg2-color-blue-100);
+  --tg-fc-accent: var(--tg2-color-blue-700);
+  --tg-fc-shadow: var(--tg2-color-blue-500);
+  --tg-fc-icon-bg: rgba(178, 196, 249, 0.5);
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card--orange {
+  --tg-fc-bg: var(--tg2-color-orange-50);
+  --tg-fc-bg-hover: var(--tg2-color-orange-100);
+  --tg-fc-accent: var(--tg2-color-orange-700);
+  --tg-fc-shadow: var(--tg2-color-orange-500);
+  --tg-fc-icon-bg: var(--tg2-color-orange-300);
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card:hover .block-features-cards__arrow {
+  transform: translate(2px, -2px);
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card:hover .block-features-cards__card-inner {
+  background-color: var(--tg-fc-bg-hover);
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: var(--tg-fc-shadow);
+  border-radius: 12px;
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__card-inner {
+  background-color: var(--tg-fc-bg);
+  padding: 18px;
+  border-radius: 12px;
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 30px;
+  border-radius: 7px;
+  background-color: var(--tg-fc-icon-bg, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__icon img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__arrow {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  color: var(--tg-fc-shadow, var(--tg2-color-primary-black));
+  transition: transform 0.3s ease;
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__title {
+  margin: 0 0 4px;
+  color: var(--tg-fc-accent, var(--tg2-color-primary-black));
+}
+
+.block-features-cards[data-layout=icons] .block-features-cards__subtitle {
+  margin: 0;
+  color: var(--tg-fc-accent, var(--tg2-color-gray-500));
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 1200px) {
+  .block-features-cards[data-layout=icons] .block-features-cards__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .block-features-cards {
+    padding: 60px 0;
+  }
+
+  .block-features-cards__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .block-features-cards__card {
+    padding: 16px 20px;
+  }
+
+  .block-features-cards__image {
+    width: 90px;
+  }
+
+  .block-features-cards__title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .block-features-cards[data-layout=icons] .block-features-cards__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .block-features-cards[data-layout=icons] .block-features-cards__card-inner {
+    padding: 12px;
+  }
+
+  .block-features-cards[data-layout=icons] .block-features-cards__icon {
+    margin-bottom: 22px;
+  }
+}
+/*# sourceURL=https://ex.co/wp-content/themes/tg/inc/blocks/block-features-cards/block.css */
+</style>
+<link rel='stylesheet' id='tg-block-form-style-css' href='https://ex.co/wp-content/themes/tg/inc/blocks/block-form/block.css?ver=7.1.2' media='all' />
+<style id="tg-block-image-and-text-style-inline-css">
+/**
+ * Block: Image and Text
+ */
+
+.block-image-and-text {
+  padding: 40px 0;
+}
+
+.block-image-and-text[data-padding-x2] {
+  padding: 80px 0;
+}
+
+.block-image-and-text,
+.block-image-and-text[data-direction=normal] {
+  --grid-auto-flow: normal;
+  --grid-columns: var(--content-column-width) var(--media-column-width);
+  --inner-justify-content: flex-end;
+  --col-justify-items: end;
+}
+
+.block-image-and-text[data-direction=reversed] {
+  --grid-auto-flow: dense;
+  --grid-columns: var(--media-column-width) var(--content-column-width);
+  --inner-justify-content: flex-start;
+  --col-justify-items: start;
+}
+
+.block-image-and-text[data-layout=normal] {
+  --columns-grid-gap: 80px;
+  --content-column-width: 495px;
+  --media-column-width: 600px;
+}
+
+.block-image-and-text[data-layout=centered] {
+  --columns-grid-gap: 80px;
+}
+
+.block-image-and-text[data-layout=centered],
+.block-image-and-text[data-layout=centered][data-direction=normal],
+.block-image-and-text[data-layout=centered][data-direction=reversed] {
+  --grid-columns: 1fr;
+  --first-column-col-position: 1;
+  --last-column-col-position: 1;
+  --col-justify-items: center;
+}
+
+.block-image-and-text[data-layout=centered][data-direction=normal] {
+  --first-column-row-position: 1;
+  --last-column-row-position: 2;
+}
+
+.block-image-and-text[data-layout=centered] .block-image-and-text__content {
+  text-align: center;
+}
+
+.block-image-and-text[data-layout=bigimage] {
+  --columns-grid-gap: 30px;
+  --content-column-width: 0.5fr;
+  --media-column-width: 1fr;
+  --inner-justify-content: center;
+}
+
+.block-image-and-text,
+.block-image-and-text[data-theme=light] {
+  --title-color: var(--tg2-color-primary-black);
+  --text-color: var(--tg2-color-primary-black);
+  --bullet-color: rgba(19, 25, 45, 0.3);
+  --bullet-indicator-color: var(--tg2-color-primary-black);
+}
+
+.block-image-and-text[data-theme=dark] {
+  --title-color: var(--tg2-color-primary-white);
+  --text-color: var(--tg2-color-primary-white);
+  --bullet-color: rgba(255, 255, 255, 0.3);
+  --bullet-indicator-color: var(--tg2-color-primary-white);
+}
+
+.block-image-and-text[data-background-color=gradient-green-purple] {
+  position: relative;
+  z-index: 1;
+  background-image: url("/wp-content/themes/tg/inc/blocks/block-image-and-text/../../../../assets/images/sections/v2-imageandtext/bg-blue-green-purple.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.block-image-and-text[data-background-color=gradient-green-purple]:after {
+  content: "";
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("/wp-content/themes/tg/inc/blocks/block-image-and-text/../../../../assets/images/sections/v2-imageandtext/bg-overlay.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: soft-light;
+  opacity: 0.24;
+}
+
+.block-image-and-text[data-background-color=gradient-purple] {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(209.01deg, var(--tg2-color-purple-300) -0.03%, var(--tg2-color-purple-500) 93.82%), var(--tg2-color-primary-white);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.block-image-and-text[data-background-color=gradient-purple]:after {
+  content: "";
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("/wp-content/themes/tg/inc/blocks/block-image-and-text/../../../../assets/images/sections/v2-imageandtext/bg-overlay.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: soft-light;
+  opacity: 0.24;
+}
+
+.block-image-and-text__inner {
+  display: grid;
+  grid-template-columns: var(--grid-columns);
+  align-items: center;
+  justify-content: var(--inner-justify-content);
+  grid-gap: var(--columns-grid-gap);
+}
+
+.block-image-and-text__col {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  align-content: center;
+  justify-items: var(--col-justify-items);
+}
+
+.block-image-and-text__col:first-child {
+  grid-column: var(--first-column-col-position);
+  grid-row: var(--first-column-row-position);
+}
+
+.block-image-and-text__col:last-child {
+  grid-column: var(--last-column-col-position);
+  grid-row: var(--last-column-row-position);
+}
+
+.block-image-and-text__content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 12px;
+  position: relative;
+}
+
+.block-image-and-text__content .swiper-pagination {
+  top: 100%;
+  margin-top: 30px;
+}
+
+.block-image-and-text__content .swiper-pagination-bullet {
+  position: relative;
+  width: 42px;
+  height: 3px;
+  text-align: left;
+  border-radius: 3px;
+  opacity: 1;
+  margin-right: 12px;
+  background-color: var(--bullet-color);
+  overflow: hidden;
+}
+
+.block-image-and-text__content .swiper-pagination-bullet .bullet-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 0%;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--bullet-indicator-color);
+}
+
+.block-image-and-text__content .swiper-pagination-bullet-active .bullet-indicator {
+  animation-name: animatedBullet;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animatedBullet {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.block-image-and-text__title {
+  margin: 0;
+  color: var(--title-color);
+}
+
+.block-image-and-text__title-big {
+  margin: 0;
+  color: var(--title-color);
+}
+
+.block-image-and-text__text {
+  color: var(--text-color);
+}
+
+.block-image-and-text__text p {
+  margin: 0;
+  font-size: var(--tg2-font-size-body-l);
+  line-height: var(--tg2-line-height-body-l);
+  font-weight: var(--tg2-font-weight-light);
+  letter-spacing: var(--tg2-letter-spacing);
+}
+
+.block-image-and-text__text p:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.block-image-and-text__text a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.block-image-and-text__media img {
+  max-width: 100%;
+  height: auto;
+}
+
+.block-image-and-text__video {
+  position: relative;
+}
+
+.block-image-and-text__video video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.block-image-and-text__video-shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 6px 6px 24px rgba(38, 44, 94, 0.25);
+  border-radius: 19px;
+  z-index: 3;
+}
+
+.block-image-and-text__slider {
+  width: 100%;
+}
+
+.block-image-and-text__slide {
+  width: 100% !important;
+  position: relative;
+}
+
+.block-image-and-text__slide-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 92%;
+}
+
+.block-image-and-text__slide-image img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.block-image-and-text__buttons {
+  margin-top: 8px;
+}
+
+@media (min-width: 992px) {
+  .block-image-and-text,
+  .block-image-and-text[data-direction=normal] {
+    --first-column-col-position: 1;
+    --last-column-col-position: 2;
+    --first-column-row-position: 1;
+    --last-column-row-position: 1;
+  }
+
+  .block-image-and-text[data-direction=reversed] {
+    --first-column-col-position: 2;
+    --last-column-col-position: 1;
+  }
+}
+
+@media (max-width: 1439px) {
+  .block-image-and-text[data-layout=normal] {
+    --columns-grid-gap: 60px;
+    --content-column-width: 455px;
+  }
+
+  .block-image-and-text[data-layout=centered] {
+    --columns-grid-gap: 60px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .block-image-and-text {
+    padding: 60px 0;
+  }
+
+  .block-image-and-text[data-layout=normal] {
+    --content-column-width: 1fr;
+    --media-column-width: 1fr;
+    --columns-grid-gap: 40px;
+  }
+
+  .block-image-and-text[data-layout=centered] {
+    --columns-grid-gap: 40px;
+  }
+
+  .block-image-and-text[data-layout=bigimage] {
+    --media-column-width: 1fr;
+  }
+}
+
+@media (max-width: 991px) {
+  .block-image-and-text,
+  .block-image-and-text[data-direction=normal] {
+    --first-column-col-position: 1;
+    --last-column-col-position: 1;
+    --first-column-row-position: 1;
+    --last-column-row-position: 2;
+    --grid-columns: 1fr;
+  }
+
+  .block-image-and-text[data-direction=reversed] {
+    --grid-columns: 1fr;
+  }
+
+  .block-image-and-text[data-layout=normal] {
+    --columns-grid-gap: 50px;
+  }
+
+  .block-image-and-text[data-layout=centered] {
+    --columns-grid-gap: 50px;
+  }
+
+  .block-image-and-text[data-slider],
+  .block-image-and-text[data-slider][data-direction=normal],
+  .block-image-and-text[data-slider][data-direction=reversed] {
+    padding-bottom: 100px;
+    --first-column-row-position: 2;
+    --last-column-row-position: 1;
+  }
+
+  .block-image-and-text__title br {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .block-image-and-text {
+    padding: 40px 0;
+  }
+
+  .block-image-and-text[data-background-color=gradient-green-purple] {
+    background-image: url("/wp-content/themes/tg/inc/blocks/block-image-and-text/../../../../assets/images/sections/v2-imageandtext/bg-blue-green-purple-mobile.png");
+  }
+
+  .block-image-and-text .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .block-image-and-text__title {
+    font-size: 32px;
+    line-height: 1.31;
+  }
+
+  .block-image-and-text__buttons .tg2-buttons {
+    align-items: start;
+  }
+}
+/*# sourceURL=https://ex.co/wp-content/themes/tg/inc/blocks/block-image-and-text/block.css */
+</style>
+<style id="tg-block-logos-style-inline-css">
+/**
+ * Block: Logos
+ */
+
+.block-logos {
+  overflow: hidden;
+  padding: 50px 0;
+}
+
+.block-logos[data-remove-top-spacing] {
+  padding-top: 0 !important;
+}
+
+.block-logos[data-remove-bottom-spacing] {
+  padding-bottom: 0 !important;
+}
+
+.block-logos[data-layout=slider] {
+  --logo-minmax-width: 160px;
+  --logo-minmax-height: 50px;
+  --logo-margin-x: 47px;
+  --logos-list-gap: 0px;
+}
+
+.block-logos[data-layout=slider] .container {
+  width: 100%;
+  padding: 0;
+}
+
+.block-logos[data-layout=grid] {
+  --logo-minmax-width: auto;
+  --logo-minmax-height: auto;
+  --logo-margin-x: 0;
+  --logos-list-gap: 32px 54px;
+}
+
+.block-logos .bx-viewport {
+  overflow: visible !important;
+}
+
+.block-logos__list {
+  gap: var(--logos-list-gap);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.is-slider .block-logos__list {
+  display: block;
+}
+
+.block-logos__item {
+  margin-left: var(--logo-margin-x);
+  margin-right: var(--logo-margin-x);
+  min-height: var(--logo-minmax-height);
+  min-width: var(--logo-minmax-width);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-logos__item img {
+  max-height: var(--logo-minmax-height);
+  max-width: var(--logo-minmax-width);
+}
+
+@media (max-width: 1200px) {
+  .block-logos[data-layout=grid] {
+    --logo-minmax-width: 100px;
+    --logos-list-gap: 29px 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .block-logos[data-layout=slider] {
+    --logo-margin-x: 24px;
+  }
+
+  .is-slider .block-logos__listItem {
+    min-width: unset;
+  }
+}
+
+@media (max-width: 767px) {
+  .block-logos[data-layout=grid] {
+    --logo-minmax-width: auto;
+    --logo-minmax-height: auto;
+    --logos-list-gap: 29px;
+  }
+
+  .block-logos .container {
+    max-width: 100%;
+  }
+
+  .block-logos__list {
+    flex-direction: column;
+  }
+}
+/*# sourceURL=https://ex.co/wp-content/themes/tg/inc/blocks/block-logos/block.css */
+</style>
+<style id="tg-block-logos-slider-style-inline-css">
+.block-logos-slider {
+  padding: 50px 0;
+  --gap: 70px;
+}
+
+.block-logos-slider__title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.block-logos-slider__wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.block-logos-slider__track {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  animation: marquee var(--animation-duration, 15s) linear infinite;
+  gap: var(--gap);
+}
+
+.block-logos-slider__list {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.block-logos-slider__item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-logos-slider__item img {
+  max-height: 45px;
+  max-width: 150px;
+  width: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .block-logos-slider {
+    --gap: 40px;
+    padding: 20px 0;
+  }
+
+  .block-logos-slider__item img {
+    max-height: 35px;
+  }
+}
+/*# sourceURL=https://ex.co/wp-content/themes/tg/inc/blocks/block-logos-slider/block.css */
+</style>
+<style id="tg-block-title-style-inline-css">
+.block-title {
+  padding: 80px 0;
+}
+
+.block-title__title {
+  margin: 0;
+  font-family: var(--tg2-font-family-base);
+  font-size: 36px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--tg2-color-primary-black);
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .block-title {
+    padding: 60px 0;
+  }
+
+  .block-title__title {
+    font-size: 32px;
+  }
+}
+/*# sourceURL=https://ex.co/wp-content/themes/tg/inc/blocks/block-title/block.css */
+</style>
+<style id="tg-block-video-style-inline-css">
+.block-video {
+  padding: 50px 0;
+  margin-bottom: 156px;
+}
+
+.block-video .container {
+  position: relative;
+}
+
+.block-video .container::before {
+  content: "";
+  width: 483px;
+  height: 483px;
+  background-image: url("/wp-content/themes/tg/inc/blocks/block-video/assets/decorator-shape.svg");
+  background-position: bottom right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: -100px;
+  top: 100px;
+  pointer-events: none;
+}
+
+.block-video .container::after {
+  content: "";
+  width: 190px;
+  height: 190px;
+  background-image: url("/wp-content/themes/tg/inc/blocks/block-video/assets/decorator-circle.svg");
+  background-position: bottom right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -60px;
+  bottom: -50px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.block-video__card {
+  position: relative;
+  cursor: pointer;
+  height: 800px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+.block-video__thumbnail {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.block-video__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+.block-video__play-btn svg {
+  display: block;
+  width: 116px;
+  height: 116px;
+}
+
+.block-video__play-btn:hover {
+  opacity: 0.75;
+}
+
+.block-video__lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.block-video__lightbox.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.block-video__lightbox-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(23, 25, 59, 0.85);
+  cursor: pointer;
+}
+
+.block-video__lightbox-content {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+.block-video__lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 2;
+  transition: opacity 0.2s ease;
+}
+
+.block-video__lightbox-close svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.block-video__lightbox-close:hover {
+  opacity: 0.7;
+}
+
+.block-video__lightbox-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.block-video__lightbox-iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  .block-video {
+    margin-bottom: 72px;
+    overflow: hidden;
+    padding-bottom: 100px;
+  }
+
+  .block-video .container::before {
+    width: 241px;
+    height: 241px;
+    left: -50px;
+    top: 50px;
+  }
+
+  .block-video .container::after {
+    width: 95px;
+    height: 95px;
+    right: -30px;
+    bottom: -25px;
+  }
+
+  .block-video__card {
+    height: 500px;
+  }
+
+  .block-video__play-btn svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .block-video__lightbox-close {
+    top: -40px;
+    right: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .block-video__card {
+    height: 300px;
+  }
+}
+/*# sourceURL=https://ex.co/wp-content/themes/tg/inc/blocks/block-video/block.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:where(.wp-block-gallery.is-layout-flex){gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}:where(.wp-block-gallery.is-layout-grid){gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}
+:where(.wp-block-latest-posts.is-layout-flex){gap: 1.25em;}:where(.wp-block-latest-posts.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-term-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-term-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='main-css' href='https://ex.co/wp-content/themes/tg/assets/css/main.css?ver=1780930054' media='all' />
+<link rel='stylesheet' id='template-careers-css' href='https://ex.co/wp-content/themes/tg/assets/css/template-careers.css?ver=1780930054' media='all' />
+<script id="jquery-core-js" src="https://ex.co/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://ex.co/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<link rel="https://api.w.org/" href="https://ex.co/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://ex.co/wp-json/wp/v2/pages/190" />			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.71-->
+			<script class="hsq-set-content-id" data-content-id="standard-page">
+				var _hsq = _hsq || [];
+				_hsq.push(["setContentType", "standard-page"]);
+			</script>
+			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+			
+    <link rel="apple-touch-icon" sizes="57x57"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+            href="https://ex.co/wp-content/themes/tg/assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://ex.co/wp-content/themes/tg/assets/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://ex.co/wp-content/themes/tg/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="https://ex.co/wp-content/themes/tg/assets/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://ex.co/wp-content/themes/tg/assets/images/favicon/favicon.ico" type="image/x-icon">
+
+
+    
+    <script type="text/javascript"> _linkedin_partner_id = "997995"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id); </script><script type="text/javascript"> (function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})(); </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=997995&fmt=gif" /> </noscript>
+
+<meta name="facebook-domain-verification" content="nqeyyeex5mwpx3dsncetlxwo5mot9u" />
+<meta name="google-site-verification" content="g0tSuLlrxW68GHSyZv5mp3t9XrBKHcxGCMadCd8W_qU" />
+
+
+<style>
+.section-v2-imageAndText__media img, .section-sides__text video:not(.__exco_content_video), .section-v2-form__inner {  height:auto ;}
+</style><style>
+.header.header-white {background-color: transparent;}
+.header.header-white.header-scrolled {background-color: #FFFFFF;}
+.page-template-template-careersDISABLED {background-image: url(https://ex.co/wp-content/uploads/2023/02/pale-glowing-bkgd.jpg);background-repeat: no-repeat;background-size: contain;}
+.section-cover__bgImage, .careers-text, .section__subtitle.careers-joblist-title { display: none;}
+.section-cover {height: auto; padding: 50px 10px;}
+.jobs_list, .jobs_list_header {background-color: transparent;}
+.jobs_list_header .container {padding: 0;}
+.single_job_block {background-color: #ffffff;}
+.section__subtitle {text-transform: none;}
+.jobs_list_header select {border-radius: 10px; color: #1D1E22; background-color: rgba(40,160,250,0.1);}
+.jobs_list_header .title {color: #1D1E22;}
+.jobs_list_header .title span {background-color: #9F3FFF;}
+.section-offices__list {
+    grid-template-columns: repeat(3, 27em);
+}
+
+@media (max-width: 991px) {
+    .section-offices__list {
+       grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+.page-template-template-careers {background-size: initial;}
+.section-cover {max-height: none;}
+.jobs_list_header .container {padding: 0 20px;}
+    .section-offices__list {
+       grid-template-columns: 1fr;
+  }
+}
+</style>    
+    <script data-no-rocket charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+    <meta name="generator" content="Elementor 4.2.4; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://ex.co/wp-content/uploads/2026/03/cropped-social-logo-1-32x32.jpeg" sizes="32x32" />
+<link rel="icon" href="https://ex.co/wp-content/uploads/2026/03/cropped-social-logo-1-192x192.jpeg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://ex.co/wp-content/uploads/2026/03/cropped-social-logo-1-180x180.jpeg" />
+<meta name="msapplication-TileImage" content="https://ex.co/wp-content/uploads/2026/03/cropped-social-logo-1-270x270.jpeg" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+
+<body class="wp-singular page-template page-template-page-templates page-template-template-careers page-template-page-templatestemplate-careers-php page page-id-190 wp-theme-tg comeet-careers-archive elementor-default elementor-kit-">
+    <script data-no-lazyload>
+        (function () {
+            function getCookie(name) {
+                var cookie_name = name + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(cookie_name) === 0) {
+                        return c.substring(cookie_name.length, c.length);
+                    }
+                }
+                return false;
+            }
+
+            var playbuzzCookie = getCookie('playbuzz');
+            var isLoggedIn = false;
+            if (playbuzzCookie) {
+                document.body.classList.add("exco-logged-in");
+                addTargetAudienceClassToBody();
+            } else {
+                document.body.classList.add("exco-guest");
+            }
+
+            function addTargetAudienceClassToBody() {
+                var targetAudience = 'default';
+                var excoMktCookie = getCookie('excoMkt');
+                var allowed_target_audiences = ['channels', 'platform'];
+
+                if (excoMktCookie) {
+                    excoMktCookie = JSON.parse(excoMktCookie);
+                    if (excoMktCookie && excoMktCookie.hasOwnProperty("targetAudience") && allowed_target_audiences.includes(excoMktCookie.targetAudience)) {
+                        targetAudience = excoMktCookie.targetAudience;
+                    }
+                }
+                document.body.classList.add("exco-targetAudience--" + targetAudience);
+            }
+
+
+        }());
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL5ZS84"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<header
+        class="header"
+        data-theme="light"
+        data-backgroundColor="none"
+>
+
+    
+    <nav class="header-menu">
+        <div class="header-container">
+            <div class="header-menu__inner">
+                <a href="https://ex.co" class="header-logo">
+                    <svg fill="none" viewBox="0 0 91 22" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                                d="m58.885 21.995c-3.1412 0-5.818-1.0531-7.9535-3.128-2.1356-2.0748-3.2171-4.7222-3.2171-7.8672 0-3.1593 1.0521-5.7185 3.2171-7.8228 2.1649-2.1043 4.8407-3.1725 7.9535-3.1725 3.0398 0 5.5459 0.98104 7.6606 2.9981 0.1111 0.10698 0.1753 0.25364 0.1785 0.40785s-0.0548 0.3034-0.1614 0.4149l-1.9479 2.0474c-0.054 0.05723-0.119 0.10287-0.1912 0.13416-0.0722 0.03128-0.15 0.04756-0.2287 0.04783-0.1336 4.7e-4 -0.2628-0.04809-0.363-0.13649-1.381-1.218-3.0455-1.8379-4.9469-1.8379s-3.5175 0.66351-4.8133 1.9735c-1.2682 1.327-1.9099 2.9886-1.9099 4.9441 0 1.9554 0.6417 3.618 1.9071 4.9412 1.2986 1.3166 2.9175 1.9801 4.8161 1.9801s3.5659-0.618 4.9469-1.8351c0.0999-0.089 0.2292-0.138 0.363-0.1374 0.0787 2e-4 0.1565 0.0165 0.2287 0.0478s0.1372 0.0769 0.1912 0.1342l1.9469 2.0473c0.107 0.1113 0.1654 0.2605 0.1623 0.4147-3e-3 0.1543-0.0672 0.3011-0.1784 0.4081-2.1147 2.0151-4.6208 2.9962-7.6606 2.9962z"
+                                fill="var(--header-logo-color, #1D1E22)"/>
+                        <path
+                                d="m79.031 21.995c-3.0559 0-5.6825-1.0673-7.8076-3.1725s-3.1981-4.7337-3.1981-7.8227c0-3.0891 1.074-5.7204 3.1981-7.8228 2.1242-2.1024 4.7517-3.1725 7.8076-3.1725s5.6815 1.0673 7.8066 3.1725c2.1251 2.1052 3.1991 4.7393 3.1991 7.8228 0 3.0834-1.0759 5.7203-3.1991 7.8227-2.1232 2.1023-4.7526 3.1725-7.8066 3.1725zm0-17.915c-1.9317 0-3.4919 0.66351-4.7687 2.019-1.2417 1.327-1.872 2.9706-1.872 4.8986 0 1.9279 0.6113 3.5545 1.8691 4.9383 1.2778 1.3195 2.8816 1.983 4.7716 1.983 1.8626 0 3.4521-0.6635 4.7242-1.9735 1.29-1.3715 1.9156-2.9886 1.9156-4.9441 0-1.9554-0.6474-3.5952-1.9156-4.9042-1.256-1.3355-2.8465-2.0171-4.7242-2.0171z"
+                                fill="var(--header-logo-color, #1D1E22)"/>
+                        <path
+                                d="m39.226 21.995c-0.0785 1e-4 -0.1563-0.0157-0.2285-0.0467s-0.1374-0.0764-0.1914-0.1334l-7.4066-7.7356-7.4076 7.7356c-0.0532 0.056-0.1171 0.1008-0.188 0.1317-0.0708 0.031-0.1471 0.0474-0.2244 0.0484-0.0773 9e-4 -0.154-0.0136-0.2256-0.0427-0.0716-0.0292-0.1367-0.0723-0.1913-0.127l-2.1887-2.1801c-0.1089-0.1101-0.1709-0.2583-0.1726-0.4132-0.0018-0.155 0.0567-0.3045 0.1632-0.4171l7.4881-7.818-7.4881-7.818c-0.1066-0.11232-0.1653-0.26176-0.1635-0.41661 0.0017-0.15485 0.0638-0.30292 0.1729-0.41277l2.1887-2.1801c0.0546-0.054672 0.1197-0.097852 0.1913-0.12699s0.1483-0.043653 0.2256-0.042681c0.0773 9.7172e-4 0.1536 0.017408 0.2244 0.048339 0.0709 0.030931 0.1348 0.075732 0.188 0.13176l7.4076 7.7355 7.4066-7.7308c0.0533-0.056029 0.1172-0.10083 0.1881-0.13176 0.0708-0.030931 0.1471-0.047367 0.2244-0.048339 0.0773-9.7172e-4 0.154 0.01354 0.2256 0.042681 0.0716 0.029141 0.1367 0.07232 0.1913 0.12699l2.1886 2.1801c0.1092 0.11001 0.1713 0.25823 0.1731 0.41324s-0.0569 0.30461-0.1636 0.41709l-7.4881 7.818 7.4881 7.818c0.1069 0.1122 0.1656 0.2617 0.1639 0.4166-0.0018 0.1549-0.064 0.303-0.1734 0.4127l-2.1886 2.1801c-0.0536 0.054-0.1174 0.0968-0.1877 0.1259-0.0703 0.0292-0.1457 0.044-0.2218 0.0438"
+                                fill="var(--header-logo-color, #1D1E22)"/>
+                        <path
+                                d="m5.4976 4.1859v-3.981h11.564c0.1477 0.005438 0.2872 0.069105 0.3881 0.17709s0.1549 0.25151 0.1503 0.39921v2.8256c0.0054 0.14819-0.0483 0.29244-0.1493 0.40105-0.1009 0.1086-0.2409 0.17266-0.3891 0.1781h-11.564z"
+                                fill="var(--header-logo-color, #1D1E22)"/>
+                        <path
+                                d="m5.4976 12.991v-3.9811h11.564c0.1477 0.00544 0.2872 0.06911 0.3881 0.17709 0.1009 0.10799 0.1549 0.25151 0.1503 0.39921v2.8285c0.0046 0.1477-0.0494 0.2912-0.1503 0.3992-0.1009 0.1079-0.2404 0.1716-0.3881 0.1771h-11.564z"
+                                fill="var(--header-logo-color, #1D1E22)"/>
+                        <path
+                                d="m5.4976 21.795v-3.981h11.564c0.1477 0.0054 0.2872 0.0691 0.3881 0.1771 0.1009 0.1079 0.1549 0.2515 0.1503 0.3992v2.8284c0.0046 0.1477-0.0494 0.2912-0.1503 0.3992s-0.2404 0.1717-0.3881 0.1771h-11.564z"
+                                fill="var(--header-logo-color, #1D1E22)"/>
+                        <path
+                                d="m3.981 4.1569h-3.1848c-0.21117 0-0.41369-0.08389-0.563-0.23321-0.14932-0.14932-0.2332-0.35183-0.2332-0.563v-2.3886c0-0.21117 0.083886-0.41369 0.2332-0.563 0.14932-0.14932 0.35184-0.2332 0.563-0.2332h3.1848v3.981z"
+                                fill="var(--header-logo-color, #38D2D2)"/>
+                        <path
+                                d="m3.981 12.991h-3.1848c-0.10456 0-0.2081-0.0206-0.3047-0.0607-0.0966-0.04-0.18437-0.0986-0.25831-0.1725-0.073935-0.074-0.13258-0.1618-0.1726-0.2584-0.040013-0.0966-0.060608-0.2001-0.060608-0.3047v-2.3886c0-0.21117 0.083886-0.41369 0.2332-0.563 0.14932-0.14932 0.35184-0.23321 0.563-0.23321h3.1848v3.9811z"
+                                fill="var(--header-logo-color, #28A0F9)"/>
+                        <path
+                                d="m44.606 12.991h-2.3887c-0.1045 0-0.2081-0.0206-0.3047-0.0607-0.0966-0.04-0.1843-0.0986-0.2583-0.1725-0.0739-0.074-0.1325-0.1618-0.1726-0.2584-0.04-0.0966-0.0606-0.2001-0.0606-0.3047v-2.3886c0-0.21117 0.0839-0.41369 0.2332-0.563 0.1494-0.14932 0.3519-0.23321 0.563-0.23321h2.3887c0.2111 0 0.4136 0.08389 0.563 0.23321 0.1493 0.14931 0.2332 0.35183 0.2332 0.563v2.3886c0 0.1046-0.0206 0.2081-0.0606 0.3047-0.0401 0.0966-0.0987 0.1844-0.1726 0.2584-0.074 0.0739-0.1617 0.1325-0.2583 0.1725-0.0966 0.0401-0.2002 0.0607-0.3047 0.0607z"
+                                fill="var(--header-logo-color, #1D1E22)"/>
+                        <path
+                                d="m3.981 21.795h-3.1848c-0.21117 0-0.41369-0.0839-0.563-0.2332-0.14932-0.1493-0.2332-0.3518-0.2332-0.563v-2.3886c0-0.2112 0.083886-0.4137 0.2332-0.563 0.14932-0.1493 0.35184-0.2332 0.563-0.2332h3.1848v3.981z"
+                                fill="var(--header-logo-color, #9F3FFF)"/>
+                    </svg>
+                </a>
+
+                <div class="header-menu__wrapper">
+                    <div class="header-menu__wrapper-container">
+                        <ul class="header-menu__list">
+                                                            <li class="menu-item dropdown-menu-item"
+                                        data-menu-item-name="technology">
+                                    <a href="https://ex.co/ovp/"                                         class="dropdown-link">Technology</a>
+                                                                            <div class="dropdown">
+                                            <ul class="dropdown-list">
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://ex.co/ovp/" >OVP</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://ex.co/monetization/" >Monetization</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="/cms/" >CMS</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://ex.co/player/" >Player</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://ex.co/vertical-player/" >Vertical</a>
+                                                    </li>
+                                                                                            </ul>
+                                        </div>
+                                                                    </li>
+                                                            <li class="menu-item dropdown-menu-item"
+                                        data-menu-item-name="audiences">
+                                    <a href="#"                                         class="dropdown-link">Audiences</a>
+                                                                            <div class="dropdown">
+                                            <ul class="dropdown-list">
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://ex.co/publishers/" >Publishers</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://ex.co/CTV-DOOH/" >CTV/DOOH</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://ex.co/ad-partners/" >Sales Houses</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://ex.co/advertisers/" >Advertisers</a>
+                                                    </li>
+                                                                                            </ul>
+                                        </div>
+                                                                    </li>
+                                                            <li class="menu-item dropdown-menu-item"
+                                        data-menu-item-name="resources">
+                                    <a href="#"                                         class="dropdown-link">Resources</a>
+                                                                            <div class="dropdown">
+                                            <ul class="dropdown-list">
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="/case-study/" >Case Studies</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://blog.ex.co/" >Blog</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://support.ex.co" target="_blank">Help Center</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://ex.co/guides/" >Industry Guides</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="https://content.ex.co/glossary" >Glossary</a>
+                                                    </li>
+                                                                                            </ul>
+                                        </div>
+                                                                    </li>
+                                                            <li class="menu-item dropdown-menu-item"
+                                        data-menu-item-name="company">
+                                    <a href="#"                                         class="dropdown-link">Company</a>
+                                                                            <div class="dropdown">
+                                            <ul class="dropdown-list">
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="/about/" >About us</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="/leadership-team/" >Leadership</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item menu-item-active">
+                                                        <a href="/careers/" >Careers</a>
+                                                    </li>
+                                                                                                                                                        <li class="menu-item ">
+                                                        <a href="/about/news/" >Press Room</a>
+                                                    </li>
+                                                                                            </ul>
+                                        </div>
+                                                                    </li>
+                                                    </ul>
+
+                        <div class="header-menu__buttons popup-menu-visible">
+                                                            <a
+                                        data-logged-in-url="https://app.ex.co/dashboard"
+                                        data-logged-in-title="My Platform"
+                                        class="js-add-utms login-btn"
+                                        href="https://login.ex.co/login"
+                                                                    >
+                                    Login                                </a>
+                            
+                                                            <a
+                                        data-logged-in-url="https://ex.co/contact/"
+                                        data-logged-in-title="Get in touch"
+                                        class="js-signup-btn js-add-utms signup-btn"
+                                        href="https://ex.co/contact/"
+                                                                    >
+                                    Contact Sales                                </a>
+                                                    </div>
+
+
+                    </div>
+                </div>
+
+                <div class="header-menu__buttons inline-menu-visible">
+                                            <a
+                                data-logged-in-url="https://app.ex.co/dashboard"
+                                data-logged-in-title="My Platform"
+                                class="js-add-utms login-btn"
+                                href="https://login.ex.co/login"
+                                                    >
+                            Login                        </a>
+                    
+                                            <a
+                                data-logged-in-url="https://ex.co/contact/"
+                                data-logged-in-title="Get in touch"
+                                class="js-signup-btn js-add-utms signup-btn"
+                                href="https://ex.co/contact/"
+                                                    >
+                            Contact Sales                        </a>
+                                    </div>
+
+                <a class="header-toggle">
+                    <div class="header-toggle__lines">
+                        <span class="line" data-line="1"></span>
+                        <span class="line" data-line="2"></span>
+                        <span class="line" data-line="3"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<script data-no-lazyload>
+    (function () {
+        function getCookie(name) {
+            var cookie_name = name + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cookie_name) === 0) {
+                    return c.substring(cookie_name.length, c.length);
+                }
+            }
+            return false;
+        }
+
+        var playbuzzCookie = getCookie('playbuzz');
+        if (playbuzzCookie) { // isLoggedIn
+            const signupBtns = document.querySelectorAll('.header-menu__buttons .signup-btn');
+            signupBtns.forEach(btn => {
+                btn.setAttribute('href', btn.dataset.loggedInUrl);
+                btn.textContent = btn.dataset.loggedInTitle;
+            });
+
+            const loginBtns = document.querySelectorAll('.header-menu__buttons .login-btn');
+            loginBtns.forEach(btn => {
+                btn.setAttribute('href', btn.dataset.loggedInUrl);
+                btn.textContent = btn.dataset.loggedInTitle;
+            });
+        }
+
+    }());
+</script>
+
+
+
+
+<div class="careers page-wrapper">
+    <section class="careers-cover">
+      <div class="container">
+        <div class="careers-cover__inner">
+          <picture class="careers-cover__bg">
+                                    <source media="(max-width: 991px)" srcset="https://ex.co/wp-content/uploads/2025/08/cover-bg-mobile.png 1x, https://ex.co/wp-content/uploads/2025/08/cover-bg-mobile@2x.png 2x">
+                                    <img src="https://ex.co/wp-content/uploads/2025/08/cover-bg.png" srcset="https://ex.co/wp-content/uploads/2025/08/cover-bg@2x.png 2x" alt="">
+                      </picture>
+
+                    <h2 class="tg-v2-h1 careers-cover__title">Experience EX.CO</h2>
+                    
+                    <a href="#jobs" class="button-v2-solid-white-chevron-right">Open Positions</a>
+                  </div>
+      </div>
+    </section>
+
+    <section class="careers-imageandtextcentered">
+      <div class="container">
+        <div class="careers-imageandtextcentered__inner">
+
+                    <h2 class="tg-v2-h2 careers-imageandtextcentered__title">We <strong>work together, think big, <br />and move fast</strong>—challenging ideas, sharing knowledge, and pushing boundaries.</h2>
+          
+                    <div class="careers-imageandtextcentered__text">
+            <p>Here, every voice is heard, every perspective matters, and you’re empowered to take real ownership. You’re not just a cog in the system—you’re a vital part of shaping our future and driving success for our customers.</p>
+<p>At EX.CO, every team member contributes to transforming how digital video is delivered and experienced across the media landscape.</p>
+          </div>
+          
+          <picture class="careers-imageandtextcentered__image">
+                                    <source media="(max-width: 991px)" srcset="https://ex.co/wp-content/uploads/2025/09/Frame-51989-1.png 1x, https://ex.co/wp-content/uploads/2025/09/Frame-51989@2x-1.png 2x">
+                                    <img src="https://ex.co/wp-content/uploads/2025/09/Group-53312-1.png" srcset="https://ex.co/wp-content/uploads/2025/09/Group-53312@2x-2.png 2x" alt="">
+                      </picture>
+        </div>
+      </div>
+    </section>
+
+
+    
+    <section id="jobs" class="careers-positions">
+      <div class="container">
+        <div class="careers-positions__inner">
+          <h2 class="careers-positions__title">Open Positions</h2>
+
+          <div class="careers-positions__header">
+            <div class="careers-positions__nav">
+              <ul class="careers-positions__nav-list">
+                <li class="is-active"><a href="#" data-position="all">All</a></li>
+                                    <li><a href="#" data-position="businessdevelopment">Business Development</a></li>
+                                    <li><a href="#" data-position="operationsgrowth">Operations & Growth</a></li>
+                                    <li><a href="#" data-position="rd">R & D</a></li>
+                              </ul>
+            </div>
+
+            <div class="careers-positions__nav-locations">
+                            <button class="careers-positions__nav-location" data-location="newyorkus">New York, US</button>
+                            <button class="careers-positions__nav-location" data-location="poland">Poland</button>
+                            <button class="careers-positions__nav-location" data-location="telavivisrael">Tel Aviv, Israel</button>
+                          <button class="careers-positions__nav-location is-active" data-location="all">All</button>
+            </div>
+          </div>
+
+          <div class="careers-positions__list">
+
+          
+                                <a href="https://ex.co/careers/business-development/C4.F6A/customer-success-manager--ny" class="careers-positions__item" data-position="businessdevelopment" data-location="newyorkus">
+                                    <div class="careers-positions__item-content">
+                                    <ul class="careers-positions__item-meta">
+                                        <li>Business Development</li>
+                                        <li>New York, US</li>
+                                    </ul>
+
+                                    <h3 class="careers-positions__item-title">Customer Success Manager- NY</h3>
+
+                                    <div class="careers-positions__item-text">
+                                        <p> You’ll be joining a core team at EX.CO to lead the charge with our customers and get to work closely with all stakeholders at the company. This position is based in our NYC office. Acting as the liaison between your publishers and EX.CO’s Product, RevOps, and Tech teams to meet publisher KPIs, revenue goals, and evangelize EX.CO’s video platform. Delivering best-in-class services to your publishers by bringing them strategic vision, training and planning sessions, and ensuring continuous </p>
+                                    </div>
+                                    </div>
+
+                                    <span class="careers-positions__item-more">More Info</span>
+                                </a>
+
+
+
+                            
+                                <a href="https://ex.co/careers/business-development/FB.F61/customer-success-manager--tlv" class="careers-positions__item" data-position="businessdevelopment" data-location="telavivisrael">
+                                    <div class="careers-positions__item-content">
+                                    <ul class="careers-positions__item-meta">
+                                        <li>Business Development</li>
+                                        <li>Tel Aviv, Israel</li>
+                                    </ul>
+
+                                    <h3 class="careers-positions__item-title">Customer Success Manager- TLV</h3>
+
+                                    <div class="careers-positions__item-text">
+                                        <p> You’ll be joining a core team at EX.CO to lead the charge with our customers and get to work closely with all stakeholders at the company. This position is based in our TLV office. Acting as the liaison between your publishers and EX.CO’s Product, RevOps, and Tech teams to meet publisher KPIs, revenue goals, and evangelize EX.CO’s video platform. Delivering best-in-class services to your publishers by bringing them strategic vision, training and planning sessions, and ensuring continuous </p>
+                                    </div>
+                                    </div>
+
+                                    <span class="careers-positions__item-more">More Info</span>
+                                </a>
+
+
+
+                            
+                                <a href="https://ex.co/careers/business-development/22.66C/director-business-development" class="careers-positions__item" data-position="businessdevelopment" data-location="newyorkus">
+                                    <div class="careers-positions__item-content">
+                                    <ul class="careers-positions__item-meta">
+                                        <li>Business Development</li>
+                                        <li>New York, US</li>
+                                    </ul>
+
+                                    <h3 class="careers-positions__item-title">Director, Business Development</h3>
+
+                                    <div class="careers-positions__item-text">
+                                        <p> ﻿What You’ll Do Develop a sales strategy and business plan for generating revenue through mid-tier, premium publishers, websites and media owners/platforms across OLV and CTV.Prospect new clients (publishers), including the ability to qualify and close new accounts.Host online, phone and in-person pitches and presentations.Maintain in-depth knowledge of competitive landscape and market trends whilst providing product feedback.Work in collaboration with Product, Account Management and Ad-Ope</p>
+                                    </div>
+                                    </div>
+
+                                    <span class="careers-positions__item-more">More Info</span>
+                                </a>
+
+
+
+                            
+                                <a href="https://ex.co/careers/operations--growth/8D.C66/head-of-demand" class="careers-positions__item" data-position="operationsgrowth" data-location="telavivisrael">
+                                    <div class="careers-positions__item-content">
+                                    <ul class="careers-positions__item-meta">
+                                        <li>Operations & Growth</li>
+                                        <li>Tel Aviv, Israel</li>
+                                    </ul>
+
+                                    <h3 class="careers-positions__item-title">Head Of Demand</h3>
+
+                                    <div class="careers-positions__item-text">
+                                        <p>Who we are EX.CO is the video technology fueling growth for media leaders worldwide. Since we launched, our mission has been to shape the future of media technology, powering publishers’ business success in a rapidly changing reality. Today, we partner with leading media companies - including USA Today, Hearst Newspapers, Motorsport Network, The Arena Group, and Ziff Davis - to maximize revenue across every screen web, mobile, CTV, and DOOH. Our technology combines an online video platform wit</p>
+                                    </div>
+                                    </div>
+
+                                    <span class="careers-positions__item-more">More Info</span>
+                                </a>
+
+
+
+                            
+                                <a href="https://ex.co/careers/r--d/5D.07A/tech-support-engineer" class="careers-positions__item" data-position="rd" data-location="poland">
+                                    <div class="careers-positions__item-content">
+                                    <ul class="careers-positions__item-meta">
+                                        <li>R & D</li>
+                                        <li>Poland</li>
+                                    </ul>
+
+                                    <h3 class="careers-positions__item-title">Tech Support Engineer</h3>
+
+                                    <div class="careers-positions__item-text">
+                                        <p> We are seeking detail-oriented and tech-savvy professionals to join our Implementation Support Team. This team will provide critical support to EX.CO customers collaborating with other members of EX.CO operations team (Customer Success, Technical Customer Success and Demand relationships) by handling operational, data-driven, and configuration-based tasks. The goal is to provide excellent service to our clients by streamlining operational processes, ensuring high-quality execution of technical </p>
+                                    </div>
+                                    </div>
+
+                                    <span class="careers-positions__item-more">More Info</span>
+                                </a>
+
+
+
+                            
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="careers-iconsandtexts">
+      <div class="container">
+        <div class="careers-iconsandtexts__inner">
+                    <div class="careers-iconsandtexts__item">
+            <div class="careers-iconsandtexts__item-icon">
+                            <img src="https://ex.co/wp-content/uploads/2025/08/icon1.svg" alt="">
+                          </div>
+            <h3 class="careers-iconsandtexts__item-title">Comprehensive benefits</h3>
+            <div class="careers-iconsandtexts__item-text">
+              <p>We offer competitive pay, stock options, paid time off, health and retirement benefits, hybrid work, and more—including parental leave, volunteer days, and strong support through life’s milestones.</p>
+            </div>
+          </div>
+                    <div class="careers-iconsandtexts__item">
+            <div class="careers-iconsandtexts__item-icon">
+                            <img src="https://ex.co/wp-content/uploads/2025/08/icon2.svg" alt="">
+                          </div>
+            <h3 class="careers-iconsandtexts__item-title">Culture of learning</h3>
+            <div class="careers-iconsandtexts__item-text">
+              <p>Advance your skills with professional training, functional workshops, and external learning opportunities to support your personal and career growth.</p>
+            </div>
+          </div>
+                    <div class="careers-iconsandtexts__item">
+            <div class="careers-iconsandtexts__item-icon">
+                            <img src="https://ex.co/wp-content/uploads/2025/08/icon3.svg" alt="">
+                          </div>
+            <h3 class="careers-iconsandtexts__item-title">Commitment to inclusion</h3>
+            <div class="careers-iconsandtexts__item-text">
+              <p>We foster a welcoming workplace with a global Women’s ERG, LGBTQIA+ celebrations, and initiatives that promote diversity, equity, and belonging.</p>
+            </div>
+          </div>
+                    <div class="careers-iconsandtexts__item">
+            <div class="careers-iconsandtexts__item-icon">
+                            <img src="https://ex.co/wp-content/uploads/2025/08/icon4.svg" alt="">
+                          </div>
+            <h3 class="careers-iconsandtexts__item-title">A fun & engaging workplace</h3>
+            <div class="careers-iconsandtexts__item-text">
+              <p>Enjoy happy hours, holiday parties, company-wide sports competitions, catered lunches, fully stocked fridges, enrichment lectures, and other team activities that bring us together.</p>
+            </div>
+          </div>
+                  </div>
+      </div>
+    </section>
+    
+
+    <section class="careers-locations" data-no-padding-top>
+      <div class="container">
+        <div class="careers-locations__inner">
+                    <h2 class="careers-locations__title">Come say hi</h2>
+          
+          <div class="careers-locations__grid">
+                        <div class="careers-locations__item">
+              <div class="careers-locations__item-image">
+                                <img src="https://ex.co/wp-content/uploads/2025/08/location1.png" srcset="https://ex.co/wp-content/uploads/2025/08/location1@2x.png 2x" alt="">
+                              </div>
+
+              <div class="careers-locations__item-content">
+                <h3 class="careers-locations__item-title">New York, USA</h3>
+                <div class="careers-locations__item-text">121 East 24th St., 5th Floor</div>
+              </div>
+            </div>
+                        <div class="careers-locations__item">
+              <div class="careers-locations__item-image">
+                                <img src="https://ex.co/wp-content/uploads/2025/08/location2.png" srcset="https://ex.co/wp-content/uploads/2025/08/location2@2x.png 2x" alt="">
+                              </div>
+
+              <div class="careers-locations__item-content">
+                <h3 class="careers-locations__item-title">Tel Aviv, Israel</h3>
+                <div class="careers-locations__item-text">5 Aluf Kalman Magen St., bldg. A, 1st Floor</div>
+              </div>
+            </div>
+                        <div class="careers-locations__item">
+              <div class="careers-locations__item-image">
+                                <img src="https://ex.co/wp-content/uploads/2025/08/location3.png" srcset="https://ex.co/wp-content/uploads/2025/08/location3@2x.png 2x" alt="">
+                              </div>
+
+              <div class="careers-locations__item-content">
+                <h3 class="careers-locations__item-title">London, UK</h3>
+                <div class="careers-locations__item-text">3 Waterhouse Square, 138-142 Holborn</div>
+              </div>
+            </div>
+                        <div class="careers-locations__item">
+              <div class="careers-locations__item-image">
+                                <img src="https://ex.co/wp-content/uploads/2025/09/Group-52948.png" srcset="https://ex.co/wp-content/uploads/2025/09/Group-52948@2x.png 2x" alt="">
+                              </div>
+
+              <div class="careers-locations__item-content">
+                <h3 class="careers-locations__item-title">Sofia, Bulgaria</h3>
+                <div class="careers-locations__item-text">Promishlena zona Hladilnika, Srebarna St 2Б, 1407</div>
+              </div>
+            </div>
+                      </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+
+<footer class="section-footer">
+    <div class="container">
+        <div class="section-footer__inner">
+
+            <div class="section-footer__content">
+
+                                                    <a href="https://ex.co" class="section-footer__logo">
+                        <img src="https://ex.co/wp-content/themes/tg/assets/images/parts/footer/logo.svg" alt="logo"/>
+                    </a>
+                
+
+                <div class="section-footer__socials">
+                                            <a href="https://www.linkedin.com/company/excoplatform" target="_blank" rel="noopener noreferrer" class="icon-linkedin">
+                            <img src="https://ex.co/wp-content/themes/tg/assets/images/parts/footer/icon-linkedin.svg" alt="linkedin">
+                        </a>
+                    
+                    
+                                            <a href="https://twitter.com/excoplatform" target="_blank" rel="noopener noreferrer" class="icon-twitter">
+                            <img src="https://ex.co/wp-content/themes/tg/assets/images/parts/footer/icon-twitter-x.svg" alt="twitter">
+                        </a>
+                    
+                    
+                                            <a href="https://www.youtube.com/channel/UCc99IT0x9Za1uQ_r8b1PwXQ?view_as=subscriber" target="_blank" rel="noopener noreferrer" class="icon-youtube">
+                            <img src="https://ex.co/wp-content/themes/tg/assets/images/parts/footer/icon-youtube.svg" alt="youtube">
+                        </a>
+                                    </div>
+            </div>
+
+            <nav class="section-footer__nav">
+                                    
+                        <div class="section-footer__list-wrapper">
+                                                            <div class="section-footer__list-title">Technology</div>
+                            
+                                                            <ul class="section-footer__list">
+                                    
+                                                                                    <li>
+                                                <a href="/ovp/" >OVP</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="/monetization/" >Monetization</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="/cms/" >CMS</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="/player/" >Player</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="/vertical-player/" >Vertical</a>
+                                            </li>
+                                        
+                                                                    </ul>
+                                                    </div>
+
+                    
+                        <div class="section-footer__list-wrapper">
+                                                            <div class="section-footer__list-title">Audiences</div>
+                            
+                                                            <ul class="section-footer__list">
+                                    
+                                                                                    <li>
+                                                <a href="/publishers/" >Publishers</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="https://ex.co/CTV-DOOH/" >CTV/DOOH</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="https://ex.co/ad-partners/" >Sales Houses</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="/advertisers/" >Advertisers</a>
+                                            </li>
+                                        
+                                                                    </ul>
+                                                    </div>
+
+                    
+                        <div class="section-footer__list-wrapper">
+                                                            <div class="section-footer__list-title">Resources</div>
+                            
+                                                            <ul class="section-footer__list">
+                                    
+                                                                                    <li>
+                                                <a href="/case-study/" >Case Studies</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="https://blog.ex.co/" >Blog</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="https://support.ex.co/" >Help Center</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="/guides/" >Industry Guides</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="https://content.ex.co/glossary" >Glossary</a>
+                                            </li>
+                                        
+                                                                    </ul>
+                                                    </div>
+
+                    
+                        <div class="section-footer__list-wrapper">
+                                                            <div class="section-footer__list-title">Company</div>
+                            
+                                                            <ul class="section-footer__list">
+                                    
+                                                                                    <li>
+                                                <a href="/contact/" >Contact</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="/about/" >About us</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="/about/news/" >Press Room</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="/careers/" >Careers</a>
+                                            </li>
+                                        
+                                    
+                                                                                    <li>
+                                                <a href="/events/" >Events</a>
+                                            </li>
+                                        
+                                                                    </ul>
+                                                    </div>
+
+                                                </nav>
+
+            <div class="section-footer__form">
+                <div class="section-footer__form-title">Sign up to our newsletter</div>
+                <div class="section-footer__form-wrapper hs-form-inline">
+                    
+    <script data-no-lazyload charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+    <script data-no-lazyload>
+        jQuery(document).ready(function($) {
+            hbspt.forms.create({
+                portalId: "6184888",
+                formId: "33c442ce-4b81-4f03-a657-edaa3c0a6258",
+            });
+        });
+    </script>
+
+
+                    </div>
+            </div>
+        </div>
+
+                    <div class="section-footer__logos">
+                
+
+                    
+                                                    <div class="section-footer__logos-item">
+                                <img src="https://ex.co/wp-content/uploads/2024/09/logo-iab.svg"  alt="IAB member">
+                            </div>
+                                            
+                
+
+                    
+                                                    <div class="section-footer__logos-item">
+                                <img src="https://ex.co/wp-content/uploads/2024/09/logo-iab-framework.svg"  alt="IAB Europe Transparency and Consent Framework Registered Vendor">
+                            </div>
+                                            
+                
+
+                    
+                                                    <div class="section-footer__logos-item">
+                                <img src="https://ex.co/wp-content/uploads/2026/03/ISO-27001-Compliance-Badge.svg"  alt="">
+                            </div>
+                                            
+                
+
+                    
+                                                    <div class="section-footer__logos-item">
+                                <img src="https://ex.co/wp-content/uploads/2024/09/logo-human.svg"  alt="Human">
+                            </div>
+                                            
+                
+
+                    
+                                                    <div class="section-footer__logos-item">
+                                <img src="https://ex.co/wp-content/uploads/2024/09/logo-google.svg"  alt="Google Certified Publishing Partner">
+                            </div>
+                                            
+                
+
+                    
+                                                    <div class="section-footer__logos-item">
+                                <img src="https://ex.co/wp-content/uploads/2026/02/AOP-Member-badges_Associate.png"  alt="AOP Associate Member">
+                            </div>
+                                            
+                
+
+                    
+                                                    <div class="section-footer__logos-item">
+                                <img src="https://ex.co/wp-content/uploads/2024/12/scope3-logo-16height-1.svg"  alt="Scope3">
+                            </div>
+                                            
+                            </div>
+        
+                    <ul class="section-footer__extralinks">
+                
+                                            <li>
+                            <a href="/terms-of-services/" >Terms of Service</a>
+                        </li>
+                    
+                
+                                            <li>
+                            <a href="/cookies-policy/" >Cookie Policy</a>
+                        </li>
+                    
+                
+                                            <li>
+                            <a href="/privacy-policy/" >Privacy Policy</a>
+                        </li>
+                    
+                
+                                            <li>
+                            <a href="/accessibility/" >Accessibility</a>
+                        </li>
+                    
+                
+                                            <li>
+                            <a href="/security/" >Responsible Disclosure Policy</a>
+                        </li>
+                    
+                
+                                            <li>
+                            <a href="/llms.txt" target="_blank">Hey AI, learn about us</a>
+                        </li>
+                    
+                
+                                            <li>
+                            <a href="https://ex.co/7455-2/" >Do Not Sell or Share My Personal Information</a>
+                        </li>
+                    
+                            </ul>
+            </div>
+</footer>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/tg/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6184888.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+
+    
+
+    
+
+    <style>
+        .noah-trigger-btn-disabled, .noah-floating-unit-disabled {
+            margin-bottom: 90px !important;
+        }
+
+        body.page-template-template-channelsHome .noah-placement {
+            display: none !important;
+        }
+
+        .placement-trigger-btn.placement-fixed.placement-bottom-right {
+            bottom: 20px;
+            right: 20px;
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .placement-trigger-btn.placement-fixed.placement-bottom-right {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        .placement-floating-unit.placement-fixed.placement-bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+
+    			<script>
+				( () => {
+					const lazyloadRunObserver = () => {
+						const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+						const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+							entries.forEach( ( entry ) => {
+								if ( entry.isIntersecting ) {
+									let lazyloadBackground = entry.target;
+									if( lazyloadBackground ) {
+										lazyloadBackground.classList.add( 'e-lazyloaded' );
+									}
+									lazyloadBackgroundObserver.unobserve( entry.target );
+								}
+							});
+						}, { rootMargin: '200px 0px 200px 0px' } );
+						lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+							lazyloadBackgroundObserver.observe( lazyloadBackground );
+						} );
+					};
+					const events = [
+						'DOMContentLoaded',
+						'elementor/lazyload/observe',
+					];
+					events.forEach( ( event ) => {
+						document.addEventListener( event, lazyloadRunObserver );
+					} );
+				} )();
+			</script>
+			<link rel='stylesheet' id='comeet_style-css' href='https://ex.co/wp-content/plugins/comeet-wp-plugin/css/comeet-basic.css' media='all' />
+<script id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/careers/|/careers/|/it-onboarding/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://ex.co","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script id="cookies-js" src="https://ex.co/wp-content/themes/tg/assets/js/vendor/js.cookie.min.js?ver=1780930054"></script>
+<script id="slick-js" src="https://ex.co/wp-content/themes/tg/assets/js/vendor/slick.js?ver=1780930054"></script>
+<script id="tracking-js" src="https://ex.co/wp-content/themes/tg/assets/js/tracking.js?ver=1780930054"></script>
+<script id="component-forms-js" src="https://ex.co/wp-content/themes/tg/assets/js/components/component-forms.js?ver=1780930054"></script>
+<script id="main-js" src="https://ex.co/wp-content/themes/tg/assets/js/main.js?ver=1780930054"></script>
+<script id="component-modals-js" src="https://ex.co/wp-content/themes/tg/assets/js/components/component-modals.js?ver=1780930054"></script>
+<script id="part-ctaform-js" src="https://ex.co/wp-content/themes/tg/assets/js/parts/part-ctaform.js?ver=1.0"></script>
+<script id="part-testimonials-js" src="https://ex.co/wp-content/themes/tg/assets/js/parts/part-testimonials.js?ver=1.0"></script>
+<script id="mixitup-js" src="https://ex.co/wp-content/themes/tg/assets/js/vendor/jquery.mixitup.js?ver=1780930054"></script>
+<script id="template-careers-js" src="https://ex.co/wp-content/themes/tg/assets/js/templates/template-careers.js?ver=1780930054"></script>
+<script id="section-header-js" src="https://ex.co/wp-content/themes/tg/assets/js/sections/section-header.js?ver=1780930054"></script>
+<script id="comeet_script-js-extra">
+var comeetvar = {"comeet_token":"F53D41EA5BE5BE89D1EA2DF7A8F5","comeet_uid":"F0.005","comeet_color":"278fe6","comeet_bgcolor":"","comeet_thankyou_url":"https://ex.co/careers/thankyou"};
+//# sourceURL=comeet_script-js-extra
+</script>
+<script id="comeet_script-js" src="https://ex.co/wp-content/plugins/comeet-wp-plugin/js/comeet.js?ver=7.1.2"></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://ex.co/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a422006dd8d0659f',t:'MTc5MDU5MDY4MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
