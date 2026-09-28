@@ -1,0 +1,52 @@
+{
+  "company_id": "new_goarc_ltd",
+  "schema_version": 1,
+  "career_url": "https://go-arc.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:29:37.707656Z",
+  "verified_at": "2026-09-28T14:29:37.707656Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?go\\-arc\\.com/company/co/sales/90\\.335/sdr\\-emea/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?go\\-arc\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "go-arc.com|company/co/sales/90.335/sdr-emea|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

@@ -1,0 +1,75 @@
+{
+  "company_id": "novo_idea_software_ltd_novidea",
+  "schema_version": 1,
+  "career_url": "https://novidea.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:29:37.707656Z",
+  "verified_at": "2026-09-28T14:29:37.707656Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?novidea\\.com/career/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?novidea\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?novidea\\-crm\\.my\\.site\\.com/support/[^/?#]+/?$",
+      "^https?://(www\\.)?culture\\.novidea\\.com/novidea/departments/[^/?#]+/?$",
+      "^https?://(www\\.)?novidea\\.com/wp\\-content/uploads/2025/09/[^/?#]+/?$"
+    ],
+    "url_shape": "novidea.com|career|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 31,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": null,
+  "notes": []
+}

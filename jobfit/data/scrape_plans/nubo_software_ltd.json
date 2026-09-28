@@ -1,0 +1,74 @@
+{
+  "company_id": "nubo_software_ltd",
+  "schema_version": 1,
+  "career_url": "https://nubosoftware.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:29:37.707656Z",
+  "verified_at": "2026-09-28T14:29:37.707656Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?nubosoftware\\.com/w2/wp\\-content/uploads/2016/09/[^/?#]+/?$",
+      "^https?://(www\\.)?nubosoftware\\.com/wp\\-content/uploads/2017/09/[^/?#]+/?$",
+      "^https?://(www\\.)?nubosoftware\\.com/wp\\-content/uploads/2021/02/api\\-docs/[^/?#]+/?$"
+    ],
+    "url_shape": "nubosoftware.com||1",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 36,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 49,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": null,
+  "notes": []
+}

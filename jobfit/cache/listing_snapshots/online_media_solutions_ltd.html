@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/favicon.png" />
+    <script src="https://onlinemediasolutions.com/wp-content/themes/brightcom/js/skrollr.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var template_directory = 'https://onlinemediasolutions.com/wp-content/themes/brightcom';
+        var ajax_url = 'https://onlinemediasolutions.com/wp-admin/admin-ajax.php';
+    </script>
+	<script>
+		// NAVBAR HIGHLIGHT CURRENT ROUTE
+		const routeMap = {
+			'Home': '/',
+			'About Us': '/about-us/',
+			'Publishers': '/publishers/',
+			'Advertisers': '/advertising/',
+			'Team': '/team/'
+		}
+		addEventListener('load', (event) => {
+			const menu = document.getElementById('primary-left-menu')
+			const location = window.location.pathname
+			
+			for(let i = 0; i < menu.children.length; i++) {
+				const child = menu.children[i]
+				const text = child.innerText
+				
+				if(routeMap[text] && routeMap[text].length) {
+					if(routeMap[text].includes(location)) {
+						child.classList.add('navbar-item-selected')
+						return
+					}
+				}
+				
+				if(routeMap[text] && routeMap[text] === location) {
+					// Highlight selected navigation item
+					child.classList.add('navbar-item-selected')
+				}
+			}
+		})
+		
+		// NAVBAR SCROLL CHANGE
+		let nav
+		addEventListener('scroll', () => {
+			if (!nav) {
+				nav = document.getElementsByClassName('navigation')[0]
+			} else {
+				if (window.scrollY >= 120 && !nav.classList.contains('nav-scrolled')) {
+					nav.classList.add('nav-scrolled')
+				}
+				if (window.scrollY <= 120 && nav.classList.contains('nav-scrolled')) {
+					nav.classList.remove('nav-scrolled')
+				}
+				
+				if(!nav.classList.contains('custom-navbar')) {
+					nav.classList.add('custom-navbar')
+				}
+			}
+		})
+	</script>
+    <title>Careers | OMS</title>
+
+		<!-- All in One SEO 5.0.1.1 - aioseo.com -->
+	<meta name="description" content="OMS enables advertisers and agencies to conveniently reach their target audience on a global level and with full transparency and control." />
+	<meta name="robots" content="max-image-preview:large" />
+	<link rel="canonical" href="https://onlinemediasolutions.com/careers/" />
+	<meta name="generator" content="All in One SEO (AIOSEO) 5.0.1.1" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="OMS | Online Media solutions" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Careers | OMS" />
+		<meta property="og:description" content="OMS enables advertisers and agencies to conveniently reach their target audience on a global level and with full transparency and control." />
+		<meta property="og:url" content="https://onlinemediasolutions.com/careers/" />
+		<meta property="og:image" content="https://onlinemediasolutions.com/wp-content/uploads/2024/01/OMS-black.png" />
+		<meta property="og:image:secure_url" content="https://onlinemediasolutions.com/wp-content/uploads/2024/01/OMS-black.png" />
+		<meta property="og:image:width" content="981" />
+		<meta property="og:image:height" content="473" />
+		<meta property="article:published_time" content="2023-07-04T21:44:40+00:00" />
+		<meta property="article:modified_time" content="2024-12-15T13:36:02+00:00" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Careers | OMS" />
+		<meta name="twitter:description" content="OMS enables advertisers and agencies to conveniently reach their target audience on a global level and with full transparency and control." />
+		<meta name="twitter:image" content="https://onlinemediasolutions.com/wp-content/uploads/2024/01/OMS-black.png" />
+		<script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https:\/\/onlinemediasolutions.com\/careers\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/onlinemediasolutions.com#listItem","position":1,"name":"Home","item":"https:\/\/onlinemediasolutions.com","nextItem":{"@type":"ListItem","@id":"https:\/\/onlinemediasolutions.com\/careers\/#listItem","name":"Careers"}},{"@type":"ListItem","@id":"https:\/\/onlinemediasolutions.com\/careers\/#listItem","position":2,"name":"Careers","previousItem":{"@type":"ListItem","@id":"https:\/\/onlinemediasolutions.com#listItem","name":"Home"}}]},{"@type":"Organization","@id":"https:\/\/onlinemediasolutions.com\/#organization","name":"Online Media solutions","description":"Online Media solutions","url":"https:\/\/onlinemediasolutions.com\/","logo":{"@type":"ImageObject","url":"https:\/\/onlinemediasolutions.com\/wp-content\/uploads\/2024\/01\/OMS-black.png","@id":"https:\/\/onlinemediasolutions.com\/careers\/#organizationLogo","width":981,"height":473,"caption":"OMS | Online Media solutions"},"image":{"@id":"https:\/\/onlinemediasolutions.com\/careers\/#organizationLogo"}},{"@type":"WebPage","@id":"https:\/\/onlinemediasolutions.com\/careers\/#webpage","url":"https:\/\/onlinemediasolutions.com\/careers\/","name":"Careers | OMS","description":"OMS enables advertisers and agencies to conveniently reach their target audience on a global level and with full transparency and control.","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/onlinemediasolutions.com\/#website"},"breadcrumb":{"@id":"https:\/\/onlinemediasolutions.com\/careers\/#breadcrumblist"},"datePublished":"2023-07-04T21:44:40+00:00","dateModified":"2024-12-15T13:36:02+00:00"},{"@type":"WebSite","@id":"https:\/\/onlinemediasolutions.com\/#website","url":"https:\/\/onlinemediasolutions.com\/","name":"OMS","alternateName":"Online Media solutions","description":"Online Media solutions","inLanguage":"en-US","publisher":{"@id":"https:\/\/onlinemediasolutions.com\/#organization"}}]}
+		</script>
+		<!-- All in One SEO -->
+
+		<script>
+		(function(){
+			window.ecsSchemeConfig={systemAuto:false,darkLogoUrl:""};
+			var m=document.cookie.match(/(?:^|;\s*)ecs_color_scheme=([^;]+)/);
+			if(m&&m[1]==='alt'){
+				document.documentElement.setAttribute('data-ecs-scheme','alt');
+			}else if(!m&&false){
+				if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){
+					document.documentElement.setAttribute('data-ecs-scheme','alt');
+				}
+			}
+		})();
+		</script>
+		<link rel='dns-prefetch' href='//code.jquery.com' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="OMS &raquo; Feed" href="https://onlinemediasolutions.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="OMS &raquo; Comments Feed" href="https://onlinemediasolutions.com/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://onlinemediasolutions.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fonlinemediasolutions.com%2Fcareers%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://onlinemediasolutions.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fonlinemediasolutions.com%2Fcareers%2F&#038;format=xml" />
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v11.3.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script src="//www.googletagmanager.com/gtag/js?id=G-68X1FY4WGZ"  data-cfasync="false" data-wpfc-render="false" type="text/javascript" async></script>
+			<script data-cfasync="false" data-wpfc-render="false" type="text/javascript">
+				var mi_version = '11.3.0';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+								var MonsterInsightsDefaultLocations = {"page_location":"https:\/\/onlinemediasolutions.com\/careers\/"};
+								if ( typeof MonsterInsightsPrivacyGuardFilter === 'function' ) {
+					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsPrivacyGuardFilter( MonsterInsightsExcludeQuery ) : MonsterInsightsPrivacyGuardFilter( MonsterInsightsDefaultLocations );
+				} else {
+					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsExcludeQuery : MonsterInsightsDefaultLocations;
+				}
+
+								var disableStrs = [
+										'ga-disable-G-68X1FY4WGZ',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if (__gtagTrackerIsOptedOut()) {
+					for (var index = 0; index < disableStrs.length; index++) {
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				if ('undefined' === typeof gaOptout) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.MonsterInsightsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if (mi_track_user) {
+					function __gtagDataLayer() {
+						dataLayer.push(arguments);
+					}
+
+					function __gtagTracker(type, name, parameters) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply(null, arguments);
+							return;
+						}
+
+						if (type === 'event') {
+														parameters.send_to = monsterinsights_frontend.v4_id;
+							var hookName = name;
+							if (typeof parameters['event_category'] !== 'undefined') {
+								hookName = parameters['event_category'] + ':' + name;
+							}
+
+							if (typeof MonsterInsightsDualTracker.trackers[hookName] !== 'undefined') {
+								MonsterInsightsDualTracker.trackers[hookName](parameters);
+							} else {
+								__gtagDataLayer('event', name, parameters);
+							}
+							
+						} else {
+							__gtagDataLayer.apply(null, arguments);
+						}
+					}
+
+					__gtagTracker('js', new Date());
+					__gtagTracker('set', {
+						'developer_id.dZGIzZG': true,
+											});
+					if ( MonsterInsightsLocations.page_location ) {
+						__gtagTracker('set', MonsterInsightsLocations);
+					}
+										__gtagTracker('config', 'G-68X1FY4WGZ', {"forceSSL":"true","link_attribution":"true"} );
+										window.gtag = __gtagTracker;										(function () {
+						/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+						/* ga and __gaTracker compatibility shim. */
+						var noopfn = function () {
+							return null;
+						};
+						var newtracker = function () {
+							return new Tracker();
+						};
+						var Tracker = function () {
+							return null;
+						};
+						var p = Tracker.prototype;
+						p.get = noopfn;
+						p.set = noopfn;
+						p.send = function () {
+							var args = Array.prototype.slice.call(arguments);
+							args.unshift('send');
+							__gaTracker.apply(null, args);
+						};
+						var __gaTracker = function () {
+							var len = arguments.length;
+							if (len === 0) {
+								return;
+							}
+							var f = arguments[len - 1];
+							if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+								if ('send' === arguments[0]) {
+									var hitConverted, hitObject = false, action;
+									if ('event' === arguments[1]) {
+										if ('undefined' !== typeof arguments[3]) {
+											hitObject = {
+												'eventAction': arguments[3],
+												'eventCategory': arguments[2],
+												'eventLabel': arguments[4],
+												'value': arguments[5] ? arguments[5] : 1,
+											}
+										}
+									}
+									if ('pageview' === arguments[1]) {
+										if ('undefined' !== typeof arguments[2]) {
+											hitObject = {
+												'eventAction': 'page_view',
+												'page_path': arguments[2],
+											}
+										}
+									}
+									if (typeof arguments[2] === 'object') {
+										hitObject = arguments[2];
+									}
+									if (typeof arguments[5] === 'object') {
+										Object.assign(hitObject, arguments[5]);
+									}
+									if ('undefined' !== typeof arguments[1].hitType) {
+										hitObject = arguments[1];
+										if ('pageview' === hitObject.hitType) {
+											hitObject.eventAction = 'page_view';
+										}
+									}
+									if (hitObject) {
+										action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+										hitConverted = mapArgs(hitObject);
+										__gtagTracker('event', action, hitConverted);
+									}
+								}
+								return;
+							}
+
+							function mapArgs(args) {
+								var arg, hit = {};
+								var gaMap = {
+									'eventCategory': 'event_category',
+									'eventAction': 'event_action',
+									'eventLabel': 'event_label',
+									'eventValue': 'event_value',
+									'nonInteraction': 'non_interaction',
+									'timingCategory': 'event_category',
+									'timingVar': 'name',
+									'timingValue': 'value',
+									'timingLabel': 'event_label',
+									'page': 'page_path',
+									'location': 'page_location',
+									'title': 'page_title',
+									'referrer' : 'page_referrer',
+								};
+								for (arg in args) {
+																		if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+										hit[gaMap[arg]] = args[arg];
+									} else {
+										hit[arg] = args[arg];
+									}
+								}
+								return hit;
+							}
+
+							try {
+								f.hitCallback();
+							} catch (ex) {
+							}
+						};
+						__gaTracker.create = newtracker;
+						__gaTracker.getByName = newtracker;
+						__gaTracker.getAll = function () {
+							return [];
+						};
+						__gaTracker.remove = noopfn;
+						__gaTracker.loaded = true;
+						window['__gaTracker'] = __gaTracker;
+					})();
+									} else {
+										console.log("");
+					(function () {
+						function __gtagTracker() {
+							return null;
+						}
+
+						window['__gtagTracker'] = __gtagTracker;
+						window['gtag'] = __gtagTracker;
+					})();
+									}
+			</script>
+							<!-- / Google Analytics by MonsterInsights -->
+		<style type="text/css">@font-face {
+
+	font-family: Technovier;
+
+	font-weight: 400;
+
+	src: url(https://onlinemediasolutions.com/wp-content/uploads/fonts/10189/Techovier.ttf);
+
+}
+
+
+
+@font-face {
+
+	font-family: Technovier;
+
+	font-weight: 100;
+
+	src: url(https://onlinemediasolutions.com/wp-content/uploads/fonts/10189/Techovier-Thin.ttf);
+
+}
+
+
+
+@font-face {
+
+	font-family: Technovier;
+
+	font-weight: 300;
+
+	src: url(httsp://onlinemediasolutions.com/wp-content/uploads/fonts/10189/Techovier-Light.ttf);
+
+}
+
+
+
+@font-face {
+
+	font-family: Technovier;
+
+	font-weight: bold;
+
+	src: url(https://onlinemediasolutions.com/wp-content/uploads/fonts/10189/Techovier-Bold-1.ttf)
+
+}
+
+
+
+
+
+@font-face {
+
+	font-family: Technovier;
+
+	font-weight: 900;
+
+	src: url(https://onlinemediasolutions.com/wp-content/uploads/fonts/10189/Techovier-Black.ttf);
+
+}</style>
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<link rel='stylesheet' id='aioseo/css/src/vue/standalone/blocks/table-of-contents/global.scss-css' href='https://onlinemediasolutions.com/wp-content/plugins/all-in-one-seo-pack/dist/Lite/assets/css/table-of-contents/global.e90f6d47.css?ver=5.0.1.1' media='all' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:where(.wp-block-gallery.is-layout-flex){gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}:where(.wp-block-gallery.is-layout-grid){gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}
+:where(.wp-block-latest-posts.is-layout-flex){gap: 1.25em;}:where(.wp-block-latest-posts.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-term-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-term-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='contact-form-7-css' href='https://onlinemediasolutions.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.1.7' media='all' />
+<link rel='stylesheet' id='wf-cookie-consent-css' href='https://onlinemediasolutions.com/wp-content/plugins/wf-cookie-consent/css/wf-cookie-consent.min.css?ver=1.3' media='all' />
+<link rel='stylesheet' id='brightcom-jqueryui-smoothness-css' href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='brightcom-font-awesome-css' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='brightcom-font-google-css' href='//cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='brightcom-icomoon-acf-css' href='https://onlinemediasolutions.com/wp-content/themes/brightcom/acf-icomoon/icomoon.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='brightcom-owl-carousel-css' href='https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/owl.carousel/assets/owl.carousel.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='brightcom-fonts-css' href='https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/css/fonts.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='brightcom-animate-css' href='https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/css/animate.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='brightcom-icomoon-css' href='https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/css/icomoon.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='brightcom-quicksand-css' href='https://fonts.googleapis.com/css?family=Quicksand:700,400,300&#038;ver=7.1.2' media='all' />
+<link rel='stylesheet' id='form-validation-css' href='https://onlinemediasolutions.com/wp-content/themes/brightcom/inc/form-validation/form-validation.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='perfect-scrollbar-css' href='//cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.10/css/perfect-scrollbar.min.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='brightcom-style-css' href='https://onlinemediasolutions.com/wp-content/themes/brightcom/style.css?ver=1372982702' media='all' />
+<link rel='stylesheet' id='brightcom-style-custom-css' href='https://onlinemediasolutions.com/wp-content/themes/brightcom/style-custom.1.0.6.css?ver=1790580508' media='all' />
+<link rel='stylesheet' id='brightcom-comparison-slider-css' href='https://onlinemediasolutions.com/wp-content/themes/brightcom/inc/comparison-slider/comparison-slider.css?ver=7.1.2' media='all' />
+<link rel='stylesheet' id='ecs-color-scheme-css' href='https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin/modules/color-scheme/assets/css/ecs-color-scheme.min.css?ver=4.3.11' media='all' />
+<link rel='stylesheet' id='ecs-container-layout-css' href='https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin/modules/container-layout/assets/css/ecs-container-layout.min.css?ver=4.3.11' media='all' />
+<link rel='stylesheet' id='swiper-css' href='https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5' media='all' />
+<link rel='stylesheet' id='e-swiper-css' href='https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=4.3.1' media='all' />
+<link rel='stylesheet' id='ecs-mobile-menu-css' href='https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin/modules/mobile-menu/assets/css/ecs-mobile-menu.min.css?ver=4.3.11' media='all' />
+<link rel='stylesheet' id='ecs-editorial-text-css' href='https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin/modules/editorial-text/assets/css/ecs-editorial-text.min.css?ver=4.3.11' media='all' />
+<link rel='stylesheet' id='ecs-scheme-selector-css' href='https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin-pro/assets/css/ecs-scheme-selector.css?ver=4.2.2' media='all' />
+<link rel='stylesheet' id='elementor-icons-css' href='https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.54.0' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://onlinemediasolutions.com/wp-content/uploads/elementor/css/custom-frontend.min.css?ver=1790196389' media='all' />
+<link rel='stylesheet' id='elementor-post-2303-css' href='https://onlinemediasolutions.com/wp-content/uploads/elementor/css/post-2303.css?ver=1790196398' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.3.1' media='all' />
+<link rel='stylesheet' id='widget-image-carousel-css' href='https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/css/widget-image-carousel.min.css?ver=4.3.1' media='all' />
+<link rel='stylesheet' id='widget-toggle-css' href='https://onlinemediasolutions.com/wp-content/uploads/elementor/css/custom-widget-toggle.min.css?ver=1790196389' media='all' />
+<link rel='stylesheet' id='elementor-post-3212-css' href='https://onlinemediasolutions.com/wp-content/uploads/elementor/css/post-3212.css?ver=1790197095' media='all' />
+<link rel='stylesheet' id='ecs-styles-css' href='https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin/assets/css/ecs-style.min.css?ver=4.3.11' media='all' />
+<link rel='stylesheet' id='elementor-post-2351-css' href='https://onlinemediasolutions.com/wp-content/uploads/elementor/css/post-2351.css?ver=1646044276' media='all' />
+<link rel='stylesheet' id='elementor-gf-local-roboto-css' href='http://onlinemediasolutions.com/wp-content/uploads/elementor/google-fonts/css/roboto.css?ver=1745871664' media='all' />
+<link rel='stylesheet' id='elementor-gf-local-robotoslab-css' href='http://onlinemediasolutions.com/wp-content/uploads/elementor/google-fonts/css/robotoslab.css?ver=1745871665' media='all' />
+<link rel='stylesheet' id='elementor-gf-local-montserrat-css' href='http://onlinemediasolutions.com/wp-content/uploads/elementor/google-fonts/css/montserrat.css?ver=1745871667' media='all' />
+<link rel='stylesheet' id='elementor-icons-shared-0-css' href='https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' media='all' />
+<link rel='stylesheet' id='elementor-icons-fa-solid-css' href='https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3' media='all' />
+<script async data-wp-strategy="async" id="monsterinsights-frontend-script-js" src="https://onlinemediasolutions.com/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=11.3.0"></script>
+<script data-cfasync="false" data-wpfc-render="false" type="text/javascript" id='monsterinsights-frontend-script-js-extra'>/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/onlinemediasolutions.com","hash_tracking":"false","v4_id":"G-68X1FY4WGZ"};/* ]]> */
+</script>
+<script id="jquery-core-js" src="https://onlinemediasolutions.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://onlinemediasolutions.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="cookie-js-js" src="https://onlinemediasolutions.com/wp-content/themes/brightcom/js/jquery.cookie.js?ver=7.1.2"></script>
+<script id="ecs-mobile-menu-js" src="https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin/modules/mobile-menu/assets/js/ecs-mobile-menu.min.js?ver=4.3.11"></script>
+<script id="ecs_ajax_load-js-extra">
+var ecs_ajax_params = {"ajaxurl":"https://onlinemediasolutions.com/wp-admin/admin-ajax.php","posts":"{\"page\":0,\"pagename\":\"careers\",\"error\":\"\",\"m\":\"\",\"p\":0,\"post_parent\":\"\",\"subpost\":\"\",\"subpost_id\":\"\",\"attachment\":\"\",\"attachment_id\":0,\"name\":\"careers\",\"page_id\":0,\"second\":\"\",\"minute\":\"\",\"hour\":\"\",\"day\":0,\"monthnum\":0,\"year\":0,\"w\":0,\"category_name\":\"\",\"tag\":\"\",\"cat\":\"\",\"tag_id\":\"\",\"author\":\"\",\"author_name\":\"\",\"feed\":\"\",\"tb\":\"\",\"paged\":0,\"meta_key\":\"\",\"meta_value\":\"\",\"preview\":\"\",\"s\":\"\",\"sentence\":\"\",\"title\":\"\",\"fields\":\"all\",\"menu_order\":\"\",\"embed\":\"\",\"category__in\":[],\"category__not_in\":[],\"category__and\":[],\"post__in\":[],\"post__not_in\":[],\"post_name__in\":[],\"tag__in\":[],\"tag__not_in\":[],\"tag__and\":[],\"tag_slug__in\":[],\"tag_slug__and\":[],\"post_parent__in\":[],\"post_parent__not_in\":[],\"author__in\":[],\"author__not_in\":[],\"search_columns\":[],\"orderby\":\"menu_order\",\"order\":\"ASC\",\"post_type\":[\"post\",\"page\",\"e-landing-page\"],\"ignore_sticky_posts\":false,\"suppress_filters\":false,\"cache_results\":true,\"update_post_term_cache\":true,\"update_menu_item_cache\":false,\"lazy_load_term_meta\":true,\"update_post_meta_cache\":true,\"posts_per_page\":10,\"nopaging\":false,\"comments_per_page\":\"50\",\"no_found_rows\":false}","nonce":"c209efd7ad"};
+//# sourceURL=ecs_ajax_load-js-extra
+</script>
+<script id="ecs_ajax_load-js" src="https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin/assets/js/ecs_ajax_pagination.min.js?ver=4.3.11"></script>
+<script id="ecs-script-js" src="https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin/assets/js/ecs.min.js?ver=4.3.11"></script>
+<link rel="https://api.w.org/" href="https://onlinemediasolutions.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://onlinemediasolutions.com/wp-json/wp/v2/pages/3212" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://onlinemediasolutions.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.2" />
+<link rel='shortlink' href='https://onlinemediasolutions.com/?p=3212' />
+<!-- Start of Google Tag Embed Code -->
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-68X1FY4WGZ"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'AW-11070481544');
+
+</script>
+
+
+
+<!-- End of Google Tag Embed Code -->
+
+
+
+
+
+<!-- Start of HubSpot Embed Code -->
+
+
+
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4796354.js"></script>
+
+
+
+<!-- End of HubSpot Embed Code -->
+<style>
+
+	
+
+	
+
+#wpcf7-f2194-o1 {margin-top: 40px; margin-bottom: 40px; padding: 20px; background-color: #F0F0F0;
+
+
+
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+
+
+max-width: 600px;
+
+margin-left: auto; margin-right: auto;
+
+}
+
+
+
+#wpcf7-f2194-o1 .wpcf7-submit{
+
+padding: 10px; border-radius: 100px; font-size: 20px; background-color: white; color: #FF40EF; border-color: #FF40EF; font-family: misolight; font-size: 30px;
+
+margin-top: 35px;
+
+}
+
+
+
+
+
+#wpcf7-f2194-o1 input {font-size: 20px; padding: 4px; width: 100%;}
+
+#wpcf7-f2194-o1 h3 {font-weight: 700; margin-top: 10px; text-align: center; font-family: misolight; font-size: 30px;}
+
+#wpcf7-f2194-o1 label {font-family: misolight; font-weight: 600; font-size: 20px;}
+
+
+
+#wpcf7-f2194-o1 input[type="text"], #wpcf7-f2194-o1 input[type="url"] ,#wpcf7-f2194-o1 input[type="email"]  {border-top: none; border-left: none; border-right: none; padding-top: 8px; padding-bottom: 8px; padding-left: 12px; padding-right: 12px;}
+
+	
+
+	#wpcf7-f2194-o1 .sent .wpcf7-response-output {display: block !important;}
+
+	
+
+	
+
+	
+
+	
+
+	#eventslooper  .loopeventft {background-color: black; padding: 10px;} /*fix because elementors styles are not loading in the events page for some reason. this makes the footer of each event in the loop - black, Rami 28.02.2022 */ 
+
+	
+
+	
+
+</style><script type="text/javascript">
+			 var style = document.createElement("style");
+			 style.type = "text/css";
+			 style.id = "antiClickjack";
+			 if ("cssText" in style){
+			   style.cssText = "body{display:none !important;}";
+			 }else{
+			   style.innerHTML = "body{display:none !important;}";
+			 }
+			 document.getElementsByTagName("head")[0].appendChild(style);
+
+			 try {
+			   if (top.document.domain === document.domain) {
+			     var antiClickjack = document.getElementById("antiClickjack");
+			     antiClickjack.parentNode.removeChild(antiClickjack);
+			   } else {
+			     top.location = self.location;
+			   }
+			 } catch (e) {
+			   top.location = self.location;
+			 }
+			</script><meta name="generator" content="Elementor 4.3.1; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://onlinemediasolutions.com/wp-content/uploads/2024/01/cropped-WhatsApp-Image-2024-01-03-at-17.22.54-32x32.jpeg" sizes="32x32" />
+<link rel="icon" href="https://onlinemediasolutions.com/wp-content/uploads/2024/01/cropped-WhatsApp-Image-2024-01-03-at-17.22.54-192x192.jpeg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://onlinemediasolutions.com/wp-content/uploads/2024/01/cropped-WhatsApp-Image-2024-01-03-at-17.22.54-180x180.jpeg" />
+<meta name="msapplication-TileImage" content="https://onlinemediasolutions.com/wp-content/uploads/2024/01/cropped-WhatsApp-Image-2024-01-03-at-17.22.54-270x270.jpeg" />
+<style id="wp-custom-css">
+#page-header {
+	display: none;
+}
+
+.page-team #section1 .workarea header {
+	padding: 0;
+}
+
+//FORM CSS
+
+.wpcf7-form {
+	max-width: 600px;
+}
+
+/* Change font size and color of input fields */
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 textarea {
+	color: #50F9EF;
+	width: 600px;
+	margin-bottom: 15px;
+	background-color: rgba(217, 217, 217, 0.03);
+	padding-top: 8px;
+	padding-bottom: 9px;
+	padding-left: 17px;
+	border-width: 1px;
+	justify-content: 'center';
+	border-image: linear-gradient(to right, #55FFEB, #5573FF) 1;
+}
+
+.wpcf7 textarea {
+	min-height: 321px;
+	color: #92A3B8;
+	font-family: Montserrat;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 140%;
+	background-color: rgba(217, 217, 217, 0.03);
+}
+
+.wpcf7-text {
+	color: #50F9EF;
+	font-family: Montserrat;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 140%;
+}
+
+/* Style the submit button */
+.wpcf7 input[type="submit"] {
+	color: #000;
+	font-family: 'Montserrat';
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: normal;
+	text-transform: uppercase;
+	
+	border-radius: 0;
+	background: #55FFEB;
+	
+  padding: 18px 64px;
+
+	border: none;
+  cursor: pointer;
+}
+
+/* .submit-btn::before,
+.submit-btn::after {
+  position: absolute;
+  width: 27px;
+  height: 20px;
+  content: "";
+	z-index: 1;
+}
+
+.submit-btn::before {
+  left: 0;
+  top: 0;
+  border-left: 2.5px solid white;
+  border-top: 2.5px solid white;
+}
+
+.submit-btn::after {
+  right: 0;
+  bottom: 0;
+  border-right: 2.5px solid white;
+  border-bottom: 2.5px solid white;
+} */
+
+.submit-btn {
+	margin-right: 0;
+}
+
+.wpcf7-spinner {
+	display: none;
+}
+
+.submit {
+	display: flex;
+	width: 599px;
+	justify-content: flex-end;
+}
+
+.inputs-wrapper {
+	margin-bottom: 82px;
+}
+
+.validation {
+	right: 10px;
+	top: 10px
+}
+
+/* Style the placeholder text for input fields */
+.wpcf7 input::placeholder,
+.wpcf7 textarea::placeholder {
+  color: #92A3B8;
+	font-family: Montserrat;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: 140%;
+}
+
+/* Adjust form container width and alignment */
+.wpcf7-form {
+	display: flex;
+  justify-content: flex-end;
+  flex-flow: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.message-label {
+	color: #50F9EF;
+	font-family: Technovier;
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 140%
+}
+
+@media screen and (max-width: 768px) {
+	.wpcf7 input[type="text"],
+  .wpcf7 input[type="email"],
+	.wpcf7 textarea {
+		width: 100%;
+	}
+	
+	.wpcf7 input::placeholder,
+	.wpcf7 textarea::placeholder {
+		font-size: 15px;
+	}
+	
+	.wpcf7-text {
+		font-size: 15px;
+	}
+	
+	.message-label {
+		font-size: 15px
+	}
+	
+	.submit {
+		display: flex;
+		width: 70%;
+		justify-content: center;
+	}
+	
+	.wpcf7 input[type="submit"] {
+		font-size: 15px;
+	}
+	
+	.inputs-wrapper {
+		margin-bottom: 30px;
+	}
+}
+</style>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-88576113-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	// Script for click event on buttons with id btn-contact
+	$(document).ready(function() {
+	  $(document).on("click", "#btn-contact", function() {
+		    window.location.href = 'https://onlinemediasolutions.com/contact';
+	  });
+	});
+	// Script for click event on buttons with id btn-publishers
+	$(document).ready(function() {
+	  $(document).on("click", "#btn-publishers", function() {
+		    window.location.href = 'https://onlinemediasolutions.com/publishers';
+	  });
+	});
+	// Script for click event on buttons with id btn-publishers
+	$(document).ready(function() {
+	  $(document).on("click", "#btn-advertisers", function() {
+		    window.location.href = 'https://onlinemediasolutions.com/advertising';
+	  });
+	});
+	// Script for click event on buttons with id btn-blocal
+	$(document).ready(function() {
+	  $(document).on("click", "#btn-blocal", function() {
+		    window.location.href = 'https://onlinemediasolutions.com/b-local';
+	  });
+	});
+	// Script for click event on buttons with id btn-bfinance
+	$(document).ready(function() {
+	  $(document).on("click", "#btn-bfinance", function() {
+		    window.location.href = 'https://onlinemediasolutions.com/b-finance';
+	  });
+	});
+</script>
+</head>
+<body class="wp-singular page-template-default page page-id-3212 wp-custom-logo wp-theme-brightcom elementor-default elementor-kit-2303 elementor-page elementor-page-3212">
+<div id="masthead">
+    <nav class="desktop-menu">
+        
+        <div class="navigation"><ul id="primary-left-menu" class="cf"><li class="logo menu-item"><a href="https://onlinemediasolutions.com"><img src="https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/oms-logo.svg" alt="OMS Logo" /></a></li><li id="menu-item-10874" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-10874"><a href="https://onlinemediasolutions.com/">Home</a></li>
+<li id="menu-item-3552" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3552"><a href="https://onlinemediasolutions.com/publishers/">Publishers</a></li>
+<li id="menu-item-3553" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3553"><a href="https://onlinemediasolutions.com/advertising/">Advertisers</a></li>
+<li id="menu-item-5436" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5436"><a href="https://onlinemediasolutions.com/b-local/">Audience Packages</a>
+<ul class="sub-menu">
+	<li id="menu-item-4671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4671"><a href="https://onlinemediasolutions.com/b-local/">B-local</a></li>
+	<li id="menu-item-4670" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4670"><a href="https://onlinemediasolutions.com/b-finance/">B-Finance</a></li>
+</ul>
+</li>
+<li id="menu-item-9109" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-9109"><a href="https://onlinemediasolutions.com/about-us/">About Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-7601" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7601"><a href="https://onlinemediasolutions.com/about-us/">Our Story</a></li>
+	<li id="menu-item-11425" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11425"><a href="https://onlinemediasolutions.com/team/">Team</a></li>
+	<li id="menu-item-9110" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3212 current_page_item menu-item-9110"><a href="https://onlinemediasolutions.com/careers/" aria-current="page">Join Us</a></li>
+</ul>
+</li>
+<li class="menu-hamburger"><a id="btn-nav"><span></span><span></span><span></span><span></span></a><li class="menu-item" style="float: right;margin-top: 17px; margin-right: 40px"><a href="https://onlinemediasolutions.com/contact" class="button" id="contact-btn">Contact us</a></li></li></ul></div>    </nav>
+
+    <nav class="mobile-menu">
+        <div class="navigation custom-navbar">
+            <div id="primary-mobile-menu-wrapper">
+                <div class="navigation-inner"><ul id="primary-mobile-menu" class=""><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-10874"><a href="https://onlinemediasolutions.com/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3552"><a href="https://onlinemediasolutions.com/publishers/">Publishers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3553"><a href="https://onlinemediasolutions.com/advertising/">Advertisers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5436"><a href="https://onlinemediasolutions.com/b-local/">Audience Packages</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4671"><a href="https://onlinemediasolutions.com/b-local/">B-local</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4670"><a href="https://onlinemediasolutions.com/b-finance/">B-Finance</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-9109"><a href="https://onlinemediasolutions.com/about-us/">About Us</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7601"><a href="https://onlinemediasolutions.com/about-us/">Our Story</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11425"><a href="https://onlinemediasolutions.com/team/">Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3212 current_page_item menu-item-9110"><a href="https://onlinemediasolutions.com/careers/" aria-current="page">Join Us</a></li>
+</ul>
+</li>
+</ul></div>				
+<!-- 				<div class="social-links">
+				<div style="display: flex; justify-content: center;">
+					<ul>
+					  <li>
+						<a href="" target="_blank">
+						  <img src="https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/social-icons/fb.svg" alt="Facebook">
+						</a>
+					  </li>
+					  <li>
+						<a href="" target="_blank">
+						  <img src="https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/social-icons/li.svg" alt="LinkedIn">
+						</a>
+					  </li>
+					  <li>
+						<a href="" target="_blank">
+						  <img src="https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/social-icons/insta.svg" alt="Instagram">
+						</a>
+					  </li>
+					  <li>
+						<a href="" target="_blank">
+						  <img src="https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/social-icons/twitter.svg" alt="Twitter">
+						</a>
+					  </li>
+					</ul>
+				</div>
+			</div> -->
+
+<!--                 <div class="social-links">
+                    <div class="title">follow us!</div>
+
+                    <ul>
+                                                    <li>
+                                <a href="https://twitter.com/BrightcomGlobal" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            </li>
+                                                    <li>
+                                <a href="https://www.linkedin.com/company/brightcomglobal" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                            </li>
+                                                    <li>
+                                <a href="https://www.facebook.com/BrightcomGlobal/" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                            </li>
+                                            </ul>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+    </div><div id="page" class="page-wrapper page-team post-3212 page type-page status-publish hentry">
+	<div>
+		
+			<section id="section1">
+				<div class="workarea cf">
+					<header>
+						<h1 id="page-header">Careers</h1>
+					</header>
+					<article class="content">
+								<div data-elementor-type="wp-page" data-elementor-id="3212" class="elementor elementor-3212" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-2ef720d e-con-full e-ecs-flex e-flex e-con e-parent" data-id="2ef720d" data-element_type="container" data-e-type="container" data-settings="{&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+				<div class="elementor-element elementor-element-281aab1 elementor-widget__width-inherit elementor-absolute elementor-widget elementor-widget-image" data-id="281aab1" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img fetchpriority="high" decoding="async" width="1024" height="730" src="https://onlinemediasolutions.com/wp-content/uploads/2023/07/back5-2-1024x730.png" class="attachment-large size-large wp-image-3579" alt="" srcset="https://onlinemediasolutions.com/wp-content/uploads/2023/07/back5-2-1024x730.png 1024w, https://onlinemediasolutions.com/wp-content/uploads/2023/07/back5-2-300x214.png 300w, https://onlinemediasolutions.com/wp-content/uploads/2023/07/back5-2-768x548.png 768w, https://onlinemediasolutions.com/wp-content/uploads/2023/07/back5-2-1536x1095.png 1536w, https://onlinemediasolutions.com/wp-content/uploads/2023/07/back5-2.png 1600w" sizes="(max-width: 1024px) 100vw, 1024px" />															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-c4340a5 e-ecs-flex e-flex e-con-boxed e-con e-parent" data-id="c4340a5" data-element_type="container" data-e-type="container" data-settings="{&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-541176b elementor-widget elementor-widget-text-editor" data-id="541176b" data-element_type="widget" data-e-type="widget" id="title" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Careers</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-d144c80 elementor-widget elementor-widget-image" data-id="d144c80" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="503" height="3" src="https://onlinemediasolutions.com/wp-content/uploads/2023/12/Rectangle-438.png" class="attachment-large size-large wp-image-10254" alt="" srcset="https://onlinemediasolutions.com/wp-content/uploads/2023/12/Rectangle-438.png 503w, https://onlinemediasolutions.com/wp-content/uploads/2023/12/Rectangle-438-300x2.png 300w" sizes="(max-width: 503px) 100vw, 503px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-21a102d elementor-absolute elementor-widget elementor-widget-image" data-id="21a102d" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="394" height="384" src="https://onlinemediasolutions.com/wp-content/uploads/2023/07/Group-240.png" class="attachment-full size-full wp-image-3590" alt="" srcset="https://onlinemediasolutions.com/wp-content/uploads/2023/07/Group-240.png 394w, https://onlinemediasolutions.com/wp-content/uploads/2023/07/Group-240-300x292.png 300w" sizes="(max-width: 394px) 100vw, 394px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-e4f592b sub-text elementor-widget elementor-widget-text-editor" data-id="e4f592b" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Shoot for the stars with</p><p>Online Media Solutions!</p>								</div>
+				</div>
+		<div class="elementor-element elementor-element-a5bdd07 covered-background e-ecs-flex e-flex e-con-boxed e-con e-child" data-id="a5bdd07" data-element_type="container" data-e-type="container" id="paragraph-container" data-settings="{&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3be7a96 elementor-widget elementor-widget-text-editor" data-id="3be7a96" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Join our young, dynamic, and international environment,</p><p> </p><p>that fosters innovation, creativity, and personal fulfillment. Enjoy perks, events, and our vibrant culture, as you launch your career path, into orbit, with us.</p><div> </div>								</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-dc7634a e-con-full carousel covered-background e-ecs-flex e-flex e-con e-child" data-id="dc7634a" data-element_type="container" data-e-type="container" data-settings="{&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+				<div class="elementor-element elementor-element-b5dbe69 elementor-arrows-position-outside carousel-images elementor-pagination-position-outside elementor-widget elementor-widget-image-carousel" data-id="b5dbe69" data-element_type="widget" data-e-type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;1&quot;,&quot;navigation&quot;:&quot;both&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500}" data-widget_type="image-carousel.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-image-carousel-wrapper swiper" role="region" aria-roledescription="carousel" aria-label="Image Carousel" dir="ltr">
+			<div class="elementor-image-carousel swiper-wrapper swiper-image-stretch" aria-live="off">
+								<div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="1 of 4"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="https://onlinemediasolutions.com/wp-content/uploads/2023/08/bm2.jpg" alt="bm2" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="2 of 4"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="https://onlinemediasolutions.com/wp-content/uploads/2023/08/bm1.jpg" alt="bm1" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="3 of 4"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="https://onlinemediasolutions.com/wp-content/uploads/2023/08/bm3.jpg" alt="bm3" /></figure></div><div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="4 of 4"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="https://onlinemediasolutions.com/wp-content/uploads/2023/08/bm4.jpg" alt="bm4" /></figure></div>			</div>
+												<div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0">
+						<i aria-hidden="true" class="eicon-chevron-left"></i>					</div>
+					<div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0">
+						<i aria-hidden="true" class="eicon-chevron-right"></i>					</div>
+				
+									<div class="swiper-pagination"></div>
+									</div>
+						</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-53cca1e sub-text elementor-widget elementor-widget-text-editor" data-id="53cca1e" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Current Open Positions</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-2ba690c elementor-widget__width-inherit elementor-widget elementor-widget-image" data-id="2ba690c" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="503" height="3" src="https://onlinemediasolutions.com/wp-content/uploads/2023/12/Rectangle-438.png" class="attachment-large size-large wp-image-10254" alt="" srcset="https://onlinemediasolutions.com/wp-content/uploads/2023/12/Rectangle-438.png 503w, https://onlinemediasolutions.com/wp-content/uploads/2023/12/Rectangle-438-300x2.png 300w" sizes="(max-width: 503px) 100vw, 503px" />															</div>
+				</div>
+		<div class="elementor-element elementor-element-6a5c234 e-ecs-flex e-flex e-con-boxed e-con e-child" data-id="6a5c234" data-element_type="container" data-e-type="container" data-settings="{&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-145526b covered-background e-ecs-flex e-flex e-con-boxed e-con e-child" data-id="145526b" data-element_type="container" data-e-type="container" id="item-container" data-settings="{&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-f1ccad6 e-con-full e-ecs-flex e-flex e-con e-child" data-id="f1ccad6" data-element_type="container" data-e-type="container" data-settings="{&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+		<div class="elementor-element elementor-element-5e1fab8 position-container e-ecs-flex e-flex e-con-boxed e-con e-child" data-id="5e1fab8" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-b435683 item-row elementor-widget elementor-widget-text-editor" data-id="b435683" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Operations Manager, Team lead</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-5a08836 item-row elementor-widget elementor-widget-text-editor" data-id="5a08836" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>(OMS)</p>								</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-399b08b acc sub-text elementor-widget__width-initial elementor-widget elementor-widget-toggle" data-id="399b08b" data-element_type="widget" data-e-type="widget" data-widget_type="toggle.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-toggle">
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-6041" class="elementor-tab-title" data-tab="1" role="button" aria-controls="elementor-tab-content-6041" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-plus"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-plus"></i></span>
+													</span>
+												<a class="elementor-toggle-title" tabindex="0"> READ FULL DESCRIPTION</a>
+					</div>
+
+					<div id="elementor-tab-content-6041" class="elementor-tab-content elementor-clearfix" data-tab="1" role="region" aria-labelledby="elementor-tab-title-6041"><p><strong>About Us:</strong></p><p>Online Media Solutions (OMS) is a tech provider that assists leading websites and App developers, to maximize their revenue from advertising budgets.</p><p>We offer comprehensive technological solutions, paired with dedicated performance specialists, to ensure that publishers maximize their revenues.</p><p>With over two decades of experience in the industry, we have developed a holistic ecosystem that allows us to provide publishers an uplift in their revenues.</p><p><strong>The role’s Overview:</strong></p><p>We are seeking a highly skilled and motivated Campaign Management Team Lead to oversee and guide a dynamic team in managing and optimizing web-based campaigns. This role involves strategic planning, execution, and performance analysis of online campaigns across multiple platforms.The ideal candidate will be responsible for leading a cross-functional team, with members located in both Israel and Argentina. You will ensure smooth collaboration, effective communication, and high-performance standards, while aligning campaign goals with business objectives.</p><p><strong>Key Responsibilities:</strong></p><ul><li>Lead and manage a diverse team of campaign managers across multiple regions.</li><li>Develop and execute strategies to optimize web-based campaigns.</li><li>Analyze campaign performance and provide actionable insights for improvement.</li><li>Ensure efficient communication and collaboration between team members in Israel and Argentina.</li><li>Oversee the day-to-day management of campaigns, ensuring timely and successful delivery.</li><li>Serve as the primary customer-facing representative, fostering relationships with SSPs and industry partners while leveraging expertise in the digital advertising ecosystem to build trust and position the company well in the market.</li></ul><p><strong>Previous experience: </strong></p><ul><li><strong>Experience in display web monetization in front of SSPs (at least 2 years).</strong></li><li><strong>Experience managing a team.</strong></li><li><strong>Experiences in analyzing buying behavior and data reports.</strong></li><li><strong>Full business proficiency in English.</strong></li><li><strong>Ability to work in a fast-paced environment and manage multiple projects simultaneously.</strong></li></ul><p>OMS is an Equal Opportunity Employer and is committed to a diverse and inclusive environment</p><p><strong><a href="/cdn-cgi/l/email-protection#c9e9aaa8bbacacbbba89a6a7a5a0a7aca4acada0a8baa6a5bcbda0a6a7bae7aaa6a4" target="_blank" rel="noopener"><span style="text-decoration: underline;">APPLY HERE</span></a></strong></p></div>
+				</div>
+								</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-02a826b e-con-full e-ecs-flex e-flex e-con e-child" data-id="02a826b" data-element_type="container" data-e-type="container" data-settings="{&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+		<div class="elementor-element elementor-element-a3f8396 position-container e-ecs-flex e-flex e-con-boxed e-con e-child" data-id="a3f8396" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-0904e24 item-row elementor-widget elementor-widget-text-editor" data-id="0904e24" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Media Buyer</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-7e5af1a item-row elementor-widget elementor-widget-text-editor" data-id="7e5af1a" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>(OMS &#8211; Argentina)</p>								</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-e8edb9d acc sub-text elementor-widget__width-initial elementor-widget elementor-widget-toggle" data-id="e8edb9d" data-element_type="widget" data-e-type="widget" data-widget_type="toggle.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-toggle">
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-2441" class="elementor-tab-title" data-tab="1" role="button" aria-controls="elementor-tab-content-2441" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-plus"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-plus"></i></span>
+													</span>
+												<a class="elementor-toggle-title" tabindex="0"> READ FULL DESCRIPTION</a>
+					</div>
+
+					<div id="elementor-tab-content-2441" class="elementor-tab-content elementor-clearfix" data-tab="1" role="region" aria-labelledby="elementor-tab-title-2441"><p>OMS, a leading global media technology company operating in the ad-tech space, is looking for a Sales<br />Manager to join the Publisher Acquisition team in our Argentina office.</p><p>We are looking for a sales hunter! An enthusiastic and motivated team player with excellent people and<br />communication skills.</p><p>If you are a digital freak, enjoy business development and have experience in media buying, this position is<br />for you!</p><p>Job spec:</p><p>The Sales Manager will be in charge of developing new business opportunities and recruiting new<br />publishers.</p><p>-Identify appropriate websites mobile apps and media entities.</p><p>-Approach new publishers, negotiate, and close deals with potential partners.</p><p>Requirements:</p><p>▪ Experience in sales in the Adtech industry – a must!<br />▪ Fluency in English &#8211; must<br />▪ High attention to detail, well-organized with strong communication skills<br />▪ Sharp business and negotiation skills</p><p>Full-time position</p><p>Available for both male and female</p><p>Development opportunities, ongoing training, and excellent hiring conditions are offered.</p><p>Site: City of Buenos Aires, Argentina</p><p><a href="/cdn-cgi/l/email-protection#f4d497958691918687b49b9a989d9a919991909d95879b9881809d9b9a87da979b99"><span style="text-decoration: underline;"><strong>APPLY HERE</strong></span></a></p></div>
+				</div>
+								</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-0dd47fc e-con-full e-ecs-flex e-flex e-con e-child" data-id="0dd47fc" data-element_type="container" data-e-type="container" data-settings="{&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+		<div class="elementor-element elementor-element-98c8247 position-container e-ecs-flex e-flex e-con-boxed e-con e-child" data-id="98c8247" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-b80ad17 item-row elementor-widget elementor-widget-text-editor" data-id="b80ad17" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Manager of Agency Sales</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-50f560e item-row elementor-widget elementor-widget-text-editor" data-id="50f560e" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>(OMS &#8211; Berlin)</p>								</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-94b1fd1 acc sub-text elementor-widget__width-initial elementor-widget elementor-widget-toggle" data-id="94b1fd1" data-element_type="widget" data-e-type="widget" data-widget_type="toggle.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-toggle">
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-1551" class="elementor-tab-title" data-tab="1" role="button" aria-controls="elementor-tab-content-1551" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-plus"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-plus"></i></span>
+													</span>
+												<a class="elementor-toggle-title" tabindex="0"> READ FULL DESCRIPTION</a>
+					</div>
+
+					<div id="elementor-tab-content-1551" class="elementor-tab-content elementor-clearfix" data-tab="1" role="region" aria-labelledby="elementor-tab-title-1551"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><p><strong>Location: Berlin (hybrid</strong><strong>)</strong></p><p><strong>About Us:</strong></p><p>Online Media Solutions (OMS) is a leading tech provider and a demand partner, trusted by premium publishers to optimize their digital advertising strategies. With over 25 years of experience in the display marketplace, we leverage cutting-edge AI-driven technology to streamline traffic shaping, expand data point coverage, and implement advanced prediction models tailored to agency-specific targeting needs. Our proprietary yield optimization algorithms, coupled with unique demand sources, give us a significant competitive edge, allowing us to maximize revenue for publishers while maintaining the highest standards of ad quality.</p><p><strong>Responsibilities</strong><strong>:</strong></p><ul><li>To generates advertising revenue via ad agencies and advertisers directly, through objective led selling across display and video and other brand-building advertising solutions.</li><li>Serve as the primary senior-level point of contact for programmatic teams associated with agencies and brands across the DACH and UK regions.</li><li>Cultivate and maintain agency relationships to deliver product alignment, identify opportunities for partnership growth, and ensure prospects are effectively communicated from both buyer and operational perspectives, spanning across organizational departments.</li><li>Build and execute a strategic vision for short, medium, and long term growth, identifying areas of opportunity across the agencies.</li><li>Be a true hunter, eager to uncover opportunities, connect them with value-adding solutions, and influence buying decisions to drive increased revenue from both existing advertisers and new revenue streams.</li><li>Monitor buyer trends and developments within the UK and DACH regions, providing regular updates to senior stakeholders on achievements, obstacles, and market-specific requirements that need attention.</li><li>Participate in industry events and host partners in creative ways that encourage engagement and promote strategic account expansion.</li><li>Work closely with the OMS Campaign Management team to implement agency strategies, activate deal opportunities, and highlight the value offered by our premium publishers.</li></ul><p><strong>Qualifications</strong><strong>:</strong></p><ul><li>Deep understanding of the programmatic advertising ecosystem, including experience selling relevant programmatic products and solutions.</li><li>Maintains strong, established relationships across their business portfolio while demonstrating the capability to engage additional internal and external stakeholders effectively.</li><li>Proven expertise in advertising sales, with a track record of successfully managing and leading high-performing sales teams.</li><li>3+ years of experience in adtech industry</li><li>Extensive network of connections within agencies and clients across Germany and UK</li><li>Proficient in both English and German.</li><li>Possesses business acumen and market insights pertaining to clients and agencies managed by the team.</li><li>Highly adept at fostering cross-functional collaboration, maintaining organizational discipline, and developing strategies to achieve robust business performance and growth.</li><li>Strong written, verbal, and interpersonal communication skills, excelling in gathering feedback, addressing concerns, and aligning stakeholders both internally and externally.</li><li>Capable of navigating a matrix organization and effectively influencing stakeholders across various functions.</li></ul><p><strong>Benefits:</strong></p><ul><li>Hybrid way of work</li><li>A competitive salary</li><li>Responsibility and trust from day one</li><li>Individual coaching and further training to support you in your development</li><li>A culture of equity and inclusion where you are appreciated for the person you are</li></ul><p>OMS is an Equal Opportunity Employer and is committed to a diverse and inclusive environment.</p></div></div><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><div class="userDesignedContent company-description"><div class="contentGroup richTextBlock ng-scope"><p><a href="/cdn-cgi/l/email-protection#b999dad8cbdcdccbcaf9d6d7d5d0d7dcd4dcddd0d8cad6d5cccdd0d6d7ca97dad6d4" target="_blank" rel="noopener"><span style="text-decoration: underline;"><strong>APPLY HERE</strong></span></a></p></div></div></div></div></div></div></div>
+				</div>
+								</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-75f5bd7 e-con-full e-ecs-flex e-flex e-con e-child" data-id="75f5bd7" data-element_type="container" data-e-type="container" data-settings="{&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+		<div class="elementor-element elementor-element-5b0c261 position-container e-ecs-flex e-flex e-con-boxed e-con e-child" data-id="5b0c261" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-c49fd1d item-row elementor-widget elementor-widget-text-editor" data-id="c49fd1d" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Ad Operations Manager – Display (Programmatic) Advertising</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-fac354c item-row elementor-widget elementor-widget-text-editor" data-id="fac354c" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>(OMS)</p>								</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-318c021 acc sub-text elementor-widget__width-initial elementor-widget elementor-widget-toggle" data-id="318c021" data-element_type="widget" data-e-type="widget" data-widget_type="toggle.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-toggle">
+							<div class="elementor-toggle-item">
+					<div id="elementor-tab-title-5191" class="elementor-tab-title" data-tab="1" role="button" aria-controls="elementor-tab-content-5191" aria-expanded="false">
+												<span class="elementor-toggle-icon elementor-toggle-icon-left" aria-hidden="true">
+															<span class="elementor-toggle-icon-closed"><i class="fas fa-plus"></i></span>
+								<span class="elementor-toggle-icon-opened"><i class="elementor-toggle-icon-opened fas fa-plus"></i></span>
+													</span>
+												<a class="elementor-toggle-title" tabindex="0"> READ FULL DESCRIPTION</a>
+					</div>
+
+					<div id="elementor-tab-content-5191" class="elementor-tab-content elementor-clearfix" data-tab="1" role="region" aria-labelledby="elementor-tab-title-5191"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><h2 class="smallTitle positionSubTitle brandColoredText">DESCRIPTION</h2><div class="userDesignedContent company-description"><p>Our team is expanding and looking for the next rising star.</p><p>OMS is looking for an Ad Operations Manager, A passionate and motivated individual.</p><p>The Ad Operations Manager will communicate and collaborate with both internal and external partners as well as act according to data-driven insights.</p><p>In addition, they will be responsible for promoting partnerships and growing existing partnerships.</p><p>The ideal candidate will be a perfect combination of awesome interpersonal and analytical skills.</p><p>The role is based in Israel.</p></div></div></div><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><h2 class="smallTitle positionSubTitle brandColoredText">REQUIREMENTS</h2><div class="userDesignedContent company-description"><ul><li>Managing VIP partners and building a strong relationship</li><li>Identify new opportunities with our partners and leverage them to reach new goals</li><li>Analyze data and perform actions to optimize the activity </li><li>Investigation of market trends</li><li>Initiate and lead strategic projects in front of internal departments</li><li>Present OMS&#8217;s offering to the world’s leading ad-tech partners</li></ul><p><strong>General characteristics required for the role:</strong></p><ul><li>Experience in Adtech &#8211; beginner level </li><li>Experienced in working with international and mainly US clients</li><li>Excellent written and verbal English communication and presentation skills</li><li>Strong analytical skills </li><li>Team player &#8211; working in front of international teams</li><li>Proactive, enjoys working in a fast-paced environment, great at multitasking</li><li>A true passion for numbers, loves to learn and work independently</li><li>Out-of-the-box thinking; solving ongoing challenges</li></ul></div><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><p>OMS is an Equal Opportunity Employer and is committed to a diverse and inclusive environment.</p></div></div><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"><div class="userDesignedContent company-description"><div class="contentGroup richTextBlock ng-scope"><p><a href="/cdn-cgi/l/email-protection#6d4d0e0c1f08081f1e2d020301040308000809040c1e020118190402031e430e0200" target="_blank" rel="noopener"><span style="text-decoration: underline;"><strong>APPLY HERE</strong></span></a></p></div></div></div></div></div></div></div>
+				</div>
+								</div>
+						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-1064781 elementor-widget elementor-widget-image" data-id="1064781" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="503" height="3" src="https://onlinemediasolutions.com/wp-content/uploads/2023/12/Rectangle-438.png" class="attachment-large size-large wp-image-10254" alt="" srcset="https://onlinemediasolutions.com/wp-content/uploads/2023/12/Rectangle-438.png 503w, https://onlinemediasolutions.com/wp-content/uploads/2023/12/Rectangle-438-300x2.png 300w" sizes="(max-width: 503px) 100vw, 503px" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-80350dc elementor-widget__width-initial footer-text elementor-widget elementor-widget-text-editor" data-id="80350dc" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Don&#8217;t see a job opening you are searching for? We&#8217;re actively accepting resumes for all departments. Submit your resume and someone from our team will reach out to you.</p>								</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-858b0ec e-con-full e-ecs-flex e-flex e-con e-parent" data-id="858b0ec" data-element_type="container" data-e-type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;,&quot;ecs_container_type&quot;:&quot;flex&quot;}">
+				<div class="elementor-element elementor-element-3e8a307 elementor-widget__width-inherit elementor-widget elementor-widget-image" data-id="3e8a307" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" decoding="async" width="1600" height="1481" src="https://onlinemediasolutions.com/wp-content/uploads/2023/07/digital-data-technology-wave-particle-sound-wave-concept-big-data-data-science-wave-background-1.png" class="attachment-full size-full wp-image-3580" alt="" srcset="https://onlinemediasolutions.com/wp-content/uploads/2023/07/digital-data-technology-wave-particle-sound-wave-concept-big-data-data-science-wave-background-1.png 1600w, https://onlinemediasolutions.com/wp-content/uploads/2023/07/digital-data-technology-wave-particle-sound-wave-concept-big-data-data-science-wave-background-1-300x278.png 300w, https://onlinemediasolutions.com/wp-content/uploads/2023/07/digital-data-technology-wave-particle-sound-wave-concept-big-data-data-science-wave-background-1-1024x948.png 1024w, https://onlinemediasolutions.com/wp-content/uploads/2023/07/digital-data-technology-wave-particle-sound-wave-concept-big-data-data-science-wave-background-1-768x711.png 768w, https://onlinemediasolutions.com/wp-content/uploads/2023/07/digital-data-technology-wave-particle-sound-wave-concept-big-data-data-science-wave-background-1-1536x1422.png 1536w" sizes="(max-width: 1600px) 100vw, 1600px" />															</div>
+				</div>
+				</div>
+				</div>
+							</article>
+				</div>
+			</section>
+
+			</div>
+
+<footer id="footer" style="background-image: url('https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/footer-bg.svg'); background-repeat: no-repeat;background-size: cover; background-position: center;">
+	<div id="custom-popup" style="opacity: 0;">
+		<div class="custom-popup-text">
+			Let's chat
+		</div>
+		<img src="https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/astronaut.png?_t=1692386088" alt="Astronaut">
+    </div>
+	
+
+	<div class="chat-box">
+		<div class="chat-box-header">
+			<p class="chat-box-title">
+				CHAT BOX
+			</p>
+			<div id="chat-exit" class="chat-box-exit">
+				<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.305 8.50054L16.5642 3.24136C17.1453 2.66028 17.1453 1.7182 16.5642 1.13802L15.8631 0.436903C15.2818 -0.144363 14.3397 -0.144363 13.7595 0.436903L8.50054 5.6959L3.24136 0.435814C2.66028 -0.145271 1.7182 -0.145271 1.13802 0.435814L0.435814 1.13693C-0.145271 1.7182 -0.145271 2.66028 0.435814 3.24046L5.6959 8.50054L0.436903 13.7595C-0.144363 14.3408 -0.144363 15.2829 0.436903 15.8631L1.13802 16.5642C1.7191 17.1453 2.66119 17.1453 3.24136 16.5642L8.50054 11.305L13.7595 16.5642C14.3408 17.1453 15.2829 17.1453 15.8631 16.5642L16.5642 15.8631C17.1453 15.2818 17.1453 14.3397 16.5642 13.7595L11.305 8.50054Z" fill="white"/>
+</svg>
+			</div>
+		</div>
+		
+		<div id="chat-messages" class="chat-messages">
+			
+		</div>
+		
+		<div class="chat-box-input">
+			<input id="chat-input" name="chatInput" type="text" placeholder="Type Your Message.." />
+			<button id="message-submit" type="submit">
+				<div style="margin-top: 3px;">
+					<svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_1_591" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="29" height="29">
+<path d="M0 0H28.666V28.666H0V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_1_591)">
+<path d="M19.8198 14.333H8.80879M19.8198 14.333L15.4154 18.7374M19.8198 14.333L15.4154 9.92856M25.1096 3.08757L25.5784 3.55636C26.8384 4.81627 27.5462 6.5252 27.5462 8.30708V20.3589C27.5462 22.1408 26.8384 23.8497 25.5784 25.1096L25.1096 25.5784C23.8497 26.8384 22.1408 27.5462 20.3589 27.5462H8.30708C6.5252 27.5462 4.81627 26.8384 3.55636 25.5784L3.08757 25.1096C1.82761 23.8497 1.11975 22.1408 1.11975 20.3589V8.30708C1.11975 6.5252 1.82761 4.81627 3.08757 3.55636L3.55636 3.08757C4.81627 1.82761 6.5252 1.11975 8.30708 1.11975H20.3589C22.1408 1.11975 23.8497 1.82761 25.1096 3.08757Z" stroke="white" stroke-width="2.23953" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>	
+				</div>
+			</button>
+		</div>
+	</div>
+
+	<div class="workarea">
+		<div class="footer-data">
+			<a href="" target="_blank" style="margin-bottom: 40px; justify-content: center; display: flex;">
+				<img src="https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/oms-logo.svg" alt="OMS">
+			</a>
+			<div class="navigation"><ul id="footer-menu" class="cf"><li id="menu-item-11272" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11272"><a href="https://onlinemediasolutions.com/data-processing-agreement/">Data Processing Agreement</a></li>
+<li id="menu-item-3221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3221"><a href="https://onlinemediasolutions.com/toc/">Terms and Conditions</a></li>
+<li id="menu-item-9762" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9762"><a href="https://onlinemediasolutions.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-3223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3223"><a href="https://onlinemediasolutions.com/security/">Security</a></li>
+<li id="menu-item-3224" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3212 current_page_item menu-item-3224"><a href="https://onlinemediasolutions.com/careers/" aria-current="page">Careers</a></li>
+<li id="menu-item-4160" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4160"><a href="https://onlinemediasolutions.com/contact/">Contact</a></li>
+</ul></div><!--
+			<div class="social-links">
+				<div style="display: flex; justify-content: center; margin-top: 15px;">
+					<ul>
+					  <li>
+						<a href="https://www.linkedin.com/company/brightcomglobal/?originalSubdomain=il" target="_blank">
+						  <img src="https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/social-icons/linkedin.svg" alt="LinkedIn">
+						</a>
+					  </li>
+					</ul>
+				</div>
+			</div>
+-->
+		</div>
+	</div>
+	<div class="copyright-msg">
+		© 2023 online media solutions all rights reserved	</div>
+	
+	<!-- HUBSPOT HIDDEN SUBMISSION FORM FOR CHAT BOX -->
+	<div id="hubspot-form" style="display: none">
+		<form class="wpcf7-form init" onsubmit="return false">
+			<input name="fullName" />
+			<input name="email" />
+			<input name="company" />
+			<input name="puboradv" />
+			<input name="message" />
+			<button type="submit" id="submit-button">Submit</button>
+		</form>
+	</div>
+	
+	<!-- BACKGROUND STARS CONTAINER -->
+	<div class="stars-container">
+		
+	</div>
+</footer>
+
+<div id="page-loader">
+	<div class="bodymovin" id="bodymovin"></div>
+</div>
+
+<!-- Start of LinkedIn Embed Code -->
+
+	
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript"> _linkedin_partner_id = "5056217"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id); </script><script type="text/javascript"> (function(l) { if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])}; window.lintrk.q=[]} var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})(window.lintrk); </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=5056217&fmt=gif" /> </noscript>
+
+
+
+<!-- End of LinkedIn Embed Code -->
+
+
+
+
+
+
+
+<!-- Home Domain Section Text animation -->
+
+<script>
+
+  var animationsRan = false;
+
+
+
+  const domainObserver = new IntersectionObserver((entries, observer) => {
+
+    entries.forEach((entry) => {
+
+      if (entry.isIntersecting && !animationsRan) {
+
+        runAnimations();
+
+      }
+
+    });
+
+  }, {});
+
+
+
+  function runAnimations() {
+
+    const items = document.getElementsByClassName("title-animated");
+
+
+
+    if (items?.length === 3) {
+
+      animationsRan = true;
+
+
+
+      let firstCounter = 0;
+
+      const first = items[0];
+
+      const second = items[1];
+
+      const third = items[2];
+
+      first.innerText = "0B Monthly Requests";
+
+
+
+      let percent = 0;
+
+
+
+      const interval= setInterval(() => {
+
+        percent += 0.02;
+
+
+
+        if (percent >= 1) {
+
+          percent = 1;
+
+          clearInterval(interval);
+
+        }
+
+
+
+        first.innerText = parseInt(percent * 40) + "B Monthly \n Requests";
+
+        second.innerText = parseInt(percent * 1000) + " + Brands";
+
+        third.innerText = parseInt(percent * 200) + " + Publishers";
+
+      }, 50);
+
+    }
+
+  }
+
+  const domainContainer = document.getElementById("domain-items")
+
+  if(domainContainer) {
+
+      domainObserver.observe(domainContainer);
+
+  }
+
+</script>
+
+<!-- Home Domain Section Text animation end -->
+
+
+
+<!-- About us Game -->
+
+<script>
+
+    var maps = [
+
+           { buttonId: 'israel-map-button', img: $('#israel-map') }, 
+
+           { buttonId: 'argentina-map-button', img: $('#argentina-map') }, 
+
+           { buttonId: 'india-map-button', img: $('#india-map') },
+
+           { buttonId: 'east-eu-map-button', img: $('#east-eu-map') },
+
+           { buttonId: 'germany-map-button', img: $('#germany-map') },
+
+    ]
+
+
+
+        maps.forEach(map => {
+
+                if ('israel-map-button' === map.buttonId) {
+
+                    map.img.css('opacity', 1);
+
+                    map.img.css('z-index', 90);
+
+                 } else {
+
+                    map.img.css('opacity', 0);
+
+                    map.img.css('z-index', -90);
+
+                }
+
+            });
+
+   
+
+    function onHover(buttonId) {
+
+        return function(e) {
+
+            maps.forEach(map => {
+
+                if (buttonId=== map.buttonId) {
+
+                    map.img.css('opacity', 1);
+
+                    map.img.css('z-index', 90);
+
+                 } else {
+
+                    map.img.css('opacity', 0);
+
+                    map.img.css('z-index', -90);
+
+                }
+
+            });
+
+        }
+
+
+
+    }
+
+
+
+    $('.israel-map-button').hover(onHover("israel-map-button"))
+
+    $('.argentina-map-button').hover(onHover("argentina-map-button"))
+
+    $('.india-map-button').hover(onHover("india-map-button"))
+
+    $('.east-eu-map-button').hover(onHover("east-eu-map-button"))
+
+    $('.germany-map-button').hover(onHover("germany-map-button"))
+
+</script>
+
+<!-- About us Game end -->
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/brightcom/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script>
+
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+
+  location = 'https://onlinemediasolutions.com/thanks/';
+
+}, false );
+
+</script><script type="text/javascript">
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    ga( 'send', 'event', 'Contact Form', 'submit' );
+}, false );
+</script>
+			<script>
+				( () => {
+					const lazyloadRunObserver = () => {
+						const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+						const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+							entries.forEach( ( entry ) => {
+								if ( entry.isIntersecting ) {
+									let lazyloadBackground = entry.target;
+									if( lazyloadBackground ) {
+										lazyloadBackground.classList.add( 'e-lazyloaded' );
+									}
+									lazyloadBackgroundObserver.unobserve( entry.target );
+								}
+							});
+						}, { rootMargin: '200px 0px 200px 0px' } );
+						lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+							lazyloadBackgroundObserver.observe( lazyloadBackground );
+						} );
+					};
+					const events = [
+						'DOMContentLoaded',
+						'elementor/lazyload/observe',
+					];
+					events.forEach( ( event ) => {
+						document.addEventListener( event, lazyloadRunObserver );
+					} );
+				} )();
+			</script>
+			<script id="wp-hooks-js" src="https://onlinemediasolutions.com/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script id="wp-i18n-js" src="https://onlinemediasolutions.com/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="swv-js" src="https://onlinemediasolutions.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.7"></script>
+<script id="contact-form-7-js-before">
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/onlinemediasolutions.com\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    }
+};
+//# sourceURL=contact-form-7-js-before
+</script>
+<script id="contact-form-7-js" src="https://onlinemediasolutions.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.7"></script>
+<script id="wpcf7-ga-events-js-before">
+var cf7GASendActions = {"invalid":"true","spam":"true","mail_sent":"true","mail_failed":"true","sent":"false"}, cf7FormIDs = {"ID_7372":"Chat with us","ID_2194":"Share Referral","ID_4":"Contact us"};
+//# sourceURL=wpcf7-ga-events-js-before
+</script>
+<script id="wpcf7-ga-events-js" src="https://onlinemediasolutions.com/wp-content/plugins/cf7-google-analytics/js/cf7-google-analytics.min.js?ver=1.8.10"></script>
+<script id="wf-cookie-consent-cookiechoices-js" src="https://onlinemediasolutions.com/wp-content/plugins/wf-cookie-consent/js/cookiechoices.min.js?ver=1.3"></script>
+<script id="owl-carousel-js" src="https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/owl.carousel/owl.carousel.js?ver=7.1.2"></script>
+<script id="skrollr-js" src="https://onlinemediasolutions.com/wp-content/themes/brightcom/js/skrollr.js?ver=7.1.2"></script>
+<script id="dragdealer-js" src="https://onlinemediasolutions.com/wp-content/themes/brightcom/js/dragdealer.js?ver=7.1.2"></script>
+<script id="jquery-ui-core-js-before">
+jQuery.uiBackCompat = true;
+//# sourceURL=jquery-ui-core-js-before
+</script>
+<script id="jquery-ui-core-js" src="https://onlinemediasolutions.com/wp-includes/js/jquery/ui/core.min.js?ver=1.14.2"></script>
+<script id="visible-js-js" src="https://onlinemediasolutions.com/wp-content/themes/brightcom/js/jquery.visible.min.js?ver=7.1.2"></script>
+<script id="bodymovin-js-js" src="https://onlinemediasolutions.com/wp-content/themes/brightcom/js/bodymovin.js?ver=7.1.2"></script>
+<script id="validation-js-js" src="https://onlinemediasolutions.com/wp-content/themes/brightcom/inc/form-validation/form-validation.js?ver=7.1.2"></script>
+<script id="jquery-ui-js" src="//code.jquery.com/ui/1.11.4/jquery-ui.js?ver=7.1.2"></script>
+<script id="perfect-scrollbar-js-js" src="//cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.10/js/perfect-scrollbar.jquery.js?ver=7.1.2"></script>
+<script id="brightcom-js-js" src="https://onlinemediasolutions.com/wp-content/themes/brightcom/js/js.js?ver=7.1.2"></script>
+<script id="comparison-slider-js-js" src="https://onlinemediasolutions.com/wp-content/themes/brightcom/inc/comparison-slider/comparison-slider.js?ver=7.1.2"></script>
+<script id="ecs-color-switcher-js" src="https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin/modules/color-scheme/assets/js/ecs-color-switcher.min.js?ver=4.3.11"></script>
+<script id="swiper-js" src="https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5"></script>
+<script id="elementor-webpack-runtime-js" src="https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.3.1"></script>
+<script id="elementor-frontend-modules-js" src="https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.3.1"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnX":"Share on X","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"Widescreen","value":1920,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":true},"version":"4.3.1","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"container":true,"theme_builder_v2":true,"landing-pages":true,"nested-elements":true,"import-export-customization":true,"e_pro_atomic_form":true,"e_pro_collection_loop":true,"e_pro_variables":true,"e_pro_interactions":true},"urls":{"assets":"https:\/\/onlinemediasolutions.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/onlinemediasolutions.com\/wp-admin\/admin-ajax.php","uploadUrl":"http:\/\/onlinemediasolutions.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"c5646d2e1c","atomicFormsSendForm":"97333a86f2"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_tablet","viewport_laptop"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":3212,"title":"Careers%20%7C%20OMS","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://onlinemediasolutions.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.3.1"></script>
+<script id="ecs-slider-js" src="https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin/modules/container-layout/assets/js/ecs-slider.min.js?ver=4.3.11"></script>
+<script id="ecs-scheme-selector-js" src="https://onlinemediasolutions.com/wp-content/plugins/ele-custom-skin-pro/assets/js/ecs-scheme-selector.js?ver=4.2.2"></script>
+<script id="elementor-pro-webpack-runtime-js" src="https://onlinemediasolutions.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.2.3"></script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/onlinemediasolutions.com\/wp-admin\/admin-ajax.php","nonce":"315f38f13f","urls":{"assets":"https:\/\/onlinemediasolutions.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/onlinemediasolutions.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/onlinemediasolutions.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://onlinemediasolutions.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.2.3"></script>
+<script id="pro-elements-handlers-js" src="https://onlinemediasolutions.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.2.3"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://onlinemediasolutions.com/wp-includes/js/wp-emoji-release.min.js?ver=7.1.2"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://onlinemediasolutions.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script type="text/javascript">
+	window._wfCookieConsentSettings = {"wf_cookietext":"This site uses cookies to improve your experience, personalize, operate and analyze the site, to find out more please see our ","wf_dismisstext":"Got it","wf_linktext":"Privacy Policy","wf_linkhref":"https:\/\/onlinemediasolutions.com\/privacy-policy\/","wf_position":"bottom","wf_style":"light","wf_auto_dark":true,"language":"en"};
+</script>
+	<script>
+function mobileCheck() {
+  let check = false;
+  (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+  return check;
+};	
+	
+function botSVG() {
+	return `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_1_530" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+<path d="M0 0H32V32H0V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_1_530)">
+<path d="M29.3983 31.5304H2.60193V8.48233C2.60193 6.8267 3.94405 5.48458 5.59974 5.48458H26.4006C28.0562 5.48458 29.3983 6.8267 29.3983 8.48233V31.5304Z" fill="#C8BEB9"/>
+<path d="M30.9235 31.5304H1.07648V28.9001C1.07648 24.7394 4.44935 21.3665 8.60998 21.3665H23.3899C27.5506 21.3665 30.9235 24.7394 30.9235 28.9001V31.5304Z" fill="#F5F0EB"/>
+<path d="M23.3901 21.3665H21.5151C25.6757 21.3665 29.0486 24.7394 29.0486 28.9001V31.5304H30.9236V28.9001C30.9236 24.7394 27.5507 21.3665 23.3901 21.3665Z" fill="#EBE1DC"/>
+<path d="M25.6318 19.9086C26.0023 19.8292 26.4045 19.9334 26.6924 20.2214C27.1438 20.6728 27.1438 21.4726 26.6924 21.924C23.8298 24.7865 20.024 26.6349 15.9758 26.6349C11.9552 26.6349 8.16778 24.8049 5.31128 21.9758C4.85778 21.5266 4.85428 20.7268 5.3034 20.2733C5.61928 19.9544 6.0749 19.858 6.47521 19.985" fill="#7D7878"/>
+<path d="M6.7111 15.9172H2.96741C2.02603 15.9172 1.26291 15.1541 1.26291 14.2127V10.5216C1.26291 9.58018 2.02603 8.81705 2.96741 8.81705H6.7111V15.9172Z" fill="#7D7878"/>
+<path d="M25.2894 15.9172H29.0331C29.9745 15.9172 30.7376 15.1541 30.7376 14.2127V10.5216C30.7376 9.58018 29.9745 8.81705 29.0331 8.81705H25.2894V15.9172Z" fill="#7D7878"/>
+<path d="M28.0322 12.4989C28.0322 19.1438 22.6454 24.5306 16.0005 24.5306C9.35559 24.5306 3.96878 19.1438 3.96878 12.4989C3.96878 5.85395 9.35559 0.467203 16.0005 0.467203C22.6454 0.467203 28.0322 5.85395 28.0322 12.4989Z" fill="#F5F0EB"/>
+<path d="M16.0007 4.81827C12.0232 4.82527 8.57192 6.56114 6.83892 9.10452C6.75698 9.22483 6.71185 9.36639 6.71185 9.51195V16.1494C6.71185 16.295 6.75698 16.4365 6.83892 16.5568C8.57192 19.1002 12.0232 20.8361 16.0007 20.8431C19.9782 20.8361 23.4294 19.1002 25.1624 16.5568C25.2444 16.4365 25.2895 16.295 25.2895 16.1494V9.51195C25.2895 9.36639 25.2444 9.22483 25.1624 9.10452C23.4294 6.56114 19.9782 4.82527 16.0007 4.81827Z" fill="#BED9FD"/>
+<path d="M16.0001 0.467203C15.6846 0.467203 15.372 0.479515 15.0626 0.503328C21.2694 0.981703 26.1568 6.16945 26.1568 12.4989C26.1568 18.8283 21.2694 24.0161 15.0626 24.4945C15.372 24.5183 15.6846 24.5306 16.0001 24.5306C22.6451 24.5306 28.0318 19.1438 28.0318 12.4989C28.0318 5.85395 22.6451 0.467203 16.0001 0.467203Z" fill="#EBE1DC"/>
+<path d="M25.1619 9.10452C23.4289 6.56108 19.9777 4.82527 16.0001 4.81827C15.684 4.81877 15.3716 4.83145 15.0626 4.85339C18.64 5.10752 21.6917 6.76327 23.2869 9.10452C23.3689 9.22483 23.414 9.36633 23.414 9.51195V16.1494C23.414 16.2949 23.3689 16.4365 23.2869 16.5568C21.6917 18.898 18.64 20.5538 15.0626 20.8079C15.3716 20.8298 15.684 20.8425 16.0001 20.8431C19.9777 20.8361 23.4289 19.1002 25.1619 16.5568C25.2439 16.4365 25.289 16.2949 25.289 16.1494V9.51195C25.289 9.36633 25.2439 9.22483 25.1619 9.10452Z" fill="#9EC8FC"/>
+<path d="M25.3365 31.5304H6.66443V30.4221C6.66443 29.5631 7.36087 28.8667 8.21987 28.8667H23.781C24.6401 28.8667 25.3365 29.5631 25.3365 30.4221V31.5304Z" fill="#80B6FC"/>
+<path d="M23.7802 28.8667H21.9052C22.7643 28.8667 23.4607 29.5631 23.4607 30.4221V31.5304H25.3357V30.4221C25.3357 29.5631 24.6393 28.8667 23.7802 28.8667Z" fill="#5392F9"/>
+<path d="M26.7881 22.1746C29.2416 23.4168 30.9235 25.962 30.9235 28.9V31.5304H1.07648V28.9C1.07648 25.948 2.77441 23.3925 5.24698 22.157" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25.6318 19.9086C26.0023 19.8292 26.4045 19.9334 26.6924 20.2214C27.1438 20.6728 27.1438 21.4726 26.6924 21.924C23.8298 24.7865 20.024 26.6349 15.9758 26.6349C11.9552 26.6349 8.16778 24.8049 5.31128 21.9758C4.85778 21.5266 4.85428 20.7268 5.3034 20.2733C5.61928 19.9544 6.0749 19.858 6.47521 19.985" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.30028 15.9172H2.96741C2.02603 15.9172 1.26291 15.1541 1.26291 14.2127V10.5216C1.26291 9.58018 2.02603 8.81705 2.96741 8.81705H4.34197" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.8163 15.9172H29.0321C29.9735 15.9172 30.7366 15.1541 30.7366 14.2127V10.5216C30.7366 9.58018 29.9735 8.81705 29.0321 8.81705H27.6911" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.0007 4.81827C12.0232 4.82527 8.57192 6.56114 6.83892 9.10452C6.75698 9.22483 6.71185 9.36639 6.71185 9.51195V16.1494C6.71185 16.295 6.75698 16.4365 6.83892 16.5568C8.57192 19.1002 12.0232 20.8361 16.0007 20.8431C19.9782 20.8361 23.4294 19.1002 25.1624 16.5568C25.2444 16.4365 25.2895 16.295 25.2895 16.1494V9.51195C25.2895 9.36639 25.2444 9.22483 25.1624 9.10452C23.4294 6.56114 19.9782 4.82527 16.0007 4.81827Z" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22.6604 9.67621C21.2453 8.34783 18.7916 7.46821 15.9998 7.46433C13.208 7.46821 10.7542 8.3479 9.33908 9.67621" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.57978 2.32177C11.4378 1.14708 13.6397 0.467203 16.0004 0.467203C22.6454 0.467203 28.0321 5.85395 28.0321 12.4989C28.0321 19.1438 22.6454 24.5306 16.0004 24.5306C9.35553 24.5306 3.96878 19.1438 3.96878 12.4989C3.96878 8.86958 5.57572 5.61558 8.11691 3.40958" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.66443 31.2944V30.4226C6.66443 29.5636 7.36087 28.8672 8.21987 28.8672H10.1921" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.0661 28.8672H23.78C24.6391 28.8672 25.3355 29.5636 25.3355 30.4226V31.2944" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29.3983 16.0507V24.197" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25.9724 5.48438H26.4004C28.056 5.48438 29.3981 6.82651 29.3981 8.48213V8.81744" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2.60193 8.69965V8.48146C2.60193 6.82583 3.94412 5.48365 5.59974 5.48365H6.01005" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2.60181 24.3267V16.093" stroke="black" stroke-width="0.9375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
+`
+}
+	
+var questions = [
+	{ questionCode: 'pubOrAdv', questionText: `<div>
+	 <p>Welcome! Let's chat. How can I assist you today? First, could you please select the option that best describes you?</p>
+	 <ul> 
+       <li>Publisher</li>
+       <li>Advertiser</li>
+       <li>App Developer</li>
+       <li>Technology Partner</li>
+       <li>Other</li>
+     </ul>
+	</div>
+ 	`	 
+	}, 
+	{ questionCode: 'fullName', questionText: `Thank you. May I know your full name, please?` },
+	{ questionCode: 'email', questionText: `Great! Could you please provide your email address?` },
+	{ questionCode: 'companyName', questionText: `Thank you. What is the name of your company?` },
+	{ questionCode: 'blank' , questionText: `Excellent!` },
+	{ questionCode: 'message', questionText: `How can we assist you today? Please feel free to provide more details or ask any specific questions.`, submit: true },
+	{ questionCode: 'blank', questionText: `Thank you for providing all the necessary information. Our team will review your request and get back to you as soon as possible. If you have any further questions, feel free to ask. Have a great day!`, end: true}
+]
+var currentQuestionIndex = parseInt(sessionStorage.getItem('currentQuestionIndex')) || 0
+var answers = JSON.parse(sessionStorage.getItem('answers') ?? '{}')
+var chatOpened = false;
+var submitTimeout = null;
+	
+// Get saved chat from session storage and show it
+function reconstructChat() {
+	if (!sessionStorage.getItem('answers') || !sessionStorage.getItem('currentQuestionIndex')) {
+		currentQuestionIndex = 0;
+		answers = {};
+		return;
+	}
+	const savedAnswers = JSON.parse(sessionStorage.getItem('answers') ?? '{}')
+	const savedcurrentQuestionIndex = sessionStorage.getItem('currentQuestionIndex')
+	
+	Object.keys(savedAnswers).forEach(key => {
+		sendMessage(questions.find(q => q.questionCode === key).questionText);
+		sendMessage(savedAnswers[key], true);
+	})
+	
+	sendMessage(questions[currentQuestionIndex - 1].questionText)
+}
+	
+
+function submitChat() {
+	const { fullName, email, companyName, message, pubOrAdv } = answers ?? {}
+	
+	if (fullName && email && companyName && pubOrAdv) {
+		$("input[name='fullName']").val(fullName)
+		$("input[name='email']").val(email)
+		$("input[name='company']").val(companyName)
+		$("input[name='puboradv']").val(pubOrAdv)
+		
+		if (message) {
+			$("input[name='message']").val(message)
+		}
+		
+		$('#submit-button').click() // Submit
+	}
+}
+
+function sendBotMessage() {
+	const messageText = questions[currentQuestionIndex]?.questionText
+	const submit = questions[currentQuestionIndex]?.submit
+	const end = questions[currentQuestionIndex]?.end
+
+	if(!messageText) return;
+	
+	let sendAnother = false;
+	
+	if(questions[currentQuestionIndex].questionCode === 'blank') {
+		sendAnother = true;
+	}
+		
+	currentQuestionIndex++;
+	sessionStorage.setItem('currentQuestionIndex', currentQuestionIndex)
+	
+	$('#chat-input').prop('disabled', true)
+	
+	setTimeout(function() {
+		setLoading(true)
+		
+		setTimeout(function() {
+			setLoading(false)
+			sendMessage(messageText)
+			$('#chat-input').prop('disabled', false)
+			
+			if(sendAnother) {
+				sendBotMessage()
+			}
+		}, 2500)
+	}, 800)
+	
+	if (submit) {
+		submitTimeout = setTimeout(() => {
+			sendBotMessage()
+	    }, 30000)
+	}
+	
+	if(end) {
+		$('#chat-input').prop('disabled', true)
+		submitChat()
+	}
+}
+	
+function setLoading(active) {
+	if(!active) {
+		$('#loading-message').remove();
+		return;
+	}
+	
+	const chat = $('#chat-messages')
+	const botIcon = botSVG();
+	const message = `
+		<div id="loading-message" style="display: flex; align-items: flex-start; gap: 10px;">
+			<div style="width: 32px; height: 32px;">` + botIcon + `</div>
+			<div class="chat-box-message">	
+				<div style="width: 40px; display: flex; justify-content: center;">
+					<div class="dot-flashing"></div>
+				</div>
+			</div>
+		</div>
+		`
+	chat.append(message);
+	chat.animate({
+		scrollTop: $("#chat-messages") .offset().top + $("#chat-messages")[0].scrollHeight
+	}, 500);
+}
+
+	
+function sendMessage(content, self, messageId) {
+	const chat = $('#chat-messages')
+	const message = `
+			<div style="display: flex; align-items: flex-start; gap: 10px; ${self ? 'align-self: flex-end;' : ''}">
+				${!self ? `<div style="width: 32px; height: 32px;">
+								${botSVG()}
+						   </div>` : ''
+				}
+				<div ${messageId ? `id=${messageId}` : ''} class="chat-box-message ${self ? 'chat-box-my-message' : ''}">
+					<p>			
+						${content}
+					</p>
+				</div>
+			</div>
+		`
+	chat.append(message)
+	chat.animate({
+		scrollTop: $("#chat-messages") .offset().top + $("#chat-messages")[0].scrollHeight
+	}, 500)
+	
+	if (self) {
+		$('#chat-input').val("")
+
+        if (submitTimeout) {
+             clearTimeout(submitTimeout)
+        } 
+	}
+}
+	
+
+var showPopupPages = ['/', '/publishers/', '/advertising/', '/b-local/', '/b-finance']
+
+$(document).ready(function() {
+	console.info('Dev info: JS loaded from theme footer.php file.')
+
+	if(showPopupPages.includes(window.location.pathname)) {
+		$('#custom-popup').css('opacity', 1);
+	}
+	
+	reconstructChat();
+
+	const onSubmit = function() {
+		const chatInput = $('#chat-input')
+		const inputValue = chatInput.val()
+
+		if (!inputValue || inputValue === "") return;
+
+		sendMessage(inputValue, true)
+		const currentQuestion = questions[currentQuestionIndex - 1]?.questionCode
+		if(currentQuestion) {
+			answers[currentQuestion] = inputValue
+			sessionStorage.setItem('answers', JSON.stringify(answers))
+		}
+		
+		sendBotMessage()
+	}
+	
+	$('#message-submit').click(onSubmit)
+	$('#message-submit').keydown(function(event) {
+		if(event.keyCode == '13') {
+			onSubmit()
+		}
+	})
+		
+		
+  	$('#custom-popup').click(function() {
+	 	if (currentQuestionIndex === 0) {
+			sendBotMessage()
+	 	}
+		chatOpened = !chatOpened;
+    	$('.chat-box').toggle();
+		$('.custom-popup-text').css('opacity', 0);
+  	});
+
+	$('#chat-exit').click(function() {
+		chatOpened = false;
+    	$('.chat-box').toggle();
+	})
+});
+		
+var chatScrollTreshold = 300
+var chatShowed = false
+		
+$(document).on('scroll', function() {
+		if(window.scrollY >= chatScrollTreshold && !chatShowed && !chatOpened && Object.keys(answers ?? {}).length === 0) {
+			chatShowed = true
+			
+			const bottom = mobileCheck() ? 100 : 150
+			$('.custom-popup-text').css('opacity', 1);
+			$('.custom-popup-text').css('bottom', bottom);
+		
+			setTimeout(function () {
+				$('.custom-popup-text').css('opacity', 0);
+				$('.custom-popup-text').css('bottom', 0);
+			}, 6000);
+		}
+
+        if (mobileCheck() && !chatOpened && Object.keys(answers ?? {}).length === 0) {
+			if (window.scrollY >= chatScrollTreshold) {
+				$('#custom-popup').css('opacity', 0);
+            } else {
+				$('#custom-popup').css('opacity', 1);
+			}
+        }
+})
+</script>
+<script>
+	    function randomIntFromInterval(min, max) { // min and max included 
+  			return Math.floor(Math.random() * (max - min + 1) + min)
+		}
+
+		var starsContainer = $('.stars-container')
+		function createStar() {
+  			const star = document.createElement("img");
+			star.classList.add('star')
+			star.src = "https://onlinemediasolutions.com/wp-content/themes/brightcom/assets/images/star.png"
+
+  			const size = "40px";
+  			star.style.width = size;
+  			star.style.height = size;
+
+			star.style.position = 'absolute'
+  			star.style.left = Math.random() * (starsContainer.width() - parseFloat(size)) + "px";
+  			star.style.top = randomIntFromInterval(window.pageYOffset, window.pageYOffset + window.innerHeight) + "px";
+
+	  		starsContainer.append(star);
+
+  			setTimeout(() => {
+    			star.style.opacity = "0"; // Trigger fadeOut animation
+    			setTimeout(() => {
+      			star.remove(); // Remove after the fade animation
+    			}, 1000); // Duration of the fadeOut animation
+  			}, 5000); // Adjust this value to control how long the stars stay
+		}
+
+		function generateStars() {
+			starsContainer.height($(document).height() * 0.8)
+  			setInterval(createStar, 300); // Adjust this interval for the density of stars
+		}
+
+	    if (!mobileCheck()) {
+			generateStars();
+		}
+</script>
+</body>
+</html>

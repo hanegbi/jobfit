@@ -1,0 +1,119 @@
+{
+  "company_id": "openlm_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.openlm.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:29:37.707656Z",
+  "verified_at": "2026-09-28T14:29:37.707656Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?openlm\\.com/jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?openlm\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?openlm\\.com/event/[^/?#]+/?$",
+      "^https?://(www\\.)?facebook\\.com/pages/OpenLM/[^/?#]+/?$"
+    ],
+    "url_shape": "openlm.com|jobs|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 58,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 86,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 87,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 88,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 89,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 90,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 91,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 92,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 93,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 94,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 95,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 96,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 97,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 100,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 104,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 11
+  },
+  "rediscover_after": null,
+  "notes": []
+}
