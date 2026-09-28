@@ -1,0 +1,67 @@
+{
+  "company_id": "nexar",
+  "schema_version": 1,
+  "career_url": "https://careers.getnexar.com/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:55:03.089591Z",
+  "verified_at": "2026-09-28T10:55:03.089591Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?careers\\.getnexar\\.com/jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?careers\\.getnexar\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?careers\\.getnexar\\.com/departments/[^/?#]+/?$",
+      "^https?://(www\\.)?careers\\.getnexar\\.com/posts/[^/?#]+/?$"
+    ],
+    "url_shape": "careers.getnexar.com|jobs|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "8d0cdc6d62de7aee0249de12dc4b8f469edb9047",
+    "candidate_count": 20
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": "2026-10-05T10:55:03.089591Z",
+  "notes": []
+}

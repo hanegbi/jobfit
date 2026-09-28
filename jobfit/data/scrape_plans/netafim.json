@@ -1,0 +1,105 @@
+{
+  "company_id": "netafim",
+  "schema_version": 1,
+  "career_url": "https://careers.netafim.com/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:55:01.590009Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?careers\\.netafim\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "careers.netafim.com|jobs|2",
+    "explicit_accept": [
+      "https://careers.netafim.com/jobs/8463615-sr-civil-engineer-bulk-water-supply",
+      "https://careers.netafim.com/jobs/8461442-sales-manager-irrigation-projects",
+      "https://careers.netafim.com/jobs/8460850-global-customer-operations-specialist",
+      "https://careers.netafim.com/jobs/8460774-global-category-manager-strategic-procurement",
+      "https://careers.netafim.com/jobs/8401873-sr-executive-finance",
+      "https://careers.netafim.com/jobs/8391267-warehouse-coordinator",
+      "https://careers.netafim.com/jobs/8391197-distributor-relations-manager-landscape-texas",
+      "https://careers.netafim.com/jobs/8390961-plant-manager-brazil",
+      "https://careers.netafim.com/jobs/8378915-supply-coordinator-f-m"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 18,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 19,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 20,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "a3ab89e7d5a3b7b145d50d59d1d2565967e341a1",
+    "candidate_count": 22
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 9
+  },
+  "rediscover_after": "2026-10-05T10:55:01.590009Z",
+  "notes": []
+}
