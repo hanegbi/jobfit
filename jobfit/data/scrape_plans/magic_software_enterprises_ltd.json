@@ -1,0 +1,74 @@
+{
+  "company_id": "magic_software_enterprises_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.magicsoftware.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:16:48.457379Z",
+  "verified_at": "2026-09-28T14:16:48.457379Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?magicsoftware\\.com/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?magicsoftware\\.com/integration\\-solutions/[^/?#]+/?$",
+      "^https?://(www\\.)?magicsoftware\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?magicsoftware\\.com/wp\\-content/uploads/2025/07/[^/?#]+/?$"
+    ],
+    "url_shape": "magicsoftware.com|careers/co/france/5D.C6E/regional-sales-executive|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 53,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 54,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 58,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 62,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 2
+  },
+  "rediscover_after": null,
+  "notes": []
+}

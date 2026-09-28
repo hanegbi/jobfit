@@ -1,0 +1,80 @@
+{
+  "company_id": "localbird_ltd",
+  "schema_version": 1,
+  "career_url": "https://localbird.io/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:16:48.457379Z",
+  "verified_at": "2026-09-28T14:16:48.457379Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?localbird\\.io/careers/[^/?#]+/?$",
+    "exclude_url": [],
+    "url_shape": "localbird.io|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 1,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 2,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 3,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 4,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 5,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 6,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": null,
+  "notes": []
+}

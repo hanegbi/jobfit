@@ -1,0 +1,116 @@
+{
+  "company_id": "memcyco_inc",
+  "schema_version": 1,
+  "career_url": "https://memcyco.com/careers-at-memcyco/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:16:48.457379Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?memcyco\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?securityboulevard\\.com/2026/08/[^/?#]+/?$",
+      "^https?://(www\\.)?memcyco\\.com/library/[^/?#]+/?$",
+      "^https?://(www\\.)?memcyco\\.com/wp\\-content/uploads/2024/10/[^/?#]+/?$",
+      "^https?://(www\\.)?memcyco\\.com/wp\\-content/uploads/2022/09/[^/?#]+/?$",
+      "^https?://(www\\.)?linkedin\\.com/company/[^/?#]+/?$"
+    ],
+    "url_shape": "memcyco.com|careers-at-memcyco|2",
+    "explicit_accept": [
+      "https://www.memcyco.com/careers-at-memcyco/it-manager-israel/",
+      "https://www.memcyco.com/careers-at-memcyco/account-executive-mid-market/",
+      "https://www.memcyco.com/careers-at-memcyco/channel-manager/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 33,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 38,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 50,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 51,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 52,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 56,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 57,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 58,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 59,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 60,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 63,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": null,
+  "notes": []
+}

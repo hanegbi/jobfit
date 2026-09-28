@@ -1,0 +1,67 @@
+{
+  "company_id": "naboo_research_ltd_nabooai",
+  "schema_version": 1,
+  "career_url": "https://naboo.ai/jobs/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:16:48.457379Z",
+  "verified_at": "2026-09-28T14:16:48.457379Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?naboo\\.ai/jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?naboo\\.ai/[^/?#]+/?$"
+    ],
+    "url_shape": "naboo.ai|jobs|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 4
+  },
+  "rediscover_after": null,
+  "notes": []
+}

@@ -1,0 +1,107 @@
+{
+  "company_id": "myzorro_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.myzorro.co/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:16:48.457379Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?myzorro\\.co/posts/[^/?#]+/?$",
+      "^https?://(www\\.)?myzorro\\.co/[^/?#]+/?$",
+      "^https?://(www\\.)?quote\\.myzorro\\.co/v2/[^/?#]+/?$",
+      "^https?://(www\\.)?app\\.termly\\.io/dsar/[^/?#]+/?$"
+    ],
+    "url_shape": "myzorro.co|jobs|2",
+    "explicit_accept": [
+      "https://www.myzorro.co/jobs/enrollment-expert-seasonal",
+      "https://www.myzorro.co/jobs/seasonal-customer-operations-specialist",
+      "https://www.myzorro.co/jobs/payment--applications-specialist",
+      "https://www.myzorro.co/jobs/implementation-specialistassociate---customer-success-seasonal",
+      "https://www.myzorro.co/jobs/implementation-specialistassociate---customer-success",
+      "https://www.myzorro.co/jobs/account-executive"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 24,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": null,
+  "notes": []
+}

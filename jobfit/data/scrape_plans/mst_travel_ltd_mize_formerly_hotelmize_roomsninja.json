@@ -1,0 +1,134 @@
+{
+  "company_id": "mst_travel_ltd_mize_formerly_hotelmize_roomsninja",
+  "schema_version": 1,
+  "career_url": "https://mize.tech/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:16:48.457379Z",
+  "verified_at": "2026-09-28T14:16:48.457379Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?mize\\.tech/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?mize\\.tech/[^/?#]+/?$",
+      "^https?://(www\\.)?mize\\.tech/es/[^/?#]+/?$",
+      "^https?://(www\\.)?mize\\.tech/cn/[^/?#]+/?$"
+    ],
+    "url_shape": "mize.tech|careers/co/albania/CB.276/customer-support-specialist-emea|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 22,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 34,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 35,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 36,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 14
+  },
+  "rediscover_after": null,
+  "notes": []
+}

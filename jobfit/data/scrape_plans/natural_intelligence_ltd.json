@@ -1,0 +1,89 @@
+{
+  "company_id": "natural_intelligence_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.naturalint.com/jobs/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:16:48.457379Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?naturalint\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?naturalint\\.com/wp\\-content/themes/ni\\-2022/videos/[^/?#]+/?$"
+    ],
+    "url_shape": "naturalint.com|jobs/co/tel-aviv/43.F61/business-development-manager|6",
+    "explicit_accept": [
+      "https://www.naturalint.com/jobs/co/tel-aviv/43.F61/business-development-manager/all",
+      "https://www.naturalint.com/jobs/co/tel-aviv/85.F6F/hrbp-director/all",
+      "https://www.naturalint.com/jobs/co/tel-aviv/60.41A/natural-intelligence-career-opportunity/all",
+      "https://www.naturalint.com/jobs/co/tel-aviv/DE.275/product-operations-manager/all",
+      "https://www.naturalint.com/jobs/co/tel-aviv/2B.758/senior-user-acquisition-manager/all"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": null,
+  "notes": []
+}

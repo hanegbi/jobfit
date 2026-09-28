@@ -1,0 +1,77 @@
+{
+  "company_id": "mind_security_inc",
+  "schema_version": 1,
+  "career_url": "https://mind.io/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T14:16:48.457379Z",
+  "verified_at": "2026-09-28T14:16:48.457379Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?mind\\.io/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?mind\\.io/[^/?#]+/?$"
+    ],
+    "url_shape": "mind.io|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 34,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 44,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 45,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 46,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": null,
+  "notes": []
+}
