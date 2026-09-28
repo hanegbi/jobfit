@@ -29,6 +29,7 @@ REFERRAL_UPLOADS_DIR = ROOT / "data" / "referrals"
 COMPANY_JOBS_TTL_HOURS = 24
 COMPANY_RECHECK_TTL_HOURS = 12
 RUN_HISTORY_PATH = ROOT / "data" / "run_history.json"
+PIPELINE_LOCK_PATH = ROOT / "data" / ".pipeline.lock"
 
 # The curated {company: url|null} map (781 companies) that drives which
 # companies scrape_stage() checks - distinct from COMPANY_CAREER_PAGES_CACHE

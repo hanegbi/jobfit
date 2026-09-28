@@ -34,7 +34,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit import ats_fetchers, company_review, config, connections, cv, scoring, techmap_source, translation  # noqa: E402
+from jobfit import ats_fetchers, company_review, config, connections, cv, pipeline_lock, scoring, techmap_source, translation  # noqa: E402
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
 
 logger = logging.getLogger("jobfit.update_jobs")
@@ -527,37 +527,38 @@ def scrape_stage(
     WORKERS of them) is allowed to finish and save normally, so nothing gets
     left half-written.
     """
-    session = ats_fetchers.make_session()
-    logger.info("loading techmap data (fallback source for companies whose own site can't be parsed)...")
-    techmap_index = load_techmap_index()
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="scrape", scope=f"{len(companies)} companies"):
+        session = ats_fetchers.make_session()
+        logger.info("loading techmap data (fallback source for companies whose own site can't be parsed)...")
+        techmap_index = load_techmap_index()
 
-    stats = RunStats()
-    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
-        futures = []
-        for company, url in companies.items():
-            if cancel_event is not None and cancel_event.is_set():
-                logger.info("stop requested - not queuing the remaining companies")
-                break
-            futures.append(pool.submit(_process_company, company, url, session, profiles, techmap_index, force))
-        for future in as_completed(futures):
-            company, new_count, closed_count, skipped, error = future.result()
-            if skipped:
-                stats.companies_skipped += 1
-                continue
-            if error is not None:
-                stats.failures.append(company)
-                logger.warning("%s: FAILED - %s: %s", company, type(error).__name__, error)
-                continue
-            stats.companies_checked += 1
-            stats.new_jobs += new_count
-            stats.closed_jobs += closed_count
-            logger.info("%s: %d new, %d closed", company, new_count, closed_count)
+        stats = RunStats()
+        with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+            futures = []
+            for company, url in companies.items():
+                if cancel_event is not None and cancel_event.is_set():
+                    logger.info("stop requested - not queuing the remaining companies")
+                    break
+                futures.append(pool.submit(_process_company, company, url, session, profiles, techmap_index, force))
+            for future in as_completed(futures):
+                company, new_count, closed_count, skipped, error = future.result()
+                if skipped:
+                    stats.companies_skipped += 1
+                    continue
+                if error is not None:
+                    stats.failures.append(company)
+                    logger.warning("%s: FAILED - %s: %s", company, type(error).__name__, error)
+                    continue
+                stats.companies_checked += 1
+                stats.new_jobs += new_count
+                stats.closed_jobs += closed_count
+                logger.info("%s: %d new, %d closed", company, new_count, closed_count)
 
-    logger.info(
-        "scrape done: %d checked, %d skipped (recently checked), %d new, %d closed, %d failures",
-        stats.companies_checked, stats.companies_skipped, stats.new_jobs, stats.closed_jobs, len(stats.failures),
-    )
-    return stats
+        logger.info(
+            "scrape done: %d checked, %d skipped (recently checked), %d new, %d closed, %d failures",
+            stats.companies_checked, stats.companies_skipped, stats.new_jobs, stats.closed_jobs, len(stats.failures),
+        )
+        return stats
 
 
 RECOMPUTE_WORKERS = 8
@@ -629,46 +630,47 @@ def recompute_stage(force: bool = False) -> None:
     - needed after a jobfit.scoring/ats_scorer *logic* change, since the
     cache key only tracks input (description/CV text) changes.
     """
-    profiles = cv.load_profiles()
-    profile_ids = set(profiles)
-    stale_prefixes = ("score_", "matched_", "coverage_", "confidence_", "requirements_")
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="recompute", scope="all" if not force else "all (forced)"):
+        profiles = cv.load_profiles()
+        profile_ids = set(profiles)
+        stale_prefixes = ("score_", "matched_", "coverage_", "confidence_", "requirements_")
 
-    company_paths = [p for p in sorted(COMPANIES_DIR.glob("*.json")) if p.name != "_meta.json"]
-    total_companies = len(company_paths)
-    jobs_rescored = 0
-    jobs_skipped = 0
-    log_every = 50
-    start = time.time()
-    logger.info(
-        "recompute: rescoring %d companies against %d profile(s) using %d worker processes%s...",
-        total_companies, len(profiles), RECOMPUTE_WORKERS, " (forced, ignoring cache)" if force else "",
-    )
+        company_paths = [p for p in sorted(COMPANIES_DIR.glob("*.json")) if p.name != "_meta.json"]
+        total_companies = len(company_paths)
+        jobs_rescored = 0
+        jobs_skipped = 0
+        log_every = 50
+        start = time.time()
+        logger.info(
+            "recompute: rescoring %d companies against %d profile(s) using %d worker processes%s...",
+            total_companies, len(profiles), RECOMPUTE_WORKERS, " (forced, ignoring cache)" if force else "",
+        )
 
-    with ProcessPoolExecutor(max_workers=RECOMPUTE_WORKERS) as pool:
-        futures = [
-            pool.submit(_recompute_one_company, str(path), profiles, profile_ids, stale_prefixes, force)
-            for path in company_paths
-        ]
-        for i, future in enumerate(as_completed(futures), start=1):
-            rescored, skipped = future.result()
-            jobs_rescored += rescored
-            jobs_skipped += skipped
-            if i % log_every == 0 or i == total_companies:
-                elapsed = time.time() - start
-                rate = jobs_rescored / elapsed if elapsed > 0 else 0
-                logger.info(
-                    "recompute progress: %d/%d companies, %d jobs rescored, %d unchanged (skipped) "
-                    "(%.0f jobs/s, %.0fs elapsed)",
-                    i, total_companies, jobs_rescored, jobs_skipped, rate, elapsed,
-                )
+        with ProcessPoolExecutor(max_workers=RECOMPUTE_WORKERS) as pool:
+            futures = [
+                pool.submit(_recompute_one_company, str(path), profiles, profile_ids, stale_prefixes, force)
+                for path in company_paths
+            ]
+            for i, future in enumerate(as_completed(futures), start=1):
+                rescored, skipped = future.result()
+                jobs_rescored += rescored
+                jobs_skipped += skipped
+                if i % log_every == 0 or i == total_companies:
+                    elapsed = time.time() - start
+                    rate = jobs_rescored / elapsed if elapsed > 0 else 0
+                    logger.info(
+                        "recompute progress: %d/%d companies, %d jobs rescored, %d unchanged (skipped) "
+                        "(%.0f jobs/s, %.0fs elapsed)",
+                        i, total_companies, jobs_rescored, jobs_skipped, rate, elapsed,
+                    )
 
-    count = aggregate_to_jobs_v2()
-    logger.info(
-        "recompute: rescored %d jobs (%d unchanged, skipped) against %d profile(s), aggregated %d jobs",
-        jobs_rescored, jobs_skipped, len(profiles), count,
-    )
-    from jobfit import build_html
-    build_html.build()
+        count = aggregate_to_jobs_v2()
+        logger.info(
+            "recompute: rescored %d jobs (%d unchanged, skipped) against %d profile(s), aggregated %d jobs",
+            jobs_rescored, jobs_skipped, len(profiles), count,
+        )
+        from jobfit import build_html
+        build_html.build()
 
 
 def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str, int]:
@@ -687,111 +689,112 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
     """
     from jobfit import referral_source  # noqa: E402
 
-    path = path or config.REFERRAL_JOBS_PATH
-    stats = {
-        "matched_existing_company": 0, "new_company": 0, "merged_into_existing_job": 0,
-        "added_new_job": 0, "added_to_career_pages": 0, "scrapable_companies": [],
-    }
-    if not path.exists():
-        return stats
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="referral-merge", scope="all"):
+        path = path or config.REFERRAL_JOBS_PATH
+        stats = {
+            "matched_existing_company": 0, "new_company": 0, "merged_into_existing_job": 0,
+            "added_new_job": 0, "added_to_career_pages": 0, "scrapable_companies": [],
+        }
+        if not path.exists():
+            return stats
 
-    # A referral company (new or already tracked in companies/*.json) may still
-    # be missing from the curated scrape-target list (companies_career_pages.json)
-    # - that's what actually gates scrape_stage(). Fold it in here so a company
-    # first seen via referral gets picked up by future scrape runs too, instead
-    # of only ever being refreshed by another referral touching it.
-    career_pages = company_review.load_career_pages()
-    review = company_review.load_review()
-    techmap_index = None
+        # A referral company (new or already tracked in companies/*.json) may still
+        # be missing from the curated scrape-target list (companies_career_pages.json)
+        # - that's what actually gates scrape_stage(). Fold it in here so a company
+        # first seen via referral gets picked up by future scrape runs too, instead
+        # of only ever being refreshed by another referral touching it.
+        career_pages = company_review.load_career_pages()
+        review = company_review.load_review()
+        techmap_index = None
 
-    existing_names = [
-        json.loads(p.read_text(encoding="utf-8"))["name"]
-        for p in COMPANIES_DIR.glob("*.json") if p.name != "_meta.json"
-    ]
-    canonical_by_key = {connections.normalize_company(c): c for c in existing_names if connections.normalize_company(c)}
-    now = _now_iso()
-    touched_companies: set[str] = set()
+        existing_names = [
+            json.loads(p.read_text(encoding="utf-8"))["name"]
+            for p in COMPANIES_DIR.glob("*.json") if p.name != "_meta.json"
+        ]
+        canonical_by_key = {connections.normalize_company(c): c for c in existing_names if connections.normalize_company(c)}
+        now = _now_iso()
+        touched_companies: set[str] = set()
 
-    for company_entry in referral_source.load_referral_companies(path):
-        names = [company_entry.get("company", "")] + list(company_entry.get("also_posted_as") or [])
-        canonical = None
-        for name in names:
-            key = connections.normalize_company(name)
-            if key and key in canonical_by_key:
-                canonical = canonical_by_key[key]
-                break
-        if canonical:
-            stats["matched_existing_company"] += 1
-        else:
-            canonical = (company_entry.get("company") or "").strip()
-            if not canonical:
-                continue
-            key = connections.normalize_company(canonical)
-            if key:
-                canonical_by_key[key] = canonical
-            stats["new_company"] += 1
-
-        touched_companies.add(canonical)
-        record = load_company_file(canonical)
-        for raw_job in company_entry.get("jobs") or []:
-            title = (raw_job.get("title") or "").strip()
-            if not title:
-                continue
-            referral_job = referral_source._to_job_dict(raw_job)
-            match = next(
-                (j for j in record["jobs"] if referral_source._is_duplicate_title(j.get("title") or "", title)),
-                None,
-            )
-            if match is not None:
-                match["is_referral"] = True
-                match["referral_contact"] = referral_job["referral_contact"]
-                match["last_seen"] = now
-                if match.get("status") in ("new", "closed"):
-                    match["status"] = "seen"
-                stats["merged_into_existing_job"] += 1
+        for company_entry in referral_source.load_referral_companies(path):
+            names = [company_entry.get("company", "")] + list(company_entry.get("also_posted_as") or [])
+            canonical = None
+            for name in names:
+                key = connections.normalize_company(name)
+                if key and key in canonical_by_key:
+                    canonical = canonical_by_key[key]
+                    break
+            if canonical:
+                stats["matched_existing_company"] += 1
             else:
-                job_id = compute_job_id(canonical, title, referral_job.get("location"), referral_job.get("url"))
-                scores = scoring.score_job_both(referral_job, profiles)
-                new_job = {
-                    "id": job_id,
-                    "title": title,
-                    "location": referral_job.get("location"),
-                    "url": referral_job.get("url"),
-                    "description": ats_fetchers.strip_html(referral_job.get("description")),
-                    "first_seen": now,
-                    "last_seen": now,
-                    "status": "new",
-                    "is_referral": True,
-                    "referral_contact": referral_job.get("referral_contact"),
-                }
-                new_job.update(scores)
-                record["jobs"].append(new_job)
-                stats["added_new_job"] += 1
+                canonical = (company_entry.get("company") or "").strip()
+                if not canonical:
+                    continue
+                key = connections.normalize_company(canonical)
+                if key:
+                    canonical_by_key[key] = canonical
+                stats["new_company"] += 1
 
-        record["name"] = canonical
-        record.setdefault("career_url", None)
-        save_company_file(canonical, record)
+            touched_companies.add(canonical)
+            record = load_company_file(canonical)
+            for raw_job in company_entry.get("jobs") or []:
+                title = (raw_job.get("title") or "").strip()
+                if not title:
+                    continue
+                referral_job = referral_source._to_job_dict(raw_job)
+                match = next(
+                    (j for j in record["jobs"] if referral_source._is_duplicate_title(j.get("title") or "", title)),
+                    None,
+                )
+                if match is not None:
+                    match["is_referral"] = True
+                    match["referral_contact"] = referral_job["referral_contact"]
+                    match["last_seen"] = now
+                    if match.get("status") in ("new", "closed"):
+                        match["status"] = "seen"
+                    stats["merged_into_existing_job"] += 1
+                else:
+                    job_id = compute_job_id(canonical, title, referral_job.get("location"), referral_job.get("url"))
+                    scores = scoring.score_job_both(referral_job, profiles)
+                    new_job = {
+                        "id": job_id,
+                        "title": title,
+                        "location": referral_job.get("location"),
+                        "url": referral_job.get("url"),
+                        "description": ats_fetchers.strip_html(referral_job.get("description")),
+                        "first_seen": now,
+                        "last_seen": now,
+                        "status": "new",
+                        "is_referral": True,
+                        "referral_contact": referral_job.get("referral_contact"),
+                    }
+                    new_job.update(scores)
+                    record["jobs"].append(new_job)
+                    stats["added_new_job"] += 1
 
-        if canonical not in career_pages:
-            if techmap_index is None:
-                techmap_index = load_techmap_index()
-            has_techmap = bool(techmap_index.get(connections.normalize_company(canonical)))
-            career_pages[canonical] = None
-            if has_techmap:
-                review[canonical] = {"decision": "techmap", "decided_at": _now_iso()}
-            stats["added_to_career_pages"] += 1
+            record["name"] = canonical
+            record.setdefault("career_url", None)
+            save_company_file(canonical, record)
 
-    if stats["added_to_career_pages"]:
-        company_review.save_career_pages(career_pages)
-        company_review.save_review(review)
+            if canonical not in career_pages:
+                if techmap_index is None:
+                    techmap_index = load_techmap_index()
+                has_techmap = bool(techmap_index.get(connections.normalize_company(canonical)))
+                career_pages[canonical] = None
+                if has_techmap:
+                    review[canonical] = {"decision": "techmap", "decided_at": _now_iso()}
+                stats["added_to_career_pages"] += 1
 
-    # Which of this upload's companies are actually eligible for a scoped
-    # scrape right now (a real URL, or techmap-approved) - a company left
-    # pending review isn't scrapable until that's resolved in the panel.
-    scrapable = load_companies_to_scrape()
-    stats["scrapable_companies"] = sorted(name for name in touched_companies if name in scrapable)
+        if stats["added_to_career_pages"]:
+            company_review.save_career_pages(career_pages)
+            company_review.save_review(review)
 
-    return stats
+        # Which of this upload's companies are actually eligible for a scoped
+        # scrape right now (a real URL, or techmap-approved) - a company left
+        # pending review isn't scrapable until that's resolved in the panel.
+        scrapable = load_companies_to_scrape()
+        stats["scrapable_companies"] = sorted(name for name in touched_companies if name in scrapable)
+
+        return stats
 
 
 def aggregate_to_jobs_v2() -> int:
@@ -799,49 +802,50 @@ def aggregate_to_jobs_v2() -> int:
     expects, and write it to config.JOBS_OUTPUT_JSON - so build_html needs no
     changes at all, it just picks up whatever's there.
     """
-    from jobfit import pipeline as _pipeline  # reuse its already-debugged location-inference logic, not a copy
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="aggregate", scope="all"):
+        from jobfit import pipeline as _pipeline  # reuse its already-debugged location-inference logic, not a copy
 
-    conn_index = connections.load_connections_index()
-    techmap_index = load_techmap_index()
+        conn_index = connections.load_connections_index()
+        techmap_index = load_techmap_index()
 
-    dataset = []
-    for path in sorted(COMPANIES_DIR.glob("*.json")):
-        if path.name == "_meta.json":
-            continue
-        record = json.loads(path.read_text(encoding="utf-8"))
-        company = record["name"]
-        contacts = connections.contacts_for_company(conn_index, company)
-        techmap_rows = techmap_index.get(connections.normalize_company(company), [])
-        industry = techmap_rows[0]["industry"] if techmap_rows else None
-        size = techmap_rows[0]["size"] if techmap_rows else None
-        techmap_location_hint = techmap_rows[0]["location"] if techmap_rows else None
+        dataset = []
+        for path in sorted(COMPANIES_DIR.glob("*.json")):
+            if path.name == "_meta.json":
+                continue
+            record = json.loads(path.read_text(encoding="utf-8"))
+            company = record["name"]
+            contacts = connections.contacts_for_company(conn_index, company)
+            techmap_rows = techmap_index.get(connections.normalize_company(company), [])
+            industry = techmap_rows[0]["industry"] if techmap_rows else None
+            size = techmap_rows[0]["size"] if techmap_rows else None
+            techmap_location_hint = techmap_rows[0]["location"] if techmap_rows else None
 
-        for job in record["jobs"]:
-            loc, city, is_remote = _pipeline._infer_location_fields(job, techmap_location_hint)
-            out = dict(job)  # carries id/title/url/description/status/first_seen/last_seen/score_*/matched_*/coverage_*/confidence_*/requirements_*/best_*
-            out["company"] = company
-            out["industry"] = industry
-            out["company_size"] = size
-            out["location"] = loc
-            out["city"] = city
-            out["is_remote"] = is_remote
-            out["department"] = job.get("department")
-            out["employment_type"] = job.get("employment_type")
-            # first_seen (when jobfit first saw this listing), not last_seen
-            # (which bumps every time a re-check still finds the job open) -
-            # "posted" should read as roughly-stable, not reset on every run.
-            out["posted_at"] = job.get("first_seen")
-            out["connections"] = contacts
-            out["has_connection"] = bool(contacts)
-            out["has_description"] = bool(job.get("description"))
-            out["years_required"] = scoring.required_years(f"{job['title']}\n{job.get('description') or ''}")
-            out["is_referral"] = bool(job.get("is_referral"))
-            out["referral_contact"] = job.get("referral_contact")
-            dataset.append(out)
+            for job in record["jobs"]:
+                loc, city, is_remote = _pipeline._infer_location_fields(job, techmap_location_hint)
+                out = dict(job)  # carries id/title/url/description/status/first_seen/last_seen/score_*/matched_*/coverage_*/confidence_*/requirements_*/best_*
+                out["company"] = company
+                out["industry"] = industry
+                out["company_size"] = size
+                out["location"] = loc
+                out["city"] = city
+                out["is_remote"] = is_remote
+                out["department"] = job.get("department")
+                out["employment_type"] = job.get("employment_type")
+                # first_seen (when jobfit first saw this listing), not last_seen
+                # (which bumps every time a re-check still finds the job open) -
+                # "posted" should read as roughly-stable, not reset on every run.
+                out["posted_at"] = job.get("first_seen")
+                out["connections"] = contacts
+                out["has_connection"] = bool(contacts)
+                out["has_description"] = bool(job.get("description"))
+                out["years_required"] = scoring.required_years(f"{job['title']}\n{job.get('description') or ''}")
+                out["is_referral"] = bool(job.get("is_referral"))
+                out["referral_contact"] = job.get("referral_contact")
+                dataset.append(out)
 
-    dataset.sort(key=lambda r: r.get("best_score") or 0, reverse=True)
-    atomic_write_json(config.JOBS_OUTPUT_JSON, dataset)
-    return len(dataset)
+        dataset.sort(key=lambda r: r.get("best_score") or 0, reverse=True)
+        atomic_write_json(config.JOBS_OUTPUT_JSON, dataset)
+        return len(dataset)
 
 
 def main() -> None:
@@ -850,49 +854,51 @@ def main() -> None:
     parser.add_argument("--company", type=str, default=None, help="only process this one company (exact name match)")
     parser.add_argument("--force", action="store_true", help="re-check companies even if checked recently")
     parser.add_argument("--skip-aggregate", action="store_true", help="don't rescore/rebuild after updating")
+    parser.add_argument("--wait", action="store_true", help="wait for another pipeline run to finish instead of exiting")
     args = parser.parse_args()
 
-    companies = load_companies_to_scrape()
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="update", scope=args.company or "all", wait=args.wait):
+        companies = load_companies_to_scrape()
 
-    if args.company:
-        if args.company not in companies:
-            logger.error("company %r not found (or has no URL) in companies_career_pages.json", args.company)
-            return
-        companies = {args.company: companies[args.company]}
-    elif args.limit:
-        companies = dict(list(companies.items())[: args.limit])
+        if args.company:
+            if args.company not in companies:
+                logger.error("company %r not found (or has no URL) in companies_career_pages.json", args.company)
+                return
+            companies = {args.company: companies[args.company]}
+        elif args.limit:
+            companies = dict(list(companies.items())[: args.limit])
 
-    started = time.time()
-    profiles = cv.load_profiles()
-    stats = scrape_stage(companies, profiles, force=args.force)
+        started = time.time()
+        profiles = cv.load_profiles()
+        stats = scrape_stage(companies, profiles, force=args.force)
 
-    print()
-    print("=== Update summary ===")
-    print(f"companies checked: {stats.companies_checked}")
-    print(f"companies skipped (recently checked): {stats.companies_skipped}")
-    print(f"new jobs: {stats.new_jobs}")
-    print(f"closed jobs: {stats.closed_jobs}")
-    print(f"failures: {len(stats.failures)}" + (f" ({', '.join(stats.failures)})" if stats.failures else ""))
+        print()
+        print("=== Update summary ===")
+        print(f"companies checked: {stats.companies_checked}")
+        print(f"companies skipped (recently checked): {stats.companies_skipped}")
+        print(f"new jobs: {stats.new_jobs}")
+        print(f"closed jobs: {stats.closed_jobs}")
+        print(f"failures: {len(stats.failures)}" + (f" ({', '.join(stats.failures)})" if stats.failures else ""))
 
-    if args.company or args.limit:
-        logger.info("skipping referral-jobs merge (scoped run via --company/--limit)")
-    else:
-        referral_stats = merge_referral_jobs(profiles)
-        logger.info(
-            "referral jobs: %d matched to existing companies, %d new companies, "
-            "%d merged into existing jobs (referral-tagged), %d added as new jobs",
-            referral_stats["matched_existing_company"], referral_stats["new_company"],
-            referral_stats["merged_into_existing_job"], referral_stats["added_new_job"],
-        )
+        if args.company or args.limit:
+            logger.info("skipping referral-jobs merge (scoped run via --company/--limit)")
+        else:
+            referral_stats = merge_referral_jobs(profiles)
+            logger.info(
+                "referral jobs: %d matched to existing companies, %d new companies, "
+                "%d merged into existing jobs (referral-tagged), %d added as new jobs",
+                referral_stats["matched_existing_company"], referral_stats["new_company"],
+                referral_stats["merged_into_existing_job"], referral_stats["added_new_job"],
+            )
 
-    meta = load_meta()
-    meta["last_run"] = _now_iso()
-    save_meta(meta)
+        meta = load_meta()
+        meta["last_run"] = _now_iso()
+        save_meta(meta)
 
-    if not args.skip_aggregate:
-        recompute_stage()
+        if not args.skip_aggregate:
+            recompute_stage()
 
-    logger.info("done in %.1fs", time.time() - started)
+        logger.info("done in %.1fs", time.time() - started)
 
 
 if __name__ == "__main__":
