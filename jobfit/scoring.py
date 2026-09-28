@@ -107,7 +107,8 @@ def _cached_candidate_profile(cv_text: str):
 
 def _looks_unparseable(job_req: JobRequirements) -> bool:
     """Whether a job's text yielded no structured signal at all - no
-    must_have, no nice_to_have, no recognizable role family.
+    must_have, no nice_to_have, and no title that itself reads as a real
+    role.
 
     Each individual "nothing stated" default elsewhere (e.g. must_have
     coverage defaults to 100 when a JD simply has no formal Requirements
@@ -125,8 +126,22 @@ def _looks_unparseable(job_req: JobRequirements) -> bool:
     (real case caught live: a company's "About Us" page - title "About
     Us", zero requirements, zero role-family match - still had "Deep
     Learning" appear once deep in its content and scored 62/100 "100% req
-    match" because that alone was enough to skip this guard before)."""
-    return not (job_req.must_have or job_req.nice_to_have or job_req.role_family)
+    match" because that alone was enough to skip this guard before).
+
+    job_req.role_family is checked from title+body together and has the
+    same weakness: a company docs/product page ("OpenTelemetry", "Code
+    Governance & Compliance" - real titles caught live, both scraped as
+    "jobs" from a docs URL and a marketing URL respectively) is often full
+    of genuinely technical body text that happens to hit a family's
+    keyword list (both classified as "backend"/"sales" from body content
+    alone), even though the title itself obviously isn't a job title. The
+    gate re-derives role family from the title ALONE, which is a much more
+    reliable "is this actually a job posting" signal than a keyword scan
+    over an entire scraped page."""
+    if job_req.must_have or job_req.nice_to_have:
+        return False
+    from jobfit.ats_scorer.taxonomy import load_role_families
+    return load_role_families().classify(job_req.title) is None
 
 
 def _cv_text_for_profile(profile: dict) -> str:

@@ -118,6 +118,34 @@ def test_score_job_treats_a_stray_domain_keyword_as_still_unparseable():
     assert result["score_default"] == 0
 
 
+def test_score_job_treats_a_docs_page_with_a_body_only_role_family_hit_as_unparseable():
+    """Real bug caught live in production: a company's docs page ("OpenTelemetry
+    | Getting Started...") and a product/marketing page ("Code Governance &
+    Compliance...") were both scraped as "jobs" and both scored 68/100 "100%
+    req match", because their long technical body text happened to hit a
+    role-family's keyword list ("backend", "sales") even though must_have and
+    nice_to_have were both empty and the title itself obviously isn't a job
+    title. role_family from title+body is too weak a signal here - the gate
+    now re-derives it from the title alone."""
+    job = {
+        "title": "OpenTelemetry",
+        "description": (
+            "Getting started | Docs Skip to main content Search Theme Dark Light "
+            "User guides Integrations OpenTelemetry Getting started Standalone "
+            "installation Configuration options Instrumentation options Kubernetes "
+            "server API backend integration guide for engineering teams."
+        ),
+        "department": None, "employment_type": None,
+    }
+    profiles = {"default": {"must_have_keywords": [], "text": (
+        "Senior Backend Engineer\nAcme | 2020 - Present\n- Built Python services on Kubernetes and AWS at scale"
+    )}}
+
+    result = scoring.score_job_both(job, profiles)
+
+    assert result["score_default"] == 0
+
+
 def test_score_job_an_unrelated_job_scores_lower_than_a_relevant_one():
     """No exclude-keyword list needed: a sales job with a real requirements
     section naturally scores lower against a backend-engineering CV
