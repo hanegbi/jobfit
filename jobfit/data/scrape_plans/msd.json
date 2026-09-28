@@ -2,67 +2,24 @@
   "company_id": "msd",
   "schema_version": 1,
   "career_url": "https://jobs.msd.com/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:46:34.567396Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:48:21.119705Z",
+  "verified_at": "2026-09-28T21:48:21.119705Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "external_board",
+    "board_url": "https://msd.wd5.myworkdayjobs.com/SearchJobs/login"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 1,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 11,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 12,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 34,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 57,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "9b5f9aa3d68a4343b5c1ad1ac5830fb9d882611c",
-    "candidate_count": 67
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 3
   },
-  "rediscover_after": "2026-10-05T10:46:34.567396Z",
+  "rediscover_after": null,
   "notes": []
 }

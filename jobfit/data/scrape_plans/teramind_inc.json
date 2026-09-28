@@ -2,58 +2,25 @@
   "company_id": "teramind_inc",
   "schema_version": 1,
   "career_url": "https://www.teramind.co/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T15:10:05.249501Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:51:46.775141Z",
+  "verified_at": "2026-09-28T21:51:46.775141Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "lever",
+    "board": "teramind",
+    "board_url": "https://jobs.lever.co/teramind"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 0,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 18,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 23,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 30,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 1
   },
   "rediscover_after": null,
   "notes": []

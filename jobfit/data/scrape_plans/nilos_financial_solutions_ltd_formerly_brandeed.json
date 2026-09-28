@@ -4,27 +4,45 @@
   "career_url": "https://app.dover.com/jobs/nilos",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T14:16:48.457379Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T22:00:16.625409Z",
+  "verified_at": "2026-09-28T22:00:16.625409Z",
+  "status": "verified",
   "strategy": {
     "kind": "html_listing",
-    "renderer": "http",
+    "renderer": "playwright",
     "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
+    "include_url": "^https?://(www\\.)?app\\.dover\\.com/apply/Nilos/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?app\\.dover\\.com/Nilos/careers/b6a0d25b\\-2959\\-4de5\\-b32a\\-59f8691cbe33/[^/?#]+/?$"
+    ],
+    "url_shape": "app.dover.com|apply/Nilos|3",
     "explicit_accept": [],
     "fallbacks": [
-      "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
     "external_board_url": null,
     "container_selector": null,
-    "candidates": []
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
   },
   "page_fingerprint": null,
   "health": {
@@ -32,7 +50,7 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 1
   },
   "rediscover_after": null,
   "notes": []

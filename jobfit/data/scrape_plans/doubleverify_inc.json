@@ -2,48 +2,23 @@
   "company_id": "doubleverify_inc",
   "schema_version": 1,
   "career_url": "https://doubleverify.com/en/company/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:33:24.885204Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:50:23.115390Z",
+  "verified_at": "2026-09-28T21:50:23.115390Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "external_board",
+    "board_url": "https://doubleverify.wd5.myworkdayjobs.com/DV_Careers"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 30,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 37,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 4
   },
   "rediscover_after": null,
   "notes": []

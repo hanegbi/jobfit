@@ -2,48 +2,25 @@
   "company_id": "blockaid_ltd_formerly_cryptcure",
   "schema_version": 1,
   "career_url": "https://blockaid.io/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:14:52.945781Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:49:35.367383Z",
+  "verified_at": "2026-09-28T21:49:35.367383Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "blockaid/69.00B",
+    "board_url": "https://www.comeet.com/jobs/blockaid/69.00B"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 4,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 24,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 12
   },
   "rediscover_after": null,
   "notes": []

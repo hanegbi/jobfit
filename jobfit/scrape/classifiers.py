@@ -37,14 +37,38 @@ def rules_chain() -> FilterChain:
     ])
 
 
+import re as _re
+from urllib.parse import urlsplit as _urlsplit
+
+# A link that leads TO a job listing is not itself a job: "See all open
+# roles", "Jobs", "/careers/jobs". Shared with the planner's landing-page
+# hop, which follows exactly these links when a page lists no real jobs.
+LISTING_LINK_TEXT = _re.compile(
+    r"(?:open|all|current|view|see|search|explore|browse|find|our)\b.{0,25}\b(?:positions?|roles?|jobs?|openings?|opportunities|vacancies)"
+    r"|^(?:jobs|positions|openings|open positions|all jobs|job openings|vacancies|open roles|careers|משרות|כל המשרות|למשרות)$", _re.I)
+LISTING_LINK_PATH = _re.compile(
+    r"/(?:jobs?|openings?|open-positions?|open-roles?|positions?|all-jobs|job-openings?|job-opportunities|vacancies|opportunities|roles"
+    r"|careers?/(?:jobs?|search|roles|all|openings?|israel|open-positions?|find-a-job)|search-jobs?)/?$", _re.I)
+
+
+def is_listing_link(candidate: Candidate) -> bool:
+    text = (candidate.text or "").strip()
+    if LISTING_LINK_TEXT.search(text):
+        return True
+    parts = _urlsplit(candidate.href)
+    # /jobs/?gh_jid=123 is one job on a listing path; only a bare listing path counts.
+    return not parts.query and bool(LISTING_LINK_PATH.search(parts.path))
+
+
 class RulesPlanClassifier(PlanClassifier):
     def __init__(self, chain: FilterChain | None = None):
         self.chain = chain or rules_chain()
 
     def classify(self, page: Page, candidates: list[Candidate], career_url: str) -> Labels:
         accepted, rejected = self.chain.run(candidates)
-        accepted_idx = {c.index for c in accepted}
+        accepted_idx = {c.index for c in accepted if not is_listing_link(c)}
         reasons = {c.index: v.reason for c, v in rejected}
+        reasons.update({c.index: "a link to a job listing, not a job" for c in accepted if is_listing_link(c)})
         labels = [
             CandidateLabel(index=c.index, is_job=c.index in accepted_idx,
                            reason=("rules: accepted" if c.index in accepted_idx else f"rules: {reasons.get(c.index, 'rejected')}")[:REASON_MAX])

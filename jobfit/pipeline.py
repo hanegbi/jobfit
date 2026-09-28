@@ -64,39 +64,54 @@ def _resolve_ats_for_company(rows: list[dict]) -> tuple[str, str, str] | None:
     return None
 
 
-def _infer_location_fields(job: dict, company_location_hint: str | None = None) -> tuple[str | None, str | None, bool]:
+def _infer_location_fields(job: dict, company_location_hint: str | None = None,
+                           company_city: str | None = None) -> tuple[str | None, str | None, bool]:
     """Return (display_location, city, is_remote).
 
-    Fallback order when the job's own location field is empty (common for
-    company-career-page listings, where the scraper only captured title+url):
+    A job's own location wins when it names a real city. When it doesn't -
+    empty (common for career-page listings that only captured title+url),
+    or only a country ("Israel", "ישראל") - the fallback order is:
       1. A city/remote signal in the title (specific, per-job) - description
          is checked only if the title has nothing, since a description very
          often mentions the company's HQ city as boilerplate ("join our Tel
          Aviv team") regardless of which city THIS job is actually in; trusting
          whichever city matched first in a combined title+description blob
          previously mislabeled real Ramat Gan/Bnei Brak roles as Tel Aviv.
-      2. techmap's own location data for this company (any of its listed
+      2. The company's registered office city (data/company_addresses.json).
+      3. techmap's own location data for this company (any of its listed
          postings) - a real, if coarse, per-company signal.
-      3. The literal string "NaN" - so a missing location is a visible,
-         filterable marker rather than a silently blank field.
+      4. What the job said ("Israel"), or the literal string "NaN" when it
+         said nothing - so a missing location is a visible, filterable
+         marker rather than a silently blank field.
     """
     raw = job.get("location")
-    if raw:
-        return scoring.to_english_location(raw), scoring.canonical_city(raw), scoring.is_remote_location(raw)
+    raw_city = scoring.canonical_city(raw)
+    raw_remote = scoring.is_remote_location(raw)
+    if raw_city:
+        return scoring.to_english_location(raw), raw_city, raw_remote
 
     title = job.get("title") or ""
     description = job.get("description") or ""
     city = scoring.canonical_city(title) or scoring.canonical_city(description)
-    is_remote = scoring.is_remote_location(title) or scoring.is_remote_location(description)
-    if city or is_remote:
-        return (city or "Remote"), city, is_remote
+    is_remote = raw_remote or scoring.is_remote_location(title) or scoring.is_remote_location(description)
+    if city:
+        return city, city, is_remote
+
+    if company_city:
+        fallback_city = scoring.canonical_city(company_city) or company_city.strip()
+        if fallback_city:
+            return fallback_city, fallback_city, is_remote
 
     if company_location_hint:
         hint_city = scoring.canonical_city(company_location_hint)
         hint_remote = scoring.is_remote_location(company_location_hint)
         if hint_city or hint_remote:
-            return scoring.to_english_location(company_location_hint), hint_city, hint_remote
+            return scoring.to_english_location(company_location_hint), hint_city, is_remote or hint_remote
 
+    if raw:
+        return scoring.to_english_location(raw), None, is_remote
+    if is_remote:
+        return "Remote", None, True
     return "NaN", None, False
 
 

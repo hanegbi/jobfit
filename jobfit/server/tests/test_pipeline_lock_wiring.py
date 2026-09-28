@@ -17,8 +17,12 @@ def isolated(tmp_path, monkeypatch):
     companies_dir = tmp_path / "companies"
     companies_dir.mkdir()
     monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
+    monkeypatch.setattr(update_jobs, "META_PATH", companies_dir / "_meta.json")
     monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
     monkeypatch.setattr(config, "JOBS_OUTPUT_JSON", tmp_path / "jobs_v2.json")
+    monkeypatch.setattr(config, "JOBS_OUTPUT_META_JSON", tmp_path / "jobs_v2.meta.json")
+    monkeypatch.setattr(config, "AGGREGATE_CACHE_DIR", tmp_path / "aggregate")
+    monkeypatch.setattr(config, "OUTPUT_HTML", tmp_path / "jobfit.html")
     monkeypatch.setattr(config, "CONNECTIONS_CSV", tmp_path / "connections.csv")
     monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
     return companies_dir
@@ -56,10 +60,15 @@ def test_scrape_stage_releases_lock_after_completion(isolated, monkeypatch):
     assert not config.PIPELINE_LOCK_PATH.exists()
 
 
-def test_main_wait_flag_is_parsed(monkeypatch):
+def test_main_wait_flag_is_parsed(isolated, monkeypatch):
     monkeypatch.setattr(update_jobs, "load_companies_to_scrape", lambda: {})
     monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {})
     monkeypatch.setattr(update_jobs, "scrape_stage", lambda *a, **kw: update_jobs.RunStats())
+    # main() runs the referral merge on any unscoped run - against the real
+    # Downloads export and the real companies dir unless stubbed out here.
+    monkeypatch.setattr(update_jobs, "merge_referral_jobs", lambda profiles, path=None: {
+        "matched_existing_company": 0, "new_company": 0, "merged_into_existing_job": 0, "added_new_job": 0,
+    })
     monkeypatch.setattr(update_jobs, "load_meta", lambda: {})
     monkeypatch.setattr(update_jobs, "save_meta", lambda meta: None)
     monkeypatch.setattr("sys.argv", ["update_jobs", "--skip-aggregate", "--wait"])

@@ -2,68 +2,25 @@
   "company_id": "real_technology_broker_ltd_formerly_realtyka",
   "schema_version": 1,
   "career_url": "https://www.onereal.com/pages/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T14:45:38.125359Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:51:29.905913Z",
+  "verified_at": "2026-09-28T21:51:29.905913Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "ashby",
+    "board": "realremaxgroup",
+    "board_url": "https://jobs.ashbyhq.com/realremaxgroup"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 18,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 24,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 41,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 53,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 54,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 55,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 10
   },
   "rediscover_after": null,
   "notes": []

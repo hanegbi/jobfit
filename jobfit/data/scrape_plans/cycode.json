@@ -2,77 +2,26 @@
   "company_id": "cycode",
   "schema_version": 1,
   "career_url": "https://cycode.com/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:10:17.880092Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:47:59.399457Z",
+  "verified_at": "2026-09-28T21:47:59.399457Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "A8.00D:8AD340E3CBB3CBB22B445680340E22B44568",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/A8.00D/positions?token=8AD340E3CBB3CBB22B445680340E22B44568"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 8,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 13,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 32,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 33,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 46,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 48,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 61,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "9a6ac2a148d7f000dc1b54895589226e7b897d20",
-    "candidate_count": 79
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 5
   },
-  "rediscover_after": "2026-10-05T10:10:17.880092Z",
+  "rediscover_after": null,
   "notes": []
 }

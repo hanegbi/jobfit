@@ -105,8 +105,9 @@ def _posted_date(value) -> Optional[str]:
 
 
 def fetch_greenhouse(session: requests.Session, token: str) -> Optional[list[dict]]:
-    url = f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs?content=true"
-    response = _request(session, "GET", url)
+    response = _request(session, "GET", f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs?content=true")
+    if response is None:  # EU-hosted boards (boards.eu.greenhouse.io/<slug>, e.g. NICE) live on the EU API
+        response = _request(session, "GET", f"https://boards-api.eu.greenhouse.io/v1/boards/{token}/jobs?content=true")
     if response is None:
         return None
     jobs = []
@@ -203,6 +204,78 @@ def fetch_comeet(session: requests.Session, token: str) -> Optional[list[dict]]:
     if not isinstance(payload, list):
         return None
     return _comeet_items_to_jobs(payload)
+
+
+def fetch_comeet_widget(session: requests.Session, uid: str, token: str) -> Optional[list[dict]]:
+    """Comeet's *embedded widget* API - what a company's own careers page
+    calls when it hosts the Comeet JS widget (`COMEET.init({token,
+    "company-uid"})`) instead of linking to comeet.com. Distinct from the
+    slug-based jobs-api used by fetch_comeet: keyed by the account uid
+    (e.g. "B3.006") plus the page's public token, and it returns full
+    descriptions with details=true. 104 of the tracked companies' career
+    pages embed this widget, which is why plain link-scraping saw 0 jobs
+    on all of them (the widget renders client-side, no <a href>).
+    """
+    url = f"https://www.comeet.co/careers-api/2.0/company/{uid}/positions?token={token}&details=true"
+    response = _request(session, "GET", url)
+    if response is None:
+        return None
+    try:
+        payload = response.json()
+    except Exception:  # noqa: BLE001
+        return None
+    if not isinstance(payload, list):
+        return None
+    jobs = []
+    for item in payload:
+        if not isinstance(item, dict) or item.get("is_internal") is True:
+            continue
+        title = _clean(item.get("name"))
+        if not title:
+            continue
+        location = item.get("location") or {}
+        if isinstance(location, dict):
+            where = location.get("name") or ", ".join(p for p in (location.get("city"), location.get("country")) if p)
+            country = (location.get("country") or "").upper()
+            if country == "IL" and "israel" not in (where or "").lower():
+                where = f"{where}, Israel" if where else "Israel"
+        else:
+            where = location
+        details = item.get("details") or []
+        description = " ".join(
+            strip_html(d.get("value") or "") for d in details if isinstance(d, dict) and d.get("value")
+        ).strip()
+        jobs.append({
+            "title": title,
+            "location": where or None,
+            "url": item.get("url_active_page") or item.get("url_comeet_hosted_page") or item.get("url_recruit_hosted_page"),
+            "description": description,
+            "department": _clean(item.get("department")) or None,
+            "employment_type": item.get("employment_type"),
+            "posted_at": _posted_date(item.get("time_updated")),
+        })
+    return jobs
+
+
+COMEET_WIDGET_TOKEN_RE = re.compile(r"""["']?token["']?\s*[:=]\s*["']([0-9A-Fa-f]{20,64})["']""")
+# Seen in the wild as "company-uid": "98.004" (Comeet's own snippet) and as
+# uid: 'B6.00F' inside a site's hand-rolled widget config (4M Analytics).
+COMEET_WIDGET_UID_RE = re.compile(r"""["']?(?:company[-_]?uid|uid)["']?\s*[:=]\s*["']([A-Z0-9]{2}\.[0-9A-F]{3})["']""", re.I)
+COMEET_WIDGET_API_RE = re.compile(r"comeet\.(?:co|com)/careers-api/2\.0/company/([A-Z0-9]{2}\.[0-9A-F]{3})/positions/?\?token=([0-9A-Fa-f]{20,64})", re.I)
+
+
+def find_comeet_widget(html: str) -> Optional[tuple[str, str]]:
+    """(uid, token) of an embedded Comeet widget in a page's raw HTML, or None.
+    Looks for the widget's own API URL first, then the COMEET.init config."""
+    if not html or "comeet" not in html.lower():
+        return None
+    m = COMEET_WIDGET_API_RE.search(html)
+    if m:
+        return m.group(1).upper(), m.group(2)
+    uid, token = COMEET_WIDGET_UID_RE.search(html), COMEET_WIDGET_TOKEN_RE.search(html)
+    if uid and token:
+        return uid.group(1).upper(), token.group(1)
+    return None
 
 
 def _comeet_items_to_jobs(payload: list[dict]) -> list[dict]:
@@ -544,6 +617,188 @@ def fetch_generic_job_details(session: requests.Session, url: str) -> dict:
     return parse_job_details_html(response.text)
 
 
+# --- More ATS providers with a public listing API -------------------------
+# Each returns the same plain-dict job shape as the fetchers above (title,
+# location, url, description, department, employment_type, posted_at) so the
+# AtsClient subclasses in jobfit.scrape.ats.clients stay one-liners.
+
+
+def _json_or_none(response):
+    if response is None:
+        return None
+    try:
+        return response.json()
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def fetch_recruitee(session: requests.Session, slug: str) -> Optional[list[dict]]:
+    payload = _json_or_none(_request(session, "GET", f"https://{slug}.recruitee.com/api/offers/"))
+    if not isinstance(payload, dict) or not isinstance(payload.get("offers"), list):
+        return None
+    jobs = []
+    for item in payload["offers"]:
+        title = _clean(item.get("title"))
+        if not title or item.get("status") not in (None, "published"):
+            continue
+        where = item.get("location") or ", ".join(p for p in (item.get("city"), item.get("country")) if p)
+        jobs.append({
+            "title": title, "location": where or None,
+            "url": item.get("careers_url") or f"https://{slug}.recruitee.com/o/{item.get('slug')}",
+            "description": strip_html((item.get("description") or "") + " " + (item.get("requirements") or "")),
+            "department": _clean(item.get("department")) or None,
+            "employment_type": item.get("employment_type_code"),
+            "posted_at": _posted_date(item.get("published_at")),
+        })
+    return jobs
+
+
+def fetch_bamboohr(session: requests.Session, slug: str) -> Optional[list[dict]]:
+    payload = _json_or_none(_request(session, "GET", f"https://{slug}.bamboohr.com/careers/list"))
+    if not isinstance(payload, dict) or not isinstance(payload.get("result"), list):
+        return None
+    jobs = []
+    for item in payload["result"]:
+        title = _clean(item.get("jobOpeningName"))
+        if not title:
+            continue
+        loc = item.get("location") or {}
+        where = ", ".join(p for p in (loc.get("city"), loc.get("state")) if p) if isinstance(loc, dict) else loc
+        if item.get("isRemote"):
+            where = f"{where} (Remote)" if where else "Remote"
+        jobs.append({
+            "title": title, "location": where or None,
+            "url": f"https://{slug}.bamboohr.com/careers/{item.get('id')}",
+            "description": "",  # the list endpoint carries no description; the enricher fetches the job page
+            "department": _clean(item.get("departmentLabel")) or None,
+            "employment_type": item.get("employmentStatusLabel"),
+            "posted_at": None,
+        })
+    return jobs
+
+
+def fetch_breezy(session: requests.Session, slug: str) -> Optional[list[dict]]:
+    payload = _json_or_none(_request(session, "GET", f"https://{slug}.breezy.hr/json"))
+    if not isinstance(payload, list):
+        return None
+    jobs = []
+    for item in payload:
+        title = _clean(item.get("name"))
+        if not title:
+            continue
+        loc = item.get("location") or {}
+        country = (loc.get("country") or {}) if isinstance(loc, dict) else {}
+        where = loc.get("name") if isinstance(loc, dict) else loc
+        if isinstance(loc, dict) and not where:
+            where = ", ".join(p for p in (loc.get("city"), country.get("name") if isinstance(country, dict) else None) if p)
+        jobs.append({
+            "title": title, "location": where or None,
+            "url": item.get("url") or f"https://{slug}.breezy.hr/p/{item.get('friendly_id')}",
+            "description": strip_html(item.get("description") or ""),
+            "department": _clean(item.get("department")) or None,
+            "employment_type": (item.get("type") or {}).get("name") if isinstance(item.get("type"), dict) else None,
+            "posted_at": _posted_date(item.get("published_date")),
+        })
+    return jobs
+
+
+def fetch_smartrecruiters(session: requests.Session, slug: str) -> Optional[list[dict]]:
+    jobs, offset, total = [], 0, None
+    while total is None or offset < min(total, 1000):
+        payload = _json_or_none(_request(session, "GET", f"https://api.smartrecruiters.com/v1/companies/{slug}/postings?limit=100&offset={offset}"))
+        if not isinstance(payload, dict) or not isinstance(payload.get("content"), list):
+            return None if not jobs else jobs
+        total = int(payload.get("totalFound") or 0)
+        for item in payload["content"]:
+            title = _clean(item.get("name"))
+            if not title:
+                continue
+            loc = item.get("location") or {}
+            where = ", ".join(p for p in (loc.get("city"), loc.get("region"), loc.get("country")) if p) if isinstance(loc, dict) else loc
+            jobs.append({
+                "title": title, "location": where or None,
+                "url": f"https://jobs.smartrecruiters.com/{slug}/{item.get('id')}",
+                "description": "",  # per-posting description needs a second call; left to the enricher
+                "department": (item.get("department") or {}).get("label") if isinstance(item.get("department"), dict) else None,
+                "employment_type": (item.get("typeOfEmployment") or {}).get("label") if isinstance(item.get("typeOfEmployment"), dict) else None,
+                "posted_at": _posted_date(item.get("releasedDate")),
+            })
+        if not payload["content"]:
+            break
+        offset += 100
+    return jobs
+
+
+def fetch_personio(session: requests.Session, slug: str) -> Optional[list[dict]]:
+    """Personio publishes every job board as an XML feed at /xml."""
+    import xml.etree.ElementTree as ET
+
+    response = None
+    for tld in ("de", "com"):
+        response = _request(session, "GET", f"https://{slug}.jobs.personio.{tld}/xml")
+        if response is not None:
+            break
+    if response is None:
+        return None
+    try:
+        root = ET.fromstring(response.content)
+    except ET.ParseError:
+        return None
+    jobs = []
+    for pos in root.iter("position"):
+        get = lambda tag: (pos.findtext(tag) or "").strip()  # noqa: E731
+        title = _clean(get("name"))
+        if not title:
+            continue
+        description = " ".join(strip_html(d.findtext("value") or "") for d in pos.iter("jobDescription"))
+        jobs.append({
+            "title": title, "location": get("office") or None,
+            "url": f"https://{slug}.jobs.personio.de/job/{get('id')}",
+            "description": description.strip(),
+            "department": get("department") or None,
+            "employment_type": get("employmentType") or get("schedule") or None,
+            "posted_at": _posted_date(get("createdAt")) if get("createdAt") else None,
+        })
+    return jobs
+
+
+def fetch_workday(session: requests.Session, board: str, search_text: str = "Israel") -> Optional[list[dict]]:
+    """board = "<tenant>.wd<n>/<site>" (e.g. "motorolasolutions.wd5/Careers").
+    Workday's public listing endpoint is a POST to /wday/cxs/<tenant>/<site>/jobs;
+    it's paged 20 at a time. Boards are global, so the default search text
+    narrows to postings that mention Israel."""
+    host_part, _, site = board.partition("/")
+    tenant = host_part.split(".")[0]
+    if not tenant or not site:
+        return None
+    base = f"https://{host_part}.myworkdayjobs.com"
+    api = f"{base}/wday/cxs/{tenant}/{site}/jobs"
+    jobs, offset, total = [], 0, None
+    while total is None or offset < min(total, 1000):
+        response = _request(session, "POST", api, json={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": search_text},
+                            headers={"Accept": "application/json", "Content-Type": "application/json"})
+        payload = _json_or_none(response)
+        if not isinstance(payload, dict) or not isinstance(payload.get("jobPostings"), list):
+            return None if not jobs else jobs
+        total = int(payload.get("total") or 0)
+        for item in payload["jobPostings"]:
+            title = _clean(item.get("title"))
+            path = item.get("externalPath") or ""
+            if not title or not path:
+                continue
+            jobs.append({
+                "title": title, "location": _clean(item.get("locationsText")) or None,
+                "url": f"{base}/{site}{path}" if path.startswith("/") else f"{base}/{site}/{path}",
+                "description": "",  # detail is one more call per job; left to the enricher
+                "department": None, "employment_type": None,
+                "posted_at": None,
+            })
+        if not payload["jobPostings"]:
+            break
+        offset += 20
+    return jobs
+
+
 def fetch_elbit_sigmabit_jobs(session: requests.Session) -> list[dict]:
     """Elbit Systems Sigmabit's careers site (elbitsystemscareer.com) renders
     every one of its ~578 job cards entirely client-side with no real <a
@@ -594,8 +849,52 @@ def fetch_elbit_sigmabit_jobs(session: requests.Session) -> list[dict]:
 # portal that renders every job client-side with no anchor tags) but do
 # expose their own plain JSON feed once you know where to look - keyed by
 # the host fragment in the company's career URL.
+def fetch_iai_jobs(session: requests.Session) -> list[dict]:
+    """Israel Aerospace Industries' careers site (jobs.iai.co.il) renders its
+    listing client-side from a static JSON feed the theme ships at
+    /wp-content/themes/tyco-wp/assets/json/jobs.json (confirmed live: the
+    plain-HTTP page has zero /job/ links, the rendered page shows 8 of 520
+    behind infinite scroll, the feed has all 520 with full descriptions).
+    Field names are abbreviated: tl=title, dc=description, ct=city,
+    tp=employment type, jc=job category, id=job id (the /job/<id> page).
+    """
+    response = _request(session, "GET", "https://jobs.iai.co.il/wp-content/themes/tyco-wp/assets/json/jobs.json")
+    if response is None:
+        return []
+    try:
+        rows = response.json()
+    except Exception:  # noqa: BLE001
+        return []
+    jobs = []
+    for row in rows if isinstance(rows, list) else []:
+        if not isinstance(row, dict):
+            continue
+        title = _clean(row.get("tl") or "")
+        job_id = str(row.get("id") or "").strip()
+        if not title or not job_id:
+            continue
+        city = _clean(row.get("ct") or "")
+        # Cities in the feed are Hebrew town names (יהוד, נתב"ג, באר יעקב, ...)
+        # with no country - tag Israel explicitly, same reasoning as Elbit above.
+        jobs.append({
+            "title": title,
+            "location": f"{city}, Israel" if city else "Israel",
+            "url": f"https://jobs.iai.co.il/job/{job_id}",
+            "description": strip_html(row.get("dc") or ""),
+            "department": _clean(row.get("jc") or "") or None,
+            "employment_type": _clean(row.get("tp") or "") or None,
+            "posted_at": None,
+        })
+    return jobs
+
+
+# Not here, deliberately: career.rafael.co.il (Reblaze JS challenge that
+# fingerprints every headless Chromium mode; a headed off-screen Chrome
+# passed it standalone but not reliably inside the pipeline). Rafael stays
+# on its devjobs.co.il listing, which plain HTTP reads fine.
 SPECIAL_CASE_FETCHERS = {
     "elbitsystemscareer.com": fetch_elbit_sigmabit_jobs,
+    "jobs.iai.co.il": fetch_iai_jobs,
 }
 
 

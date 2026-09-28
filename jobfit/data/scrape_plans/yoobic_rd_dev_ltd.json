@@ -4,27 +4,53 @@
   "career_url": "https://careers.yoobic.com/",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T15:17:11.183817Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T22:16:11.546294Z",
+  "verified_at": "2026-09-28T22:16:11.546294Z",
+  "status": "verified",
   "strategy": {
     "kind": "html_listing",
     "renderer": "http",
     "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
+    "include_url": "^https?://(www\\.)?careers\\.yoobic\\.com/jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?careers\\.yoobic\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?careers\\.yoobic\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?careers\\.yoobic\\.com/pages/[^/?#]+/?$",
+      "^https?://(www\\.)?careers\\.yoobic\\.com/connect/[^/?#]+/?$",
+      "^https?://(www\\.)?yoobic\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?twitter\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?facebook\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?linkedin\\.com/company/[^/?#]+/?$",
+      "^https?://(www\\.)?instagram\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "careers.yoobic.com|jobs|2",
     "explicit_accept": [],
     "fallbacks": [
       "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": "https://careers.yoobic.com/jobs"
   },
   "labels": {
     "page_verdict": "careers_page",
     "external_board_url": null,
     "container_selector": null,
     "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
       {
         "index": 3,
         "is_job": false,
@@ -36,12 +62,107 @@
         "reason": "not a job"
       },
       {
-        "index": 10,
+        "index": 5,
         "is_job": false,
         "reason": "not a job"
       },
       {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 10,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 11,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
         "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 18,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 20,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 22,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 24,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 25,
         "is_job": false,
         "reason": "not a job"
       }
@@ -53,7 +174,7 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 10
   },
   "rediscover_after": null,
   "notes": []

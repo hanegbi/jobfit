@@ -40,8 +40,9 @@ def _replay(plan, html):
     factory = StrategyFactory(registry=default_registry(session=None), fetchers=PageFetcherFactory(session=None, playwright_available=False),
                               extractor=CandidateExtractor(), enricher=NoopEnricher(), reject_patterns=load_reject_patterns(), techmap_index={},
                               health=HealthPolicy(), special_fetchers={}, session=None)
-    page = make_page(plan.career_url, plan.career_url, 200, html, plan.strategy.renderer, NOW)
-    candidates = CandidateExtractor().extract(page, plan.career_url, plan.strategy.container_selector, cap=200)
+    base_url = plan.strategy.listing_url or plan.career_url  # the snapshot is of the listing page, one hop away for landing pages
+    page = make_page(base_url, base_url, 200, html, plan.strategy.renderer, NOW)
+    candidates = CandidateExtractor().extract(page, base_url, plan.strategy.container_selector, cap=200)
     accepted, _ = factory.chain_for(plan.strategy).run(candidates)
     got = {c.href for c in accepted}
     by_index = {c.index: c for c in candidates}

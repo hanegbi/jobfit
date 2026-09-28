@@ -2,48 +2,25 @@
   "company_id": "wetrip",
   "schema_version": 1,
   "career_url": "https://careers.weski.com/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:30:32.829189Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:48:57.117581Z",
+  "verified_at": "2026-09-28T21:48:57.117581Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "F8.00C:8FC35E847E03EE423F011F811F801AF435E8",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/F8.00C/positions?token=8FC35E847E03EE423F011F811F801AF435E8"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 0,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 1,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 7
   },
   "rediscover_after": null,
   "notes": []

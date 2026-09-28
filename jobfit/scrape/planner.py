@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 from jobfit import ats_fetchers
 from jobfit.scrape.ats import AtsRegistry
 from jobfit.scrape.candidates import CandidateExtractor
-from jobfit.scrape.classifiers import PlanClassifier, RulesPlanClassifier
+from jobfit.scrape.classifiers import LISTING_LINK_PATH, LISTING_LINK_TEXT, PlanClassifier, RulesPlanClassifier
 from jobfit.scrape.errors import ClassifierFailed, FetchFailed
 from jobfit.scrape.fetchers import PageFetcherFactory
 from jobfit.scrape.filters import FilterChain
@@ -167,6 +167,26 @@ class ScrapePlanner:
             return None
         return counts.most_common(1)[0][0]
 
+    def _embedded_ats(self, page: Page, company_id: str | None = None, career_url: str | None = None) -> AtsApiStrategy | None:
+        """An ATS mounted in the page by script/iframe/inline config (no
+        job links in the DOM) - resolved through the registry, generically."""
+        from jobfit.scrape.ats.embedded import company_hint_for, find_embedded_ats
+
+        found = find_embedded_ats(page.html, self.registry, company_hint_for(company_id, career_url))
+        if found is None:
+            return None
+        client, board = found
+        if getattr(client, "session", None) is not None:
+            # A page can carry a stale widget config (Biolojic's /careers had a
+            # dead Comeet token; its /job-opportunities hop had the live one).
+            # One real call decides; an empty or failing board is not a plan.
+            try:
+                if not client.fetch_board(board):
+                    return None
+            except FetchFailed:
+                return None
+        return AtsApiStrategy(provider=client.provider, board=board, board_url=client.board_url(board))
+
     def _jsonld_urls(self, page: Page) -> set[str]:
         soup = BeautifulSoup(page.html, "html.parser")
         return {urljoin(page.url, p["url"]) for p in ats_fetchers._jsonld_job_postings(soup) if isinstance(p.get("url"), str)}
@@ -204,21 +224,88 @@ class ScrapePlanner:
         board_url = self._external_board(page)
         if board_url:
             return self._probe_plan(company_id, career_url, ExternalBoardStrategy(board_url=board_url)), page
+        embedded = self._embedded_ats(page, company_id, career_url)
+        if embedded:
+            return self._probe_plan(company_id, career_url, embedded), page
 
         notes: list[str] = []
         candidates = self.extractor.extract(page, career_url, cap=200)
         if not candidates:
             return self._probe_plan(company_id, career_url, TechmapOnlyStrategy(reason="no anchors on page"), status="unverified"), page
 
-        labels, derived_by = self._classify(page, candidates, career_url, notes)
+        plan, page, candidates = self._html_plan(company_id, career_url, page, renderer, candidates, notes)
+        landing_yield = plan.health.baseline_yield or 0
+        if plan.strategy.kind != "html_listing" or landing_yield > 2:
+            return plan, page
+
+        # (Almost) nothing on the registered page - is it a landing page with
+        # the real listing one hop away ("See open roles" -> /careers/jobs)?
+        # A stray accepted link or two is typical of a landing page (a benefits
+        # page, a "join our talent network" link); the hop must beat it.
+        hop_url = self._listing_hop(candidates, career_url)
+        if hop_url:
+            try:
+                hop_page = self.fetchers.build("http").fetch(hop_url)
+            except FetchFailed as error:
+                notes.append(f"listing hop {hop_url} failed: {error}")
+                return plan, page
+            if hop_page.status < 400:
+                embedded = self._embedded_ats(hop_page, company_id, career_url)
+                if embedded:
+                    notes.append(f"listing hop {hop_url} embeds an ATS")
+                    return self._probe_plan(company_id, career_url, embedded), hop_page
+                hop_renderer: Renderer = "http"
+                if hop_page.is_js_shell:
+                    hop_page = self.fetchers.build("playwright").fetch(hop_url)
+                    hop_renderer = "playwright"
+                hop_candidates = self.extractor.extract(hop_page, hop_url, cap=200)
+                if hop_candidates:
+                    hop_plan, hop_page, _ = self._html_plan(company_id, career_url, hop_page, hop_renderer, hop_candidates, notes, listing_url=hop_url)
+                    if hop_plan.strategy.kind != "html_listing" or (hop_plan.health.baseline_yield or 0) > landing_yield:
+                        notes.append(f"listing found one hop away at {hop_url}")
+                        return hop_plan.model_copy(update={"notes": list(notes)}), hop_page
+        return plan, page
+
+    _HOP_TEXT = LISTING_LINK_TEXT
+    _HOP_PATH = LISTING_LINK_PATH
+
+    def _listing_hop(self, candidates: list[Candidate], career_url: str) -> str | None:
+        """The one same-site link most likely to be the actual job listing."""
+        base_host = _host(career_url)
+        base_norm = career_url.split("#", 1)[0].rstrip("/").lower()
+        scored: list[tuple[int, int, str]] = []
+        for c in candidates:
+            href = c.href.split("#", 1)[0]
+            if not href or href.rstrip("/").lower() == base_norm:
+                continue
+            host = _host(href)
+            if not (host == base_host or host.endswith("." + base_host) or base_host.endswith("." + host)):
+                continue
+            path = urlsplit(href).path
+            score = 0
+            if self._HOP_PATH.search(path):
+                score += 2
+            if self._HOP_TEXT.search((c.text or "").strip()):
+                score += 1
+            if score:
+                scored.append((score, -c.index, href))
+        if not scored:
+            return None
+        scored.sort(reverse=True)
+        return scored[0][2]
+
+    def _html_plan(self, company_id: str, career_url: str, page: Page, renderer: Renderer, candidates: list[Candidate],
+                   notes: list[str], listing_url: str | None = None) -> tuple[ScrapePlan, Page, list[Candidate]]:
+        base_url = listing_url or career_url
+        labels, derived_by = self._classify(page, candidates, base_url, notes)
         if labels.page_verdict == "js_shell" and renderer == "http":
-            page = self.fetchers.build("playwright").fetch(career_url)
+            page = self.fetchers.build("playwright").fetch(base_url)
             renderer = "playwright"
-            candidates = self.extractor.extract(page, career_url, cap=200)
-            labels, derived_by = self._classify(page, candidates, career_url, notes)
+            candidates = self.extractor.extract(page, base_url, cap=200)
+            labels, derived_by = self._classify(page, candidates, base_url, notes)
         if labels.page_verdict == "external_board" and labels.external_board_url and self.registry.resolve(labels.external_board_url):
             plan = self._probe_plan(company_id, career_url, ExternalBoardStrategy(board_url=labels.external_board_url))
-            return plan.model_copy(update={"derived_by": derived_by, "labels": labels}), page
+            return plan.model_copy(update={"derived_by": derived_by, "labels": labels}), page, candidates
         if labels.page_verdict == "not_careers_page":
             notes.append("classifier: not a careers page - confirm in the audit and set broken_url by hand if so")
 
@@ -238,6 +325,8 @@ class ScrapePlanner:
         else:
             strategy = strategy.model_copy(update={"include_url": None, "explicit_accept": accepted_hrefs})
             status, verified_at = "unverified", None
+        if listing_url:
+            strategy = strategy.model_copy(update={"listing_url": listing_url})
 
         plan = ScrapePlan(
             company_id=company_id, career_url=career_url, derived_by=derived_by, model=getattr(self.classifier, "model", None),
@@ -245,4 +334,4 @@ class ScrapePlanner:
             page_fingerprint=page_fingerprint(candidates), rediscover_after=now + self.cooldown, notes=notes,
         )
         plan.health.baseline_yield = len(accepted_hrefs)
-        return plan, page
+        return plan, page, candidates

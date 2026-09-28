@@ -2,48 +2,25 @@
   "company_id": "dayio_ltd_formerly_oitchau",
   "schema_version": 1,
   "career_url": "https://oitchau.recruitee.com/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:33:24.885204Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:50:10.825898Z",
+  "verified_at": "2026-09-28T21:50:10.825898Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "recruitee",
+    "board": "oitchau",
+    "board_url": "https://oitchau.recruitee.com/"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 1,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 60,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 1
   },
   "rediscover_after": null,
   "notes": []

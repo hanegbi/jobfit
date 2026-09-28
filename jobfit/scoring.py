@@ -71,9 +71,14 @@ def is_remote_location(location: str | None) -> bool:
 
 
 def canonical_city(location: str | None) -> str | None:
+    """A recognized Israeli city named in the text, else None. "Israel" on
+    its own is a country, not a city - a job located only as "Israel" has
+    no city and falls back to the company's address at aggregate time."""
     if not location:
         return None
     for city, aliases in config.CITY_ALIASES.items():
+        if city == "israel":
+            continue
         if any(_word_match(a, location) for a in aliases):
             return city.title()
     return None

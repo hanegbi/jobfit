@@ -2,53 +2,25 @@
   "company_id": "token_security_ltd",
   "schema_version": 1,
   "career_url": "https://token.security/company/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T15:10:05.249501Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:51:51.826118Z",
+  "verified_at": "2026-09-28T21:51:51.826118Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "greenhouse",
+    "board": "tokensecurity",
+    "board_url": "https://boards.greenhouse.io/tokensecurity"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 28,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 33,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 34,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 8
   },
   "rediscover_after": null,
   "notes": []

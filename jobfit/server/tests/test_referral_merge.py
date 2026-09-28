@@ -42,6 +42,33 @@ def test_merge_referral_jobs_reads_from_an_explicit_path_not_the_global_default(
     assert saved["jobs"][0]["is_referral"] is True
 
 
+def test_merge_referral_jobs_is_idempotent_for_hebrew_titles(tmp_path, monkeypatch):
+    """A Hebrew-titled referral job merged twice must exist once. The title
+    normalizer used to strip every non-ASCII character, so a Hebrew title
+    normalized to '' and never matched itself - every full run appended a
+    fresh copy of every Hebrew referral job."""
+    companies_dir = tmp_path / "companies"
+    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
+    _write_company(companies_dir, "iai", jobs=[])
+
+    upload_path = tmp_path / "referral.json"
+    upload_path.write_text(json.dumps({
+        "companies": [{
+            "company": "IAI",
+            "jobs": [{"title": "מהנדס/ת ייצור מערכות מכניות", "url": "https://www.linkedin.com/jobs/view/4317932362", "contact": "x"}],
+        }],
+    }, ensure_ascii=False), encoding="utf-8")
+
+    first = update_jobs.merge_referral_jobs(profiles={}, path=upload_path)
+    second = update_jobs.merge_referral_jobs(profiles={}, path=upload_path)
+
+    assert first["added_new_job"] == 1
+    assert second["added_new_job"] == 0
+    assert second["merged_into_existing_job"] == 1
+    saved = json.loads((companies_dir / "iai.json").read_text(encoding="utf-8"))
+    assert len(saved["jobs"]) == 1
+
+
 def test_merge_referral_jobs_dedupes_against_an_existing_similar_title(tmp_path, monkeypatch):
     companies_dir = tmp_path / "companies"
     monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)

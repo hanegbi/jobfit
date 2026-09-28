@@ -4,7 +4,7 @@
   "last_checked": "2026-09-27T18:56:22Z",
   "jobs": [
     {
-      "id": "2e68d213bbd4f09b5954",
+      "id": "aHR0cHM6Ly9teWdob3N0bGF5ZXIuY29t",
       "title": "Ghostlayer",
       "location": null,
       "url": "https://myghostlayer.com/",
@@ -31,79 +31,14 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "66461a9e8807c3f1",
-        "infra": "4c181784941cfee5"
+        "default": "ba161481f22038dd",
+        "infra": "65f88dc96f632d09"
       },
-      "years_required": null
+      "years_required": null,
+      "is_referral": false
     },
     {
-      "id": "b5a1c790d422074b6c33",
-      "title": "The Problem",
-      "location": null,
-      "url": "https://myghostlayer.com/#problem",
-      "description": "Ghostlayer - Develop edge AI at software speed. Ghostlayer Home The Problem The Solution Case Study Impact The Industry ROI Calculator Careers About Us Contact Request Early Access Develop edge AI at software speed. Ghostlayer predicts how your model will perform on the target SoC, latency vs. accuracy tradeoffs, at design time, before it's ever trained, quantized, or flashed to hardware. From the full model down to each layer and operator, inside the workflow you already use. Request Early Access Built by and for algorithm and embedded engineers We're expanding across the SoCs powering edge AI. 01 · The Problem Edge AI is still developed at legacy hardware speed. Algorithm engineers Optimizing in Python for their PC, not for their edge device. Their architecture decisions determine latency, memory, and power on the target chip. But hardware is invisible at design time. Issues that could change every decision surface weeks later, on silicon. Embedded engineers Receive code designed without hardware awareness. Every test and iteration requires a physical dev kit. When the model overshoots latency or memory, they're trapped in flash-debug cycles - each change demanding a hardware round-trip to fix problems that might not even be fixable. When the mismatch surfaces, the entire cycle resets. Back to redesigning and retraining from scratch - sometimes multiple times per project. 02 · The solution Enter Ghostlayer. A software layer between your Python and the chip. Ghostlayer predicts on-device KPIs at design time - so mismatches surface in seconds, not weeks. Breadth Agility Visibility Python model SoC A SoC B SoC C accuracy latency memory 03 · Case Study: A Production Edge AI System 8 months to develop a production ready Edge AI system. It shouldn't take that long. A global technology company needed to deploy a real-time vision model on a constrained commercial SoC. The team spent 8 months trapped in algorithm ⇄ embedded iteration - design, flash, debug, retrain, repeat. Every mismatch surfaced only on silicon, weeks late, forcing full redesigns. Multiple cycle resets back to the drawing board. Without Ghostlayer 8 months RFP Iteration Hell Test RFP Iteration Hell Test Estimated with Ghostlayer 2-4 months RFP Faster Iteration Test RFP Faster Iteration Test With Ghostlayer: KPI visibility - latency, memory, power - from the first line of Python. Mismatches caught at design time, not after weeks on a board. Estimated impact based on a historical project experienced >0% of development time recovered 40%+ savings on cloud compute Multiple full cycle resets avoided 04 · Whole-model validation Predict latency before deployment. Ghostlayer analyzes complete ONNX models and estimates their execution latency on target edge hardware - before the deployment cycle begins. Our predictions are validated against controlled, repeatable measurements on real edge hardware. Absolute Prediction Error Distribution of whole-model latency prediction errors NVIDIA Jetson 0.00 ms Mean Absolute Error Average prediction error 0.00 ms P90 Absolute Error 90% of evaluated predictions fall below this error threshold < 0.0 % Measurement Drift Mean drift across independent measurement sessions Latest bounded prospective validation on NVIDIA Jetson hardware. Results describe the evaluated cohort and should not be interpreted as universal performance across arbitrary models or devices. 05 · Why \"ghost\" layer We don't change how you work - we sit on top, invisibly. Ghostlayer sits invisibly on top of your existing workflow - same Python, same compilers, same embedded toolchain, with the hardware visibility you were previously missing. Drop-in. Invisible. Instantly useful. That's why it's called a ghost layer. The Vision Prediction is just the start. Ghostlayer is building toward one-shot optimization. 06 · Built for teams deploying AI on commercial SoCs A horizontal problem. Every team building edge AI hits the same hardware wall. We're starting with three industries where the pain is sharp. Defense Mission-critical AI on constrained hardware where iteration is measured in months and failure isn't an option. Robotics Real-time perception and control on the edge - where every millisecond shapes what the robot can do. Automotive Driver monitoring, ADAS, and in-cabin AI on tightly bounded SoCs and multi-year programs. 07 · The team Built by engineers who lived this problem. Three technical founders with 20+ years of combined experience building production-grade embedded and AI systems. Meet the Team Request Early Access Be the first to know. Early access for teams shipping edge AI today. Tell us your role and we'll prioritize seats. Ghostlayer © 2026 The Industry ROI Calculator Careers About Us Contact",
-      "department": null,
-      "employment_type": null,
-      "title_original": null,
-      "description_original": null,
-      "source_language": null,
-      "first_seen": "2026-09-27T18:56:22Z",
-      "last_seen": "2026-09-27T18:56:22Z",
-      "status": "new",
-      "score_default": 0,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "_score_cache_keys": {
-        "default": "8160061757962122",
-        "infra": "c66b6bfa0c8002ea"
-      },
-      "years_required": null
-    },
-    {
-      "id": "53bc7f00f352992e0d99",
-      "title": "The Solution",
-      "location": null,
-      "url": "https://myghostlayer.com/#solution",
-      "description": "Ghostlayer - Develop edge AI at software speed. Ghostlayer Home The Problem The Solution Case Study Impact The Industry ROI Calculator Careers About Us Contact Request Early Access Develop edge AI at software speed. Ghostlayer predicts how your model will perform on the target SoC, latency vs. accuracy tradeoffs, at design time, before it's ever trained, quantized, or flashed to hardware. From the full model down to each layer and operator, inside the workflow you already use. Request Early Access Built by and for algorithm and embedded engineers We're expanding across the SoCs powering edge AI. 01 · The Problem Edge AI is still developed at legacy hardware speed. Algorithm engineers Optimizing in Python for their PC, not for their edge device. Their architecture decisions determine latency, memory, and power on the target chip. But hardware is invisible at design time. Issues that could change every decision surface weeks later, on silicon. Embedded engineers Receive code designed without hardware awareness. Every test and iteration requires a physical dev kit. When the model overshoots latency or memory, they're trapped in flash-debug cycles - each change demanding a hardware round-trip to fix problems that might not even be fixable. When the mismatch surfaces, the entire cycle resets. Back to redesigning and retraining from scratch - sometimes multiple times per project. 02 · The solution Enter Ghostlayer. A software layer between your Python and the chip. Ghostlayer predicts on-device KPIs at design time - so mismatches surface in seconds, not weeks. Breadth Agility Visibility Python model SoC A SoC B SoC C accuracy latency memory 03 · Case Study: A Production Edge AI System 8 months to develop a production ready Edge AI system. It shouldn't take that long. A global technology company needed to deploy a real-time vision model on a constrained commercial SoC. The team spent 8 months trapped in algorithm ⇄ embedded iteration - design, flash, debug, retrain, repeat. Every mismatch surfaced only on silicon, weeks late, forcing full redesigns. Multiple cycle resets back to the drawing board. Without Ghostlayer 8 months RFP Iteration Hell Test RFP Iteration Hell Test Estimated with Ghostlayer 2-4 months RFP Faster Iteration Test RFP Faster Iteration Test With Ghostlayer: KPI visibility - latency, memory, power - from the first line of Python. Mismatches caught at design time, not after weeks on a board. Estimated impact based on a historical project experienced >0% of development time recovered 40%+ savings on cloud compute Multiple full cycle resets avoided 04 · Whole-model validation Predict latency before deployment. Ghostlayer analyzes complete ONNX models and estimates their execution latency on target edge hardware - before the deployment cycle begins. Our predictions are validated against controlled, repeatable measurements on real edge hardware. Absolute Prediction Error Distribution of whole-model latency prediction errors NVIDIA Jetson 0.00 ms Mean Absolute Error Average prediction error 0.00 ms P90 Absolute Error 90% of evaluated predictions fall below this error threshold < 0.0 % Measurement Drift Mean drift across independent measurement sessions Latest bounded prospective validation on NVIDIA Jetson hardware. Results describe the evaluated cohort and should not be interpreted as universal performance across arbitrary models or devices. 05 · Why \"ghost\" layer We don't change how you work - we sit on top, invisibly. Ghostlayer sits invisibly on top of your existing workflow - same Python, same compilers, same embedded toolchain, with the hardware visibility you were previously missing. Drop-in. Invisible. Instantly useful. That's why it's called a ghost layer. The Vision Prediction is just the start. Ghostlayer is building toward one-shot optimization. 06 · Built for teams deploying AI on commercial SoCs A horizontal problem. Every team building edge AI hits the same hardware wall. We're starting with three industries where the pain is sharp. Defense Mission-critical AI on constrained hardware where iteration is measured in months and failure isn't an option. Robotics Real-time perception and control on the edge - where every millisecond shapes what the robot can do. Automotive Driver monitoring, ADAS, and in-cabin AI on tightly bounded SoCs and multi-year programs. 07 · The team Built by engineers who lived this problem. Three technical founders with 20+ years of combined experience building production-grade embedded and AI systems. Meet the Team Request Early Access Be the first to know. Early access for teams shipping edge AI today. Tell us your role and we'll prioritize seats. Ghostlayer © 2026 The Industry ROI Calculator Careers About Us Contact",
-      "department": null,
-      "employment_type": null,
-      "title_original": null,
-      "description_original": null,
-      "source_language": null,
-      "first_seen": "2026-09-27T18:56:22Z",
-      "last_seen": "2026-09-27T18:56:22Z",
-      "status": "new",
-      "score_default": 0,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "_score_cache_keys": {
-        "default": "7555096c5ea56f4b",
-        "infra": "c7db60c8d4826d1f"
-      },
-      "years_required": null
-    },
-    {
-      "id": "72cab849eab44da9b5d0",
+      "id": "aHR0cHM6Ly9teWdob3N0bGF5ZXIuY29tL2luZHVzdHJ5",
       "title": "The Industry",
       "location": null,
       "url": "https://myghostlayer.com/industry",
@@ -130,13 +65,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "1b09e9f4ad35c3f7",
-        "infra": "c142d783f4f1008e"
+        "default": "e098e306c929c868",
+        "infra": "125a5ec36c67cd6b"
       },
       "years_required": null
     },
     {
-      "id": "c92962c577bca1c806bc",
+      "id": "aHR0cHM6Ly9teWdob3N0bGF5ZXIuY29tL3JvaQ",
       "title": "ROI Calculator",
       "location": null,
       "url": "https://myghostlayer.com/roi",
@@ -163,13 +98,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "bac24cc6a2f31035",
-        "infra": "694e9253b90ac2d8"
+        "default": "26336f3ffebdbe5e",
+        "infra": "0958c1d6f7dfb0ad"
       },
       "years_required": null
     },
     {
-      "id": "72f63433f5a5d84af553",
+      "id": "aHR0cHM6Ly9teWdob3N0bGF5ZXIuY29tL2Fib3V0",
       "title": "About Us",
       "location": null,
       "url": "https://myghostlayer.com/about",
@@ -196,46 +131,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "25026421963d42e5",
-        "infra": "3cc5b7b05f9d8c21"
+        "default": "aae3f4899c5ff0c9",
+        "infra": "1f3d2ba9bb4d1743"
       },
       "years_required": null
     },
     {
-      "id": "d5af83834642ca65b541",
-      "title": "Request Early Access",
-      "location": null,
-      "url": "https://myghostlayer.com/#waitlist",
-      "description": "Ghostlayer - Develop edge AI at software speed. Ghostlayer Home The Problem The Solution Case Study Impact The Industry ROI Calculator Careers About Us Contact Request Early Access Develop edge AI at software speed. Ghostlayer predicts how your model will perform on the target SoC, latency vs. accuracy tradeoffs, at design time, before it's ever trained, quantized, or flashed to hardware. From the full model down to each layer and operator, inside the workflow you already use. Request Early Access Built by and for algorithm and embedded engineers We're expanding across the SoCs powering edge AI. 01 · The Problem Edge AI is still developed at legacy hardware speed. Algorithm engineers Optimizing in Python for their PC, not for their edge device. Their architecture decisions determine latency, memory, and power on the target chip. But hardware is invisible at design time. Issues that could change every decision surface weeks later, on silicon. Embedded engineers Receive code designed without hardware awareness. Every test and iteration requires a physical dev kit. When the model overshoots latency or memory, they're trapped in flash-debug cycles - each change demanding a hardware round-trip to fix problems that might not even be fixable. When the mismatch surfaces, the entire cycle resets. Back to redesigning and retraining from scratch - sometimes multiple times per project. 02 · The solution Enter Ghostlayer. A software layer between your Python and the chip. Ghostlayer predicts on-device KPIs at design time - so mismatches surface in seconds, not weeks. Breadth Agility Visibility Python model SoC A SoC B SoC C accuracy latency memory 03 · Case Study: A Production Edge AI System 8 months to develop a production ready Edge AI system. It shouldn't take that long. A global technology company needed to deploy a real-time vision model on a constrained commercial SoC. The team spent 8 months trapped in algorithm ⇄ embedded iteration - design, flash, debug, retrain, repeat. Every mismatch surfaced only on silicon, weeks late, forcing full redesigns. Multiple cycle resets back to the drawing board. Without Ghostlayer 8 months RFP Iteration Hell Test RFP Iteration Hell Test Estimated with Ghostlayer 2-4 months RFP Faster Iteration Test RFP Faster Iteration Test With Ghostlayer: KPI visibility - latency, memory, power - from the first line of Python. Mismatches caught at design time, not after weeks on a board. Estimated impact based on a historical project experienced >0% of development time recovered 40%+ savings on cloud compute Multiple full cycle resets avoided 04 · Whole-model validation Predict latency before deployment. Ghostlayer analyzes complete ONNX models and estimates their execution latency on target edge hardware - before the deployment cycle begins. Our predictions are validated against controlled, repeatable measurements on real edge hardware. Absolute Prediction Error Distribution of whole-model latency prediction errors NVIDIA Jetson 0.00 ms Mean Absolute Error Average prediction error 0.00 ms P90 Absolute Error 90% of evaluated predictions fall below this error threshold < 0.0 % Measurement Drift Mean drift across independent measurement sessions Latest bounded prospective validation on NVIDIA Jetson hardware. Results describe the evaluated cohort and should not be interpreted as universal performance across arbitrary models or devices. 05 · Why \"ghost\" layer We don't change how you work - we sit on top, invisibly. Ghostlayer sits invisibly on top of your existing workflow - same Python, same compilers, same embedded toolchain, with the hardware visibility you were previously missing. Drop-in. Invisible. Instantly useful. That's why it's called a ghost layer. The Vision Prediction is just the start. Ghostlayer is building toward one-shot optimization. 06 · Built for teams deploying AI on commercial SoCs A horizontal problem. Every team building edge AI hits the same hardware wall. We're starting with three industries where the pain is sharp. Defense Mission-critical AI on constrained hardware where iteration is measured in months and failure isn't an option. Robotics Real-time perception and control on the edge - where every millisecond shapes what the robot can do. Automotive Driver monitoring, ADAS, and in-cabin AI on tightly bounded SoCs and multi-year programs. 07 · The team Built by engineers who lived this problem. Three technical founders with 20+ years of combined experience building production-grade embedded and AI systems. Meet the Team Request Early Access Be the first to know. Early access for teams shipping edge AI today. Tell us your role and we'll prioritize seats. Ghostlayer © 2026 The Industry ROI Calculator Careers About Us Contact",
-      "department": null,
-      "employment_type": null,
-      "title_original": null,
-      "description_original": null,
-      "source_language": null,
-      "first_seen": "2026-09-27T18:56:22Z",
-      "last_seen": "2026-09-27T18:56:22Z",
-      "status": "new",
-      "score_default": 0,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "_score_cache_keys": {
-        "default": "173cfe23924a0d4a",
-        "infra": "f235c17b14113bc0"
-      },
-      "years_required": null
-    },
-    {
-      "id": "925bd8eb2c66e786ded7",
+      "id": "aHR0cHM6Ly9teWdob3N0bGF5ZXIuY29tL2NhcmVlcnMvYXBwbHkvYWktcmVzZWFyY2g",
       "title": "Apply for this role",
       "location": null,
       "url": "https://myghostlayer.com/careers/apply/ai-research",
@@ -262,13 +164,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "6c2e1fa0fa4ddbdc",
-        "infra": "3d63ce2f7c91ed3e"
+        "default": "e2a47172eb2c95e4",
+        "infra": "aa613eb495a8c408"
       },
       "years_required": null
     },
     {
-      "id": "be8107db5eee37eb4d88",
+      "id": "aHR0cHM6Ly9teWdob3N0bGF5ZXIuY29tL2NhcmVlcnMvYXBwbHkvZW1iZWRkZWQtYWxnbw",
       "title": "Apply for this role",
       "location": null,
       "url": "https://myghostlayer.com/careers/apply/embedded-algo",
@@ -295,8 +197,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "dbdeebb47cedb56d",
-        "infra": "8f685e2cfdb5d40c"
+        "default": "db3833c084d5baed",
+        "infra": "9c3c24c6ec9cacb9"
       },
       "years_required": null
     }

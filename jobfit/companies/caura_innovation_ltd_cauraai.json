@@ -4,7 +4,7 @@
   "last_checked": "2026-09-27T18:33:07Z",
   "jobs": [
     {
-      "id": "0512db9015563aae046f",
+      "id": "aHR0cHM6Ly9jYXVyYS5haS9kb2NzL2FnZW50cw",
       "title": "For Agents",
       "location": null,
       "url": "https://caura.ai/docs/agents",
@@ -31,13 +31,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "1439443dc4dbf70a",
-        "infra": "8bf66103446a4864"
+        "default": "a8f7ab611deb783c",
+        "infra": "71c853bd36f31eb1"
       },
       "years_required": null
     },
     {
-      "id": "8d93e9388f3ec51e7111",
+      "id": "aHR0cHM6Ly9jYXVyYS5haS91c2UtY2FzZXM",
       "title": "Use Cases",
       "location": null,
       "url": "https://caura.ai/use-cases",
@@ -64,13 +64,14 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "0d0d07904990ea78",
-        "infra": "830b6929fb8af8dd"
+        "default": "a3a7fcb12994489e",
+        "infra": "3b80de6e5d70e0dd"
       },
-      "years_required": null
+      "years_required": null,
+      "is_referral": false
     },
     {
-      "id": "26798ffcbcf515c8f245",
+      "id": "aHR0cHM6Ly9jYXVyYS5haS9tY3Atc2VydmVy",
       "title": "MCP Server",
       "location": null,
       "url": "https://caura.ai/mcp-server/",
@@ -97,46 +98,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "942d5727b1a548ac",
-        "infra": "4ed778803f8b1c56"
+        "default": "c82696cd744c83de",
+        "infra": "ff365289b2989bb9"
       },
       "years_required": null
     },
     {
-      "id": "2de34dd352ee1e0dbc3c",
-      "title": "Use Cases",
-      "location": null,
-      "url": "https://caura.ai/use-cases/",
-      "description": "Use Cases â Caura in Production | Caura Pricing Docs For Agents Use Cases Blog About Sign In Use Cases Real teams, real fleets, real memory. Case studies, integrations, and hands-on tutorials showing what governed shared memory unlocks. 300+ agents at eToro 26,500+ memories shared Apache 2.0 run it yourself Works with Cursor Claude Code Claude ChatGPT Anthropic OpenClaw Hermes MCP ð°ï¸ Demo Multi-Agent Open Source Memory Lifecycle Stale Memory Is a Silent Failure Mode in Long-Running Agent Fleets. Here's How We Fixed It. A three-agent pricing fleet runs for 14 days. On Day 9 a price changes â and eight confirmed memories still assert the old value, so the synthesis agent reports it with total confidence. No error, no flag. The open-source caura-long-run-fleet demo fixes it with status-governed recall and an async contradiction detector that retires stale facts before the next recall. July 19, 2026 See the demo â ð¡ï¸ Demo Governance Open Source Fleet Isolation Why Prompt-Level Data Separation Isn't Enough for Multi-Agent Systems A system prompt that says âdon't surface legal dataâ runs after retrieval already loaded the GDPR hold into context. The open-source caura-cross-fleet-gov demo enforces the boundary as a SQL fleet predicate instead â three agents on one tenant, isolation that model capability can't widen, plus admin fan-out synthesis across fleets. July 19, 2026 See the demo â ð¦ Demo Multi-Agent Open Source MCP Multi-Agent Fleet with Shared Memory: Stopping Constraint Contradictions Five agents build a web page in sequence â a performance agent bans external scripts, an SEO agent loads a CDN library, and the page ships violating its own budget. The open-source caura-build-fleet reference pipeline stops it: recall before acting, write after deciding, with least privilege enforced at the MCP tool schema and again server-side via trust levels. July 19, 2026 See the demo â ð¥¬ Demo SpinachAI MCP Meeting Memory SpinachAI Writes It Down. Caura Keeps It True. SpinachAI turns every meeting into clean structure. Wire it to Caura over MCP and that structure becomes governed memory that corrects itself â when a team reverses a decision, the old one drops out of the live answer instead of sitting there contradicting the new plan. No middleware, just two MCP servers. June 28, 2026 See the demo â ð§ Demo NanoClaw Sandboxing Governance Secure by Design, One Brain to Share â NanoClaw Ã Caura NanoClaw sandboxes every agent â secure, but amnesiac. We added a shared, governed cognition layer on top: three channels (a live Telegram agent, plus Slack and Web) on one Caura tenant, a fact crossing channels neither other saw, and PII flagging + keystones enforced on write. The sandbox stays intact; the brain is shared. June 23, 2026 See the demo â â Start here ð Tutorial Tutorial Multi-Agent Open Source Learn to Build Multi-Agent Fleets with Caura â A Hands-On, Six-Part Series From âhello fleetâ to self-improving, governed memory â one continuous build on a single shared Caura stack. Multi-agent setup, the memory dashboard, scopes & keystones, the Karpathy loop, memory hygiene, and the knowledge graph. All hands-on, all open source. June 14, 2026 Start the tutorial â ð§ª Demo Coding Agents CI/CD Memory Passes Locally, Fails in CI: Coding Agents That Actually Learn A new test suite passed clean locally and failed in CI. Our error-investigation agent traced the non-obvious root cause, proved the fix under CIâs own environment, and wrote the lesson to shared memory â so next time itâs an instant recall, not another hour of bisecting. June 16, 2026 See the demo â ð Demo Coding Agents Code Review Governance The Code Reviewer That Remembers Why A PR-review agent that opens every review by recalling the teamâs operating rules and the design decisions behind the code â enforcing standards without re-briefing, and rejecting a change a fresh-eyes reviewer would have waved through. June 16, 2026 See the demo â ð Demo Governance Open Source Multi-Agent Prompt Rules Arenât Access Control. This Is. Three OpenClaw agents on one self-hosted Caura, with fleet boundaries enforced as a storage-layer query predicate â not a prompt. The sales agent physically cannot read Legalâs compliance holds, and the admin agent surfaces the cross-fleet conflict automatically. Open-source, run it yourself. June 5, 2026 See the demo â â³ Demo Open Source Multi-Agent Memory Lifecycle The Price Changed. Your Agents Didnât Notice. A long-running research fleet, eight days of stale facts, and the open-source memory where the wrong answers disappear on their own â superseded automatically and suppressed by status, not by a prompt. Plus the writer â verifier â synthesizer pattern that keeps shared memory trustworthy. June 4, 2026 See the demo â ð¤ Integration Anthropic Cross-Vendor Governance The New Hire Who Already Knew the Job We added a brand-new Anthropic managed agent to a real production fleet in minutes. On its first message it recalled the teamâs playbook, answered like a veteran, and wrote back a rule the other agents now follow â across vendor lines, under Cauraâs governance, owned by the client. June 3, 2026 Set it up â ð Case Study Case Study MCP Hermes How One Caura User Bridged His Marketing and Dev Agents A community case study: Aaron wired OpenClaw and Hermes to one Caura instance over MCP. The dev agent wrote brand rules. The marketing agent enforced them â and caught the human's typo. The role lives in the memory, not in the agent. 2 agents 1 brain caught the typo May 25, 2026 Read case study â ð Integration Claude ChatGPT Cross-App We Married Claude and ChatGPT. Caura Was the Bestman. Your AI tools donât talk to each other. They canât. Caura is the bestman â a shared persistent memory that holds the facts you tell Claude on Monday and hands them to ChatGPT on Thursday. The agent doesnât live in any one pro",
-      "department": null,
-      "employment_type": null,
-      "title_original": null,
-      "description_original": null,
-      "source_language": null,
-      "first_seen": "2026-09-27T18:33:07Z",
-      "last_seen": "2026-09-27T18:33:07Z",
-      "status": "new",
-      "score_default": 0,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "_score_cache_keys": {
-        "default": "0d0d07904990ea78",
-        "infra": "830b6929fb8af8dd"
-      },
-      "years_required": null
-    },
-    {
-      "id": "9239f8875e0b6459ee24",
+      "id": "aHR0cHM6Ly9jYXVyYS5haS9hbHRlcm5hdGl2ZXM",
       "title": "Alternatives",
       "location": null,
       "url": "https://caura.ai/alternatives/",
@@ -163,8 +131,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "1444bc9f675ac44c",
-        "infra": "639ca546bf5e7cf1"
+        "default": "d5b8f331547b3884",
+        "infra": "cdb97e52636f51f9"
       },
       "years_required": null
     }

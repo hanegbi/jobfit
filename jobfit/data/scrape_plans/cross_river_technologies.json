@@ -2,52 +2,26 @@
   "company_id": "cross_river_technologies",
   "schema_version": 1,
   "career_url": "https://www.crossriver.com/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:10:11.655361Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:47:58.005426Z",
+  "verified_at": "2026-09-28T21:47:58.005426Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "C7.00F:7CF2EDA1F3C270B1F3CF9E4647270B4647270B",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/C7.00F/positions?token=7CF2EDA1F3C270B1F3CF9E4647270B4647270B"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 46,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 50,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "c93f99730b987ab0b06634233cb7e22b7d17768c",
-    "candidate_count": 68
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 13
   },
-  "rediscover_after": "2026-10-05T10:10:11.655361Z",
+  "rediscover_after": null,
   "notes": []
 }

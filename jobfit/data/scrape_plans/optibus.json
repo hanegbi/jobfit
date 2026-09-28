@@ -4,21 +4,33 @@
   "career_url": "https://www.optibus.com/careers/",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T10:55:23.581730Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T22:16:11.546294Z",
+  "verified_at": "2026-09-28T22:16:11.546294Z",
+  "status": "verified",
   "strategy": {
     "kind": "html_listing",
     "renderer": "http",
     "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
+    "include_url": "^https?://(www\\.)?optibus\\.com/company/careers/jobs/co/israel/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?optibus\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?optibus\\.com/product/[^/?#]+/?$",
+      "^https?://(www\\.)?optibus\\.com/solutions/[^/?#]+/?$",
+      "^https?://(www\\.)?blog\\.optibus\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?optibus\\.com/ebook/[^/?#]+/?$",
+      "^https?://(www\\.)?optibus\\.com/company/[^/?#]+/?$",
+      "^https?://(www\\.)?optibus\\.com/company/careers/[^/?#]+/?$",
+      "^https?://(www\\.)?optibus\\.com/file/2025/06/[^/?#]+/?$",
+      "^https?://(www\\.)?optibus\\.com/file/2026/06/[^/?#]+/?$",
+      "^https?://(www\\.)?linkedin\\.com/company/[^/?#]+/?$"
+    ],
+    "url_shape": "optibus.com|company/careers/jobs/co/israel/06.07C/senior-full-stack-engineer-gen-ai|8",
     "explicit_accept": [],
     "fallbacks": [
       "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": "https://optibus.com/company/careers/jobs/"
   },
   "labels": {
     "page_verdict": "careers_page",
@@ -26,7 +38,187 @@
     "container_selector": null,
     "candidates": [
       {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 20,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 22,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 24,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 31,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 32,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 34,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 35,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
         "is_job": false,
         "reason": "not a job"
       },
@@ -36,7 +228,102 @@
         "reason": "not a job"
       },
       {
+        "index": 38,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 39,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 40,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 41,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 42,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 43,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 44,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 45,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 46,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 47,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 48,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 49,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 50,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 51,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 52,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 53,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 54,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 55,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 56,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 57,
         "is_job": false,
         "reason": "not a job"
       },
@@ -51,23 +338,20 @@
         "reason": "not a job"
       },
       {
-        "index": 61,
+        "index": 60,
         "is_job": false,
         "reason": "not a job"
       }
     ]
   },
-  "page_fingerprint": {
-    "href_shape_set_hash": "5eda2f2da2c539341830aaeebf7eccac7b2e151b",
-    "candidate_count": 62
-  },
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 2
   },
-  "rediscover_after": "2026-10-05T10:55:23.581730Z",
+  "rediscover_after": null,
   "notes": []
 }

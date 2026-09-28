@@ -18,7 +18,10 @@ from pathlib import Path
 
 from jobfit.connections import normalize_company
 
-_TITLE_STRIP_RE = re.compile(r"[^a-z0-9 ]")
+# Keep letters/digits of ANY script (Hebrew titles are common in the referral
+# export). The old [^a-z0-9 ] stripped Hebrew to '' so a Hebrew title never
+# matched itself and got re-added on every merge.
+_TITLE_STRIP_RE = re.compile(r"[^\w ]", re.UNICODE)
 _DUPLICATE_THRESHOLD = 0.75
 
 

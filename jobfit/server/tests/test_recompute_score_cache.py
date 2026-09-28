@@ -184,6 +184,8 @@ def test_recompute_stage_writes_scoring_engine_to_meta(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
     monkeypatch.setattr(config, "JOBS_OUTPUT_JSON", tmp_path / "jobs_v2.json")
     monkeypatch.setattr(config, "JOBS_OUTPUT_META_JSON", tmp_path / "jobs_v2.meta.json")
+    monkeypatch.setattr(config, "AGGREGATE_CACHE_DIR", tmp_path / "aggregate")
+    monkeypatch.setattr(config, "OUTPUT_HTML", tmp_path / "jobfit.html")
     monkeypatch.setattr(config, "CONNECTIONS_CSV", tmp_path / "connections.csv")
     monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
 

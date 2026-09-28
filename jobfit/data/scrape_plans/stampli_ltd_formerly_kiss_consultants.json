@@ -1,209 +1,20 @@
 {
   "company_id": "stampli_ltd_formerly_kiss_consultants",
   "schema_version": 1,
-  "career_url": "https://www.stampli.com/careers",
-  "derived_by": "llm",
+  "career_url": "https://www.stampli.com/careers/",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:17:18.950678Z",
-  "verified_at": "2026-09-28T11:17:18.950678Z",
+  "derived_at": "2026-09-28T21:51:43.242069Z",
+  "verified_at": "2026-09-28T21:51:43.242069Z",
   "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": "^https?://(www\\.)?stampli\\.com/careers/co/[^?#]+$",
-    "exclude_url": [
-      "^https?://(www\\.)?stampli\\.com/erp/[^/?#]+/?$",
-      "^https?://(www\\.)?stampli\\.com/[^/?#]+/?$"
-    ],
-    "url_shape": "stampli.com|careers/co/mountain-view-ca/13.A60/implementation-consultant-project-manager|6",
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "F6.007:6F729CADEE3EAF06F71BDC29CA22D314E5",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/F6.007/positions?token=6F729CADEE3EAF06F71BDC29CA22D314E5"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 14,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 15,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 19,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 31,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 37,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 40,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 41,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 42,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 43,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 44,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 45,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 46,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 47,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 48,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 49,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 50,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 51,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 52,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 53,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 54,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 55,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 56,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 57,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 58,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 59,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 60,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 61,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 62,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 63,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 64,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 65,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 71,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 73,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 84,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "2d7bc87ec30da000ae096f8714c4359da371f9da",
-    "candidate_count": 103
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
@@ -211,6 +22,6 @@
     "last_yield": 0,
     "baseline_yield": 26
   },
-  "rediscover_after": "2026-10-05T11:17:18.950678Z",
+  "rediscover_after": null,
   "notes": []
 }

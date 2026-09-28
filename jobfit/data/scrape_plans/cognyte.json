@@ -2,137 +2,26 @@
   "company_id": "cognyte",
   "schema_version": 1,
   "career_url": "https://www.cognyte.com/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:09:55.561343Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:47:56.939691Z",
+  "verified_at": "2026-09-28T21:47:56.939691Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "F2.009:2F9EDD2F92F911D61AC12F914CF11D62F9",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/F2.009/positions?token=2F9EDD2F92F911D61AC12F914CF11D62F9"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 19,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 22,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 23,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 24,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 25,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 26,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 27,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 28,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 29,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 30,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 31,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 32,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 33,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 34,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 35,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 36,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 40,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 41,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 42,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "da9955b969d2da85bb26e7668e78b783973eb966",
-    "candidate_count": 43
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 44
   },
-  "rediscover_after": "2026-10-05T10:09:55.561343Z",
+  "rediscover_after": null,
   "notes": []
 }

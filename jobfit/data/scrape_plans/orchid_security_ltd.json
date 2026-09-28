@@ -2,43 +2,25 @@
   "company_id": "orchid_security_ltd",
   "schema_version": 1,
   "career_url": "https://www.orchid.security/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T14:29:37.707656Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:51:13.098309Z",
+  "verified_at": "2026-09-28T21:51:13.098309Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "4A.001:A4147C72904A41A410A41047C7A41",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/4A.001/positions?token=A4147C72904A41A410A41047C7A41"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 8,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 4
   },
   "rediscover_after": null,
   "notes": []

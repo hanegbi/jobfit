@@ -2,67 +2,26 @@
   "company_id": "placerai",
   "schema_version": 1,
   "career_url": "https://www.placer.ai/company/we-are-hiring",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:04:22.844799Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:48:36.138210Z",
+  "verified_at": "2026-09-28T21:48:36.138210Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "greenhouse",
+    "board": "placerlabs",
+    "board_url": "https://boards.greenhouse.io/placerlabs"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 21,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 31,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 36,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 44,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 56,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "2b78a18be0c3606f2303cdb22d9eefb0d77e88a9",
-    "candidate_count": 57
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 16
   },
-  "rediscover_after": "2026-10-05T11:04:22.844799Z",
+  "rediscover_after": null,
   "notes": []
 }

@@ -2,77 +2,26 @@
   "company_id": "philips",
   "schema_version": 1,
   "career_url": "https://www.careers.philips.com/il/en",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:04:14.811179Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T22:10:23.763974Z",
+  "verified_at": "2026-09-28T22:10:23.763974Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "workday",
+    "board": "philips.wd3/jobs-and-careers",
+    "board_url": "https://philips.wd3.myworkdayjobs.com/jobs-and-careers"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 1,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 2,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 3,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 5,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 6,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 8,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 12,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "d09452243a9cf7f48a1110a0caca6e824c04bca4",
-    "candidate_count": 13
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 13
   },
-  "rediscover_after": "2026-10-05T11:04:14.811179Z",
+  "rediscover_after": null,
   "notes": []
 }

@@ -260,11 +260,21 @@ def test_compute_job_id_is_stable_across_whitespace_and_case_changes_in_title():
     assert id1 == id2
 
 
-def test_compute_job_id_uses_the_ats_id_when_the_url_reveals_one():
-    job_id = update_jobs.compute_job_id(
-        "Acme Inc", "Backend Engineer", None, "https://boards.greenhouse.io/acme/jobs/1234567"
-    )
-    assert job_id == "acme_inc:1234567"
+def test_compute_job_id_is_the_base64url_of_the_normalized_url():
+    import base64
+
+    job_id = update_jobs.compute_job_id("Acme Inc", "Backend Engineer", None, "https://boards.greenhouse.io/acme/jobs/1234567")
+    assert job_id == base64.urlsafe_b64encode(b"https://boards.greenhouse.io/acme/jobs/1234567").decode().rstrip("=")
+    assert update_jobs.job_url_from_id(job_id) == "https://boards.greenhouse.io/acme/jobs/1234567"
+    # trailing slash / fragment / whitespace variants are the same posting
+    for variant in (" https://boards.greenhouse.io/acme/jobs/1234567/ ", "https://boards.greenhouse.io/acme/jobs/1234567#apply"):
+        assert update_jobs.compute_job_id("Acme Inc", "Other Title", "Haifa", variant) == job_id
+
+
+def test_compute_job_id_ignores_title_and_location_when_a_url_exists():
+    a = update_jobs.compute_job_id("Acme", "Backend Engineer", "Tel Aviv", "https://acme.com/careers/x")
+    b = update_jobs.compute_job_id("Acme", "Senior Backend Engineer (re-titled)", "Haifa", "https://acme.com/careers/x")
+    assert a == b
 
 
 def test_compute_job_id_differs_for_different_locations_without_an_ats_id():

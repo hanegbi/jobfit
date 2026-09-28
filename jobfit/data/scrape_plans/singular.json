@@ -2,112 +2,26 @@
   "company_id": "singular",
   "schema_version": 1,
   "career_url": "https://www.singular.net/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:16:51.915479Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:48:46.678667Z",
+  "verified_at": "2026-09-28T21:48:46.678667Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "ashby",
+    "board": "singular",
+    "board_url": "https://jobs.ashbyhq.com/singular"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 24,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 25,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 26,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 27,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 28,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 29,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 30,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 31,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 32,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 37,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 49,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 58,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 59,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 60,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "b4937ad430ccadc1a055013cd62cdaf5ddcb47f7",
-    "candidate_count": 72
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 15
   },
-  "rediscover_after": "2026-10-05T11:16:51.915479Z",
+  "rediscover_after": null,
   "notes": []
 }

@@ -2,43 +2,25 @@
   "company_id": "astelia_io_technologies_ltd",
   "schema_version": 1,
   "career_url": "https://www.astelia.io/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T12:44:02.493646Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:49:17.422860Z",
+  "verified_at": "2026-09-28T21:49:17.422860Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "61.003:16358C6EF2C61631639B558C0429",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/61.003/positions?token=16358C6EF2C61631639B558C0429"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 13,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 62
   },
   "rediscover_after": null,
   "notes": []

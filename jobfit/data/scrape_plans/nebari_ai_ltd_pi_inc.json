@@ -2,48 +2,25 @@
   "company_id": "nebari_ai_ltd_pi_inc",
   "schema_version": 1,
   "career_url": "https://www.pi.security/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:43:29.498556Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:49:03.047033Z",
+  "verified_at": "2026-09-28T21:49:03.047033Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "ashby",
+    "board": "pi-security",
+    "board_url": "https://jobs.ashbyhq.com/pi-security"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 0,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 5,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 9
   },
   "rediscover_after": null,
   "notes": []

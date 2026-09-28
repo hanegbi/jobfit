@@ -2,52 +2,26 @@
   "company_id": "converge_bio",
   "schema_version": 1,
   "career_url": "https://converge-bio.com/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:09:58.925367Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:47:56.994877Z",
+  "verified_at": "2026-09-28T21:47:56.994877Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "CA.00D:ACD4B9B40CE36016135360156680ACD6135",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/CA.00D/positions?token=ACD4B9B40CE36016135360156680ACD6135"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 0,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 7,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "d258b6a10430a55f401ad282d36e0bdd7a119971",
-    "candidate_count": 13
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 1
   },
-  "rediscover_after": "2026-10-05T10:09:58.925367Z",
+  "rediscover_after": null,
   "notes": []
 }

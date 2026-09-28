@@ -65,7 +65,10 @@ class JobPosting(BaseModel):
 
 class AtsApiStrategy(BaseModel):
     kind: Literal["ats_api"] = "ats_api"
-    provider: Literal["greenhouse", "lever", "ashby", "workable", "comeet"]
+    provider: Literal[
+        "greenhouse", "lever", "ashby", "workable", "comeet",
+        "recruitee", "bamboohr", "breezy", "smartrecruiters", "personio", "workday",
+    ]
     board: str
     board_url: str
 
@@ -84,6 +87,10 @@ class HtmlListingStrategy(BaseModel):
     url_shape: str | None = None
     explicit_accept: list[str] = Field(default_factory=list)
     fallbacks: list[Literal["playwright", "techmap"]] = Field(default_factory=list)
+    # When the registered career URL is a landing page ("See open roles" ->
+    # /careers/jobs), the page the listing actually lives on. None = the
+    # career URL itself. Snapshots and labels are of this page.
+    listing_url: str | None = None
 
 
 class SpecialCaseStrategy(BaseModel):

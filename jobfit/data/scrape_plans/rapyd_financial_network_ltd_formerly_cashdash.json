@@ -2,87 +2,26 @@
   "company_id": "rapyd_financial_network_ltd_formerly_cashdash",
   "schema_version": 1,
   "career_url": "https://www.rapyd.net/company/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:05:03.257277Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T22:12:20.597828Z",
+  "verified_at": "2026-09-28T22:12:20.597828Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "73.00E:37E11766FC1F6E11761F6E6FC01BF06FC",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/73.00E/positions?token=37E11766FC1F6E11761F6E6FC01BF06FC"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 52,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 67,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 68,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 69,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 70,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 71,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 72,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 73,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 74,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "d97b0d7b509a4c1b1dae5e28abbe7e206b117891",
-    "candidate_count": 107
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 31
   },
-  "rediscover_after": "2026-10-05T11:05:03.257277Z",
+  "rediscover_after": null,
   "notes": []
 }

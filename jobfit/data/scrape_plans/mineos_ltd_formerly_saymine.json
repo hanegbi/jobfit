@@ -2,53 +2,25 @@
   "company_id": "mineos_ltd_formerly_saymine",
   "schema_version": 1,
   "career_url": "https://www.mineos.ai/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T14:16:48.457379Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:51:06.062529Z",
+  "verified_at": "2026-09-28T21:51:06.062529Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "39.003:933373252CB4998499824CC2DFF01B990",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/39.003/positions?token=933373252CB4998499824CC2DFF01B990"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 38,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 44,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 45,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 2
   },
   "rediscover_after": null,
   "notes": []

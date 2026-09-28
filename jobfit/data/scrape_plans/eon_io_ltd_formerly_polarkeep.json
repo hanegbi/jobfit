@@ -2,53 +2,25 @@
   "company_id": "eon_io_ltd_formerly_polarkeep",
   "schema_version": 1,
   "career_url": "https://eon.io/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:43:08.676808Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:50:29.900070Z",
+  "verified_at": "2026-09-28T21:50:29.900070Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "greenhouse",
+    "board": "eonio",
+    "board_url": "https://boards.greenhouse.io/eonio"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 25,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 27,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 30,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 31
   },
   "rediscover_after": null,
   "notes": []

@@ -2,57 +2,26 @@
   "company_id": "aidoc",
   "schema_version": 1,
   "career_url": "https://www.aidoc.com/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:00:43.622923Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:47:48.196714Z",
+  "verified_at": "2026-09-28T21:47:48.196714Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "greenhouse",
+    "board": "aidocmedical",
+    "board_url": "https://boards.greenhouse.io/aidocmedical"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 29,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 37,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 44,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "b6dd34e78b89c0d92725af89f952c43fb906c6f4",
-    "candidate_count": 55
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 32
   },
-  "rediscover_after": "2026-10-05T10:00:43.622923Z",
+  "rediscover_after": null,
   "notes": []
 }

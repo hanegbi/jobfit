@@ -4,7 +4,7 @@
   "career_url": "https://spearuav.com/careers/",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T11:17:09.415794Z",
+  "derived_at": "2026-09-28T22:00:16.625409Z",
   "verified_at": null,
   "status": "unverified",
   "strategy": {
@@ -12,13 +12,27 @@
     "renderer": "http",
     "container_selector": null,
     "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
+    "exclude_url": [
+      "^https?://(www\\.)?spearuav\\.com/index\\.php/[^/?#]+/?$",
+      "^https?://(www\\.)?spearuav\\.com/viper\\-family/[^/?#]+/?$",
+      "^https?://(www\\.)?spearuav\\.com/category/[^/?#]+/?$",
+      "^https?://(www\\.)?spearuav\\.com/2026/08/[^/?#]+/?$",
+      "^https?://(www\\.)?spearuav\\.com/2026/06/[^/?#]+/?$",
+      "^https?://(www\\.)?spearuav\\.com/category/careers/[^/?#]+/?$",
+      "^https?://(www\\.)?spearuav\\.com/cdn\\-cgi/l/[^/?#]+/?$",
+      "^https?://(www\\.)?spearuav\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "spearuav.com||1",
+    "explicit_accept": [
+      "https://spearuav.com/flight-tests-manager-alpha-team-job-description/",
+      "https://spearuav.com/mechanical-engineer-uav-systems-job-description/",
+      "https://spearuav.com/senior-system-engineer-job-description/"
+    ],
     "fallbacks": [
       "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
@@ -26,12 +40,107 @@
     "container_selector": null,
     "candidates": [
       {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 8,
         "is_job": false,
         "reason": "not a job"
       },
       {
         "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 20,
         "is_job": false,
         "reason": "not a job"
       },
@@ -46,24 +155,34 @@
         "reason": "not a job"
       },
       {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 24,
         "is_job": false,
         "reason": "not a job"
       },
       {
-        "index": 26,
+        "index": 25,
         "is_job": false,
         "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 27,
-        "is_job": false,
-        "reason": "not a job"
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 28,
-        "is_job": false,
-        "reason": "not a job"
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 29,
@@ -76,23 +195,45 @@
         "reason": "not a job"
       },
       {
+        "index": 31,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 32,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 34,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 35,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
         "is_job": false,
         "reason": "not a job"
       }
     ]
   },
-  "page_fingerprint": {
-    "href_shape_set_hash": "4e757e080643152ca2cafffea8b7efca635462e8",
-    "candidate_count": 37
-  },
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 3
   },
-  "rediscover_after": "2026-10-05T11:17:09.415794Z",
+  "rediscover_after": null,
   "notes": []
 }

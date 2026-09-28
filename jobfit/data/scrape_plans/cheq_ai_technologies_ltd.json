@@ -2,98 +2,25 @@
   "company_id": "cheq_ai_technologies_ltd",
   "schema_version": 1,
   "career_url": "https://www.cheq.ai/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:25:13.432628Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:49:55.176652Z",
+  "verified_at": "2026-09-28T21:49:55.176652Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "65.005:5651AF92B280102F565565205E1594205E",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/65.005/positions?token=5651AF92B280102F565565205E1594205E"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 0,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 8,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 28,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 41,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 46,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 50,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 51,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 52,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 53,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 54,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 55,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 57,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 5
   },
   "rediscover_after": null,
   "notes": []

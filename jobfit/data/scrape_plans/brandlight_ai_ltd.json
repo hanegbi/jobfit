@@ -2,43 +2,25 @@
   "company_id": "brandlight_ai_ltd",
   "schema_version": 1,
   "career_url": "https://www.brandlight.ai/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:14:52.945781Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:49:36.007128Z",
+  "verified_at": "2026-09-28T21:49:36.007128Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "ashby",
+    "board": "brandlight",
+    "board_url": "https://jobs.ashbyhq.com/brandlight"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 10,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 13
   },
   "rediscover_after": null,
   "notes": []

@@ -17,7 +17,7 @@ from jobfit.scrape.filters import (
 from jobfit.scrape.health import HealthPolicy
 from jobfit.scrape.models import HtmlListingStrategy, ScrapePlan
 from jobfit.scrape.strategies import (
-    AtsApiScrape, ExternalBoardScrape, FallbackScrape, HtmlListingScrape, NoScrape, ScrapeStrategy,
+    AtsApiScrape, EmbeddedAtsScrape, ExternalBoardScrape, FallbackScrape, HtmlListingScrape, NoScrape, ScrapeStrategy,
     SpecialCaseScrape, TechmapScrape,
 )
 
@@ -60,8 +60,13 @@ class StrategyFactory:
             if name == "playwright" and s.renderer != "playwright":
                 fallbacks.append(HtmlListingScrape(self.fetchers.build("playwright"), self.extractor, chain, self.enricher, s, self.max_links))
             elif name == "techmap":
+                # An ATS embedded in the page (widget/script/iframe) is a far
+                # better source than techmap's title-only rows - try it first.
+                fallbacks.append(EmbeddedAtsScrape(self.fetchers.build("http"), self.registry))
                 fallbacks.append(TechmapScrape(self.techmap_index))
-        return FallbackScrape(primary, fallbacks, self.health.is_healthy) if fallbacks else primary
+        if not any(isinstance(f, EmbeddedAtsScrape) for f in fallbacks):
+            fallbacks.append(EmbeddedAtsScrape(self.fetchers.build("http"), self.registry))
+        return FallbackScrape(primary, fallbacks, self.health.is_healthy)
 
     def _special_case(self, plan: ScrapePlan) -> ScrapeStrategy:
         fn = self.special_fetchers.get(plan.strategy.host_fragment)

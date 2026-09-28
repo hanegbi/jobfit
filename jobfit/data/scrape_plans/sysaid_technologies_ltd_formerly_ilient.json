@@ -1,103 +1,27 @@
 {
   "company_id": "sysaid_technologies_ltd_formerly_ilient",
   "schema_version": 1,
-  "career_url": "https://careers.sysaid.com/",
-  "derived_by": "llm",
+  "career_url": "https://careers.sysaid.com",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:17:36.530119Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:51:46.564412Z",
+  "verified_at": "2026-09-28T21:51:46.564412Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "sysaid/43.00A",
+    "board_url": "https://www.comeet.com/jobs/sysaid/43.00A"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 7,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 8,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 9,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 10,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 11,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 12,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 13,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 14,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 15,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 16,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 17,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 18,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "6764f88542af7838879a3f18a075b9e61f09e04f",
-    "candidate_count": 20
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 3
   },
-  "rediscover_after": "2026-10-05T11:17:36.530119Z",
+  "rediscover_after": null,
   "notes": []
 }

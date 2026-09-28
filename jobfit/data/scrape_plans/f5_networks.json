@@ -2,102 +2,24 @@
   "company_id": "f5_networks",
   "schema_version": 1,
   "career_url": "https://www.f5.com/company/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:18:34.281624Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:48:03.844308Z",
+  "verified_at": "2026-09-28T21:48:03.844308Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "external_board",
+    "board_url": "https://ffive.wd5.myworkdayjobs.com/f5jobs"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 0,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 108,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 119,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 133,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 140,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 141,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 142,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 143,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 144,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 146,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 147,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 158,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "d141233b0089b75cb944fafdce07da549c57ad27",
-    "candidate_count": 159
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 7
   },
-  "rediscover_after": "2026-10-05T10:18:34.281624Z",
+  "rediscover_after": null,
   "notes": []
 }

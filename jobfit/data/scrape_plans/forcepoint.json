@@ -2,67 +2,24 @@
   "company_id": "forcepoint",
   "schema_version": 1,
   "career_url": "https://www.forcepoint.com/company/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:19:03.159722Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:48:10.953774Z",
+  "verified_at": "2026-09-28T21:48:10.953774Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "external_board",
+    "board_url": "https://forcepoint.wd1.myworkdayjobs.com/external-careers"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 66,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 68,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 69,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 70,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 78,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "3294eb3dc01c62b3a61707db6f6b81d126cc6109",
-    "candidate_count": 90
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 2
   },
-  "rediscover_after": "2026-10-05T10:19:03.159722Z",
+  "rediscover_after": null,
   "notes": []
 }

@@ -4,21 +4,23 @@
   "career_url": "https://ai-maverick.com/Careers",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T14:37:36.447180Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T22:00:16.625409Z",
+  "verified_at": "2026-09-28T22:00:16.625409Z",
+  "status": "verified",
   "strategy": {
     "kind": "html_listing",
-    "renderer": "http",
+    "renderer": "playwright",
     "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
+    "include_url": "^https?://(www\\.)?ai\\-maverick\\.com/jobdetails\\?.*\\bslug=",
+    "exclude_url": [
+      "^https?://(www\\.)?ai\\-maverick\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "ai-maverick.com|?slug",
     "explicit_accept": [],
     "fallbacks": [
-      "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
@@ -26,9 +28,29 @@
     "container_selector": null,
     "candidates": [
       {
-        "index": 1,
+        "index": 0,
         "is_job": false,
         "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 2,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 3,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 4,
+        "is_job": true,
+        "reason": "real job posting"
       }
     ]
   },
@@ -38,7 +60,7 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 4
   },
   "rediscover_after": null,
   "notes": []

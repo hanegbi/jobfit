@@ -4,21 +4,25 @@
   "career_url": "https://www.finonex.com/careers",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T10:18:43.640380Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T22:16:11.546294Z",
+  "verified_at": "2026-09-28T22:16:11.546294Z",
+  "status": "verified",
   "strategy": {
     "kind": "html_listing",
     "renderer": "http",
     "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
+    "include_url": "^https?://(www\\.)?finonex\\.com/careers/jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?finonex\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?finonex\\.com/careers/[^/?#]+/?$"
+    ],
+    "url_shape": "finonex.com|careers/jobs|3",
     "explicit_accept": [],
     "fallbacks": [
       "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": "https://www.finonex.com/careers/jobs/?location=IL"
   },
   "labels": {
     "page_verdict": "careers_page",
@@ -26,7 +30,22 @@
     "container_selector": null,
     "candidates": [
       {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
         "is_job": false,
         "reason": "not a job"
       },
@@ -37,32 +56,19 @@
       },
       {
         "index": 5,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 6,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 7,
-        "is_job": false,
-        "reason": "not a job"
+        "is_job": true,
+        "reason": "real job posting"
       }
     ]
   },
-  "page_fingerprint": {
-    "href_shape_set_hash": "a46f2af4f2a34b0c7ffdc5a251469fd5f6673d50",
-    "candidate_count": 8
-  },
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 1
   },
-  "rediscover_after": "2026-10-05T10:18:43.640380Z",
+  "rediscover_after": null,
   "notes": []
 }

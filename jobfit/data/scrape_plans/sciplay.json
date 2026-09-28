@@ -2,47 +2,26 @@
   "company_id": "sciplay",
   "schema_version": 1,
   "career_url": "https://www.sciplay.com/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:16:16.829800Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:48:45.615814Z",
+  "verified_at": "2026-09-28T21:48:45.615814Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "workday",
+    "board": "lnw.wd5/SciPlayExternalCareersSite",
+    "board_url": "https://lnw.wd5.myworkdayjobs.com/SciPlayExternalCareersSite"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 4,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "6aa12c9bdba626d9608abb2d0c90d4aa249cb861",
-    "candidate_count": 14
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 8
   },
-  "rediscover_after": "2026-10-05T11:16:16.829800Z",
+  "rediscover_after": null,
   "notes": []
 }

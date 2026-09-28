@@ -2,43 +2,25 @@
   "company_id": "the_data_company_technologies_ltd_nimble_data",
   "schema_version": 1,
   "career_url": "https://www.nimbleway.com/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T15:10:05.249501Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:51:48.006985Z",
+  "verified_at": "2026-09-28T21:51:48.006985Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "09.00F:90F365A5187121E2D4B121E1B2D90F365A365A",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/09.00F/positions?token=90F365A5187121E2D4B121E1B2D90F365A365A"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 10,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 20
   },
   "rediscover_after": null,
   "notes": []

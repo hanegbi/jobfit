@@ -2,67 +2,26 @@
   "company_id": "pentera_security_ltd_formerly_pcysys",
   "schema_version": 1,
   "career_url": "https://pentera.io/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:04:03.845055Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:51:19.803690Z",
+  "verified_at": "2026-09-28T21:51:19.803690Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "C5.00D:5CD1D013435289B343501D012E682E68289B",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/C5.00D/positions?token=5CD1D013435289B343501D012E682E68289B"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 15,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 27,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 29,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 38,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 40,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "05b017254185c41cdfc7dcf9f150bc72a115a19c",
-    "candidate_count": 46
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 24
   },
-  "rediscover_after": "2026-10-05T11:04:03.845055Z",
+  "rediscover_after": null,
   "notes": []
 }

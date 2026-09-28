@@ -1,11 +1,11 @@
 {
   "company_id": "jeen_ai_ltd",
   "schema_version": 1,
-  "career_url": "https://jeen.ai/careers/",
+  "career_url": "https://jeen.ai/careers",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T10:45:49.577963Z",
-  "verified_at": "2026-09-28T10:45:49.577963Z",
+  "derived_at": "2026-09-28T22:00:16.625409Z",
+  "verified_at": "2026-09-28T22:00:16.625409Z",
   "status": "verified",
   "strategy": {
     "kind": "html_listing",
@@ -20,7 +20,8 @@
     "fallbacks": [
       "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
@@ -28,7 +29,47 @@
     "container_selector": null,
     "candidates": [
       {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
         "is_job": false,
         "reason": "not a job"
       },
@@ -96,13 +137,35 @@
         "index": 21,
         "is_job": true,
         "reason": "real job posting"
+      },
+      {
+        "index": 22,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 24,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
       }
     ]
   },
-  "page_fingerprint": {
-    "href_shape_set_hash": "75557bc96d7a4aae9276a41d807358a24bd48650",
-    "candidate_count": 27
-  },
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
@@ -110,6 +173,6 @@
     "last_yield": 0,
     "baseline_yield": 13
   },
-  "rediscover_after": "2026-10-05T10:45:49.577963Z",
+  "rediscover_after": null,
   "notes": []
 }

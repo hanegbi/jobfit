@@ -2,82 +2,24 @@
   "company_id": "genesys",
   "schema_version": 1,
   "career_url": "https://www.genesys.com/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:26:34.406894Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:48:07.592573Z",
+  "verified_at": "2026-09-28T21:48:07.592573Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "external_board",
+    "board_url": "https://genesys.wd1.myworkdayjobs.com/Genesys?source=genesyscareers"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 38,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 60,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 67,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 80,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 88,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 89,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 90,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 91,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "e5b7f90986e58ebe46507b56e3da5ff6ccba0860",
-    "candidate_count": 106
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 1
   },
-  "rediscover_after": "2026-10-05T10:26:34.406894Z",
+  "rediscover_after": null,
   "notes": []
 }

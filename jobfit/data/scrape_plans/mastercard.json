@@ -4,12 +4,14 @@
   "career_url": "https://careers.mastercard.com/us/en/search-results?keywords=Israel",
   "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:46:42.156635Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:48:21.843384Z",
+  "verified_at": "2026-09-28T21:48:21.843384Z",
+  "status": "verified",
   "strategy": {
-    "kind": "techmap_only",
-    "reason": "no anchors on page"
+    "kind": "ats_api",
+    "provider": "workday",
+    "board": "mastercard.wd1/CorporateCareers",
+    "board_url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers"
   },
   "labels": null,
   "page_fingerprint": null,
@@ -18,7 +20,7 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 8
   },
   "rediscover_after": null,
   "notes": []

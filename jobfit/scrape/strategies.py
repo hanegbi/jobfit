@@ -68,14 +68,15 @@ class HtmlListingScrape(ScrapeStrategy):
         )
 
     def fetch(self, company: str, career_url: str | None) -> list[JobPosting]:
-        if not career_url:
+        target = self.strategy.listing_url or career_url
+        if not target:
             return []
-        page = self.fetcher.fetch(career_url)
+        page = self.fetcher.fetch(target)
         if page.status in (404, 410):
             return []
         if page.status >= 400:
-            raise FetchFailed(f"{career_url}: http {page.status}")
-        candidates = self.extractor.extract(page, career_url, self.strategy.container_selector, cap=self.max_links * 4)
+            raise FetchFailed(f"{target}: http {page.status}")
+        candidates = self.extractor.extract(page, target, self.strategy.container_selector, cap=self.max_links * 4)
         self.last_fingerprint = page_fingerprint(candidates)
         accepted, _ = self.chain.run(candidates)
         accepted.sort(key=lambda c: not c.same_host)
@@ -83,6 +84,31 @@ class HtmlListingScrape(ScrapeStrategy):
             self.enricher.enrich(JobPosting(title=c.text, url=c.href, source="html_listing"))
             for c in accepted[: self.max_links]
         ]
+
+
+class EmbeddedAtsScrape(ScrapeStrategy):
+    """Runtime self-healing for html_listing plans: when the listing page
+    yields nothing, look for an ATS embedded in the page's raw HTML
+    (see jobfit.scrape.ats.embedded) and fetch its board directly. [] when
+    the page embeds nothing we know."""
+    kind = "ats_api"
+
+    def __init__(self, fetcher: PageFetcher, registry: AtsRegistry):
+        self.fetcher, self.registry = fetcher, registry
+
+    def fetch(self, company: str, career_url: str | None) -> list[JobPosting]:
+        from jobfit.scrape.ats.embedded import company_hint_for, find_embedded_ats
+
+        if not career_url:
+            return []
+        page = self.fetcher.fetch(career_url)
+        if page.status >= 400:
+            raise FetchFailed(f"{career_url}: http {page.status}")
+        found = find_embedded_ats(page.html, self.registry, company_hint_for(company, career_url))
+        if found is None:
+            return []
+        client, board = found
+        return AtsApiScrape(client, board, known_url=career_url).fetch(company, career_url)
 
 
 class SpecialCaseScrape(ScrapeStrategy):

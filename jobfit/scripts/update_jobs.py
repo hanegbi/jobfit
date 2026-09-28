@@ -20,6 +20,7 @@ Usage:
 """
 
 import argparse
+import base64
 import hashlib
 import json
 import logging
@@ -70,17 +71,36 @@ def extract_ats_id(url: str | None) -> str | None:
     return None
 
 
+def normalize_job_url(url: str | None) -> str | None:
+    """The identity form of a job URL: whitespace and fragment stripped, no
+    trailing slash - so `.../job/1/` and `.../job/1#apply` are one posting."""
+    if not url:
+        return None
+    url = url.strip().split("#", 1)[0].rstrip("/")
+    return url or None
+
+
 def compute_job_id(company: str, title: str, location: str | None, url: str | None) -> str:
-    """ATS job ID when the URL reveals one (stable across reruns even if the
-    title text is re-scraped slightly differently); otherwise a hash of
-    company + normalized title + location + URL, so the same posting is never
-    treated as new twice just because whitespace/casing shifted."""
-    ats_id = extract_ats_id(url)
-    if ats_id:
-        return f"{_snake_case(company)}:{ats_id}"
+    """The job's URL, base64url-encoded (no padding) - a posting's identity IS
+    its URL, so a re-run never treats an already-stored posting as new no
+    matter how its title/location text is re-scraped. Only a URL-less job
+    (techmap rows, some referrals) falls back to a hash of company +
+    normalized title + location."""
+    normalized_url = normalize_job_url(url)
+    if normalized_url:
+        return base64.urlsafe_b64encode(normalized_url.encode("utf-8")).decode("ascii").rstrip("=")
     normalized_title = re.sub(r"[^a-z0-9]+", "", (title or "").lower())
-    raw = f"{company}|{normalized_title}|{location or ''}|{url or ''}"
+    raw = f"{company}|{normalized_title}|{location or ''}|"
     return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:20]
+
+
+def job_url_from_id(job_id: str) -> str | None:
+    """Inverse of compute_job_id for URL-based ids; None for legacy hash ids."""
+    try:
+        padded = job_id + "=" * (-len(job_id) % 4)
+        return base64.urlsafe_b64decode(padded.encode("ascii")).decode("utf-8")
+    except (ValueError, UnicodeDecodeError):
+        return None
 
 
 def cv_hash() -> str:
@@ -529,8 +549,13 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
                 if not title:
                     continue
                 referral_job = referral_source._to_job_dict(raw_job)
+                ref_url = (referral_job.get("url") or "").strip().rstrip("/")
                 match = next(
-                    (j for j in record["jobs"] if referral_source._is_duplicate_title(j.get("title") or "", title)),
+                    (
+                        j for j in record["jobs"]
+                        if (ref_url and (j.get("url") or "").strip().rstrip("/") == ref_url)
+                        or referral_source._is_duplicate_title(j.get("title") or "", title)
+                    ),
                     None,
                 )
                 if match is not None:
@@ -585,12 +610,16 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
         return stats
 
 
+COMPANY_ADDRESSES_PATH = config.ROOT / "data" / "company_addresses.json"
+
+
 def _context_sha1() -> str:
     """Covers every input that a flattened row embeds besides the company
-    file's own bytes: LinkedIn connections (contacts_for_company) and
-    techmap (industry/size/location hint) both feed into every row, so a
-    change to either must invalidate every company's cache entry, not
-    just the one company file that happened to change."""
+    file's own bytes: LinkedIn connections (contacts_for_company), techmap
+    (industry/size/location hint) and the company address book (city
+    fallback) all feed into every row, so a change to any must invalidate
+    every company's cache entry, not just the one company file that
+    happened to change."""
     hasher = hashlib.sha1()
     if config.CONNECTIONS_CSV.exists():
         hasher.update(config.CONNECTIONS_CSV.read_bytes())
@@ -598,15 +627,38 @@ def _context_sha1() -> str:
         for path in sorted(config.TECHMAP_CACHE_DIR.glob("*")):
             if path.is_file():
                 hasher.update(path.read_bytes())
+    if COMPANY_ADDRESSES_PATH.exists():
+        hasher.update(COMPANY_ADDRESSES_PATH.read_bytes())
     return hasher.hexdigest()
 
 
-def _flatten_company(record: dict, company: str, contacts: list, industry, size, techmap_location_hint) -> list[dict]:
+def load_company_address_cities() -> dict[str, str]:
+    """normalized company key -> registered office city (first branch), from
+    data/company_addresses.json. The city fallback for jobs located only as
+    "Israel"."""
+    if not COMPANY_ADDRESSES_PATH.exists():
+        return {}
+    try:
+        data = json.loads(COMPANY_ADDRESSES_PATH.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    out: dict[str, str] = {}
+    for name, branches in data.items():
+        branches = branches if isinstance(branches, list) else [branches]
+        city = next((b.get("city") for b in branches if isinstance(b, dict) and b.get("city")), None)
+        key = connections.normalize_company(name)
+        if city and key:
+            out[key] = city
+    return out
+
+
+def _flatten_company(record: dict, company: str, contacts: list, industry, size, techmap_location_hint,
+                     company_city: str | None = None) -> list[dict]:
     from jobfit import pipeline as _pipeline  # reuse its already-debugged location-inference logic, not a copy
 
     rows = []
     for job in record["jobs"]:
-        loc, city, is_remote = _pipeline._infer_location_fields(job, techmap_location_hint)
+        loc, city, is_remote = _pipeline._infer_location_fields(job, techmap_location_hint, company_city)
         out = dict(job)  # carries id/title/url/description/status/first_seen/last_seen/score_*/matched_*/coverage_*/confidence_*/requirements_*/best_*
         out["company"] = company
         out["industry"] = industry
@@ -652,6 +704,7 @@ def aggregate_to_jobs_v2(force: bool = False) -> int:
     with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="aggregate", scope="all"):
         conn_index = connections.load_connections_index()
         techmap_index = load_techmap_index()
+        address_cities = load_company_address_cities()
         context_sha1 = _context_sha1()
 
         cache_dir = config.AGGREGATE_CACHE_DIR
@@ -685,7 +738,8 @@ def aggregate_to_jobs_v2(force: bool = False) -> int:
                 industry = techmap_rows[0]["industry"] if techmap_rows else None
                 size = techmap_rows[0]["size"] if techmap_rows else None
                 techmap_location_hint = techmap_rows[0]["location"] if techmap_rows else None
-                rows = _flatten_company(record, company, contacts, industry, size, techmap_location_hint)
+                company_city = address_cities.get(connections.normalize_company(company))
+                rows = _flatten_company(record, company, contacts, industry, size, techmap_location_hint, company_city)
                 atomic_write_json(cache_path, {"source_sha1": source_sha1, "context_sha1": context_sha1, "rows": rows})
 
             dataset.extend(rows)

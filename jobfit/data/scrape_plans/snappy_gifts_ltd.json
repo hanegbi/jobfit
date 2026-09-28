@@ -2,88 +2,25 @@
   "company_id": "snappy_gifts_ltd",
   "schema_version": 1,
   "career_url": "https://www.snappy.com/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T14:52:30.848947Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:51:40.133245Z",
+  "verified_at": "2026-09-28T21:51:40.133245Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "ashby",
+    "board": "Snappy",
+    "board_url": "https://jobs.ashbyhq.com/Snappy"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 41,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 42,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 43,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 44,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 45,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 46,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 47,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 53,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 61,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 75,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 4
   },
   "rediscover_after": null,
   "notes": []

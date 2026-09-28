@@ -2,43 +2,25 @@
   "company_id": "insait_io_ltd_encore_ai",
   "schema_version": 1,
   "career_url": "https://www.gainencore.ai/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T14:04:02.892055Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:50:50.273028Z",
+  "verified_at": "2026-09-28T21:50:50.273028Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "0B.00C:B0C4D544D5421242124002124373C373C",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/0B.00C/positions?token=B0C4D544D5421242124002124373C373C"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 3,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 8
   },
   "rediscover_after": null,
   "notes": []

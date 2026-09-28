@@ -1,11 +1,11 @@
 {
   "company_id": "faye_travel_insurance_ltd_formerly_zenner",
   "schema_version": 1,
-  "career_url": "https://www.withfaye.com/careers",
+  "career_url": "https://www.withfaye.com/careers/",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T10:18:36.934252Z",
-  "verified_at": "2026-09-28T10:18:36.934252Z",
+  "derived_at": "2026-09-28T22:00:16.625409Z",
+  "verified_at": "2026-09-28T22:00:16.625409Z",
   "status": "verified",
   "strategy": {
     "kind": "html_listing",
@@ -13,20 +13,77 @@
     "container_selector": null,
     "include_url": "^https?://(www\\.)?withfaye\\.com/careers/[^/?#]+/?$",
     "exclude_url": [
-      "^https?://(www\\.)?withfaye\\.com/[^/?#]+/?$"
+      "^https?://(www\\.)?withfaye\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?blog\\.withfaye\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?withfaye\\.com/quote/[^/?#]+/?$",
+      "^https?://(www\\.)?instagram\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?withfaye\\.com/info/[^/?#]+/?$",
+      "^https?://(www\\.)?advisors\\.withfaye\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?blog\\.withfaye\\.com/faye\\-updates\\-and\\-info/[^/?#]+/?$"
     ],
     "url_shape": "withfaye.com|careers|2",
     "explicit_accept": [],
     "fallbacks": [
       "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
     "external_board_url": null,
     "container_selector": null,
     "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
       {
         "index": 10,
         "is_job": true,
@@ -109,37 +166,79 @@
       },
       {
         "index": 26,
-        "is_job": true,
-        "reason": "real job posting"
+        "is_job": false,
+        "reason": "not a job"
       },
       {
         "index": 27,
-        "is_job": true,
-        "reason": "real job posting"
+        "is_job": false,
+        "reason": "not a job"
       },
       {
         "index": 28,
-        "is_job": true,
-        "reason": "real job posting"
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 31,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 32,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 34,
+        "is_job": false,
+        "reason": "not a job"
       },
       {
         "index": 35,
         "is_job": false,
         "reason": "not a job"
+      },
+      {
+        "index": 36,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
+        "is_job": false,
+        "reason": "not a job"
       }
     ]
   },
-  "page_fingerprint": {
-    "href_shape_set_hash": "947ddc6314da5634a79ee4dde0d210e05fa8cb08",
-    "candidate_count": 42
-  },
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 19
+    "baseline_yield": 16
   },
-  "rediscover_after": "2026-10-05T10:18:36.934252Z",
+  "rediscover_after": null,
   "notes": []
 }

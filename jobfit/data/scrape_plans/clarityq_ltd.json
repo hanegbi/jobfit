@@ -4,27 +4,143 @@
   "career_url": "https://get.clarityq.ai/careers",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T13:14:52.945781Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T22:00:16.625409Z",
+  "verified_at": "2026-09-28T22:00:16.625409Z",
+  "status": "verified",
   "strategy": {
     "kind": "html_listing",
-    "renderer": "http",
+    "renderer": "playwright",
     "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
+    "include_url": "^https?://(www\\.)?get\\.clarityq\\.ai/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?get\\.clarityq\\.ai/[^/?#]+/?$",
+      "^https?://(www\\.)?clarityq\\.ai/[^/?#]+/?$",
+      "^https?://(www\\.)?clarityq\\.ai/solutions/[^/?#]+/?$",
+      "^https?://(www\\.)?clarityq\\.ai/by\\-teams/[^/?#]+/?$"
+    ],
+    "url_shape": "get.clarityq.ai|careers|2",
     "explicit_accept": [],
     "fallbacks": [
-      "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
     "external_board_url": null,
     "container_selector": null,
-    "candidates": []
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 20,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
   },
   "page_fingerprint": null,
   "health": {
@@ -32,7 +148,7 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 1
   },
   "rediscover_after": null,
   "notes": []

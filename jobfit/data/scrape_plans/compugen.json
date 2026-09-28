@@ -2,77 +2,26 @@
   "company_id": "compugen",
   "schema_version": 1,
   "career_url": "https://www.cgen.com/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:09:57.389204Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T21:47:56.837760Z",
+  "verified_at": "2026-09-28T21:47:56.837760Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "D9.00E:9DE451213BC4EF04EF058CE13BC3B341D9A58CE",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/D9.00E/positions?token=9DE451213BC4EF04EF058CE13BC3B341D9A58CE"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 21,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 26,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 33,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 34,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 35,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 39,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 40,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "df49e28f3a4730353d88e0597cb3f6f0e50c9be2",
-    "candidate_count": 43
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 2
   },
-  "rediscover_after": "2026-10-05T10:09:57.389204Z",
+  "rediscover_after": null,
   "notes": []
 }

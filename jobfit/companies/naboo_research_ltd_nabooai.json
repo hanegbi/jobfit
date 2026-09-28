@@ -4,7 +4,7 @@
   "last_checked": "2026-09-27T19:19:09Z",
   "jobs": [
     {
-      "id": "ed0e031d0681b5c81cd4",
+      "id": "aHR0cHM6Ly9uYWJvby5haS93ZWJpbmFycy9jb25maWRlbnRseS13cm9uZy1hbmQtZXhwZW5zaXZl",
       "title": "Save My Spot!",
       "location": null,
       "url": "https://naboo.ai/webinars/confidently-wrong-and-expensive/",
@@ -31,13 +31,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "d789456163fa5f36",
-        "infra": "5d920507dd2e34b2"
+        "default": "bc1dc4d73c5b7507",
+        "infra": "9722f32711e8f6e3"
       },
       "years_required": null
     },
     {
-      "id": "39784c6c053101e7f0b0",
+      "id": "aHR0cHM6Ly9uYWJvby5haQ",
       "title": "Platform",
       "location": null,
       "url": "https://naboo.ai/#topic-graph",
@@ -64,46 +64,14 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "f9e92887a8faf060",
-        "infra": "3c86e53f63870a9d"
+        "default": "75dab5a1edfe5ca9",
+        "infra": "d07f06b8742d31c4"
       },
-      "years_required": null
+      "years_required": null,
+      "is_referral": false
     },
     {
-      "id": "1453650b8a3378b01584",
-      "title": "How it works",
-      "location": null,
-      "url": "https://naboo.ai/#how-it-works",
-      "description": "Enterprise Reasoning Layer for AI Agents | Naboo Confidently Wrong, and Expensive: What AI Agents Cost You When They Don't Understand Your Business Save My Spot! Platform How it works Benefits Resources Press Jobs Book a demo Login The Reasoning Layer for Enterprise AI Agents AI agents don't know your company . Your release process. Your flag conventions. Who owns the failing service. Naboo teaches every enterprise AI agent what your company already knows. Schedule a demo Watch video naboo console via MCP Ask Naboo What's blocking checkout v2 from shipping? Decision graph Â· 142 ms Decisions Â· 4 in the chain 2 open Decision Owner Status Pricing approval Finance approved 6d Pen test Security in review Infra capacity Platform allocated Customer comms CX draft query { release (target:\"checkout-v2\") { blockers { name owner status } } } Search returns links. The reasoning layer returns the chain. Trusted by engineering teams at leading global companies, including Category check A wiki. Enterprise search. Another memory library. Naboo is the queryable model of what your company already decided. Decisions, owners, triggers, and blockers as first-class nodes - backed by live joins across code, tickets, PRs, Slack, and your internal services. Not documents. Not memory. The chain. From our own Slack Â· June 2026 \"Guys, we're burning too much money on OpenAI - $8,000 today alone. We need to cut this spend ASAP.\" Gilad Salinger Â· CEO & Co-Founder, Naboo The company building the precision layer for enterprise AI burned $8K of OpenAI in a single day. Our agents were doing exactly what every enterprise team's agents do - paying the LLM to guess at context nobody had handed them. We pointed Naboo at ourselves the next sprint. The bill came back to earth. If we feel it, our customers feel it 10x. The topic graph Most debugging is finding the context . The fix is already in your tools - split across the repos that touch it, the PRs that changed it, and the Slack threads where the team figured it out. Nobody linked them. Naboo does. \"Help me fix this bug.\" TypeError : cannot read Â Â 'id' of undefined Â Â at resolveUser (auth/session.ts:42) Â Â at handler (api/checkout.ts:118) 3 repositories that touch the failing path The pull requests that changed that exact code The Slack threads that referenced those PRs The exact picture - not a pile of keyword matches. Why a naive RAG can't do this Keyword search returns documents. Naboo returns the connected truth - because of four things it does that an off-the-shelf index never will. Indexes everything, at scale Pulls your entire dataset - working around the API rate limits and bulk-export caps that make most tools give up. Links the dots Connects tickets, PRs, code, and Slack by the references between them - explicit mentions and implicit ones alike. Resolves identity Maps one person across every tool, so it knows who owns what and who works with whom - shrinking the search space before it even looks. Permission-aware at every node Document-level permissions on each node, so the whole org can query the index fast - and never sees what it shouldn't. How a customer puts it \"Global-e brought in Naboo to unify our fragmented knowledge landscape - eliminating wasted time, duplication, and reliance on experts - so teams and AI agents can find the right information efficiently, scale seamlessly, and boost employee satisfaction.\" Greg Sirota Knowledge Manager, Global-e (NASDAQ: GLBE) The decision graph Ask \"what shipped\" in your company. You'll get five answers. What counts as a feature. What counts as shipped. Whether a flag at 25% means \"in production\" or \"still rolling.\" The data is in your tools. The definition is in everybody's head and nobody's document. Neither is queryable. \"What shipped behind feature flags last week?\" Plain RAG Matches keywords like \"feature flag\" , \"deploy\" , filters by date - and returns a pile of documents that probably don't contain the answer. It can't join the dots a human never wrote down. Naboo Resolves the question through your org's actual definition of a feature - across tickets, PRs, flags, and services - and returns the exact list. The answer, not a search result. Every company speaks a private language Ask a tech lead \"what is a feature?\" and the answer is a chain of implicit links that exists in no single system - invisible to every off-the-shelf AI agent. definition: \"a feature\" Task a ticket that isn't a bugfix Pull Request branch name carries the ticket ID Feature Flag key hard-coded in the PR Internal Flag Service holds the live on/off state none of these links is written down - they live in branch-naming habits, code, and an internal service We turn that language into a graph any agent can query A Forward Deployed Agent - a specialist in ETL and data science - sits with your team and defines that hidden language across every connection. The result is a living decision graph - decisions, owners, triggers, and blockers as first-class nodes, built on the ETL plumbing Naboo already runs across your stack. Any agent queries it directly in GraphQL - or through an MCP server that turns plain intent into a structured query. agent â naboo query { features (shippedWithin: \"7d\" , flagged: true ) { name owningTeam flag { key state } pullRequests { url author } } } How a customer puts it \"Naboo is the tool I trust to catch up on any project fast. It turns the decisions scattered across our stack into a graph, so teams use it to navigate them and Claude uses it to reason.\" Tal Mor VP R&D, Melio See your company's Decision Graph in 30 minutes. Bring three of your real questions. We'll show you what an agent grounded in a Decision Graph answers instead. Book a demo How Naboo works The reasoning layer for your R&D environment Press enter or space to select a node. You can then use the arrow keys to move the node around. Press delete to remove it and escape to cancel. Press enter or space to select an edge. You can then press delete to re",
-      "department": null,
-      "employment_type": null,
-      "title_original": null,
-      "description_original": null,
-      "source_language": null,
-      "first_seen": "2026-09-27T19:19:09Z",
-      "last_seen": "2026-09-27T19:19:09Z",
-      "status": "new",
-      "score_default": 0,
-      "matched_default": [],
-      "coverage_default": null,
-      "confidence_default": "title_only",
-      "requirements_default": [],
-      "score_infra": 0,
-      "matched_infra": [],
-      "coverage_infra": null,
-      "confidence_infra": "title_only",
-      "requirements_infra": [],
-      "best_cv": "default",
-      "best_score": 0,
-      "best_confidence": "title_only",
-      "_score_cache_keys": {
-        "default": "38b489e5ec6216a7",
-        "infra": "6f78b4304ca8f3e6"
-      },
-      "years_required": null
-    },
-    {
-      "id": "2ea7982cf6f94ae01939",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9kZW1v",
       "title": "Book a demo",
       "location": null,
       "url": "https://naboo.ai/demo/",
@@ -130,13 +98,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "7d38456d2838233b",
-        "infra": "60713225be3f1c31"
+        "default": "0de3ad74b6b055e0",
+        "infra": "dfdee26822803b22"
       },
       "years_required": null
     },
     {
-      "id": "7cae40293b50d69a8fc1",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9qb2JzL2hlYWQtb2YtcHJvZHVjdA",
       "title": "Head of Product",
       "location": "Tel Aviv, IL",
       "url": "https://naboo.ai/jobs/head-of-product/",
@@ -163,13 +131,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "c889fb309c29827f",
-        "infra": "33d117f4315732b7"
+        "default": "7c683e2bb3cdca26",
+        "infra": "dd53e0c0e257249d"
       },
       "years_required": null
     },
     {
-      "id": "fff7e195b9157ba24bd0",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9qb2JzL3NvZnR3YXJlLWVuZ2luZWVy",
       "title": "Software Engineer",
       "location": "Tel Aviv, IL",
       "url": "https://naboo.ai/jobs/software-engineer/",
@@ -196,13 +164,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "efad18b4beeab813",
-        "infra": "54a7d84059d16130"
+        "default": "e61a55302cf176b4",
+        "infra": "bf62e80cf39d2489"
       },
       "years_required": 3
     },
     {
-      "id": "d56b2972a25cca65b6a4",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9qb2JzL3NhbGVzLWFnZW50",
       "title": "Enterprise Sales - US",
       "location": null,
       "url": "https://naboo.ai/jobs/sales-agent/",
@@ -229,13 +197,13 @@
       "best_score": 56,
       "best_confidence": "full",
       "_score_cache_keys": {
-        "default": "1d54b5ba5dfcaebb",
-        "infra": "cc44394201f6e965"
+        "default": "c1468e161341a638",
+        "infra": "7d3d1367e1e2a85f"
       },
       "years_required": null
     },
     {
-      "id": "6bd315e612278fef0ab5",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9qb2JzL2hlYWQtb2YtY3VzdG9tZXItc3VjY2Vzcw",
       "title": "Head of Customer Success - US",
       "location": null,
       "url": "https://naboo.ai/jobs/head-of-customer-success/",
@@ -262,13 +230,13 @@
       "best_score": 42,
       "best_confidence": "full",
       "_score_cache_keys": {
-        "default": "3abe7f369b12f2a1",
-        "infra": "66af2e01c866c9c4"
+        "default": "e48b1f6747896368",
+        "infra": "98af34d8f3066b9c"
       },
       "years_required": null
     },
     {
-      "id": "ef102192565af721745a",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9lbnRlcnByaXNlLWtub3dsZWRnZS1ncmFwaC1mb3ItYWktYWdlbnRz",
       "title": "Reasoning Layer for AI Agents",
       "location": null,
       "url": "https://naboo.ai/enterprise-knowledge-graph-for-ai-agents/",
@@ -295,13 +263,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "7f88eab3154eda6a",
-        "infra": "154e90faa90fcf19"
+        "default": "82573f9718b7b001",
+        "infra": "b18739d1516f3bd3"
       },
       "years_required": null
     },
     {
-      "id": "0a7fc51774f26a7255cb",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9kZWNpc2lvbi1ncmFwaC1mb3ItYWktYWdlbnRz",
       "title": "What is a Decision Graph?",
       "location": null,
       "url": "https://naboo.ai/decision-graph-for-ai-agents/",
@@ -328,13 +296,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "917d9c005a03b7a5",
-        "infra": "3d5728968c3f3b9a"
+        "default": "7ec24207569a07e6",
+        "infra": "90d7f085eb446dca"
       },
       "years_required": null
     },
     {
-      "id": "c6704a2cccf125faebd4",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9ob3ctdG8tYnVpbGQtYS1kZWNpc2lvbi1ncmFwaA",
       "title": "How to build a Decision Graph",
       "location": null,
       "url": "https://naboo.ai/how-to-build-a-decision-graph/",
@@ -361,13 +329,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "f374447283135418",
-        "infra": "bfa16051e4ab9522"
+        "default": "b33512ce64cbcdbe",
+        "infra": "8cfbb85aa82056e6"
       },
       "years_required": null
     },
     {
-      "id": "469d88bd08f7f2336cc4",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9ob3ctbmFib28tc2F2ZXMtY29zdA",
       "title": "How Naboo saves cost",
       "location": null,
       "url": "https://naboo.ai/how-naboo-saves-cost/",
@@ -394,13 +362,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "b52f7e9d552433d7",
-        "infra": "04168df696329cb2"
+        "default": "0d46cea0b2e52648",
+        "infra": "419237f05f90cb30"
       },
       "years_required": null
     },
     {
-      "id": "dfb77f19e7f12caf7bd0",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9zZWN1cml0eQ",
       "title": "Security & Trust",
       "location": null,
       "url": "https://naboo.ai/security/",
@@ -427,13 +395,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "276d4c486b6ba065",
-        "infra": "59e8464ec56b75b0"
+        "default": "6fa8b83e2e7ba39c",
+        "infra": "024f8a4c3d73cdc2"
       },
       "years_required": null
     },
     {
-      "id": "14f5930cc82abab11d44",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9uYWJvby12cy1yYWc",
       "title": "Naboo vs RAG",
       "location": null,
       "url": "https://naboo.ai/naboo-vs-rag/",
@@ -460,13 +428,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "69901a86a5adcf4c",
-        "infra": "7defcff766055b14"
+        "default": "17e1566502339e02",
+        "infra": "60fb02736af7f999"
       },
       "years_required": null
     },
     {
-      "id": "a754fd1cab5621b26009",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9jYXNlLXN0dWRpZXMvZ2xvYmFsLWU",
       "title": "Global-e case study",
       "location": null,
       "url": "https://naboo.ai/case-studies/global-e/",
@@ -493,13 +461,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "f8851f9f2ad043e3",
-        "infra": "731b00e216380c75"
+        "default": "84ac3ddd6cdf8904",
+        "infra": "0cf04a70f43aef25"
       },
       "years_required": null
     },
     {
-      "id": "3e3cdee0f8e5bca4d4fc",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9jb21wYXJl",
       "title": "See all resources â",
       "location": null,
       "url": "https://naboo.ai/compare/",
@@ -526,13 +494,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "59fe258e9e128ec8",
-        "infra": "c84aabbd444bd444"
+        "default": "081bf43dddd0a0ee",
+        "infra": "f9774f2013304b7b"
       },
       "years_required": null
     },
     {
-      "id": "ca8af21b7e95bd56f5b0",
+      "id": "aHR0cHM6Ly9uYWJvby5haS90ZWFt",
       "title": "Team & founders",
       "location": null,
       "url": "https://naboo.ai/team/",
@@ -559,13 +527,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "869b025da187d169",
-        "infra": "440d89bd3b3761db"
+        "default": "247d0d9fe8159e7c",
+        "infra": "6977b469344e2d3f"
       },
       "years_required": null
     },
     {
-      "id": "eac5c9a4a5ae8c7c9f21",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9qb2Jz",
       "title": "Open roles",
       "location": null,
       "url": "https://naboo.ai/jobs/",
@@ -592,13 +560,13 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "6f03515166a4fb86",
-        "infra": "e8e665f8115b65e8"
+        "default": "ffb261e5fb22821c",
+        "infra": "b469a33921dcc221"
       },
       "years_required": null
     },
     {
-      "id": "3516ca1a9f9e71dbd5f4",
+      "id": "aHR0cHM6Ly9uYWJvby5haS9wcmVzcw",
       "title": "Press & media",
       "location": null,
       "url": "https://naboo.ai/press/",
@@ -625,8 +593,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "c9cd12c218800eca",
-        "infra": "65d87f4c1767f9da"
+        "default": "ec0a1be5edcf3a63",
+        "infra": "185c897867a74056"
       },
       "years_required": null
     }

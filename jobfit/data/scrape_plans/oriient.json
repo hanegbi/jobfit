@@ -2,52 +2,26 @@
   "company_id": "oriient",
   "schema_version": 1,
   "career_url": "https://www.oriient.me/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:55:31.533115Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-28T22:10:21.266265Z",
+  "verified_at": "2026-09-28T22:10:21.266265Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "oriient/EA.005",
+    "board_url": "https://www.comeet.com/jobs/oriient/EA.005"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 3,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 8,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "90720b0e58324d367781a4a273a8a4590b199b87",
-    "candidate_count": 13
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 6
   },
-  "rediscover_after": "2026-10-05T10:55:31.533115Z",
+  "rediscover_after": null,
   "notes": []
 }
