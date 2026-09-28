@@ -1,0 +1,84 @@
+{
+  "company_id": "galor_systems_software_development_ltd_travelbooster",
+  "schema_version": 1,
+  "career_url": "https://www.travelbooster.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T13:53:02.408625Z",
+  "verified_at": "2026-09-28T13:53:02.408625Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?travelbooster\\.com/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?galor\\.my\\.salesforce\\.com/sserv/[^/?#]+/?$",
+      "^https?://(www\\.)?travelbooster\\.com/wp\\-content/uploads/2022/11/[^/?#]+/?$",
+      "^https?://(www\\.)?travelbooster\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "travelbooster.com|careers/co/customer-experience/35.C65/customer-operation|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": null,
+  "notes": []
+}
