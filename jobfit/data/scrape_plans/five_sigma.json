@@ -1,0 +1,104 @@
+{
+  "company_id": "five_sigma",
+  "schema_version": 1,
+  "career_url": "https://www.fivesigma.ai/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:18:52.826864Z",
+  "verified_at": "2026-09-28T10:18:52.826864Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?fivesigmalabs\\.com/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?fivesigmalabs\\.com/claims\\-management\\-platform/[^/?#]+/?$",
+      "^https?://(www\\.)?fivesigma\\.ai/[^/?#]+/?$",
+      "^https?://(www\\.)?fivesigmalabs\\.com/careers/co/operations/[^/?#]+/?$",
+      "^https?://(www\\.)?fivesigmalabs\\.com/careers/co/product/[^/?#]+/?$",
+      "^https?://(www\\.)?fivesigmalabs\\.com/careers/co/rd/[^/?#]+/?$"
+    ],
+    "url_shape": "fivesigmalabs.com|careers/co/remote-united-kingdom/3F.F66|5",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 31,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 41,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 44,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 45,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 46,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 47,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 48,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "eadb20c1314440d058bf27629ab70d80d026bb20",
+    "candidate_count": 60
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": "2026-10-05T10:18:52.826864Z",
+  "notes": []
+}

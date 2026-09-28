@@ -1,0 +1,146 @@
+{
+  "company_id": "driivz",
+  "schema_version": 1,
+  "career_url": "https://driivz.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:17:46.880736Z",
+  "verified_at": "2026-09-28T10:17:46.880736Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?driivz\\.com/careers/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?driivz\\.com/resources/[^/?#]+/?$",
+      "^https?://(www\\.)?driivz\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?driivz\\.com/careers/co/design\\-and\\-user\\-experience/[^/?#]+/?$",
+      "^https?://(www\\.)?driivz\\.com/careers/co/engineering/[^/?#]+/?$",
+      "^https?://(www\\.)?driivz\\.com/careers/co/operations/[^/?#]+/?$",
+      "^https?://(www\\.)?driivz\\.com/careers/co/product\\-management/[^/?#]+/?$",
+      "^https?://(www\\.)?driivz\\.com/careers/co/sales/[^/?#]+/?$"
+    ],
+    "url_shape": "driivz.com|careers/co/other/F1.C6F/senior-product-designer|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 45,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 46,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 47,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 48,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 53,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 54,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 55,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 56,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 57,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 58,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 59,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 60,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 61,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "30657844f9d76e558b3f51e80a3d1555f7fd9b80",
+    "candidate_count": 68
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 11
+  },
+  "rediscover_after": "2026-10-05T10:17:46.880736Z",
+  "notes": []
+}

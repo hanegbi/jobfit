@@ -1,0 +1,65 @@
+{
+  "company_id": "forsight_robotics",
+  "schema_version": 1,
+  "career_url": "https://www.forsightrobotics.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:18:59.387900Z",
+  "verified_at": "2026-09-28T10:18:59.387900Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?forsightrobotics\\.com/positions/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?forsightrobotics\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "forsightrobotics.com|positions|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 18,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 19,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "dfa5dd2cd5ab49a4bc5e481ba6dccb74281325f1",
+    "candidate_count": 20
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 3
+  },
+  "rediscover_after": "2026-10-05T10:18:59.387900Z",
+  "notes": []
+}

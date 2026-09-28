@@ -1,0 +1,182 @@
+{
+  "company_id": "elmo_motion_control",
+  "schema_version": 1,
+  "career_url": "https://www.elmomc.com/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:18:24.582190Z",
+  "verified_at": "2026-09-28T10:18:24.582190Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?elmomc\\.com/careers\\-new\\-2/co/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?elmomc\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?elmomc\\.com/careers\\-new\\-2/co/hr/[^/?#]+/?$",
+      "^https?://(www\\.)?elmomc\\.com/careers\\-new\\-2/co/operation/[^/?#]+/?$",
+      "^https?://(www\\.)?elmomc\\.com/careers\\-new\\-2/co/rd/[^/?#]+/?$",
+      "^https?://(www\\.)?elmomc\\.com/careers\\-new\\-2/co/sales/[^/?#]+/?$",
+      "^https?://(www\\.)?linkedin\\.com/feed/update/[^/?#]+/?$",
+      "^https?://(www\\.)?elmomc\\.com/product/[^/?#]+/?$",
+      "^https?://(www\\.)?elmomc\\.com/ja/[^/?#]+/?$"
+    ],
+    "url_shape": "elmomc.com|careers-new-2/co/israel/85.07F/payroll-accountant|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 53,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 55,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 61,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 62,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 63,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 64,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 65,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 66,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 67,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 68,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 69,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 70,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 71,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 72,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 73,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 74,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 75,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 76,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 77,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 135,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 136,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 157,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 158,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 177,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 178,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 196,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "a1bb292b3a58df9d78b5c822f46a9537ad5ac286",
+    "candidate_count": 197
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 7
+  },
+  "rediscover_after": "2026-10-05T10:18:24.582190Z",
+  "notes": []
+}

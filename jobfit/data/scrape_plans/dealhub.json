@@ -1,0 +1,69 @@
+{
+  "company_id": "dealhub",
+  "schema_version": 1,
+  "career_url": "https://dealhub.io/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T10:17:36.975806Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?dealhub\\.io/integrations/[^/?#]+/?$",
+      "^https?://(www\\.)?dealhub\\.io/blog/cpq/[^/?#]+/?$",
+      "^https?://(www\\.)?dealhub\\.io/[^/?#]+/?$"
+    ],
+    "url_shape": "revpath.dealhub.io|jobs|2",
+    "explicit_accept": [
+      "https://revpath.dealhub.io/jobs/revenue-operations"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 13,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 42,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "9fd7c944ba8f471627552ee0e7d012cf418f22a7",
+    "candidate_count": 72
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": "2026-10-05T10:17:36.975806Z",
+  "notes": []
+}

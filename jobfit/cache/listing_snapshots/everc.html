@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>ovh.everc.io — redirect test app</title>
+    <style>
+        :root { color-scheme: light dark; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 720px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.55;
+        }
+        h1   { margin-bottom: 0.25rem; }
+        code { background: rgba(127, 127, 127, 0.15); padding: 0.1rem 0.35rem; border-radius: 4px; }
+        .ok  { color: #1b873f; font-weight: 600; }
+        ul li { margin: 0.25rem 0; }
+        footer { margin-top: 3rem; font-size: 0.85rem; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <h1>ovh.everc.io</h1>
+    <p class="ok">✓ CloudFront + ACM + Route53 are wired up.</p>
+
+    <p>
+        This is the <strong>default origin</strong> for the EverC → G2 Risk Solutions
+        redirect stack. You are seeing it because the path you requested is
+        <em>not</em> in the redirect map (or the function passed the request through).
+    </p>
+
+    <h2>Try a mapped path</h2>
+    <p>Any of these should 301 to <code>g2risksolutions.com</code>:</p>
+    <ul>
+        <li><a href="/merchantview">/merchantview</a> → /merchant-risk/</li>
+        <li><a href="/marketview">/marketview</a> → /marketview/</li>
+        <li><a href="/risk-insight-services">/risk-insight-services</a> → /scam-network-intelligence/</li>
+        <li><a href="/about">/about</a> → /about/</li>
+        <li><a href="/contact-us">/contact-us</a> → /contact/</li>
+        <li><a href="/privacy-policy">/privacy-policy</a> → /privacy-notice/</li>
+        <li><a href="/blog">/blog</a> → /resources/?type=blog</li>
+        <li><a href="/">/</a> (root) → g2risksolutions.com homepage</li>
+    </ul>
+
+    <footer>
+        Managed by IT via Terraform — <code>Website Redirects/</code>.
+        Internal test asset, no production data.
+    </footer>
+</body>
+</html>

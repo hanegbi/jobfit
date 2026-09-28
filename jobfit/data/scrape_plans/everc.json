@@ -1,0 +1,93 @@
+{
+  "company_id": "everc",
+  "schema_version": 1,
+  "career_url": "https://everc.com/careers/",
+  "derived_by": "rules",
+  "model": null,
+  "derived_at": "2026-09-28T10:18:28.481251Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?everc\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "everc.com||1",
+    "explicit_accept": [
+      "https://everc.com/merchantview",
+      "https://everc.com/marketview",
+      "https://everc.com/risk-insight-services",
+      "https://everc.com/contact-us",
+      "https://everc.com/privacy-policy"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 1,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 2,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 4,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 5,
+        "is_job": true,
+        "reason": "rules: accepted"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "rules: nav/boilerplate text"
+      }
+    ]
+  },
+  "page_fingerprint": {
+    "href_shape_set_hash": "67b94e87dea7d8e7e5dda7aff48ed5be5ca8f6dc",
+    "candidate_count": 8
+  },
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": "2026-10-05T10:18:28.481251Z",
+  "notes": [
+    "classifier failed (no recorded labels for https://everc.com/careers/); fell back to rules"
+  ]
+}
