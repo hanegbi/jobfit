@@ -13,16 +13,40 @@ hardcode and are unchanged.
 import hashlib
 import re
 from functools import lru_cache
+from pathlib import Path
 
 from jobfit import config
 from jobfit.ats_scorer import cv_extractor, jd_extractor, matcher
 from jobfit.ats_scorer import scorer as ats_scorer_engine
+from jobfit.ats_scorer.config import DEFAULT_CONFIG
 from jobfit.ats_scorer.models import JobRequirements, MatchStrength
 
 # Same threshold concept as update_jobs.MIN_DESCRIPTION_LEN - below this,
 # there's not enough job text for the match to mean much, so the UI is told
 # "title_only" rather than "full" confidence.
 MIN_DESCRIPTION_LEN_FOR_FULL_CONFIDENCE = 50
+
+
+def _compute_scoring_engine_fingerprint() -> str:
+    """sha256 over every file that can change a job's score for the same
+    inputs: this module, every ats_scorer source file, every ats_scorer
+    taxonomy/config data file, and the scoring config's own serialized
+    values. Computed once at import time - a scoring-formula fix changes
+    this on the next process start, which is what makes
+    score_cache_key() below self-invalidate without anyone having to
+    remember to pass force=True."""
+    hasher = hashlib.sha256()
+    ats_scorer_dir = Path(__file__).parent / "ats_scorer"
+    paths = [Path(__file__)]
+    paths.extend(sorted(ats_scorer_dir.glob("*.py")))
+    paths.extend(sorted((ats_scorer_dir / "data").glob("*.json")))
+    for path in paths:
+        hasher.update(path.read_bytes())
+    hasher.update(DEFAULT_CONFIG.model_dump_json().encode("utf-8"))
+    return hasher.hexdigest()[:12]
+
+
+SCORING_ENGINE_FINGERPRINT = _compute_scoring_engine_fingerprint()
 
 
 def _word_match(term: str, text: str) -> bool:
@@ -158,16 +182,29 @@ def _cv_text_for_profile(profile: dict) -> str:
 
 def score_cache_key(job: dict, profile: dict) -> str:
     """Deterministic (stable across processes and runs - unlike Python's
-    built-in hash(), which is randomized per-process) short hash of what a
-    job's score against one profile was actually computed from: the job's
-    own description text plus that profile's CV text. update_jobs.
-    recompute_stage stores this per job/profile pair and skips rescoring
-    when it's unchanged, so a rerun only does real work for jobs whose
-    description changed (a rescrape) or whose CV changed (a re-upload),
-    not every job every time."""
-    description = job.get("description") or ""
+    built-in hash(), which is randomized per-process) short hash of
+    everything a job's score against one profile is actually computed
+    from: the current scoring engine's own fingerprint (so a scoring-code
+    or taxonomy-data change invalidates every cached score automatically,
+    with no force=True needed), the job's title/description/department/
+    location/employment_type (everything score_job's extraction and
+    matching actually reads), and that profile's CV text.
+    update_jobs.recompute_stage stores this per job/profile pair and
+    skips rescoring when it's unchanged, so a rerun only does real work
+    for jobs whose description changed (a rescrape), whose CV changed (a
+    re-upload), or whose scoring logic changed (a code fix) - not every
+    job every time."""
     cv_text = _cv_text_for_profile(profile)
-    combined = f"{description}\x00{cv_text}".encode("utf-8")
+    parts = [
+        SCORING_ENGINE_FINGERPRINT,
+        job.get("title") or "",
+        job.get("description") or "",
+        job.get("department") or "",
+        job.get("location") or "",
+        job.get("employment_type") or "",
+        cv_text,
+    ]
+    combined = "\x00".join(parts).encode("utf-8")
     return hashlib.sha256(combined).hexdigest()[:16]
 
 

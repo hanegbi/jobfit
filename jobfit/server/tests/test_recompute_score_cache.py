@@ -29,6 +29,41 @@ def test_score_cache_key_changes_when_the_cv_text_changes():
     assert key1 != key2
 
 
+def test_score_cache_key_changes_when_the_scoring_engine_fingerprint_changes(monkeypatch):
+    job = {"title": "Backend Engineer", "description": "Python required"}
+    profile = {"text": "Backend engineer with Python experience"}
+    key_before = scoring.score_cache_key(job, profile)
+
+    monkeypatch.setattr(scoring, "SCORING_ENGINE_FINGERPRINT", "different000")
+    key_after = scoring.score_cache_key(job, profile)
+
+    assert key_before != key_after
+
+
+def test_score_cache_key_changes_when_the_job_title_changes():
+    profile = {"text": "Backend engineer with Python experience"}
+    key1 = scoring.score_cache_key({"title": "Backend Engineer", "description": "Python required"}, profile)
+    key2 = scoring.score_cache_key({"title": "Frontend Engineer", "description": "Python required"}, profile)
+    assert key1 != key2
+
+
+def test_score_cache_key_changes_when_department_location_or_employment_type_changes():
+    profile = {"text": "Backend engineer with Python experience"}
+    base = {"title": "Backend Engineer", "description": "Python required", "department": "R&D", "location": "Tel Aviv", "employment_type": "Full-time"}
+    base_key = scoring.score_cache_key(base, profile)
+
+    for field, new_value in [("department", "Sales"), ("location", "Haifa"), ("employment_type", "Part-time")]:
+        changed = dict(base)
+        changed[field] = new_value
+        assert scoring.score_cache_key(changed, profile) != base_key, f"{field} change did not affect the cache key"
+
+
+def test_score_cache_key_is_stable_for_identical_inputs_including_new_fields():
+    job = {"title": "Backend Engineer", "description": "Python required", "department": "R&D", "location": "Tel Aviv", "employment_type": "Full-time"}
+    profile = {"text": "Backend engineer with Python experience"}
+    assert scoring.score_cache_key(job, profile) == scoring.score_cache_key(job, profile)
+
+
 def test_recompute_skips_a_job_whose_cache_key_is_already_current(tmp_path, monkeypatch):
     monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
     profiles = {"default": {"text": "Backend engineer with Python experience"}}
