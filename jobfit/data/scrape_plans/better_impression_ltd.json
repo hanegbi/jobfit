@@ -1,0 +1,58 @@
+{
+  "company_id": "better_impression_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.bimpression.com/careers-comeet/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T12:44:02.493646Z",
+  "verified_at": "2026-09-28T12:44:02.493646Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?bimpression\\.com/careers\\-comeet/co/marketing/F1\\.43A/marketing\\-analyst\\-student/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?bimpression\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?linkedin\\.com/company/[^/?#]+/?$"
+    ],
+    "url_shape": "bimpression.com|careers-comeet/co/marketing/F1.43A/marketing-analyst-student|6",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

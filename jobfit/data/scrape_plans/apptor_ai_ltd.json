@@ -1,0 +1,92 @@
+{
+  "company_id": "apptor_ai_ltd",
+  "schema_version": 1,
+  "career_url": "https://apptor-ai.com/career/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T12:44:02.493646Z",
+  "verified_at": "2026-09-28T12:44:02.493646Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?apptor\\-ai\\.com/careers/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?apptor\\-ai\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "apptor-ai.com|careers|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 18,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 19,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 20,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 21,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 9
+  },
+  "rediscover_after": null,
+  "notes": []
+}

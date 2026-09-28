@@ -1,0 +1,163 @@
+{
+  "company_id": "bigid_inc",
+  "schema_version": 1,
+  "career_url": "https://bigid.com/company/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T12:44:02.493646Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?bigid\\.com/company/[^/?#]+/?$",
+      "^https?://(www\\.)?glassdoor\\.com/Reviews/[^/?#]+/?$",
+      "^https?://(www\\.)?glassdoor\\.com/Overview/[^/?#]+/?$",
+      "^https?://(www\\.)?bigid\\.com/wp\\-content/uploads/2026/03/[^/?#]+/?$",
+      "^https?://(www\\.)?secure\\.ethicspoint\\.com/domain/media/en/gui/89742/[^/?#]+/?$",
+      "^https?://(www\\.)?bigid\\.com/wp\\-content/uploads/2025/04/[^/?#]+/?$",
+      "^https?://(www\\.)?bigid\\.com/de/company/[^/?#]+/?$",
+      "^https?://(www\\.)?bigid\\.com/fr/company/[^/?#]+/?$",
+      "^https?://(www\\.)?bigid\\.com/es/company/[^/?#]+/?$",
+      "^https?://(www\\.)?bigid\\.com/pt/company/[^/?#]+/?$"
+    ],
+    "url_shape": "bigid.com|company/careers|3",
+    "explicit_accept": [
+      "https://bigid.com/company/careers/job-details/?gh_jid=8622173002",
+      "https://bigid.com/company/careers/job-details/?gh_jid=8719824002",
+      "https://bigid.com/company/careers/job-details/?gh_jid=8633794002",
+      "https://bigid.com/company/careers/job-details/?gh_jid=8352171002",
+      "https://bigid.com/company/careers/job-details/?gh_jid=8400654002",
+      "https://bigid.com/company/careers/job-details/?gh_jid=8687006002"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 60,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 64,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 65,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 66,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 67,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 68,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 69,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 70,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 71,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 72,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 73,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 74,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 75,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 76,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 81,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 85,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 86,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 90,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 91,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 92,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 93,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 6
+  },
+  "rediscover_after": null,
+  "notes": []
+}

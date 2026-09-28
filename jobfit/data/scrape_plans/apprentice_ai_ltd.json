@@ -1,0 +1,54 @@
+{
+  "company_id": "apprentice_ai_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.goapprentice.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T12:44:02.493646Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?goapprentice\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "app.notion.com|p|2",
+    "explicit_accept": [
+      "https://app.notion.com/p/BDR-Job-Description-2a99977d495c8035b924f51ba5093fc3"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 1
+  },
+  "rediscover_after": null,
+  "notes": []
+}

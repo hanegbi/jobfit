@@ -1,0 +1,104 @@
+{
+  "company_id": "base_ltd_formerly_crowdvocate",
+  "schema_version": 1,
+  "career_url": "https://base.ai/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T12:44:02.493646Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": "base.ai||1",
+    "explicit_accept": [
+      "https://www.base.ai/careers-head-of-revenue",
+      "https://www.base.ai/careers-head-of-customer-success",
+      "https://www.base.ai/careers-marketing-manager",
+      "https://base.bamboohr.com/careers/77",
+      "https://www.base.ai/careers-strategic-account-manager",
+      "https://base.bamboohr.com/careers/72",
+      "https://www.base.ai/careers-technical-customer-success-manager",
+      "https://base.bamboohr.com/careers/74"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 33,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 34,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 35,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 36,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 38,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 39,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 40,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": null,
+  "notes": []
+}

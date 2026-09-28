@@ -1,0 +1,101 @@
+{
+  "company_id": "awager_ltd_formerly_softweave_winafar",
+  "schema_version": 1,
+  "career_url": "https://careers.aristocrat.com",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T12:44:02.493646Z",
+  "verified_at": "2026-09-28T12:44:02.493646Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?careers\\.aristocrat\\.com/en/jobs/[^?#]+$",
+    "exclude_url": [
+      "^https?://(www\\.)?careers\\.aristocrat\\.com/en/[^/?#]+/?$",
+      "^https?://(www\\.)?glassdoor\\.com/Overview/[^/?#]+/?$",
+      "^https?://(www\\.)?careers\\.aristocrat\\.com/en/jobs/[^/?#]+/?$",
+      "^https?://(www\\.)?careers\\.aristocrat\\.com/en/our\\-teams/[^/?#]+/?$",
+      "^https?://(www\\.)?aristocrat\\.wd3\\.myworkdayjobs\\.com/en\\-US/AristocratExternalCareersSite/[^/?#]+/?$"
+    ],
+    "url_shape": "careers.aristocrat.com|en/jobs/r0021963|4",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 21,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 22,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 23,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 5
+  },
+  "rediscover_after": null,
+  "notes": []
+}
