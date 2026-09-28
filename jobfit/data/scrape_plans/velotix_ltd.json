@@ -1,0 +1,101 @@
+{
+  "company_id": "velotix_ltd",
+  "schema_version": 1,
+  "career_url": "https://www.velotix.ai/careers/",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T15:17:11.183817Z",
+  "verified_at": null,
+  "status": "unverified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [
+      "^https?://(www\\.)?velotix\\.ai/[^/?#]+/?$"
+    ],
+    "url_shape": "velotix.ai|careers|2",
+    "explicit_accept": [
+      "https://www.velotix.ai/careers/revenue-operations-and-growth-specialist/",
+      "https://www.velotix.ai/careers/marketing-manager-position/",
+      "https://www.velotix.ai/careers/senior-machine-learning-engineer/",
+      "https://www.velotix.ai/careers/solutions-engineer/",
+      "https://www.velotix.ai/careers/professional-services-engineer/",
+      "https://www.velotix.ai/careers/vp-rnd/",
+      "https://www.velotix.ai/careers/senior-account-executive-new-business/",
+      "https://www.velotix.ai/careers/sales-development-representative-position/"
+    ],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 43,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 48,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 49,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 50,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 51,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 52,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 53,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 54,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 55,
+        "is_job": true,
+        "reason": "real job posting"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": null,
+  "notes": []
+}
