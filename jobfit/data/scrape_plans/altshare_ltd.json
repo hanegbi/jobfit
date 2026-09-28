@@ -1,0 +1,125 @@
+{
+  "company_id": "altshare_ltd",
+  "schema_version": 1,
+  "career_url": "https://altshare.com/careers",
+  "derived_by": "llm",
+  "model": null,
+  "derived_at": "2026-09-28T12:30:01.485804Z",
+  "verified_at": "2026-09-28T12:30:01.485804Z",
+  "status": "verified",
+  "strategy": {
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": "^https?://(www\\.)?altshare\\.com/careers\\-jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?altshare\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?google\\.com/maps/place/%D7%94%D7%91%D7%A8%D7%96%D7%9C\\+19%D7%90,\\+%D7%AA%D7%9C\\+%D7%90%D7%91%D7%99%D7%91\\-%D7%99%D7%A4%D7%95%E2%80%AD/@32\\.1085582,34\\.8384044,17z/[^/?#]+/?$",
+      "^https?://(www\\.)?podcasts\\.apple\\.com/us/podcast/equity\\-management\\-by\\-altshare/[^/?#]+/?$",
+      "^https?://(www\\.)?open\\.spotify\\.com/show/[^/?#]+/?$"
+    ],
+    "url_shape": "altshare.com|careers-jobs|2",
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ]
+  },
+  "labels": {
+    "page_verdict": "careers_page",
+    "external_board_url": null,
+    "container_selector": null,
+    "candidates": [
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 33,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 34,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 39,
+        "is_job": false,
+        "reason": "not a job"
+      }
+    ]
+  },
+  "page_fingerprint": null,
+  "health": {
+    "consecutive_empty_runs": 0,
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 8
+  },
+  "rediscover_after": null,
+  "notes": []
+}
