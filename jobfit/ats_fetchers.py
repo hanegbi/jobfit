@@ -491,26 +491,18 @@ def _jsonld_location(posting: dict) -> Optional[str]:
     return None
 
 
-def fetch_generic_job_details(session: requests.Session, url: str) -> dict:
-    """Richer version of fetch_generic_description: also pulls location,
-    employment_type and posted_at from the page's own schema.org JobPosting
-    JSON-LD when present (common - many career-page builders emit it for
-    Google for Jobs indexing, confirmed present on Fireblocks's careers page
-    live), instead of leaving those fields None the way plain text-scraping
-    always does. Falls back to the plain description-only result when no
-    JobPosting JSON-LD is found, so this is a strict improvement with no new
-    failure mode.
-    """
-    empty = {"description": "", "location": None, "employment_type": None, "posted_at": None}
-    if not url or any(host in url.lower() for host in _SKIP_GENERIC_FETCH_HOSTS):
-        return empty
-    response = _request(session, "GET", url)
-    if response is None:
-        return empty
+_EMPTY_DETAILS = {"description": "", "location": None, "employment_type": None, "posted_at": None}
+
+
+def parse_job_details_html(html: str) -> dict:
+    """description/location/employment_type/posted_at from a job page's
+    HTML: the page's own schema.org JobPosting JSON-LD when present (many
+    career-page builders emit it for Google for Jobs), else the visible
+    text with site chrome stripped. Pure - no network."""
     try:
-        soup = BeautifulSoup(response.text, "html.parser")
+        soup = BeautifulSoup(html or "", "html.parser")
     except Exception:  # noqa: BLE001 - malformed HTML must not break the pipeline
-        return empty
+        return dict(_EMPTY_DETAILS)
 
     postings = _jsonld_job_postings(soup)
     posting = postings[0] if postings else None
@@ -527,7 +519,7 @@ def fetch_generic_job_details(session: requests.Session, url: str) -> dict:
         description = "" if looks_like_boilerplate(text) else text[:6000]
 
     if not posting:
-        return {**empty, "description": description}
+        return {**_EMPTY_DETAILS, "description": description}
 
     employment_type = posting.get("employmentType")
     if isinstance(employment_type, list):
@@ -539,6 +531,17 @@ def fetch_generic_job_details(session: requests.Session, url: str) -> dict:
         "employment_type": _clean(str(employment_type)) if employment_type else None,
         "posted_at": _posted_date(posting.get("datePosted")),
     }
+
+
+def fetch_generic_job_details(session: requests.Session, url: str) -> dict:
+    """Fetch a job's own page and parse it - see parse_job_details_html.
+    Skips known dead ends (linkedin.com, comeet.com job pages)."""
+    if not url or any(host in url.lower() for host in _SKIP_GENERIC_FETCH_HOSTS):
+        return dict(_EMPTY_DETAILS)
+    response = _request(session, "GET", url)
+    if response is None:
+        return dict(_EMPTY_DETAILS)
+    return parse_job_details_html(response.text)
 
 
 def fetch_elbit_sigmabit_jobs(session: requests.Session) -> list[dict]:
