@@ -10,6 +10,7 @@ Usage: uv run python -m jobfit.scripts.check_urls [--limit N] [--workers N] [--d
 import argparse
 import json
 import sys
+import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -22,6 +23,7 @@ from jobfit import ats_fetchers, config  # noqa: E402
 
 TIMEOUT = 10
 OUTPUT_PATH = config.ROOT / "cache" / "url_check_report.json"
+PROGRESS_PATH = config.ROOT / "cache" / "url_check_progress.json"
 
 
 def check_one(session: requests.Session, url: str) -> tuple[str, str]:
@@ -49,21 +51,36 @@ def check_one(session: requests.Session, url: str) -> tuple[str, str]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None)
-    parser.add_argument("--workers", type=int, default=20)
+    parser.add_argument("--workers", type=int, default=12)
     parser.add_argument("--dry-run", action="store_true", help="report only; don't close jobs or re-aggregate")
+    parser.add_argument("--max-age-hours", type=float, default=24, help="reuse a verdict from the progress file younger than this")
     args = parser.parse_args()
 
     data = json.loads(config.JOBS_OUTPUT_JSON.read_text(encoding="utf-8"))
     jobs_with_url = [r for r in data if r.get("url") and r.get("status") != "closed"]
-    print(f"total jobs: {len(data)}, open with a URL: {len(jobs_with_url)}")
+    print(f"total jobs: {len(data)}, open with a URL: {len(jobs_with_url)}", flush=True)
 
-    unique_urls = list({r["url"] for r in jobs_with_url})
+    # Resumable: a run over ~25k URLs takes hours, so verdicts are saved as we
+    # go and a re-run skips anything checked recently.
+    progress: dict[str, dict] = {}
+    if PROGRESS_PATH.exists():
+        try:
+            progress = json.loads(PROGRESS_PATH.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            progress = {}
+    cutoff = time.time() - args.max_age_hours * 3600
+    results: dict[str, tuple[str, str]] = {u: (v["status"], v["detail"]) for u, v in progress.items() if v.get("checked_at", 0) >= cutoff}
+
+    unique_urls = [u for u in {r["url"] for r in jobs_with_url} if u not in results]
     if args.limit:
         unique_urls = unique_urls[: args.limit]
-    print(f"unique URLs to check: {len(unique_urls)}")
+    print(f"unique URLs to check: {len(unique_urls)} ({len(results)} reused from the last {args.max_age_hours:g}h)", flush=True)
+
+    def save_progress():
+        PROGRESS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        PROGRESS_PATH.write_text(json.dumps(progress, ensure_ascii=False), encoding="utf-8")
 
     session = ats_fetchers.make_session(pool_size=max(32, args.workers))
-    results: dict[str, tuple[str, str]] = {}
     done = 0
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures = {pool.submit(check_one, session, url): url for url in unique_urls}
@@ -73,9 +90,13 @@ def main() -> None:
                 results[url] = future.result()
             except Exception as error:  # noqa: BLE001
                 results[url] = ("error", type(error).__name__)
+            progress[url] = {"status": results[url][0], "detail": results[url][1], "checked_at": time.time()}
             done += 1
             if done % 200 == 0:
-                print(f"checked {done}/{len(unique_urls)}")
+                print(f"checked {done}/{len(unique_urls)}", flush=True)
+            if done % 500 == 0:
+                save_progress()
+    save_progress()
 
     status_counts = Counter(status for status, _ in results.values())
     print("\n--- by URL ---")
