@@ -2,24 +2,36 @@
   "company_id": "de_identification_ltd_d_id",
   "schema_version": 1,
   "career_url": "https://www.d-id.com/careers/",
-  "derived_by": "probe",
+  "derived_by": "rules",
   "model": null,
-  "derived_at": "2026-09-28T13:33:25.452027Z",
-  "verified_at": "2026-09-28T13:33:25.452027Z",
-  "status": "verified",
+  "derived_at": "2026-09-29T13:24:34.016934Z",
+  "verified_at": null,
+  "status": "unverified",
   "strategy": {
-    "kind": "external_board",
-    "board_url": "https://apply.workable.com/j/514DE2B215"
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ],
+    "listing_url": null
   },
   "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
-    "last_run": null,
+    "last_run": "2026-09-29T13:24:43.691467Z",
     "last_yield": 0,
     "baseline_yield": 0
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "plan invalid: external board url 'https://apply.workable.com/j/514DE2B215' matches no ATS client; re-synthesised"
+  ]
 }

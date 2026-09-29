@@ -2,38 +2,28 @@
   "company_id": "revelator_ltd",
   "schema_version": 1,
   "career_url": "https://revelator.recruitee.com/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T14:45:38.125359Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T13:35:46.084089Z",
+  "verified_at": "2026-09-29T13:35:46.084089Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "recruitee",
+    "board": "revelator",
+    "board_url": "https://revelator.recruitee.com/"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": []
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
-    "last_run": null,
+    "last_run": "2026-09-29T13:35:48.070450Z",
     "last_yield": 0,
     "baseline_yield": 0
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board derived from 1 stored job url(s)"
+  ]
 }

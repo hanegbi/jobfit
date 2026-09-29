@@ -2,102 +2,28 @@
   "company_id": "rockwell_automation",
   "schema_version": 1,
   "career_url": "https://www.rockwellautomation.com/en-us/company/careers.html",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:05:12.617611Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T13:05:36.327951Z",
+  "verified_at": "2026-09-29T13:05:36.327951Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "workday",
+    "board": "rockwellautomation.wd1/External_Rockwell_Automation",
+    "board_url": "https://rockwellautomation.wd1.myworkdayjobs.com/External_Rockwell_Automation"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 0,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 1,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 2,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 3,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 4,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 5,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 6,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 7,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 8,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 9,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 10,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 12,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "91b2ad520b7e59cbb3eb5e25b6efd747768b5cca",
-    "candidate_count": 15
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
-    "last_run": null,
+    "last_run": "2026-09-29T13:05:40.315182Z",
     "last_yield": 0,
     "baseline_yield": 0
   },
-  "rediscover_after": "2026-10-05T11:05:12.617611Z",
-  "notes": []
+  "rediscover_after": null,
+  "notes": [
+    "board derived from 1 stored job url(s)"
+  ]
 }

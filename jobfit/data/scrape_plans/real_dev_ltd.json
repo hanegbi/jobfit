@@ -2,24 +2,36 @@
   "company_id": "real_dev_ltd",
   "schema_version": 1,
   "career_url": "https://www.real.dev/careers",
-  "derived_by": "probe",
+  "derived_by": "rules",
   "model": null,
-  "derived_at": "2026-09-28T14:45:38.873458Z",
-  "verified_at": "2026-09-28T14:45:38.873458Z",
-  "status": "verified",
+  "derived_at": "2026-09-29T13:35:24.082762Z",
+  "verified_at": null,
+  "status": "unverified",
   "strategy": {
-    "kind": "external_board",
-    "board_url": "https://apply.workable.com/j/D436085106"
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ],
+    "listing_url": null
   },
   "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
-    "last_ok_run": null,
-    "last_run": null,
-    "last_yield": 0,
+    "last_ok_run": "2026-09-29T13:35:27.410552Z",
+    "last_run": "2026-09-29T13:35:27.410552Z",
+    "last_yield": 7,
     "baseline_yield": 0
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "plan invalid: external board url 'https://apply.workable.com/j/D436085106' matches no ATS client; re-synthesised"
+  ]
 }

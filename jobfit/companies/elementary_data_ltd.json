@@ -1,11 +1,11 @@
 {
   "name": "Elementary Data Ltd.",
   "career_url": "https://www.elementary-data.com/careers",
-  "last_checked": "2026-09-27T18:46:54Z",
+  "last_checked": "2026-09-29T13:25:27Z",
   "jobs": [
     {
       "id": "aHR0cHM6Ly93d3cuZWxlbWVudGFyeS1kYXRhLmNvbS9wb3N0L2ludHJvZHVjaW5nLWVsZW1lbnRhcnktcnVudGltZS1leHRlbmRpbmctdGhlLXJlbGlhYmlsaXR5LWxheWVyLWZvci1haS1zZWN1cmVseQ",
-      "title": "Introducing Elementary Runtime: Deeper data-quality and AI workflows, inside your environment. Learn more →",
+      "title": "Introducing Elementary Runtime: Deeper data-quality and AI workflows, inside your environment.",
       "location": null,
       "url": "https://www.elementary-data.com/post/introducing-elementary-runtime-extending-the-reliability-layer-for-ai-securely",
       "description": "Elementary Runtime: Secure AI Workflows for Data Reliability | Elementary Data Introducing Elementary Runtime: Deeper data-quality and AI workflows, inside your environment. Learn more → Book a Demo Product Elementary Cloud AI Agents Automate test creation, incident triage, governance, discovery, and performance optimization. Detection & Coverage Comprehensive data tests & ML-powered monitors for better coverage Governance One interface for analysts and engineers to explore data and manage metadata Triage and Response Understand, prioritize, and resolve issues faster. Enabling business users Tools for analysts and business users to explore data, add validations & monitor health Other Sources Integrations Works with your stack Cloud vs. OSS See a comparison to understand the differences. AI Agents Resources Resources Webinars Watch on-demand and upcoming webinars dbt Tests Hub Search and discover all dbt tests Customers Learn how other teams use Elementary Blog Discover insights and tips for data teams Cloud Demo Videos Explore all Elementary Cloud features About Us Our story, mission and exceptional team. Tools Docs Learn how to use Elementary Community Get help from peers Evaluating Observability Tools? Check out the Data Observability Tool Evaluation matrix Pricing Community Login Book a demo All articles Data & AI Reliability Introducing Elementary Runtime: Securely extending the reliability layer for AI Run deeper data-quality and AI workflows where the data lives, while keeping sensitive data and credentials inside your environment. Author Or Avidov Date Sep 17, 2026 Share Article Copy link LinkedIn Twitter/X We’ve been building Elementary into a centralized reliability layer across the data stack: one place for data teams to manage data quality, and one source of truth for people and AI agents to know what they can trust. Today, we’re introducing Elementary Runtime , now in private beta, to extend what that layer can do. Runtime lets supported data-quality queries and AI agent tasks run inside the customer environment, while Elementary Cloud manages the workflow. This gives Elementary a secure way to validate data, investigate issues, improve monitoring based on real usage, and power AI workflows directly against the data without extracting it from the customer environment. Building on one place to manage and understand data quality To understand what Runtime adds, it helps to start with what Elementary already brings together today. Elementary connects directly to one or more data warehouses, combines that coverage with in-pipeline tests for dbt and Python, and adds Cloud Tests that run independently of the pipeline. These signals don’t live in isolation. Elementary builds warehouse and column-level lineage across the data, combines it with pipeline context, and groups related failures into the same incident. Instead of a collection of alerts and tests, teams get a connected view of what is happening, what is affected, and where to investigate. Elementary already understands the data, its dependencies, monitoring coverage, and the issues affecting it. Runtime adds a secure way to work with the underlying data itself when understanding the context is not enough. What Runtime unlocks Monitor closer to the business Some of the most important data-quality expectations live outside the pipeline. An AI agent working with a semantic metric may identify that it isn’t sufficiently monitored and add a check for it. Other business-critical metrics or datasets may need validation on their own schedule, independently of the pipelines that produce them. Cloud Tests already let teams define these checks independently, including custom SQL, data contracts, no-code checks, and tests created with AI. Runtime gives Elementary a secure way to execute the underlying work inside the customer environment. Investigate failures with the data itself Tests, anomalies, lineage, and logs can tell an investigation agent a lot. But sometimes the next useful step is a query. Did the issue affect every customer or only one segment? Did values disappear at a particular point? Does the underlying data support the hypothesis suggested by the anomaly? Runtime lets supported investigation tasks execute inside the customer environment. Generic agents can use the context Elementary already has, validate a hypothesis, and continue the investigation with the result rather than stopping at the signals around the problem. Give consumers context without giving them warehouse access The people and systems using data often need to understand its state without needing direct access to the warehouse. A business user, application, or AI agent may need to know whether a metric is healthy, whether an upstream issue affects it, or whether a result can be trusted. Elementary can bring together monitoring, tests, lineage, incidents, and deeper validation to answer those questions. Runtime handles the work that requires access to the underlying data, while the consumer gets the context it actually needs. Improve coverage based on how data is used What people and AI agents actually query is another signal for what should be monitored. If an important table, metric, or data product is being used but has weak monitoring coverage, Elementary should be able to identify that gap and improve coverage around it. Runtime gives Elementary secure access to the inputs and outputs of analytics AI agents inside the customer environment. That makes it possible to build a continuous loop: identify what data the agent is using, check whether it is sufficiently monitored, validate the data when needed, and add the relevant missing monitoring so it stays covered and certified going forward. Over time, this lets monitoring evolve around the data people and agents actually depend on, rather than relying only on coverage defined in advance. How Elementary Runtime works Elementary Runtime is a lightweight service deployed inside the customer environment. Ele",
@@ -16,7 +16,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -31,8 +31,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "cf98ee887d4c855b",
-        "infra": "0e6ca8c9cd95a26f"
+        "default": "6ab62c97b446c603",
+        "infra": "82babef5f35f7789"
       },
       "years_required": null
     },
@@ -49,7 +49,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -64,8 +64,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "8966e3b52ccdf49b",
-        "infra": "187a7a3d52610b05"
+        "default": "ad97a2e7ce156b32",
+        "infra": "c98f1acd8f6b5b0e"
       },
       "years_required": null
     },
@@ -82,7 +82,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 22,
       "matched_default": [],
       "coverage_default": 9,
@@ -267,8 +267,8 @@
       "best_score": 22,
       "best_confidence": "full",
       "_score_cache_keys": {
-        "default": "d33e015432693c99",
-        "infra": "56f7e08242da6063"
+        "default": "463e906294d52625",
+        "infra": "e6195f8bc5a14e7e"
       },
       "years_required": null
     },
@@ -285,7 +285,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -300,8 +300,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "7d90580a1d0c3d03",
-        "infra": "b305a65ac596d195"
+        "default": "f41559c65a7eeed0",
+        "infra": "008b69e3d61af4a7"
       },
       "years_required": null
     },
@@ -318,7 +318,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -333,8 +333,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "3b57bb97d1cc3b58",
-        "infra": "d046badb2eda8bd2"
+        "default": "93d5ff0e67770bf4",
+        "infra": "85addf2738941c6f"
       },
       "years_required": null
     },
@@ -351,7 +351,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -366,8 +366,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "189d690be74cf337",
-        "infra": "f91203567765bdfc"
+        "default": "f489d2da36009378",
+        "infra": "1481373b6914b6d4"
       },
       "years_required": null
     },
@@ -384,7 +384,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -399,8 +399,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "c60e9142cde123bd",
-        "infra": "4304b3d85ffbbf66"
+        "default": "a9103a66b7a41ca0",
+        "infra": "1bc14af9dfe29939"
       },
       "years_required": null
     },
@@ -417,7 +417,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -432,8 +432,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "2354c9c89b789c0c",
-        "infra": "3f0fe624e806a127"
+        "default": "d071b6fb6493b4f5",
+        "infra": "05e4789096e106ff"
       },
       "years_required": null
     },
@@ -450,7 +450,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -465,8 +465,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "3c3222f536e977c6",
-        "infra": "ed6c94be9a54f721"
+        "default": "8165ab465558ee01",
+        "infra": "35cd177ebb1d4062"
       },
       "years_required": null
     },
@@ -483,7 +483,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -498,8 +498,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "114b48b4cd669034",
-        "infra": "a7665166a16e4ad2"
+        "default": "04ddc08f6b895fa4",
+        "infra": "d7e4a5ba66e0ccb0"
       },
       "years_required": null
     },
@@ -516,7 +516,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -531,8 +531,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "edb47df5f0b879e6",
-        "infra": "30bb119c62959ed2"
+        "default": "643bc4412cb659cd",
+        "infra": "40e01bd4c2edaa63"
       },
       "years_required": null
     },
@@ -549,7 +549,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -564,8 +564,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "a8ae944df8d10211",
-        "infra": "5cd85bb1d08002ef"
+        "default": "7af2003018b53c5a",
+        "infra": "5ccfc528e682f805"
       },
       "years_required": null
     },
@@ -582,7 +582,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -597,8 +597,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "d16f6cf036ac045c",
-        "infra": "38c8b5f403b2618f"
+        "default": "e0904c5e68c5baa3",
+        "infra": "50a31b890f700565"
       },
       "years_required": null
     },
@@ -615,7 +615,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -630,8 +630,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "5a9b0092a25aa25a",
-        "infra": "6c58599247947dc5"
+        "default": "1f2d4caada312267",
+        "infra": "4d770250a6c740f3"
       },
       "years_required": null
     },
@@ -648,7 +648,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -663,8 +663,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "d1f615e6a0681ea1",
-        "infra": "260d0e01230ba5bc"
+        "default": "45d4752bd20e6436",
+        "infra": "9cfeabf3d553cbaa"
       },
       "years_required": null
     },
@@ -680,65 +680,8 @@
       "description_original": null,
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
-      "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
-      "score_default": 14,
-      "matched_default": [
-        "Computer Vision"
-      ],
-      "coverage_default": 13,
-      "confidence_default": "full",
-      "requirements_default": [
-        "Must",
-        "Have",
-        "Strong technical understanding (Computer",
-        "Management skills and leadership mindset",
-        "Collaborative team player across",
-        "Product, Engineering, and Marketing",
-        "Takes ownership and leads things end-to-end",
-        "Sharp, curious, detail-oriented, loves diving deep",
-        "Can build and improve processes ‍ Big"
-      ],
-      "score_infra": 14,
-      "matched_infra": [
-        "Computer Vision"
-      ],
-      "coverage_infra": 13,
-      "confidence_infra": "full",
-      "requirements_infra": [
-        "Must",
-        "Have",
-        "Strong technical understanding (Computer",
-        "Management skills and leadership mindset",
-        "Collaborative team player across",
-        "Product, Engineering, and Marketing",
-        "Takes ownership and leads things end-to-end",
-        "Sharp, curious, detail-oriented, loves diving deep",
-        "Can build and improve processes ‍ Big"
-      ],
-      "best_cv": "default",
-      "best_score": 14,
-      "best_confidence": "full",
-      "_score_cache_keys": {
-        "default": "84d7a7179a73c337",
-        "infra": "be3a1a6b07460e23"
-      },
-      "years_required": null
-    },
-    {
-      "id": "aHR0cHM6Ly93d3cuZWxlbWVudGFyeS1kYXRhLmNvbS90ZXJtcy1vZi1zZXJ2aWNl",
-      "title": "Terms of Services",
-      "location": null,
-      "url": "https://www.elementary-data.com/terms-of-service",
-      "description": "Terms of Service Introducing Elementary Runtime: Deeper data-quality and AI workflows, inside your environment. Learn more → Book a Demo Product Elementary Cloud AI Agents Automate test creation, incident triage, governance, discovery, and performance optimization. Detection & Coverage Comprehensive data tests & ML-powered monitors for better coverage Governance One interface for analysts and engineers to explore data and manage metadata Triage and Response Understand, prioritize, and resolve issues faster. Enabling business users Tools for analysts and business users to explore data, add validations & monitor health Other Sources Integrations Works with your stack Cloud vs. OSS See a comparison to understand the differences. AI Agents Resources Resources Webinars Watch on-demand and upcoming webinars dbt Tests Hub Search and discover all dbt tests Customers Learn how other teams use Elementary Blog Discover insights and tips for data teams Cloud Demo Videos Explore all Elementary Cloud features About Us Our story, mission and exceptional team. Tools Docs Learn how to use Elementary Community Get help from peers Evaluating Observability Tools? Check out the Data Observability Tool Evaluation matrix Pricing Community Login Book a demo Legal Terms of Service Sign up for our newsletter We share news, blog posts and product updates. Trusted Data for the AI Era Book a demo Product Detection & Coverage Triage and response Governance Enabling business users Integrations Cloud vs OSS Resources Blog Webinars dbt Tests Hub Cloud demo videos Customer Stories Documentation The Elementary Community Company About Us Careers Contact Us Legal Terms of Services Privacy Policy Cookie Policy Data Protection Agreement Notice at Collection Your Privacy Choices 2025 © Copyright Elementary Data",
-      "department": null,
-      "employment_type": null,
-      "title_original": null,
-      "description_original": null,
-      "source_language": null,
-      "first_seen": "2026-09-27T18:46:54Z",
-      "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "last_seen": "2026-09-29T13:25:27Z",
+      "status": "seen",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -753,8 +696,49 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "993e451f9b45090a",
-        "infra": "acba9965b4c7ffa5"
+        "default": "3f6eee3c73f33690",
+        "infra": "fce16614fe93207d"
+      },
+      "years_required": null,
+      "job_evidence": {
+        "jsonld_jobposting": false,
+        "apply_cta": false,
+        "requirement_sections": 0,
+        "role_family_from_title": null,
+        "url_shape": "elementary-data.com|careers|2",
+        "previously_stored": true
+      }
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cuZWxlbWVudGFyeS1kYXRhLmNvbS90ZXJtcy1vZi1zZXJ2aWNl",
+      "title": "Terms of Services",
+      "location": null,
+      "url": "https://www.elementary-data.com/terms-of-service",
+      "description": "Terms of Service Introducing Elementary Runtime: Deeper data-quality and AI workflows, inside your environment. Learn more → Book a Demo Product Elementary Cloud AI Agents Automate test creation, incident triage, governance, discovery, and performance optimization. Detection & Coverage Comprehensive data tests & ML-powered monitors for better coverage Governance One interface for analysts and engineers to explore data and manage metadata Triage and Response Understand, prioritize, and resolve issues faster. Enabling business users Tools for analysts and business users to explore data, add validations & monitor health Other Sources Integrations Works with your stack Cloud vs. OSS See a comparison to understand the differences. AI Agents Resources Resources Webinars Watch on-demand and upcoming webinars dbt Tests Hub Search and discover all dbt tests Customers Learn how other teams use Elementary Blog Discover insights and tips for data teams Cloud Demo Videos Explore all Elementary Cloud features About Us Our story, mission and exceptional team. Tools Docs Learn how to use Elementary Community Get help from peers Evaluating Observability Tools? Check out the Data Observability Tool Evaluation matrix Pricing Community Login Book a demo Legal Terms of Service Sign up for our newsletter We share news, blog posts and product updates. Trusted Data for the AI Era Book a demo Product Detection & Coverage Triage and response Governance Enabling business users Integrations Cloud vs OSS Resources Blog Webinars dbt Tests Hub Cloud demo videos Customer Stories Documentation The Elementary Community Company About Us Careers Contact Us Legal Terms of Services Privacy Policy Cookie Policy Data Protection Agreement Notice at Collection Your Privacy Choices 2025 © Copyright Elementary Data",
+      "department": null,
+      "employment_type": null,
+      "title_original": null,
+      "description_original": null,
+      "source_language": null,
+      "first_seen": "2026-09-27T18:46:54Z",
+      "last_seen": "2026-09-27T18:46:54Z",
+      "status": "closed",
+      "score_default": 0,
+      "matched_default": [],
+      "coverage_default": null,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 0,
+      "matched_infra": [],
+      "coverage_infra": null,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 0,
+      "best_confidence": "title_only",
+      "_score_cache_keys": {
+        "default": "a0e79aef14f28646",
+        "infra": "5c6829fb90bd053e"
       },
       "years_required": null
     },
@@ -771,7 +755,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -786,8 +770,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "70386a9f07298f2f",
-        "infra": "24aaf74f53c4fe02"
+        "default": "f77f73b1b4b6df3d",
+        "infra": "119c83b3c66906de"
       },
       "years_required": null
     },
@@ -804,7 +788,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -819,8 +803,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "dcc1d10d15885bc6",
-        "infra": "18b5f4fb8ecf8cc5"
+        "default": "81e797e22b1c3eed",
+        "infra": "cbebd68626cf499b"
       },
       "years_required": null
     },
@@ -837,7 +821,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 34,
       "matched_default": [
         "Jira"
@@ -964,8 +948,8 @@
       "best_score": 34,
       "best_confidence": "full",
       "_score_cache_keys": {
-        "default": "3807fad7d7008650",
-        "infra": "d793223f74173c31"
+        "default": "70e998ef211a8dd4",
+        "infra": "5f8de967bb016bd5"
       },
       "years_required": null
     },
@@ -997,8 +981,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "65203be9362c6361",
-        "infra": "c7a90343af7f23a3"
+        "default": "32ef055c944b009c",
+        "infra": "5ab7c0ca2783d8b3"
       },
       "years_required": null,
       "closed_reason": "url: http 404",
@@ -1017,7 +1001,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:46:54Z",
       "last_seen": "2026-09-27T18:46:54Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -1032,8 +1016,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "b0e68836a29f25dc",
-        "infra": "67f28fba317fdd95"
+        "default": "bb2d921f00518b8f",
+        "infra": "c8655a7ce78c1712"
       },
       "years_required": null
     }

@@ -1,11 +1,11 @@
 {
   "name": "Groundcover Ltd. (Formerly Prodstack)",
   "career_url": "https://www.groundcover.com/careers",
-  "last_checked": "2026-09-27T18:58:27Z",
+  "last_checked": "2026-09-29T13:27:19Z",
   "jobs": [
     {
       "id": "aHR0cHM6Ly93d3cuZ3JvdW5kY292ZXIuY29tL25ld3MvZ3JvdW5kY292ZXItYWNxdWlyZXMtd2FuZC10by1idWlsZC10b3dhcmQtYXV0b25vbW91cy1pbmZyYXN0cnVjdHVyZQ",
-      "title": "groundcover Acquires Wand to Build Toward Autonomous Infrastructure. Read more",
+      "title": "groundcover Acquires Wand to Build Toward Autonomous Infrastructure.",
       "location": null,
       "url": "https://www.groundcover.com/news/groundcover-acquires-wand-to-build-toward-autonomous-infrastructure",
       "description": "groundcover Acquires Wand to Build Toward Autonomous Infrastructure groundcover Acquires Wand to Build Toward Autonomous Infrastructure. Read more Product Solutions Resources Company Customers Pricing Docs Book a Demo Log in Start Free Book a demo groundcover Acquires Wand to Build Toward Autonomous Infrastructure SAN FRANCISCO -- Sept. 24, 2026 - groundcover , the world’s leading bring-your-own-cloud (BYOC), eBPF and OpenTelemetry (OTel)-native observability platform, today announced it has acquired Wand , a Kubernetes resource optimization platform. The acquisition, groundcover's first, moves the company from giving engineers and AI agents the context to understand production toward giving software the ability to safely act on it. Wand's founding team and employees will join groundcover. Terms of the deal were not disclosed.The acquisition brings together two capabilities groundcover believes will converge as infrastructure becomes more autonomous: the context required to understand production, and the ability to act on it safely. groundcover captures high-fidelity telemetry across applications and infrastructure using eBPF and OpenTelemetry, retaining that production history inside the customer's own cloud through its BYOC architecture. That data already gives engineers and AI agents the context to investigate issues, understand changes and determine what happened in production. Wand adds a different capability: software that uses production behavior to continuously make and execute decisions about live Kubernetes infrastructure. \"Observability has become much more than a tool engineers use to understand what went wrong,\" said Shahar Azulay, CEO and co-founder of groundcover. \"In an AI-native software development cycle, production data becomes context that agents use to build, troubleshoot, fix and operate software. But understanding is only part of the problem. For infrastructure to become autonomous, systems also need to act safely on what they know. Wand has spent years building exactly that capability for Kubernetes.\" From Workload Sizing to Autonomous Infrastructure Kubernetes resource management is an early example of that shift, and one where engineering teams are already delegating. Platform teams are handing workload scaling to software, including configurations they spent years tuning by hand, because continuous decisions are not work people can realistically keep up with. The underlying problem is that Kubernetes asks engineers to set CPU and memory requests in advance, usually before a workload has run under real load. Over-provisioning wastes capacity across every replica and node. Under-provisioning risks throttling and outages when traffic shifts. Even a correct decision decays: a configuration that fit a service in March often describes a service that no longer exists by June. Existing automation addresses parts of the problem but not the interaction between them. Vertical scaling, horizontal scaling and cluster scaling typically operate independently. Tightening a resource request raises measured utilization, which prompts the horizontal autoscaler to add replicas that may not be needed, which changes how workloads pack onto nodes, which changes what the cluster autoscaler does. Each component can behave correctly by its own logic while the cluster as a whole behaves badly. Wand coordinates those decisions instead of separating them. Its in-cluster technology continuously analyzes workload behavior and makes vertical, horizontal and cluster-level resource decisions together, evaluating the cluster as a whole rather than one workload at a time. Rather than generating right-sizing recommendations for engineers to implement later, Wand adjusts CPU and memory allocation on live infrastructure as demand changes. It installs as a Helm chart, so teams do not take on another set of thresholds and tuning rules to maintain. Wand optimizes for performance and availability first, with cost efficiency following from running the cluster well and removing unnecessary headroom. \"Right-sizing assumes we know the future,\" said Shon Lev-Ran, CEO and co-founder of Wand. \"Spoiler: we don't. Infrastructure changes continuously. Joining groundcover lets us combine Wand's ability to act on live infrastructure with a much deeper understanding of what is happening across production.\" Building the Context Layer for Autonomous Infrastructure The quality of any autonomous system depends on the context behind its decisions. A workload can look over-provisioned based on the last hour and correctly provisioned based on what happens every Monday morning. A latency increase can look like an infrastructure problem until a deployment five minutes earlier comes into view. groundcover's architecture captures telemetry across applications and infrastructure without requiring teams to instrument every service first, and retains high-fidelity production data without forcing teams to decide in advance what to sample or discard. That history gives engineers and agents more basis for understanding what normal looks like, what changed, and how one part of production affected another. groundcover is also extending that context beyond telemetry, connecting production data with the engineering systems where information about code, deployments, incidents and decisions lives. An agent can start with something happening in production and understand not only what changed, but why it changed and what happened afterward. Wand's engine also runs inside the customer's environment, close to the workloads and telemetry it uses to make decisions. The two companies arrived at similar architectural principles independently: as software takes on more responsibility for live production, both the data informing those decisions and the systems acting on them should stay under the customer's control. What Comes Next groundcover will apply Wand's technology in two areas. First, groundcover will use Wand to make its own BYOC data plan",
@@ -16,7 +16,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -31,8 +31,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "f359b44c6e181d39",
-        "infra": "64951ae864d633aa"
+        "default": "68418155b727f6b0",
+        "infra": "1a451d6727476316"
       },
       "years_required": null
     },
@@ -49,7 +49,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -64,8 +64,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "6c6c5ce8bd9c74f8",
-        "infra": "41141dec9dad1958"
+        "default": "be20be034a669785",
+        "infra": "0b412d11cebe261a"
       },
       "years_required": null
     },
@@ -82,7 +82,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -97,8 +97,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "01e9de28e79634ae",
-        "infra": "253cca0ca95e5421"
+        "default": "55f946d2ab197534",
+        "infra": "3d69f55e630a315c"
       },
       "years_required": null
     },
@@ -115,7 +115,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -130,8 +130,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "0b9275bd4a78c97e",
-        "infra": "898e00905dd0738d"
+        "default": "a24eeeeb5d220532",
+        "infra": "94b2bd1dfc4e7f77"
       },
       "years_required": null
     },
@@ -148,7 +148,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -163,8 +163,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "038ccda68d58fbb9",
-        "infra": "49d5bd662bcc75b1"
+        "default": "1cd0f0a7a18c18ff",
+        "infra": "8fc19b0a6f7110f4"
       },
       "years_required": null
     },
@@ -181,7 +181,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 49,
       "matched_default": [
         "AWS"
@@ -200,8 +200,8 @@
       "best_score": 49,
       "best_confidence": "full",
       "_score_cache_keys": {
-        "default": "3785a862ca7e2fba",
-        "infra": "66fa86b3b3646af8"
+        "default": "8b5d6f434c95928d",
+        "infra": "fa09a52acbb9aff4"
       },
       "years_required": null
     },
@@ -218,7 +218,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -233,8 +233,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "d06f27161098ebc6",
-        "infra": "137d97046241edb5"
+        "default": "c95553594a49742f",
+        "infra": "99bc55a483375861"
       },
       "years_required": null
     },
@@ -251,7 +251,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -266,8 +266,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "67a3f604abd3f633",
-        "infra": "0221c339c34f8805"
+        "default": "e756ac7d46f9d60f",
+        "infra": "5f89996f97948544"
       },
       "years_required": null
     },
@@ -284,7 +284,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -299,8 +299,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "cdfee0819dab6a64",
-        "infra": "4f93779ca5b2a8d4"
+        "default": "1330cab4602f4362",
+        "infra": "460175a1b768894b"
       },
       "years_required": null
     },
@@ -317,7 +317,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -332,8 +332,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "388b6433d0e85f0f",
-        "infra": "d57a46686b246962"
+        "default": "e59319410ad258a4",
+        "infra": "94892bde7497a7f3"
       },
       "years_required": null
     },
@@ -350,7 +350,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -365,8 +365,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "3036f523c6aca849",
-        "infra": "13f920920fa25db7"
+        "default": "3d2c7fd7a7d41407",
+        "infra": "8be27d2e5d755065"
       },
       "years_required": null
     },
@@ -383,7 +383,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -398,8 +398,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "897dc80b5175011d",
-        "infra": "5eb6ad5f28161d50"
+        "default": "ed06b48c7f73cf58",
+        "infra": "39c7a45420dff664"
       },
       "years_required": null
     },
@@ -416,7 +416,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -431,8 +431,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "68138d121b2cc6a5",
-        "infra": "47000197aadf5cc2"
+        "default": "c7d034f4240c2626",
+        "infra": "214f623895755b75"
       },
       "years_required": null
     },
@@ -449,7 +449,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -464,8 +464,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "011c6bb1d77d8c2c",
-        "infra": "9938dab05970f60d"
+        "default": "4e53c3733b6c6814",
+        "infra": "ac5ab06f087e24c6"
       },
       "years_required": null
     },
@@ -482,7 +482,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -497,8 +497,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "51443c03072b9297",
-        "infra": "f9a37cd16d3b6931"
+        "default": "0aa0f0c137d6a53a",
+        "infra": "6cc75465e3c08e47"
       },
       "years_required": null
     },
@@ -515,7 +515,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -530,8 +530,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "525738cf45ffff12",
-        "infra": "2ffd5656aa65185b"
+        "default": "9dd8c0c103eb9b15",
+        "infra": "2ee16b6097e47a84"
       },
       "years_required": null
     },
@@ -548,7 +548,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -563,8 +563,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "6267e6868aea0fde",
-        "infra": "94acdc039378d0aa"
+        "default": "0e713dc6e5239bcb",
+        "infra": "d08d001f54240dae"
       },
       "years_required": null
     },
@@ -581,7 +581,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -596,8 +596,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "cdc7c44323e2f67a",
-        "infra": "26e9982d6e565c85"
+        "default": "d9d546321c83d554",
+        "infra": "ad3ce32140f0fbec"
       },
       "years_required": null
     },
@@ -614,7 +614,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 49,
       "matched_default": [
         "AWS"
@@ -633,8 +633,8 @@
       "best_score": 49,
       "best_confidence": "full",
       "_score_cache_keys": {
-        "default": "7a444c6de450bd8e",
-        "infra": "2a0b6cfebdd08f92"
+        "default": "d5f1e737a04ebabb",
+        "infra": "40b977c2f0ad1d33"
       },
       "years_required": null
     },
@@ -651,7 +651,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -666,8 +666,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "975e282bb9d2209e",
-        "infra": "ac9c2b6bde874fd9"
+        "default": "da6f118e142ad50a",
+        "infra": "71295a4b3cdbb234"
       },
       "years_required": null
     },
@@ -684,7 +684,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -699,8 +699,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "88869bd9bb602f16",
-        "infra": "3cdcab9164b44eae"
+        "default": "281eede24358d8aa",
+        "infra": "f3115f09ffb0447e"
       },
       "years_required": null
     },
@@ -717,7 +717,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -732,8 +732,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "c8e93d08cc7d36c8",
-        "infra": "b97b5a5128f17163"
+        "default": "d51e9c1d3e907ce5",
+        "infra": "636c9223849c9d6e"
       },
       "years_required": null
     },
@@ -750,7 +750,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -765,8 +765,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "a2298b98f894fd18",
-        "infra": "5f84531228610e5b"
+        "default": "2a0c3ede5fa55e9b",
+        "infra": "faf064e3605dfff5"
       },
       "years_required": null
     },
@@ -783,7 +783,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -798,8 +798,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "4a820aeeccca5e6a",
-        "infra": "6de9b51ed4d9fe44"
+        "default": "c4748db3f65759b0",
+        "infra": "de118e51b6732cfc"
       },
       "years_required": null
     },
@@ -816,7 +816,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -831,8 +831,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "b68081a3f48f655c",
-        "infra": "c944d06026d7e560"
+        "default": "32b6d8de446e63bd",
+        "infra": "0e778d481b00d8d0"
       },
       "years_required": null
     },
@@ -849,7 +849,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 58,
       "matched_default": [],
       "coverage_default": 100,
@@ -864,8 +864,8 @@
       "best_score": 58,
       "best_confidence": "full",
       "_score_cache_keys": {
-        "default": "1d707987d96005e6",
-        "infra": "c66d872d9ed29bb3"
+        "default": "bb31d07c6aeb5783",
+        "infra": "4b0077f10f78c3d7"
       },
       "years_required": null
     },
@@ -882,7 +882,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -897,8 +897,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "3f21d5b02af8bae0",
-        "infra": "e6addca06e61dca8"
+        "default": "1ca052a501924b8b",
+        "infra": "48be70d57924a5e8"
       },
       "years_required": null
     },
@@ -915,7 +915,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -930,8 +930,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "7eca51db4427c372",
-        "infra": "9b7ce97fa04da161"
+        "default": "d19454559105cd12",
+        "infra": "8ce428556282aa86"
       },
       "years_required": null
     },
@@ -948,7 +948,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -963,8 +963,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "7ed096724c54c8f0",
-        "infra": "262195904b5d34ee"
+        "default": "4d3bc2fabbbc4db0",
+        "infra": "e60494b5a763d2c1"
       },
       "years_required": null
     },
@@ -996,8 +996,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "702dc30a9ecc373e",
-        "infra": "0ff013bc3ba22de6"
+        "default": "bafe1318ac730a0b",
+        "infra": "75ba6a0c7589f6ab"
       },
       "years_required": null,
       "is_referral": false,
@@ -1017,7 +1017,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -1032,8 +1032,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "1c29dafbdf339739",
-        "infra": "ff4ebd5f66f48d6b"
+        "default": "a91fbb82936167c6",
+        "infra": "b120c830d57791af"
       },
       "years_required": null
     },
@@ -1050,7 +1050,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -1065,8 +1065,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "7763164e33978b31",
-        "infra": "75084bf7014d64e9"
+        "default": "08a152e8da9c5916",
+        "infra": "ace90e7ffc65c989"
       },
       "years_required": null
     },
@@ -1083,7 +1083,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -1098,8 +1098,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "b2b47bd9055ea9d2",
-        "infra": "ee7a6e8c896ec0af"
+        "default": "196b7fec366b6ecd",
+        "infra": "cf1aa529c3505515"
       },
       "years_required": null
     },
@@ -1116,7 +1116,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 58,
       "matched_default": [],
       "coverage_default": 100,
@@ -1131,8 +1131,8 @@
       "best_score": 58,
       "best_confidence": "full",
       "_score_cache_keys": {
-        "default": "5dfbead7d1bd790f",
-        "infra": "df0d077e95b5841e"
+        "default": "e4b2d5dff7a53359",
+        "infra": "ae4acb850834771d"
       },
       "years_required": null
     },
@@ -1149,7 +1149,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -1164,8 +1164,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "0e76390eaf63cf9d",
-        "infra": "eef31a47cb0c4864"
+        "default": "31bedddcb0669709",
+        "infra": "4801d88e18e13d27"
       },
       "years_required": null,
       "is_referral": false
@@ -1183,7 +1183,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -1198,8 +1198,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "fbccc37e58615de9",
-        "infra": "ba5a53cd9ee35cba"
+        "default": "306ec708804affb6",
+        "infra": "d4a65ffb9d208674"
       },
       "years_required": null
     },
@@ -1216,7 +1216,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 0,
       "matched_default": [],
       "coverage_default": null,
@@ -1231,8 +1231,8 @@
       "best_score": 0,
       "best_confidence": "title_only",
       "_score_cache_keys": {
-        "default": "cd36b3c8d537c763",
-        "infra": "2e6413da2abcaaf2"
+        "default": "29973f94ce002894",
+        "infra": "bf940e2ce5da537b"
       },
       "years_required": null
     },
@@ -1249,7 +1249,7 @@
       "source_language": null,
       "first_seen": "2026-09-27T18:58:27Z",
       "last_seen": "2026-09-27T18:58:27Z",
-      "status": "new",
+      "status": "closed",
       "score_default": 40,
       "matched_default": [
         "Large Language Models",
@@ -1382,10 +1382,388 @@
       "best_score": 40,
       "best_confidence": "full",
       "_score_cache_keys": {
-        "default": "7062066685432ddd",
-        "infra": "c1c49f1e8bcebf60"
+        "default": "3262d690069ac7cc",
+        "infra": "12a84859ad28a201"
       },
       "years_required": null
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cuY29tZWV0LmNvbS9qb2JzL2dyb3VuZGNvdmVyLzg4LjAwOC9hY2NvdW50LWV4ZWN1dGl2ZS9GMC5FNkI",
+      "title": "Account Executive",
+      "location": null,
+      "url": "https://www.comeet.com/jobs/groundcover/88.008/account-executive/F0.E6B",
+      "description": "",
+      "department": null,
+      "employment_type": null,
+      "title_original": null,
+      "description_original": null,
+      "source_language": null,
+      "first_seen": "2026-09-29T13:27:19Z",
+      "last_seen": "2026-09-29T13:27:19Z",
+      "status": "new",
+      "job_evidence": {
+        "jsonld_jobposting": false,
+        "apply_cta": false,
+        "requirement_sections": 0,
+        "role_family_from_title": "sales",
+        "url_shape": "comeet.com|jobs/groundcover/88.008/account-executive|5",
+        "previously_stored": false
+      },
+      "scrape_source": "html_listing",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "years_required": null,
+      "_score_cache_keys": {
+        "default": "9b71cbe532e946ec",
+        "infra": "d579c940bd00c3ac"
+      }
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cuY29tZWV0LmNvbS9qb2JzL2dyb3VuZGNvdmVyLzg4LjAwOC9hY2NvdW50LWV4ZWN1dGl2ZS0tLWVudGVycHJpc2UvMjEuRTY4",
+      "title": "Account Executive - Enterprise",
+      "location": null,
+      "url": "https://www.comeet.com/jobs/groundcover/88.008/account-executive---enterprise/21.E68",
+      "description": "",
+      "department": null,
+      "employment_type": null,
+      "title_original": null,
+      "description_original": null,
+      "source_language": null,
+      "first_seen": "2026-09-29T13:27:19Z",
+      "last_seen": "2026-09-29T13:27:19Z",
+      "status": "new",
+      "job_evidence": {
+        "jsonld_jobposting": false,
+        "apply_cta": false,
+        "requirement_sections": 0,
+        "role_family_from_title": "sales",
+        "url_shape": "comeet.com|jobs/groundcover/88.008/account-executive---enterprise|5",
+        "previously_stored": false
+      },
+      "scrape_source": "html_listing",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "years_required": null,
+      "_score_cache_keys": {
+        "default": "c74f3baba14458d3",
+        "infra": "9f1a771c183cbbee"
+      }
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cuY29tZWV0LmNvbS9qb2JzL2dyb3VuZGNvdmVyLzg4LjAwOC9hY2NvdW50LWV4ZWN1dGl2ZS0tc2FuLWZyYW5jaXNjby81Qy5CNjY",
+      "title": "Account Executive- San Francisco",
+      "location": null,
+      "url": "https://www.comeet.com/jobs/groundcover/88.008/account-executive--san-francisco/5C.B66",
+      "description": "",
+      "department": null,
+      "employment_type": null,
+      "title_original": null,
+      "description_original": null,
+      "source_language": null,
+      "first_seen": "2026-09-29T13:27:19Z",
+      "last_seen": "2026-09-29T13:27:19Z",
+      "status": "new",
+      "job_evidence": {
+        "jsonld_jobposting": false,
+        "apply_cta": false,
+        "requirement_sections": 0,
+        "role_family_from_title": "sales",
+        "url_shape": "comeet.com|jobs/groundcover/88.008/account-executive--san-francisco|5",
+        "previously_stored": false
+      },
+      "scrape_source": "html_listing",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "years_required": null,
+      "_score_cache_keys": {
+        "default": "96069f9a0cceaa21",
+        "infra": "c0733d9532cf2d1e"
+      }
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cuY29tZWV0LmNvbS9qb2JzL2dyb3VuZGNvdmVyLzg4LjAwOC9iYWNrZW5kLWVuZ2luZWVyLzhCLjczNg",
+      "title": "Backend Engineer",
+      "location": null,
+      "url": "https://www.comeet.com/jobs/groundcover/88.008/backend-engineer/8B.736",
+      "description": "",
+      "department": null,
+      "employment_type": null,
+      "title_original": null,
+      "description_original": null,
+      "source_language": null,
+      "first_seen": "2026-09-29T13:27:19Z",
+      "last_seen": "2026-09-29T13:27:19Z",
+      "status": "new",
+      "job_evidence": {
+        "jsonld_jobposting": false,
+        "apply_cta": false,
+        "requirement_sections": 0,
+        "role_family_from_title": "backend",
+        "url_shape": "comeet.com|jobs/groundcover/88.008/backend-engineer|5",
+        "previously_stored": false
+      },
+      "scrape_source": "html_listing",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "years_required": null,
+      "_score_cache_keys": {
+        "default": "bcca9cc303e83761",
+        "infra": "24800ce5dce3bf9b"
+      }
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cuY29tZWV0LmNvbS9qb2JzL2dyb3VuZGNvdmVyLzg4LjAwOC9mcm9udGVuZC1lbmdpbmVlci9CNy42MzU",
+      "title": "Frontend Engineer",
+      "location": null,
+      "url": "https://www.comeet.com/jobs/groundcover/88.008/frontend-engineer/B7.635",
+      "description": "",
+      "department": null,
+      "employment_type": null,
+      "title_original": null,
+      "description_original": null,
+      "source_language": null,
+      "first_seen": "2026-09-29T13:27:19Z",
+      "last_seen": "2026-09-29T13:27:19Z",
+      "status": "new",
+      "job_evidence": {
+        "jsonld_jobposting": false,
+        "apply_cta": false,
+        "requirement_sections": 0,
+        "role_family_from_title": "frontend",
+        "url_shape": "comeet.com|jobs/groundcover/88.008/frontend-engineer|5",
+        "previously_stored": false
+      },
+      "scrape_source": "html_listing",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "years_required": null,
+      "_score_cache_keys": {
+        "default": "7967fca7e1bd6476",
+        "infra": "1d1110ab28570367"
+      }
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cuY29tZWV0LmNvbS9qb2JzL2dyb3VuZGNvdmVyLzg4LjAwOC9yZXZlbnVlLW1hcmtldGluZy1tYW5hZ2VyL0Q2LkY1Rg",
+      "title": "Revenue Marketing Manager",
+      "location": null,
+      "url": "https://www.comeet.com/jobs/groundcover/88.008/revenue-marketing-manager/D6.F5F",
+      "description": "",
+      "department": null,
+      "employment_type": null,
+      "title_original": null,
+      "description_original": null,
+      "source_language": null,
+      "first_seen": "2026-09-29T13:27:19Z",
+      "last_seen": "2026-09-29T13:27:19Z",
+      "status": "new",
+      "job_evidence": {
+        "jsonld_jobposting": false,
+        "apply_cta": false,
+        "requirement_sections": 0,
+        "role_family_from_title": "marketing",
+        "url_shape": "comeet.com|jobs/groundcover/88.008/revenue-marketing-manager|5",
+        "previously_stored": false
+      },
+      "scrape_source": "html_listing",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "years_required": null,
+      "_score_cache_keys": {
+        "default": "512876c13421be0e",
+        "infra": "ec7fcc257c9d59bb"
+      }
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cuY29tZWV0LmNvbS9qb2JzL2dyb3VuZGNvdmVyLzg4LjAwOC9zZW5pb3ItcHJvZHVjdC1tYW5hZ2VyLzlBLjk1RA",
+      "title": "Senior Product Manager",
+      "location": null,
+      "url": "https://www.comeet.com/jobs/groundcover/88.008/senior-product-manager/9A.95D",
+      "description": "",
+      "department": null,
+      "employment_type": null,
+      "title_original": null,
+      "description_original": null,
+      "source_language": null,
+      "first_seen": "2026-09-29T13:27:19Z",
+      "last_seen": "2026-09-29T13:27:19Z",
+      "status": "new",
+      "job_evidence": {
+        "jsonld_jobposting": false,
+        "apply_cta": false,
+        "requirement_sections": 0,
+        "role_family_from_title": "product",
+        "url_shape": "comeet.com|jobs/groundcover/88.008/senior-product-manager|5",
+        "previously_stored": false
+      },
+      "scrape_source": "html_listing",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "years_required": null,
+      "_score_cache_keys": {
+        "default": "97c7ecb0c4557a3b",
+        "infra": "43181066f89fbbb5"
+      }
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cuY29tZWV0LmNvbS9qb2JzL2dyb3VuZGNvdmVyLzg4LjAwOC90ZWNobmljYWwtYWNjb3VudC1tYW5hZ2VyLS11cy8wMS5FNkE",
+      "title": "Technical Account Manager",
+      "location": "US",
+      "url": "https://www.comeet.com/jobs/groundcover/88.008/technical-account-manager--us/01.E6A",
+      "description": "",
+      "department": null,
+      "employment_type": null,
+      "title_original": null,
+      "description_original": null,
+      "source_language": null,
+      "first_seen": "2026-09-29T13:27:19Z",
+      "last_seen": "2026-09-29T13:27:19Z",
+      "status": "new",
+      "job_evidence": {
+        "jsonld_jobposting": false,
+        "apply_cta": false,
+        "requirement_sections": 0,
+        "role_family_from_title": "sales",
+        "url_shape": "comeet.com|jobs/groundcover/88.008/technical-account-manager--us|5",
+        "previously_stored": false
+      },
+      "scrape_source": "html_listing",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "years_required": null,
+      "_score_cache_keys": {
+        "default": "4b04562fefae3c8e",
+        "infra": "46cc3b55c139fe3a"
+      }
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cuY29tZWV0LmNvbS9qb2JzL2dyb3VuZGNvdmVyLzg4LjAwOC93b3JrcGxhY2UtLW9mZmljZS1vcGVyYXRpb25zLW1hbmFnZXIvRkUuQzY1",
+      "title": "Workplace & Office Operations Manager",
+      "location": null,
+      "url": "https://www.comeet.com/jobs/groundcover/88.008/workplace--office-operations-manager/FE.C65",
+      "description": "",
+      "department": null,
+      "employment_type": null,
+      "title_original": null,
+      "description_original": null,
+      "source_language": null,
+      "first_seen": "2026-09-29T13:27:19Z",
+      "last_seen": "2026-09-29T13:27:19Z",
+      "status": "new",
+      "job_evidence": {
+        "jsonld_jobposting": false,
+        "apply_cta": false,
+        "requirement_sections": 0,
+        "role_family_from_title": "operations",
+        "url_shape": "comeet.com|jobs/groundcover/88.008/workplace--office-operations-manager|5",
+        "previously_stored": false
+      },
+      "scrape_source": "html_listing",
+      "score_default": 58,
+      "matched_default": [],
+      "coverage_default": 100,
+      "confidence_default": "title_only",
+      "requirements_default": [],
+      "score_infra": 58,
+      "matched_infra": [],
+      "coverage_infra": 100,
+      "confidence_infra": "title_only",
+      "requirements_infra": [],
+      "best_cv": "default",
+      "best_score": 58,
+      "best_confidence": "title_only",
+      "years_required": null,
+      "_score_cache_keys": {
+        "default": "5736b4aa5a0cd5ad",
+        "infra": "69875b7fe8d36a0c"
+      }
     }
   ]
 }
