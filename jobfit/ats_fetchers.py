@@ -67,6 +67,15 @@ def _request(session: requests.Session, method: str, url: str, **kwargs) -> Opti
     return response if response.ok else None
 
 
+def _json_or_none(response):
+    if response is None:
+        return None
+    try:
+        return response.json()
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def _clean(text: Optional[str]) -> str:
     if not text:
         return ""
@@ -216,14 +225,7 @@ def fetch_comeet_widget(session: requests.Session, uid: str, token: str) -> Opti
     pages embed this widget, which is why plain link-scraping saw 0 jobs
     on all of them (the widget renders client-side, no <a href>).
     """
-    url = f"https://www.comeet.co/careers-api/2.0/company/{uid}/positions?token={token}&details=true"
-    response = _request(session, "GET", url)
-    if response is None:
-        return None
-    try:
-        payload = response.json()
-    except Exception:  # noqa: BLE001
-        return None
+    payload = _json_or_none(_request(session, "GET", f"https://www.comeet.co/careers-api/2.0/company/{uid}/positions?token={token}&details=true"))
     if not isinstance(payload, list):
         return None
     jobs = []
@@ -623,15 +625,6 @@ def fetch_generic_job_details(session: requests.Session, url: str) -> dict:
 # AtsClient subclasses in jobfit.scrape.ats.clients stay one-liners.
 
 
-def _json_or_none(response):
-    if response is None:
-        return None
-    try:
-        return response.json()
-    except Exception:  # noqa: BLE001
-        return None
-
-
 def fetch_recruitee(session: requests.Session, slug: str) -> Optional[list[dict]]:
     payload = _json_or_none(_request(session, "GET", f"https://{slug}.recruitee.com/api/offers/"))
     if not isinstance(payload, dict) or not isinstance(payload.get("offers"), list):
@@ -899,13 +892,7 @@ def fetch_iai_jobs(session: requests.Session) -> list[dict]:
     Field names are abbreviated: tl=title, dc=description, ct=city,
     tp=employment type, jc=job category, id=job id (the /job/<id> page).
     """
-    response = _request(session, "GET", "https://jobs.iai.co.il/wp-content/themes/tyco-wp/assets/json/jobs.json")
-    if response is None:
-        return []
-    try:
-        rows = response.json()
-    except Exception:  # noqa: BLE001
-        return []
+    rows = _json_or_none(_request(session, "GET", "https://jobs.iai.co.il/wp-content/themes/tyco-wp/assets/json/jobs.json"))
     jobs = []
     for row in rows if isinstance(rows, list) else []:
         if not isinstance(row, dict):

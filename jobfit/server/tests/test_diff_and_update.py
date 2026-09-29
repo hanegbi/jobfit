@@ -236,23 +236,7 @@ def test_multiple_jobs_new_seen_and_closed_in_one_pass(companies_dir):
     assert statuses == {"Backend Engineer": "seen", "Frontend Engineer": "closed", "Data Engineer": "new"}
 
 
-# --- compute_job_id / extract_ats_id ------------------------------------
-
-def test_extract_ats_id_from_greenhouse_url():
-    assert update_jobs.extract_ats_id("https://boards.greenhouse.io/acme/jobs/1234567") == "1234567"
-
-
-def test_extract_ats_id_from_lever_url():
-    assert update_jobs.extract_ats_id("https://jobs.lever.co/acme/abcdef12-3456") == "abcdef12-3456"
-
-
-def test_extract_ats_id_returns_none_for_an_unknown_host():
-    assert update_jobs.extract_ats_id("https://acme.com/careers/some-job") is None
-
-
-def test_extract_ats_id_returns_none_for_no_url():
-    assert update_jobs.extract_ats_id(None) is None
-
+# --- compute_job_id -----------------------------------------------------
 
 def test_compute_job_id_is_stable_across_whitespace_and_case_changes_in_title():
     id1 = update_jobs.compute_job_id("Acme", "Backend  Engineer", "Tel Aviv", "https://acme.com/careers/x")
@@ -265,7 +249,6 @@ def test_compute_job_id_is_the_base64url_of_the_normalized_url():
 
     job_id = update_jobs.compute_job_id("Acme Inc", "Backend Engineer", None, "https://boards.greenhouse.io/acme/jobs/1234567")
     assert job_id == base64.urlsafe_b64encode(b"https://boards.greenhouse.io/acme/jobs/1234567").decode().rstrip("=")
-    assert update_jobs.job_url_from_id(job_id) == "https://boards.greenhouse.io/acme/jobs/1234567"
     # trailing slash / fragment / whitespace variants are the same posting
     for variant in (" https://boards.greenhouse.io/acme/jobs/1234567/ ", "https://boards.greenhouse.io/acme/jobs/1234567#apply"):
         assert update_jobs.compute_job_id("Acme Inc", "Other Title", "Haifa", variant) == job_id

@@ -37,6 +37,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from jobfit import ats_fetchers, company_registry, company_review, config, connections, cv, pipeline_lock, scoring, techmap_source, translation  # noqa: E402
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
 from jobfit.scrape import bootstrap as scrape_bootstrap  # noqa: E402
+from jobfit.scrape.ids import normalize_job_url  # noqa: E402,F401 - re-exported: the job-id rule lives with the scrape package
 
 logger = logging.getLogger("jobfit.update_jobs")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -44,40 +45,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 COMPANIES_DIR = config.ROOT / "companies"
 META_PATH = COMPANIES_DIR / "_meta.json"
 
-_ATS_ID_PATTERNS = [
-    re.compile(r"greenhouse\.io/[^/]+/jobs/(\d+)", re.I),
-    re.compile(r"jobs\.lever\.co/[^/]+/([\w-]{6,})", re.I),
-    re.compile(r"jobs\.ashbyhq\.com/[^/]+/([\w-]{6,})", re.I),
-    re.compile(r"smartrecruiters\.com/[^/]+/(\d{6,})", re.I),
-    re.compile(r"comeet\.com/jobs/[^/]+/[\w.]+/[^/]+/([\w.]+)", re.I),
-    re.compile(r"workable\.com/[^/]+/j/([\w-]{6,})", re.I),
-    re.compile(r"[?&](?:gh_jid|jobId|job_id)=([\w-]{4,})", re.I),
-]
-
-
 def _snake_case(name: str) -> str:
     s = re.sub(r"[^\w\s-]", "", name.lower()).strip()
     s = re.sub(r"[\s-]+", "_", s)
     return s or "unnamed_company"
-
-
-def extract_ats_id(url: str | None) -> str | None:
-    if not url:
-        return None
-    for pattern in _ATS_ID_PATTERNS:
-        m = pattern.search(url)
-        if m:
-            return m.group(1)
-    return None
-
-
-def normalize_job_url(url: str | None) -> str | None:
-    """The identity form of a job URL: whitespace and fragment stripped, no
-    trailing slash - so `.../job/1/` and `.../job/1#apply` are one posting."""
-    if not url:
-        return None
-    url = url.strip().split("#", 1)[0].rstrip("/")
-    return url or None
 
 
 def compute_job_id(company: str, title: str, location: str | None, url: str | None) -> str:
@@ -92,15 +63,6 @@ def compute_job_id(company: str, title: str, location: str | None, url: str | No
     normalized_title = re.sub(r"[^a-z0-9]+", "", (title or "").lower())
     raw = f"{company}|{normalized_title}|{location or ''}|"
     return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:20]
-
-
-def job_url_from_id(job_id: str) -> str | None:
-    """Inverse of compute_job_id for URL-based ids; None for legacy hash ids."""
-    try:
-        padded = job_id + "=" * (-len(job_id) % 4)
-        return base64.urlsafe_b64decode(padded.encode("ascii")).decode("utf-8")
-    except (ValueError, UnicodeDecodeError):
-        return None
 
 
 def cv_hash() -> str:
@@ -155,7 +117,7 @@ def load_companies_to_scrape() -> dict[str, str | None]:
     """Every company scrape_stage() should touch: companies with a real
     career URL, plus companies with no URL that were explicitly approved
     for the techmap fallback via company_review.py. A None value here means
-    "use techmap only" (see fetch_company_jobs_async)."""
+    "use techmap only" (see fetch_company_result)."""
     pages = company_review.load_career_pages()
     review = company_review.load_review()
     companies: dict[str, str | None] = {}
@@ -187,10 +149,7 @@ def fetch_company_result(company: str, url: str | None, service, known_job_urls:
     the ScrapeResult). Pure Python; no model call on this path.
     known_job_urls: the company's already-stored job URLs - the service
     derives an ATS board from them when the plan itself finds nothing."""
-    try:
-        result = service.scrape(company, url, known_job_urls or [])
-    except TypeError:  # a stub service with the old 2-arg signature (tests)
-        result = service.scrape(company, url)
+    result = service.scrape(company, url, known_job_urls or [])
     jobs = []
     for posting in result.postings:
         job = posting.model_dump(mode="json")
@@ -218,13 +177,6 @@ def fetch_may_close(fetched: list[dict], result) -> bool:
         return True
     plan = getattr(result, "plan", None)
     return bool(plan is not None and (plan.health.baseline_yield or 0) > 0)
-
-
-async def fetch_company_jobs_async(company: str, url: str | None, session, profiles: dict, techmap_index: dict, service=None) -> list[dict]:
-    """Kept for callers of the old async signature; `profiles` is unused
-    (scrape health no longer depends on CV score)."""
-    service = service or scrape_bootstrap.build_scrape_service(session, techmap_index)
-    return fetch_company_jobs(company, url, service)
 
 
 def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict, may_close: bool = True) -> tuple[dict, int, int]:

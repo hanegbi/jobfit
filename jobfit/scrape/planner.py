@@ -313,9 +313,6 @@ class ScrapePlanner:
         plan.health.baseline_yield = len(inline)
         return plan
 
-    _HOP_TEXT = LISTING_LINK_TEXT
-    _HOP_PATH = LISTING_LINK_PATH
-
     def _listing_hop(self, candidates: list[Candidate], career_url: str) -> str | None:
         """The one same-site link most likely to be the actual job listing."""
         base_host = _host(career_url)
@@ -330,9 +327,9 @@ class ScrapePlanner:
                 continue
             path = urlsplit(href).path
             score = 0
-            if self._HOP_PATH.search(path):
+            if LISTING_LINK_PATH.search(path):
                 score += 2
-            if self._HOP_TEXT.search((c.text or "").strip()):
+            if LISTING_LINK_TEXT.search((c.text or "").strip()):
                 score += 1
             if score:
                 scored.append((score, -c.index, href))

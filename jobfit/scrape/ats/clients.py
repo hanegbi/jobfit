@@ -91,11 +91,16 @@ class ComeetClient(AtsClient):
             return ats_fetchers.fetch_comeet_widget(self.session, uid, token)
         slug = board.split("/", 1)[0]
         jobs = ats_fetchers.fetch_comeet(self.session, slug)
-        if not jobs:
-            hosted = (ats_fetchers.comeet_board_url(known_url) if known_url else None) or (self.board_url(board) if "/" in board else known_url)
-            if hosted:
-                jobs = ats_fetchers.fetch_comeet_hosted_page(self.session, hosted)
-        return jobs
+        if jobs:
+            return jobs
+        # The public API is token-gated for some accounts; the hosted board page
+        # (/jobs/<slug>/<uid>) still embeds the positions as JSON.
+        hosted = ats_fetchers.comeet_board_url(known_url) if known_url else None
+        if not hosted and "/" in board:
+            hosted = self.board_url(board)
+        if not hosted:
+            hosted = known_url
+        return ats_fetchers.fetch_comeet_hosted_page(self.session, hosted) if hosted else jobs
 
 
 class RecruiteeClient(AtsClient):

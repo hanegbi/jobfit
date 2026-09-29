@@ -48,43 +48,40 @@ class StrategyFactory:
             UrlShapeClusterFilter(strategy.url_shape), EvidenceThresholdFilter(min_signals=2, reject_chrome=True),
         ])
 
-    def _ats_api(self, plan: ScrapePlan, known: frozenset[str] = frozenset()) -> ScrapeStrategy:
+    def _ats_api(self, plan: ScrapePlan, known: frozenset[str]) -> ScrapeStrategy:
         s = plan.strategy
         return AtsApiScrape(self.registry.client(s.provider), s.board, known_url=s.board_url)
 
-    def _external_board(self, plan: ScrapePlan, known: frozenset[str] = frozenset()) -> ScrapeStrategy:
+    def _external_board(self, plan: ScrapePlan, known: frozenset[str]) -> ScrapeStrategy:
         return ExternalBoardScrape(self.registry, plan.strategy.board_url)
 
-    def _html_listing(self, plan: ScrapePlan, known: frozenset[str] = frozenset()) -> ScrapeStrategy:
+    def _html_listing(self, plan: ScrapePlan, known: frozenset[str]) -> ScrapeStrategy:
         s = plan.strategy
         chain = self.chain_for(s)
+        http = self.fetchers.build("http")
         primary = HtmlListingScrape(self.fetchers.build(s.renderer), self.extractor, chain, self.enricher, s, self.max_links, known)
+        # In order: the same listing rendered by a browser (if the plan asks
+        # for it), jobs inlined as page JSON, an ATS embedded in the page, and
+        # only then techmap's title-only rows (if the plan asks for it).
         fallbacks: list[ScrapeStrategy] = []
-        for name in s.fallbacks:
-            if name == "playwright" and s.renderer != "playwright":
-                fallbacks.append(HtmlListingScrape(self.fetchers.build("playwright"), self.extractor, chain, self.enricher, s, self.max_links, known))
-            elif name == "techmap":
-                # An ATS embedded in the page (widget/script/iframe) is a far
-                # better source than techmap's title-only rows - try it first.
-                fallbacks.append(EmbeddedAtsScrape(self.fetchers.build("http"), self.registry))
-                fallbacks.append(TechmapScrape(self.techmap_index))
-        if not any(isinstance(f, EmbeddedAtsScrape) for f in fallbacks):
-            fallbacks.append(EmbeddedAtsScrape(self.fetchers.build("http"), self.registry))
-        # Jobs inlined as page JSON (Next.js/Nuxt) come right after the link scrape itself.
-        first_non_listing = next((i for i, f in enumerate(fallbacks) if not isinstance(f, HtmlListingScrape)), len(fallbacks))
-        fallbacks.insert(first_non_listing, InlineJsonScrape(self.fetchers.build("http")))
+        if "playwright" in s.fallbacks and s.renderer != "playwright":
+            fallbacks.append(HtmlListingScrape(self.fetchers.build("playwright"), self.extractor, chain, self.enricher, s, self.max_links, known))
+        fallbacks.append(InlineJsonScrape(http))
+        fallbacks.append(EmbeddedAtsScrape(http, self.registry))
+        if "techmap" in s.fallbacks:
+            fallbacks.append(TechmapScrape(self.techmap_index))
         return FallbackScrape(primary, fallbacks, self.health.is_healthy)
 
-    def _special_case(self, plan: ScrapePlan, known: frozenset[str] = frozenset()) -> ScrapeStrategy:
+    def _special_case(self, plan: ScrapePlan, known: frozenset[str]) -> ScrapeStrategy:
         fn = self.special_fetchers.get(plan.strategy.host_fragment)
         if fn is None:
             raise PlanInvalid(f"no special-case fetcher registered for {plan.strategy.host_fragment!r}")
         return SpecialCaseScrape(fn, self.session)
 
-    def _techmap_only(self, plan: ScrapePlan, known: frozenset[str] = frozenset()) -> ScrapeStrategy:
+    def _techmap_only(self, plan: ScrapePlan, known: frozenset[str]) -> ScrapeStrategy:
         return TechmapScrape(self.techmap_index)
 
-    def _broken_url(self, plan: ScrapePlan, known: frozenset[str] = frozenset()) -> ScrapeStrategy:
+    def _broken_url(self, plan: ScrapePlan, known: frozenset[str]) -> ScrapeStrategy:
         # Only a probe-verified broken URL (404/410, homepage redirect) is
         # allowed to return nothing; anything less certain keeps techmap.
         return NoScrape() if plan.status == "verified" else TechmapScrape(self.techmap_index)

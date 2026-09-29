@@ -111,7 +111,7 @@ class _StubService:
     def __init__(self, postings):
         self.postings = postings
 
-    def scrape(self, company, career_url):
+    def scrape(self, company, career_url, known_job_urls=()):
         from jobfit.scrape.models import HtmlListingStrategy, ScrapePlan, ScrapeResult
         plan = ScrapePlan(company_id="acme", career_url=career_url, derived_by="rules", derived_at=datetime.now(timezone.utc),
                           status="unverified", strategy=HtmlListingStrategy())
@@ -144,7 +144,7 @@ def test_process_company_records_a_failure_and_saves_nothing_on_fetch_failed(tmp
     monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
 
     class _Down:
-        def scrape(self, company, career_url):
+        def scrape(self, company, career_url, known_job_urls=()):
             raise errors.FetchFailed("down")
 
     company, new, closed, skipped, error = update_jobs._process_company("Acme", "https://acme.com/careers", None, {}, {}, True, service=_Down())

@@ -6,9 +6,11 @@ depends only on the LLMClient protocol, never on the vendor SDK."""
 from __future__ import annotations
 
 import json
+import re
 from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Protocol
+from urllib.parse import urlsplit
 
 from pydantic import ValidationError
 
@@ -37,25 +39,22 @@ def rules_chain() -> FilterChain:
     ])
 
 
-import re as _re
-from urllib.parse import urlsplit as _urlsplit
-
 # A link that leads TO a job listing is not itself a job: "See all open
 # roles", "Jobs", "/careers/jobs". Shared with the planner's landing-page
 # hop, which follows exactly these links when a page lists no real jobs.
-LISTING_LINK_TEXT = _re.compile(
+LISTING_LINK_TEXT = re.compile(
     r"(?:open|all|current|view|see|search|explore|browse|find|our)\b.{0,25}\b(?:positions?|roles?|jobs?|openings?|opportunities|vacancies)"
-    r"|^(?:jobs|positions|openings|open positions|all jobs|job openings|vacancies|open roles|careers|משרות|כל המשרות|למשרות)$", _re.I)
-LISTING_LINK_PATH = _re.compile(
+    r"|^(?:jobs|positions|openings|open positions|all jobs|job openings|vacancies|open roles|careers|משרות|כל המשרות|למשרות)$", re.I)
+LISTING_LINK_PATH = re.compile(
     r"/(?:jobs?|openings?|open-positions?|open-roles?|positions?|all-jobs|job-openings?|job-opportunities|vacancies|opportunities|roles"
-    r"|careers?/(?:jobs?|search|roles|all|openings?|israel|open-positions?|find-a-job)|search-jobs?)/?$", _re.I)
+    r"|careers?/(?:jobs?|search|roles|all|openings?|israel|open-positions?|find-a-job)|search-jobs?)/?$", re.I)
 
 
 def is_listing_link(candidate: Candidate) -> bool:
     text = (candidate.text or "").strip()
     if LISTING_LINK_TEXT.search(text):
         return True
-    parts = _urlsplit(candidate.href)
+    parts = urlsplit(candidate.href)
     # /jobs/?gh_jid=123 is one job on a listing path; only a bare listing path counts.
     return not parts.query and bool(LISTING_LINK_PATH.search(parts.path))
 

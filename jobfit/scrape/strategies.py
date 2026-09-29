@@ -11,10 +11,13 @@ from typing import Callable
 from jobfit import connections
 from jobfit.scrape.ats import AtsClient, AtsRegistry, to_posting
 from jobfit.scrape.candidates import CandidateExtractor
-from jobfit.scrape.enrich import DetailEnricher
+from jobfit.scrape.ats.embedded import company_hint_for, find_embedded_ats_candidates
+from jobfit.scrape.enrich import DetailEnricher, minimal_evidence
 from jobfit.scrape.errors import FetchFailed, PlanInvalid
 from jobfit.scrape.fetchers import PageFetcher
 from jobfit.scrape.filters import FilterChain
+from jobfit.scrape.ids import normalize_job_url
+from jobfit.scrape.inline_json import find_inline_jobs
 from jobfit.scrape.models import Candidate, HtmlListingStrategy, JobPosting, PageFingerprint, PostingSource
 
 
@@ -73,9 +76,6 @@ class HtmlListingScrape(ScrapeStrategy):
         self.known_urls = known_urls
 
     def fetch(self, company: str, career_url: str | None) -> list[JobPosting]:
-        from jobfit.scrape.enrich import minimal_evidence
-        from jobfit.scrape.ids import normalize_job_url
-
         target = self.strategy.listing_url or career_url
         if not target:
             return []
@@ -109,8 +109,6 @@ class InlineJsonScrape(ScrapeStrategy):
         self.fetcher = fetcher
 
     def fetch(self, company: str, career_url: str | None) -> list[JobPosting]:
-        from jobfit.scrape.inline_json import find_inline_jobs
-
         if not career_url:
             return []
         page = self.fetcher.fetch(career_url)
@@ -130,8 +128,6 @@ class EmbeddedAtsScrape(ScrapeStrategy):
         self.fetcher, self.registry = fetcher, registry
 
     def fetch(self, company: str, career_url: str | None) -> list[JobPosting]:
-        from jobfit.scrape.ats.embedded import company_hint_for, find_embedded_ats_candidates
-
         if not career_url:
             return []
         page = self.fetcher.fetch(career_url)
