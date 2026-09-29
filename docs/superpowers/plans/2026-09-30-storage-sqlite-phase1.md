@@ -1558,3 +1558,31 @@ git commit -m "docs: sqlite is the store - commands, layout and the store packag
 - A scrape of one company writes to the database and leaves the files untouched.
 - `jobs_v2.json` is no longer written by anything.
 - The company JSON files are still on disk, untouched, ready to be deleted in phase 4.
+
+---
+
+## Amendments found during execution
+
+Two things the plan got wrong, discovered by running it. Recorded here because
+phases 2-4 are planned from this document.
+
+**1. Companies come from two sources, not one.** `companies_career_pages.json`
+holds 3,336 entries against 1,695 company files: most listed companies have
+never been scraped into a file. Importing only the files would have silently
+shrunk every future run's scrape list to half. `import_all` therefore creates
+companies from the career-pages map first, then from the files.
+
+**2. `city`, `is_remote` and the display `location` were never stored.** The
+aggregate stage derived them for every row at the end of a run, which is why no
+company file carries a city — and why the first import produced a database
+where "jobs in Tel Aviv" returned nothing. The computation moves to write time
+(`update_jobs.location_fields_for`), used by both the import and the scrape
+stage, so they are real columns and therefore queryable. The verification
+recomputes them from the file rather than comparing against a file that never
+had them.
+
+Also worth knowing: 683 job ids appear in more than one company file (one
+company's careers page linking another's board — Astelia listing BlueSpine's
+jobs, for instance). The primary key collapses them, so the database holds
+29,439 distinct jobs where the files held 30,147 rows. The old page showed
+those duplicates twice.

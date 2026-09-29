@@ -689,6 +689,23 @@ def load_company_address_cities() -> dict[str, str]:
     return out
 
 
+def location_fields_for(job: dict, company: str, techmap_index: dict, address_cities: dict) -> dict:
+    """A job's display location, city and remote flag.
+
+    The aggregate stage used to compute this for every row at the end of a
+    run, which is why a job's own file never carried a city. It now happens
+    once, when the job is written, so "jobs in Tel Aviv" is a column and
+    therefore a query."""
+    from jobfit import pipeline as _pipeline  # its already-debugged logic, not a copy
+
+    key = connections.normalize_company(company)
+    rows = techmap_index.get(key, [])
+    location, city, is_remote = _pipeline._infer_location_fields(
+        job, rows[0]["location"] if rows else None, address_cities.get(key)
+    )
+    return {"location": location, "city": city, "is_remote": is_remote}
+
+
 # Stored per job, read by no one once the page is built: bookkeeping for the
 # score cache and the scrape health policy, and the two extraction lists the
 # page has no UI for. Together they were 16MB of jobs_v2.json. The company
