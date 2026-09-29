@@ -1,8 +1,10 @@
-"""Audit every job's URL for validity - HEAD request (GET fallback for servers
-that reject HEAD), concurrent, short timeout. Reports broken links so they can
-be reviewed/dropped; does not modify the dataset itself.
+"""Audit every open job's URL for validity - HEAD request (GET fallback for
+servers that reject HEAD), concurrent, short timeout. A URL that comes back
+404/410 is a posting that is gone: the job is CLOSED in companies/*.json
+(then re-aggregated). Errors, timeouts and 403/999 bot-blocks are
+inconclusive and change nothing.
 
-Usage: uv run python -m jobfit.scripts.check_urls [--limit N] [--workers N]
+Usage: uv run python -m jobfit.scripts.check_urls [--limit N] [--workers N] [--dry-run]
 """
 
 import argparse
@@ -48,11 +50,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--workers", type=int, default=20)
+    parser.add_argument("--dry-run", action="store_true", help="report only; don't close jobs or re-aggregate")
     args = parser.parse_args()
 
     data = json.loads(config.JOBS_OUTPUT_JSON.read_text(encoding="utf-8"))
-    jobs_with_url = [r for r in data if r.get("url")]
-    print(f"total jobs: {len(data)}, with a URL: {len(jobs_with_url)}")
+    jobs_with_url = [r for r in data if r.get("url") and r.get("status") != "closed"]
+    print(f"total jobs: {len(data)}, open with a URL: {len(jobs_with_url)}")
 
     unique_urls = list({r["url"] for r in jobs_with_url})
     if args.limit:
@@ -110,6 +113,18 @@ def main() -> None:
     for j in broken_jobs[:30]:
         line = f"  [{j['status']}:{j['detail']}] {j['company']} | {j['title'][:50]} | {j['url'][:80]}"
         print(line.encode("ascii", "replace").decode("ascii"))
+
+    if args.dry_run:
+        return
+    from jobfit.scripts import update_jobs
+
+    # Only a definite "gone" closes a job: 404/410. Errors and bot-blocks don't.
+    gone = {url: f"url: http {d}" for url, (s, d) in results.items() if s == "broken" and d in ("404", "410")}
+    stats = update_jobs.close_jobs_by_url(gone)
+    print(f"\nclosed {stats['jobs_closed']} job(s) across {stats['companies_touched']} company file(s) "
+          f"({stats['already_closed']} already closed) for {len(gone)} gone URL(s)")
+    if stats["jobs_closed"]:
+        update_jobs.recompute_stage()
 
 
 if __name__ == "__main__":

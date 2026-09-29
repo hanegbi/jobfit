@@ -517,6 +517,42 @@ def recompute_stage(force: bool = False, force_aggregate: bool = False) -> None:
         build_html.build()
 
 
+def close_jobs_by_url(closed_urls: dict[str, str]) -> dict[str, int]:
+    """Close every open job whose (normalized) URL is a key of closed_urls,
+    recording the reason - the path by which jobs that no company scrape
+    re-verifies (LinkedIn matches, WhatsApp referrals) still age out:
+    check_linkedin_closed feeds LinkedIn's "no longer accepting
+    applications" banner in here, check_urls feeds confirmed 404/410s.
+    Nothing is deleted; a closed job keeps its record, like the scrape path."""
+    wanted = {normalize_job_url(u): reason for u, reason in closed_urls.items() if normalize_job_url(u)}
+    stats = {"jobs_closed": 0, "companies_touched": 0, "already_closed": 0}
+    if not wanted:
+        return stats
+    now = _now_iso()
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="close-stale", scope=f"{len(wanted)} urls"):
+        for path in sorted(COMPANIES_DIR.glob("*.json")):
+            if path.name == "_meta.json":
+                continue
+            record = json.loads(path.read_text(encoding="utf-8"))
+            touched = False
+            for job in record.get("jobs", []):
+                reason = wanted.get(normalize_job_url(job.get("url")))
+                if reason is None:
+                    continue
+                if job.get("status") == "closed":
+                    stats["already_closed"] += 1
+                    continue
+                job["status"] = "closed"
+                job["closed_reason"] = reason
+                job["closed_at"] = now
+                stats["jobs_closed"] += 1
+                touched = True
+            if touched:
+                atomic_write_json(path, record)
+                stats["companies_touched"] += 1
+    return stats
+
+
 def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str, int]:
     """Merge WhatsApp-referral-sourced jobs into companies/*.json - same
     canonical-company + title-similarity matching as the old pipeline's

@@ -1,13 +1,15 @@
-"""Check each LinkedIn-sourced job for the "No longer accepting applications"
-banner and flag it for removal if closed.
+"""Check each open LinkedIn-sourced job for the "No longer accepting
+applications" banner and CLOSE it in companies/*.json when found (then
+re-aggregate). LinkedIn jobs come from matches/referrals that no company
+scrape re-verifies, so this is how they age out.
 
 Deliberately slow and sequential (not concurrent) - LinkedIn rate-limited even
 lightweight HEAD requests hard during the earlier URL-validity check (429 on
 ~900 of ~2,400 status-only checks), so this paces itself like a human
 browsing rather than a bot, and treats "blocked/429/error" as inconclusive
-(left alone, not removed) rather than guessing.
+(left alone, not closed) rather than guessing.
 
-Usage: uv run python -m jobfit.scripts.check_linkedin_closed [--limit N] [--delay SECONDS]
+Usage: uv run python -m jobfit.scripts.check_linkedin_closed [--limit N] [--delay SECONDS] [--dry-run]
 """
 
 import argparse
@@ -66,11 +68,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--delay", type=float, default=1.2, help="base seconds between requests")
+    parser.add_argument("--dry-run", action="store_true", help="report only; don't close jobs or re-aggregate")
     args = parser.parse_args()
 
     data = json.loads(config.JOBS_OUTPUT_JSON.read_text(encoding="utf-8"))
-    linkedin_urls = sorted({r["url"] for r in data if r.get("url") and "linkedin.com" in r["url"].lower()})
-    logger.info("total unique LinkedIn URLs: %d", len(linkedin_urls))
+    linkedin_urls = sorted({r["url"] for r in data if r.get("url") and "linkedin.com" in r["url"].lower() and r.get("status") != "closed"})
+    logger.info("open LinkedIn job URLs to verify: %d", len(linkedin_urls))
 
     already = {}
     if OUTPUT_PATH.exists():
@@ -102,6 +105,15 @@ def main() -> None:
 
     total_closed = sum(1 for v in already.values() if v == "closed")
     logger.info("done. total closed across all checks so far: %d / %d", total_closed, len(already))
+    if args.dry_run:
+        return
+    from jobfit.scripts import update_jobs
+
+    stats = update_jobs.close_jobs_by_url({u: "linkedin: no longer accepting applications" for u, v in already.items() if v == "closed"})
+    logger.info("closed %d job(s) across %d company file(s) (%d were already closed)",
+                stats["jobs_closed"], stats["companies_touched"], stats["already_closed"])
+    if stats["jobs_closed"]:
+        update_jobs.recompute_stage()
 
 
 if __name__ == "__main__":
