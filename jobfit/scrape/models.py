@@ -31,7 +31,12 @@ class Page(BaseModel):
 
 class Candidate(BaseModel):
     index: int
-    text: str
+    text: str                     # the link's whole text, as the filters see it
+    # text with card metadata (location, employment type, seniority, an
+    # "Apply" CTA) peeled off - see jobfit.scrape.titles
+    title: str = ""
+    location_hint: str | None = None
+    employment_type_hint: str | None = None
     href: str                     # absolute URL
     ancestor_path: str            # e.g. "body>main>section>ul>li>a"
     sibling_anchor_count: int     # anchors under this link's grandparent that share its href_shape (incl. itself)

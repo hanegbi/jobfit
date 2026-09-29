@@ -37,6 +37,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from jobfit import ats_fetchers, company_registry, company_review, config, connections, cv, pipeline_lock, scoring, techmap_source, translation  # noqa: E402
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
 from jobfit.scrape import bootstrap as scrape_bootstrap  # noqa: E402
+from jobfit.scrape import titles  # noqa: E402
 from jobfit.scrape.ids import normalize_job_url  # noqa: E402,F401 - re-exported: the job-id rule lives with the scrape package
 
 logger = logging.getLogger("jobfit.update_jobs")
@@ -63,18 +64,6 @@ def compute_job_id(company: str, title: str, location: str | None, url: str | No
     normalized_title = re.sub(r"[^a-z0-9]+", "", (title or "").lower())
     raw = f"{company}|{normalized_title}|{location or ''}|"
     return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:20]
-
-
-def cv_hash() -> str:
-    """Kept for meta.json bookkeeping only - no longer gates rescoring
-    (recompute_stage always rescores everything, unconditionally)."""
-    h = hashlib.sha1()
-    registry = cv.load_registry()
-    for profile_id in sorted(registry):
-        path = config.CV_PROFILES_DIR / registry[profile_id]["filename"]
-        if path.exists():
-            h.update(path.read_bytes())
-    return h.hexdigest()
 
 
 def _now_iso() -> str:
@@ -209,6 +198,14 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
         if job_id in existing_by_id:
             existing = existing_by_id[job_id]
             existing["last_seen"] = now
+            # Self-healing for titles stored before the card parser knew how
+            # to split them: adopt the freshly parsed title only when it is
+            # the stored one with metadata trimmed off, never a replacement.
+            trimmed = titles.authoritative_title([title], existing.get("title") or "")
+            if trimmed:
+                existing["title"] = trimmed
+            if job.get("location") and not (existing.get("location") or "").strip():
+                existing["location"] = job["location"]
             if job.get("job_evidence") is not None:
                 existing["job_evidence"] = job["job_evidence"]
             if existing.get("status") in ("new", "closed"):
@@ -637,14 +634,30 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
 COMPANY_ADDRESSES_PATH = config.ROOT / "data" / "company_addresses.json"
 
 
+def _row_engine_fingerprint() -> str:
+    """sha1 over every module that turns a stored job into a flattened row:
+    this one (it holds the row builder), location inference, title parsing,
+    the location/remote vocabulary readers in scoring, company-name matching
+    and the config they read. Without it a fix to that logic left every
+    cached row untouched and the page unchanged (caught live: foreign jobs
+    kept the company's city after _infer_location_fields was fixed), the same
+    trap the scoring engine's fingerprint already closes for scores."""
+    from jobfit import pipeline
+
+    hasher = hashlib.sha1()
+    for module in (sys.modules[__name__], pipeline, titles, scoring, connections, config):
+        hasher.update(Path(module.__file__).read_bytes())
+    return hasher.hexdigest()
+
+
 def _context_sha1() -> str:
     """Covers every input that a flattened row embeds besides the company
     file's own bytes: LinkedIn connections (contacts_for_company), techmap
     (industry/size/location hint) and the company address book (city
     fallback) all feed into every row, so a change to any must invalidate
     every company's cache entry, not just the one company file that
-    happened to change."""
-    hasher = hashlib.sha1()
+    happened to change - as does a change to the code that shapes a row."""
+    hasher = hashlib.sha1(_row_engine_fingerprint().encode("utf-8"))
     if config.CONNECTIONS_CSV.exists():
         hasher.update(config.CONNECTIONS_CSV.read_bytes())
     if config.TECHMAP_CACHE_DIR.exists():

@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 from jobfit import ats_fetchers
 from jobfit.ats_scorer.taxonomy import load_role_families
 from jobfit.scrape.models import Candidate, Page
+from jobfit.scrape.titles import split_card_text
 
 # A job-indicating path token, or a run of 3+ digits (a job/req id - real
 # postings are routinely id-numbered even when the surrounding path has no
@@ -148,8 +149,11 @@ class CandidateExtractor:
                     if href_shape(urljoin(page.url, (other["href"] or "").strip())) == shape
                 )
             path = urlsplit(absolute).path.rstrip("/")
+            card = split_card_text(text)
             out.append(Candidate(
                 index=len(out), text=text, href=absolute, ancestor_path=ancestor_path,
+                title=card.title or text, location_hint=card.location,
+                employment_type_hint=card.employment_type,
                 sibling_anchor_count=max(1, sibling_anchor_count),
                 same_host=_host(absolute) == career_host,
                 under_career_path=bool(career_path) and path.startswith(career_path) and path != career_path,

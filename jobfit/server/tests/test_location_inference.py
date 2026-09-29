@@ -51,3 +51,22 @@ def test_address_book_is_keyed_by_normalized_company_name(tmp_path, monkeypatch)
     cities = update_jobs.load_company_address_cities()
     from jobfit import connections
     assert cities == {connections.normalize_company("Acme Ltd."): "Herzliya"}
+
+
+def test_a_job_located_abroad_keeps_its_country_and_gets_no_city():
+    # The company-address fallback must not relabel a US/UK role as the
+    # company's Israeli city - that put foreign jobs on an Israel-only page.
+    loc, city, remote = pipeline._infer_location_fields({"location": "United States", "title": "Senior DevOps Engineer"}, None, "Tel Aviv")
+    assert (loc, city, remote) == ("United States", None, False)
+    loc, city, _ = pipeline._infer_location_fields({"location": "London, United Kingdom", "title": "Account Executive"}, None, "Herzliya")
+    assert (loc, city) == ("London, United Kingdom", None)
+
+
+def test_an_israeli_location_is_never_read_as_foreign():
+    loc, city, _ = pipeline._infer_location_fields({"location": "Israel", "title": "QA Engineer"}, None, "Herzliya")
+    assert (loc, city) == ("Herzliya", "Herzliya")
+
+
+def test_remote_abroad_stays_remote():
+    loc, city, remote = pipeline._infer_location_fields({"location": "Remote, US", "title": "SRE"}, None, "Tel Aviv")
+    assert (city, remote) == (None, True)

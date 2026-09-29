@@ -270,3 +270,32 @@ def test_compute_job_id_is_stable_across_reruns_with_identical_inputs():
     id1 = update_jobs.compute_job_id("Acme", "Backend Engineer", "Tel Aviv", "https://acme.com/x")
     id2 = update_jobs.compute_job_id("Acme", "Backend Engineer", "Tel Aviv", "https://acme.com/x")
     assert id1 == id2
+
+
+def test_a_stored_title_is_trimmed_when_the_scrape_now_parses_it_better(tmp_path, monkeypatch):
+    """Titles stored before the card parser existed heal on the next scrape -
+    but only by trimming, so a scrape can never rename a job."""
+    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
+    url = "https://acme.com/careers/1"
+    stored, _, _ = update_jobs.diff_and_update(
+        "Acme", "https://acme.com/careers",
+        [{"title": "Senior MLOps Engineer Full-time Senior Tel Aviv", "url": url}], profiles={},
+    )
+    update_jobs.atomic_write_json(tmp_path / "acme.json", stored)
+    record, _, _ = update_jobs.diff_and_update(
+        "Acme", "https://acme.com/careers",
+        [{"title": "Senior MLOps Engineer", "url": url, "location": "Tel Aviv"}], profiles={},
+    )
+    assert record["jobs"][0]["title"] == "Senior MLOps Engineer"
+    assert record["jobs"][0]["location"] == "Tel Aviv"
+
+
+def test_a_stored_title_is_never_replaced_by_a_different_one(tmp_path, monkeypatch):
+    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
+    url = "https://acme.com/careers/2"
+    stored, _, _ = update_jobs.diff_and_update("Acme", "https://acme.com/careers",
+                                               [{"title": "Senior Backend Engineer", "url": url}], profiles={})
+    update_jobs.atomic_write_json(tmp_path / "acme.json", stored)
+    record, _, _ = update_jobs.diff_and_update("Acme", "https://acme.com/careers",
+                                               [{"title": "Office Manager", "url": url}], profiles={})
+    assert record["jobs"][0]["title"] == "Senior Backend Engineer"

@@ -86,3 +86,41 @@ def test_noop_enricher_adds_minimal_evidence_only_when_missing():
     assert enriched.evidence.jsonld_jobposting is False
     again = enrich.NoopEnricher().enrich(enriched)
     assert again.evidence == enriched.evidence
+
+
+CARD_TITLE = "Senior DevOps Engineer (FedRAMP) Location United States"
+DETAIL_HTML = """<html><head><title>Senior DevOps Engineer (FedRAMP) | Orca</title></head>
+<body><h1>Senior DevOps Engineer (FedRAMP)</h1><p>Requirements: 5+ years Linux.</p></body></html>"""
+
+
+def test_enricher_takes_the_title_from_the_job_page_and_keeps_the_rest_as_location():
+    """A listing card's text is title + metadata; the job's own page states
+    the title alone, so the difference between them is the metadata."""
+    fetcher = FakePageFetcher({"https://acme.com/jobs/1": (200, DETAIL_HTML)})
+    posting = enrich.GenericHtmlEnricher(fetcher).enrich(
+        JobPosting(title=CARD_TITLE, url="https://acme.com/jobs/1", source="html_listing")
+    )
+    assert posting.title == "Senior DevOps Engineer (FedRAMP)"
+    assert posting.location == "United States"
+
+
+def test_enricher_keeps_the_listing_title_when_the_page_heading_is_unrelated():
+    html = "<html><body><h1>Careers at Acme</h1><p>Requirements: Python.</p></body></html>"
+    fetcher = FakePageFetcher({"https://acme.com/jobs/2": (200, html)})
+    posting = enrich.GenericHtmlEnricher(fetcher).enrich(
+        JobPosting(title="Senior Backend Engineer", url="https://acme.com/jobs/2", source="html_listing")
+    )
+    assert posting.title == "Senior Backend Engineer"
+
+
+def test_enricher_splits_the_card_text_when_the_job_page_cannot_be_read():
+    """The card text is what the listing scrape passes in, so a failed fetch
+    must still not store "Senior MLOps Engineer Full-time Senior Tel Aviv"."""
+    fetcher = FakePageFetcher({}, fail={"https://acme.com/jobs/3"})
+    posting = enrich.GenericHtmlEnricher(fetcher).enrich(
+        JobPosting(title="Senior MLOps Engineer Full-time Senior Tel Aviv",
+                   url="https://acme.com/jobs/3", source="html_listing")
+    )
+    assert posting.title == "Senior MLOps Engineer"
+    assert posting.location == "Tel Aviv"
+    assert posting.employment_type == "Full-time"

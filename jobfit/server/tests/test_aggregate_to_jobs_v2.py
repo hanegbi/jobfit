@@ -144,3 +144,11 @@ def test_jobs_v2_meta_json_written(isolated):
     assert meta["job_count"] == 1
     assert meta["company_count"] == 1
     assert "scoring_engine" in meta
+
+
+def test_context_hash_changes_when_the_row_building_code_changes(monkeypatch):
+    """A fix to location inference or title parsing must invalidate the
+    per-company aggregate cache - otherwise the page keeps the old rows."""
+    before = update_jobs._context_sha1()
+    monkeypatch.setattr(update_jobs, "_row_engine_fingerprint", lambda: "a-different-engine")
+    assert update_jobs._context_sha1() != before

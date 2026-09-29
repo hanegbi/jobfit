@@ -101,7 +101,7 @@ ISRAEL_LOCATION_TERMS: list[str] = [
 ]
 
 CITY_ALIASES: dict[str, list[str]] = {
-    "tel aviv": ["tel aviv", "tel-aviv", "telaviv", "tlv", "תל אביב"],
+    "tel aviv": ["tel aviv-yafo", "tel aviv yafo", "tel aviv-jaffa", "tel aviv", "tel-aviv", "telaviv", "tlv", "תל אביב"],
     "herzliya": ["herzliya", "herzilya", "הרצליה"],
     "haifa": ["haifa", "חיפה"],
     "jerusalem": ["jerusalem", "ירושלים"],

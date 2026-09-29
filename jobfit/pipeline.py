@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 
 from jobfit import ats_fetchers, config, connections, cv, referral_source, scoring, techmap_source
 from jobfit import linkedin_match_bridge as lm_bridge
+from jobfit.scrape import titles
 
 logger = logging.getLogger("jobfit.pipeline")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -92,6 +93,17 @@ def _infer_location_fields(job: dict, company_location_hint: str | None = None,
 
     title = job.get("title") or ""
     description = job.get("description") or ""
+    # A job that states a foreign country has a location; it just isn't an
+    # Israeli one. Everything below scavenges a city from the job's own text
+    # and then from the company's address - a description saying "join our Tel
+    # Aviv team" would relabel a New York role and slip it past the
+    # Israel-only filter, which is how US jobs reached the page.
+    # Kept verbatim rather than passed through to_english_location, which
+    # collapses anything remote to a bare "Remote" - "Remote, US" would then
+    # be indistinguishable from an Israeli remote role.
+    if titles.names_foreign_country(raw):
+        return " ".join(raw.split()), None, raw_remote or scoring.is_remote_location(title)
+
     city = scoring.canonical_city(title) or scoring.canonical_city(description)
     is_remote = raw_remote or scoring.is_remote_location(title) or scoring.is_remote_location(description)
     if city:

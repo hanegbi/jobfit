@@ -15,6 +15,7 @@ from jobfit.scrape.candidates import href_shape
 from jobfit.scrape.errors import FetchFailed
 from jobfit.scrape.fetchers import PageFetcher, visible_text
 from jobfit.scrape.models import Evidence, JobPosting
+from jobfit.scrape.titles import authoritative_title, detail_title_candidates, split_card_text
 
 _REQ_BUCKETS = ("must", "nice", "responsibility")
 
@@ -67,8 +68,17 @@ class GenericHtmlEnricher(DetailEnricher):
         self.fetcher = fetcher
 
     def enrich(self, posting: JobPosting) -> JobPosting:
+        """The incoming title is a listing card's whole text. The job's own
+        page is the authority on what the job is called; when the page can't
+        be read, the card is split on what the vocabulary recognizes."""
         url = posting.url
-        fallback = posting.model_copy(update={"evidence": minimal_evidence(posting.title, url, posting.description)})
+        card = split_card_text(posting.title)
+        fallback = posting.model_copy(update={
+            "title": card.title or posting.title,
+            "location": posting.location or card.location,
+            "employment_type": posting.employment_type or card.employment_type,
+            "evidence": minimal_evidence(card.title or posting.title, url, posting.description),
+        })
         if not url or any(host in url.lower() for host in ats_fetchers._SKIP_GENERIC_FETCH_HOSTS):
             return fallback
         try:
@@ -78,12 +88,17 @@ class GenericHtmlEnricher(DetailEnricher):
         if page.status >= 400:
             return fallback
         details = ats_fetchers.parse_job_details_html(page.html)
+        title = authoritative_title(detail_title_candidates(page.html), posting.title) or fallback.title
+        # Whatever the page's title left behind is the card's metadata.
+        leftover = split_card_text(posting.title[len(title):] if posting.title.startswith(title) else "")
         return posting.model_copy(update={
+            "title": title,
             "description": details["description"] or posting.description,
-            "location": posting.location or details["location"],
-            "employment_type": posting.employment_type or details["employment_type"],
+            "location": posting.location or details["location"] or leftover.location or card.location,
+            "employment_type": (posting.employment_type or details["employment_type"]
+                                or leftover.employment_type or card.employment_type),
             "posted_at": posting.posted_at or details["posted_at"],
-            "evidence": extract_evidence(page.html, posting.title, url),
+            "evidence": extract_evidence(page.html, title, url),
         })
 
 

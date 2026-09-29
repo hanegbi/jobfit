@@ -90,10 +90,17 @@ class HtmlListingScrape(ScrapeStrategy):
         accepted.sort(key=lambda c: not c.same_host)
         postings = []
         for c in accepted[: self.max_links]:
+            # The enricher gets the card's RAW text: the job's own page states
+            # the title, and that only helps if it can be matched against
+            # everything the card said. Only the no-fetch path splits it here.
             posting = JobPosting(title=c.text, url=c.href, source="html_listing")
             if normalize_job_url(c.href) in self.known_urls:
-                evidence = minimal_evidence(c.text, c.href).model_copy(update={"previously_stored": True})
-                postings.append(posting.model_copy(update={"evidence": evidence}))
+                title = c.title or c.text
+                evidence = minimal_evidence(title, c.href).model_copy(update={"previously_stored": True})
+                postings.append(posting.model_copy(update={
+                    "title": title, "location": c.location_hint,
+                    "employment_type": c.employment_type_hint, "evidence": evidence,
+                }))
             else:
                 postings.append(self.enricher.enrich(posting))
         return postings
