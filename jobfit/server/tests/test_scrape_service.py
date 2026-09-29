@@ -30,7 +30,7 @@ class StubFactory(StrategyFactory):
         self.stub = stub
         for kind in list(self._builders):
             if kind != "special_case":
-                self._builders[kind] = lambda plan: stub
+                self._builders[kind] = lambda plan, known=frozenset(): stub
 
 
 class Stub(strategies.ScrapeStrategy):

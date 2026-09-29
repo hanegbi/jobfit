@@ -85,3 +85,67 @@ def test_diff_and_update_leaves_statuses_alone_when_it_may_not_close(tmp_path, m
     assert (new, closed) == (0, 0) and record["jobs"][0]["status"] == "seen" and record["last_checked"]
     record, new, closed = update_jobs.diff_and_update("Acme", "https://acme.com/careers", [], {}, may_close=True)
     assert closed == 1 and record["jobs"][0]["status"] == "closed"
+
+
+LISTING = """<html><body><ul>
+ <li><a href="/careers/backend-engineer-1">Backend Engineer</a></li>
+ <li><a href="/careers/frontend-engineer-2">Frontend Engineer</a></li>
+ <li><a href="/careers/devops-engineer-3">DevOps Engineer</a></li>
+</ul></body></html>"""
+
+
+class _CountingEnricher:
+    def __init__(self):
+        self.seen = []
+
+    def enrich(self, posting):
+        self.seen.append(posting.url)
+        return posting.model_copy(update={"description": "fetched", "evidence": models.Evidence(apply_cta=True)})
+
+
+def test_html_listing_skips_the_page_fetch_for_jobs_the_company_already_stores():
+    """A steady-state run re-lists mostly known jobs: their pages are not
+    fetched again, and they still count as evidence for the health gate."""
+    from jobfit.scrape.classifiers import rules_chain
+    from jobfit.scrape.fetchers import PageFetcher, make_page
+    from jobfit.scrape.strategies import HtmlListingScrape
+
+    class _Fetcher(PageFetcher):
+        def fetch(self, url):
+            return make_page(url, url, 200, LISTING, "http")
+
+    enricher = _CountingEnricher()
+    known = frozenset({"https://acme.com/careers/backend-engineer-1", "https://acme.com/careers/frontend-engineer-2"})
+    scrape = HtmlListingScrape(_Fetcher(), CandidateExtractor(), rules_chain(), enricher, models.HtmlListingStrategy(), known_urls=known)
+    postings = scrape.fetch("Acme", "https://acme.com/careers/")
+    assert enricher.seen == ["https://acme.com/careers/devops-engineer-3"]  # only the new one was fetched
+    by_url = {p.url: p for p in postings}
+    assert by_url["https://acme.com/careers/backend-engineer-1"].evidence.previously_stored is True
+    assert by_url["https://acme.com/careers/backend-engineer-1"].description == ""  # the stored description stands
+    assert HealthPolicy().is_healthy(postings) is True
+
+
+def test_service_passes_known_urls_to_the_listing_scrape(monkeypatch):
+    from jobfit.scrape.fetchers import PageFetcher, make_page
+
+    class _Fetcher(PageFetcher):
+        def fetch(self, url):
+            return make_page(url, url, 200, LISTING, "http")
+
+    class _Fetchers(PageFetcherFactory):
+        def __init__(self):
+            pass
+
+        def build(self, renderer):
+            return _Fetcher()
+
+    registry = default_registry(session=None)
+    enricher = _CountingEnricher()
+    factory = StrategyFactory(registry=registry, fetchers=_Fetchers(), extractor=CandidateExtractor(), enricher=enricher,
+                              reject_patterns=[], techmap_index={}, health=HealthPolicy(), special_fetchers={}, session=None)
+    service = CompanyScrapeService(MemoryPlanStore(), factory, HealthPolicy(), registry, special_hosts=[], now=lambda: NOW)
+    service.store.put(models.ScrapePlan(company_id="acme", career_url="https://acme.com/careers/", derived_by="rules", derived_at=NOW,
+                                        status="verified", strategy=models.HtmlListingStrategy()))
+    result = service.scrape("Acme", "https://acme.com/careers/", known_job_urls=["https://acme.com/careers/backend-engineer-1/", "https://acme.com/careers/frontend-engineer-2#apply"])
+    assert len(result.postings) == 3
+    assert enricher.seen == ["https://acme.com/careers/devops-engineer-3"]

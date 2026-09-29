@@ -62,12 +62,20 @@ class HtmlListingScrape(ScrapeStrategy):
     kind = "html_listing"
 
     def __init__(self, fetcher: PageFetcher, extractor: CandidateExtractor, chain: FilterChain,
-                 enricher: DetailEnricher, strategy: HtmlListingStrategy, max_links: int = 50):
+                 enricher: DetailEnricher, strategy: HtmlListingStrategy, max_links: int = 50,
+                 known_urls: frozenset[str] = frozenset()):
         self.fetcher, self.extractor, self.chain, self.enricher, self.strategy, self.max_links = (
             fetcher, extractor, chain, enricher, strategy, max_links,
         )
+        # Normalized URLs of jobs the company already stores: their pages are
+        # not fetched again (the stored description stands), which is most of
+        # a steady-state run.
+        self.known_urls = known_urls
 
     def fetch(self, company: str, career_url: str | None) -> list[JobPosting]:
+        from jobfit.scrape.enrich import minimal_evidence
+        from jobfit.scrape.ids import normalize_job_url
+
         target = self.strategy.listing_url or career_url
         if not target:
             return []
@@ -80,10 +88,15 @@ class HtmlListingScrape(ScrapeStrategy):
         self.last_fingerprint = page_fingerprint(candidates)
         accepted, _ = self.chain.run(candidates)
         accepted.sort(key=lambda c: not c.same_host)
-        return [
-            self.enricher.enrich(JobPosting(title=c.text, url=c.href, source="html_listing"))
-            for c in accepted[: self.max_links]
-        ]
+        postings = []
+        for c in accepted[: self.max_links]:
+            posting = JobPosting(title=c.text, url=c.href, source="html_listing")
+            if normalize_job_url(c.href) in self.known_urls:
+                evidence = minimal_evidence(c.text, c.href).model_copy(update={"previously_stored": True})
+                postings.append(posting.model_copy(update={"evidence": evidence}))
+            else:
+                postings.append(self.enricher.enrich(posting))
+        return postings
 
 
 class InlineJsonScrape(ScrapeStrategy):

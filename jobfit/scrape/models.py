@@ -49,6 +49,9 @@ class Evidence(BaseModel):
     requirement_sections: int = 0
     role_family_from_title: str | None = None
     url_shape: str = ""
+    # This URL is already stored for the company (verified when first seen), so
+    # its page wasn't fetched again this run - counts as evidence for health.
+    previously_stored: bool = False
 
 
 class JobPosting(BaseModel):

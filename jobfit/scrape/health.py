@@ -27,7 +27,8 @@ class HealthPolicy:
         n = len(postings)
         with_evidence = sum(
             1 for p in postings
-            if p.evidence is not None and (p.evidence.jsonld_jobposting or p.evidence.apply_cta or p.evidence.requirement_sections >= 1)
+            if p.evidence is not None and (p.evidence.jsonld_jobposting or p.evidence.apply_cta or p.evidence.requirement_sections >= 1
+                                           or p.evidence.previously_stored)
         )
         if with_evidence / n >= self.min_evidence_ratio:
             return True

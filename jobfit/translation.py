@@ -57,13 +57,25 @@ def contains_hebrew(text: str) -> bool:
     return (hebrew_count / len(letters)) >= MIN_HEBREW_LETTER_RATIO
 
 
+_cache_memo: dict | None = None
+_cache_memo_path = None
+
+
 def _load_cache() -> dict:
+    """The on-disk cache, read once per process (and per CACHE_PATH) and kept
+    in memory: a full run looks up tens of thousands of jobs, and re-parsing
+    a multi-MB JSON file on every lookup was a measurable share of run time."""
+    global _cache_memo, _cache_memo_path
+    if _cache_memo is not None and _cache_memo_path == CACHE_PATH:
+        return _cache_memo
+    cache: dict = {}
     if CACHE_PATH.exists():
         try:
-            return json.loads(CACHE_PATH.read_text(encoding="utf-8"))
+            cache = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
-            return {}
-    return {}
+            cache = {}
+    _cache_memo, _cache_memo_path = cache, CACHE_PATH
+    return cache
 
 
 def _cache_key(text: str) -> str:

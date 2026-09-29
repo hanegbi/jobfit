@@ -90,12 +90,12 @@ class CompanyScrapeService:
         company_id = plan_id_for(company)
         plan = self._plan_for(company_id, career_url, known_job_urls)
         try:
-            strategy = self.factory.build(plan)
+            strategy = self.factory.build(plan, known_job_urls)
         except PlanInvalid as error:
             fresh = self.synthesize_plan(company_id, career_url)
             plan = fresh.model_copy(update={"notes": [f"plan invalid: {error}; re-synthesised"]})
             self.store.put(plan)
-            strategy = self.factory.build(plan)
+            strategy = self.factory.build(plan, known_job_urls)
         postings = strategy.fetch(company, career_url)  # FetchFailed propagates: nothing below runs, plan untouched
         postings = [p if p.evidence is not None else self._noop.enrich(p) for p in postings]
         plan = self.health.update(plan, postings, self.now(), fingerprint=strategy.last_fingerprint)
