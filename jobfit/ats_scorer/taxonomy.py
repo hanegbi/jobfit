@@ -36,14 +36,6 @@ class SkillsTaxonomy:
                 patterns.append(re.compile(r"\b" + re.escape(alias.lower()) + r"\b"))
             self._canonical_to_patterns[canonical] = patterns
 
-    def canonical_names(self) -> list[str]:
-        """Return every canonical skill name in taxonomy order.
-
-        Returns:
-            The list of canonical skill names.
-        """
-        return [entry["canonical"] for entry in self.entries]
-
     def find_in_text(self, text: str) -> list[str]:
         """Return every canonical skill whose alias appears in text.
 
@@ -61,23 +53,6 @@ class SkillsTaxonomy:
             if any(p.search(lowered) for p in patterns):
                 found.append(canonical)
         return found
-
-    def canonicalize(self, term: str) -> str | None:
-        """Return the canonical name for a raw term, or None if unknown.
-
-        Args:
-            term: A raw skill term (e.g. an alias or already-canonical name).
-
-        Returns:
-            The canonical name, or None if the term isn't in the taxonomy.
-        """
-        lowered = term.strip().lower()
-        if lowered in self._alias_to_canonical:
-            return self._alias_to_canonical[lowered]
-        for entry in self.entries:
-            if entry["canonical"].lower() == lowered:
-                return entry["canonical"]
-        return None
 
 
 class RoleFamilies:
