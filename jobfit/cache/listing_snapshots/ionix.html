@@ -1,714 +1,448 @@
 
-
-
 <!DOCTYPE html>
+
 <html lang="en-US">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="http://gmpg.org/xfn/11" rel="profile"/>
+<link href="https://www.ionix.io/xmlrpc.php" rel="pingback"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<!-- Start Wingify Common Smartcode -->
 
-		<link rel="profile" href="http://gmpg.org/xfn/11" />
-		<link rel="pingback" href="https://www.ionix.io/xmlrpc.php" />
+<!-- End Wingify Common Smartcode -->
+<!-- Start Wingify Async SmartCode -->
+<link href="https://dev.visualwebsiteoptimizer.com" rel="preconnect"/>
 
-		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-    <!-- Start Wingify Common Smartcode -->
-    <script data-jetpack-boost="ignore" type='text/javascript'>
-        var _vwo_clicks = 10;
-    </script>
-    <!-- End Wingify Common Smartcode -->
-                    <!-- Start Wingify Async SmartCode -->
-        <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com"/>
-        <script type='text/javascript' id="vwoCode" data-jetpack-boost="ignore">
-        window._vwo_code ||
-        (function () {
-        var w=window,
-        d=document;
-        var account_id=1202944,
-        version=2.2,
-        settings_tolerance=2000,
-        hide_element='body',
-        hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important';
-        /* DO NOT EDIT BELOW THIS LINE */
-        var f=0, v;
-        if(f=!1,v=d.querySelector('#vwoCode'),cc={},-1<d.URL.indexOf('__vwo_disable__')||w._vwo_code)return;try{var e=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=e&&'object'==typeof e?e:{}}catch(e){}function r(t){try{return decodeURIComponent(t)}catch(e){return t}}var s=function(){var e={combination:[],combinationChoose:[],split:[],exclude:[],uuid:null,consent:null,optOut:null},t=d.cookie||'';if(!t)return e;for(var n,i,o=/(?:^|;\s*)(?:(_vis_opt_exp_(\d+)_combi=([^;]*))|(_vis_opt_exp_(\d+)_combi_choose=([^;]*))|(_vis_opt_exp_(\d+)_split=([^:;]*))|(_vis_opt_exp_(\d+)_exclude=[^;]*)|(_vis_opt_out=([^;]*))|(_vwo_global_opt_out=[^;]*)|(_vwo_uuid=([^;]*))|(_vwo_consent=([^;]*)))/g;null!==(n=o.exec(t));)try{n[1]?e.combination.push({id:n[2],value:r(n[3])}):n[4]?e.combinationChoose.push({id:n[5],value:r(n[6])}):n[7]?e.split.push({id:n[8],value:r(n[9])}):n[10]?e.exclude.push({id:n[11]}):n[12]?e.optOut=r(n[13]):n[14]?e.optOut=!0:n[15]?e.uuid=r(n[16]):n[17]&&(i=r(n[18]),e.consent=i&&3<=i.length?i.substring(0,3):null)}catch(e){}return e}();function i(){var e=function(){if(w.VWO&&Array.isArray(w.VWO))for(var e=0;e<w.VWO.length;e++){var t=w.VWO[e];if(Array.isArray(t)&&('setVisitorId'===t[0]||'setSessionId'===t[0]))return!0}return!1}(),t='a='+account_id+'&u='+encodeURIComponent(w._vis_opt_url||d.URL)+'&vn='+version+'&ph=1'+('undefined'!=typeof platform?'&p='+platform:'')+'&st='+w.performance.now();e||((n=function(){var e,t=[],n={},i=w.VWO&&w.VWO.appliedCampaigns||{};for(e in i){var o=i[e]&&i[e].v;o&&(t.push(e+'-'+o+'-1'),n[e]=!0)}if(s&&s.combination)for(var r=0;r<s.combination.length;r++){var a=s.combination[r];n[a.id]||t.push(a.id+'-'+a.value)}return t.join('|')}())&&(t+='&c='+n),(n=function(){var e=[],t={};if(s&&s.combinationChoose)for(var n=0;n<s.combinationChoose.length;n++){var i=s.combinationChoose[n];e.push(i.id+'-'+i.value),t[i.id]=!0}if(s&&s.split)for(var o=0;o<s.split.length;o++)t[(i=s.split[o]).id]||e.push(i.id+'-'+i.value);return e.join('|')}())&&(t+='&cc='+n),(n=function(){var e={},t=[];if(w.VWO&&Array.isArray(w.VWO))for(var n=0;n<w.VWO.length;n++){var i=w.VWO[n];if(Array.isArray(i)&&'setVariation'===i[0]&&i[1]&&Array.isArray(i[1]))for(var o=0;o<i[1].length;o++){var r,a=i[1][o];a&&'object'==typeof a&&(r=a.e,a=a.v,r&&a&&(e[r]=a))}}for(r in e)t.push(r+'-'+e[r]);return t.join('|')}())&&(t+='&sv='+n)),s&&s.optOut&&(t+='&o='+s.optOut);var n=function(){var e=[],t={};if(s&&s.exclude)for(var n=0;n<s.exclude.length;n++){var i=s.exclude[n];t[i.id]||(e.push(i.id),t[i.id]=!0)}return e.join('|')}();return n&&(t+='&e='+n),s&&s.uuid&&(t+='&id='+s.uuid),s&&s.consent&&(t+='&consent='+s.consent),w.name&&-1<w.name.indexOf('_vis_preview')&&(t+='&pM=true'),w.VWO&&w.VWO.ed&&(t+='&ed='+w.VWO.ed),t}code={script:v,nonce:v&&v.nonce,library_tolerance:function(){return'undefined'!=typeof library_tolerance?library_tolerance:void 0},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){return performance.getEntriesByName('first-contentful-paint')[0]?'':'string'==typeof cc.hE?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){var t;f||(f=!0,(t=d.getElementById('_vis_opt_path_hides'))&&t.parentNode.removeChild(t),e&&((new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e))},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript',e.src?t.src=e.src:t.text=e.text,v&&t.setAttribute('nonce',v.nonce),d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){t=t||{};var n=new XMLHttpRequest;n.open('GET',e,!0),n.withCredentials=!t.dSC,n.responseType=t.responseType||'text',n.onload=function(){if(t.onloadCb)return t.onloadCb(n,e);200===n.status?_vwo_code.addScript({text:n.responseText}):_vwo_code.finish('&e=loading_failure:'+e)},n.onerror=function(){if(t.onerrorCb)return t.onerrorCb(e);_vwo_code.finish('&e=loading_failure:'+e)},n.send()},init:function(){var e,t=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish()},t),'body'!==this.hide_element()?(n=d.createElement('style'),e=(t=this.hide_element())?t+this.hide_element_style():'',t=d.getElementsByTagName('head')[0],n.setAttribute('id','_vis_opt_path_hides'),v&&n.setAttribute('nonce',v.nonce),n.setAttribute('type','text/css'),n.styleSheet?n.styleSheet.cssText=e:n.appendChild(d.createTextNode(e)),t.appendChild(n)):(n=d.getElementsByTagName('head')[0],(e=d.createElement('div')).style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;',e.setAttribute('id','_vis_opt_path_hides'),e.classList.add('_vis_hide_layer'),n.parentNode.insertBefore(e,n.nextSibling));var n='https://dev.visualwebsiteoptimizer.com/j.php?'+i();-1!==w.location.search.indexOf('_vwo_xhr')?this.addScript({src:n}):this.load(n+'&x=true',{l:1})}};w._vwo_code=code;code.init();})();
-        </script>
-        <!-- End Wingify Async SmartCode -->
+<!-- End Wingify Async SmartCode -->
+<!-- This site is optimized with the Yoast SEO plugin v28.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
+<title>Jobs at IONIX - IONIX Careers</title>
+<meta content="IONIX is a pioneer in ASM. Learn more about the careers available at IONIX today." name="description"/>
+<link href="https://www.ionix.io/careers/" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="Jobs at IONIX - Come work with us!" property="og:title"/>
+<meta content="IONIX is a pioneer in EASM, an emerging area in cybersecurity dedicated to helping organizations uncover vulnerabilities in their external attack surface. We’re looking for creative innovators who share our passion for protecting the world from the risks inherent in hyperconnected online attack surfaces." property="og:description"/>
+<meta content="https://www.ionix.io/careers/" property="og:url"/>
+<meta content="IONIX" property="og:site_name"/>
+<meta content="2024-11-11T06:40:20+00:00" property="article:modified_time"/>
+<meta content="https://www.ionix.io/wp-content/uploads/2024/06/hiring-3.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="625" property="og:image:height"/>
+<meta content="image/jpeg" property="og:image:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="IONIX is a pioneer in EASM, an emerging area in cybersecurity dedicated to helping organizations uncover vulnerabilities in their external attack surface. We’re looking for creative innovators who share our passion for protecting the world from the risks inherent in hyperconnected online attack surfaces." name="twitter:description"/>
+<meta content="@ionix_io" name="twitter:site"/>
+<meta content="Est. reading time" name="twitter:label1"/>
+<meta content="1 minute" name="twitter:data1"/>
+<!-- / Yoast SEO plugin. -->
+<link href="//js.hs-scripts.com" rel="dns-prefetch"/>
+<link href="https://www.ionix.io/feed/" rel="alternate" title="IONIX » Feed" type="application/rss+xml"/>
+<link href="https://www.ionix.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ionix.io%2Fcareers%2F" rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"/>
+<link href="https://www.ionix.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ionix.io%2Fcareers%2F&amp;format=xml" rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"/>
 
-        
-	<!-- This site is optimized with the Yoast SEO plugin v28.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
-	<title>Jobs at IONIX - IONIX Careers</title>
-	<meta name="description" content="IONIX is a pioneer in ASM. Learn more about the careers available at IONIX today." />
-	<link rel="canonical" href="https://www.ionix.io/careers/" />
-	<meta property="og:locale" content="en_US" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Jobs at IONIX - Come work with us!" />
-	<meta property="og:description" content="IONIX is a pioneer in EASM, an emerging area in cybersecurity dedicated to helping organizations uncover vulnerabilities in their external attack surface. We’re looking for creative innovators who share our passion for protecting the world from the risks inherent in hyperconnected online attack surfaces." />
-	<meta property="og:url" content="https://www.ionix.io/careers/" />
-	<meta property="og:site_name" content="IONIX" />
-	<meta property="article:modified_time" content="2024-11-11T06:40:20+00:00" />
-	<meta property="og:image" content="https://www.ionix.io/wp-content/uploads/2024/06/hiring-3.jpg" />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="625" />
-	<meta property="og:image:type" content="image/jpeg" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:description" content="IONIX is a pioneer in EASM, an emerging area in cybersecurity dedicated to helping organizations uncover vulnerabilities in their external attack surface. We’re looking for creative innovators who share our passion for protecting the world from the risks inherent in hyperconnected online attack surfaces." />
-	<meta name="twitter:site" content="@ionix_io" />
-	<meta name="twitter:label1" content="Est. reading time" />
-	<meta name="twitter:data1" content="1 minute" />
-	<!-- / Yoast SEO plugin. -->
+<link href="https://www.ionix.io/wp-content/plugins/comeet-wp-plugin-master/css/comeet-cards.css" id="comeet_style-css" media="all" rel="stylesheet"/>
+<link href="https://www.ionix.io/wp-content/plugins/comeet-wp-plugin-master/css/comeet-reset.css" id="comeet_reset_style-css" media="all" rel="stylesheet"/>
+
+<link href="https://www.ionix.io/wp-includes/css/dist/block-library/style.min.css?ver=2d7bad6532fc0d127deee63efaeebc1e" id="wp-block-library-css" media="all" rel="stylesheet"/>
 
 
-<link rel='dns-prefetch' href='//js.hs-scripts.com' />
 
-<link rel="alternate" type="application/rss+xml" title="IONIX &raquo; Feed" href="https://www.ionix.io/feed/" />
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.ionix.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ionix.io%2Fcareers%2F" />
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.ionix.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ionix.io%2Fcareers%2F&#038;format=xml" />
-<style id="wp-img-auto-sizes-contain-inline-css">
-img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
-/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
-</style>
-<link rel='stylesheet' id='comeet_style-css' href='https://www.ionix.io/wp-content/plugins/comeet-wp-plugin-master/css/comeet-cards.css' media='all' />
-<link rel='stylesheet' id='comeet_reset_style-css' href='https://www.ionix.io/wp-content/plugins/comeet-wp-plugin-master/css/comeet-reset.css' media='all' />
-<style id="wp-emoji-styles-inline-css">
-
-	img.wp-smiley, img.emoji {
-		display: inline !important;
-		border: none !important;
-		box-shadow: none !important;
-		height: 1em !important;
-		width: 1em !important;
-		margin: 0 0.07em !important;
-		vertical-align: -0.1em !important;
-		background: none !important;
-		padding: 0 !important;
-	}
-/*# sourceURL=wp-emoji-styles-inline-css */
-</style>
-<link rel='stylesheet' id='wp-block-library-css' href='https://www.ionix.io/wp-includes/css/dist/block-library/style.min.css?ver=2d7bad6532fc0d127deee63efaeebc1e' media='all' />
-<style id="wp-block-library-theme-inline-css">
-.wp-block-audio :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio :where(figcaption){color:hsla(0,0%,100%,.65)}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed :where(figcaption){color:hsla(0,0%,100%,.65)}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}:root :where(.wp-block-image figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme :root :where(.wp-block-image figcaption){color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote :where(cite),.wp-block-pullquote :where(footer),.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote:where(.has-text-align-right){border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote:where(.has-text-align-center){border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote:where(.is-style-plain){border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table :where(figcaption){color:hsla(0,0%,100%,.65)}.wp-block-video :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video :where(figcaption){color:hsla(0,0%,100%,.65)}.wp-block-video{margin:0 0 1em}:root :where(.wp-block-template-part.has-background){margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
-/*# sourceURL=/wp-includes/css/dist/block-library/theme.min.css */
-</style>
-<style id="safe-svg-svg-icon-style-inline-css">
-.wp-block-safe-svg-svg-icon a{align-self:center}.safe-svg-cover{text-align:center}.safe-svg-cover .safe-svg-inside{display:inline-block;max-width:100%}.safe-svg-cover svg{fill:currentColor;height:100%;max-height:100%;max-width:100%;width:100%}
-
-/*# sourceURL=https://www.ionix.io/wp-content/plugins/safe-svg/dist/safe-svg-block-frontend.css */
-</style>
-<style id="global-styles-inline-css">
-:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--secondary: #5886fb;--wp--preset--color--warning: #FFD386;--wp--preset--color--orange: #FEAA90;--wp--preset--color--danger: #FF5A5A;--wp--preset--color--dark: #2E2E2F;--wp--preset--color--light-blue: #F5F8FF;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 1.25rem;--wp--preset--font-size--medium: 1.5rem;--wp--preset--font-size--large: 1.75rem;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--extra-small: 1.125rem;--wp--preset--font-size--extra-large: 2rem;--wp--preset--font-size--xxl: 3rem;--wp--preset--font-family--inter: Inter, Arial, Helvetica, sans-serif;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1170px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{font-family: Inter, sans-serif;font-size: 1rem;font-style: normal;font-weight: 400;letter-spacing: -0.015em;line-height: calc(33 / 20);padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){color: #5886FB;}h1, h2, h3, h4, h5, h6{color: #2e2e2f;font-family: Inter, sans-serif;font-weight: 500;letter-spacing: -0.04em;}h1{color: #2E2E2F;font-size: 3.75rem;font-weight: 600;line-height: 1.25;}h2{font-size: 2.625rem;line-height: calc(51 / 42);}h3{font-size: 2rem;font-weight: 700;letter-spacing: -0.025em;line-height: calc(40 / 32);}h4{font-size: 1.5rem;font-weight: 700;letter-spacing: -0.025em;line-height: calc(35 / 24);}h5{font-size: 1.25rem;letter-spacing: -0.015em;line-height: calc(35 / 20);}h6{font-size: 1.125rem;font-weight: 700;line-height: calc(30 / 20);}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-secondary-color{color: var(--wp--preset--color--secondary) !important;}.has-warning-color{color: var(--wp--preset--color--warning) !important;}.has-orange-color{color: var(--wp--preset--color--orange) !important;}.has-danger-color{color: var(--wp--preset--color--danger) !important;}.has-dark-color{color: var(--wp--preset--color--dark) !important;}.has-light-blue-color{color: var(--wp--preset--color--light-blue) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-secondary-background-color{background-color: var(--wp--preset--color--secondary) !important;}.has-warning-background-color{background-color: var(--wp--preset--color--warning) !important;}.has-orange-background-color{background-color: var(--wp--preset--color--orange) !important;}.has-danger-background-color{background-color: var(--wp--preset--color--danger) !important;}.has-dark-background-color{background-color: var(--wp--preset--color--dark) !important;}.has-light-blue-background-color{background-color: var(--wp--preset--color--light-blue) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-secondary-border-color{border-color: var(--wp--preset--color--secondary) !important;}.has-warning-border-color{border-color: var(--wp--preset--color--warning) !important;}.has-orange-border-color{border-color: var(--wp--preset--color--orange) !important;}.has-danger-border-color{border-color: var(--wp--preset--color--danger) !important;}.has-dark-border-color{border-color: var(--wp--preset--color--dark) !important;}.has-light-blue-border-color{border-color: var(--wp--preset--color--light-blue) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-extra-small-font-size{font-size: var(--wp--preset--font-size--extra-small) !important;}.has-extra-large-font-size{font-size: var(--wp--preset--font-size--extra-large) !important;}.has-xxl-font-size{font-size: var(--wp--preset--font-size--xxl) !important;}.has-inter-font-family{font-family: var(--wp--preset--font-family--inter) !important;}
-:root :where(.wp-block-icon svg){width: 24px;}
-:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
-:root :where(.wp-block-list > li){margin-top: 0.5em;margin-bottom: 0.5em;}
-/*# sourceURL=global-styles-inline-css */
-</style>
-<link rel='stylesheet' id='components-manager-css' href='https://www.ionix.io/wp-content/plugins/component-manager//styles/style.css?ver=1.3.51' media='all' />
-<link rel='stylesheet' id='libs-css-bundle-css' href='https://www.ionix.io/wp-content/themes/airfleet/dist/styles/libs.css?ver=1788365945' media='all' />
-<link rel='stylesheet' id='generic-css-bundle-css' href='https://www.ionix.io/wp-content/themes/airfleet/dist/styles/generic.css?ver=1788365945' media='all' />
-<link rel='stylesheet' id='blocks-css-bundle-css' href='https://www.ionix.io/wp-content/themes/airfleet/dist/styles/blocks.css?ver=1788365945' media='all' />
-<link rel='stylesheet' id='theme-css-bundle-css' href='https://www.ionix.io/wp-content/themes/airfleet/dist/styles/theme.css?ver=1788365945' media='all' />
-<link rel='stylesheet' id='forms-css-bundle-css' href='https://www.ionix.io/wp-content/themes/airfleet/dist/styles/forms.css?ver=1788365945' media='all' />
-<link rel='stylesheet' id='assets-style-css' href='https://www.ionix.io/wp-content/themes/airfleet/theme/style.css?ver=1782800256' media='all' />
-<link rel='stylesheet' id='bridgeable-components-global-css' href='https://www.ionix.io/wp-content/bridgeable-components/styles/global.C5B2VxnN.css' media='all' />
-<link rel='stylesheet' id='bridgeable-sections-hero-use-cases-css' href='https://www.ionix.io/wp-content/bridgeable-components/sections/hero-use-cases/hero-use-cases.BQunx2du.css' media='all' />
-<link rel='stylesheet' id='bridgeable-sections-hero-css' href='https://www.ionix.io/wp-content/bridgeable-components/sections/hero/hero.CM_CCc23.css' media='all' />
-<script id="comeet_script-js-extra">
-var comeetvar = {"comeet_token":"8033012200C481B18098030381500","comeet_uid":"08.003","comeet_color":"278fe6","comeet_bgcolor":"","comeet_css_url":"https://www.ionix.io/wp-content/themes/airfleet/dist/styles/comeet.css?1790437043","comeet_css_cache":"set_no_cache","comeet_apply_as_employee":"true","comeet_field_email_required":"true","comeet_field_phone_required":"true","comeet_field_resume":"true","comeet_field_linkedin":"true","comeet_require_profile":"resume","comeet_field_website":"true","comeet_field_website_required":"false","comeet_field_coverletter":"true","comeet_field_coverletter_required":"false","comeet_field_portfolio":"true","comeet_field_portfolio_required":"false","comeet_field_personalnote":"true","comeet_field_personalnote_required":"false","comeet_button_text":"","comeet_font_size":"","comeet_button_font_size":"","comeet_labels_position":"responsive","comeet_button_color":"","comeet_social_pinterest":"false","comeet_social_whatsapp":"true","comeet_social_employees":"true","comeet_social_show_title":"false","comeet_social_share_url":"","comeet_social_color":"white"};
-//# sourceURL=comeet_script-js-extra
-</script>
-<script id="comeet_script-js" src="https://www.ionix.io/wp-content/plugins/comeet-wp-plugin-master/js/comeet.js?ver=10"></script>
-<script id="comeet_src_script-js" src="https://www.ionix.io/wp-content/plugins/comeet-wp-plugin-master/js/comeet-src.js?ver=3.0.2"></script>
-<script id="jquery-core-js" src="https://www.ionix.io/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
-<script id="jquery-migrate-js" src="https://www.ionix.io/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
-<script id="components-manager-js" src="https://www.ionix.io/wp-content/plugins/component-manager//scripts/script.js?ver=1.3.51"></script>
-<script id="libs-js" src="https://www.ionix.io/wp-content/themes/airfleet/dist/libs.js?ver=1788365945"></script>
-<script id="assets-script-js-extra">
-var af_app = {"ajaxurl":"https://www.ionix.io/wp-admin/admin-ajax.php"};
-//# sourceURL=assets-script-js-extra
-</script>
-<script id="assets-script-js" src="https://www.ionix.io/wp-content/themes/airfleet/dist/theme.js?ver=1788365945"></script>
-<script id="theme-js-bundle-critical-js" src="https://www.ionix.io/wp-content/themes/airfleet/dist/critical.js?ver=1788365945"></script>
-<link rel="https://api.w.org/" href="https://www.ionix.io/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.ionix.io/wp-json/wp/v2/pages/235" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.ionix.io/xmlrpc.php?rsd" />
-<link rel='shortlink' href='https://www.ionix.io/?p=235' />
-			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.75-->
-			<script class="hsq-set-content-id" data-content-id="standard-page">
-				var _hsq = _hsq || [];
-				_hsq.push(["setContentType", "standard-page"]);
-			</script>
-			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
-			<!-- Google Tag Manager -->
-<script>!function(){"use strict";function l(e){for(var t=e,r=0,n=document.cookie.split(";");r<n.length;r++){var o=n[r].split("=");if(o[0].trim()===t)return o[1]}}function s(e){return localStorage.getItem(e)}function u(e){return window[e]}function A(e,t){e=document.querySelector(e);return t?null==e?void 0:e.getAttribute(t):null==e?void 0:e.textContent}var e=window,t=document,r="script",n="dataLayer",o="https://sgtm.ionix.io",a="https://load.sgtm.ionix.io",i="ayfphaduo",c="59oh6t=BhFZJjw9S0xcQCxZWidAD1JHSlBOFAhEBhoKCBBeDxY%3D",g="cookie",v="_sbp",E="",d=!1;try{var d=!!g&&(m=navigator.userAgent,!!(m=new RegExp("Version/([0-9._]+)(.*Mobile)?.*Safari.*").exec(m)))&&16.4<=parseFloat(m[1]),f="stapeUserId"===g,I=d&&!f?function(e,t,r){void 0===t&&(t="");var n={cookie:l,localStorage:s,jsVariable:u,cssSelector:A},t=Array.isArray(t)?t:[t];if(e&&n[e])for(var o=n[e],a=0,i=t;a<i.length;a++){var c=i[a],c=r?o(c,r):o(c);if(c)return c}else console.warn("invalid uid source",e)}(g,v,E):void 0;d=d&&(!!I||f)}catch(e){console.error(e)}var m=e,g=(m[n]=m[n]||[],m[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"}),t.getElementsByTagName(r)[0]),v=I?"&bi="+encodeURIComponent(I):"",E=t.createElement(r),f=(d&&(i=8<i.length?i.replace(/([a-z]{8}$)/,"kp$1"):"kp"+i),!d&&a?a:o);E.async=!0,E.src=f+"/"+i+".js?"+c+v,null!=(e=g.parentNode)&&e.insertBefore(E,g)}();</script>
-<!-- End Google Tag Manager --><meta name="generator" content="Elementor 4.3.2; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<link href="https://www.ionix.io/wp-content/plugins/component-manager//styles/style.css?ver=1.3.51" id="components-manager-css" media="all" rel="stylesheet"/>
+<link href="https://www.ionix.io/wp-content/themes/airfleet/dist/styles/libs.css?ver=1788365945" id="libs-css-bundle-css" media="all" rel="stylesheet"/>
+<link href="https://www.ionix.io/wp-content/themes/airfleet/dist/styles/generic.css?ver=1788365945" id="generic-css-bundle-css" media="all" rel="stylesheet"/>
+<link href="https://www.ionix.io/wp-content/themes/airfleet/dist/styles/blocks.css?ver=1788365945" id="blocks-css-bundle-css" media="all" rel="stylesheet"/>
+<link href="https://www.ionix.io/wp-content/themes/airfleet/dist/styles/theme.css?ver=1788365945" id="theme-css-bundle-css" media="all" rel="stylesheet"/>
+<link href="https://www.ionix.io/wp-content/themes/airfleet/dist/styles/forms.css?ver=1788365945" id="forms-css-bundle-css" media="all" rel="stylesheet"/>
+<link href="https://www.ionix.io/wp-content/themes/airfleet/theme/style.css?ver=1782800256" id="assets-style-css" media="all" rel="stylesheet"/>
+<link href="https://www.ionix.io/wp-content/bridgeable-components/styles/global.C5B2VxnN.css" id="bridgeable-components-global-css" media="all" rel="stylesheet"/>
+<link href="https://www.ionix.io/wp-content/bridgeable-components/sections/hero-use-cases/hero-use-cases.BQunx2du.css" id="bridgeable-sections-hero-use-cases-css" media="all" rel="stylesheet"/>
+<link href="https://www.ionix.io/wp-content/bridgeable-components/sections/hero/hero.CM_CCc23.css" id="bridgeable-sections-hero-css" media="all" rel="stylesheet"/>
 
 
-<script type="application/ld+json" class="saswp-schema-markup-output">
-[{"@context":"https:\/\/schema.org\/","@graph":[{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#platform","name":"Platform","url":"https:\/\/www.ionix.io\/attack-surface-discovery\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#attack-surface-visibility","name":"Attack Surface Visibility","url":"https:\/\/www.ionix.io\/attack-surface-discovery\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#exposure-validation","name":"Exposure Validation","url":"https:\/\/www.ionix.io\/exposure-validation\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#streamlined-risk-workflow","name":"Streamlined Risk Workflow","url":"https:\/\/www.ionix.io\/accelerated-remediation\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#active-protection","name":"Active Protection","url":"https:\/\/www.ionix.io\/active-protection\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#waf-posture-management","name":"WAF Posture Management","url":"https:\/\/www.ionix.io\/waf-posture-management\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#live-exposure-defense","name":"Live Exposure Defense","url":"https:\/\/www.ionix.io\/solutions\/live-exposure-defense\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#solutions","name":"Solutions","url":"https:\/\/www.ionix.io\/solutions\/threat-exposure-management\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#ctem-expose-and-manage-threats","name":"CTEM - Expose and Manage Threats","url":"https:\/\/www.ionix.io\/solutions\/threat-exposure-management\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#easm-attack-surface-management","name":"EASM - Attack Surface Management","url":"https:\/\/www.ionix.io\/solutions\/reduce-attack-surface\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#cnapp-validation-cloud-attack-surface","name":"CNAPP Validation - Cloud Attack Surface","url":"https:\/\/www.ionix.io\/solutions\/cloud-security-operations\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#control-subsidiary-risk","name":"Control Subsidiary Risk","url":"https:\/\/www.ionix.io\/solutions\/control-subsidiary-risk\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#improve-security-posture","name":"Improve Security Posture","url":"https:\/\/www.ionix.io\/solutions\/improve-security-posture\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#manage-ma-risk","name":"Manage M&amp;A risk","url":"https:\/\/www.ionix.io\/solutions\/manage-ma-risk\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#threat-center","name":"Threat Center","url":"https:\/\/www.ionix.io\/threat-center\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#learn","name":"Learn","url":"https:\/\/www.ionix.io\/blog\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#blog","name":"Blog","url":"https:\/\/www.ionix.io\/blog\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#customers","name":"Customers","url":"https:\/\/www.ionix.io\/customers\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#resources","name":"Resources","url":"https:\/\/www.ionix.io\/resources\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#asm-rfp-template","name":"ASM RFP Template","url":"https:\/\/www.ionix.io\/asm-checklist-comparator\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#guides","name":"Guides","url":"https:\/\/www.ionix.io\/guides\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#glossary","name":"Glossary","url":"https:\/\/www.ionix.io\/cyber-security-glossary\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#company","name":"Company","url":"https:\/\/www.ionix.io\/company\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#contact-us","name":"Contact Us","url":"https:\/\/www.ionix.io\/contact-us\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#about-us","name":"About Us","url":"https:\/\/www.ionix.io\/company\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#why-ionix","name":"Why IONIX?","url":"https:\/\/www.ionix.io\/why-ionix\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#competitive-solutions","name":"Competitive Solutions","url":"https:\/\/www.ionix.io\/competitive-solutions\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#careers","name":"Careers","url":"https:\/\/www.ionix.io\/careers\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#news-and-events","name":"News and Events","url":"https:\/\/www.ionix.io\/news-and-events\/"},{"@context":"https:\/\/schema.org\/","@type":"SiteNavigationElement","@id":"https:\/\/www.ionix.io\/#partners","name":"Partners","url":"https:\/\/www.ionix.io\/partners\/"}]},
-
-{"@context":"https:\/\/schema.org\/","@type":"BreadcrumbList","@id":"https:\/\/www.ionix.io\/careers\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/www.ionix.io","name":"IONIX"}},{"@type":"ListItem","position":2,"item":{"@id":"https:\/\/www.ionix.io\/careers\/","name":"Jobs at IONIX - IONIX Careers"}}]}]
-</script>
-
-			<style>
-				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
-				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
-					background-image: none !important;
-				}
-				@media screen and (max-height: 1024px) {
-					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
-					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
-						background-image: none !important;
-					}
-				}
-				@media screen and (max-height: 640px) {
-					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
-					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
-						background-image: none !important;
-					}
-				}
-			</style>
-			<meta name="facebook-domain-verification" content="3bjjwzx0usmdo6cdbs8prxzxkrywwm" /><link rel="icon" href="https://ionix-497860167.imgix.net/wp-content/uploads/2023/04/cropped-ionix-logo-1.png?auto=format%2Ccompress&fit=crop&ixlib=php-3.3.1&max-h=32&max-w=32" sizes="32x32" />
-<link rel="icon" href="https://ionix-497860167.imgix.net/wp-content/uploads/2023/04/cropped-ionix-logo-1.png?auto=format%2Ccompress&fit=crop&ixlib=php-3.3.1&max-h=192&max-w=192" sizes="192x192" />
-<link rel="apple-touch-icon" href="https://ionix-497860167.imgix.net/wp-content/uploads/2023/04/cropped-ionix-logo-1.png?auto=format%2Ccompress&fit=crop&ixlib=php-3.3.1&max-h=180&max-w=180" />
-<meta name="msapplication-TileImage" content="https://ionix-497860167.imgix.net/wp-content/uploads/2023/04/cropped-ionix-logo-1.png?auto=format%2Ccompress&fit=crop&ixlib=php-3.3.1&max-h=270&max-w=270" />
-<style id="wp-custom-css">
-html, body {
-	text-wrap: pretty;	
-}
-
-.c-article-single__entry .wp-block-embed.is-type-video iframe {
-	width: 100%;
-	height: auto;
-	aspect-ratio: 16/9;
-}
-
-@media (min-width: 992px) {
-	.postid-2363 .b-form-and-content__content .c-section-header__title {
-		margin-top: 0.75rem;
-		margin-bottom: 1rem;
-	}
-}
-
-.hs-form-booleancheckbox label > span {
-	display: flex;
-}
-
-.hs-form-booleancheckbox label > span > p {
-	margin: 0;
-}
-
-@media (max-width: 1023px) {
-	.b-hero:has(+ .wp-block-group) {
-		margin-bottom: 0;
-	}
-}
-
-.hs_recaptcha.hs-recaptcha.hs-form-field {
-	display: none !important;
-}
-
-.report-example > .wp-block-image {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-@media (max-width: 1023px) {
-	.report-example {
-		padding-inline: 0;
-	}
-}
-
-.header__spacer {
-	height: var(--header-height) !important;
-}
-
-@media (max-width: 599px) {
-	.single-af-guides .hero_section__visual {
-		display: none;
-	}
-}
-
-.hs-form-booleancheckbox p {
-	margin: 0;
-}
-
-/** Hide Cookie Bot from Mobile on pages with form */
-@media (max-width: 1023px) { 
-	body:has(.c-form-hubspot) .CybotEdge {
-		display: none !important;
-	}
-}
-
-.padding-0 {
-	padding: 0;
-}
-
-.c-box-post .c-box-post__title {
-  font-size: 18px;
-}
-
-.call_to_action {
-	text-wrap: pretty;
-}
-
-.page-id-5279 .page__content .wp-block-group.calendar-wrapper {
-	background-color: #F6F8F9;
-}
 
 
-.page-id-2850 .b-hero--page-threat-center {
-    padding-bottom: 4rem;
-}
-</style>
-<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>			</head>
-	<body class="wp-singular page-template-default page page-id-235 wp-embed-responsive wp-theme-airfleettheme bridgeable careers elementor-default elementor-kit-5355">
-				<div class="wrapper">
-	<header class="header header--default" data-hide-on-scroll="true">
-					<div
-	class="c-announcement-bar c-announcement-bar--in-header"
-	data-bar-id="options"
->
-	<div class="container">
-		<div class="c-announcement-bar__body">
-			<div class="c-text">
-		<p>Live Exposure Defense: From CVE to Confirmed Exposure in 12 Hours &#8211; <a href="https://www.ionix.io/solutions/live-exposure-defense/">See more</a></p>
 
-	</div>
-		</div>
-	</div>
+
+
+
+
+
+<link href="https://www.ionix.io/wp-json/" rel="https://api.w.org/"/><link href="https://www.ionix.io/wp-json/wp/v2/pages/235" rel="alternate" title="JSON" type="application/json"/><link href="https://www.ionix.io/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+<link href="https://www.ionix.io/?p=235" rel="shortlink"/>
+<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.75-->
+
+<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+<!-- Google Tag Manager -->
+
+<!-- End Google Tag Manager --><meta content="Elementor 4.3.2; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap" name="generator"/>
+
+
+<meta content="3bjjwzx0usmdo6cdbs8prxzxkrywwm" name="facebook-domain-verification"/><link href="https://ionix-497860167.imgix.net/wp-content/uploads/2023/04/cropped-ionix-logo-1.png?auto=format%2Ccompress&amp;fit=crop&amp;ixlib=php-3.3.1&amp;max-h=32&amp;max-w=32" rel="icon" sizes="32x32"/>
+<link href="https://ionix-497860167.imgix.net/wp-content/uploads/2023/04/cropped-ionix-logo-1.png?auto=format%2Ccompress&amp;fit=crop&amp;ixlib=php-3.3.1&amp;max-h=192&amp;max-w=192" rel="icon" sizes="192x192"/>
+<link href="https://ionix-497860167.imgix.net/wp-content/uploads/2023/04/cropped-ionix-logo-1.png?auto=format%2Ccompress&amp;fit=crop&amp;ixlib=php-3.3.1&amp;max-h=180&amp;max-w=180" rel="apple-touch-icon"/>
+<meta content="https://ionix-497860167.imgix.net/wp-content/uploads/2023/04/cropped-ionix-logo-1.png?auto=format%2Ccompress&amp;fit=crop&amp;ixlib=php-3.3.1&amp;max-h=270&amp;max-w=270" name="msapplication-TileImage"/>
+
+ </head>
+<body class="wp-singular page-template-default page page-id-235 wp-embed-responsive wp-theme-airfleettheme bridgeable careers elementor-default elementor-kit-5355">
+<div class="wrapper">
+<header class="header header--default" data-hide-on-scroll="true">
+<div class="c-announcement-bar c-announcement-bar--in-header" data-bar-id="options">
+<div class="container">
+<div class="c-announcement-bar__body">
+<div class="c-text">
+<p>Live Exposure Defense: From CVE to Confirmed Exposure in 12 Hours – <a href="https://www.ionix.io/solutions/live-exposure-defense/">See more</a></p>
 </div>
-				<div class="container">
-			<div class="header__body">
-									<div class="header__logo">
-						<a class="logo logo-main" href="https://www.ionix.io/">
-							<img width="134" height="39" src="https://www.ionix.io/wp-content/uploads/2023/02/ionix-header-logo.svg" class="c-image header__logo-image" alt="IONIX Company Logo" decoding="async" />
-						</a>
-					</div>
-				
-				<div class="header__menu" id="navbarSupportedContent">
-					<div class="header__container container">
-						<ul id="menu-main-menu" class="nav nav-main"><li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown c-nav__dropdown menu-item-926 nav-item c-nav__item menu-item-megamenu c-nav__item-megamenu"><a title="Platform" href="https://www.ionix.io/attack-surface-discovery/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle c-nav__dropdown-toggle nav-link c-nav__link" id="menu-item-dropdown-926">Platform</a>
-<ul class="dropdown-menu c-nav__dropdown-menu c-nav__megamenu"><div class='c-nav__megamenu-wrapper container'><div class='c-nav__megamenu-inner c-nav__megamenu-inner--two-column'>
-	<div  class="c-nav__megamenu-col">
-	<ul class="c-nav__megamenu-col-items">
-		<div  class="c-nav__megamenu-col--cta"><div class="c-nav__megamenu-cta c-nav__megamenu-cta--animation">
-					<div class="nav-item-icon"><iframe class="nav-item-animation d-none d-xl-block" src="https://www.ionix.io/wp-content/uploads/2026/06/cve-12h-timeline-v2.html" title="Live Exposure Defense" scrolling="no"></iframe> <img class="d-block d-xl-none" src="https://www.ionix.io/wp-content/uploads/2026/05/live-exposure-defense-hero-v2.png" alt="" /></div>
-					<div class="nav-item-content"><div class="nav-item-title">Live Exposure Defense</div><div class="nav-item-desc">From CVE to confirmed exposure in 12 hours</div><div class="nav-item-cta-wrap">
-					<a class="c-link btn c-button c-button btn-arrow-right" href="https://www.ionix.io/solutions/live-exposure-defense/" target="">Learn More</a>
-				</div></div>
-				</div></div>
-	</ul>
 </div>
-	<div  class="c-nav__megamenu-col"><span class='c-nav__megamenu-col-title'>PLATFORM CAPABILITIES</span>
-	<ul class="c-nav__megamenu-col-items">
-		<li  class="nav-item-icon-text"><a title="Attack Surface Visibility" href="https://www.ionix.io/attack-surface-discovery/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">Attack Surface Visibility</div></div><div class="nav-item-desc">From Blind Spots to Complete 
+</div>
+</div>
+<div class="container">
+<div class="header__body">
+<div class="header__logo">
+<a class="logo logo-main" href="https://www.ionix.io/">
+<img alt="IONIX Company Logo" class="c-image header__logo-image" decoding="async" height="39" src="https://www.ionix.io/wp-content/uploads/2023/02/ionix-header-logo.svg" width="134"/>
+</a>
+</div>
+<div class="header__menu" id="navbarSupportedContent">
+<div class="header__container container">
+<ul class="nav nav-main" id="menu-main-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown c-nav__dropdown menu-item-926 nav-item c-nav__item menu-item-megamenu c-nav__item-megamenu"><a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle c-nav__dropdown-toggle nav-link c-nav__link" data-toggle="dropdown" href="https://www.ionix.io/attack-surface-discovery/" id="menu-item-dropdown-926" title="Platform">Platform</a>
+<ul class="dropdown-menu c-nav__dropdown-menu c-nav__megamenu"><div class="c-nav__megamenu-wrapper container"><div class="c-nav__megamenu-inner c-nav__megamenu-inner--two-column">
+<div class="c-nav__megamenu-col">
+<ul class="c-nav__megamenu-col-items">
+<div class="c-nav__megamenu-col--cta"><div class="c-nav__megamenu-cta c-nav__megamenu-cta--animation">
+<div class="nav-item-icon"><iframe class="nav-item-animation d-none d-xl-block" scrolling="no" src="https://www.ionix.io/wp-content/uploads/2026/06/cve-12h-timeline-v2.html" title="Live Exposure Defense"></iframe> <img alt="" class="d-block d-xl-none" src="https://www.ionix.io/wp-content/uploads/2026/05/live-exposure-defense-hero-v2.png"/></div>
+<div class="nav-item-content"><div class="nav-item-title">Live Exposure Defense</div><div class="nav-item-desc">From CVE to confirmed exposure in 12 hours</div><div class="nav-item-cta-wrap">
+<a class="c-link btn c-button c-button btn-arrow-right" href="https://www.ionix.io/solutions/live-exposure-defense/" target="">Learn More</a>
+</div></div>
+</div></div>
+</ul>
+</div>
+<div class="c-nav__megamenu-col"><span class="c-nav__megamenu-col-title">PLATFORM CAPABILITIES</span>
+<ul class="c-nav__megamenu-col-items">
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/attack-surface-discovery/" title="Attack Surface Visibility"><div><div class="nav-item-title">Attack Surface Visibility</div></div><div class="nav-item-desc">From Blind Spots to Complete 
+
 Attack Surface Visibility</div></a></li>
-		<li  class="nav-item-icon-text"><a title="Exposure Validation" href="https://www.ionix.io/exposure-validation/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">Exposure Validation</div></div><div class="nav-item-desc">Identify, Prioritize, and Fix Critical Exposures
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/exposure-validation/" title="Exposure Validation"><div><div class="nav-item-title">Exposure Validation</div></div><div class="nav-item-desc">Identify, Prioritize, and Fix Critical Exposures
+
 </div></a></li>
-		<li  class="nav-item-icon-text"><a title="Streamlined Risk Workflow" href="https://www.ionix.io/accelerated-remediation/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">Streamlined Risk Workflow</div></div><div class="nav-item-desc">Streamline Operations to Reduce MTTR</div></a></li>
-		<li  class="nav-item-icon-text"><a title="Active Protection" href="https://www.ionix.io/active-protection/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">Active Protection</div></div><div class="nav-item-desc">Stop Asset Takeovers Before they Become Incidents</div></a></li>
-		<li  class="nav-item-icon-text"><a title="WAF Posture Management" href="https://www.ionix.io/waf-posture-management/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">WAF Posture Management<span class="nav-item-badge">New</span></div></div><div class="nav-item-desc">Take control of every WAF across every domain</div></a></li>
-		<li  class="nav-item-icon-text"><a title="Live Exposure Defense" href="https://www.ionix.io/solutions/live-exposure-defense/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">Live Exposure Defense<span class="nav-item-badge">New</span></div></div><div class="nav-item-desc">From CVE to mitigated in 12 hours</div></a></li>
-	</ul>
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/accelerated-remediation/" title="Streamlined Risk Workflow"><div><div class="nav-item-title">Streamlined Risk Workflow</div></div><div class="nav-item-desc">Streamline Operations to Reduce MTTR</div></a></li>
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/active-protection/" title="Active Protection"><div><div class="nav-item-title">Active Protection</div></div><div class="nav-item-desc">Stop Asset Takeovers Before they Become Incidents</div></a></li>
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/waf-posture-management/" title="WAF Posture Management"><div><div class="nav-item-title">WAF Posture Management<span class="nav-item-badge">New</span></div></div><div class="nav-item-desc">Take control of every WAF across every domain</div></a></li>
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/solutions/live-exposure-defense/" title="Live Exposure Defense"><div><div class="nav-item-title">Live Exposure Defense<span class="nav-item-badge">New</span></div></div><div class="nav-item-desc">From CVE to mitigated in 12 hours</div></a></li>
+</ul>
 </div>
-</ul>
+</div></div></ul>
 </li>
-<li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown c-nav__dropdown menu-item-1826 nav-item c-nav__item menu-item-megamenu c-nav__item-megamenu"><a title="Solutions" href="https://www.ionix.io/solutions/threat-exposure-management/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle c-nav__dropdown-toggle nav-link c-nav__link" id="menu-item-dropdown-1826">Solutions</a>
-<ul class="dropdown-menu c-nav__dropdown-menu c-nav__megamenu"><div class='c-nav__megamenu-wrapper container'><div class='c-nav__megamenu-inner c-nav__megamenu-inner--two-column'>
-	<div  class="c-nav__megamenu-col">
-	<ul class="c-nav__megamenu-col-items">
-		<div  class="c-nav__megamenu-col--cta"><div class="c-nav__megamenu-cta">
-					<div class="nav-item-icon"><img class="d-none d-xl-block" src="https://www.ionix.io/wp-content/uploads/2023/11/attack-surface-layer-min.png" alt="" /> <img class="d-block d-xl-none" src="https://www.ionix.io/wp-content/uploads/2023/11/attack-surface-layer-min.png" alt="" /></div>
-					<div class="nav-item-content"><div class="nav-item-title">Threat Exposure Radar Explained</div><div class="nav-item-desc"></div><div class="nav-item-cta-wrap">
-					<a class="c-link btn c-button c-button btn-arrow-right" href="https://www.ionix.io/resources/video/ionix-threat-exposure-radar/" target="">Watch Now</a>
-				</div></div>
-				</div></div>
-	</ul>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown c-nav__dropdown menu-item-1826 nav-item c-nav__item menu-item-megamenu c-nav__item-megamenu"><a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle c-nav__dropdown-toggle nav-link c-nav__link" data-toggle="dropdown" href="https://www.ionix.io/solutions/threat-exposure-management/" id="menu-item-dropdown-1826" title="Solutions">Solutions</a>
+<ul class="dropdown-menu c-nav__dropdown-menu c-nav__megamenu"><div class="c-nav__megamenu-wrapper container"><div class="c-nav__megamenu-inner c-nav__megamenu-inner--two-column">
+<div class="c-nav__megamenu-col">
+<ul class="c-nav__megamenu-col-items">
+<div class="c-nav__megamenu-col--cta"><div class="c-nav__megamenu-cta">
+<div class="nav-item-icon"><img alt="" class="d-none d-xl-block" src="https://www.ionix.io/wp-content/uploads/2023/11/attack-surface-layer-min.png"/> <img alt="" class="d-block d-xl-none" src="https://www.ionix.io/wp-content/uploads/2023/11/attack-surface-layer-min.png"/></div>
+<div class="nav-item-content"><div class="nav-item-title">Threat Exposure Radar Explained</div><div class="nav-item-desc"></div><div class="nav-item-cta-wrap">
+<a class="c-link btn c-button c-button btn-arrow-right" href="https://www.ionix.io/resources/video/ionix-threat-exposure-radar/" target="">Watch Now</a>
+</div></div>
+</div></div>
+</ul>
 </div>
-	<div  class="c-nav__megamenu-col"><span class='c-nav__megamenu-col-title'>Solutions</span>
-	<ul class="c-nav__megamenu-col-items">
-		<li  class="nav-item-icon-text"><a title="CTEM - Expose and Manage Threats" href="https://www.ionix.io/solutions/threat-exposure-management/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">CTEM &#8211; Expose and Manage Threats</div></div><div class="nav-item-desc">Continuously identify, expose and remediate critical threats</div></a></li>
-		<li  class="nav-item-icon-text"><a title="EASM - Attack Surface Management" href="https://www.ionix.io/solutions/reduce-attack-surface/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">EASM &#8211; Attack Surface Management</div></div><div class="nav-item-desc">The roadmap to reducing your attack surface</div></a></li>
-		<li  class="nav-item-icon-text"><a title="CNAPP Validation - Cloud Attack Surface" href="https://www.ionix.io/solutions/cloud-security-operations/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">CNAPP Validation &#8211; Cloud Attack Surface</div></div><div class="nav-item-desc">Reduce Cloud Security Noise by Focusing on What Really Matters</div></a></li>
-		<li  class="nav-item-icon-text"><a title="Control Subsidiary Risk" href="https://www.ionix.io/solutions/control-subsidiary-risk/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">Control Subsidiary Risk</div></div><div class="nav-item-desc">Manage cyber risk across all your subsidiaries</div></a></li>
-		<li  class="nav-item-icon-text"><a title="Improve Security Posture" href="https://www.ionix.io/solutions/improve-security-posture/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">Improve Security Posture</div></div><div class="nav-item-desc">Reduce risk systematically</div></a></li>
-		<li  class="nav-item-icon-text"><a title="Manage M&amp;A risk" href="https://www.ionix.io/solutions/manage-ma-risk/" class="nav-item-icon-text-wrap"><div><div class="nav-item-title">Manage M&amp;A risk</div></div><div class="nav-item-desc">Evaluate candidate’s cyber risk</div></a></li>
-	</ul>
+<div class="c-nav__megamenu-col"><span class="c-nav__megamenu-col-title">Solutions</span>
+<ul class="c-nav__megamenu-col-items">
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/solutions/threat-exposure-management/" title="CTEM - Expose and Manage Threats"><div><div class="nav-item-title">CTEM – Expose and Manage Threats</div></div><div class="nav-item-desc">Continuously identify, expose and remediate critical threats</div></a></li>
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/solutions/reduce-attack-surface/" title="EASM - Attack Surface Management"><div><div class="nav-item-title">EASM – Attack Surface Management</div></div><div class="nav-item-desc">The roadmap to reducing your attack surface</div></a></li>
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/solutions/cloud-security-operations/" title="CNAPP Validation - Cloud Attack Surface"><div><div class="nav-item-title">CNAPP Validation – Cloud Attack Surface</div></div><div class="nav-item-desc">Reduce Cloud Security Noise by Focusing on What Really Matters</div></a></li>
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/solutions/control-subsidiary-risk/" title="Control Subsidiary Risk"><div><div class="nav-item-title">Control Subsidiary Risk</div></div><div class="nav-item-desc">Manage cyber risk across all your subsidiaries</div></a></li>
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/solutions/improve-security-posture/" title="Improve Security Posture"><div><div class="nav-item-title">Improve Security Posture</div></div><div class="nav-item-desc">Reduce risk systematically</div></a></li>
+<li class="nav-item-icon-text"><a class="nav-item-icon-text-wrap" href="https://www.ionix.io/solutions/manage-ma-risk/" title="Manage M&amp;A risk"><div><div class="nav-item-title">Manage M&amp;A risk</div></div><div class="nav-item-desc">Evaluate candidate’s cyber risk</div></a></li>
+</ul>
 </div>
+</div></div></ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3072 nav-item c-nav__item" id="menu-item-3072"><a class="nav-link c-nav__link" href="https://www.ionix.io/threat-center/" title="Threat Center">Threat Center</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown c-nav__dropdown menu-item-25 nav-item c-nav__item" id="menu-item-25"><a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle c-nav__dropdown-toggle nav-link c-nav__link" data-toggle="dropdown" href="https://www.ionix.io/blog/" id="menu-item-dropdown-25" title="Learn">Learn</a>
+<ul aria-labelledby="menu-item-dropdown-25" class="dropdown-menu c-nav__dropdown-menu" role="menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26 nav-item c-nav__item" id="menu-item-26"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/blog/" title="Blog">Blog</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24 nav-item c-nav__item" id="menu-item-24"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/customers/" title="Customers">Customers</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4139 nav-item c-nav__item" id="menu-item-4139"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/resources/" title="Resources">Resources</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5198 nav-item c-nav__item" id="menu-item-5198"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/asm-checklist-comparator/" title="ASM RFP Template">ASM RFP Template</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3831 nav-item c-nav__item" id="menu-item-3831"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/guides/" title="Guides">Guides</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2583 nav-item c-nav__item" id="menu-item-2583"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/cyber-security-glossary/" title="Glossary">Glossary</a></li>
 </ul>
 </li>
-<li   id="menu-item-3072" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3072 nav-item c-nav__item"><a title="Threat Center" href="https://www.ionix.io/threat-center/" class="nav-link c-nav__link">Threat Center</a></li>
-<li   id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown c-nav__dropdown menu-item-25 nav-item c-nav__item"><a title="Learn" href="https://www.ionix.io/blog/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle c-nav__dropdown-toggle nav-link c-nav__link" id="menu-item-dropdown-25">Learn</a>
-<ul class="dropdown-menu c-nav__dropdown-menu" aria-labelledby="menu-item-dropdown-25" role="menu">
-	<li   id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26 nav-item c-nav__item"><a title="Blog" href="https://www.ionix.io/blog/" class="dropdown-item c-nav__dropdown-item">Blog</a></li>
-	<li   id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24 nav-item c-nav__item"><a title="Customers" href="https://www.ionix.io/customers/" class="dropdown-item c-nav__dropdown-item">Customers</a></li>
-	<li   id="menu-item-4139" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4139 nav-item c-nav__item"><a title="Resources" href="https://www.ionix.io/resources/" class="dropdown-item c-nav__dropdown-item">Resources</a></li>
-	<li   id="menu-item-5198" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5198 nav-item c-nav__item"><a title="ASM RFP Template" href="https://www.ionix.io/asm-checklist-comparator/" class="dropdown-item c-nav__dropdown-item">ASM RFP Template</a></li>
-	<li   id="menu-item-3831" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3831 nav-item c-nav__item"><a title="Guides" href="https://www.ionix.io/guides/" class="dropdown-item c-nav__dropdown-item">Guides</a></li>
-	<li   id="menu-item-2583" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2583 nav-item c-nav__item"><a title="Glossary" href="https://www.ionix.io/cyber-security-glossary/" class="dropdown-item c-nav__dropdown-item">Glossary</a></li>
-</ul>
-</li>
-<li   id="menu-item-29" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children dropdown c-nav__dropdown active menu-item-29 nav-item c-nav__item"><a title="Company" href="https://www.ionix.io/company/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle c-nav__dropdown-toggle nav-link c-nav__link" id="menu-item-dropdown-29">Company</a>
-<ul class="dropdown-menu c-nav__dropdown-menu" aria-labelledby="menu-item-dropdown-29" role="menu">
-	<li   id="menu-item-3764" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3764 nav-item c-nav__item"><a title="Contact Us" href="https://www.ionix.io/contact-us/" class="dropdown-item c-nav__dropdown-item">Contact Us</a></li>
-	<li   id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30 nav-item c-nav__item"><a title="About Us" href="https://www.ionix.io/company/" class="dropdown-item c-nav__dropdown-item">About Us</a></li>
-	<li   id="menu-item-2348" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2348 nav-item c-nav__item"><a title="Why IONIX?" href="https://www.ionix.io/why-ionix/" class="dropdown-item c-nav__dropdown-item">Why IONIX?</a></li>
-	<li   id="menu-item-4126" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4126 nav-item c-nav__item"><a title="Competitive Solutions" href="https://www.ionix.io/competitive-solutions/" class="dropdown-item c-nav__dropdown-item">Competitive Solutions</a></li>
-	<li   id="menu-item-405" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-235 current_page_item active menu-item-405 nav-item c-nav__item"><a title="Careers" href="https://www.ionix.io/careers/" class="dropdown-item c-nav__dropdown-item" aria-current="page">Careers</a></li>
-	<li   id="menu-item-4140" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4140 nav-item c-nav__item"><a title="News and Events" href="https://www.ionix.io/news-and-events/" class="dropdown-item c-nav__dropdown-item">News and Events</a></li>
-	<li   id="menu-item-2919" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2919 nav-item c-nav__item"><a title="Partners" href="https://www.ionix.io/partners/" class="dropdown-item c-nav__dropdown-item">Partners</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children dropdown c-nav__dropdown active menu-item-29 nav-item c-nav__item" id="menu-item-29"><a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle c-nav__dropdown-toggle nav-link c-nav__link" data-toggle="dropdown" href="https://www.ionix.io/company/" id="menu-item-dropdown-29" title="Company">Company</a>
+<ul aria-labelledby="menu-item-dropdown-29" class="dropdown-menu c-nav__dropdown-menu" role="menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3764 nav-item c-nav__item" id="menu-item-3764"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/contact-us/" title="Contact Us">Contact Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30 nav-item c-nav__item" id="menu-item-30"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/company/" title="About Us">About Us</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2348 nav-item c-nav__item" id="menu-item-2348"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/why-ionix/" title="Why IONIX?">Why IONIX?</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4126 nav-item c-nav__item" id="menu-item-4126"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/competitive-solutions/" title="Competitive Solutions">Competitive Solutions</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-235 current_page_item active menu-item-405 nav-item c-nav__item" id="menu-item-405"><a aria-current="page" class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/careers/" title="Careers">Careers</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4140 nav-item c-nav__item" id="menu-item-4140"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/news-and-events/" title="News and Events">News and Events</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2919 nav-item c-nav__item" id="menu-item-2919"><a class="dropdown-item c-nav__dropdown-item" href="https://www.ionix.io/partners/" title="Partners">Partners</a></li>
 </ul>
 </li>
 </ul>
-
-						<div class="header__actions">
-							<ul id="menu-login-menu" class="nav nav-main"><li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-274 nav-item c-nav__item"><a title="Login" href="https://portal.ionix.io/login/?next_path=/pages/dashboard" class="nav-link c-nav__link">Login</a></li>
-<li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3765 nav-item c-nav__item"><a title="Book a Demo" href="https://www.ionix.io/book-a-demo/" class="nav-link c-nav__link c-link btn c-button btn-orange">Book a Demo</a></li>
+<div class="header__actions">
+<ul class="nav nav-main" id="menu-login-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-274 nav-item c-nav__item"><a class="nav-link c-nav__link" href="https://portal.ionix.io/login/?next_path=/pages/dashboard" title="Login">Login</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3765 nav-item c-nav__item"><a class="nav-link c-nav__link c-link btn c-button btn-orange" href="https://www.ionix.io/book-a-demo/" title="Book a Demo">Book a Demo</a></li>
 </ul>
-						</div>
-					</div>
-				</div>
-
-				<button class="btn-nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-				</button>
-			</div>
-		</div>
-	</header>
-
-	<div class="wrapper__body">
-
-					<div class="post-235 page type-page status-publish has-post-thumbnail hentry">
-			<div class="page__content">
-				<section class="c-block c-margin c-margin--bottom-default c-block b-career-lobby b-career-lobby--page-careers  align b-career-lobby-layout-default b-career-lobby-style-default" id="b-career-lobby-1">
-	<div class="c-background c-background--container">
-    
-    
-    <div class="c-background__content">
-		<div class="container">
-			<div class="b-career-lobby__head">
-				<header class="c-section-header b-career-lobby__header">
-				<h1 class="c-el c-title c-section-header__title h3 has-line-breaks">WORK <strong>WITH US</strong></h1>
-			</header>
-				<div class="c-text b-career-lobby__text">
-		<p>Join the team that is protecting organizations from new and emerging cybersecurity threats.</p>
-
-	</div>
-				<div class="c-media b-career-lobby__media c-media--picture">
-						<picture class="c-picture">
-	
-		<img fetchpriority="high" decoding="async" width="1170" height="459" src="https://ionix-497860167.imgix.net/wp-content/uploads/2024/02/careers3.png?auto=format%2Ccompress&amp;ixlib=php-3.3.1" class="c-image c-picture__image" alt="A collage of photos showcasing Ionix&#039;s team, workplace, and company culture, including photos of team outings, celebrations, and employees working in the office." srcset="https://ionix-497860167.imgix.net/wp-content/uploads/2024/02/careers3.png?auto=format%2Ccompress&amp;ixlib=php-3.3.1&amp;w=1170 1170w, https://ionix-497860167.imgix.net/wp-content/uploads/2024/02/careers3.png?auto=format%2Ccompress&amp;fit=crop&amp;h=118&amp;ixlib=php-3.3.1&amp;w=300 300w, https://ionix-497860167.imgix.net/wp-content/uploads/2024/02/careers3.png?auto=format%2Ccompress&amp;fit=crop&amp;h=402&amp;ixlib=php-3.3.1&amp;w=1024 1024w, https://ionix-497860167.imgix.net/wp-content/uploads/2024/02/careers3.png?auto=format%2Ccompress&amp;fit=crop&amp;h=301&amp;ixlib=php-3.3.1&amp;w=768 768w" sizes="(max-width: 1170px) 100vw, 1170px" />
+</div>
+</div>
+</div>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="btn-nav">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</div>
+</header>
+<div class="wrapper__body">
+<div class="post-235 page type-page status-publish has-post-thumbnail hentry">
+<div class="page__content">
+<section class="c-block c-margin c-margin--bottom-default c-block b-career-lobby b-career-lobby--page-careers align b-career-lobby-layout-default b-career-lobby-style-default" id="b-career-lobby-1">
+<div class="c-background c-background--container">
+<div class="c-background__content">
+<div class="container">
+<div class="b-career-lobby__head">
+<header class="c-section-header b-career-lobby__header">
+<h1 class="c-el c-title c-section-header__title h3 has-line-breaks">WORK <strong>WITH US</strong></h1>
+</header>
+<div class="c-text b-career-lobby__text">
+<p>Join the team that is protecting organizations from new and emerging cybersecurity threats.</p>
+</div>
+<div class="c-media b-career-lobby__media c-media--picture">
+<picture class="c-picture">
+<img alt="A collage of photos showcasing Ionix's team, workplace, and company culture, including photos of team outings, celebrations, and employees working in the office." class="c-image c-picture__image" decoding="async" fetchpriority="high" height="459" sizes="(max-width: 1170px) 100vw, 1170px" src="https://ionix-497860167.imgix.net/wp-content/uploads/2024/02/careers3.png?auto=format%2Ccompress&amp;ixlib=php-3.3.1" srcset="https://ionix-497860167.imgix.net/wp-content/uploads/2024/02/careers3.png?auto=format%2Ccompress&amp;ixlib=php-3.3.1&amp;w=1170 1170w, https://ionix-497860167.imgix.net/wp-content/uploads/2024/02/careers3.png?auto=format%2Ccompress&amp;fit=crop&amp;h=118&amp;ixlib=php-3.3.1&amp;w=300 300w, https://ionix-497860167.imgix.net/wp-content/uploads/2024/02/careers3.png?auto=format%2Ccompress&amp;fit=crop&amp;h=402&amp;ixlib=php-3.3.1&amp;w=1024 1024w, https://ionix-497860167.imgix.net/wp-content/uploads/2024/02/careers3.png?auto=format%2Ccompress&amp;fit=crop&amp;h=301&amp;ixlib=php-3.3.1&amp;w=768 768w" width="1170"/>
 </picture>
-					</div>
-
-									<div id="positions">
-						<header class="c-section-header b-career-lobby__header-below-media">
-		<p class="c-el c-title c-section-header__tagline has-line-breaks">CURRENT JOB OPENINGS</p>
-		<h2 class="c-el c-title c-section-header__title h3 has-line-breaks">EXPLORE A CAREER AT IONIX</h2>
-			</header>
-					</div>
-							</div>
-
-			<div class="b-career-lobby__body">
-				
-	<div class="b-career-lobby__filters">
-		<select class="b-career-lobby__filter b-career-lobby__filter-departments" data-filter-departments='all'>
-			<option value="all">All Departments</option>
-							<option value="marketing"><a href="https://www.ionix.io/careers/co/marketing/all">Marketing</a></option>
-							<option value="research"><a href="https://www.ionix.io/careers/co/research/all">Research</a></option>
-							<option value="sales"><a href="https://www.ionix.io/careers/co/sales/all">Sales</a></option>
-					</select>
-
-		<select class="b-career-lobby__filter b-career-lobby__filter-locations" data-filter-locations='all'>
-			<option value="all">All Locations</option>
-																<option value="east_or_tola,_remote">East or TOLA, Remote</option>
-																							<option value="us_east_coast">US East Coast</option>
-																							<option value="us,_est_or_tola_(remote)">US, EST or TOLA (Remote)</option>
-																							<option value="us_west">US West</option>
-																							<option value="israel,_tel_aviv">Israel, Tel Aviv</option>
-																																																																																																																																																																																															</select>
-
-		<div class="b-career-lobby__filter-search-wrap">
-			<input type="text" class="b-career-lobby__filter-search" placeholder="Search...">
-		</div>
-	</div>
-
-	<div class="b-career-lobby__groups js-comeet-list">
-					
-							<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="marketing" data-comeet-location="us,_est_or_tola_(remote)">
-								<div class="c-comeet-job__inner">
-									<div class="c-comeet-job__name">
-										<a href="//www.ionix.io/careers/co/us-est-or-tola-remote/5F.C62/director-of-demand-generation/">Director of Demand Generation</a>
-									</div>
-
-									<div class="c-comeet-job__meta">
-										<div class="c-comeet-job__department">
+</div>
+<div id="positions">
+<header class="c-section-header b-career-lobby__header-below-media">
+<p class="c-el c-title c-section-header__tagline has-line-breaks">CURRENT JOB OPENINGS</p>
+<h2 class="c-el c-title c-section-header__title h3 has-line-breaks">EXPLORE A CAREER AT IONIX</h2>
+</header>
+</div>
+</div>
+<div class="b-career-lobby__body">
+<div class="b-career-lobby__filters">
+<select class="b-career-lobby__filter b-career-lobby__filter-departments" data-filter-departments="all">
+<option value="all">All Departments</option>
+<option value="marketing"><a href="https://www.ionix.io/careers/co/marketing/all">Marketing</a></option>
+<option value="research"><a href="https://www.ionix.io/careers/co/research/all">Research</a></option>
+<option value="sales"><a href="https://www.ionix.io/careers/co/sales/all">Sales</a></option>
+</select>
+<select class="b-career-lobby__filter b-career-lobby__filter-locations" data-filter-locations="all">
+<option value="all">All Locations</option>
+<option value="east_or_tola,_remote">East or TOLA, Remote</option>
+<option value="us_east_coast">US East Coast</option>
+<option value="us,_est_or_tola_(remote)">US, EST or TOLA (Remote)</option>
+<option value="us_west">US West</option>
+<option value="israel,_tel_aviv">Israel, Tel Aviv</option>
+</select>
+<div class="b-career-lobby__filter-search-wrap">
+<input class="b-career-lobby__filter-search" placeholder="Search..." type="text"/>
+</div>
+</div>
+<div class="b-career-lobby__groups js-comeet-list">
+<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="marketing" data-comeet-location="us,_est_or_tola_(remote)">
+<div class="c-comeet-job__inner">
+<div class="c-comeet-job__name">
+<a href="//www.ionix.io/careers/co/us-est-or-tola-remote/5F.C62/director-of-demand-generation/">Director of Demand Generation</a>
+</div>
+<div class="c-comeet-job__meta">
+<div class="c-comeet-job__department">
 											Marketing										</div>
-										<div class="c-comeet-job__location">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_1172_51902" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#D9D9D9"/></mask><g mask="url(#mask0_1172_51902)"><path d="M12 11.5C12.4167 11.5 12.7707 11.354 13.062 11.062C13.354 10.7707 13.5 10.4167 13.5 10C13.5 9.58333 13.354 9.22933 13.062 8.938C12.7707 8.646 12.4167 8.5 12 8.5C11.5833 8.5 11.2293 8.646 10.938 8.938C10.646 9.22933 10.5 9.58333 10.5 10C10.5 10.4167 10.646 10.7707 10.938 11.062C11.2293 11.354 11.5833 11.5 12 11.5ZM12 20.25C14.0833 18.4333 15.6873 16.6167 16.812 14.8C17.9373 12.9833 18.5 11.45 18.5 10.2C18.5 8.23333 17.871 6.625 16.613 5.375C15.3543 4.125 13.8167 3.5 12 3.5C10.1833 3.5 8.646 4.125 7.388 5.375C6.12933 6.625 5.5 8.23333 5.5 10.2C5.5 11.45 6.06267 12.9833 7.188 14.8C8.31267 16.6167 9.91667 18.4333 12 20.25ZM12 21.625C9.46667 19.375 7.58333 17.2917 6.35 15.375C5.11667 13.4583 4.5 11.7333 4.5 10.2C4.5 7.85 5.25433 5.97933 6.763 4.588C8.271 3.196 10.0167 2.5 12 2.5C13.9833 2.5 15.7293 3.196 17.238 4.588C18.746 5.97933 19.5 7.85 19.5 10.2C19.5 11.7333 18.8833 13.4583 17.65 15.375C16.4167 17.2917 14.5333 19.375 12 21.625Z" fill="#5886FB"/></g></svg>US, EST or TOLA (Remote)</div>
-									</div>
-
-									<div class="c-comeet-job__footer">
-										<a class="btn btn-text" href="//www.ionix.io/careers/co/us-est-or-tola-remote/5F.C62/director-of-demand-generation/">Read more<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8.5" fill="#5886FB"/><path d="M8 13L12 8.82609L8 5" stroke="white" stroke-width="1"/></svg></a>
-									</div>
-
-								</div>
-							</div>
-												
-							<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="research" data-comeet-location="israel,_tel_aviv">
-								<div class="c-comeet-job__inner">
-									<div class="c-comeet-job__name">
-										<a href="//www.ionix.io/careers/co/israel-tel-aviv/59.66B/security-researcher/">Security Researcher</a>
-									</div>
-
-									<div class="c-comeet-job__meta">
-										<div class="c-comeet-job__department">
+<div class="c-comeet-job__location">
+US, EST or TOLA (Remote)</div>
+</div>
+<div class="c-comeet-job__footer">
+<a class="btn btn-text" href="//www.ionix.io/careers/co/us-est-or-tola-remote/5F.C62/director-of-demand-generation/">Read more</a>
+</div>
+</div>
+</div>
+<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="research" data-comeet-location="israel,_tel_aviv">
+<div class="c-comeet-job__inner">
+<div class="c-comeet-job__name">
+<a href="//www.ionix.io/careers/co/israel-tel-aviv/59.66B/security-researcher/">Security Researcher</a>
+</div>
+<div class="c-comeet-job__meta">
+<div class="c-comeet-job__department">
 											Research										</div>
-										<div class="c-comeet-job__location">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_1172_51902" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#D9D9D9"/></mask><g mask="url(#mask0_1172_51902)"><path d="M12 11.5C12.4167 11.5 12.7707 11.354 13.062 11.062C13.354 10.7707 13.5 10.4167 13.5 10C13.5 9.58333 13.354 9.22933 13.062 8.938C12.7707 8.646 12.4167 8.5 12 8.5C11.5833 8.5 11.2293 8.646 10.938 8.938C10.646 9.22933 10.5 9.58333 10.5 10C10.5 10.4167 10.646 10.7707 10.938 11.062C11.2293 11.354 11.5833 11.5 12 11.5ZM12 20.25C14.0833 18.4333 15.6873 16.6167 16.812 14.8C17.9373 12.9833 18.5 11.45 18.5 10.2C18.5 8.23333 17.871 6.625 16.613 5.375C15.3543 4.125 13.8167 3.5 12 3.5C10.1833 3.5 8.646 4.125 7.388 5.375C6.12933 6.625 5.5 8.23333 5.5 10.2C5.5 11.45 6.06267 12.9833 7.188 14.8C8.31267 16.6167 9.91667 18.4333 12 20.25ZM12 21.625C9.46667 19.375 7.58333 17.2917 6.35 15.375C5.11667 13.4583 4.5 11.7333 4.5 10.2C4.5 7.85 5.25433 5.97933 6.763 4.588C8.271 3.196 10.0167 2.5 12 2.5C13.9833 2.5 15.7293 3.196 17.238 4.588C18.746 5.97933 19.5 7.85 19.5 10.2C19.5 11.7333 18.8833 13.4583 17.65 15.375C16.4167 17.2917 14.5333 19.375 12 21.625Z" fill="#5886FB"/></g></svg>Israel, Tel Aviv</div>
-									</div>
-
-									<div class="c-comeet-job__footer">
-										<a class="btn btn-text" href="//www.ionix.io/careers/co/israel-tel-aviv/59.66B/security-researcher/">Read more<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8.5" fill="#5886FB"/><path d="M8 13L12 8.82609L8 5" stroke="white" stroke-width="1"/></svg></a>
-									</div>
-
-								</div>
-							</div>
-												
-							<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="sales" data-comeet-location="east_or_tola,_remote">
-								<div class="c-comeet-job__inner">
-									<div class="c-comeet-job__name">
-										<a href="//www.ionix.io/careers/co/east-or-tola-remote/94.D67/channel-account-manager/">Channel Account Manager</a>
-									</div>
-
-									<div class="c-comeet-job__meta">
-										<div class="c-comeet-job__department">
+<div class="c-comeet-job__location">
+Israel, Tel Aviv</div>
+</div>
+<div class="c-comeet-job__footer">
+<a class="btn btn-text" href="//www.ionix.io/careers/co/israel-tel-aviv/59.66B/security-researcher/">Read more</a>
+</div>
+</div>
+</div>
+<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="sales" data-comeet-location="east_or_tola,_remote">
+<div class="c-comeet-job__inner">
+<div class="c-comeet-job__name">
+<a href="//www.ionix.io/careers/co/east-or-tola-remote/94.D67/channel-account-manager/">Channel Account Manager</a>
+</div>
+<div class="c-comeet-job__meta">
+<div class="c-comeet-job__department">
 											Sales										</div>
-										<div class="c-comeet-job__location">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_1172_51902" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#D9D9D9"/></mask><g mask="url(#mask0_1172_51902)"><path d="M12 11.5C12.4167 11.5 12.7707 11.354 13.062 11.062C13.354 10.7707 13.5 10.4167 13.5 10C13.5 9.58333 13.354 9.22933 13.062 8.938C12.7707 8.646 12.4167 8.5 12 8.5C11.5833 8.5 11.2293 8.646 10.938 8.938C10.646 9.22933 10.5 9.58333 10.5 10C10.5 10.4167 10.646 10.7707 10.938 11.062C11.2293 11.354 11.5833 11.5 12 11.5ZM12 20.25C14.0833 18.4333 15.6873 16.6167 16.812 14.8C17.9373 12.9833 18.5 11.45 18.5 10.2C18.5 8.23333 17.871 6.625 16.613 5.375C15.3543 4.125 13.8167 3.5 12 3.5C10.1833 3.5 8.646 4.125 7.388 5.375C6.12933 6.625 5.5 8.23333 5.5 10.2C5.5 11.45 6.06267 12.9833 7.188 14.8C8.31267 16.6167 9.91667 18.4333 12 20.25ZM12 21.625C9.46667 19.375 7.58333 17.2917 6.35 15.375C5.11667 13.4583 4.5 11.7333 4.5 10.2C4.5 7.85 5.25433 5.97933 6.763 4.588C8.271 3.196 10.0167 2.5 12 2.5C13.9833 2.5 15.7293 3.196 17.238 4.588C18.746 5.97933 19.5 7.85 19.5 10.2C19.5 11.7333 18.8833 13.4583 17.65 15.375C16.4167 17.2917 14.5333 19.375 12 21.625Z" fill="#5886FB"/></g></svg>East or TOLA, Remote</div>
-									</div>
-
-									<div class="c-comeet-job__footer">
-										<a class="btn btn-text" href="//www.ionix.io/careers/co/east-or-tola-remote/94.D67/channel-account-manager/">Read more<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8.5" fill="#5886FB"/><path d="M8 13L12 8.82609L8 5" stroke="white" stroke-width="1"/></svg></a>
-									</div>
-
-								</div>
-							</div>
-							
-							<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="sales" data-comeet-location="us_east_coast">
-								<div class="c-comeet-job__inner">
-									<div class="c-comeet-job__name">
-										<a href="//www.ionix.io/careers/co/us-east-coast/3D.F62/director-of-customer-success/">Director of Customer Success</a>
-									</div>
-
-									<div class="c-comeet-job__meta">
-										<div class="c-comeet-job__department">
+<div class="c-comeet-job__location">
+East or TOLA, Remote</div>
+</div>
+<div class="c-comeet-job__footer">
+<a class="btn btn-text" href="//www.ionix.io/careers/co/east-or-tola-remote/94.D67/channel-account-manager/">Read more</a>
+</div>
+</div>
+</div>
+<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="sales" data-comeet-location="us_east_coast">
+<div class="c-comeet-job__inner">
+<div class="c-comeet-job__name">
+<a href="//www.ionix.io/careers/co/us-east-coast/3D.F62/director-of-customer-success/">Director of Customer Success</a>
+</div>
+<div class="c-comeet-job__meta">
+<div class="c-comeet-job__department">
 											Sales										</div>
-										<div class="c-comeet-job__location">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_1172_51902" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#D9D9D9"/></mask><g mask="url(#mask0_1172_51902)"><path d="M12 11.5C12.4167 11.5 12.7707 11.354 13.062 11.062C13.354 10.7707 13.5 10.4167 13.5 10C13.5 9.58333 13.354 9.22933 13.062 8.938C12.7707 8.646 12.4167 8.5 12 8.5C11.5833 8.5 11.2293 8.646 10.938 8.938C10.646 9.22933 10.5 9.58333 10.5 10C10.5 10.4167 10.646 10.7707 10.938 11.062C11.2293 11.354 11.5833 11.5 12 11.5ZM12 20.25C14.0833 18.4333 15.6873 16.6167 16.812 14.8C17.9373 12.9833 18.5 11.45 18.5 10.2C18.5 8.23333 17.871 6.625 16.613 5.375C15.3543 4.125 13.8167 3.5 12 3.5C10.1833 3.5 8.646 4.125 7.388 5.375C6.12933 6.625 5.5 8.23333 5.5 10.2C5.5 11.45 6.06267 12.9833 7.188 14.8C8.31267 16.6167 9.91667 18.4333 12 20.25ZM12 21.625C9.46667 19.375 7.58333 17.2917 6.35 15.375C5.11667 13.4583 4.5 11.7333 4.5 10.2C4.5 7.85 5.25433 5.97933 6.763 4.588C8.271 3.196 10.0167 2.5 12 2.5C13.9833 2.5 15.7293 3.196 17.238 4.588C18.746 5.97933 19.5 7.85 19.5 10.2C19.5 11.7333 18.8833 13.4583 17.65 15.375C16.4167 17.2917 14.5333 19.375 12 21.625Z" fill="#5886FB"/></g></svg>US East Coast</div>
-									</div>
-
-									<div class="c-comeet-job__footer">
-										<a class="btn btn-text" href="//www.ionix.io/careers/co/us-east-coast/3D.F62/director-of-customer-success/">Read more<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8.5" fill="#5886FB"/><path d="M8 13L12 8.82609L8 5" stroke="white" stroke-width="1"/></svg></a>
-									</div>
-
-								</div>
-							</div>
-							
-							<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="sales" data-comeet-location="us_west">
-								<div class="c-comeet-job__inner">
-									<div class="c-comeet-job__name">
-										<a href="//www.ionix.io/careers/co/us-west/A7.A6E/enterprise-account-executive-west/">Enterprise Account Executive &#8211; West</a>
-									</div>
-
-									<div class="c-comeet-job__meta">
-										<div class="c-comeet-job__department">
+<div class="c-comeet-job__location">
+US East Coast</div>
+</div>
+<div class="c-comeet-job__footer">
+<a class="btn btn-text" href="//www.ionix.io/careers/co/us-east-coast/3D.F62/director-of-customer-success/">Read more</a>
+</div>
+</div>
+</div>
+<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="sales" data-comeet-location="us_west">
+<div class="c-comeet-job__inner">
+<div class="c-comeet-job__name">
+<a href="//www.ionix.io/careers/co/us-west/A7.A6E/enterprise-account-executive-west/">Enterprise Account Executive – West</a>
+</div>
+<div class="c-comeet-job__meta">
+<div class="c-comeet-job__department">
 											Sales										</div>
-										<div class="c-comeet-job__location">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_1172_51902" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#D9D9D9"/></mask><g mask="url(#mask0_1172_51902)"><path d="M12 11.5C12.4167 11.5 12.7707 11.354 13.062 11.062C13.354 10.7707 13.5 10.4167 13.5 10C13.5 9.58333 13.354 9.22933 13.062 8.938C12.7707 8.646 12.4167 8.5 12 8.5C11.5833 8.5 11.2293 8.646 10.938 8.938C10.646 9.22933 10.5 9.58333 10.5 10C10.5 10.4167 10.646 10.7707 10.938 11.062C11.2293 11.354 11.5833 11.5 12 11.5ZM12 20.25C14.0833 18.4333 15.6873 16.6167 16.812 14.8C17.9373 12.9833 18.5 11.45 18.5 10.2C18.5 8.23333 17.871 6.625 16.613 5.375C15.3543 4.125 13.8167 3.5 12 3.5C10.1833 3.5 8.646 4.125 7.388 5.375C6.12933 6.625 5.5 8.23333 5.5 10.2C5.5 11.45 6.06267 12.9833 7.188 14.8C8.31267 16.6167 9.91667 18.4333 12 20.25ZM12 21.625C9.46667 19.375 7.58333 17.2917 6.35 15.375C5.11667 13.4583 4.5 11.7333 4.5 10.2C4.5 7.85 5.25433 5.97933 6.763 4.588C8.271 3.196 10.0167 2.5 12 2.5C13.9833 2.5 15.7293 3.196 17.238 4.588C18.746 5.97933 19.5 7.85 19.5 10.2C19.5 11.7333 18.8833 13.4583 17.65 15.375C16.4167 17.2917 14.5333 19.375 12 21.625Z" fill="#5886FB"/></g></svg>US West</div>
-									</div>
-
-									<div class="c-comeet-job__footer">
-										<a class="btn btn-text" href="//www.ionix.io/careers/co/us-west/A7.A6E/enterprise-account-executive-west/">Read more<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8.5" fill="#5886FB"/><path d="M8 13L12 8.82609L8 5" stroke="white" stroke-width="1"/></svg></a>
-									</div>
-
-								</div>
-							</div>
-							
-							<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="sales" data-comeet-location="us,_est_or_tola_(remote)">
-								<div class="c-comeet-job__inner">
-									<div class="c-comeet-job__name">
-										<a href="//www.ionix.io/careers/co/us-est-or-tola-remote/8C.277/solutions-engineer/">Solutions Engineer</a>
-									</div>
-
-									<div class="c-comeet-job__meta">
-										<div class="c-comeet-job__department">
+<div class="c-comeet-job__location">
+US West</div>
+</div>
+<div class="c-comeet-job__footer">
+<a class="btn btn-text" href="//www.ionix.io/careers/co/us-west/A7.A6E/enterprise-account-executive-west/">Read more</a>
+</div>
+</div>
+</div>
+<div class="c-comeet-job js-comeet-job b-career-lobby__job-item" data-comeet-department="sales" data-comeet-location="us,_est_or_tola_(remote)">
+<div class="c-comeet-job__inner">
+<div class="c-comeet-job__name">
+<a href="//www.ionix.io/careers/co/us-est-or-tola-remote/8C.277/solutions-engineer/">Solutions Engineer</a>
+</div>
+<div class="c-comeet-job__meta">
+<div class="c-comeet-job__department">
 											Sales										</div>
-										<div class="c-comeet-job__location">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_1172_51902" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#D9D9D9"/></mask><g mask="url(#mask0_1172_51902)"><path d="M12 11.5C12.4167 11.5 12.7707 11.354 13.062 11.062C13.354 10.7707 13.5 10.4167 13.5 10C13.5 9.58333 13.354 9.22933 13.062 8.938C12.7707 8.646 12.4167 8.5 12 8.5C11.5833 8.5 11.2293 8.646 10.938 8.938C10.646 9.22933 10.5 9.58333 10.5 10C10.5 10.4167 10.646 10.7707 10.938 11.062C11.2293 11.354 11.5833 11.5 12 11.5ZM12 20.25C14.0833 18.4333 15.6873 16.6167 16.812 14.8C17.9373 12.9833 18.5 11.45 18.5 10.2C18.5 8.23333 17.871 6.625 16.613 5.375C15.3543 4.125 13.8167 3.5 12 3.5C10.1833 3.5 8.646 4.125 7.388 5.375C6.12933 6.625 5.5 8.23333 5.5 10.2C5.5 11.45 6.06267 12.9833 7.188 14.8C8.31267 16.6167 9.91667 18.4333 12 20.25ZM12 21.625C9.46667 19.375 7.58333 17.2917 6.35 15.375C5.11667 13.4583 4.5 11.7333 4.5 10.2C4.5 7.85 5.25433 5.97933 6.763 4.588C8.271 3.196 10.0167 2.5 12 2.5C13.9833 2.5 15.7293 3.196 17.238 4.588C18.746 5.97933 19.5 7.85 19.5 10.2C19.5 11.7333 18.8833 13.4583 17.65 15.375C16.4167 17.2917 14.5333 19.375 12 21.625Z" fill="#5886FB"/></g></svg>US, EST or TOLA (Remote)</div>
-									</div>
-
-									<div class="c-comeet-job__footer">
-										<a class="btn btn-text" href="//www.ionix.io/careers/co/us-est-or-tola-remote/8C.277/solutions-engineer/">Read more<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8.5" fill="#5886FB"/><path d="M8 13L12 8.82609L8 5" stroke="white" stroke-width="1"/></svg></a>
-									</div>
-
-								</div>
-							</div>
-											<div class="b-career-lobby__nothing-found d-none">
+<div class="c-comeet-job__location">
+US, EST or TOLA (Remote)</div>
+</div>
+<div class="c-comeet-job__footer">
+<a class="btn btn-text" href="//www.ionix.io/careers/co/us-est-or-tola-remote/8C.277/solutions-engineer/">Read more</a>
+</div>
+</div>
+</div>
+<div class="b-career-lobby__nothing-found d-none">
 			Nothing found.		</div>
-	</div>
-
-
-			</div>
-		</div>
-	</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
-							</div>
-		</div>
-	
+</div>
+</div>
 </div>
 <footer class="c-footer">
-	<div class="container">
-		<div class="c-footer__body">
-			<nav class="c-footer__menu"><ul id="menu-footer-menu" class="menu"><li id="menu-item-929" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-929"><a href="#">Product</a>
+<div class="container">
+<div class="c-footer__body">
+<nav class="c-footer__menu"><ul class="menu" id="menu-footer-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-929" id="menu-item-929"><a href="#">Product</a>
 <ul class="sub-menu">
-	<li id="menu-item-419" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-419"><a href="https://www.ionix.io/attack-surface-discovery/">Attack surface discovery</a></li>
-	<li id="menu-item-2465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2465"><a href="https://www.ionix.io/exposure-validation/">Exposure validation</a></li>
-	<li id="menu-item-972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972"><a href="https://www.ionix.io/accelerated-remediation/">Streamlined Risk Workflow</a></li>
-	<li id="menu-item-6857" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6857"><a href="https://www.ionix.io/active-protection/">Active Protection</a></li>
-	<li id="menu-item-970" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-970"><a href="https://www.ionix.io/risk-prioritization/">Risk prioritization</a></li>
-	<li id="menu-item-971" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-971"><a href="https://www.ionix.io/risk-assessment/">Risk assessment</a></li>
-	<li id="menu-item-6994" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6994"><a href="https://www.ionix.io/waf-posture-management/">WAF Posture Management</a></li>
-	<li id="menu-item-7183" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7183"><a href="https://www.ionix.io/solutions/live-exposure-defense/">Live Exposure Defense</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-419" id="menu-item-419"><a href="https://www.ionix.io/attack-surface-discovery/">Attack surface discovery</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2465" id="menu-item-2465"><a href="https://www.ionix.io/exposure-validation/">Exposure validation</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972" id="menu-item-972"><a href="https://www.ionix.io/accelerated-remediation/">Streamlined Risk Workflow</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6857" id="menu-item-6857"><a href="https://www.ionix.io/active-protection/">Active Protection</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-970" id="menu-item-970"><a href="https://www.ionix.io/risk-prioritization/">Risk prioritization</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-971" id="menu-item-971"><a href="https://www.ionix.io/risk-assessment/">Risk assessment</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6994" id="menu-item-6994"><a href="https://www.ionix.io/waf-posture-management/">WAF Posture Management</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7183" id="menu-item-7183"><a href="https://www.ionix.io/solutions/live-exposure-defense/">Live Exposure Defense</a></li>
 </ul>
 </li>
-<li id="menu-item-930" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-930"><a href="#">Solution</a>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-930" id="menu-item-930"><a href="#">Solution</a>
 <ul class="sub-menu">
-	<li id="menu-item-2467" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2467"><a href="https://www.ionix.io/solutions/threat-exposure-management/">Threat exposure management</a></li>
-	<li id="menu-item-973" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-973"><a href="https://www.ionix.io/solutions/reduce-attack-surface/">Reduce attack surface</a></li>
-	<li id="menu-item-974" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-974"><a href="https://www.ionix.io/solutions/control-subsidiary-risk/">Control subsidiary risk</a></li>
-	<li id="menu-item-3560" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3560"><a href="https://www.ionix.io/solutions/cloud-security-operations/">Cloud Attack Surface</a></li>
-	<li id="menu-item-1207" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1207"><a href="https://www.ionix.io/solutions/improve-security-posture/">Improve Security Posture</a></li>
-	<li id="menu-item-1208" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1208"><a href="https://www.ionix.io/solutions/manage-ma-risk/">Manage M&amp;A risk</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2467" id="menu-item-2467"><a href="https://www.ionix.io/solutions/threat-exposure-management/">Threat exposure management</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-973" id="menu-item-973"><a href="https://www.ionix.io/solutions/reduce-attack-surface/">Reduce attack surface</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-974" id="menu-item-974"><a href="https://www.ionix.io/solutions/control-subsidiary-risk/">Control subsidiary risk</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3560" id="menu-item-3560"><a href="https://www.ionix.io/solutions/cloud-security-operations/">Cloud Attack Surface</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1207" id="menu-item-1207"><a href="https://www.ionix.io/solutions/improve-security-posture/">Improve Security Posture</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1208" id="menu-item-1208"><a href="https://www.ionix.io/solutions/manage-ma-risk/">Manage M&amp;A risk</a></li>
 </ul>
 </li>
-<li id="menu-item-38" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-38"><a href="#">Company</a>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-38" id="menu-item-38"><a href="#">Company</a>
 <ul class="sub-menu">
-	<li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39"><a href="https://www.ionix.io/company/">About Us</a></li>
-	<li id="menu-item-4128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4128"><a href="https://www.ionix.io/why-ionix/">Why IONIX</a></li>
-	<li id="menu-item-4127" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4127"><a href="https://www.ionix.io/competitive-solutions/">Competitive Solutions</a></li>
-	<li id="menu-item-425" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-235 current_page_item menu-item-425"><a href="https://www.ionix.io/careers/" aria-current="page">Careers</a></li>
-	<li id="menu-item-4141" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4141"><a href="https://www.ionix.io/news-and-events/">News and Events</a></li>
-	<li id="menu-item-2920" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2920"><a href="https://www.ionix.io/partners/">Partners</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39" id="menu-item-39"><a href="https://www.ionix.io/company/">About Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4128" id="menu-item-4128"><a href="https://www.ionix.io/why-ionix/">Why IONIX</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4127" id="menu-item-4127"><a href="https://www.ionix.io/competitive-solutions/">Competitive Solutions</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-235 current_page_item menu-item-425" id="menu-item-425"><a aria-current="page" href="https://www.ionix.io/careers/">Careers</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4141" id="menu-item-4141"><a href="https://www.ionix.io/news-and-events/">News and Events</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2920" id="menu-item-2920"><a href="https://www.ionix.io/partners/">Partners</a></li>
 </ul>
 </li>
-<li id="menu-item-43" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-43"><a href="#">Learn</a>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-43" id="menu-item-43"><a href="#">Learn</a>
 <ul class="sub-menu">
-	<li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="https://www.ionix.io/blog/">Blog</a></li>
-	<li id="menu-item-3832" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3832"><a href="https://www.ionix.io/customers/">Customers</a></li>
-	<li id="menu-item-4142" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4142"><a href="https://www.ionix.io/resources/">Resources</a></li>
-	<li id="menu-item-5200" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5200"><a href="https://www.ionix.io/asm-checklist-comparator/">ASM RFP Template</a></li>
-	<li id="menu-item-3833" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3833"><a href="https://www.ionix.io/guides/">Guides</a></li>
-	<li id="menu-item-2506" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2506"><a href="https://www.ionix.io/cyber-security-glossary/">Glossary</a></li>
-	<li id="menu-item-3073" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3073"><a href="https://www.ionix.io/threat-center/">Threat Center</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44" id="menu-item-44"><a href="https://www.ionix.io/blog/">Blog</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3832" id="menu-item-3832"><a href="https://www.ionix.io/customers/">Customers</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4142" id="menu-item-4142"><a href="https://www.ionix.io/resources/">Resources</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5200" id="menu-item-5200"><a href="https://www.ionix.io/asm-checklist-comparator/">ASM RFP Template</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3833" id="menu-item-3833"><a href="https://www.ionix.io/guides/">Guides</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2506" id="menu-item-2506"><a href="https://www.ionix.io/cyber-security-glossary/">Glossary</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3073" id="menu-item-3073"><a href="https://www.ionix.io/threat-center/">Threat Center</a></li>
 </ul>
 </li>
-<li id="menu-item-1187" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1187"><a href="#">Contact</a>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1187" id="menu-item-1187"><a href="#">Contact</a>
 <ul class="sub-menu">
-	<li id="menu-item-47" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47"><a href="https://www.ionix.io/contact-us/">CONTACT US</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-47" id="menu-item-47"><a href="https://www.ionix.io/contact-us/">CONTACT US</a></li>
 </ul>
 </li>
 </ul></nav>
-		</div>
-		<div class="c-footer__bar">
-			<div class="c-media c-footer__logo c-media--picture">
-						<picture class="c-picture">
-	
-		<img width="34" height="36" src="https://www.ionix.io/wp-content/uploads/2023/02/footer-logo.svg" class="c-image c-picture__image" alt="IONIX logo" decoding="async" />
+</div>
+<div class="c-footer__bar">
+<div class="c-media c-footer__logo c-media--picture">
+<picture class="c-picture">
+<img alt="IONIX logo" class="c-image c-picture__image" decoding="async" height="36" src="https://www.ionix.io/wp-content/uploads/2023/02/footer-logo.svg" width="34"/>
 </picture>
-					</div>
-			<div class="c-footer__privacy-menu">
-				<nav class="menu-privacy-menu-container"><ul id="menu-privacy-menu" class="menu"><li id="menu-item-1520" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1520"><a href="https://www.ionix.io/terms-and-conditions/">IONIX TERMS AND CONDITIONS</a></li>
-<li id="menu-item-51" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-51"><a rel="privacy-policy" href="https://www.ionix.io/privacy-policy/">Privacy Policy</a></li>
-<li id="menu-item-1519" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1519"><a href="https://www.ionix.io/cookie-policy/">Cookie Policy</a></li>
+</div>
+<div class="c-footer__privacy-menu">
+<nav class="menu-privacy-menu-container"><ul class="menu" id="menu-privacy-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1520" id="menu-item-1520"><a href="https://www.ionix.io/terms-and-conditions/">IONIX TERMS AND CONDITIONS</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-51" id="menu-item-51"><a href="https://www.ionix.io/privacy-policy/" rel="privacy-policy">Privacy Policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1519" id="menu-item-1519"><a href="https://www.ionix.io/cookie-policy/">Cookie Policy</a></li>
 </ul></nav>
-			</div>
-			<div class="c-text c-footer__copyright-text">
+</div>
+<div class="c-text c-footer__copyright-text">
 		©2026 IONIX Inc. All rights reserved.
 	</div>
-			<ul class="c-social">
-						<li class="c-social__item">
-				<a aria-label="twitter" href="https://twitter.com/ionix_io" class="c-link c-social__link" target="_blank"><i class="c-social__icon fab fa-twitter"></i>
+<ul class="c-social">
+<li class="c-social__item">
+<a aria-label="twitter" class="c-link c-social__link" href="https://twitter.com/ionix_io" target="_blank"><i class="c-social__icon fab fa-twitter"></i>
 </a>
-			</li>
-					<li class="c-social__item">
-				<a aria-label="linkedin-in" href="https://www.linkedin.com/company/ionix-security/" class="c-link c-social__link" target="_blank"><i class="c-social__icon fab fa-linkedin-in"></i>
+</li>
+<li class="c-social__item">
+<a aria-label="linkedin-in" class="c-link c-social__link" href="https://www.linkedin.com/company/ionix-security/" target="_blank"><i class="c-social__icon fab fa-linkedin-in"></i>
 </a>
-			</li>
-			</ul>
-		</div>
-	</div>
+</li>
+</ul>
+</div>
+</div>
 </footer>
 </div>
-<script type="speculationrules">
-{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/airfleet/theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
-</script>
-			<script>
-				( () => {
-					const lazyloadRunObserver = () => {
-						const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
-						const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
-							entries.forEach( ( entry ) => {
-								if ( entry.isIntersecting ) {
-									let lazyloadBackground = entry.target;
-									if( lazyloadBackground ) {
-										lazyloadBackground.classList.add( 'e-lazyloaded' );
-									}
-									lazyloadBackgroundObserver.unobserve( entry.target );
-								}
-							});
-						}, { rootMargin: '200px 0px 200px 0px' } );
-						lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
-							lazyloadBackgroundObserver.observe( lazyloadBackground );
-						} );
-					};
-					const events = [
-						'DOMContentLoaded',
-						'elementor/lazyload/observe',
-					];
-					events.forEach( ( event ) => {
-						document.addEventListener( event, lazyloadRunObserver );
-					} );
-				} )();
-			</script>
-			<script id="leadin-script-loader-js-js-extra">
-var leadin_wordpress = {"userRole":"visitor","pageType":"page","leadinPluginVersion":"11.3.75"};
-//# sourceURL=leadin-script-loader-js-js-extra
-</script>
-<script async defer id='hs-script-loader' src="https://js.hs-scripts.com/24478423.js?integration=WordPress&#038;ver=11.3.75"></script>
-<script id="rocket-browser-checker-js-after">
-"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
-//# sourceURL=rocket-browser-checker-js-after
-</script>
-<script id="rocket-preload-links-js-extra">
-var RocketPreloadLinksConfig = {"excludeUris":"/careers/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://www.ionix.io","onHoverDelay":"100","rateThrottle":"3"};
-//# sourceURL=rocket-preload-links-js-extra
-</script>
-<script id="rocket-preload-links-js-after">
-(function() {
-"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
-}());
 
-//# sourceURL=rocket-preload-links-js-after
-</script>
-<script id="page-links-to-js" src="https://www.ionix.io/wp-content/plugins/page-links-to/dist/new-tab.js?ver=3.4.1"></script>
-<script type="module" id="bridgeable-components-init-block-js" src="https://www.ionix.io/wp-content/plugins/bridgeable-components/assets/init-block.js?ver=1781291433"></script>
-<script type="module" id="bridgeable-components-hero-animation-js" src="https://www.ionix.io/wp-content/bridgeable-components/components/hero-animation/hero-animation.DMOfFXr7.js"></script>
-<script type="module" id="bridgeable-components-html-animation-js" src="https://www.ionix.io/wp-content/bridgeable-components/components/html-animation/html-animation.BVuJHemJ.js"></script>
-<script type="module" id="bridgeable-components-lifecycle-diagram-js" src="https://www.ionix.io/wp-content/bridgeable-components/components/lifecycle-diagram/lifecycle-diagram.BZIeTi5H.js"></script>
-<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
-if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
-images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
-if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.ionix.io/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>			<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a41361a71e0e2674',t:'MTc5MDQzNzM3Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+
+
+
+
+
+
+
+
+
+
+ </body>
 </html>

@@ -1,1159 +1,693 @@
 <!DOCTYPE html>
+
 <html lang="en-US">
 <head>
+<link href="https://use.typekit.net/ceh3wvb.css" rel="stylesheet"/>
 
-<link rel="stylesheet" href="https://use.typekit.net/ceh3wvb.css">
-
-
-<style type="text/css">@font-face {font-family:'IBM Plex Sans';font-style:normal;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:normal;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:normal;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:normal;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/latin-ext/wght/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:normal;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/greek/wght/normal.woff2);unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:normal;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:italic;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/cyrillic-ext/wght/italic.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:italic;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/cyrillic/wght/italic.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:italic;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/greek/wght/italic.woff2);unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:italic;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/latin/wght/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:italic;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/vietnamese/wght/italic.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:'IBM Plex Sans';font-style:italic;font-weight:100 700;src:url(/cf-fonts/v/ibm-plex-sans/5.2.8/latin-ext/wght/italic.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<link rel="icon" href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-32.png" sizes="32x32">
-<link rel="icon" href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-57.png" sizes="57x57">
-<link rel="icon" href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-76.png" sizes="76x76">
-<link rel="icon" href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-96.png" sizes="96x96">
-<link rel="icon" href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-128.png" sizes="128x128">
-<link rel="icon" href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-192.png" sizes="192x192">
-<link rel="icon" href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-228.png" sizes="228x228">
-
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-32.png" rel="icon" sizes="32x32"/>
+<link href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-57.png" rel="icon" sizes="57x57"/>
+<link href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-76.png" rel="icon" sizes="76x76"/>
+<link href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-96.png" rel="icon" sizes="96x96"/>
+<link href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-128.png" rel="icon" sizes="128x128"/>
+<link href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-192.png" rel="icon" sizes="192x192"/>
+<link href="https://www.brightmachines.com/wp-content/themes/bright-machines/img/favicons/favicon-228.png" rel="icon" sizes="228x228"/>
 <title>Careers - Bright Machines</title>
-<link rel="profile" href="https://gmpg.org/xfn/11" />
-<link rel="pingback" href="https://www.brightmachines.com/xmlrpc.php" />
-
+<link href="https://gmpg.org/xfn/11" rel="profile"/>
+<link href="https://www.brightmachines.com/xmlrpc.php" rel="pingback"/>
 <!-- Meta For Salesforce Web-to-Lead Form -->
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-
+<meta content="text/html; charset=utf-8" http-equiv="Content-type"/>
 <!-- Google Recaptcha -->
-<script src="https://www.google.com/recaptcha/api.js" async defer type="da99982480f9a151a4698c10-text/javascript"></script>
-
 
 <!-- Hubspot Form -->
-<script charset="utf-8" type="da99982480f9a151a4698c10-text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
 
-<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<!-- This site is optimized with the Yoast SEO plugin v28.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
+<link href="https://www.brightmachines.com/careers/" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="Careers - Bright Machines" property="og:title"/>
+<meta content="https://www.brightmachines.com/careers/" property="og:url"/>
+<meta content="Bright Machines" property="og:site_name"/>
+<meta content="2026-07-17T22:34:51+00:00" property="article:modified_time"/>
+<meta content="summary_large_image" name="twitter:card"/>
 
-	<!-- This site is optimized with the Yoast SEO plugin v28.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
-	<link rel="canonical" href="https://www.brightmachines.com/careers/" />
-	<meta property="og:locale" content="en_US" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Careers - Bright Machines" />
-	<meta property="og:url" content="https://www.brightmachines.com/careers/" />
-	<meta property="og:site_name" content="Bright Machines" />
-	<meta property="article:modified_time" content="2026-07-17T22:34:51+00:00" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/www.brightmachines.com\/careers\/","url":"https:\/\/www.brightmachines.com\/careers\/","name":"Careers - Bright Machines","isPartOf":{"@id":"https:\/\/www.brightmachines.com\/#website"},"datePublished":"2025-04-22T23:10:33+00:00","dateModified":"2026-07-17T22:34:51+00:00","breadcrumb":{"@id":"https:\/\/www.brightmachines.com\/careers\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.brightmachines.com\/careers\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/www.brightmachines.com\/careers\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/www.brightmachines.com\/"},{"@type":"ListItem","position":2,"name":"Careers"}]},{"@type":["WebSite"],"@id":"https:\/\/www.brightmachines.com\/#website","url":"https:\/\/www.brightmachines.com\/","name":"Bright Machines","description":"Bright Machines","publisher":{"@id":"https:\/\/www.brightmachines.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.brightmachines.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":["Organization"],"@id":"https:\/\/www.brightmachines.com\/#organization","name":"Bright Machines","url":"https:\/\/www.brightmachines.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/www.brightmachines.com\/#\/schema\/logo\/image\/","url":"https:\/\/www.brightmachines.com\/wp-content\/uploads\/2026\/06\/Recommended-Bright-Machines-Orange-Black.png","contentUrl":"https:\/\/www.brightmachines.com\/wp-content\/uploads\/2026\/06\/Recommended-Bright-Machines-Orange-Black.png","width":1659,"height":432,"caption":"Bright Machines"},"image":{"@id":"https:\/\/www.brightmachines.com\/#\/schema\/logo\/image\/"},"description":"Transforming how the world designs and builds products with AI-driven automation."}]}</script>
-	<!-- / Yoast SEO plugin. -->
+<!-- / Yoast SEO plugin. -->
+<link href="https://www.brightmachines.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.brightmachines.com%2Fcareers%2F" rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"/>
+<link href="https://www.brightmachines.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.brightmachines.com%2Fcareers%2F&amp;format=xml" rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"/>
+
+<link href="https://www.brightmachines.com/wp-content/themes/bright-machines/build/css/style.css?ver=1788214807" id="theme-style-css" media="all" rel="stylesheet"/>
+<link href="https://www.brightmachines.com/wp-content/themes/bright-machines/build/css/pages/careers.css?ver=1788214809" id="pages/careers-css" media="all" rel="stylesheet"/>
 
 
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.brightmachines.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.brightmachines.com%2Fcareers%2F" />
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.brightmachines.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.brightmachines.com%2Fcareers%2F&#038;format=xml" />
-<style id="wp-img-auto-sizes-contain-inline-css">
-img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
-/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
-</style>
-<link rel='stylesheet' id='theme-style-css' href='https://www.brightmachines.com/wp-content/themes/bright-machines/build/css/style.css?ver=1788214807' media='all' />
-<link rel='stylesheet' id='pages/careers-css' href='https://www.brightmachines.com/wp-content/themes/bright-machines/build/css/pages/careers.css?ver=1788214809' media='all' />
-<style id="wp-emoji-styles-inline-css">
 
-	img.wp-smiley, img.emoji {
-		display: inline !important;
-		border: none !important;
-		box-shadow: none !important;
-		height: 1em !important;
-		width: 1em !important;
-		margin: 0 0.07em !important;
-		vertical-align: -0.1em !important;
-		background: none !important;
-		padding: 0 !important;
-	}
-/*# sourceURL=wp-emoji-styles-inline-css */
-</style>
-<style id="classic-theme-styles-inline-css">
-/*! This file is auto-generated */
-.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
-/*# sourceURL=/wp-includes/css/classic-themes.min.css */
-</style>
 
-<style id="global-styles-inline-css">
-:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
-/*# sourceURL=global-styles-inline-css */
-</style>
+<link href="https://www.brightmachines.com/wp-json/" rel="https://api.w.org/"/><link href="https://www.brightmachines.com/wp-json/wp/v2/pages/141142" rel="alternate" title="JSON" type="application/json"/><link href="https://www.brightmachines.com/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+<link href="https://www.brightmachines.com/?p=141142" rel="shortlink"/>
 
-<script id="pintraredirectjs-js" src="https://www.brightmachines.com/wp-content/plugins/wpo365-login/apps/dist/pintra-redirect.js?ver=44.1" async type="da99982480f9a151a4698c10-text/javascript"></script>
-<link rel="https://api.w.org/" href="https://www.brightmachines.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.brightmachines.com/wp-json/wp/v2/pages/141142" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.brightmachines.com/xmlrpc.php?rsd" />
-<link rel='shortlink' href='https://www.brightmachines.com/?p=141142' />
-		<script type="da99982480f9a151a4698c10-text/javascript">
-
-			(function(c, l, a, r, i, t, y) {
-
-				c[a] = c[a] || function() {
-
-					(c[a].q = c[a].q || []).push(arguments)
-
-				};
-
-				t = l.createElement(r);
-
-				t.async = 1;
-
-				t.src = "https://www.clarity.ms/tag/" + i + "?ref=wordpress";
-
-				y = l.getElementsByTagName(r)[0];
-
-				y.parentNode.insertBefore(t, y);
-
-			})(window, document, "clarity", "script", "rn6jx81npz");
-
-		</script>
-
-	
 </head>
-    <body class="page-careers theme-lime">
-    <div id="topofsite"></div>
-  
-    
-    
+<body class="page-careers theme-lime">
+<div id="topofsite"></div>
+<header class="siteHeader no-touch" id="siteHeader">
+<div class="container">
+<div class="siteHeader__row flex a-c j-sb">
+<div class="siteHeader__logo relative">
+<a aria-label="Bright Machines Logo. Return Home" class="siteHeader__logo-link" href="https://www.brightmachines.com">
 
-
-<header id="siteHeader" class="siteHeader no-touch">
-  <div class="container">
-
-    <div class="siteHeader__row flex a-c j-sb">
-
-      <div class="siteHeader__logo relative">
-        <a href="https://www.brightmachines.com" class="siteHeader__logo-link" aria-label="Bright Machines Logo. Return Home">
-          <svg class="site-logo-vector"  width="250" height="65" viewBox="0 0 250 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M233.358 63.7355C227.721 63.7355 224.777 61.5153 224.528 57.0749H229.13C229.255 58.2723 229.641 59.1205 230.29 59.6194C230.964 60.1183 232.011 60.3678 233.433 60.3678C235.978 60.3678 237.25 59.5945 237.25 58.0478C237.25 57.3493 236.976 56.813 236.427 56.4388C235.878 56.0646 234.893 55.7528 233.471 55.5033L231.263 55.1291C227.047 54.4307 224.939 52.4849 224.939 49.2918C224.939 47.4708 225.638 46.0488 227.035 45.0261C228.432 43.9783 230.402 43.4545 232.947 43.4545C238.46 43.4545 241.304 45.6372 241.478 50.0028H237.025C236.976 48.8553 236.614 48.0445 235.94 47.5705C235.267 47.0716 234.269 46.8222 232.947 46.8222C230.702 46.8222 229.579 47.5705 229.579 49.0673C229.579 49.7159 229.829 50.2273 230.328 50.6015C230.826 50.9507 231.65 51.2251 232.797 51.4247L235.229 51.7989C237.574 52.2229 239.271 52.8965 240.318 53.8195C241.391 54.7425 241.927 56.0272 241.927 57.6736C241.927 59.6194 241.179 61.1162 239.682 62.1639C238.185 63.2116 236.078 63.7355 233.358 63.7355Z" fill="white"/>
-<path d="M222.38 53.8943V55.0169H207.937C208.111 56.6633 208.623 57.9106 209.471 58.7588C210.344 59.582 211.504 59.9936 212.951 59.9936C215.096 59.9936 216.568 59.0706 217.366 57.2246H221.894C221.395 59.1953 220.347 60.7669 218.751 61.9394C217.154 63.0869 215.209 63.6606 212.914 63.6606C210.045 63.6606 207.725 62.7376 205.954 60.8916C204.182 59.0456 203.297 56.601 203.297 53.5576C203.297 50.5142 204.17 48.0695 205.916 46.2235C207.687 44.3775 209.995 43.4545 212.839 43.4545C215.757 43.4545 218.077 44.4149 219.799 46.3357C221.52 48.2566 222.38 50.7761 222.38 53.8943ZM212.801 47.1215C210.032 47.1215 208.423 48.6557 207.974 51.724H217.666C217.466 50.3021 216.942 49.1795 216.094 48.3563C215.246 47.5331 214.148 47.1215 212.801 47.1215Z" fill="white"/>
-<path d="M193.179 43.4545C195.274 43.4545 196.92 44.0656 198.118 45.288C199.34 46.4854 199.951 48.1942 199.951 50.4144V63.2116H195.237V51.2002C195.237 48.7555 194.027 47.5331 191.607 47.5331C190.41 47.5331 189.387 47.9697 188.539 48.8428C187.715 49.6909 187.304 50.8759 187.304 52.3976V63.2116H182.589V43.9035H187.154V46.6725C188.626 44.5271 190.634 43.4545 193.179 43.4545Z" fill="white"/>
-<path d="M176.058 41.5835C175.334 41.5835 174.711 41.3341 174.187 40.8352C173.688 40.3362 173.439 39.7251 173.439 39.0016C173.439 38.2782 173.688 37.667 174.187 37.1681C174.711 36.6443 175.334 36.3823 176.058 36.3823C176.781 36.3823 177.393 36.6443 177.891 37.1681C178.39 37.667 178.64 38.2782 178.64 39.0016C178.64 39.7251 178.378 40.3362 177.854 40.8352C177.355 41.3341 176.756 41.5835 176.058 41.5835ZM178.415 63.2116H173.701V43.9035H178.415V63.2116Z" fill="white"/>
-<path d="M162.722 43.4545C164.817 43.4545 166.463 44.0657 167.661 45.288C168.883 46.4855 169.494 48.1942 169.494 50.4144V63.2117H164.78V51.2002C164.78 48.7555 163.57 47.5332 161.15 47.5332C159.953 47.5332 158.93 47.9697 158.082 48.8428C157.258 49.691 156.847 50.8759 156.847 52.3976V63.2117H152.132V36.5695H156.847V46.4855C158.319 44.4648 160.277 43.4545 162.722 43.4545Z" fill="white"/>
-<path d="M140.122 63.6606C137.278 63.6606 134.97 62.7376 133.199 60.8916C131.453 59.0706 130.58 56.6259 130.58 53.5576C130.58 50.4643 131.453 48.0071 133.199 46.186C134.921 44.365 137.228 43.4545 140.122 43.4545C142.641 43.4545 144.699 44.128 146.296 45.4751C147.892 46.7972 148.828 48.5933 149.102 50.8634H144.388C144.163 49.7408 143.677 48.8802 142.928 48.2815C142.18 47.6828 141.244 47.3834 140.122 47.3834C138.65 47.3834 137.49 47.9198 136.642 48.9925C135.819 50.0402 135.407 51.5619 135.407 53.5576C135.407 55.5532 135.831 57.0874 136.679 58.1601C137.527 59.2078 138.675 59.7317 140.122 59.7317C141.269 59.7317 142.23 59.4198 143.003 58.7962C143.801 58.1476 144.288 57.2246 144.462 56.0272H149.177C148.928 58.3472 147.98 60.2056 146.333 61.6026C144.687 62.9746 142.616 63.6606 140.122 63.6606Z" fill="white"/>
-<path d="M128.44 63.2116H123.726C123.501 62.8125 123.327 62.0267 123.202 60.8542C121.905 62.7252 119.834 63.6606 116.99 63.6606C114.87 63.6606 113.174 63.1493 111.901 62.1265C110.654 61.1037 110.03 59.6818 110.03 57.8607C110.03 54.3433 112.5 52.3352 117.439 51.8363L120.358 51.5744C121.331 51.4496 122.029 51.2251 122.453 50.9008C122.878 50.5516 123.09 50.0402 123.09 49.3666C123.09 48.5434 122.815 47.9447 122.266 47.5705C121.742 47.1714 120.844 46.9718 119.572 46.9718C118.2 46.9718 117.215 47.2088 116.616 47.6828C116.017 48.1318 115.668 48.9176 115.568 50.0402H110.928C111.203 45.6497 114.097 43.4545 119.61 43.4545C124.973 43.4545 127.655 45.3878 127.655 49.2544V59.5446C127.655 61.2409 127.917 62.4632 128.44 63.2116ZM118.113 60.2929C119.585 60.2929 120.782 59.8938 121.705 59.0955C122.628 58.2723 123.09 57.0999 123.09 55.5782V53.8195C122.641 54.2186 121.905 54.4806 120.882 54.6053L118.337 54.9046C117.09 55.0543 116.192 55.3537 115.643 55.8027C115.119 56.2268 114.857 56.8504 114.857 57.6736C114.857 58.4968 115.132 59.1454 115.681 59.6194C116.254 60.0684 117.065 60.2929 118.113 60.2929Z" fill="white"/>
-<path d="M95.0567 49.2544L99.5095 36.5695H106.844V63.2117H102.017V55.0918C102.017 50.1026 102.066 45.6997 102.166 41.8829C101.617 43.7539 100.944 45.7994 100.146 48.0196L94.7573 63.2117H90.6038L85.1781 48.0196C84.2301 45.2506 83.5691 43.23 83.1949 41.9578C83.2947 45.7495 83.3446 50.1276 83.3446 55.0918V63.2117H78.4801V36.5695H85.8142L90.4167 49.5164C90.7161 50.3895 91.4769 52.7968 92.6993 56.7382C93.4975 53.9692 94.2833 51.4746 95.0567 49.2544Z" fill="white"/>
-<path d="M180.34 8.53836V12.1306H176.523V22.5704C176.523 23.1941 176.685 23.6306 177.01 23.8801C177.359 24.1296 177.933 24.2543 178.731 24.2543H180.34V27.8465C179.317 27.9463 178.494 27.9962 177.87 27.9962C175.775 27.9962 174.241 27.6095 173.268 26.8362C172.32 26.0379 171.846 24.7781 171.846 23.0569V12.1306H168.852V8.53836H171.846V2.92554H176.523V8.53836H180.34Z" fill="white"/>
-<path d="M159.953 8.08941C162.049 8.08941 163.695 8.70059 164.892 9.92294C166.115 11.1203 166.726 12.8291 166.726 15.0493V27.8466H162.011V15.8351C162.011 13.3904 160.801 12.1681 158.382 12.1681C157.184 12.1681 156.161 12.6046 155.313 13.4777C154.49 14.3259 154.078 15.5108 154.078 17.0325V27.8466H149.364V1.20435H154.078V11.1203C155.55 9.09972 157.508 8.08941 159.953 8.08941Z" fill="white"/>
-<path d="M140.619 11.1951V8.53838H145.184V27.2104C145.184 29.8297 144.348 31.8877 142.677 33.3845C141.03 34.8813 138.686 35.6296 135.642 35.6296C132.948 35.6296 130.828 35.0309 129.281 33.8335C127.759 32.6361 126.924 30.9897 126.774 28.8942H131.414C131.638 30.9647 133.073 32 135.717 32C137.264 32 138.436 31.6009 139.234 30.8026C140.058 30.0043 140.469 28.8443 140.469 27.3226V24.8904C139.072 26.8113 137.101 27.7717 134.557 27.7717C131.938 27.7717 129.83 26.8611 128.233 25.0401C126.637 23.2689 125.838 20.8991 125.838 17.9305C125.838 14.937 126.637 12.5547 128.233 10.7835C129.805 8.98741 131.9 8.08936 134.52 8.08936C137.239 8.08936 139.272 9.12461 140.619 11.1951ZM135.605 23.8801C137.176 23.8801 138.399 23.3562 139.272 22.3085C140.145 21.2608 140.581 19.8015 140.581 17.9305C140.581 16.0596 140.145 14.6002 139.272 13.5525C138.399 12.5048 137.176 11.9809 135.605 11.9809C134.083 11.9809 132.873 12.5173 131.975 13.5899C131.102 14.6377 130.665 16.097 130.665 17.9679C130.665 19.8139 131.102 21.2608 131.975 22.3085C132.873 23.3562 134.083 23.8801 135.605 23.8801Z" fill="white"/>
-<path d="M120.168 6.21843C119.444 6.21843 118.821 5.96897 118.297 5.47005C117.798 4.97114 117.549 4.35996 117.549 3.63653C117.549 2.9131 117.798 2.30192 118.297 1.80301C118.821 1.27914 119.444 1.01721 120.168 1.01721C120.891 1.01721 121.503 1.27914 122.001 1.80301C122.5 2.30192 122.75 2.9131 122.75 3.63653C122.75 4.35996 122.488 4.97114 121.964 5.47005C121.465 5.96897 120.866 6.21843 120.168 6.21843ZM122.525 27.8465H117.811V8.5384H122.525V27.8465Z" fill="white"/>
-<path d="M113.732 8.23901C114.156 8.23901 114.543 8.26396 114.892 8.31385V12.6544H113.694C111.898 12.6544 110.514 13.1159 109.541 14.0389C108.593 14.937 108.119 16.2716 108.119 18.0428V27.8465H103.404V8.53836H107.969V11.9809C109.042 9.48631 110.963 8.23901 113.732 8.23901Z" fill="white"/>
-<path d="M95.5805 13.8145C97.0523 14.3384 98.1874 15.174 98.9856 16.3216C99.8088 17.4691 100.22 18.7663 100.22 20.2131C100.22 22.6329 99.4222 24.5163 97.8257 25.8634C96.2541 27.1855 93.959 27.8466 90.9406 27.8466H78.4801V1.20435H90.529C93.3229 1.20435 95.4558 1.84047 96.9276 3.11271C98.3994 4.38495 99.1353 6.04385 99.1353 8.08941C99.1353 10.7087 97.9504 12.6171 95.5805 13.8145ZM90.1548 5.35784H83.5316V12.3177H90.1548C91.427 12.3177 92.3999 12.0059 93.0735 11.3823C93.7719 10.7337 94.1212 9.8481 94.1212 8.72553C94.1212 7.67781 93.7719 6.85459 93.0735 6.25589C92.375 5.65719 91.4021 5.35784 90.1548 5.35784ZM83.5316 23.6557H90.6786C92.1006 23.6557 93.1857 23.3438 93.9341 22.7202C94.6825 22.0716 95.0567 21.1611 95.0567 19.9886C95.0567 17.519 93.5973 16.2841 90.6786 16.2841H83.5316V23.6557Z" fill="white"/>
-<rect class="logo-dots" x="9.75073" y="6.71545" width="49.5415" height="50.5429" fill="var(--logo-dots)"/>
-<path class="cycle fill" d="M52.1753 23.0894C50.7278 23.0894 49.5518 21.9134 49.5518 20.4659C49.5518 19.0185 50.7278 17.8425 52.1753 17.8425C53.6227 17.8425 54.7987 19.0185 54.7987 20.4659C54.7987 21.9134 53.6227 23.0894 52.1753 23.0894ZM52.1753 30.9146C50.9088 30.9146 49.8797 29.8855 49.8797 28.619C49.8797 27.3525 50.9088 26.3235 52.1753 26.3235C53.4418 26.3235 54.4708 27.3525 54.4708 28.619C54.4708 29.8855 53.4418 30.9146 52.1753 30.9146ZM44.0222 23.7453C42.2129 23.7453 40.7428 22.2752 40.7428 20.4773C40.7428 18.668 42.2129 17.1979 44.0222 17.1979C45.8315 17.1979 47.2902 18.668 47.2902 20.4773C47.3015 22.2752 45.8315 23.7453 44.0222 23.7453ZM44.0222 31.8984C42.2129 31.8984 40.7428 30.4283 40.7428 28.6303C40.7428 26.8211 42.2129 25.3623 44.0222 25.3623C45.8315 25.3623 47.2902 26.8324 47.2902 28.6303C47.3015 30.4283 45.8315 31.8984 44.0222 31.8984ZM44.0222 39.3956C42.5747 39.3956 41.3987 38.2196 41.3987 36.7721C41.3987 35.3247 42.5747 34.1487 44.0222 34.1487C45.4696 34.1487 46.6456 35.3247 46.6456 36.7721C46.6456 38.2196 45.4696 39.3956 44.0222 39.3956ZM35.8691 23.7453C34.0598 23.7453 32.6011 22.2752 32.6011 20.4773C32.6011 18.668 34.0711 17.1979 35.8691 17.1979C37.6784 17.1979 39.1371 18.668 39.1371 20.4773C39.1484 22.2752 37.6784 23.7453 35.8691 23.7453ZM35.8691 31.5704C34.2407 31.5704 32.929 30.2474 32.929 28.619C32.929 26.9907 34.252 25.6676 35.8691 25.6676C37.4974 25.6676 38.8092 26.9907 38.8092 28.619C38.8205 30.2474 37.4974 31.5704 35.8691 31.5704ZM27.7273 23.7453C25.918 23.7453 24.4593 22.2752 24.4593 20.4773C24.4593 18.668 25.9293 17.1979 27.7273 17.1979C29.5366 17.1979 30.9953 18.668 30.9953 20.4773C30.9953 22.2752 29.5253 23.7453 27.7273 23.7453ZM27.7273 30.9146C26.4608 30.9146 25.4318 29.8855 25.4318 28.619C25.4318 27.3525 26.4608 26.3235 27.7273 26.3235C28.9938 26.3235 30.0228 27.3525 30.0228 28.619C30.0115 29.8855 28.9825 30.9146 27.7273 30.9146ZM19.5629 23.0894C18.1155 23.0894 16.9394 21.9134 16.9394 20.4659C16.9394 19.0185 18.1155 17.8425 19.5629 17.8425C21.0103 17.8425 22.1864 19.0185 22.1864 20.4659C22.1864 21.9134 21.0103 23.0894 19.5629 23.0894ZM27.7273 9.68938C29.1747 9.68938 30.3508 10.8654 30.3508 12.3128C30.3508 13.7603 29.1747 14.9363 27.7273 14.9363C26.2799 14.9363 25.1038 13.7603 25.1038 12.3128C25.1038 10.8654 26.2799 9.68938 27.7273 9.68938ZM35.8691 9.37276C37.4974 9.37276 38.8092 10.6958 38.8092 12.3128C38.8092 13.9412 37.4861 15.2642 35.8691 15.2642C34.2407 15.2642 32.929 13.9412 32.929 12.3128C32.929 10.6845 34.252 9.37276 35.8691 9.37276ZM44.0222 9.68938C45.4696 9.68938 46.6456 10.8654 46.6456 12.3128C46.6456 13.7603 45.4696 14.9363 44.0222 14.9363C42.5747 14.9363 41.3987 13.7603 41.3987 12.3128C41.41 10.8654 42.586 9.68938 44.0222 9.68938ZM60.3397 0.891724H3.26802C1.47004 0.891724 0 2.36177 0 4.15975V61.2201C0 63.0181 1.47004 64.4882 3.26802 64.4882H60.3283C62.1263 64.4882 63.5964 63.0181 63.5964 61.2201V4.15975C63.6077 2.36177 62.1376 0.891724 60.3397 0.891724Z" fill="var(--color-brand)"/>
-</svg>
-        </a>
-      </div>
-
-      <div class="siteHeader__navContainer">
-
-        <nav class="siteHeaderNav flex a-c column-mobile">
-
-          <ul class="siteHeaderNav__list flex a-c column-mobile">
-
-            
-              <li class="siteHeaderNavItem relative">
-
-                                  
-									<a href="/platform/" class="siteHeaderNavItem__link" target="">
-										<span>Platform</span>
-									</a>
-
-                  
-                
-              </li>
-
-            
-              <li class="siteHeaderNavItem relative">
-
-                                  
-									<a href="/edge-model/" class="siteHeaderNavItem__link" target="">
-										<span>Edge Model</span>
-									</a>
-
-                  
-                
-              </li>
-
-            
-              <li class="siteHeaderNavItem relative">
-
-                                  
-									<a href="/why-us/" class="siteHeaderNavItem__link" target="">
-										<span>Why Us</span>
-									</a>
-
-                  
-                
-              </li>
-
-            
-              <li class="siteHeaderNavItem relative" subnavtrigger>
-
-                                  <div class="siteHeaderNavItem__trigger flex inline-mobile a-c j-start relative mobile-only">
-										<span class="flex a-c j-c"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0.138672 5.44292C0.138672 5.16678 0.362529 4.94292 0.638672 4.94292L10.1494 4.94293C10.4256 4.94293 10.6494 5.16678 10.6494 5.44293C10.6494 5.71907 10.4256 5.94293 10.1494 5.94293L0.638672 5.94292C0.362529 5.94292 0.138672 5.71907 0.138672 5.44292Z" fill="#727272"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M5.39453 10.6983C5.11839 10.6983 4.89453 10.4744 4.89453 10.1983L4.89453 0.687553C4.89453 0.411411 5.11839 0.187553 5.39453 0.187553C5.67067 0.187553 5.89453 0.411411 5.89453 0.687553L5.89453 10.1983C5.89453 10.4744 5.67067 10.6983 5.39453 10.6983Z" fill="#727272"/>
-</svg>
+</a>
+</div>
+<div class="siteHeader__navContainer">
+<nav class="siteHeaderNav flex a-c column-mobile">
+<ul class="siteHeaderNav__list flex a-c column-mobile">
+<li class="siteHeaderNavItem relative">
+<a class="siteHeaderNavItem__link" href="/platform/" target="">
+<span>Platform</span>
+</a>
+</li>
+<li class="siteHeaderNavItem relative">
+<a class="siteHeaderNavItem__link" href="/edge-model/" target="">
+<span>Edge Model</span>
+</a>
+</li>
+<li class="siteHeaderNavItem relative">
+<a class="siteHeaderNavItem__link" href="/why-us/" target="">
+<span>Why Us</span>
+</a>
+</li>
+<li class="siteHeaderNavItem relative" subnavtrigger="">
+<div class="siteHeaderNavItem__trigger flex inline-mobile a-c j-start relative mobile-only">
+<span class="flex a-c j-c">
 </span>
-                    <p>Company</p>
-                  </div>
-                  <div class="siteHeaderNav__mobileWrap">
-                                  
-									<a href="/about/" class="siteHeaderNavItem__link" target="">
-										<span>Company</span>
-									</a>
-
-                  
-										<a href="/about/" class="siteSubnav__link mobile-only" target="">
-											<span>View all</span>
-										</a>
-
-                    <div class="siteSubnav">
-
-                      <ul class="siteSubnav__stack">
-                                                  <li class="siteSubnav__item">
-                            <a 
-                              href="/about/" 
-                              class="siteSubnav__link" 
-                              target=""
-                            >
+<p>Company</p>
+</div>
+<div class="siteHeaderNav__mobileWrap">
+<a class="siteHeaderNavItem__link" href="/about/" target="">
+<span>Company</span>
+</a>
+<a class="siteSubnav__link mobile-only" href="/about/" target="">
+<span>View all</span>
+</a>
+<div class="siteSubnav">
+<ul class="siteSubnav__stack">
+<li class="siteSubnav__item">
+<a class="siteSubnav__link" href="/about/" target="">
                               About Us															                            </a>
-                          </li>
-                                                  <li class="siteSubnav__item">
-                            <a 
-                              href="/careers/" 
-                              class="siteSubnav__link" 
-                              target=""
-                            >
+</li>
+<li class="siteSubnav__item">
+<a class="siteSubnav__link" href="/careers/" target="">
                               Careers															                            </a>
-                          </li>
-                                              </ul>
-
-                    </div>
-
-                  
-                </div>
-              </li>
-
-            
-              <li class="siteHeaderNavItem relative" subnavtrigger>
-
-                                  <div class="siteHeaderNavItem__trigger flex inline-mobile a-c j-start relative mobile-only">
-										<span class="flex a-c j-c"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0.138672 5.44292C0.138672 5.16678 0.362529 4.94292 0.638672 4.94292L10.1494 4.94293C10.4256 4.94293 10.6494 5.16678 10.6494 5.44293C10.6494 5.71907 10.4256 5.94293 10.1494 5.94293L0.638672 5.94292C0.362529 5.94292 0.138672 5.71907 0.138672 5.44292Z" fill="#727272"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M5.39453 10.6983C5.11839 10.6983 4.89453 10.4744 4.89453 10.1983L4.89453 0.687553C4.89453 0.411411 5.11839 0.187553 5.39453 0.187553C5.67067 0.187553 5.89453 0.411411 5.89453 0.687553L5.89453 10.1983C5.89453 10.4744 5.67067 10.6983 5.39453 10.6983Z" fill="#727272"/>
-</svg>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="siteHeaderNavItem relative" subnavtrigger="">
+<div class="siteHeaderNavItem__trigger flex inline-mobile a-c j-start relative mobile-only">
+<span class="flex a-c j-c">
 </span>
-                    <p>Resources</p>
-                  </div>
-                  <div class="siteHeaderNav__mobileWrap">
-                                  
-									<a href="/blog/" class="siteHeaderNavItem__link" target="">
-										<span>Resources</span>
-									</a>
-
-                  
-										<a href="/blog/" class="siteSubnav__link mobile-only" target="">
-											<span>View all</span>
-										</a>
-
-                    <div class="siteSubnav">
-
-                      <ul class="siteSubnav__stack">
-                                                  <li class="siteSubnav__item">
-                            <a 
-                              href="/news/" 
-                              class="siteSubnav__link" 
-                              target=""
-                            >
+<p>Resources</p>
+</div>
+<div class="siteHeaderNav__mobileWrap">
+<a class="siteHeaderNavItem__link" href="/blog/" target="">
+<span>Resources</span>
+</a>
+<a class="siteSubnav__link mobile-only" href="/blog/" target="">
+<span>View all</span>
+</a>
+<div class="siteSubnav">
+<ul class="siteSubnav__stack">
+<li class="siteSubnav__item">
+<a class="siteSubnav__link" href="/news/" target="">
                               News															                            </a>
-                          </li>
-                                                  <li class="siteSubnav__item">
-                            <a 
-                              href="/blog/" 
-                              class="siteSubnav__link" 
-                              target=""
-                            >
+</li>
+<li class="siteSubnav__item">
+<a class="siteSubnav__link" href="/blog/" target="">
                               Blogs															                            </a>
-                          </li>
-                                                  <li class="siteSubnav__item">
-                            <a 
-                              href="/videos/" 
-                              class="siteSubnav__link" 
-                              target=""
-                            >
+</li>
+<li class="siteSubnav__item">
+<a class="siteSubnav__link" href="/videos/" target="">
                               Videos															                            </a>
-                          </li>
-                                              </ul>
-
-                    </div>
-
-                  
-                </div>
-              </li>
-
-            
-          </ul>
-
-                      <a 
-              class="btn inverse" 
-              href="/contact-us" 
-              target="_self"
-            >
+</li>
+</ul>
+</div>
+</div>
+</li>
+</ul>
+<a class="btn inverse" href="/contact-us" target="_self">
               Contact            </a>
-          
-        </nav>
-
-      </div>
-
-    </div>
-
-  </div>
+</nav>
+</div>
+</div>
+</div>
 </header>
-
-<div class="siteMenu" tabindex="0" role="button" aria-expanded="false" aria-label="Open Navigation Menu">
-  <div class="siteMenu__icon">
-    <span class="line"></span>
-    <span class="line"></span>
-    <span class="line"></span>
-  </div>
+<div aria-expanded="false" aria-label="Open Navigation Menu" class="siteMenu" role="button" tabindex="0">
+<div class="siteMenu__icon">
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+</div>
 </div>
 <div class="siteHeader__bg" style="height: 0;"></div>
 <div class="site__bg"></div>
-    <div class="max-container site-main-container">
-
-
+<div class="max-container site-main-container">
 <section class="sticky-hero relative background--black text-reveal" data-observe="threshold">
-  <div class="clip-container abs-full">
-    <div class="clip-container__inner fit-photo cover">
-                    <video src="https://www.brightmachines.com/wp-content/uploads/2025/04/team-green.mp4" autoplay muted loop playsinline></video>
-          </div>
-  </div>
-
-  <div class="container sticky-hero__heading relative flex center column">
-    <h1 class="heading--xxl color--white text-center text-reveal">
-      <span class="text-reveal__inner">
-				<span>Changemakers</span> <span>wanted</span>			</span>
-    </h1>
-
-    
-    
-          <a href="#openings" class="sticky-hero__cta btn theme">See open positions</a>
-      </div>
-
-    <div class="container sticky-hero__copy relative" id="hero">
-    <div class="sticky-hero__copy-inner heading--l color--white inherit relative">
+<div class="clip-container abs-full">
+<div class="clip-container__inner fit-photo cover">
+<video autoplay="" loop="" muted="" playsinline="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/team-green.mp4"></video>
+</div>
+</div>
+<div class="container sticky-hero__heading relative flex center column">
+<h1 class="heading--xxl color--white text-center text-reveal">
+<span class="text-reveal__inner">
+<span>Changemakers</span> <span>wanted</span> </span>
+</h1>
+<a class="sticky-hero__cta btn theme" href="#openings">See open positions</a>
+</div>
+<div class="container sticky-hero__copy relative" id="hero">
+<div class="sticky-hero__copy-inner heading--l color--white inherit relative">
             Our mission is to transform how products are designed and built <span>across simulation</span>, <span>automation and data</span>. To accomplish this, we’re constantly pushing the boundaries of innovation and challenging the status quo.    </div>
-  </div>
-  
+</div>
 </section>
-
-
-
 <section class="stats-banner relative">
-  <div class="container relative">
-    <div class="stats-banner__cols flex column-mobile">
-            <div class="stats-banner__col">
-        <figure>
-                    <div class="svg-item">
-            <svg width="100%" height="100%" viewBox="0 0 45 45" class="donut">
-              <circle class="donut-hole" cx="22" cy="22" r="15.91549430918954" fill="black">     
-              </circle>
-              <circle class="donut-ring" cx="22" cy="22" r="15.91549430918954" fill="transparent" stroke-width="10">
-              </circle>
-              <circle class="donut-segment" cx="22" cy="22" r="15.91549430918954" fill="transparent" stroke-width="10" stroke-dasharray="0 100" stroke-dashoffset="25" data-dasharray="99, 1">
-              </circle>
-            </svg>
-            <p class="donut-num">
-              <span class="odometer" data-value="99">0</span>%
-            </p>
-          </div>
-                            </figure>
-        <p class="color--white heading--xs">Feel they contribute to company success</p>
-      </div>
-            <div class="stats-banner__col">
-        <figure>
-                              <img src="https://www.brightmachines.com/wp-content/uploads/2026/04/Engineering-1-891x1024-1.png" alt="">
-                  </figure>
-        <p class="color--white heading--xs">2026 Top Workplaces for Engineers</p>
-      </div>
-            <div class="stats-banner__col">
-        <figure>
-                    <div class="svg-item">
-            <svg width="100%" height="100%" viewBox="0 0 45 45" class="donut">
-              <circle class="donut-hole" cx="22" cy="22" r="15.91549430918954" fill="black">     
-              </circle>
-              <circle class="donut-ring" cx="22" cy="22" r="15.91549430918954" fill="transparent" stroke-width="10">
-              </circle>
-              <circle class="donut-segment" cx="22" cy="22" r="15.91549430918954" fill="transparent" stroke-width="10" stroke-dasharray="0 100" stroke-dashoffset="25" data-dasharray="98, 1">
-              </circle>
-            </svg>
-            <p class="donut-num">
-              <span class="odometer" data-value="98">0</span>%
-            </p>
-          </div>
-                            </figure>
-        <p class="color--white heading--xs">Are happy to work at Bright Machines</p>
-      </div>
-          </div>
-  </div>
-</section>
-  <section class="image-scroller is-careers background--white text-reveal" data-observe="root" data-exit="true">
-    <h2 class="heading--xl color--black text-center">We’re driven by our values</h2>
-    <div class="container relative">
-      <div>
-                  <div class="image-scroller__item flex column-mobile first-item" data-theme="red" data-observe="root" data-exit="true">
-            <div class="image-scroller__img-wrap">
-              <div class="image-scroller__img fit-photo cover">
-                <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/do_the_right_thing_2x.webp" alt="">
-                <span class="image-scroller__img-heading absolute heading--xxl color--white">
-                  <span>Do</span> <span>The</span> <br><span>Right</span> <span>Thing</span>                </span>
-              </div>
-            </div>
-            <div class="image-scroller__text relative">
-              <span class="heading--xs color--olive background--white">01</span>
-              <div>
-                <h3 class="heading--xs color--black">
-                  <span>Do</span> <span>The</span> <br><span>Right</span> <span>Thing</span>                </h3>
+<div class="container relative">
+<div class="stats-banner__cols flex column-mobile">
+<div class="stats-banner__col">
+<figure>
+<div class="svg-item">
 
-                <p class="heading--xs">
+<p class="donut-num">
+<span class="odometer" data-value="99">0</span>%
+            </p>
+</div>
+</figure>
+<p class="color--white heading--xs">Feel they contribute to company success</p>
+</div>
+<div class="stats-banner__col">
+<figure>
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2026/04/Engineering-1-891x1024-1.png"/>
+</figure>
+<p class="color--white heading--xs">2026 Top Workplaces for Engineers</p>
+</div>
+<div class="stats-banner__col">
+<figure>
+<div class="svg-item">
+
+<p class="donut-num">
+<span class="odometer" data-value="98">0</span>%
+            </p>
+</div>
+</figure>
+<p class="color--white heading--xs">Are happy to work at Bright Machines</p>
+</div>
+</div>
+</div>
+</section>
+<section class="image-scroller is-careers background--white text-reveal" data-exit="true" data-observe="root">
+<h2 class="heading--xl color--black text-center">We’re driven by our values</h2>
+<div class="container relative">
+<div>
+<div class="image-scroller__item flex column-mobile first-item" data-exit="true" data-observe="root" data-theme="red">
+<div class="image-scroller__img-wrap">
+<div class="image-scroller__img fit-photo cover">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/do_the_right_thing_2x.webp"/>
+<span class="image-scroller__img-heading absolute heading--xxl color--white">
+<span>Do</span> <span>The</span> <br/><span>Right</span> <span>Thing</span> </span>
+</div>
+</div>
+<div class="image-scroller__text relative">
+<span class="heading--xs color--olive background--white">01</span>
+<div>
+<h3 class="heading--xs color--black">
+<span>Do</span> <span>The</span> <br/><span>Right</span> <span>Thing</span> </h3>
+<p class="heading--xs">
                   We lead with integrity and respect, building trust through transparency, accountability, and fairness. We act with care for our teammates, our customers, and everyone we touch through our mission.                </p>
-              </div>
-            </div>
-          </div>
-                  <div class="image-scroller__item flex column-mobile" data-theme="red" data-observe="root" data-exit="true">
-            <div class="image-scroller__img-wrap">
-              <div class="image-scroller__img fit-photo cover">
-                <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/win_together_2x.webp" alt="">
-                <span class="image-scroller__img-heading absolute heading--xxl color--white">
-                  <span>Win</span> <br><span>Together</span>                </span>
-              </div>
-            </div>
-            <div class="image-scroller__text relative">
-              <span class="heading--xs color--olive background--white">02</span>
-              <div>
-                <h3 class="heading--xs color--black">
-                  <span>Win</span> <br><span>Together</span>                </h3>
-
-                <p class="heading--xs">
+</div>
+</div>
+</div>
+<div class="image-scroller__item flex column-mobile" data-exit="true" data-observe="root" data-theme="red">
+<div class="image-scroller__img-wrap">
+<div class="image-scroller__img fit-photo cover">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/win_together_2x.webp"/>
+<span class="image-scroller__img-heading absolute heading--xxl color--white">
+<span>Win</span> <br/><span>Together</span> </span>
+</div>
+</div>
+<div class="image-scroller__text relative">
+<span class="heading--xs color--olive background--white">02</span>
+<div>
+<h3 class="heading--xs color--black">
+<span>Win</span> <br/><span>Together</span> </h3>
+<p class="heading--xs">
                   The sum of our parts exceeds the whole. By collaborating with one another and working toward a shared vision and common goals, we deliver exceptional results and create a great place to drive meaningful change together.                </p>
-              </div>
-            </div>
-          </div>
-                  <div class="image-scroller__item flex column-mobile" data-theme="red" data-observe="root" data-exit="true">
-            <div class="image-scroller__img-wrap">
-              <div class="image-scroller__img fit-photo cover">
-                <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/obsess_over_customers.webp" alt="">
-                <span class="image-scroller__img-heading absolute heading--xxl color--white">
-                  <span>Obsess</span> <span>Over</span> <span>Customers</span>                </span>
-              </div>
-            </div>
-            <div class="image-scroller__text relative">
-              <span class="heading--xs color--olive background--white">03</span>
-              <div>
-                <h3 class="heading--xs color--black">
-                  <span>Obsess</span> <span>Over</span> <span>Customers</span>                </h3>
-
-                <p class="heading--xs">
+</div>
+</div>
+</div>
+<div class="image-scroller__item flex column-mobile" data-exit="true" data-observe="root" data-theme="red">
+<div class="image-scroller__img-wrap">
+<div class="image-scroller__img fit-photo cover">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/obsess_over_customers.webp"/>
+<span class="image-scroller__img-heading absolute heading--xxl color--white">
+<span>Obsess</span> <span>Over</span> <span>Customers</span> </span>
+</div>
+</div>
+<div class="image-scroller__text relative">
+<span class="heading--xs color--olive background--white">03</span>
+<div>
+<h3 class="heading--xs color--black">
+<span>Obsess</span> <span>Over</span> <span>Customers</span> </h3>
+<p class="heading--xs">
                   Our customers are at the center of everything we do. We’re committed to earning trust by driving customer success through next-generation manufacturing.                </p>
-              </div>
-            </div>
-          </div>
-                  <div class="image-scroller__item flex column-mobile" data-theme="red" data-observe="root" data-exit="true">
-            <div class="image-scroller__img-wrap">
-              <div class="image-scroller__img fit-photo cover">
-                <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/obsess_over_customers_2x.webp" alt="">
-                <span class="image-scroller__img-heading absolute heading--xxl color--white">
-                  <span>Be</span> <span>The</span> <span>Change</span>                </span>
-              </div>
-            </div>
-            <div class="image-scroller__text relative">
-              <span class="heading--xs color--olive background--white">04</span>
-              <div>
-                <h3 class="heading--xs color--black">
-                  <span>Be</span> <span>The</span> <span>Change</span>                </h3>
-
-                <p class="heading--xs">
+</div>
+</div>
+</div>
+<div class="image-scroller__item flex column-mobile" data-exit="true" data-observe="root" data-theme="red">
+<div class="image-scroller__img-wrap">
+<div class="image-scroller__img fit-photo cover">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/obsess_over_customers_2x.webp"/>
+<span class="image-scroller__img-heading absolute heading--xxl color--white">
+<span>Be</span> <span>The</span> <span>Change</span> </span>
+</div>
+</div>
+<div class="image-scroller__text relative">
+<span class="heading--xs color--olive background--white">04</span>
+<div>
+<h3 class="heading--xs color--black">
+<span>Be</span> <span>The</span> <span>Change</span> </h3>
+<p class="heading--xs">
                   Every team member is empowered to drive change. We embrace ownership and continuously seek ways to improve our technology, our processes, and how we work together.                 </p>
-              </div>
-            </div>
-          </div>
-                  <div class="image-scroller__item flex column-mobile" data-theme="red" data-observe="root" data-exit="true">
-            <div class="image-scroller__img-wrap">
-              <div class="image-scroller__img fit-photo cover">
-                <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/think_big_2x.webp" alt="">
-                <span class="image-scroller__img-heading absolute heading--xxl color--white">
-                  <span>Think</span> <br><span>Big</span>                 </span>
-              </div>
-            </div>
-            <div class="image-scroller__text relative">
-              <span class="heading--xs color--olive background--white">05</span>
-              <div>
-                <h3 class="heading--xs color--black">
-                  <span>Think</span> <br><span>Big</span>                 </h3>
-
-                <p class="heading--xs">
+</div>
+</div>
+</div>
+<div class="image-scroller__item flex column-mobile" data-exit="true" data-observe="root" data-theme="red">
+<div class="image-scroller__img-wrap">
+<div class="image-scroller__img fit-photo cover">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/think_big_2x.webp"/>
+<span class="image-scroller__img-heading absolute heading--xxl color--white">
+<span>Think</span> <br/><span>Big</span> </span>
+</div>
+</div>
+<div class="image-scroller__text relative">
+<span class="heading--xs color--olive background--white">05</span>
+<div>
+<h3 class="heading--xs color--black">
+<span>Think</span> <br/><span>Big</span> </h3>
+<p class="heading--xs">
                   Innovation and transformation require thinking beyond the status quo. We imagine new possibilities and push forward with determination to turn ideas into reality.                </p>
-              </div>
-            </div>
-          </div>
-              </div>
-    </div>
-  </section>
-  <section class="icon-columns background--white text-reveal" data-observe="threshold" data-exit="true">
-    <div class="container">
-      <h2 class="heading--xl color--white text-center">
-        <span class="text-reveal__inner">
-          <span><span>A</span> <span>career</span> <span>that</span> <span>cares</span> <span>for</span> <span>you</span></span>
-        </span>
-      </h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="icon-columns background--white text-reveal" data-exit="true" data-observe="threshold">
+<div class="container">
+<h2 class="heading--xl color--white text-center">
+<span class="text-reveal__inner">
+<span><span>A</span> <span>career</span> <span>that</span> <span>cares</span> <span>for</span> <span>you</span></span>
+</span>
+</h2>
+<div class="icon-columns__grid flex column-mobile" data-exit="true" data-observe="threshold">
+<div class="icon-columns__column relative flex column-desktop">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/ecg_heart.svg"/>
+<div>
+<div class="icon-columns__col-heading heading--xxs color--white">Comprehensive Health Insurance</div>
+<div class="body--m color--white inherit wrap-pretty">
+<p>We’ve got you covered with a strong health insurance plan that supports your overall well-being, including medical, dental, and vision coverage.</p>
+</div>
+</div>
+</div>
+<div class="icon-columns__column relative flex column-desktop">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/signal_cellular_alt.svg"/>
+<div>
+<div class="icon-columns__col-heading heading--xxs color--white">Professional Growth &amp; Development</div>
+<div class="body--m color--white inherit wrap-pretty">
+<p>Your growth is our gain. We provide learning opportunities, including classes, conferences, leadership training, and internal mobility.</p>
+</div>
+</div>
+</div>
+<div class="icon-columns__column relative flex column-desktop">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/request_quote_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24-1.svg"/>
+<div>
+<div class="icon-columns__col-heading heading--xxs color--white">Competitive Compensation</div>
+<div class="body--m color--white inherit wrap-pretty">
+<p>Competitive salaries, stock options, and a company-matched 401k (U.S. only) program or long-term savings plan give our employees a leg up.</p>
+</div>
+</div>
+</div>
+<div class="icon-columns__column relative flex column-desktop">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/ecg_heart-1.svg"/>
+<div>
+<div class="icon-columns__col-heading heading--xxs color--white">Collaborative Culture</div>
+<div class="body--m color--white inherit wrap-pretty">
+<p>We’re committed to your well-being and that of our community, offering team events, happy hours, and opportunities to volunteer.</p>
+</div>
+</div>
+</div>
+<div class="icon-columns__column relative flex column-desktop">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/signal_cellular_alt-1.svg"/>
+<div>
+<div class="icon-columns__col-heading heading--xxs color--white">Balanced Work Life</div>
+<div class="body--m color--white inherit wrap-pretty">
+<p>We want the best you on the job and off and do our part through generous vacation time and paid parental leave for new parents.</p>
+</div>
+</div>
+</div>
+<div class="icon-columns__column relative flex column-desktop">
+<img alt="" src="https://www.brightmachines.com/wp-content/uploads/2025/04/balance-1.svg"/>
+<div>
+<div class="icon-columns__col-heading heading--xxs color--white">Employee Assistance</div>
+<div class="body--m color--white inherit wrap-pretty">
+<p>Get confidential support for mental health, financial wellness, and everyday savings through trusted third-party programs and resources.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="quote-slider relative fit-photo cover flex center">
+<video autoplay="" loop="" muted="" playsinline="">
+<source src="https://www.brightmachines.com/wp-content/uploads/2025/07/testimonials-.mp4" type="video/mp4"/>
+</video>
+<div class="container relative">
+<div class="slider" data-autoplay="10000" data-dots="true">
+<div class="slider__inner">
+<div class="slider__slide flex column j-c">
+<blockquote class="relative flex">
+<div class="quote-icon relative">
 
-      <div class="icon-columns__grid flex column-mobile" data-observe="threshold" data-exit="true">
-                  <div class="icon-columns__column relative flex column-desktop">
-            <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/ecg_heart.svg" alt="">
-            <div>
-              <div class="icon-columns__col-heading heading--xxs color--white">Comprehensive Health Insurance</div>
-              <div class="body--m color--white inherit wrap-pretty">
-                <p>We’ve got you covered with a strong health insurance plan that supports your overall well-being, including medical, dental, and vision coverage.</p>
-              </div>
-            </div>
-          </div>
-                  <div class="icon-columns__column relative flex column-desktop">
-            <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/signal_cellular_alt.svg" alt="">
-            <div>
-              <div class="icon-columns__col-heading heading--xxs color--white">Professional Growth &amp; Development</div>
-              <div class="body--m color--white inherit wrap-pretty">
-                <p>Your growth is our gain. We provide learning opportunities, including classes, conferences, leadership training, and internal mobility.</p>
-              </div>
-            </div>
-          </div>
-                  <div class="icon-columns__column relative flex column-desktop">
-            <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/request_quote_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24-1.svg" alt="">
-            <div>
-              <div class="icon-columns__col-heading heading--xxs color--white">Competitive Compensation</div>
-              <div class="body--m color--white inherit wrap-pretty">
-                <p>Competitive salaries, stock options, and a company-matched 401k (U.S. only) program or long-term savings plan give our employees a leg up.</p>
-              </div>
-            </div>
-          </div>
-                  <div class="icon-columns__column relative flex column-desktop">
-            <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/ecg_heart-1.svg" alt="">
-            <div>
-              <div class="icon-columns__col-heading heading--xxs color--white">Collaborative Culture</div>
-              <div class="body--m color--white inherit wrap-pretty">
-                <p>We’re committed to your well-being and that of our community, offering team events, happy hours, and opportunities to volunteer.</p>
-              </div>
-            </div>
-          </div>
-                  <div class="icon-columns__column relative flex column-desktop">
-            <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/signal_cellular_alt-1.svg" alt="">
-            <div>
-              <div class="icon-columns__col-heading heading--xxs color--white">Balanced Work Life</div>
-              <div class="body--m color--white inherit wrap-pretty">
-                <p>We want the best you on the job and off and do our part through generous vacation time and paid parental leave for new parents.</p>
-              </div>
-            </div>
-          </div>
-                  <div class="icon-columns__column relative flex column-desktop">
-            <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/balance-1.svg" alt="">
-            <div>
-              <div class="icon-columns__col-heading heading--xxs color--white">Employee Assistance</div>
-              <div class="body--m color--white inherit wrap-pretty">
-                <p>Get confidential support for mental health, financial wellness, and everyday savings through trusted third-party programs and resources.</p>
-              </div>
-            </div>
-          </div>
-              </div>
-    </div>
-  </section>
-  <section class="quote-slider relative fit-photo cover flex center">
-          <video autoplay muted loop playsinline>
-        <source src="https://www.brightmachines.com/wp-content/uploads/2025/07/testimonials-.mp4" type="video/mp4">
-      </video>
-    
-    <div class="container relative">
-      <div class="slider" data-autoplay="10000" data-dots="true">
-        <div class="slider__inner">
-                      <div class="slider__slide flex column j-c">
-              <blockquote class="relative flex">
-                <div class="quote-icon relative">
-                  <svg width="68" height="55" viewBox="0 0 68 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M40.0755 54.6435V30.7603C40.0755 12.3419 54.2435 2.62668 67.8043 0.400273V9.91309C61.5299 11.9371 54.0411 18.4139 54.0411 28.3315H67.3995V54.6435H40.0755ZM0.000244448 54.6435V30.7603C0.000244448 12.3419 14.1683 2.62668 27.7291 0.400273V9.91309C21.4547 11.9371 13.9659 18.4139 13.9659 28.3315H27.3243V54.6435H0.000244448Z" fill="white"/>
-</svg>
-                </div>
-                <p class="heading--s color--white">I have been with the company for almost five years. I enjoy the hands-on building we get to do at Bright Machines. Cross-team collaboration is highly important, as everyone’s input matters and helps shape the future of the company and individual projects. I believe we are in the right position to help build the infrastructure for AI.&quot;</p>    
-              </blockquote>
-              <div class="quote-author flex a-c">
-                <figure class="fit-photo cover">
-                  <img src="https://www.brightmachines.com/wp-content/uploads/2025/04/Screenshot-2025-04-01-at-3.18.24 PM.jpg">
-                </figure>
-                <div>
-                  <p class="body--l color--white w--600">Trevor Mays</p> 
-                  <p class="body--l color--white w--600 desktop-only">,&nbsp;</p>
-                  <p class="body--l color--white">Integration and Service Manager</p>
-                </div>
-              </div>
-            </div>
-                      <div class="slider__slide flex column j-c">
-              <blockquote class="relative flex">
-                <div class="quote-icon relative">
-                  <svg width="68" height="55" viewBox="0 0 68 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M40.0755 54.6435V30.7603C40.0755 12.3419 54.2435 2.62668 67.8043 0.400273V9.91309C61.5299 11.9371 54.0411 18.4139 54.0411 28.3315H67.3995V54.6435H40.0755ZM0.000244448 54.6435V30.7603C0.000244448 12.3419 14.1683 2.62668 27.7291 0.400273V9.91309C21.4547 11.9371 13.9659 18.4139 13.9659 28.3315H27.3243V54.6435H0.000244448Z" fill="white"/>
-</svg>
-                </div>
-                <p class="heading--s color--white">What I enjoy most about working at Bright Machines is the great work environment and collaborating with an incredibly close-knit team. I also love the opportunity to travel to other countries, which allows me to learn from different cultures and expand my professional experience while driving innovation.&quot;</p>    
-              </blockquote>
-              <div class="quote-author flex a-c">
-                <figure class="fit-photo cover">
-                  <img src="https://www.brightmachines.com/wp-content/uploads/2026/02/IMG_1100-e1771967813749.jpg">
-                </figure>
-                <div>
-                  <p class="body--l color--white w--600">Carolina Molina Sanchez</p> 
-                  <p class="body--l color--white w--600 desktop-only">,&nbsp;</p>
-                  <p class="body--l color--white">Service Engineer</p>
-                </div>
-              </div>
-            </div>
-                      <div class="slider__slide flex column j-c">
-              <blockquote class="relative flex">
-                <div class="quote-icon relative">
-                  <svg width="68" height="55" viewBox="0 0 68 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M40.0755 54.6435V30.7603C40.0755 12.3419 54.2435 2.62668 67.8043 0.400273V9.91309C61.5299 11.9371 54.0411 18.4139 54.0411 28.3315H67.3995V54.6435H40.0755ZM0.000244448 54.6435V30.7603C0.000244448 12.3419 14.1683 2.62668 27.7291 0.400273V9.91309C21.4547 11.9371 13.9659 18.4139 13.9659 28.3315H27.3243V54.6435H0.000244448Z" fill="white"/>
-</svg>
-                </div>
-                <p class="heading--s color--white">I enjoy working at Bright Machines because it’s exciting to be in a non-technical role within a highly technical industry. I love gaining exposure to hardware and robotics, as well as the opportunity to understand how our engineers think and work. The passion of the team is inspiring and makes supporting people in this environment even more rewarding.&quot;</p>    
-              </blockquote>
-              <div class="quote-author flex a-c">
-                <figure class="fit-photo cover">
-                  <img src="https://www.brightmachines.com/wp-content/uploads/2026/02/IMG_0260-e1771967897520.jpg">
-                </figure>
-                <div>
-                  <p class="body--l color--white w--600">Abi Bernardino</p> 
-                  <p class="body--l color--white w--600 desktop-only">,&nbsp;</p>
-                  <p class="body--l color--white">People Operations Manager</p>
-                </div>
-              </div>
-            </div>
-                      <div class="slider__slide flex column j-c">
-              <blockquote class="relative flex">
-                <div class="quote-icon relative">
-                  <svg width="68" height="55" viewBox="0 0 68 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M40.0755 54.6435V30.7603C40.0755 12.3419 54.2435 2.62668 67.8043 0.400273V9.91309C61.5299 11.9371 54.0411 18.4139 54.0411 28.3315H67.3995V54.6435H40.0755ZM0.000244448 54.6435V30.7603C0.000244448 12.3419 14.1683 2.62668 27.7291 0.400273V9.91309C21.4547 11.9371 13.9659 18.4139 13.9659 28.3315H27.3243V54.6435H0.000244448Z" fill="white"/>
-</svg>
-                </div>
-                <p class="heading--s color--white">Working at this company is fulfilling because I&#039;m constantly challenged to grow and improve. The team culture is inclusive and supportive, making collaboration enjoyable. I feel valued and empowered to contribute ideas, and the company&#039;s mission aligns with my personal values—giving real purpose to my daily work and efforts.&quot;</p>    
-              </blockquote>
-              <div class="quote-author flex a-c">
-                <figure class="fit-photo cover">
-                  <img src="https://www.brightmachines.com/wp-content/uploads/2026/02/IMG_0922-e1771967918578.jpg">
-                </figure>
-                <div>
-                  <p class="body--l color--white w--600">Jorge Mejia Valde</p> 
-                  <p class="body--l color--white w--600 desktop-only">,&nbsp;</p>
-                  <p class="body--l color--white">Site Reliability Engineer</p>
-                </div>
-              </div>
-            </div>
-                  </div>
-                  <div class="slider__arrows flex j-sb absolute desktop-only">
-            <button class="slider__prev flex center" type="button">
-              <span class="desktop-only">
-                <svg width="42" height="16" viewBox="0 0 42 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M7.28576 1.205L0.921799 7.56896C0.531277 7.95949 0.531277 8.59265 0.921799 8.98318L7.28576 15.3471C7.67628 15.7377 8.30945 15.7377 8.69997 15.3471C9.0905 14.9566 9.0905 14.3234 8.69997 13.9329L4.04312 9.27607H41.6309V7.27607H4.04312L8.69997 2.61922C9.0905 2.22869 9.0905 1.59553 8.69997 1.205C8.30945 0.814478 7.67628 0.814478 7.28576 1.205Z" fill="white"/>
-</svg>
-              </span>
-              <span class="mobile-only">
-                <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M5.0942 11.542L0.321233 6.76908C0.0283398 6.47618 0.0283399 6.00131 0.321233 5.70842L5.0942 0.935446C5.3871 0.642553 5.86197 0.642553 6.15486 0.935446C6.44776 1.22834 6.44776 1.70321 6.15486 1.99611L2.66222 5.48875L13.625 5.48875C14.0392 5.48875 14.375 5.82453 14.375 6.23875C14.375 6.65296 14.0392 6.98875 13.625 6.98875L2.66222 6.98875L6.15486 10.4814C6.44776 10.7743 6.44776 11.2492 6.15486 11.542C5.86197 11.8349 5.3871 11.8349 5.0942 11.542Z" fill="white"/>
-</svg>
-              </span>
-            </button>
-            <button class="slider__next flex center" type="button">
-              <span class="desktop-only">
-                <svg width="42" height="16" viewBox="0 0 42 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M35.288 1.205L41.6519 7.56896C42.0425 7.95949 42.0425 8.59265 41.6519 8.98318L35.288 15.3471C34.8974 15.7377 34.2643 15.7377 33.8738 15.3471C33.4832 14.9566 33.4832 14.3234 33.8738 13.9329L38.5306 9.27607H0.942871V7.27607H38.5306L33.8738 2.61922C33.4832 2.22869 33.4832 1.59553 33.8738 1.205C34.2643 0.814478 34.8974 0.814478 35.288 1.205Z" fill="white"/>
-</svg>
-              </span>
-              <span class="mobile-only">
-                <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M9.83548 11.542L14.6085 6.76908C14.9013 6.47618 14.9013 6.00131 14.6085 5.70842L9.83548 0.935446C9.54259 0.642553 9.06772 0.642553 8.77482 0.935446C8.48193 1.22834 8.48193 1.70321 8.77482 1.99611L12.2675 5.48875L1.30469 5.48875C0.890473 5.48875 0.554687 5.82453 0.554687 6.23875C0.554687 6.65296 0.890474 6.98875 1.30469 6.98875L12.2675 6.98875L8.77482 10.4814C8.48193 10.7743 8.48193 11.2492 8.77482 11.542C9.06772 11.8349 9.54259 11.8349 9.83548 11.542Z" fill="white"/>
-</svg>
-              </span>
-            </button>
-          </div>
-              </div>
-    </div>
-  </section>
+</div>
+<p class="heading--s color--white">I have been with the company for almost five years. I enjoy the hands-on building we get to do at Bright Machines. Cross-team collaboration is highly important, as everyone’s input matters and helps shape the future of the company and individual projects. I believe we are in the right position to help build the infrastructure for AI."</p>
+</blockquote>
+<div class="quote-author flex a-c">
+<figure class="fit-photo cover">
+<img src="https://www.brightmachines.com/wp-content/uploads/2025/04/Screenshot-2025-04-01-at-3.18.24 PM.jpg"/>
+</figure>
+<div>
+<p class="body--l color--white w--600">Trevor Mays</p>
+<p class="body--l color--white w--600 desktop-only">, </p>
+<p class="body--l color--white">Integration and Service Manager</p>
+</div>
+</div>
+</div>
+<div class="slider__slide flex column j-c">
+<blockquote class="relative flex">
+<div class="quote-icon relative">
+
+</div>
+<p class="heading--s color--white">What I enjoy most about working at Bright Machines is the great work environment and collaborating with an incredibly close-knit team. I also love the opportunity to travel to other countries, which allows me to learn from different cultures and expand my professional experience while driving innovation."</p>
+</blockquote>
+<div class="quote-author flex a-c">
+<figure class="fit-photo cover">
+<img src="https://www.brightmachines.com/wp-content/uploads/2026/02/IMG_1100-e1771967813749.jpg"/>
+</figure>
+<div>
+<p class="body--l color--white w--600">Carolina Molina Sanchez</p>
+<p class="body--l color--white w--600 desktop-only">, </p>
+<p class="body--l color--white">Service Engineer</p>
+</div>
+</div>
+</div>
+<div class="slider__slide flex column j-c">
+<blockquote class="relative flex">
+<div class="quote-icon relative">
+
+</div>
+<p class="heading--s color--white">I enjoy working at Bright Machines because it’s exciting to be in a non-technical role within a highly technical industry. I love gaining exposure to hardware and robotics, as well as the opportunity to understand how our engineers think and work. The passion of the team is inspiring and makes supporting people in this environment even more rewarding."</p>
+</blockquote>
+<div class="quote-author flex a-c">
+<figure class="fit-photo cover">
+<img src="https://www.brightmachines.com/wp-content/uploads/2026/02/IMG_0260-e1771967897520.jpg"/>
+</figure>
+<div>
+<p class="body--l color--white w--600">Abi Bernardino</p>
+<p class="body--l color--white w--600 desktop-only">, </p>
+<p class="body--l color--white">People Operations Manager</p>
+</div>
+</div>
+</div>
+<div class="slider__slide flex column j-c">
+<blockquote class="relative flex">
+<div class="quote-icon relative">
+
+</div>
+<p class="heading--s color--white">Working at this company is fulfilling because I'm constantly challenged to grow and improve. The team culture is inclusive and supportive, making collaboration enjoyable. I feel valued and empowered to contribute ideas, and the company's mission aligns with my personal values—giving real purpose to my daily work and efforts."</p>
+</blockquote>
+<div class="quote-author flex a-c">
+<figure class="fit-photo cover">
+<img src="https://www.brightmachines.com/wp-content/uploads/2026/02/IMG_0922-e1771967918578.jpg"/>
+</figure>
+<div>
+<p class="body--l color--white w--600">Jorge Mejia Valde</p>
+<p class="body--l color--white w--600 desktop-only">, </p>
+<p class="body--l color--white">Site Reliability Engineer</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slider__arrows flex j-sb absolute desktop-only">
+<button class="slider__prev flex center" type="button">
+<span class="desktop-only">
+
+</span>
+<span class="mobile-only">
+
+</span>
+</button>
+<button class="slider__next flex center" type="button">
+<span class="desktop-only">
+
+</span>
+<span class="mobile-only">
+
+</span>
+</button>
+</div>
+</div>
+</div>
+</section>
 <section class="jobs-list background--white" id="openings">
-  <div class="container relative text-reveal" data-observe="threshold" data-exit="true">
-          <h2 class="heading--xl color--black text-center">
-        <span class="text-reveal__inner">
-          <span><span>Open</span> <span>roles</span></span>
-        </span>
-      </h2>
-            <div class="jobs-list--copy">
-      <p>Bright Machines is always on the lookout for bright people. See below for current open roles.</p>
-    </div>
-        <div class="jobs-list__list">
-      <div id='lever-jobs-container'></div>
-      <script type="da99982480f9a151a4698c10-text/javascript">window.leverJobsOptions = {accountName: 'brightmachines'};</script>
-    </div>
-  </div>
+<div class="container relative text-reveal" data-exit="true" data-observe="threshold">
+<h2 class="heading--xl color--black text-center">
+<span class="text-reveal__inner">
+<span><span>Open</span> <span>roles</span></span>
+</span>
+</h2>
+<div class="jobs-list--copy">
+<p>Bright Machines is always on the lookout for bright people. See below for current open roles.</p>
+</div>
+<div class="jobs-list__list">
+<div id="lever-jobs-container"></div>
+
+</div>
+</div>
 </section>
-
-
-
 </div> <!-- End max-container -->
-
-
-
 <section class="footer__top text-reveal" data-observe="threshold">
-  <div class="container flex a-c j-c">
-
-    <div class="footer__top-content">
-              <h2>
-          <span class="text-reveal__inner">
-            <span>Didn&#039;t</span> <span>find</span> <span>your</span> <span>role?</span>          </span>
-        </h2>
-      
-              <div class="body--s">
-          <p>We’re always looking for exceptional talent. If you think you’d be a great addition to our team, we’d love to hear from you!</p>
-        </div>
-      
-              <a href="/cdn-cgi/l/email-protection#c7a4a6b5a2a2b5b487a5b5aea0afb3aaa6a4afaea9a2b4e9a4a8aa" class="btn inverse" target="_self">
+<div class="container flex a-c j-c">
+<div class="footer__top-content">
+<h2>
+<span class="text-reveal__inner">
+<span>Didn't</span> <span>find</span> <span>your</span> <span>role?</span> </span>
+</h2>
+<div class="body--s">
+<p>We’re always looking for exceptional talent. If you think you’d be a great addition to our team, we’d love to hear from you!</p>
+</div>
+<a class="btn inverse" href="/cdn-cgi/l/email-protection#c7a4a6b5a2a2b5b487a5b5aea0afb3aaa6a4afaea9a2b4e9a4a8aa" target="_self">
           Talk to us        </a>
-          </div>
-
-  </div>
+</div>
+</div>
 </section>
+<footer class="footer" id="footer" role="contentinfo">
+<div class="container">
+<nav class="footer__nav flex a-start j-sb column-mobile">
+<div class="footer__logo">
+<a aria-label="Bright Machines Logo. Return Home" class="logo" href="https://www.brightmachines.com">
 
-
-
-<footer id="footer" class="footer" role="contentinfo">
-  <div class="container">
-
-    <nav class="footer__nav flex a-start j-sb column-mobile">
-
-      <div class="footer__logo">
-        <a class="logo" href="https://www.brightmachines.com" aria-label="Bright Machines Logo. Return Home">     
-          <svg width="174" height="46" viewBox="0 0 250 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M233.358 63.7355C227.721 63.7355 224.777 61.5153 224.528 57.0749H229.13C229.255 58.2723 229.641 59.1205 230.29 59.6194C230.964 60.1183 232.011 60.3678 233.433 60.3678C235.978 60.3678 237.25 59.5945 237.25 58.0478C237.25 57.3493 236.976 56.813 236.427 56.4388C235.878 56.0646 234.893 55.7528 233.471 55.5033L231.263 55.1291C227.047 54.4307 224.939 52.4849 224.939 49.2918C224.939 47.4708 225.638 46.0488 227.035 45.0261C228.432 43.9783 230.402 43.4545 232.947 43.4545C238.46 43.4545 241.304 45.6372 241.478 50.0028H237.025C236.976 48.8553 236.614 48.0445 235.94 47.5705C235.267 47.0716 234.269 46.8222 232.947 46.8222C230.702 46.8222 229.579 47.5705 229.579 49.0673C229.579 49.7159 229.829 50.2273 230.328 50.6015C230.826 50.9507 231.65 51.2251 232.797 51.4247L235.229 51.7989C237.574 52.2229 239.271 52.8965 240.318 53.8195C241.391 54.7425 241.927 56.0272 241.927 57.6736C241.927 59.6194 241.179 61.1162 239.682 62.1639C238.185 63.2116 236.078 63.7355 233.358 63.7355Z" fill="white"/>
-<path d="M222.38 53.8943V55.0169H207.937C208.111 56.6633 208.623 57.9106 209.471 58.7588C210.344 59.582 211.504 59.9936 212.951 59.9936C215.096 59.9936 216.568 59.0706 217.366 57.2246H221.894C221.395 59.1953 220.347 60.7669 218.751 61.9394C217.154 63.0869 215.209 63.6606 212.914 63.6606C210.045 63.6606 207.725 62.7376 205.954 60.8916C204.182 59.0456 203.297 56.601 203.297 53.5576C203.297 50.5142 204.17 48.0695 205.916 46.2235C207.687 44.3775 209.995 43.4545 212.839 43.4545C215.757 43.4545 218.077 44.4149 219.799 46.3357C221.52 48.2566 222.38 50.7761 222.38 53.8943ZM212.801 47.1215C210.032 47.1215 208.423 48.6557 207.974 51.724H217.666C217.466 50.3021 216.942 49.1795 216.094 48.3563C215.246 47.5331 214.148 47.1215 212.801 47.1215Z" fill="white"/>
-<path d="M193.179 43.4545C195.274 43.4545 196.92 44.0656 198.118 45.288C199.34 46.4854 199.951 48.1942 199.951 50.4144V63.2116H195.237V51.2002C195.237 48.7555 194.027 47.5331 191.607 47.5331C190.41 47.5331 189.387 47.9697 188.539 48.8428C187.715 49.6909 187.304 50.8759 187.304 52.3976V63.2116H182.589V43.9035H187.154V46.6725C188.626 44.5271 190.634 43.4545 193.179 43.4545Z" fill="white"/>
-<path d="M176.058 41.5835C175.334 41.5835 174.711 41.3341 174.187 40.8352C173.688 40.3362 173.439 39.7251 173.439 39.0016C173.439 38.2782 173.688 37.667 174.187 37.1681C174.711 36.6443 175.334 36.3823 176.058 36.3823C176.781 36.3823 177.393 36.6443 177.891 37.1681C178.39 37.667 178.64 38.2782 178.64 39.0016C178.64 39.7251 178.378 40.3362 177.854 40.8352C177.355 41.3341 176.756 41.5835 176.058 41.5835ZM178.415 63.2116H173.701V43.9035H178.415V63.2116Z" fill="white"/>
-<path d="M162.722 43.4545C164.817 43.4545 166.463 44.0657 167.661 45.288C168.883 46.4855 169.494 48.1942 169.494 50.4144V63.2117H164.78V51.2002C164.78 48.7555 163.57 47.5332 161.15 47.5332C159.953 47.5332 158.93 47.9697 158.082 48.8428C157.258 49.691 156.847 50.8759 156.847 52.3976V63.2117H152.132V36.5695H156.847V46.4855C158.319 44.4648 160.277 43.4545 162.722 43.4545Z" fill="white"/>
-<path d="M140.122 63.6606C137.278 63.6606 134.97 62.7376 133.199 60.8916C131.453 59.0706 130.58 56.6259 130.58 53.5576C130.58 50.4643 131.453 48.0071 133.199 46.186C134.921 44.365 137.228 43.4545 140.122 43.4545C142.641 43.4545 144.699 44.128 146.296 45.4751C147.892 46.7972 148.828 48.5933 149.102 50.8634H144.388C144.163 49.7408 143.677 48.8802 142.928 48.2815C142.18 47.6828 141.244 47.3834 140.122 47.3834C138.65 47.3834 137.49 47.9198 136.642 48.9925C135.819 50.0402 135.407 51.5619 135.407 53.5576C135.407 55.5532 135.831 57.0874 136.679 58.1601C137.527 59.2078 138.675 59.7317 140.122 59.7317C141.269 59.7317 142.23 59.4198 143.003 58.7962C143.801 58.1476 144.288 57.2246 144.462 56.0272H149.177C148.928 58.3472 147.98 60.2056 146.333 61.6026C144.687 62.9746 142.616 63.6606 140.122 63.6606Z" fill="white"/>
-<path d="M128.44 63.2116H123.726C123.501 62.8125 123.327 62.0267 123.202 60.8542C121.905 62.7252 119.834 63.6606 116.99 63.6606C114.87 63.6606 113.174 63.1493 111.901 62.1265C110.654 61.1037 110.03 59.6818 110.03 57.8607C110.03 54.3433 112.5 52.3352 117.439 51.8363L120.358 51.5744C121.331 51.4496 122.029 51.2251 122.453 50.9008C122.878 50.5516 123.09 50.0402 123.09 49.3666C123.09 48.5434 122.815 47.9447 122.266 47.5705C121.742 47.1714 120.844 46.9718 119.572 46.9718C118.2 46.9718 117.215 47.2088 116.616 47.6828C116.017 48.1318 115.668 48.9176 115.568 50.0402H110.928C111.203 45.6497 114.097 43.4545 119.61 43.4545C124.973 43.4545 127.655 45.3878 127.655 49.2544V59.5446C127.655 61.2409 127.917 62.4632 128.44 63.2116ZM118.113 60.2929C119.585 60.2929 120.782 59.8938 121.705 59.0955C122.628 58.2723 123.09 57.0999 123.09 55.5782V53.8195C122.641 54.2186 121.905 54.4806 120.882 54.6053L118.337 54.9046C117.09 55.0543 116.192 55.3537 115.643 55.8027C115.119 56.2268 114.857 56.8504 114.857 57.6736C114.857 58.4968 115.132 59.1454 115.681 59.6194C116.254 60.0684 117.065 60.2929 118.113 60.2929Z" fill="white"/>
-<path d="M95.0567 49.2544L99.5095 36.5695H106.844V63.2117H102.017V55.0918C102.017 50.1026 102.066 45.6997 102.166 41.8829C101.617 43.7539 100.944 45.7994 100.146 48.0196L94.7573 63.2117H90.6038L85.1781 48.0196C84.2301 45.2506 83.5691 43.23 83.1949 41.9578C83.2947 45.7495 83.3446 50.1276 83.3446 55.0918V63.2117H78.4801V36.5695H85.8142L90.4167 49.5164C90.7161 50.3895 91.4769 52.7968 92.6993 56.7382C93.4975 53.9692 94.2833 51.4746 95.0567 49.2544Z" fill="white"/>
-<path d="M180.34 8.53836V12.1306H176.523V22.5704C176.523 23.1941 176.685 23.6306 177.01 23.8801C177.359 24.1296 177.933 24.2543 178.731 24.2543H180.34V27.8465C179.317 27.9463 178.494 27.9962 177.87 27.9962C175.775 27.9962 174.241 27.6095 173.268 26.8362C172.32 26.0379 171.846 24.7781 171.846 23.0569V12.1306H168.852V8.53836H171.846V2.92554H176.523V8.53836H180.34Z" fill="white"/>
-<path d="M159.953 8.08941C162.049 8.08941 163.695 8.70059 164.892 9.92294C166.115 11.1203 166.726 12.8291 166.726 15.0493V27.8466H162.011V15.8351C162.011 13.3904 160.801 12.1681 158.382 12.1681C157.184 12.1681 156.161 12.6046 155.313 13.4777C154.49 14.3259 154.078 15.5108 154.078 17.0325V27.8466H149.364V1.20435H154.078V11.1203C155.55 9.09972 157.508 8.08941 159.953 8.08941Z" fill="white"/>
-<path d="M140.619 11.1951V8.53838H145.184V27.2104C145.184 29.8297 144.348 31.8877 142.677 33.3845C141.03 34.8813 138.686 35.6296 135.642 35.6296C132.948 35.6296 130.828 35.0309 129.281 33.8335C127.759 32.6361 126.924 30.9897 126.774 28.8942H131.414C131.638 30.9647 133.073 32 135.717 32C137.264 32 138.436 31.6009 139.234 30.8026C140.058 30.0043 140.469 28.8443 140.469 27.3226V24.8904C139.072 26.8113 137.101 27.7717 134.557 27.7717C131.938 27.7717 129.83 26.8611 128.233 25.0401C126.637 23.2689 125.838 20.8991 125.838 17.9305C125.838 14.937 126.637 12.5547 128.233 10.7835C129.805 8.98741 131.9 8.08936 134.52 8.08936C137.239 8.08936 139.272 9.12461 140.619 11.1951ZM135.605 23.8801C137.176 23.8801 138.399 23.3562 139.272 22.3085C140.145 21.2608 140.581 19.8015 140.581 17.9305C140.581 16.0596 140.145 14.6002 139.272 13.5525C138.399 12.5048 137.176 11.9809 135.605 11.9809C134.083 11.9809 132.873 12.5173 131.975 13.5899C131.102 14.6377 130.665 16.097 130.665 17.9679C130.665 19.8139 131.102 21.2608 131.975 22.3085C132.873 23.3562 134.083 23.8801 135.605 23.8801Z" fill="white"/>
-<path d="M120.168 6.21843C119.444 6.21843 118.821 5.96897 118.297 5.47005C117.798 4.97114 117.549 4.35996 117.549 3.63653C117.549 2.9131 117.798 2.30192 118.297 1.80301C118.821 1.27914 119.444 1.01721 120.168 1.01721C120.891 1.01721 121.503 1.27914 122.001 1.80301C122.5 2.30192 122.75 2.9131 122.75 3.63653C122.75 4.35996 122.488 4.97114 121.964 5.47005C121.465 5.96897 120.866 6.21843 120.168 6.21843ZM122.525 27.8465H117.811V8.5384H122.525V27.8465Z" fill="white"/>
-<path d="M113.732 8.23901C114.156 8.23901 114.543 8.26396 114.892 8.31385V12.6544H113.694C111.898 12.6544 110.514 13.1159 109.541 14.0389C108.593 14.937 108.119 16.2716 108.119 18.0428V27.8465H103.404V8.53836H107.969V11.9809C109.042 9.48631 110.963 8.23901 113.732 8.23901Z" fill="white"/>
-<path d="M95.5805 13.8145C97.0523 14.3384 98.1874 15.174 98.9856 16.3216C99.8088 17.4691 100.22 18.7663 100.22 20.2131C100.22 22.6329 99.4222 24.5163 97.8257 25.8634C96.2541 27.1855 93.959 27.8466 90.9406 27.8466H78.4801V1.20435H90.529C93.3229 1.20435 95.4558 1.84047 96.9276 3.11271C98.3994 4.38495 99.1353 6.04385 99.1353 8.08941C99.1353 10.7087 97.9504 12.6171 95.5805 13.8145ZM90.1548 5.35784H83.5316V12.3177H90.1548C91.427 12.3177 92.3999 12.0059 93.0735 11.3823C93.7719 10.7337 94.1212 9.8481 94.1212 8.72553C94.1212 7.67781 93.7719 6.85459 93.0735 6.25589C92.375 5.65719 91.4021 5.35784 90.1548 5.35784ZM83.5316 23.6557H90.6786C92.1006 23.6557 93.1857 23.3438 93.9341 22.7202C94.6825 22.0716 95.0567 21.1611 95.0567 19.9886C95.0567 17.519 93.5973 16.2841 90.6786 16.2841H83.5316V23.6557Z" fill="white"/>
-<rect x="9.75073" y="6.71545" width="49.5415" height="50.5429" fill="white"/>
-<path d="M52.1753 23.0894C50.7278 23.0894 49.5518 21.9134 49.5518 20.4659C49.5518 19.0185 50.7278 17.8425 52.1753 17.8425C53.6227 17.8425 54.7987 19.0185 54.7987 20.4659C54.7987 21.9134 53.6227 23.0894 52.1753 23.0894ZM52.1753 30.9146C50.9088 30.9146 49.8797 29.8855 49.8797 28.619C49.8797 27.3525 50.9088 26.3235 52.1753 26.3235C53.4418 26.3235 54.4708 27.3525 54.4708 28.619C54.4708 29.8855 53.4418 30.9146 52.1753 30.9146ZM44.0222 23.7453C42.2129 23.7453 40.7428 22.2752 40.7428 20.4773C40.7428 18.668 42.2129 17.1979 44.0222 17.1979C45.8315 17.1979 47.2902 18.668 47.2902 20.4773C47.3015 22.2752 45.8315 23.7453 44.0222 23.7453ZM44.0222 31.8984C42.2129 31.8984 40.7428 30.4283 40.7428 28.6303C40.7428 26.8211 42.2129 25.3623 44.0222 25.3623C45.8315 25.3623 47.2902 26.8324 47.2902 28.6303C47.3015 30.4283 45.8315 31.8984 44.0222 31.8984ZM44.0222 39.3956C42.5747 39.3956 41.3987 38.2196 41.3987 36.7721C41.3987 35.3247 42.5747 34.1487 44.0222 34.1487C45.4696 34.1487 46.6456 35.3247 46.6456 36.7721C46.6456 38.2196 45.4696 39.3956 44.0222 39.3956ZM35.8691 23.7453C34.0598 23.7453 32.6011 22.2752 32.6011 20.4773C32.6011 18.668 34.0711 17.1979 35.8691 17.1979C37.6784 17.1979 39.1371 18.668 39.1371 20.4773C39.1484 22.2752 37.6784 23.7453 35.8691 23.7453ZM35.8691 31.5704C34.2407 31.5704 32.929 30.2474 32.929 28.619C32.929 26.9907 34.252 25.6676 35.8691 25.6676C37.4974 25.6676 38.8092 26.9907 38.8092 28.619C38.8205 30.2474 37.4974 31.5704 35.8691 31.5704ZM27.7273 23.7453C25.918 23.7453 24.4593 22.2752 24.4593 20.4773C24.4593 18.668 25.9293 17.1979 27.7273 17.1979C29.5366 17.1979 30.9953 18.668 30.9953 20.4773C30.9953 22.2752 29.5253 23.7453 27.7273 23.7453ZM27.7273 30.9146C26.4608 30.9146 25.4318 29.8855 25.4318 28.619C25.4318 27.3525 26.4608 26.3235 27.7273 26.3235C28.9938 26.3235 30.0228 27.3525 30.0228 28.619C30.0115 29.8855 28.9825 30.9146 27.7273 30.9146ZM19.5629 23.0894C18.1155 23.0894 16.9394 21.9134 16.9394 20.4659C16.9394 19.0185 18.1155 17.8425 19.5629 17.8425C21.0103 17.8425 22.1864 19.0185 22.1864 20.4659C22.1864 21.9134 21.0103 23.0894 19.5629 23.0894ZM27.7273 9.68938C29.1747 9.68938 30.3508 10.8654 30.3508 12.3128C30.3508 13.7603 29.1747 14.9363 27.7273 14.9363C26.2799 14.9363 25.1038 13.7603 25.1038 12.3128C25.1038 10.8654 26.2799 9.68938 27.7273 9.68938ZM35.8691 9.37276C37.4974 9.37276 38.8092 10.6958 38.8092 12.3128C38.8092 13.9412 37.4861 15.2642 35.8691 15.2642C34.2407 15.2642 32.929 13.9412 32.929 12.3128C32.929 10.6845 34.252 9.37276 35.8691 9.37276ZM44.0222 9.68938C45.4696 9.68938 46.6456 10.8654 46.6456 12.3128C46.6456 13.7603 45.4696 14.9363 44.0222 14.9363C42.5747 14.9363 41.3987 13.7603 41.3987 12.3128C41.41 10.8654 42.586 9.68938 44.0222 9.68938ZM60.3397 0.891724H3.26802C1.47004 0.891724 0 2.36177 0 4.15975V61.2201C0 63.0181 1.47004 64.4882 3.26802 64.4882H60.3283C62.1263 64.4882 63.5964 63.0181 63.5964 61.2201V4.15975C63.6077 2.36177 62.1376 0.891724 60.3397 0.891724Z" fill="#E10C0C"/>
-</svg>
-    
-        </a>
-                  <div class="footer__logo-message body--s-bump">
-            <p>2445 16th St., San Francisco, CA 94103</p>
-          </div>
-        				
-				<!-- <div class="footer__signup relative">
+</a>
+<div class="footer__logo-message body--s-bump">
+<p>2445 16th St., San Francisco, CA 94103</p>
+</div>
+<!-- <div class="footer__signup relative">
 					<div class="signup">
 																	</div>
 				</div> -->
-      </div>
-			
-
-			<!-- Desktop menu -->
-      <div class="footer__row flex a-start-desktop j-end-desktop wrap-mobile">
-
-				
-					<div class="footerNavItem relative">
-							
-						<a href="/platform/" class="footerNavItem__title" target="">
-							<span>Platform</span>
-						</a>
-
-						
-					</div>
-
-				
-					<div class="footerNavItem relative">
-							
-						<a href="/edge-model/" class="footerNavItem__title" target="">
-							<span>Edge Model</span>
-						</a>
-
-						
-					</div>
-
-				
-					<div class="footerNavItem relative">
-							
-						<a href="/why-us/" class="footerNavItem__title" target="">
-							<span>Why Us</span>
-						</a>
-
-						
-					</div>
-
-				
-					<div class="footerNavItem relative">
-							
-						<a href="/about/" class="footerNavItem__title" target="">
-							<span>Company</span>
-						</a>
-
-						
-							<ul class="footerNavItem__stack">
-																	<li class="footerNavItem__item">
-										<a 
-											href="/about/" 
-											class="footerNavItem__link body--xs" 
-											target=""
-										>
+</div>
+<!-- Desktop menu -->
+<div class="footer__row flex a-start-desktop j-end-desktop wrap-mobile">
+<div class="footerNavItem relative">
+<a class="footerNavItem__title" href="/platform/" target="">
+<span>Platform</span>
+</a>
+</div>
+<div class="footerNavItem relative">
+<a class="footerNavItem__title" href="/edge-model/" target="">
+<span>Edge Model</span>
+</a>
+</div>
+<div class="footerNavItem relative">
+<a class="footerNavItem__title" href="/why-us/" target="">
+<span>Why Us</span>
+</a>
+</div>
+<div class="footerNavItem relative">
+<a class="footerNavItem__title" href="/about/" target="">
+<span>Company</span>
+</a>
+<ul class="footerNavItem__stack">
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/about/" target="">
 											About Us										</a>
-									</li>
-																	<li class="footerNavItem__item">
-										<a 
-											href="/careers/" 
-											class="footerNavItem__link body--xs" 
-											target=""
-										>
+</li>
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/careers/" target="">
 											Careers										</a>
-									</li>
-															</ul>
-
-						
-					</div>
-
-				
-					<div class="footerNavItem relative">
-							
-						<a href="/blog/" class="footerNavItem__title" target="">
-							<span>Resources</span>
-						</a>
-
-						
-							<ul class="footerNavItem__stack">
-																	<li class="footerNavItem__item">
-										<a 
-											href="/news/" 
-											class="footerNavItem__link body--xs" 
-											target=""
-										>
+</li>
+</ul>
+</div>
+<div class="footerNavItem relative">
+<a class="footerNavItem__title" href="/blog/" target="">
+<span>Resources</span>
+</a>
+<ul class="footerNavItem__stack">
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/news/" target="">
 											News										</a>
-									</li>
-																	<li class="footerNavItem__item">
-										<a 
-											href="/blog/" 
-											class="footerNavItem__link body--xs" 
-											target=""
-										>
+</li>
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/blog/" target="">
 											Blogs										</a>
-									</li>
-																	<li class="footerNavItem__item">
-										<a 
-											href="/videos/" 
-											class="footerNavItem__link body--xs" 
-											target=""
-										>
+</li>
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/videos/" target="">
 											Videos										</a>
-									</li>
-																	<li class="footerNavItem__item">
-										<a 
-											href="/brand-kit/" 
-											class="footerNavItem__link body--xs" 
-											target=""
-										>
+</li>
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/brand-kit/" target="">
 											Brand Kit										</a>
-									</li>
-																	<li class="footerNavItem__item">
-										<a 
-											href="/llm/" 
-											class="footerNavItem__link body--xs" 
-											target=""
-										>
+</li>
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/llm/" target="">
 											Hey, AI										</a>
-									</li>
-															</ul>
-
-						
-					</div>
-
-				
-      </div>
-
-
-			<!-- Mobile menu -->
-			<div class="footer__row-mobile">
-				<div class="footer__row-mobile-col-l">
-					<div class="footer__row-mobile-inner">
-														<div class="footerNavItem relative">
-									<a href="/platform/" class="footerNavItem__title" target="">
-										<span>Platform</span>
-									</a>
-
-																	</div>
-															<div class="footerNavItem relative">
-									<a href="/edge-model/" class="footerNavItem__title" target="">
-										<span>Edge Model</span>
-									</a>
-
-																	</div>
-															<div class="footerNavItem relative">
-									<a href="/why-us/" class="footerNavItem__title" target="">
-										<span>Why Us</span>
-									</a>
-
-																	</div>
-												</div>
-					<div class="footer__row-mobile-ss">
-						<p class="color--white w--500">Follow Us:</p>
-						
+</li>
+</ul>
+</div>
+</div>
+<!-- Mobile menu -->
+<div class="footer__row-mobile">
+<div class="footer__row-mobile-col-l">
+<div class="footer__row-mobile-inner">
+<div class="footerNavItem relative">
+<a class="footerNavItem__title" href="/platform/" target="">
+<span>Platform</span>
+</a>
+</div>
+<div class="footerNavItem relative">
+<a class="footerNavItem__title" href="/edge-model/" target="">
+<span>Edge Model</span>
+</a>
+</div>
+<div class="footerNavItem relative">
+<a class="footerNavItem__title" href="/why-us/" target="">
+<span>Why Us</span>
+</a>
+</div>
+</div>
+<div class="footer__row-mobile-ss">
+<p class="color--white w--500">Follow Us:</p>
 <div class="social-global flex a-c relative gap-10">
-			<div class="social-global__group flex center">
+<div class="social-global__group flex center">
+<a class="flex center social-global__icon" href="https://www.linkedin.com/company/bright-machines/" target="_blank">
 
-			<a href="https://www.linkedin.com/company/bright-machines/" target="_blank" class="flex center social-global__icon">
-													<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M3.47439 1.87793C3.47439 2.63786 2.91445 3.23778 1.99454 3.23778C1.11463 3.23778 0.554688 2.63786 0.554688 1.87793C0.554688 1.11801 1.11463 0.518066 1.99454 0.518066C2.91445 0.518066 3.43439 1.11801 3.47439 1.87793ZM0.634678 13.1567V4.35766H3.3544V13.1567H0.634678ZM5.03422 7.15737C5.03422 6.07748 4.99423 5.15757 4.95423 4.35766H7.31399L7.43397 5.59754H7.47397C7.83393 5.0376 8.71384 4.15768 10.1937 4.15768C11.9935 4.15768 13.3534 5.35755 13.3534 7.95728V13.1567H10.6336V8.27727C10.6336 7.15739 10.2337 6.35745 9.23379 6.35745C8.47386 6.35745 8.03391 6.87741 7.83393 7.39736C7.75394 7.55734 7.75394 7.83732 7.75394 8.07729V13.1567H5.03422V7.15737Z" fill="white"/>
-					</svg>
-											</a>
+</a>
+</div>
+<div class="social-global__group flex center">
+<a class="flex center social-global__icon" href="https://www.youtube.com/@Bright-Machines" target="_blank">
 
-		</div>
-			<div class="social-global__group flex center">
-
-			<a href="https://www.youtube.com/@Bright-Machines" target="_blank" class="flex center social-global__icon">
-																	<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" clip-rule="evenodd" d="M15.0972 1.41303C14.6548 0.626494 14.2123 0.479018 13.2783 0.42986C12.3443 0.380702 9.98472 0.331543 7.92006 0.331543C5.85541 0.331543 3.49579 0.380702 2.56178 0.42986C1.62777 0.479018 1.13615 0.626494 0.742882 1.41303C0.300456 2.19956 0.0547115 3.52684 0.0547115 5.83729C0.0547115 8.14773 0.300456 9.47501 0.742882 10.2615C1.18531 11.0481 1.62777 11.1956 2.56178 11.2447C3.49579 11.2939 5.85541 11.343 7.92006 11.343C9.98472 11.343 12.3443 11.2939 13.2783 11.2447C14.2123 11.1956 14.7039 11.0481 15.0972 10.2615C15.5396 9.47501 15.7854 8.14773 15.7854 5.83729C15.7363 3.52684 15.5396 2.19956 15.0972 1.41303ZM6.34695 8.73764V2.9861L10.8204 5.88645L6.34695 8.73764Z" fill="white"/>
-					</svg>
-							</a>
-
-		</div>
-	
-</div>					</div>
-				</div>
-				<div class="footer__row-mobile-col-r">
-					<div class="footer__row-mobile-inner">
-														<div class="footerNavItem relative">
-									<a href="/about/" class="footerNavItem__title" target="">
-										<span>Company</span>
-									</a>
-
-																			<ul class="footerNavItem__stack">
-																							<li class="footerNavItem__item">
-													<a href="/about/" class="footerNavItem__link body--xs" target="">
+</a>
+</div>
+</div> </div>
+</div>
+<div class="footer__row-mobile-col-r">
+<div class="footer__row-mobile-inner">
+<div class="footerNavItem relative">
+<a class="footerNavItem__title" href="/about/" target="">
+<span>Company</span>
+</a>
+<ul class="footerNavItem__stack">
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/about/" target="">
 														About Us													</a>
-												</li>
-																							<li class="footerNavItem__item">
-													<a href="/careers/" class="footerNavItem__link body--xs" target="">
+</li>
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/careers/" target="">
 														Careers													</a>
-												</li>
-																					</ul>
-																	</div>
-															<div class="footerNavItem relative">
-									<a href="/blog/" class="footerNavItem__title" target="">
-										<span>Resources</span>
-									</a>
-
-																			<ul class="footerNavItem__stack">
-																							<li class="footerNavItem__item">
-													<a href="/news/" class="footerNavItem__link body--xs" target="">
+</li>
+</ul>
+</div>
+<div class="footerNavItem relative">
+<a class="footerNavItem__title" href="/blog/" target="">
+<span>Resources</span>
+</a>
+<ul class="footerNavItem__stack">
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/news/" target="">
 														News													</a>
-												</li>
-																							<li class="footerNavItem__item">
-													<a href="/blog/" class="footerNavItem__link body--xs" target="">
+</li>
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/blog/" target="">
 														Blogs													</a>
-												</li>
-																							<li class="footerNavItem__item">
-													<a href="/videos/" class="footerNavItem__link body--xs" target="">
+</li>
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/videos/" target="">
 														Videos													</a>
-												</li>
-																							<li class="footerNavItem__item">
-													<a href="/brand-kit/" class="footerNavItem__link body--xs" target="">
+</li>
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/brand-kit/" target="">
 														Brand Kit													</a>
-												</li>
-																							<li class="footerNavItem__item">
-													<a href="/llm/" class="footerNavItem__link body--xs" target="">
+</li>
+<li class="footerNavItem__item">
+<a class="footerNavItem__link body--xs" href="/llm/" target="">
 														Hey, AI													</a>
-												</li>
-																					</ul>
-																	</div>
-												</div>
-				</div>
-			</div>
-
-
-
-
-    </nav>
-
-		<div class="footer__disclaimer flex column-mobile a-c-desktop j-sb-desktop">
-
-			<div class="copy">
-				<p>©2026 Bright Machines, Inc. All rights reserved. Bright Machines® and the Bright Machines logo are registered trademarks of Bright Machines, Inc. <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-use">Terms</a> | <a id="footer-cookie-settings" href="javascript: Cookiebot.renew()"> Cookie Settings </a></p>
-			</div>
-
-			
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<div class="footer__disclaimer flex column-mobile a-c-desktop j-sb-desktop">
+<div class="copy">
+<p>©2026 Bright Machines, Inc. All rights reserved. Bright Machines® and the Bright Machines logo are registered trademarks of Bright Machines, Inc. <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-use">Terms</a> | <a href="javascript: Cookiebot.renew()" id="footer-cookie-settings"> Cookie Settings </a></p>
+</div>
 <div class="social-global flex a-c relative gap-10">
-			<div class="social-global__group flex center">
+<div class="social-global__group flex center">
+<a class="flex center social-global__icon" href="https://www.linkedin.com/company/bright-machines/" target="_blank">
 
-			<a href="https://www.linkedin.com/company/bright-machines/" target="_blank" class="flex center social-global__icon">
-													<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M3.47439 1.87793C3.47439 2.63786 2.91445 3.23778 1.99454 3.23778C1.11463 3.23778 0.554688 2.63786 0.554688 1.87793C0.554688 1.11801 1.11463 0.518066 1.99454 0.518066C2.91445 0.518066 3.43439 1.11801 3.47439 1.87793ZM0.634678 13.1567V4.35766H3.3544V13.1567H0.634678ZM5.03422 7.15737C5.03422 6.07748 4.99423 5.15757 4.95423 4.35766H7.31399L7.43397 5.59754H7.47397C7.83393 5.0376 8.71384 4.15768 10.1937 4.15768C11.9935 4.15768 13.3534 5.35755 13.3534 7.95728V13.1567H10.6336V8.27727C10.6336 7.15739 10.2337 6.35745 9.23379 6.35745C8.47386 6.35745 8.03391 6.87741 7.83393 7.39736C7.75394 7.55734 7.75394 7.83732 7.75394 8.07729V13.1567H5.03422V7.15737Z" fill="white"/>
-					</svg>
-											</a>
+</a>
+</div>
+<div class="social-global__group flex center">
+<a class="flex center social-global__icon" href="https://www.youtube.com/@Bright-Machines" target="_blank">
 
-		</div>
-			<div class="social-global__group flex center">
-
-			<a href="https://www.youtube.com/@Bright-Machines" target="_blank" class="flex center social-global__icon">
-																	<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" clip-rule="evenodd" d="M15.0972 1.41303C14.6548 0.626494 14.2123 0.479018 13.2783 0.42986C12.3443 0.380702 9.98472 0.331543 7.92006 0.331543C5.85541 0.331543 3.49579 0.380702 2.56178 0.42986C1.62777 0.479018 1.13615 0.626494 0.742882 1.41303C0.300456 2.19956 0.0547115 3.52684 0.0547115 5.83729C0.0547115 8.14773 0.300456 9.47501 0.742882 10.2615C1.18531 11.0481 1.62777 11.1956 2.56178 11.2447C3.49579 11.2939 5.85541 11.343 7.92006 11.343C9.98472 11.343 12.3443 11.2939 13.2783 11.2447C14.2123 11.1956 14.7039 11.0481 15.0972 10.2615C15.5396 9.47501 15.7854 8.14773 15.7854 5.83729C15.7363 3.52684 15.5396 2.19956 15.0972 1.41303ZM6.34695 8.73764V2.9861L10.8204 5.88645L6.34695 8.73764Z" fill="white"/>
-					</svg>
-							</a>
-
-		</div>
-	
-</div>				
-
-		</div>
-
-  </div>
+</a>
+</div>
+</div>
+</div>
+</div>
 </footer>
-
 <div id="breakpoints"></div>
 <div id="cookie-bot-overlay"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" type="da99982480f9a151a4698c10-text/javascript">
-</script>
 
 
-<script type="speculationrules">
-{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/bright-machines/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
-</script>
-<script id="theme-js-js" src="https://www.brightmachines.com/wp-content/themes/bright-machines/build/js/index.js?ver=1788214848" type="da99982480f9a151a4698c10-text/javascript"></script>
-<script id="pages/careers-js" src="https://www.brightmachines.com/wp-content/themes/bright-machines/build/js/pages/careers.js?ver=1788214849" type="da99982480f9a151a4698c10-text/javascript"></script>
-<script id="wp-emoji-settings" type="application/json">
-{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://www.brightmachines.com/wp-includes/js/wp-emoji-release.min.js?ver=ae61c904cd712fe4c7458268e52c0dae"}}
-</script>
-<script type="da99982480f9a151a4698c10-module">
-/*! This file is auto-generated */
-var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
-//# sourceURL=https://www.brightmachines.com/wp-includes/js/wp-emoji-loader.min.js
-</script>
+
 
 
 <!-- Google Consent Mode v2 defaults - must be BEFORE any Google tags/GTM -->
-<script data-cookieconsent="ignore" type="da99982480f9a151a4698c10-text/javascript">
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-
-  gtag('consent', 'default', {
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    ad_storage: 'denied',
-    analytics_storage: 'denied',
-    functionality_storage: 'denied',
-    personalization_storage: 'denied',
-    security_storage: 'granted',
-    wait_for_update: 500
-  });
-
-  // optional hardening
-  gtag('set', 'ads_data_redaction', true);
-  gtag('set', 'url_passthrough', false);
-</script>
-
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="789930c9-88e9-4f08-8da1-73c1b48a6f90" type="da99982480f9a151a4698c10-text/javascript" async></script>
-
-<script type="da99982480f9a151a4698c10-text/javascript">
-  let initialConsent = null;
-
-  window.addEventListener(`CookiebotOnConsentReady`, (e) => {
-    if (initialConsent) return;
-    initialConsent = JSON.parse(JSON.stringify(e.target.Cookiebot.consent));
-    console.log(e.target.Cookiebot.consent);
-  });
-
-  const checkForConsentChangesAndReload = (e) => {
-    const updatedConsent = e.target.Cookiebot.consent;
-    const overlay = document.getElementById("cookie-bot-overlay");
 
 
-    if (
-      initialConsent.marketing !== updatedConsent.marketing
-      || initialConsent.necessary !== updatedConsent.necessary
-      || initialConsent.preferences !== updatedConsent.preferences
-      || initialConsent.statistics !== updatedConsent.statistics
-    ) {
-      window.location.reload();
-    }
 
-    if (document.body.classList.contains("is-locked")) {
-      document.body.classList.remove("is-locked");
-    }
 
-    if (document.documentElement.classList.contains("is-locked")) {
-      document.documentElement.classList.remove("is-locked");
-    }
-
-    if (overlay.classList.contains("active")) {
-      overlay.classList.remove("active");
-    }
-  };
-
-  window.addEventListener(`CookiebotOnAccept`, (e) => checkForConsentChangesAndReload(e));
-  window.addEventListener(`CookiebotOnDecline`, (e) => checkForConsentChangesAndReload(e));
-
-  window.addEventListener(`CookiebotOnConsentReady`, () => {
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WBLTZLJ');
-  });
-</script>
-
-<script type="da99982480f9a151a4698c10-text/javascript">
-  const footerSettings = document.getElementById("footer-cookie-settings");
-
-  function setupCookiebotOverlay() {
-    const settings = document.getElementById("CybotCookiebotDialogBodyEdgeMoreDetailsLink");
-    const overlay = document.getElementById("cookie-bot-overlay");
-
-    if (settings && overlay) {
-      settings.addEventListener("click", () => {
-        document.body.classList.add("is-locked");
-        document.documentElement.classList.add("is-locked");
-        overlay.classList.add("active");
-      });
-    }
-  }
-
-  function waitForCookiebot() {
-    const cookieDialog = document.getElementById("CybotCookiebotDialog");
-    if (cookieDialog) {
-      setupCookiebotOverlay();
-    } else {
-      setTimeout(waitForCookiebot, 500);
-    }
-  }
-
-  // add event every time as cookiebot is destroyed and recreated
-  if (footerSettings) {
-    footerSettings.addEventListener("click", () => {
-      waitForCookiebot();
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", waitForCookiebot);
-</script>
-
-<script type="da99982480f9a151a4698c10-text/javascript">(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a422fe9dae4b659f',t:'MTc5MDYwMTA5Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><foreignObject><script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="da99982480f9a151a4698c10-|49" defer></script></foreignObject><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a422fe9dae4b659f',t:'MTc5MDYwMTA5Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<foreignobject></foreignobject></body>
 </html>

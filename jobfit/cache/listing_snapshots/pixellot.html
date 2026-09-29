@@ -1,1682 +1,1098 @@
-    <!doctype html>
+ <!DOCTYPE html>
+
 <html lang="en-US">
-    <head>
-        <!-- anti-flicker snippet (recommended)  -->
-        <style>.async-hide {
-                opacity: 0 !important
-            } </style>
-        <link rel='preload' href='https://www.pixellot.tv/wp-content/themes/Tyco/style.css?v=1.11' as='style'>
-        <script>(function( a, s, y, n, c, h, i, d, e ) {
-                s.className += ' ' + y;
-                h.start = 1 * new Date;
-                h.end = i = function() {s.className = s.className.replace( RegExp( ' ?' + y ), '' )};
-                (a[ n ] = a[ n ] || []).hide = h;
-                setTimeout( function() {
-                    i();
-                    h.end = null
-                }, c );
-                h.timeout = c;
-            })( window, document.documentElement, 'async-hide', 'dataLayer', 4000,
-                { 'GTM-WJVV4TT' : true } );</script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <link rel='preload' href='https://www.pixellot.tv/wp-content/themes/Tyco/css/animate.css' as='style'>
-                <script>
-			            const post_id = 42;
-			            const site_key = "6LcJ9rUUAAAAABgsCzJfanLf019jhzQtAEd9oSLL";
-			            const ajax_url = "https:\/\/www.pixellot.tv\/wp-admin\/admin-ajax.php";
-			            const api_url = "https:\/\/www.pixellot.tv\/wp-json\/wp\/v2\/";
-			            const svg_icons = "https:\/\/www.pixellot.tv\/wp-content\/themes\/Tyco\/images\/symbols.svg?ver=1710401646";
-			            const acb_stmt = "https:\/\/www.pixellot.tv\/accessibility-statement\/";
-			        </script>
-		                
-        <!-- Google Tag Manager -->
-        <script>(function( w, d, s, l, i ) {
-                w[ l ] = w[ l ] || [];
-                w[ l ].push( {
-                    'gtm.start' :
-                        new Date().getTime(), event : 'gtm.js'
-                } );
-                var f = d.getElementsByTagName( s )[ 0 ],
-                    j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                f.parentNode.insertBefore( j, f );
-            })( window, document, 'script', 'dataLayer', 'GTM-WJVV4TT' );</script>
-        <!-- End Google Tag Manager -->
+<head>
+<!-- anti-flicker snippet (recommended)  -->
 
-        <!-- Start VWO Async SmartCode -->
-        <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com"/>
+<link as="style" href="https://www.pixellot.tv/wp-content/themes/Tyco/style.css?v=1.11" rel="preload"/>
 
-        <script type='text/javascript' id='vwoCode'>
+<meta charset="utf-8"/>
+<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport"/>
+<link as="style" href="https://www.pixellot.tv/wp-content/themes/Tyco/css/animate.css" rel="preload"/>
 
-            window._vwo_code = window._vwo_code || (function() {
+<!-- Google Tag Manager -->
 
-                var account_id = 690359,
+<!-- End Google Tag Manager -->
+<!-- Start VWO Async SmartCode -->
+<link href="https://dev.visualwebsiteoptimizer.com" rel="preconnect"/>
 
-                    version = 1.5,
-
-                    settings_tolerance = 2000,
-
-                    library_tolerance = 2500,
-
-                    use_existing_jquery = false,
-
-                    is_spa = 1,
-
-                    hide_element = 'body',
-
-                    hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
-
-                    /* DO NOT EDIT BELOW THIS LINE */
-
-                    f = false, d = document, vwoCodeEl = d.querySelector( '#vwoCode' ), code = {
-                        use_existing_jquery : function() {return use_existing_jquery}, library_tolerance : function() {return library_tolerance}, hide_element_style : function() {return '{' + hide_element_style + '}'}, finish : function() {
-                            if ( !f ) {
-                                f = true;
-                                var e = d.getElementById( '_vis_opt_path_hides' );
-                                if ( e ) e.parentNode.removeChild( e )
-                            }
-                        }, finished : function() {return f}, load : function( e ) {
-                            var t = d.createElement( 'script' );
-                            t.fetchPriority = 'high';
-                            t.src = e;
-                            t.type = 'text/javascript';
-                            t.onerror = function() {_vwo_code.finish()};
-                            d.getElementsByTagName( 'head' )[ 0 ].appendChild( t )
-                        }, getVersion : function() {return version}, getMatchedCookies : function( e ) {
-                            var t = [];
-                            if ( document.cookie ) {
-                                t = document.cookie.match( e ) || []
-                            }
-                            return t
-                        }, getCombinationCookie : function() {
-                            var e = code.getMatchedCookies( /(?:^|;)\s?(_vis_opt_exp_\d+_combi=[^;$]*)/gi );
-                            e = e.map( function( e ) {
-                                try {
-                                    var t = decodeURIComponent( e );
-                                    if ( !/_vis_opt_exp_\d+_combi=(?:\d+,?)+\s*$/.test( t ) ) {
-                                        return ''
-                                    }
-                                    return t
-                                } catch ( e ) {
-                                    return ''
-                                }
-                            } );
-                            var i = [];
-                            e.forEach( function( e ) {
-                                var t = e.match( /([\d,]+)/g );
-                                t && i.push( t.join( '-' ) )
-                            } );
-                            return i.join( '|' )
-                        }, init : function() {
-                            if ( d.URL.indexOf( '__vwo_disable__' ) > -1 ) return;
-                            window.settings_timer = setTimeout( function() {_vwo_code.finish()}, settings_tolerance );
-                            var e = d.createElement( 'style' ), t = hide_element ? hide_element + '{' + hide_element_style + '}' : '', i = d.getElementsByTagName( 'head' )[ 0 ];
-                            e.setAttribute( 'id', '_vis_opt_path_hides' );
-                            vwoCodeEl && e.setAttribute( 'nonce', vwoCodeEl.nonce );
-                            e.setAttribute( 'type', 'text/css' );
-                            if ( e.styleSheet ) e.styleSheet.cssText = t; else e.appendChild( d.createTextNode( t ) );
-                            i.appendChild( e );
-                            var n = this.getCombinationCookie();
-                            this.load( 'https://dev.visualwebsiteoptimizer.com/j.php?a=' + account_id + '&u=' + encodeURIComponent( d.URL ) + '&f=' + +is_spa + '&vn=' + version + (n ? '&c=' + n : '') );
-                            return settings_timer
-                        }
-                    };
-                window._vwo_settings_timer = code.init();
-                return code;
-            }());
-
-        </script>
-        <!-- End VWO Async SmartCode -->
-
-        <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
-	    <script>
-    (function(){
-        var KEY = "pxlcmpprma";
-        var MAX_AGE = 30 * 86400;
-        var DP  = ['dp1','dp2','dp3','dp4'];
-        var UTM = ['utm_source','utm_medium','utm_campaign','utm_term'];
-
-        function setCookie(name, value) {
-            document.cookie = name + '=' + encodeURIComponent(value) +
-                '; Max-Age=' + MAX_AGE + '; Path=/; SameSite=Lax' +
-                (location.protocol === 'https:' ? '; Secure' : '');
-        }
-
-        var qs = new URLSearchParams(window.location.search);
-        var group = null;
-        if (DP.some(function(k){ return qs.has(k); }))       group = DP;
-        else if (UTM.some(function(k){ return qs.has(k); })) group = UTM;
-
-        if (group) {
-            for (var i = 0; i < 4; i++) {
-                setCookie(KEY + '_' + i, qs.get(group[i]) || '');
-            }
-        }
-    })();
-    </script>
-    
-	<!-- This site is optimized with the Yoast SEO plugin v26.6 - https://yoast.com/wordpress/plugins/seo/ -->
-	<title>Career - Pixellot</title>
-	<link rel="canonical" href="https://www.pixellot.tv/career/" />
-	<meta property="og:locale" content="en_US" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Career - Pixellot" />
-	<meta property="og:url" content="https://www.pixellot.tv/career/" />
-	<meta property="og:site_name" content="Pixellot" />
-	<meta property="article:modified_time" content="2026-09-23T14:30:20+00:00" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.pixellot.tv/career/","url":"https://www.pixellot.tv/career/","name":"Career - Pixellot","isPartOf":{"@id":"https://www.pixellot.tv/#website"},"datePublished":"2020-01-29T12:15:19+00:00","dateModified":"2026-09-23T14:30:20+00:00","breadcrumb":{"@id":"https://www.pixellot.tv/career/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.pixellot.tv/career/"]}]},{"@type":"BreadcrumbList","@id":"https://www.pixellot.tv/career/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.pixellot.tv/"},{"@type":"ListItem","position":2,"name":"Career"}]},{"@type":"WebSite","@id":"https://www.pixellot.tv/#website","url":"https://www.pixellot.tv/","name":"Pixellot","description":"Automated Sports Filming and Production","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.pixellot.tv/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
-	<!-- / Yoast SEO plugin. -->
+<!-- End VWO Async SmartCode -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
 
 
-<link rel='dns-prefetch' href='//www.googletagmanager.com' />
-<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
-<link rel='preload' href='https://www.pixellot.tv/wp-content/plugins/custom-twitter-feeds-pro/css/ctf-styles.min.css?ver=2.4.5' as='style'>
-<link rel='preload' href='https://www.pixellot.tv/wp-includes/css/dist/block-library/style.min.css?ver=6.8.10' as='style'>
-<style id='classic-theme-styles-inline-css' type='text/css'>
-/*! This file is auto-generated */
-.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
-</style>
-<style id='global-styles-inline-css' type='text/css'>
-:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
-:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
-:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
-:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
-</style>
-<link rel='preload' href='https://www.pixellot.tv/wp-content/plugins/bwd-contact-form-7-styler/assets/public/css/style.css?ver=1.2' as='style'>
-<link rel='preload' href='https://www.pixellot.tv/wp-content/themes/Tyco/cache/assets/common-assets.css?ver=1790590089' as='style'>
-<style id='common-assets-inline-css' type='text/css'>
-@font-face{font-family:"Oswald";src:url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-Medium.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-Medium.woff") format("woff");font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:"Oswald";src:url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-Bold.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-Bold.woff") format("woff");font-weight:bold;font-style:normal;font-display:swap}@font-face{font-family:"Oswald";src:url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-Light.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-Light.woff") format("woff");font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:"Oswald";src:url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-SemiBold.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-SemiBold.woff") format("woff");font-weight:600;font-style:normal;font-display:swap}@font-face{font-family:"Oswald";src:url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-ExtraLight.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-ExtraLight.woff") format("woff");font-weight:200;font-style:normal;font-display:swap}@font-face{font-family:"Oswald";src:url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-Regular.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Oswald/Oswald-Regular.woff") format("woff");font-weight:normal;font-style:normal;font-display:swap}@font-face{font-family:"Ubuntu";src:url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff");font-weight:bold;font-style:normal;font-display:swap}@font-face{font-family:"Ubuntu";src:url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-MediumItalic.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-MediumItalic.woff") format("woff");font-weight:500;font-style:italic;font-display:swap}@font-face{font-family:"Ubuntu";src:url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-BoldItalic.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-BoldItalic.woff") format("woff");font-weight:bold;font-style:italic;font-display:swap}@font-face{font-family:"Ubuntu";src:url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-Italic.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-Italic.woff") format("woff");font-weight:normal;font-style:italic;font-display:swap}@font-face{font-family:"Ubuntu";src:url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-Regular.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-Regular.woff") format("woff");font-weight:normal;font-style:normal;font-display:swap}@font-face{font-family:"Ubuntu";src:url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-LightItalic.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-LightItalic.woff") format("woff");font-weight:300;font-style:italic;font-display:swap}@font-face{font-family:"Ubuntu";src:url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-Medium.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-Medium.woff") format("woff");font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:"Ubuntu";src:url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-Light.woff2") format("woff2"),url("/wp-content/themes/Tyco/fonts/Ubuntu/Ubuntu-Light.woff") format("woff");font-weight:300;font-style:normal;font-display:swap}
-</style>
-<link rel='preload' href='https://www.pixellot.tv/wp-content/themes/Tyco/cache/assets/template-page-career.css?ver=1786941551' as='style'>
-<link rel='preload' href='https://www.pixellot.tv/wp-content/themes/Tyco/cache/assets/init.css?ver=1790590089' as='style'>
-<style id='init-inline-css' type='text/css'>
-body{opacity:0;overflow:hidden;visibility:hidden}
-</style>
-<link rel='preload' href='https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/assets/css/uacf7-frontend.css?ver=6.8.10' as='style'>
-<link rel='preload' href='https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/assets/css/form-style.css?ver=6.8.10' as='style'>
-<link rel='preload' href='https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/addons/column/grid/columns.css?ver=6.8.10' as='style'>
-<link rel='preload' href='https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/addons/country-dropdown/assets/css/countrySelect.min.css?ver=6.8.10' as='style'>
-<link rel='preload' href='https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/addons/country-dropdown/assets/css/style.css?ver=6.8.10' as='style'>
-<script type="text/javascript" src="https://www.pixellot.tv/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
-<link rel="https://api.w.org/" href="https://www.pixellot.tv/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.pixellot.tv/wp-json/wp/v2/pages/42" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.pixellot.tv/xmlrpc.php?rsd" />
-<meta name="generator" content="WordPress 6.8.10" />
-<link rel='shortlink' href='https://www.pixellot.tv/?p=42' />
-<meta name="generator" content="Site Kit by Google 1.168.0" /><meta name="generator" content="Elementor 3.34.0; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<!-- This site is optimized with the Yoast SEO plugin v26.6 - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Career - Pixellot</title>
+<link href="https://www.pixellot.tv/career/" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="Career - Pixellot" property="og:title"/>
+<meta content="https://www.pixellot.tv/career/" property="og:url"/>
+<meta content="Pixellot" property="og:site_name"/>
+<meta content="2026-09-23T14:30:20+00:00" property="article:modified_time"/>
+<meta content="summary_large_image" name="twitter:card"/>
 
+<!-- / Yoast SEO plugin. -->
+<link href="//www.googletagmanager.com" rel="dns-prefetch"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://www.pixellot.tv/wp-content/plugins/custom-twitter-feeds-pro/css/ctf-styles.min.css?ver=2.4.5" rel="preload"/>
+<link as="style" href="https://www.pixellot.tv/wp-includes/css/dist/block-library/style.min.css?ver=6.8.10" rel="preload"/>
+
+
+<link as="style" href="https://www.pixellot.tv/wp-content/plugins/bwd-contact-form-7-styler/assets/public/css/style.css?ver=1.2" rel="preload"/>
+<link as="style" href="https://www.pixellot.tv/wp-content/themes/Tyco/cache/assets/common-assets.css?ver=1790590089" rel="preload"/>
+
+<link as="style" href="https://www.pixellot.tv/wp-content/themes/Tyco/cache/assets/template-page-career.css?ver=1786941551" rel="preload"/>
+<link as="style" href="https://www.pixellot.tv/wp-content/themes/Tyco/cache/assets/init.css?ver=1790590089" rel="preload"/>
+
+<link as="style" href="https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/assets/css/uacf7-frontend.css?ver=6.8.10" rel="preload"/>
+<link as="style" href="https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/assets/css/form-style.css?ver=6.8.10" rel="preload"/>
+<link as="style" href="https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/addons/column/grid/columns.css?ver=6.8.10" rel="preload"/>
+<link as="style" href="https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/addons/country-dropdown/assets/css/countrySelect.min.css?ver=6.8.10" rel="preload"/>
+<link as="style" href="https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/addons/country-dropdown/assets/css/style.css?ver=6.8.10" rel="preload"/>
+
+
+<link href="https://www.pixellot.tv/wp-json/" rel="https://api.w.org/"/><link href="https://www.pixellot.tv/wp-json/wp/v2/pages/42" rel="alternate" title="JSON" type="application/json"/><link href="https://www.pixellot.tv/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+<meta content="WordPress 6.8.10" name="generator"/>
+<link href="https://www.pixellot.tv/?p=42" rel="shortlink"/>
+<meta content="Site Kit by Google 1.168.0" name="generator"/><meta content="Elementor 3.34.0; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap" name="generator"/>
 <!-- Meta Pixel Code -->
-<script type='text/javascript'>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-</script>
+
 <!-- End Meta Pixel Code -->
-<script type='text/javascript'>var url = window.location.origin + '?ob=open-bridge';
-            fbq('set', 'openbridge', '2031009627139618', url);
-fbq('init', '2031009627139618', {}, {
-    "agent": "wordpress-6.8.10-4.1.5"
-})</script><script type='text/javascript'>
-    fbq('track', 'PageView', []);
-  </script>			<style>
-				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
-				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
-					background-image: none !important;
-				}
-				@media screen and (max-height: 1024px) {
-					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
-					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
-						background-image: none !important;
-					}
-				}
-				@media screen and (max-height: 640px) {
-					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
-					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
-						background-image: none !important;
-					}
-				}
-			</style>
-			<link rel="icon" href="https://www.pixellot.tv/wp-content/uploads/2020/07/cropped-pixellot_favicon-32x32.png" sizes="32x32" />
-<link rel="icon" href="https://www.pixellot.tv/wp-content/uploads/2020/07/cropped-pixellot_favicon-192x192.png" sizes="192x192" />
-<link rel="apple-touch-icon" href="https://www.pixellot.tv/wp-content/uploads/2020/07/cropped-pixellot_favicon-180x180.png" />
-<meta name="msapplication-TileImage" content="https://www.pixellot.tv/wp-content/uploads/2020/07/cropped-pixellot_favicon-270x270.png" />
-
-        <script>
-            const doc = document.documentElement;
-            doc.style.setProperty( '--browser-height', `${window.innerHeight}px` );
-
-            window.addEventListener( 'resize', () => {
-                const doc = document.documentElement;
-                if ( !window.matchMedia( "(min-width:1200px)" ).matches ) return;
-
-                doc.style.setProperty( '--browser-height', `${window.innerHeight}px` );
-            } )
-        </script>
+ 
+<link href="https://www.pixellot.tv/wp-content/uploads/2020/07/cropped-pixellot_favicon-32x32.png" rel="icon" sizes="32x32"/>
+<link href="https://www.pixellot.tv/wp-content/uploads/2020/07/cropped-pixellot_favicon-192x192.png" rel="icon" sizes="192x192"/>
+<link href="https://www.pixellot.tv/wp-content/uploads/2020/07/cropped-pixellot_favicon-180x180.png" rel="apple-touch-icon"/>
+<meta content="https://www.pixellot.tv/wp-content/uploads/2020/07/cropped-pixellot_favicon-270x270.png" name="msapplication-TileImage"/>
 
 
-        <script>
-            window.skipToContentTarget = 'main-wrapper';
-        </script>
-    </head>
-
+</head>
 <body class="wp-singular page-template page-template-page-career page-template-page-career-php page page-id-42 wp-theme-Tyco snd-default elementor-default elementor-kit-165617">
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJVV4TT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
 
 <!-- Meta Pixel Code -->
-<noscript>
-<img height="1" width="1" style="display:none" alt="fbpx"
-src="https://www.facebook.com/tr?id=2031009627139618&ev=PageView&noscript=1" />
-</noscript>
+
 <!-- End Meta Pixel Code -->
-
 <div class="gdpr" id="gdpr" style="display: none;">
-	<div class="wrapper">
-		<div class="content">
-						This site uses cookies.<br> Some of them are essentials while other help us improve your experience. <a href="https://www.pixellot.tv/privacy-policy-general/" target="_blank">Read Our Privacy Policy</a>		</div>
-
-		<div class="actions">
-			<button class="gdpr-button theme-button" data-option="accept">I Accept</button>
-			<button class="gdpr-button theme-button" data-option="decline">Decline</button>
-		</div>
-	</div>
+<div class="wrapper">
+<div class="content">
+						This site uses cookies.<br/> Some of them are essentials while other help us improve your experience. <a href="https://www.pixellot.tv/privacy-policy-general/" target="_blank">Read Our Privacy Policy</a> </div>
+<div class="actions">
+<button class="gdpr-button theme-button" data-option="accept">I Accept</button>
+<button class="gdpr-button theme-button" data-option="decline">Decline</button>
 </div>
-    <header class="header header-nothome" id="header">
-    <div class="navigation container-fluid">
-        <a href="https://www.pixellot.tv" class="custom-logo-link" rel="home">
-            <span class="sr-only">Home of Pixellot</span>
-            <svg class="" role="presentation">
-                <use xlink:href="#svg-pixellot-logo"></use>
-            </svg>
-        </a>
-        <nav class="nav" id="main-menu">
-            <button type="button" class="awtt_skip hamburger focus-burger main-menu-toggle" aria-label="Close Navigation Menu"></button>
-            <div class="nav-wrap">
-                <ul class="menu">
-                                            <li class="menu-item dropdown">
-                            <a
-                                    href="#"
-                                    class="awtt_skip dropdown-toggle menu-link  menu-link-l1"
-                                    data-line="Products"
-                                                                    id="nav-link-700"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    aria-label="Products"
-                                                            >
-                                <span>Products</span>
-                                                                    <svg class="stroke-light text-color-light arrow-dir-mir xl-hidden" role="presentation">
-                                        <use xlink:href="#svg-icon-arrow-right"></use>
-                                    </svg>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/products/show/" data-line="Pixellot Show (Streaming)" aria-label="Pixellot Show (Streaming)">
+</div>
+</div>
+<header class="header header-nothome" id="header">
+<div class="navigation container-fluid">
+<a class="custom-logo-link" href="https://www.pixellot.tv" rel="home">
+<span class="sr-only">Home of Pixellot</span>
+
+</a>
+<nav class="nav" id="main-menu">
+<button aria-label="Close Navigation Menu" class="awtt_skip hamburger focus-burger main-menu-toggle" type="button"></button>
+<div class="nav-wrap">
+<ul class="menu">
+<li class="menu-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" aria-label="Products" class="awtt_skip dropdown-toggle menu-link menu-link-l1" data-line="Products" data-toggle="dropdown" href="#" id="nav-link-700" role="button">
+<span>Products</span>
+
+</a>
+<div class="dropdown-menu">
+<a aria-label="Pixellot Show (Streaming)" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Pixellot Show (Streaming)" href="https://www.pixellot.tv/products/show/">
                                             Pixellot Show (Streaming)                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/products/pixellot-air/" data-line="Pixellot Air NXT (Portable)" aria-label="Pixellot Air NXT (Portable)">
+<a aria-label="Pixellot Air NXT (Portable)" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Pixellot Air NXT (Portable)" href="https://www.pixellot.tv/products/pixellot-air/">
                                             Pixellot Air NXT (Portable)                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/products/pixellot-doubleplay-for-baseball/" data-line="Pixellot DoublePlay" aria-label="Pixellot DoublePlay">
+<a aria-label="Pixellot DoublePlay" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Pixellot DoublePlay" href="https://www.pixellot.tv/products/pixellot-doubleplay-for-baseball/">
                                             Pixellot DoublePlay                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/products/pixellot-ott/" data-line="Pixellot OTT" aria-label="Pixellot OTT">
+<a aria-label="Pixellot OTT" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Pixellot OTT" href="https://www.pixellot.tv/products/pixellot-ott/">
                                             Pixellot OTT                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/products/automatic-highlights/" data-line="Automatic Highlights" aria-label="Automatic Highlights">
+<a aria-label="Automatic Highlights" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Automatic Highlights" href="https://www.pixellot.tv/products/automatic-highlights/">
                                             Automatic Highlights                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/products/vidswap/" data-line="Pixellot Analytics - Advantage" aria-label="Pixellot Analytics - Advantage">
+<a aria-label="Pixellot Analytics - Advantage" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Pixellot Analytics - Advantage" href="https://www.pixellot.tv/products/vidswap/">
                                             Pixellot Analytics - Advantage                                        </a>
-                                                                    </div>
-                                                    </li>
-                                            <li class="menu-item dropdown">
-                            <a
-                                    href="#"
-                                    class="awtt_skip dropdown-toggle menu-link  menu-link-l1"
-                                    data-line="Sports Types"
-                                                                    id="nav-link-56028"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    aria-label="Sports Types"
-                                                            >
-                                <span>Sports Types</span>
-                                                                    <svg class="stroke-light text-color-light arrow-dir-mir xl-hidden" role="presentation">
-                                        <use xlink:href="#svg-icon-arrow-right"></use>
-                                    </svg>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/soccer/" data-line="Soccer" aria-label="Soccer">
+</div>
+</li>
+<li class="menu-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" aria-label="Sports Types" class="awtt_skip dropdown-toggle menu-link menu-link-l1" data-line="Sports Types" data-toggle="dropdown" href="#" id="nav-link-56028" role="button">
+<span>Sports Types</span>
+
+</a>
+<div class="dropdown-menu">
+<a aria-label="Soccer" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Soccer" href="https://www.pixellot.tv/sports/soccer/">
                                             Soccer                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/basketball/" data-line="Basketball" aria-label="Basketball">
+<a aria-label="Basketball" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Basketball" href="https://www.pixellot.tv/sports/basketball/">
                                             Basketball                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/ice-hockey/" data-line="Ice Hockey" aria-label="Ice Hockey">
+<a aria-label="Ice Hockey" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Ice Hockey" href="https://www.pixellot.tv/sports/ice-hockey/">
                                             Ice Hockey                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/field-hockey/" data-line="Field Hockey" aria-label="Field Hockey">
+<a aria-label="Field Hockey" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Field Hockey" href="https://www.pixellot.tv/sports/field-hockey/">
                                             Field Hockey                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/baseball/" data-line="Baseball" aria-label="Baseball">
+<a aria-label="Baseball" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Baseball" href="https://www.pixellot.tv/sports/baseball/">
                                             Baseball                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/softball/" data-line="Softball" aria-label="Softball">
+<a aria-label="Softball" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Softball" href="https://www.pixellot.tv/sports/softball/">
                                             Softball                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/american-football/" data-line="American Football" aria-label="American Football">
+<a aria-label="American Football" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="American Football" href="https://www.pixellot.tv/sports/american-football/">
                                             American Football                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/rugby/" data-line="Rugby" aria-label="Rugby">
+<a aria-label="Rugby" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Rugby" href="https://www.pixellot.tv/sports/rugby/">
                                             Rugby                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/lacrosse/" data-line="Lacrosse" aria-label="Lacrosse">
+<a aria-label="Lacrosse" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Lacrosse" href="https://www.pixellot.tv/sports/lacrosse/">
                                             Lacrosse                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/volleyball/" data-line="Volleyball" aria-label="Volleyball">
+<a aria-label="Volleyball" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Volleyball" href="https://www.pixellot.tv/sports/volleyball/">
                                             Volleyball                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/handball/" data-line="Handball" aria-label="Handball">
+<a aria-label="Handball" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Handball" href="https://www.pixellot.tv/sports/handball/">
                                             Handball                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/sports/other-sports/" data-line="Other Sports" aria-label="Other Sports">
+<a aria-label="Other Sports" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Other Sports" href="https://www.pixellot.tv/sports/other-sports/">
                                             Other Sports                                        </a>
-                                                                    </div>
-                                                    </li>
-                                            <li class="menu-item dropdown">
-                            <a
-                                    href="#"
-                                    class="awtt_skip dropdown-toggle menu-link  menu-link-l1"
-                                    data-line="Solutions"
-                                                                    id="nav-link-119036"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    aria-label="Solutions"
-                                                            >
-                                <span>Solutions</span>
-                                                                    <svg class="stroke-light text-color-light arrow-dir-mir xl-hidden" role="presentation">
-                                        <use xlink:href="#svg-icon-arrow-right"></use>
-                                    </svg>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/solutions/produce/" data-line="Produce" aria-label="Produce">
+</div>
+</li>
+<li class="menu-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" aria-label="Solutions" class="awtt_skip dropdown-toggle menu-link menu-link-l1" data-line="Solutions" data-toggle="dropdown" href="#" id="nav-link-119036" role="button">
+<span>Solutions</span>
+
+</a>
+<div class="dropdown-menu">
+<a aria-label="Produce" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Produce" href="https://www.pixellot.tv/solutions/produce/">
                                             Produce                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/solutions/stream/" data-line="Stream" aria-label="Stream">
+<a aria-label="Stream" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Stream" href="https://www.pixellot.tv/solutions/stream/">
                                             Stream                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/solutions/vidswap-analytics/" data-line="Analyze" aria-label="Analyze">
+<a aria-label="Analyze" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Analyze" href="https://www.pixellot.tv/solutions/vidswap-analytics/">
                                             Analyze                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/solutions/monetization/" data-line="Monetize" aria-label="Monetize">
+<a aria-label="Monetize" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Monetize" href="https://www.pixellot.tv/solutions/monetization/">
                                             Monetize                                        </a>
-                                                                    </div>
-                                                    </li>
-                                            <li class="menu-item dropdown">
-                            <a
-                                    href="#"
-                                    class="awtt_skip dropdown-toggle menu-link  menu-link-l1"
-                                    data-line="Clients"
-                                                                    id="nav-link-751"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    aria-label="Clients"
-                                                            >
-                                <span>Clients</span>
-                                                                    <svg class="stroke-light text-color-light arrow-dir-mir xl-hidden" role="presentation">
-                                        <use xlink:href="#svg-icon-arrow-right"></use>
-                                    </svg>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/markets/broadcasters-distributors/" data-line="Broadcasters &#038; Distributors" aria-label="Broadcasters &#038; Distributors">
-                                            Broadcasters &#038; Distributors                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/markets/production-companies/" data-line="Production Companies" aria-label="Production Companies">
+</div>
+</li>
+<li class="menu-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" aria-label="Clients" class="awtt_skip dropdown-toggle menu-link menu-link-l1" data-line="Clients" data-toggle="dropdown" href="#" id="nav-link-751" role="button">
+<span>Clients</span>
+
+</a>
+<div class="dropdown-menu">
+<a aria-label="Broadcasters &amp; Distributors" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Broadcasters &amp; Distributors" href="https://www.pixellot.tv/markets/broadcasters-distributors/">
+                                            Broadcasters &amp; Distributors                                        </a>
+<a aria-label="Production Companies" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Production Companies" href="https://www.pixellot.tv/markets/production-companies/">
                                             Production Companies                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/markets/leagues-federations/" data-line="Leagues &#038; Federations" aria-label="Leagues &#038; Federations">
-                                            Leagues &#038; Federations                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/markets/rights-holders/" data-line="Rights Holders" aria-label="Rights Holders">
+<a aria-label="Leagues &amp; Federations" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Leagues &amp; Federations" href="https://www.pixellot.tv/markets/leagues-federations/">
+                                            Leagues &amp; Federations                                        </a>
+<a aria-label="Rights Holders" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Rights Holders" href="https://www.pixellot.tv/markets/rights-holders/">
                                             Rights Holders                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/markets/telcos/" data-line="Telcos" aria-label="Telcos">
+<a aria-label="Telcos" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Telcos" href="https://www.pixellot.tv/markets/telcos/">
                                             Telcos                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/markets/venue-and-facility-owners/" data-line="Venue & Facility Owners" aria-label="Venue & Facility Owners">
-                                            Venue & Facility Owners                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/markets/clubs-teams/" data-line="Clubs &#038; Teams" aria-label="Clubs &#038; Teams">
-                                            Clubs &#038; Teams                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/markets/colleges-universities/" data-line="Colleges &#038; Universities" aria-label="Colleges &#038; Universities">
-                                            Colleges &#038; Universities                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/markets/high-schools/" data-line="High Schools" aria-label="High Schools">
+<a aria-label="Venue &amp; Facility Owners" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Venue &amp; Facility Owners" href="https://www.pixellot.tv/markets/venue-and-facility-owners/">
+                                            Venue &amp; Facility Owners                                        </a>
+<a aria-label="Clubs &amp; Teams" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Clubs &amp; Teams" href="https://www.pixellot.tv/markets/clubs-teams/">
+                                            Clubs &amp; Teams                                        </a>
+<a aria-label="Colleges &amp; Universities" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Colleges &amp; Universities" href="https://www.pixellot.tv/markets/colleges-universities/">
+                                            Colleges &amp; Universities                                        </a>
+<a aria-label="High Schools" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="High Schools" href="https://www.pixellot.tv/markets/high-schools/">
                                             High Schools                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/markets/youth-teams/" data-line="Youth Teams" aria-label="Youth Teams">
+<a aria-label="Youth Teams" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Youth Teams" href="https://www.pixellot.tv/markets/youth-teams/">
                                             Youth Teams                                        </a>
-                                                                    </div>
-                                                    </li>
-                                            <li class="menu-item dropdown">
-                            <a
-                                    href="#"
-                                    class="awtt_skip dropdown-toggle menu-link active menu-link-l1"
-                                    data-line="Company"
-                                                                    id="nav-link-764"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    aria-label="Company"
-                                                            >
-                                <span>Company</span>
-                                                                    <svg class="stroke-light text-color-light arrow-dir-mir xl-hidden" role="presentation">
-                                        <use xlink:href="#svg-icon-arrow-right"></use>
-                                    </svg>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/about-us/about/" data-line="About" aria-label="About">
+</div>
+</li>
+<li class="menu-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" aria-label="Company" class="awtt_skip dropdown-toggle menu-link active menu-link-l1" data-line="Company" data-toggle="dropdown" href="#" id="nav-link-764" role="button">
+<span>Company</span>
+
+</a>
+<div class="dropdown-menu">
+<a aria-label="About" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="About" href="https://www.pixellot.tv/about-us/about/">
                                             About                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/about-us/team/" data-line="Team" aria-label="Team">
+<a aria-label="Team" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Team" href="https://www.pixellot.tv/about-us/team/">
                                             Team                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/news/" data-line="News" aria-label="News">
+<a aria-label="News" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="News" href="https://www.pixellot.tv/news/">
                                             News                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/press-releases/" data-line="Press Releases" aria-label="Press Releases">
+<a aria-label="Press Releases" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="Press Releases" href="https://www.pixellot.tv/press-releases/">
                                             Press Releases                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link  menu-link-l2" href="https://www.pixellot.tv/faq/" data-line="FAQ" aria-label="FAQ">
+<a aria-label="FAQ" class="awtt_skip dropdown-item menu-link menu-link-l2" data-line="FAQ" href="https://www.pixellot.tv/faq/">
                                             FAQ                                        </a>
-                                                                            <a class="awtt_skip dropdown-item menu-link active menu-link-l2" href="https://www.pixellot.tv/career/" data-line="Careers" aria-label="Careers">
+<a aria-label="Careers" class="awtt_skip dropdown-item menu-link active menu-link-l2" data-line="Careers" href="https://www.pixellot.tv/career/">
                                             Careers                                        </a>
-                                                                    </div>
-                                                    </li>
-                                            <li class="menu-item ">
-                            <a
-                                    href="https://www.pixellot.tv/blog/"
-                                    class="awtt_skip  menu-link  menu-link-l1"
-                                    data-line="Blog"
-                                                            >
-                                <span>Blog</span>
-                                                            </a>
-                                                    </li>
-                                            <li class="menu-item ">
-                            <a
-                                    href="https://www.pixellot.tv/use-cases/"
-                                    class="awtt_skip  menu-link  menu-link-l1"
-                                    data-line="Use Cases"
-                                                            >
-                                <span>Use Cases</span>
-                                                            </a>
-                                                    </li>
-                                                            <li class="menu-item not-mobile">
-                        <button type="button" class="header-accessibility accessibility-open-btn" aria-label="Accessibility">
-                            <svg aria-hidden="true" role="presentation">
-                                <use xlink:href="#svg-accessibility"></use>
-                            </svg>
-                        </button>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="awtt_skip btn btn-outline" data-line="Contact" role="button" data-toggle="modal" data-target="#contact-form">
+</div>
+</li>
+<li class="menu-item">
+<a class="awtt_skip menu-link menu-link-l1" data-line="Blog" href="https://www.pixellot.tv/blog/">
+<span>Blog</span>
+</a>
+</li>
+<li class="menu-item">
+<a class="awtt_skip menu-link menu-link-l1" data-line="Use Cases" href="https://www.pixellot.tv/use-cases/">
+<span>Use Cases</span>
+</a>
+</li>
+<li class="menu-item not-mobile">
+<button aria-label="Accessibility" class="header-accessibility accessibility-open-btn" type="button">
+
+</button>
+</li>
+<li class="menu-item">
+<a class="awtt_skip btn btn-outline" data-line="Contact" data-target="#contact-form" data-toggle="modal" href="#" role="button">
                             Contact                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+</li>
+</ul>
+</div>
+</nav>
+<button aria-label="Accessibility" class="header-accessibility accessibility-open-btn mobile" type="button">
 
-        <button type="button" class="header-accessibility accessibility-open-btn mobile" aria-label="Accessibility">
-            <svg aria-hidden="true" role="presentation">
-                <use xlink:href="#svg-accessibility"></use>
-            </svg>
-        </button>
+</button>
+<div class="buttons-group">
+<a class="contact-button-mobile xl-hidden" data-target="#contact-form" data-toggle="modal" href="#" role="button">
+<span class="sr-only">Contact Us</span>
 
-        <div class="buttons-group">
-            <a href="#" class="contact-button-mobile xl-hidden" role="button" data-toggle="modal" data-target="#contact-form">
-                <span class="sr-only">Contact Us</span>
-                <svg role="presentation">
-                    <use xlink:href="#svg-icon-envelope"></use>
-                </svg>
-            </a>
-                            <button id="default-toggler" class="hamburger hamburger--minus main-menu-toggle awtt_skip" type="button" title="Toggle Navigation Menu" aria-controls="main-menu" aria-expanded="false">
-                        <span class="hamburger-box">
-                            <span class="hamburger-inner"></span>
-                        </span>
-                </button>
-                    </div>
-    </div>
+</a>
+<button aria-controls="main-menu" aria-expanded="false" class="hamburger hamburger--minus main-menu-toggle awtt_skip" id="default-toggler" title="Toggle Navigation Menu" type="button">
+<span class="hamburger-box">
+<span class="hamburger-inner"></span>
+</span>
+</button>
+</div>
+</div>
 </header>
-    <div class="scroll-container" data-scroll-container>
-
-        <main id="main-wrapper">
-
-	<section id="section-hero" class="section-hero">
-		<div class="hero-section-bg thumb">
-			            <div class="head-image-ratio">
-        <picture class="thumb-pic">
-<source media="(min-width: 1500px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13.jpg">
-<source media="(min-width: 1024px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13.jpg">
-<source media="(min-width: 768px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-1024x683.jpg">
-<img data-src="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-768x512.jpg"  alt=""  class=" lazy thumb-img"  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" ></picture>            </div>
-                    <div id="head-video-wrapper" data-type="vimeo" data-id="1229553779">
-                <div class="frame-wrapper"></div>
-            </div>
-            		</div>
-
-		<div class="wrapper">
-			<div class="row">
-				<div class="col">
-					<h1 class="heading-h1 text-color-light"
-					    data-aos="fade-down">Let’s revolutionize sports together</h1>
-				</div>
-			</div>
-			<div class="row buttons-group">
-				<a href="#section-open-positions" class="button btn">
+<div class="scroll-container" data-scroll-container="">
+<main id="main-wrapper">
+<section class="section-hero" id="section-hero">
+<div class="hero-section-bg thumb">
+<div class="head-image-ratio">
+<picture class="thumb-pic">
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13.jpg" media="(min-width: 1500px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13.jpg" media="(min-width: 1024px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-1024x683.jpg" media="(min-width: 768px)"/>
+<img alt="" class="lazy thumb-img" data-src="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-768x512.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/></picture> </div>
+<div data-id="1229553779" data-type="vimeo" id="head-video-wrapper">
+<div class="frame-wrapper"></div>
+</div>
+</div>
+<div class="wrapper">
+<div class="row">
+<div class="col">
+<h1 class="heading-h1 text-color-light" data-aos="fade-down">Let’s revolutionize sports together</h1>
+</div>
+</div>
+<div class="row buttons-group">
+<a class="button btn" href="#section-open-positions">
 					View All Positions				</a>
-			</div>
-		</div>
-	</section>
-
-	<section class="section-top bottom-hidden" data-aos="slide-up" data-aos-delay="300">
-		<div class="wrapper">
-							<h2>
+</div>
+</div>
+</section>
+<section class="section-top bottom-hidden" data-aos="slide-up" data-aos-delay="300">
+<div class="wrapper">
+<h2>
 					Working at Pixellot				</h2>
-										<p>
-					There are plenty of Hi-Tech companies to work for... 
-<p>
-But how many can bring you the sheer excitement of sports? How many are at the forefront of technology that is changing the way sports is produced, broadcast, consumed, and analyzed around the world? 
-<p>
-At Pixellot, we are making an impact on communities around the globe. Amateur and youth leagues can now connect with their family and fans like never before! 
-<p>
-				</p>
-						
-						
-			
-		</div>
-			</section>
+<p>
+					There are plenty of Hi-Tech companies to work for... 
 
-	<section class="section-whoweare bg-dark">
-		<div class="elements animated-children">
-			<div class="left-bar animated"></div>
-			<div class="left-bg-bar animated"></div>
-			<div class="right-bg-bar animated"></div>
-			<div class="left-line animated"></div>
-		</div>
-		<div class="wrapper">
-							<article class="item">
-					<div class="wrapper-text col col-lg-1-2">
-						<div class="text" data-aos="fade-left">
-															<h3>
+<p>
+
+But how many can bring you the sheer excitement of sports? How many are at the forefront of technology that is changing the way sports is produced, broadcast, consumed, and analyzed around the world? 
+
+<p>
+
+At Pixellot, we are making an impact on communities around the globe. Amateur and youth leagues can now connect with their family and fans like never before! 
+
+<p>
+</p>
+</p></p></p></div>
+</section>
+<section class="section-whoweare bg-dark">
+<div class="elements animated-children">
+<div class="left-bar animated"></div>
+<div class="left-bg-bar animated"></div>
+<div class="right-bg-bar animated"></div>
+<div class="left-line animated"></div>
+</div>
+<div class="wrapper">
+<article class="item">
+<div class="wrapper-text col col-lg-1-2">
+<div class="text" data-aos="fade-left">
+<h3>
 									Who are we?								</h3>
-																						<p>
-									We are 260+ creative, engaged, and enthusiastic Sports fans, passionate about making Sports accessible to all. Founded in 2013, Pixellot is the leading pioneer in AI-Automated sports production solutions. 
-
-We are dedicated to developing and delivering the best products to our customers. 
-
+<p>
+									We are 260+ creative, engaged, and enthusiastic Sports fans, passionate about making Sports accessible to all. Founded in 2013, Pixellot is the leading pioneer in AI-Automated sports production solutions. 
+
+
+
+We are dedicated to developing and delivering the best products to our customers. 
+
+
+
 We are committed to teamwork, collaboration, and innovation. We are passionate about contributing to society and being good sports!								</p>
-													</div>
-					</div>
-					<div class="wrapper-image col col-lg-1-2" data-aos="fade-right" data-aos-delay="50">
-						<div class="thumb">
-							<picture >
-<source media="(min-width: 1500px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13.jpg">
-<source media="(min-width: 1024px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13.jpg">
-<source media="(min-width: 768px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-1024x683.jpg">
-<source media="(min-width: 360px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-768x512.jpg">
-<source media="(min-width: 150px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-360x240.jpg">
-<img data-src="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-150x150.jpg"  alt=""  class=" lazy thumb-img"  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" ></picture>						</div>
-					</div>
-				</article>
-							<article class="item">
-					<div class="wrapper-text col col-lg-1-2">
-						<div class="text" data-aos="fade-right">
-															<h3>
+</div>
+</div>
+<div class="wrapper-image col col-lg-1-2" data-aos="fade-right" data-aos-delay="50">
+<div class="thumb">
+<picture>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13.jpg" media="(min-width: 1500px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13.jpg" media="(min-width: 1024px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-1024x683.jpg" media="(min-width: 768px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-768x512.jpg" media="(min-width: 360px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-360x240.jpg" media="(min-width: 150px)"/>
+<img alt="" class="lazy thumb-img" data-src="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_13-150x150.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/></picture> </div>
+</div>
+</article>
+<article class="item">
+<div class="wrapper-text col col-lg-1-2">
+<div class="text" data-aos="fade-right">
+<h3>
 									What do we do?								</h3>
-																						<p>
-									We have a mission - to keep the world playing!
-
-Pixellot’s AI technology solutions provide affordable alternatives to traditional video capture, production, and distribution systems, for professional and semi-professional sports. 
-
-Our systems are deployed by broadcasters, production companies, clubs, federations, universities, high schools, sports portals, and coaching solution providers around the globe.
-
+<p>
+									We have a mission - to keep the world playing!
+
+
+
+Pixellot’s AI technology solutions provide affordable alternatives to traditional video capture, production, and distribution systems, for professional and semi-professional sports. 
+
+
+
+Our systems are deployed by broadcasters, production companies, clubs, federations, universities, high schools, sports portals, and coaching solution providers around the globe.
+
+
+
 								</p>
-													</div>
-					</div>
-					<div class="wrapper-image col col-lg-1-2" data-aos="fade-left" data-aos-delay="50">
-						<div class="thumb">
-							<picture >
-<source media="(min-width: 2048px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b.png">
-<source media="(min-width: 1536px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-2048x1650.png">
-<source media="(min-width: 1024px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-1536x1237.png">
-<source media="(min-width: 768px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-1024x825.png">
-<source media="(min-width: 360px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-768x619.png">
-<source media="(min-width: 150px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-360x290.png">
-<img data-src="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-150x150.png"  alt=""  class=" lazy thumb-img"  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" ></picture>						</div>
-					</div>
-				</article>
-							<article class="item">
-					<div class="wrapper-text col col-lg-1-2">
-						<div class="text" data-aos="fade-left">
-															<h3>
+</div>
+</div>
+<div class="wrapper-image col col-lg-1-2" data-aos="fade-left" data-aos-delay="50">
+<div class="thumb">
+<picture>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b.png" media="(min-width: 2048px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-2048x1650.png" media="(min-width: 1536px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-1536x1237.png" media="(min-width: 1024px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-1024x825.png" media="(min-width: 768px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-768x619.png" media="(min-width: 360px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-360x290.png" media="(min-width: 150px)"/>
+<img alt="" class="lazy thumb-img" data-src="https://www.pixellot.tv/wp-content/uploads/2026/09/hf_20260907_112559_bba3619a-a6e6-44eb-bc58-1f67ce5bd57b-150x150.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/></picture> </div>
+</div>
+</article>
+<article class="item">
+<div class="wrapper-text col col-lg-1-2">
+<div class="text" data-aos="fade-left">
+<h3>
 									How do we do it?								</h3>
-																						<p>
-									With an array of technologies. AI, deep learning, automation, computer vision and optics...
+<p>
+									With an array of technologies. AI, deep learning, automation, computer vision and optics...
+
 Our advanced algorithms enable fully automated coverage of all the action, generating highlights, adding graphics, ads, and streamlining production workflows using a panoramic capture of the entire playing field. 								</p>
-													</div>
-					</div>
-					<div class="wrapper-image col col-lg-1-2" data-aos="fade-right" data-aos-delay="50">
-						<div class="thumb">
-							<picture >
-<source media="(min-width: 1500px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01.jpg">
-<source media="(min-width: 1024px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01.jpg">
-<source media="(min-width: 768px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01-1024x681.jpg">
-<source media="(min-width: 360px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01-768x510.jpg">
-<source media="(min-width: 150px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01-360x239.jpg">
-<img data-src="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01-150x150.jpg"  alt=""  class=" lazy thumb-img"  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" ></picture>						</div>
-					</div>
-				</article>
-							<article class="item">
-					<div class="wrapper-text col col-lg-1-2">
-						<div class="text" data-aos="fade-right">
-															<h3>
+</div>
+</div>
+<div class="wrapper-image col col-lg-1-2" data-aos="fade-right" data-aos-delay="50">
+<div class="thumb">
+<picture>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01.jpg" media="(min-width: 1500px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01.jpg" media="(min-width: 1024px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01-1024x681.jpg" media="(min-width: 768px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01-768x510.jpg" media="(min-width: 360px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01-360x239.jpg" media="(min-width: 150px)"/>
+<img alt="" class="lazy thumb-img" data-src="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_01-150x150.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/></picture> </div>
+</div>
+</article>
+<article class="item">
+<div class="wrapper-text col col-lg-1-2">
+<div class="text" data-aos="fade-right">
+<h3>
 									Where are YOU headed?								</h3>
-																						<p>
+<p>
 									If you are looking to make an impact on your surroundings and the world at large... If you are excited about the integration of sports and technology... If you have a keen sense of creativity and innovation, WE WANT TO MEET YOU!								</p>
-													</div>
-					</div>
-					<div class="wrapper-image col col-lg-1-2" data-aos="fade-left" data-aos-delay="50">
-						<div class="thumb">
-							<picture >
-<source media="(min-width: 1200px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09.jpg">
-<source media="(min-width: 819px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09.jpg">
-<source media="(min-width: 768px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09-819x1024.jpg">
-<source media="(min-width: 288px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09-768x960.jpg">
-<source media="(min-width: 150px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09-288x360.jpg">
-<img data-src="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09-150x150.jpg"  alt=""  class=" lazy thumb-img"  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" ></picture>						</div>
-					</div>
-				</article>
-					</div>
-	</section>
-
-
-
-
-	<section id="section-open-positions" class="section-open-positions">
-		<div class="wrapper">
-			<h2>
+</div>
+</div>
+<div class="wrapper-image col col-lg-1-2" data-aos="fade-left" data-aos-delay="50">
+<div class="thumb">
+<picture>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09.jpg" media="(min-width: 1200px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09.jpg" media="(min-width: 819px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09-819x1024.jpg" media="(min-width: 768px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09-768x960.jpg" media="(min-width: 288px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09-288x360.jpg" media="(min-width: 150px)"/>
+<img alt="" class="lazy thumb-img" data-src="https://www.pixellot.tv/wp-content/uploads/2026/09/PIXLO_09-150x150.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/></picture> </div>
+</div>
+</article>
+</div>
+</section>
+<section class="section-open-positions" id="section-open-positions">
+<div class="wrapper">
+<h2>
 				Open Positions			</h2>
-            <div class="comeet-outer-wrapper">
-    <div id="d" class="comeet-groups-list">
-			<div class="comeet-g-r">
-				<div class="comeet-u-1-2">
-					<div class="comeet-list comeet-group-name">
+<div class="comeet-outer-wrapper">
+<div class="comeet-groups-list" id="d">
+<div class="comeet-g-r">
+<div class="comeet-u-1-2">
+<div class="comeet-list comeet-group-name">
 						Israel					</div>
-				</div>
-				<div class="comeet-u-1-2">
-					<div class="comeet-list">
-                        <ul class="comeet-positions-list">
-						                                        <li>
-                                            <a class="comeet-position" href="//www.pixellot.tv/careers/co/israel/24.96D/software-developer/all">
-                                                <div class="comeet-position-name">
-                                                    <!--<a href="//www.pixellot.tv/careers/co/israel/24.96D/software-developer/all">Software Developer</a> -->
+</div>
+<div class="comeet-u-1-2">
+<div class="comeet-list">
+<ul class="comeet-positions-list">
+<li>
+<a class="comeet-position" href="//www.pixellot.tv/careers/co/israel/24.96D/software-developer/all">
+<div class="comeet-position-name">
+<!--<a href="//www.pixellot.tv/careers/co/israel/24.96D/software-developer/all">Software Developer</a> -->
                                                     Software Developer                                                </div>
-                                                <div class="comeet-position-meta">
-                                        R&D  &middot;  Full-time  &middot;  Senior                                                </div>
-                                            </a>
-                                        </li>
-                                                                </ul>
-					</div>
-				</div>
-			</div>
-				<div class="comeet-g-r">
-				<div class="comeet-u-1-2">
-					<div class="comeet-list comeet-group-name">
+<div class="comeet-position-meta">
+                                        R&amp;D  ·  Full-time  ·  Senior                                                </div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comeet-g-r">
+<div class="comeet-u-1-2">
+<div class="comeet-list comeet-group-name">
 						Philippines					</div>
-				</div>
-				<div class="comeet-u-1-2">
-					<div class="comeet-list">
-                        <ul class="comeet-positions-list">
-						                                        <li>
-                                            <a class="comeet-position" href="//www.pixellot.tv/careers/co/philippines/9C.278/growth-key-account-manager/all">
-                                                <div class="comeet-position-name">
-                                                    <!--<a href="//www.pixellot.tv/careers/co/philippines/9C.278/growth-key-account-manager/all">Growth & Key Account Manager</a> -->
-                                                    Growth & Key Account Manager                                                </div>
-                                                <div class="comeet-position-meta">
-                                        Sales  &middot;  Full-time  &middot;  Intermediate                                                </div>
-                                            </a>
-                                        </li>
-                                                                </ul>
-					</div>
-				</div>
-			</div>
-				<div class="comeet-g-r">
-				<div class="comeet-u-1-2">
-					<div class="comeet-list comeet-group-name">
+</div>
+<div class="comeet-u-1-2">
+<div class="comeet-list">
+<ul class="comeet-positions-list">
+<li>
+<a class="comeet-position" href="//www.pixellot.tv/careers/co/philippines/9C.278/growth-key-account-manager/all">
+<div class="comeet-position-name">
+<!--<a href="//www.pixellot.tv/careers/co/philippines/9C.278/growth-key-account-manager/all">Growth & Key Account Manager</a> -->
+                                                    Growth &amp; Key Account Manager                                                </div>
+<div class="comeet-position-meta">
+                                        Sales  ·  Full-time  ·  Intermediate                                                </div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comeet-g-r">
+<div class="comeet-u-1-2">
+<div class="comeet-list comeet-group-name">
 						United States					</div>
-				</div>
-				<div class="comeet-u-1-2">
-					<div class="comeet-list">
-                        <ul class="comeet-positions-list">
-						                                        <li>
-                                            <a class="comeet-position" href="//www.pixellot.tv/careers/co/united-states/B4.272/sales-engineer/all">
-                                                <div class="comeet-position-name">
-                                                    <!--<a href="//www.pixellot.tv/careers/co/united-states/B4.272/sales-engineer/all">Sales Engineer</a> -->
+</div>
+<div class="comeet-u-1-2">
+<div class="comeet-list">
+<ul class="comeet-positions-list">
+<li>
+<a class="comeet-position" href="//www.pixellot.tv/careers/co/united-states/B4.272/sales-engineer/all">
+<div class="comeet-position-name">
+<!--<a href="//www.pixellot.tv/careers/co/united-states/B4.272/sales-engineer/all">Sales Engineer</a> -->
                                                     Sales Engineer                                                </div>
-                                                <div class="comeet-position-meta">
-                                        Sales  &middot;  Senior                                                </div>
-                                            </a>
-                                        </li>
-                                                                </ul>
-					</div>
-				</div>
-			</div>
-	</div>
-    <!--
+<div class="comeet-position-meta">
+                                        Sales  ·  Senior                                                </div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!--
 Plugin version data
 
 Comeet Plugin version: 4.0.5
 
 end plugin version data
 -->
-
 </div>
-		</div>
-	</section>
-
-
-	<section class="section-join-form">
-		<div class="wrapper">
-			<hr/>
-			<h2>
-				Want to Join Us Anyway?			</h2>
-			<p>
-				Send us your resume			</p>
-
-			<form id="resume-join-form" class="join-form" novalidate>
-				<input name="full-name" id="full-name" required class="input-text input-text-line" placeholder=" "/>
-				<label for="full-name" class="required">
-					Full name				</label>
-
-				<div class="attach-group">
-					<label for="file" class="required">
-						Resume					</label>
-					<input type="file"
-					       class="file item"
-					       name="file"
-					       id="file"
-					       accept="application/msword, application/pdf, text/plain"
-					       data-text="Attach"
-					       aria-label="Attach file from your device"
-					       required
-					/>
-					<br>
-					<span id="resume-file-message"></span>
-				</div>
-
-				<button type="submit" class="btn btn-on-light-bg">
-					Submit				</button>
-			</form>
-		</div>
-	</section>
-
-<section class="letstalk bg-dark">
-	<picture>
-		<img class="lazy" data-src="https://www.pixellot.tv/wp-content/themes/Tyco/images/qanda.jpg" alt="" role="presentation" />
-	</picture>
-
-	<div class="wrapper">
-		<h2>
-			It’s showtime		</h2>
-
-		<a href="#" class="btn btn-light ripple light" role="button" data-toggle="modal" data-target="#contact-form">
-			Let’s Talk		</a>
-	</div>
+</div>
 </section>
-
-<div class="contact modal fade"
-        id="contact-form" tabindex="-1" role="dialog" aria-labelledby="contact-form-title" aria-hidden="true">
-    <div class="wrapper modal-dialog" role="document">
-        <div class="wrap modal-content">
-            <a href="#" role="button" data-dismiss="modal" class="close-cf">Close</a>
-            <div class="contact-form">
-                <div class="contact-leftside" aria-hidden="false">
-                    <div class="contact-head">
-                        <h5 id="contact-form-title"
-                                class="section-title">SPEAK WITH A SALES EXPERT</h5>
-                    </div>
-                    <div class="content">Reach out to sales by filling in the form.</div>
-
-                    <style>
-	#custom-contact-form [type="submit"].is-submitting {
-		cursor: wait;
-		opacity: 0.75;
-		padding-left: 36px;
-		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 50 50'><circle cx='25' cy='25' r='20' fill='none' stroke='%23ffffff' stroke-width='5' stroke-linecap='round' stroke-dasharray='90 150'><animateTransform attributeName='transform' type='rotate' from='0 25 25' to='360 25 25' dur='0.8s' repeatCount='indefinite'/></circle></svg>");
-		background-repeat: no-repeat;
-		background-position: 12px center;
-		background-size: 18px 18px;
-	}
-	#custom-contact-form [type="submit"][disabled] {
-		pointer-events: none;
-	}
-</style>
-<script>
-	let reCaptchaOnFocus = {
-		inputs: null,
-		status: false,
-		init() {
-			this.inputs = document.querySelectorAll('#custom-contact-form input, #custom-contact-form select, #custom-contact-form textarea');
-
-			this.inputs.forEach(input => {
-				input.addEventListener('focus', () => this.onFocus(this), false);
-			})
-		},
-		onFocus(self) {
-			if (self.status) return;
-			let head = document.getElementsByTagName('head')[0]
-			let script = document.createElement('script')
-			script.type = 'text/javascript';
-			script.src = 'https://www.google.com/recaptcha/api.js'
-			head.appendChild(script);
-
-			self.inputs.forEach(input => {
-				input.removeEventListener('focus', self.onFocus)
-			})
-			self.status = true;
-		},
-	}
-
-	const contactFormV2 = {
-		form: '#custom-contact-form',
-		action: 'send_contact_form',
-		init() {
-			this.onSubmit();
-		},
-
-		onSubmit() {
-
-			let self = this;
-
-			$(this.form).on("submit", function (e) {
-				e.preventDefault();
-				let gresp = document.getElementById("g-recaptcha-response");
-				let errField = document.getElementById("custom-captcha-error");
-				let submitBtn = this.querySelector('[type="submit"]');
-
-				errField.style.display = "none";
-
-				if (submitBtn && submitBtn.disabled) {
-					return false;
-				}
-
-				if (!gresp || !gresp.value.length) {
-					errField.style.display = "block";
-					requestAnimationFrame(() => {
-						requestAnimationFrame(() => {
-							errField.focus();
-						});
-					});
-					return false;
-				}
-
-				let originalValue = submitBtn ? submitBtn.value : '';
-				if (submitBtn) {
-					submitBtn.disabled = true;
-					submitBtn.classList.add('is-submitting');
-					submitBtn.value = 'Submitting...';
-				}
-
-				ajax(self.action, {}, this).then(res => {
-					if (res.status) {
-						location.replace('https://www.pixellot.tv/thank-you');
-					} else {
-						console.warn('api error');
-						alert('Error, Please try again');
-						if (submitBtn) {
-							submitBtn.disabled = false;
-							submitBtn.classList.remove('is-submitting');
-							submitBtn.value = originalValue;
-						}
-					}
-				}).catch(() => {
-					if (submitBtn) {
-						submitBtn.disabled = false;
-						submitBtn.classList.remove('is-submitting');
-						submitBtn.value = originalValue;
-					}
-				});
-			});
-		}
-
-	}
-
-	document.addEventListener("DOMContentLoaded", () => {
-		reCaptchaOnFocus.init()
-		contactFormV2.init();
-	});
-
-	</script>
-<form id="custom-contact-form">
-    <div class="form-row">
-        <div class="form-field">
-            <label for="first_name">* First Name</label><br/>
-            <input id="first_name" maxlength="40" name="first_name" type="text" required />
-        </div>
-        <div class="form-field">
-            <label for="last_name">* Last Name</label><br/>
-            <input id="last_name" maxlength="80" name="last_name" type="text" required />
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-field">
-            <label for="email">* Email</label><br/>
-            <input id="email" maxlength="80" name="email" type="email" required/>
-        </div>
-        <div class="form-field">
-            <label for="company">* Company/Organization</label><br/>
-            <input id="company" maxlength="40" name="company" type="text" required/>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-field">
-            <label for="country_code">* Country</label><br/>
-            <select id="country_code" name="country_code" required>
-                <option value="" selected disabled></option>
-                <option value="AD">Andorra</option>
-                <option value="AE">United Arab Emirates</option>
-                <option value="AF">Afghanistan</option>
-                <option value="AG">Antigua and Barbuda</option>
-                <option value="AI">Anguilla</option>
-                <option value="AL">Albania</option>
-                <option value="AM">Armenia</option>
-                <option value="AO">Angola</option>
-                <option value="AQ">Antarctica</option>
-                <option value="AR">Argentina</option>
-                <option value="AT">Austria</option>
-                <option value="AU">Australia</option>
-                <option value="AW">Aruba</option>
-                <option value="AX">Aland Islands</option>
-                <option value="AZ">Azerbaijan</option>
-                <option value="BA">Bosnia and Herzegovina</option>
-                <option value="BB">Barbados</option>
-                <option value="BD">Bangladesh</option>
-                <option value="BE">Belgium</option>
-                <option value="BF">Burkina Faso</option>
-                <option value="BG">Bulgaria</option>
-                <option value="BH">Bahrain</option>
-                <option value="BI">Burundi</option>
-                <option value="BJ">Benin</option>
-                <option value="BL">Saint Barthélemy</option>
-                <option value="BM">Bermuda</option>
-                <option value="BN">Brunei Darussalam</option>
-                <option value="BO">Bolivia</option>
-                <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-                <option value="BR">Brazil</option>
-                <option value="BS">Bahamas</option>
-                <option value="BT">Bhutan</option>
-                <option value="BV">Bouvet Island</option>
-                <option value="BW">Botswana</option>
-                <option value="BY">Belarus</option>
-                <option value="BZ">Belize</option>
-                <option value="CA">Canada</option>
-                <option value="CC">Cocos (Keeling) Islands</option>
-                <option value="CD">Congo, the Democratic Republic of the</option>
-                <option value="CF">Central African Republic</option>
-                <option value="CG">Congo</option>
-                <option value="CH">Switzerland</option>
-                <option value="CI">Cote d'Ivoire</option>
-                <option value="CK">Cook Islands</option>
-                <option value="CL">Chile</option>
-                <option value="CM">Cameroon</option>
-                <option value="CN">China</option>
-                <option value="CO">Colombia</option>
-                <option value="CR">Costa Rica</option>
-                <option value="CU">Cuba</option>
-                <option value="CV">Cape Verde</option>
-                <option value="CW">Curaçao</option>
-                <option value="CX">Christmas Island</option>
-                <option value="CY">Cyprus</option>
-                <option value="CZ">Czech Republic</option>
-                <option value="DE">Germany</option>
-                <option value="DJ">Djibouti</option>
-                <option value="DK">Denmark</option>
-                <option value="DM">Dominica</option>
-                <option value="DO">Dominican Republic</option>
-                <option value="DZ">Algeria</option>
-                <option value="EC">Ecuador</option>
-                <option value="EE">Estonia</option>
-                <option value="EG">Egypt</option>
-                <option value="EH">Western Sahara</option>
-                <option value="ER">Eritrea</option>
-                <option value="ES">Spain</option>
-                <option value="ET">Ethiopia</option>
-                <option value="FI">Finland</option>
-                <option value="FJ">Fiji</option>
-                <option value="FK">Falkland Islands (Malvinas)</option>
-                <option value="FO">Faroe Islands</option>
-                <option value="FR">France</option>
-                <option value="GA">Gabon</option>
-                <option value="GB">United Kingdom</option>
-                <option value="GD">Grenada</option>
-                <option value="GE">Georgia</option>
-                <option value="GF">French Guiana</option>
-                <option value="GG">Guernsey</option>
-                <option value="GH">Ghana</option>
-                <option value="GI">Gibraltar</option>
-                <option value="GL">Greenland</option>
-                <option value="GM">Gambia</option>
-                <option value="GN">Guinea</option>
-                <option value="GP">Guadeloupe</option>
-                <option value="GQ">Equatorial Guinea</option>
-                <option value="GR">Greece</option>
-                <option value="GS">South Georgia and the South Sandwich Islands</option>
-                <option value="GT">Guatemala</option>
-                <option value="GW">Guinea-Bissau</option>
-                <option value="GY">Guyana</option>
-                <option value="HM">Heard Island and McDonald Islands</option>
-                <option value="HN">Honduras</option>
-                <option value="HR">Croatia</option>
-                <option value="HT">Haiti</option>
-                <option value="HU">Hungary</option>
-                <option value="ID">Indonesia</option>
-                <option value="IE">Ireland</option>
-                <option value="IL">Israel</option>
-                <option value="IM">Isle of Man</option>
-                <option value="IN">India</option>
-                <option value="IO">British Indian Ocean Territory</option>
-                <option value="IQ">Iraq</option>
-                <option value="IS">Iceland</option>
-                <option value="IT">Italy</option>
-                <option value="JE">Jersey</option>
-                <option value="JM">Jamaica</option>
-                <option value="JO">Jordan</option>
-                <option value="JP">Japan</option>
-                <option value="KE">Kenya</option>
-                <option value="KG">Kyrgyzstan</option>
-                <option value="KH">Cambodia</option>
-                <option value="KI">Kiribati</option>
-                <option value="KM">Comoros</option>
-                <option value="KN">Saint Kitts and Nevis</option>
-                <option value="KR">South Korea</option>
-                <option value="KW">Kuwait</option>
-                <option value="KY">Cayman Islands</option>
-                <option value="KZ">Kazakhstan</option>
-                <option value="LA">Lao People's Democratic Republic</option>
-                <option value="LB">Lebanon</option>
-                <option value="LC">Saint Lucia</option>
-                <option value="LI">Liechtenstein</option>
-                <option value="LK">Sri Lanka</option>
-                <option value="LR">Liberia</option>
-                <option value="LS">Lesotho</option>
-                <option value="LT">Lithuania</option>
-                <option value="LU">Luxembourg</option>
-                <option value="LV">Latvia</option>
-                <option value="LY">Libyan Arab Jamahiriya</option>
-                <option value="MA">Morocco</option>
-                <option value="MC">Monaco</option>
-                <option value="MD">Moldova, Republic of</option>
-                <option value="ME">Montenegro</option>
-                <option value="MF">Saint Martin (French part)</option>
-                <option value="MG">Madagascar</option>
-                <option value="MK">Macedonia, the former Yugoslav Republic of</option>
-                <option value="ML">Mali</option>
-                <option value="MM">Myanmar</option>
-                <option value="MN">Mongolia</option>
-                <option value="MO">Macao</option>
-                <option value="MQ">Martinique</option>
-                <option value="MR">Mauritania</option>
-                <option value="MS">Montserrat</option>
-                <option value="MT">Malta</option>
-                <option value="MU">Mauritius</option>
-                <option value="MV">Maldives</option>
-                <option value="MW">Malawi</option>
-                <option value="MX">Mexico</option>
-                <option value="MY">Malaysia</option>
-                <option value="MZ">Mozambique</option>
-                <option value="NA">Namibia</option>
-                <option value="NC">New Caledonia</option>
-                <option value="NE">Niger</option>
-                <option value="NF">Norfolk Island</option>
-                <option value="NG">Nigeria</option>
-                <option value="NI">Nicaragua</option>
-                <option value="NL">Netherlands</option>
-                <option value="NO">Norway</option>
-                <option value="NP">Nepal</option>
-                <option value="NR">Nauru</option>
-                <option value="NU">Niue</option>
-                <option value="NZ">New Zealand</option>
-                <option value="OM">Oman</option>
-                <option value="PA">Panama</option>
-                <option value="PE">Peru</option>
-                <option value="PF">French Polynesia</option>
-                <option value="PG">Papua New Guinea</option>
-                <option value="PH">Philippines</option>
-                <option value="PK">Pakistan</option>
-                <option value="PL">Poland</option>
-                <option value="PM">Saint Pierre and Miquelon</option>
-                <option value="PN">Pitcairn</option>
-                <option value="PS">Palestinian Territory, Occupied</option>
-                <option value="PT">Portugal</option>
-                <option value="PY">Paraguay</option>
-                <option value="QA">Qatar</option>
-                <option value="RE">Reunion</option>
-                <option value="RO">Romania</option>
-                <option value="RS">Serbia</option>
-                <option value="RU">Russian Federation</option>
-                <option value="RW">Rwanda</option>
-                <option value="SA">Saudi Arabia</option>
-                <option value="SB">Solomon Islands</option>
-                <option value="SC">Seychelles</option>
-                <option value="SD">Sudan</option>
-                <option value="SE">Sweden</option>
-                <option value="SG">Singapore</option>
-                <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
-                <option value="SI">Slovenia</option>
-                <option value="SJ">Svalbard and Jan Mayen</option>
-                <option value="SK">Slovakia</option>
-                <option value="SL">Sierra Leone</option>
-                <option value="SM">San Marino</option>
-                <option value="SN">Senegal</option>
-                <option value="SO">Somalia</option>
-                <option value="SR">Suriname</option>
-                <option value="SS">South Sudan</option>
-                <option value="ST">Sao Tome and Principe</option>
-                <option value="SV">El Salvador</option>
-                <option value="SX">Sint Maarten (Dutch part)</option>
-                <option value="SZ">Swaziland</option>
-                <option value="TC">Turks and Caicos Islands</option>
-                <option value="TD">Chad</option>
-                <option value="TF">French Southern Territories</option>
-                <option value="TG">Togo</option>
-                <option value="TH">Thailand</option>
-                <option value="TJ">Tajikistan</option>
-                <option value="TK">Tokelau</option>
-                <option value="TL">Timor-Leste</option>
-                <option value="TM">Turkmenistan</option>
-                <option value="TN">Tunisia</option>
-                <option value="TO">Tonga</option>
-                <option value="TR">Turkey</option>
-                <option value="TT">Trinidad and Tobago</option>
-                <option value="TV">Tuvalu</option>
-                <option value="TW">Taiwan</option>
-                <option value="TZ">Tanzania</option>
-                <option value="UA">Ukraine</option>
-                <option value="UG">Uganda</option>
-                <option value="US">United States</option>
-                <option value="UY">Uruguay</option>
-                <option value="UZ">Uzbekistan</option>
-                <option value="VA">Holy See (Vatican City State)</option>
-                <option value="VC">Saint Vincent and the Grenadines</option>
-                <option value="VE">Venezuela</option>
-                <option value="VG">Virgin Islands, British</option>
-                <option value="VN">Viet Nam</option>
-                <option value="VU">Vanuatu</option>
-                <option value="WF">Wallis and Futuna</option>
-                <option value="WS">Samoa</option>
-                <option value="YE">Yemen</option>
-                <option value="YT">Mayotte</option>
-                <option value="ZA">South Africa</option>
-                <option value="ZM">Zambia</option>
-                <option value="ZW">Zimbabwe</option>
-            </select>
-        </div>
-        <div class="form-field">
-             <label for="states">* State</label><br/>
-             <select id="state" name="state"  required>
-             <option value="" selected disabled></option>
-             <option value="N/A">N/A</option>
-             <option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option>
-              </select>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-field">
-            <label for="phone">* Phone</label><br/>
-            <input id="phone" maxlength="40" name="phone" type="tel" required />
-        </div>
-        <div class="form-field">
-            <label for="business_type">* Business Type:</label><br/>
-            <select id="business_type" name="business_type" required>
-                <option value="" selected disabled></option>
-                <option value="Club">Club</option>
-                <option value="College">College</option>
-                <option value="Betting">Betting</option>
-                <option value="Broadcaster">Broadcaster</option>
-                <option value="Federation">Federation</option>
-                <option value="League">League</option>
-                <option value="Production Company">Production Company</option>
-                <option value="Right Holder">Right Holder</option>
-                <option value="Service Provider">Service Provider</option>
-                <option value="School">School</option>
-                <option value="Multi Sport Venues (MSV)">Sports Venue</option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
-    </div>
-    
-    <div class="form-row">
-        <div class="form-field">
-             <label for="sport">Sport</label><br/>
-             <select id="sport" name="sport">
-             <option value="" selected disabled></option>
-             <option value="Basketball"> Basketball</option><option value="Football"> Football</option><option value="Soccer"> Soccer</option><option value="Tennis"> Tennis</option><option value="Hockey"> Hockey</option><option value="Ice Hockey"> Ice Hockey</option><option value="Field Hockey"> Field Hockey</option><option value="Roller Hockey"> Roller Hockey</option><option value="Volleyball"> Volleyball</option><option value="Beach Volleyball"> Beach Volleyball</option><option value="Baseball"> Baseball</option><option value="Softball"> Softball</option><option value="Wrestling"> Wrestling</option><option value="Lacrosse"> Lacrosse</option><option value="Netball"> Netball</option><option value="Rugby"> Rugby</option><option value="Handball"> Handball</option><option value="Futsal"> Futsal</option><option value="Other"> Other</option>
-              </select>
-        </div>
-        
-        <div class="form-field">
-             <label for="solution_interest">* Product/ Solution interest</label><br/>
-             <select id="solution_interest" name="solution_interest" required>
-             <option value="" selected disabled></option>
-             <option value="Broadcasting (Pixellot Prime)"> Broadcasting (Pixellot Prime)</option><option value="Streaming (Pixellot Show)"> Streaming (Pixellot Show)</option><option value="Portable solution (Pixellot Air)"> Portable solution (Pixellot Air)</option><option value="Pixellot Analytics (VidSwap)"> Pixellot Analytics (VidSwap)</option><option value="OTT solution"> OTT solution</option><option value="I don’t know"> I don’t know</option>
-              </select>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-field area-field">
-            <label for="description_cntform">* Description</label><br/>
-            <textarea id="description_cntform" name="description" required></textarea>
-        </div>
-        <div class="form-field" style="display:flex; flex-direction: column-reverse;">
-            <div class="captcha-error" id="custom-captcha-error" tabindex="-1" role="alert">Please verify you are not a robot</div>
-
-            <div class="g-recaptcha" data-sitekey="6LffnPsUAAAAAPBHf9jZV91h_xbaZ1sDyqN_WXW9"></div>
-        </div>
-    </div>
-
-    <input type="hidden" id="url_copy" maxlength="250" name="url_copy" value="https://www.pixellot.tv/career"/>
-
-    <div class="form-row">
-        <div class="form-field">
-            <label style="position: static;display: flex;transform:none;margin-top:20px;">
-                <input style="flex-basis: 20px;min-width:20px;" id="marketing_opt_in" name="marketing_opt_in" type="checkbox" value="1"/>
-                I&apos;d like to get occasional updates and announcements
-            </label>
-        </div>
-        <div class="form-field"></div>
-    </div>
-
-    <div class="form-row btn-row">
-        <div class="form-field valid">
-            <input type="submit" value="Submit" class="btn">
-        </div>
-    </div>
+<section class="section-join-form">
+<div class="wrapper">
+<hr/>
+<h2>
+				Want to Join Us Anyway?			</h2>
+<p>
+				Send us your resume			</p>
+<form class="join-form" id="resume-join-form" novalidate="">
+<input class="input-text input-text-line" id="full-name" name="full-name" placeholder=" " required=""/>
+<label class="required" for="full-name">
+					Full name				</label>
+<div class="attach-group">
+<label class="required" for="file">
+						Resume					</label>
+<input accept="application/msword, application/pdf, text/plain" aria-label="Attach file from your device" class="file item" data-text="Attach" id="file" name="file" required="" type="file"/>
+<br/>
+<span id="resume-file-message"></span>
+</div>
+<button class="btn btn-on-light-bg" type="submit">
+					Submit				</button>
 </form>
+</div>
+</section>
+<section class="letstalk bg-dark">
+<picture>
+<img alt="" class="lazy" data-src="https://www.pixellot.tv/wp-content/themes/Tyco/images/qanda.jpg" role="presentation"/>
+</picture>
+<div class="wrapper">
+<h2>
+			It’s showtime		</h2>
+<a class="btn btn-light ripple light" data-target="#contact-form" data-toggle="modal" href="#" role="button">
+			Let’s Talk		</a>
+</div>
+</section>
+<div aria-hidden="true" aria-labelledby="contact-form-title" class="contact modal fade" id="contact-form" role="dialog" tabindex="-1">
+<div class="wrapper modal-dialog" role="document">
+<div class="wrap modal-content">
+<a class="close-cf" data-dismiss="modal" href="#" role="button">Close</a>
+<div class="contact-form">
+<div aria-hidden="false" class="contact-leftside">
+<div class="contact-head">
+<h5 class="section-title" id="contact-form-title">SPEAK WITH A SALES EXPERT</h5>
+</div>
+<div class="content">Reach out to sales by filling in the form.</div>
 
-                    <div class="disclaimers">
-                        <p>By clicking the above button you read and understood our <a href="https://www.pixellot.tv/privacy-policy/">Privacy Policy</a></p>
-                    </div>
-                </div>
-                <div class="contact-form-success" aria-hidden="true">
-                    <div class="success-wrap">
-                        <h5 class="the-title">
-                            THANK YOU<br>
+
+<form id="custom-contact-form">
+<div class="form-row">
+<div class="form-field">
+<label for="first_name">* First Name</label><br/>
+<input id="first_name" maxlength="40" name="first_name" required="" type="text"/>
+</div>
+<div class="form-field">
+<label for="last_name">* Last Name</label><br/>
+<input id="last_name" maxlength="80" name="last_name" required="" type="text"/>
+</div>
+</div>
+<div class="form-row">
+<div class="form-field">
+<label for="email">* Email</label><br/>
+<input id="email" maxlength="80" name="email" required="" type="email"/>
+</div>
+<div class="form-field">
+<label for="company">* Company/Organization</label><br/>
+<input id="company" maxlength="40" name="company" required="" type="text"/>
+</div>
+</div>
+<div class="form-row">
+<div class="form-field">
+<label for="country_code">* Country</label><br/>
+<select id="country_code" name="country_code" required="">
+<option disabled="" selected="" value=""></option>
+<option value="AD">Andorra</option>
+<option value="AE">United Arab Emirates</option>
+<option value="AF">Afghanistan</option>
+<option value="AG">Antigua and Barbuda</option>
+<option value="AI">Anguilla</option>
+<option value="AL">Albania</option>
+<option value="AM">Armenia</option>
+<option value="AO">Angola</option>
+<option value="AQ">Antarctica</option>
+<option value="AR">Argentina</option>
+<option value="AT">Austria</option>
+<option value="AU">Australia</option>
+<option value="AW">Aruba</option>
+<option value="AX">Aland Islands</option>
+<option value="AZ">Azerbaijan</option>
+<option value="BA">Bosnia and Herzegovina</option>
+<option value="BB">Barbados</option>
+<option value="BD">Bangladesh</option>
+<option value="BE">Belgium</option>
+<option value="BF">Burkina Faso</option>
+<option value="BG">Bulgaria</option>
+<option value="BH">Bahrain</option>
+<option value="BI">Burundi</option>
+<option value="BJ">Benin</option>
+<option value="BL">Saint Barthélemy</option>
+<option value="BM">Bermuda</option>
+<option value="BN">Brunei Darussalam</option>
+<option value="BO">Bolivia</option>
+<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+<option value="BR">Brazil</option>
+<option value="BS">Bahamas</option>
+<option value="BT">Bhutan</option>
+<option value="BV">Bouvet Island</option>
+<option value="BW">Botswana</option>
+<option value="BY">Belarus</option>
+<option value="BZ">Belize</option>
+<option value="CA">Canada</option>
+<option value="CC">Cocos (Keeling) Islands</option>
+<option value="CD">Congo, the Democratic Republic of the</option>
+<option value="CF">Central African Republic</option>
+<option value="CG">Congo</option>
+<option value="CH">Switzerland</option>
+<option value="CI">Cote d'Ivoire</option>
+<option value="CK">Cook Islands</option>
+<option value="CL">Chile</option>
+<option value="CM">Cameroon</option>
+<option value="CN">China</option>
+<option value="CO">Colombia</option>
+<option value="CR">Costa Rica</option>
+<option value="CU">Cuba</option>
+<option value="CV">Cape Verde</option>
+<option value="CW">Curaçao</option>
+<option value="CX">Christmas Island</option>
+<option value="CY">Cyprus</option>
+<option value="CZ">Czech Republic</option>
+<option value="DE">Germany</option>
+<option value="DJ">Djibouti</option>
+<option value="DK">Denmark</option>
+<option value="DM">Dominica</option>
+<option value="DO">Dominican Republic</option>
+<option value="DZ">Algeria</option>
+<option value="EC">Ecuador</option>
+<option value="EE">Estonia</option>
+<option value="EG">Egypt</option>
+<option value="EH">Western Sahara</option>
+<option value="ER">Eritrea</option>
+<option value="ES">Spain</option>
+<option value="ET">Ethiopia</option>
+<option value="FI">Finland</option>
+<option value="FJ">Fiji</option>
+<option value="FK">Falkland Islands (Malvinas)</option>
+<option value="FO">Faroe Islands</option>
+<option value="FR">France</option>
+<option value="GA">Gabon</option>
+<option value="GB">United Kingdom</option>
+<option value="GD">Grenada</option>
+<option value="GE">Georgia</option>
+<option value="GF">French Guiana</option>
+<option value="GG">Guernsey</option>
+<option value="GH">Ghana</option>
+<option value="GI">Gibraltar</option>
+<option value="GL">Greenland</option>
+<option value="GM">Gambia</option>
+<option value="GN">Guinea</option>
+<option value="GP">Guadeloupe</option>
+<option value="GQ">Equatorial Guinea</option>
+<option value="GR">Greece</option>
+<option value="GS">South Georgia and the South Sandwich Islands</option>
+<option value="GT">Guatemala</option>
+<option value="GW">Guinea-Bissau</option>
+<option value="GY">Guyana</option>
+<option value="HM">Heard Island and McDonald Islands</option>
+<option value="HN">Honduras</option>
+<option value="HR">Croatia</option>
+<option value="HT">Haiti</option>
+<option value="HU">Hungary</option>
+<option value="ID">Indonesia</option>
+<option value="IE">Ireland</option>
+<option value="IL">Israel</option>
+<option value="IM">Isle of Man</option>
+<option value="IN">India</option>
+<option value="IO">British Indian Ocean Territory</option>
+<option value="IQ">Iraq</option>
+<option value="IS">Iceland</option>
+<option value="IT">Italy</option>
+<option value="JE">Jersey</option>
+<option value="JM">Jamaica</option>
+<option value="JO">Jordan</option>
+<option value="JP">Japan</option>
+<option value="KE">Kenya</option>
+<option value="KG">Kyrgyzstan</option>
+<option value="KH">Cambodia</option>
+<option value="KI">Kiribati</option>
+<option value="KM">Comoros</option>
+<option value="KN">Saint Kitts and Nevis</option>
+<option value="KR">South Korea</option>
+<option value="KW">Kuwait</option>
+<option value="KY">Cayman Islands</option>
+<option value="KZ">Kazakhstan</option>
+<option value="LA">Lao People's Democratic Republic</option>
+<option value="LB">Lebanon</option>
+<option value="LC">Saint Lucia</option>
+<option value="LI">Liechtenstein</option>
+<option value="LK">Sri Lanka</option>
+<option value="LR">Liberia</option>
+<option value="LS">Lesotho</option>
+<option value="LT">Lithuania</option>
+<option value="LU">Luxembourg</option>
+<option value="LV">Latvia</option>
+<option value="LY">Libyan Arab Jamahiriya</option>
+<option value="MA">Morocco</option>
+<option value="MC">Monaco</option>
+<option value="MD">Moldova, Republic of</option>
+<option value="ME">Montenegro</option>
+<option value="MF">Saint Martin (French part)</option>
+<option value="MG">Madagascar</option>
+<option value="MK">Macedonia, the former Yugoslav Republic of</option>
+<option value="ML">Mali</option>
+<option value="MM">Myanmar</option>
+<option value="MN">Mongolia</option>
+<option value="MO">Macao</option>
+<option value="MQ">Martinique</option>
+<option value="MR">Mauritania</option>
+<option value="MS">Montserrat</option>
+<option value="MT">Malta</option>
+<option value="MU">Mauritius</option>
+<option value="MV">Maldives</option>
+<option value="MW">Malawi</option>
+<option value="MX">Mexico</option>
+<option value="MY">Malaysia</option>
+<option value="MZ">Mozambique</option>
+<option value="NA">Namibia</option>
+<option value="NC">New Caledonia</option>
+<option value="NE">Niger</option>
+<option value="NF">Norfolk Island</option>
+<option value="NG">Nigeria</option>
+<option value="NI">Nicaragua</option>
+<option value="NL">Netherlands</option>
+<option value="NO">Norway</option>
+<option value="NP">Nepal</option>
+<option value="NR">Nauru</option>
+<option value="NU">Niue</option>
+<option value="NZ">New Zealand</option>
+<option value="OM">Oman</option>
+<option value="PA">Panama</option>
+<option value="PE">Peru</option>
+<option value="PF">French Polynesia</option>
+<option value="PG">Papua New Guinea</option>
+<option value="PH">Philippines</option>
+<option value="PK">Pakistan</option>
+<option value="PL">Poland</option>
+<option value="PM">Saint Pierre and Miquelon</option>
+<option value="PN">Pitcairn</option>
+<option value="PS">Palestinian Territory, Occupied</option>
+<option value="PT">Portugal</option>
+<option value="PY">Paraguay</option>
+<option value="QA">Qatar</option>
+<option value="RE">Reunion</option>
+<option value="RO">Romania</option>
+<option value="RS">Serbia</option>
+<option value="RU">Russian Federation</option>
+<option value="RW">Rwanda</option>
+<option value="SA">Saudi Arabia</option>
+<option value="SB">Solomon Islands</option>
+<option value="SC">Seychelles</option>
+<option value="SD">Sudan</option>
+<option value="SE">Sweden</option>
+<option value="SG">Singapore</option>
+<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+<option value="SI">Slovenia</option>
+<option value="SJ">Svalbard and Jan Mayen</option>
+<option value="SK">Slovakia</option>
+<option value="SL">Sierra Leone</option>
+<option value="SM">San Marino</option>
+<option value="SN">Senegal</option>
+<option value="SO">Somalia</option>
+<option value="SR">Suriname</option>
+<option value="SS">South Sudan</option>
+<option value="ST">Sao Tome and Principe</option>
+<option value="SV">El Salvador</option>
+<option value="SX">Sint Maarten (Dutch part)</option>
+<option value="SZ">Swaziland</option>
+<option value="TC">Turks and Caicos Islands</option>
+<option value="TD">Chad</option>
+<option value="TF">French Southern Territories</option>
+<option value="TG">Togo</option>
+<option value="TH">Thailand</option>
+<option value="TJ">Tajikistan</option>
+<option value="TK">Tokelau</option>
+<option value="TL">Timor-Leste</option>
+<option value="TM">Turkmenistan</option>
+<option value="TN">Tunisia</option>
+<option value="TO">Tonga</option>
+<option value="TR">Turkey</option>
+<option value="TT">Trinidad and Tobago</option>
+<option value="TV">Tuvalu</option>
+<option value="TW">Taiwan</option>
+<option value="TZ">Tanzania</option>
+<option value="UA">Ukraine</option>
+<option value="UG">Uganda</option>
+<option value="US">United States</option>
+<option value="UY">Uruguay</option>
+<option value="UZ">Uzbekistan</option>
+<option value="VA">Holy See (Vatican City State)</option>
+<option value="VC">Saint Vincent and the Grenadines</option>
+<option value="VE">Venezuela</option>
+<option value="VG">Virgin Islands, British</option>
+<option value="VN">Viet Nam</option>
+<option value="VU">Vanuatu</option>
+<option value="WF">Wallis and Futuna</option>
+<option value="WS">Samoa</option>
+<option value="YE">Yemen</option>
+<option value="YT">Mayotte</option>
+<option value="ZA">South Africa</option>
+<option value="ZM">Zambia</option>
+<option value="ZW">Zimbabwe</option>
+</select>
+</div>
+<div class="form-field">
+<label for="states">* State</label><br/>
+<select id="state" name="state" required="">
+<option disabled="" selected="" value=""></option>
+<option value="N/A">N/A</option>
+<option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="form-field">
+<label for="phone">* Phone</label><br/>
+<input id="phone" maxlength="40" name="phone" required="" type="tel"/>
+</div>
+<div class="form-field">
+<label for="business_type">* Business Type:</label><br/>
+<select id="business_type" name="business_type" required="">
+<option disabled="" selected="" value=""></option>
+<option value="Club">Club</option>
+<option value="College">College</option>
+<option value="Betting">Betting</option>
+<option value="Broadcaster">Broadcaster</option>
+<option value="Federation">Federation</option>
+<option value="League">League</option>
+<option value="Production Company">Production Company</option>
+<option value="Right Holder">Right Holder</option>
+<option value="Service Provider">Service Provider</option>
+<option value="School">School</option>
+<option value="Multi Sport Venues (MSV)">Sports Venue</option>
+<option value="Other">Other</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="form-field">
+<label for="sport">Sport</label><br/>
+<select id="sport" name="sport">
+<option disabled="" selected="" value=""></option>
+<option value="Basketball"> Basketball</option><option value="Football"> Football</option><option value="Soccer"> Soccer</option><option value="Tennis"> Tennis</option><option value="Hockey"> Hockey</option><option value="Ice Hockey"> Ice Hockey</option><option value="Field Hockey"> Field Hockey</option><option value="Roller Hockey"> Roller Hockey</option><option value="Volleyball"> Volleyball</option><option value="Beach Volleyball"> Beach Volleyball</option><option value="Baseball"> Baseball</option><option value="Softball"> Softball</option><option value="Wrestling"> Wrestling</option><option value="Lacrosse"> Lacrosse</option><option value="Netball"> Netball</option><option value="Rugby"> Rugby</option><option value="Handball"> Handball</option><option value="Futsal"> Futsal</option><option value="Other"> Other</option>
+</select>
+</div>
+<div class="form-field">
+<label for="solution_interest">* Product/ Solution interest</label><br/>
+<select id="solution_interest" name="solution_interest" required="">
+<option disabled="" selected="" value=""></option>
+<option value="Broadcasting (Pixellot Prime)"> Broadcasting (Pixellot Prime)</option><option value="Streaming (Pixellot Show)"> Streaming (Pixellot Show)</option><option value="Portable solution (Pixellot Air)"> Portable solution (Pixellot Air)</option><option value="Pixellot Analytics (VidSwap)"> Pixellot Analytics (VidSwap)</option><option value="OTT solution"> OTT solution</option><option value="I don’t know"> I don’t know</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="form-field area-field">
+<label for="description_cntform">* Description</label><br/>
+<textarea id="description_cntform" name="description" required=""></textarea>
+</div>
+<div class="form-field" style="display:flex; flex-direction: column-reverse;">
+<div class="captcha-error" id="custom-captcha-error" role="alert" tabindex="-1">Please verify you are not a robot</div>
+<div class="g-recaptcha" data-sitekey="6LffnPsUAAAAAPBHf9jZV91h_xbaZ1sDyqN_WXW9"></div>
+</div>
+</div>
+<input id="url_copy" maxlength="250" name="url_copy" type="hidden" value="https://www.pixellot.tv/career"/>
+<div class="form-row">
+<div class="form-field">
+<label style="position: static;display: flex;transform:none;margin-top:20px;">
+<input id="marketing_opt_in" name="marketing_opt_in" style="flex-basis: 20px;min-width:20px;" type="checkbox" value="1"/>
+                I'd like to get occasional updates and announcements
+            </label>
+</div>
+<div class="form-field"></div>
+</div>
+<div class="form-row btn-row">
+<div class="form-field valid">
+<input class="btn" type="submit" value="Submit"/>
+</div>
+</div>
+</form>
+<div class="disclaimers">
+<p>By clicking the above button you read and understood our <a href="https://www.pixellot.tv/privacy-policy/">Privacy Policy</a></p>
+</div>
+</div>
+<div aria-hidden="true" class="contact-form-success">
+<div class="success-wrap">
+<h5 class="the-title">
+                            THANK YOU<br/>
                             FOR YOUR MESSAGE                        </h5>
-                        <p>
+<p>
                             We'll get back to you ASAP!                        </p>
-                        <a id="contactus-success-button" class="btn btn-on-light-bg ripple dark"
-                                aria-label="Message sent, click to close" href="#" role="button"
-                                data-dismiss="modal">
+<a aria-label="Message sent, click to close" class="btn btn-on-light-bg ripple dark" data-dismiss="modal" href="#" id="contactus-success-button" role="button">
                             Close                        </a>
-                    </div>
-                    <div class="ui-bl">
-                        <span></span>
-                    </div>
-                    <div class="ui-br"></div>
-                </div>
-            </div>
-
-            <div class="contact-info contact-info-basic">
-                <picture >
-<source media="(min-width: 2048px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718.jpg">
-<source media="(min-width: 1536px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-2048x1366.jpg">
-<source media="(min-width: 1024px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-1536x1024.jpg">
-<source media="(min-width: 768px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-1024x683.jpg">
-<source media="(min-width: 360px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-768x512.jpg">
-<source media="(min-width: 150px)" data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-360x240.jpg">
-<img data-src="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-150x150.jpg"  alt=""  class=" lazy thumb-img"  src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" ></picture>                <div class="title">
-                    <h3>JOIN THE AI ERA!</h3>
-                </div>
-
-                <?
+</div>
+<div class="ui-bl">
+<span></span>
+</div>
+<div class="ui-br"></div>
+</div>
+</div>
+<div class="contact-info contact-info-basic">
+<picture>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718.jpg" media="(min-width: 2048px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-2048x1366.jpg" media="(min-width: 1536px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-1536x1024.jpg" media="(min-width: 1024px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-1024x683.jpg" media="(min-width: 768px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-768x512.jpg" media="(min-width: 360px)"/>
+<source data-srcset="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-360x240.jpg" media="(min-width: 150px)"/>
+<img alt="" class="lazy thumb-img" data-src="https://www.pixellot.tv/wp-content/uploads/2020/08/MG_0718-150x150.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/></picture> <div class="title">
+<h3>JOIN THE AI ERA!</h3>
+</div>
+<?
                 //$faq = get_page_by_path( 'faq' );
 
                 //if ( $faq instanceof WP_Post ) {
                 ?>
-                <div class="description find-your-answer">
-                    <div class="q">+30,000 Pixellot systems have been sold to production companies, sports portals, sports federations, leagues, clubs, venues and coaching solution providers around the world.<br> Our global team is spread across the world and will be happy to help You.  <br><br>  </div>
-                    <span class="desc"></span>
-                    <a target="_blank" href=""
-                            class="faq-link"></a>
-                </div>
-                <?
+<div class="description find-your-answer">
+<div class="q">+30,000 Pixellot systems have been sold to production companies, sports portals, sports federations, leagues, clubs, venues and coaching solution providers around the world.<br/> Our global team is spread across the world and will be happy to help You.  <br/><br/> </div>
+<span class="desc"></span>
+<a class="faq-link" href="" target="_blank"></a>
+</div>
+<?
                 //}
                 ?>
-
-
-                <ul class="branches">
-                    <li class="branch-item">
-                        <strong style="border: none;">Need help? We're here for you!</strong>
-                        <a href="tel:"></a>
-                        <div>
-                            <a href="mailto:support@pixellot.tv">support@pixellot.tv</a>
-                        </div>
-                    </li>
-
-                    
-                </ul>
-
-                <div class="follow-us">
-                    <div class="follow-us-title">Follow Us</div>
-
-                    <div class="social">
-
-                        <?
+<ul class="branches">
+<li class="branch-item">
+<strong style="border: none;">Need help? We're here for you!</strong>
+<a href="tel:"></a>
+<div>
+<a href="mailto:support@pixellot.tv">support@pixellot.tv</a>
+</div>
+</li>
+</ul>
+<div class="follow-us">
+<div class="follow-us-title">Follow Us</div>
+<div class="social">
+<?
                         //$social = array_filter( get_social_links() );
 
                         //if ( ! empty( $social ) ) {
                         ?>
+<a class="so-link" href="" title="Share on Linkedin">
 
-                                                <a href="" class="so-link" title="Share on Linkedin">
-                            <svg role="presentation">
-                                <use xlink:href="#svg-icon-linkedin"></use>
-                            </svg>
-                        </a>
-                        
-                                                <a href="" class="so-link" title="Share on Facebook">
-                            <svg role="presentation">
-                                <use xlink:href="#svg-icon-facebook"></use>
-                            </svg>
-                        </a>
-                        
-                                                <a href="" class="so-link"
-                                title="Share on Instagram">
-                            <svg role="presentation">
-                                <use xlink:href="#svg-icon-instagram"></use>
-                            </svg>
-                        </a>
-                        
-                                                <a href="" class="so-link" title="Share on Twitter">
-                            <svg role="presentation">
-                                <use xlink:href="#svg-icon-twitter"></use>
-                            </svg>
-                        </a>
-                        
-                                            </div>
-                </div>
+</a>
+<a class="so-link" href="" title="Share on Facebook">
 
+</a>
+<a class="so-link" href="" title="Share on Instagram">
 
-            </div>
-                    </div>
+</a>
+<a class="so-link" href="" title="Share on Twitter">
 
-    </div>
+</a>
 </div>
-
-    <footer class="footer">
-		
-<img class="circle-bg" src="https://www.pixellot.tv/wp-content/themes/Tyco/assets/images/icons/circle-bg.svg" alt="">
-        <div class="wrapper" id="footer">
-			                <nav class="nav-container">
-					                        <ul class="nav-col">
-                            <li class="nav-item">
-                                <a href="https://www.pixellot.tv/about-us/about/" class="nav-link text-color-light">
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<img alt="" class="circle-bg" src="https://www.pixellot.tv/wp-content/themes/Tyco/assets/images/icons/circle-bg.svg"/>
+<div class="wrapper" id="footer">
+<nav class="nav-container">
+<ul class="nav-col">
+<li class="nav-item">
+<a class="nav-link text-color-light" href="https://www.pixellot.tv/about-us/about/">
 									About                                </a>
-								                            </li>
-                        </ul>
-					                        <ul class="nav-col">
-                            <li class="nav-item">
-                                <a href="https://www.pixellot.tv/career/" class="nav-link text-color-light">
+</li>
+</ul>
+<ul class="nav-col">
+<li class="nav-item">
+<a class="nav-link text-color-light" href="https://www.pixellot.tv/career/">
 									Career                                </a>
-								                            </li>
-                        </ul>
-					                        <ul class="nav-col">
-                            <li class="nav-item">
-                                <a href="https://www.pixellot.tv/blog/" class="nav-link text-color-light">
+</li>
+</ul>
+<ul class="nav-col">
+<li class="nav-item">
+<a class="nav-link text-color-light" href="https://www.pixellot.tv/blog/">
 									Blog                                </a>
-								                            </li>
-                        </ul>
-					                        <ul class="nav-col">
-                            <li class="nav-item">
-                                <a href="https://www.pixellot.tv/reviews/" class="nav-link text-color-light">
+</li>
+</ul>
+<ul class="nav-col">
+<li class="nav-item">
+<a class="nav-link text-color-light" href="https://www.pixellot.tv/reviews/">
 									Reviews                                </a>
-								                            </li>
-                        </ul>
-					                        <ul class="nav-col">
-                            <li class="nav-item">
-                                <a href="https://www.pixellot.tv/webinars/" class="nav-link text-color-light">
+</li>
+</ul>
+<ul class="nav-col">
+<li class="nav-item">
+<a class="nav-link text-color-light" href="https://www.pixellot.tv/webinars/">
 									Webinars                                </a>
-								                            </li>
-                        </ul>
-					                </nav>
-			            <div class="social-icons-container">
-				                    <a href="https://www.linkedin.com/company/pixellotltd/" class="social-icon social-icon-linkedin"
-                       aria-label="Follow us on LinkedIn">
-                        <svg class="svg-social-icon" role="presentation">
-                            <use xlink:href="#svg-icon-linkedin"></use>
-                        </svg>
-                    </a>
-								                    <a href="https://www.facebook.com/pixellotltd" class="social-icon social-icon-facebook"
-                       aria-label="Follow us on Facebook">
-                        <svg class="svg-social-icon" role="presentation">
-                            <use xlink:href="#svg-icon-facebook"></use>
-                        </svg>
-                    </a>
-								                    <a href="https://www.instagram.com/pixellotofficial" class="social-icon social-icon-instagram"
-                       aria-label="Follow us on Instagram">
-                        <svg class="svg-social-icon" role="presentation">
-                            <use xlink:href="#svg-icon-instagram"></use>
-                        </svg>
-                    </a>
-								                    <a href="https://twitter.com/pixellotltd" class="social-icon social-icon-twitter"
-                       aria-label="Follow us on Twitter" rel="noreferer,noopener">
-                        <svg class="svg-social-icon" role="presentation">
-                            <use xlink:href="#svg-icon-twitter"></use>
-                        </svg>
-                    </a>
-				            </div>
+</li>
+</ul>
+</nav>
+<div class="social-icons-container">
+<a aria-label="Follow us on LinkedIn" class="social-icon social-icon-linkedin" href="https://www.linkedin.com/company/pixellotltd/">
 
-            <section class="contacts-container">
-                <div class="subscription-container text-color-light">
-                    <div class="logo-container">
-                        <a href="/" class="custom-logo-link" rel="home">
-                            <span class="sr-only">Pixellot</span>
-                            <svg class="logo-footer" role="presentation">
-                                <use xlink:href="#svg-pixellot-logo"></use>
-                            </svg>
-                        </a>
-                    </div>
-					
-                </div>
-            </section>
-        </div>
+</a>
+<a aria-label="Follow us on Facebook" class="social-icon social-icon-facebook" href="https://www.facebook.com/pixellotltd">
 
-        <div class="scroll-to-top hidden">
-            <a href="#" title="Scroll to Top" class="top-btn">
-                <span>Top</span>
-                <svg role="presentation">
-                    <use xlink:href="#svg-up-arrow"></use>
-                </svg>
-            </a>
-        </div>
+</a>
+<a aria-label="Follow us on Instagram" class="social-icon social-icon-instagram" href="https://www.instagram.com/pixellotofficial">
 
-        <div class="wrapper copyright">
-            <div class="copyright-text first-el">
+</a>
+<a aria-label="Follow us on Twitter" class="social-icon social-icon-twitter" href="https://twitter.com/pixellotltd" rel="noreferer,noopener">
+
+</a>
+</div>
+<section class="contacts-container">
+<div class="subscription-container text-color-light">
+<div class="logo-container">
+<a class="custom-logo-link" href="/" rel="home">
+<span class="sr-only">Pixellot</span>
+
+</a>
+</div>
+</div>
+</section>
+</div>
+<div class="scroll-to-top hidden">
+<a class="top-btn" href="#" title="Scroll to Top">
+<span>Top</span>
+
+</a>
+</div>
+<div class="wrapper copyright">
+<div class="copyright-text first-el">
 				© Pixellot. All rights reserved                <a class="tyco" href="https://www.costa.co.il" target="_blank" title="Studio Costa">
-                    <span aria-hidden="true">Studio Costa</span>
-                </a>
-            </div>
-            <div class="copyright-text">
-				                    <a href="https://www.pixellot.tv/privacy-policy" class>Privacy Policy</a>
-				                    <a href="https://vimeo.com/user105679847" class>Vimeo</a>
-				                    <a href="https://www.pixellot.tv/wp-content/uploads/2024/04/Pixellot_DSR.pdf" class>DSR</a>
-				                    <a href="https://www.pixellot.tv/wp-content/uploads/2024/04/Pixellot_CCPA_Notice.pdf" class>CCPA</a>
-				                    <a href="https://youtube.com/pixellotltd" class>YouTube</a>
-				                <a role="button" tabindex="0" class="accessibility-extra-btn">Accessibility</a>
-            </div>
-        </div>
-    </footer>
-<div class="modal fade" id="generalVideo" tabindex="-1" role="dialog" aria-labelledby="generalVideoTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body ">
-                <div id="swiper-modal" class="swiper-container ">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide swiper-slide-active">
-                            <div class="slide-content">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true"></span>
-                                </button>
-                                <div class="thumb frame-wrapper"></div>
-                                <div class="text-wrap video-inner-content"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-buttons" id="family-buttons">
-						<span class="swiper-button-next" role="button" tabindex="0" aria-label="Show next item">
-							<svg class="button-arrow text-color-light" role="presentation">
-								<use xlink:href="#svg-icon-arrow-thin-right"></use>
-							</svg>
-						</span>
-                        <span class="swiper-button-prev" role="button" tabindex="0" aria-label="Show previous item">
-							<svg class="button-arrow text-color-light" role="presentation">
-								<use xlink:href="#svg-icon-arrow-thin-right"></use>
-							</svg>
-						</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<span aria-hidden="true">Studio Costa</span>
+</a>
+</div>
+<div class="copyright-text">
+<a class="" href="https://www.pixellot.tv/privacy-policy">Privacy Policy</a>
+<a class="" href="https://vimeo.com/user105679847">Vimeo</a>
+<a class="" href="https://www.pixellot.tv/wp-content/uploads/2024/04/Pixellot_DSR.pdf">DSR</a>
+<a class="" href="https://www.pixellot.tv/wp-content/uploads/2024/04/Pixellot_CCPA_Notice.pdf">CCPA</a>
+<a class="" href="https://youtube.com/pixellotltd">YouTube</a>
+<a class="accessibility-extra-btn" role="button" tabindex="0">Accessibility</a>
+</div>
+</div>
+</footer>
+<div aria-hidden="true" aria-labelledby="generalVideoTitle" class="modal fade" id="generalVideo" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-body">
+<div class="swiper-container" id="swiper-modal">
+<div class="swiper-wrapper">
+<div class="swiper-slide swiper-slide-active">
+<div class="slide-content">
+<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true"></span>
+</button>
+<div class="thumb frame-wrapper"></div>
+<div class="text-wrap video-inner-content"></div>
+</div>
+</div>
+</div>
+<div class="swiper-buttons" id="family-buttons">
+<span aria-label="Show next item" class="swiper-button-next" role="button" tabindex="0">
+
+</span>
+<span aria-label="Show previous item" class="swiper-button-prev" role="button" tabindex="0">
+
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </main>
 </div>
-<script type="speculationrules">
-{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/Tyco\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
-</script>
-    <script type="text/javascript">
-        var wpcf7Elm = document.querySelector( '.wpcf7' );
-        if ( wpcf7Elm ) {
 
-            wpcf7Elm.addEventListener( 'wpcf7submit', function( event ) {
-                var $form = $( event.target ),
-                    $popup = $form.parents( '.pum' );
+ <!-- Meta Pixel Event Code -->
 
-                if ( !$popup.length ) {
-                    return;
-                }
+<!-- End Meta Pixel Event Code -->
+<div id="fb-pxl-ajax-code"></div> 
+<link as="style" href="https://www.pixellot.tv/wp-content/plugins/comeet-wp-plugin-4.0.5/css/comeet-cards.css" rel="preload"/>
+<link as="style" href="https://www.pixellot.tv/wp-content/plugins/comeet-wp-plugin-4.0.5/css/comeet-reset.css" rel="preload"/>
 
-                $popup.trigger( 'pumSetCookie' );
 
-                setTimeout( function() {
-                    $popup.popmake( 'close' );
-                }, 5000 );
-            }, false );
-        }
-    </script>    <!-- Meta Pixel Event Code -->
-    <script type='text/javascript'>
-        document.addEventListener( 'wpcf7mailsent', function( event ) {
-        if( "fb_pxl_code" in event.detail.apiResponse){
-            eval(event.detail.apiResponse.fb_pxl_code);
-        }
-        }, false );
-    </script>
-    <!-- End Meta Pixel Event Code -->
-        <div id='fb-pxl-ajax-code'></div>			<script>
-				const lazyloadRunObserver = () => {
-					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
-					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
-						entries.forEach( ( entry ) => {
-							if ( entry.isIntersecting ) {
-								let lazyloadBackground = entry.target;
-								if( lazyloadBackground ) {
-									lazyloadBackground.classList.add( 'e-lazyloaded' );
-								}
-								lazyloadBackgroundObserver.unobserve( entry.target );
-							}
-						});
-					}, { rootMargin: '200px 0px 200px 0px' } );
-					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
-						lazyloadBackgroundObserver.observe( lazyloadBackground );
-					} );
-				};
-				const events = [
-					'DOMContentLoaded',
-					'elementor/lazyload/observe',
-				];
-				events.forEach( ( event ) => {
-					document.addEventListener( event, lazyloadRunObserver );
-				} );
-			</script>
-			<link rel='preload' href='https://www.pixellot.tv/wp-content/plugins/comeet-wp-plugin-4.0.5/css/comeet-cards.css' as='style'>
-<link rel='preload' href='https://www.pixellot.tv/wp-content/plugins/comeet-wp-plugin-4.0.5/css/comeet-reset.css' as='style'>
-<script type="text/javascript" id="ctfscripts-js-extra">
-/* <![CDATA[ */
-var ctfOptions = {"ajax_url":"https:\/\/www.pixellot.tv\/wp-admin\/admin-ajax.php","nonce":"2b77217065","font_method":"svg","placeholder":"https:\/\/www.pixellot.tv\/wp-content\/plugins\/custom-twitter-feeds-pro\/img\/placeholder.png","resized_url":"https:\/\/www.pixellot.tv\/wp-content\/uploads\/sb-twitter-feed-images\/"};
-/* ]]> */
-</script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/custom-twitter-feeds-pro/js/ctf-scripts.min.js?ver=2.4.5" id="ctfscripts-js"></script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/bwd-contact-form-7-styler/assets/public/js/main.js?ver=1.2" id="bwdcf-main-interactive-js"></script>
-<script type="text/javascript" id="rocket-browser-checker-js-after">
-/* <![CDATA[ */
-"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
-/* ]]> */
-</script>
-<script type="text/javascript" id="rocket-preload-links-js-extra">
-/* <![CDATA[ */
-var RocketPreloadLinksConfig = {"excludeUris":"\/career\/|\/positions\/|\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.pixellot.tv","onHoverDelay":"100","rateThrottle":"3"};
-/* ]]> */
-</script>
-<script type="text/javascript" id="rocket-preload-links-js-after">
-/* <![CDATA[ */
-(function() {
-"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
-}());
-/* ]]> */
-</script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/themes/Tyco/cache/assets/common-assets.js?ver=1790590089" id="common-assets-js"></script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/themes/Tyco/cache/assets/template-page-career.js?ver=1790593373" id="template-page-career-js"></script>
-<script type="text/javascript" id="uacf7-redirect-script-js-extra">
-/* <![CDATA[ */
-var uacf7_redirect_object = {"166889":{"uacf7_redirect_to_type":"to_page","page_id":"2426","external_url":"","target":"","thankyou_page_url":"https:\/\/www.pixellot.tv\/thank-you\/"},"166743":{"uacf7_redirect_to_type":"to_url","page_id":"0","external_url":"https:\/\/www.pixellot.tv\/dbb_lp\/","target":"","thankyou_page_url":""},"166672":{"uacf7_redirect_to_type":"to_page","page_id":"2426","external_url":"","target":"","thankyou_page_url":"https:\/\/www.pixellot.tv\/thank-you\/"},"166613":{"uacf7_redirect_to_type":"to_page","page_id":"2426","external_url":"","target":"","thankyou_page_url":"https:\/\/www.pixellot.tv\/thank-you\/"},"166593":{"uacf7_redirect_to_type":"to_page","page_id":"2426","external_url":"","target":"","thankyou_page_url":"https:\/\/www.pixellot.tv\/thank-you\/"}};
-var uacf7_redirect_enable = {"166889":"1","166743":"1","166672":"1","166613":"1","166593":"1"};
-/* ]]> */
-</script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/addons/redirection/js/redirect.js" id="uacf7-redirect-script-js"></script>
-<script type="text/javascript" id="uacf7-cf-script-js-extra">
-/* <![CDATA[ */
-var uacf7_cf_object = {"166613":[{"uacf7_cf_hs":"show","uacf7_cf_group":"State","uacf7_cf_condition_for":"any","uacf7_cf_conditions":{"uacf7_cf_tn":["Country"],"uacf7_cf_operator":["equal"],"uacf7_cf_val":["United States"]}}],"166593":[{"uacf7_cf_hs":"show","uacf7_cf_group":"State","uacf7_cf_condition_for":"any","uacf7_cf_conditions":{"uacf7_cf_tn":["Country"],"uacf7_cf_operator":["equal"],"uacf7_cf_val":["United States"]}}]};
-/* ]]> */
-</script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/addons/conditional-field/js/uacf7-cf-script.js?ver=3.5.34" id="uacf7-cf-script-js"></script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/addons/country-dropdown/assets/js/countrySelect.js" id="uacf7-country-select-library-js"></script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/ultimate-addons-for-contact-form-7/addons/country-dropdown/assets/js/script.js" id="uacf7-country-select-script-js"></script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
-<script defer type="text/javascript" id="wp-i18n-js-after">
-/* <![CDATA[ */
-wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
-/* ]]> */
-</script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.4" id="swv-js"></script>
-<script defer type="text/javascript" id="contact-form-7-js-before">
-/* <![CDATA[ */
-var wpcf7 = {
-    "api": {
-        "root": "https:\/\/www.pixellot.tv\/wp-json\/",
-        "namespace": "contact-form-7\/v1"
-    },
-    "cached": 1
-};
-/* ]]> */
-</script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.4" id="contact-form-7-js"></script>
-<script defer type="text/javascript" id="send-app-cf7-form-tracker-js-before">
-/* <![CDATA[ */
-const eSendCf7FormsSettings = {"ajaxUrl":"https:\/\/www.pixellot.tv\/wp-admin\/admin-ajax.php","integration":"cf7","nonce":"628cd68382","viewedThreshold":0.95,"viewedAction":"send_app_cf7_form_viewed","abandonedAction":"send_app_cf7_form_abandoned","formSelectors":["form.wpcf7-form"],"debugOn":false,"idPrefix":"cf7-"}
-/* ]]> */
-</script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/send-app/assets/js/send-app-cf7-form-tracker.js?ver=1.6.2" id="send-app-cf7-form-tracker-js"></script>
-<script defer type="text/javascript" id="send-app-elementor-form-tracker-js-before">
-/* <![CDATA[ */
-const eSendElementorFormsSettings = {"ajaxUrl":"https:\/\/www.pixellot.tv\/wp-admin\/admin-ajax.php","integration":"elementor","nonce":"628cd68382","viewedThreshold":0.95,"viewedAction":"send_app_elementor_form_viewed","abandonedAction":"send_app_elementor_form_abandoned","formSelectors":["form.elementor-form","form.ehp-form"],"debugOn":false,"idPrefix":""}
-/* ]]> */
-</script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/send-app/assets/js/send-app-elementor-form-tracker.js?ver=1.6.2" id="send-app-elementor-form-tracker-js"></script>
-<script type="text/javascript" id="comeet_script-js-extra">
-/* <![CDATA[ */
-var comeetvar = {"comeet_token":"ABB4B1D4062203155D855D8203155D815762031","comeet_uid":"BA.00B","comeet_color":"26AFCD","comeet_bgcolor":"","comeet_css_url":"","comeet_css_cache":"unset_cache","comeet_apply_as_employee":"true","comeet_field_email_required":"true","comeet_field_phone_required":"true","comeet_field_resume":"true","comeet_field_linkedin":"true","comeet_require_profile":"resume","comeet_field_website":"false","comeet_field_website_required":"false","comeet_field_coverletter":"false","comeet_field_coverletter_required":"false","comeet_field_portfolio":"false","comeet_field_portfolio_required":"false","comeet_field_personalnote":"false","comeet_field_personalnote_required":"false","comeet_button_text":"","comeet_font_size":"18px","comeet_button_font_size":"14px","comeet_labels_position":"responsive","comeet_button_color":"#26AFCD","comeet_social_pinterest":"true","comeet_social_whatsapp":"true","comeet_social_employees":"true","comeet_social_show_title":"true","comeet_social_share_url":"","comeet_social_color":"white","comeet_thankyou_url":"https:\/\/www.pixellot.tv\/thank-you"};
-/* ]]> */
-</script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/comeet-wp-plugin-4.0.5/js/comeet.js?ver=10" id="comeet_script-js"></script>
-<script defer type="text/javascript" src="https://www.pixellot.tv/wp-content/plugins/comeet-wp-plugin-4.0.5/js/comeet-src.js?ver=4.0.5" id="comeet_src_script-js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
-
-<script src="https://www.pixellot.tv/wp-content/themes/Tyco/js/preload.min.js?1"></script>

@@ -1,220 +1,130 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+
+<html data-theme="light" lang="en">
 <head>
-<script src="./theme.js?v=10"></script>
-<link rel="stylesheet" href="./theme.css?v=10">
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="./theme.css?v=10" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Careers â We're Hiring | Boom</title>
-<link rel="canonical" href="https://www.boomnow.com/careers">
-<meta name="description" content="Join the team redefining hospitality with agentic AI â growing across engineering, data science, and customer success, in 20 countries and counting.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="./analytics.js"></script>
-<script src="./site-widgets.js?v=1"></script>
-<style>
-:root{
-    --t-h1: #06081A;
-    --t-h2: #04060F;
-  --ink:var(--t-h1); --ink-2:var(--t-h2); --card:rgba(8,11,29,0.9);
-  --line:rgba(139,155,255,0.16); --line-strong:rgba(139,155,255,0.4);
-  --text:#F4F6FF; --text-dim:rgba(238,241,255,0.8); --text-faint:rgba(238,241,255,0.6);
-  --indigo:#5B73FF; --indigo-2:#3D4FE0; --peri:#8B9BFF; --peri-soft:#AAB6FF;
-  --coral:#FF6159; --coral-soft:#FF8A84; --coral-pale:#FFB4AF;
+<link href="https://www.boomnow.com/careers" rel="canonical"/>
+<meta content="Join the team redefining hospitality with agentic AI â growing across engineering, data science, and customer success, in 20 countries and counting." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 
-    --t-s1: rgba(8,11,29,0.9);
-    --t-s2: rgba(6,8,26,0.85);
-    --t-s3: rgba(9,12,32,0.6);
-    --t-w600: rgba(255,255,255,0.6);
-    --t-w850: rgba(255,255,255,0.85);
-    --t-w900: rgba(255,255,255,0.9);}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--ink);color:var(--text);font-family:'Manrope',system-ui,sans-serif;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.03em;text-wrap:balance}
-.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
-nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--t-s2);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
-.nav-inner{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,40px);height:68px;display:flex;align-items:center;gap:28px}
-.nav-logo img{height:26px;display:block}
-.nav-links{display:flex;align-items:center;gap:24px;flex:1}
-.nav-links a{font-size:14.5px;font-weight:700;color:var(--text-dim)}
-.nav-links a:hover{color:var(--peri)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:12px;font-size:14px;font-weight:700;white-space:nowrap;background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;box-shadow:0 0 26px rgba(91,115,255,0.45)}
-.btn.ghost{background:transparent;border:1px solid var(--line-strong);box-shadow:none}
-.btn.ghost:hover{border-color:var(--peri)}
-@media(max-width:820px){.nav-links{display:none}}
-.head{padding:150px 0 30px;background:radial-gradient(900px 500px at 50% -20%, rgba(60,80,220,0.25), rgba(6,8,26,0) 65%)}
-.kicker{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:var(--coral-soft);margin-bottom:12px}
-.head h1{font-size:clamp(38px,6vw,72px);line-height:1.0}
-.head p{margin-top:16px;max-width:680px;font-size:18px;line-height:1.55;font-weight:600;color:var(--text-dim)}
-section{padding:56px 0}
-.sect-title{font-size:clamp(26px,3.4vw,40px);margin-bottom:14px}
-.lede{max-width:720px;font-size:16.5px;line-height:1.65;font-weight:600;color:var(--text-dim)}
-.lede p{margin-bottom:14px}
-.lede .accent{color:var(--text);font-weight:800}
-.tagline{padding:56px 0;text-align:center}
-.tagline .big{max-width:860px;margin:0 auto;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(22px,3vw,34px);line-height:1.3;letter-spacing:-0.02em;color:var(--text)}
-.tagline .sub{max-width:760px;margin:18px auto 0;font-size:16.5px;line-height:1.6;font-weight:600;color:var(--text-dim)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:26px}
-.card{display:flex;flex-direction:column;gap:8px;padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
-.card h3{font-size:17.5px;letter-spacing:-0.01em;color:var(--text)}
-.card p{font-size:14px;line-height:1.55;font-weight:600;color:var(--text-faint)}
-.card .n{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--peri)}
-.values .card{border-color:rgba(255,138,132,0.22)}
-.values .card .n{color:var(--coral-soft)}
-.why-list{display:flex;flex-direction:column;gap:10px;margin-top:26px;max-width:760px}
-.why-list .row{display:flex;gap:14px;align-items:baseline;padding:16px 20px;border:1px solid var(--line);border-radius:14px;background:var(--card);font-size:15.5px;font-weight:700;color:var(--text-dim)}
-.why-list .row span:first-child{color:var(--peri);font-family:'Space Grotesk',sans-serif}
-.direct{margin-top:30px;max-width:760px;padding:26px 30px;border-left:3px solid var(--coral);border-radius:0 16px 16px 0;background:rgba(255,97,89,0.07)}
-.direct p{font-size:16.5px;line-height:1.6;font-weight:700;color:var(--text)}
-.jobs{padding:56px 0 30px}
-.job{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:22px 26px;border:1px solid var(--line);border-radius:18px;background:var(--card);margin-top:14px;transition:border-color .2s ease,transform .2s ease}
-.job:hover{border-color:rgba(139,155,255,0.4);transform:translateX(4px)}
-.job .t{flex:1 1 280px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;color:var(--text)}
-.job .tag{padding:5px 12px;border-radius:99px;border:1px solid var(--line);font-size:12.5px;font-weight:700;color:var(--text-faint)}
-.job .apply{font-size:14px;font-weight:800;color:var(--peri-soft)}
-.job:hover .apply{color:var(--text)}
-.nofit{margin-top:26px;padding:28px 30px;border:1px dashed var(--line-strong);border-radius:18px;max-width:760px}
-.nofit h3{font-size:19px;color:var(--text);margin-bottom:8px}
-.nofit p{font-size:15px;line-height:1.6;font-weight:600;color:var(--text-faint)}
-.cta{margin:40px 0 80px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;padding:56px 28px;border-radius:26px;border:1px solid rgba(139,155,255,0.22);background:radial-gradient(600px 300px at 50% 0%, rgba(91,115,255,0.22), var(--t-s3))}
-.cta h2{font-size:clamp(24px,3vw,36px)}
-footer{background:var(--ink-2);border-top:1px solid rgba(139,155,255,0.12);padding:34px 0;text-align:center;font-size:13px;font-weight:600;color:var(--text-faint)}
-footer a{color:var(--peri-soft)}
-</style>
-<style data-theme-page="1">
-  :root[data-theme="light"] {
-    --t-s1: rgba(255,255,255,0.9);
-    --t-s2: rgba(255,255,255,0.85);
-    --t-s3: rgba(255,255,255,0.6);
-  
-    --t-ember: #A8551F;
-    --t-ember2: #8F3F1C;
-    --tk-ok: #0B7A55;
-  }
-</style>
-<link rel="stylesheet" href="./perf.css?v=3">
+
+
+
+<link href="./perf.css?v=3" rel="stylesheet"/>
 </head>
 <body>
-
 <div id="boom-nav"></div>
-<script src="./nav.js?v=18"></script>
 
 <header class="head" data-section="careers-hero">
-  <div class="wrap">
-    <div class="kicker">Careers</div>
-    <h1>We are hiring!</h1>
-    <p>Join the team redefining hospitality with agentic AI &mdash; growing across engineering, data science, and customer success, in 20 countries and counting.</p>
-    <div style="display:flex;gap:12px;margin-top:26px;flex-wrap:wrap">
-      <a class="btn" href="#jobs" data-track="careers_view_roles" data-track-label="hero">See open roles &rarr;</a>
-      <a class="btn ghost" href="about-us.html">About Boom</a>
-    </div>
-  </div>
-</header>
-
-<section data-section="careers-story">
-  <div class="wrap">
-    <h2 class="sect-title">Our story</h2>
-    <div class="lede">
-      <p>Boom was founded by operators and technologists who lived the daily friction of running vacation rental businesses firsthand.</p>
-      <p>The industry was relying on stitched-together tools, manual workflows, and reactive decision-making &mdash; all while expectations from guests and owners kept rising. The problem wasn&rsquo;t effort. It was infrastructure.</p>
-      <p class="accent">Boom was built to change that.</p>
-    </div>
-  </div>
-</section>
-
-<div class="tagline" data-section="careers-tagline">
-  <div class="wrap">
-    <div class="big">&ldquo;Create a modern, intelligent platform that actually works the way vacation rental teams do &mdash; and evolves with them.&rdquo;</div>
-    <p class="sub">From day one, the vision was clear. Today, Boom powers forward-thinking property managers who want clarity instead of complexity, automation instead of burnout, and insight instead of guesswork.</p>
-  </div>
-</div>
-
-<section data-section="careers-team">
-  <div class="wrap">
-    <h2 class="sect-title">A truly global team</h2>
-    <div class="lede">
-      <p>Boom is proudly remote-first and globally distributed. Our team spans multiple continents and countries, bringing together diverse perspectives, backgrounds, and lived experiences. We believe better products are built when different viewpoints are at the table &mdash; and when talent isn&rsquo;t limited by geography.</p>
-      <p class="accent">What connects us isn&rsquo;t location. It&rsquo;s shared standards, shared ownership, and shared ambition.</p>
-    </div>
-  </div>
-</section>
-
-<section data-section="careers-how">
-  <div class="wrap">
-    <h2 class="sect-title">How we work</h2>
-    <div class="cards">
-      <div class="card"><span class="n">01</span><h3>Remote-first by design</h3><p>Work where you do your best thinking.</p></div>
-      <div class="card"><span class="n">02</span><h3>Asynchronous-friendly</h3><p>Deep work &gt; constant meetings.</p></div>
-      <div class="card"><span class="n">03</span><h3>Outcome-driven</h3><p>We measure impact, not hours.</p></div>
-      <div class="card"><span class="n">04</span><h3>High trust, high accountability</h3><p>We hire adults and treat them like it.</p></div>
-      <div class="card"><span class="n">05</span><h3>Fast-moving, thoughtful execution</h3><p>Speed matters, but clarity matters more.</p></div>
-    </div>
-    <p style="margin-top:22px;font-size:15px;font-weight:700;color:var(--text-faint)">This isn&rsquo;t a place to hide. It&rsquo;s a place to grow.</p>
-  </div>
-</section>
-
-<section class="values" data-section="careers-values">
-  <div class="wrap">
-    <h2 class="sect-title">Our core values</h2>
-    <div class="cards">
-      <div class="card"><span class="n">&#10022;</span><h3>Ownership over permission</h3><p>If you see a problem, you help solve it. We value people who take initiative and follow through.</p></div>
-      <div class="card"><span class="n">&#10022;</span><h3>Clarity beats complexity</h3><p>In our product, our communication, and our decisions &mdash; simple scales, messy doesn&rsquo;t.</p></div>
-      <div class="card"><span class="n">&#10022;</span><h3>Build for the long term</h3><p>We&rsquo;re not chasing trends or shortcuts. We&rsquo;re building durable technology and durable careers.</p></div>
-      <div class="card"><span class="n">&#10022;</span><h3>Progress over perfection</h3><p>Momentum matters. We ship, learn, refine, and move forward.</p></div>
-      <div class="card"><span class="n">&#10022;</span><h3>Respect the human behind the role</h3><p>Our platform supports people &mdash; and so do we. Burnout is not a badge of honor here.</p></div>
-    </div>
-  </div>
-</section>
-
-<section data-section="careers-why">
-  <div class="wrap">
-    <h2 class="sect-title">Why work at Boom?</h2>
-    <div class="why-list">
-      <div class="row"><span>&rarr;</span><span>You&rsquo;ll help define a category &mdash; not just maintain a product</span></div>
-      <div class="row"><span>&rarr;</span><span>You&rsquo;ll work alongside smart, kind, highly driven people</span></div>
-      <div class="row"><span>&rarr;</span><span>You&rsquo;ll have real ownership and visible impact</span></div>
-      <div class="row"><span>&rarr;</span><span>You&rsquo;ll grow as the company grows &mdash; professionally and personally</span></div>
-      <div class="row"><span>&rarr;</span><span>You&rsquo;ll be part of a company that values thinking and doing</span></div>
-    </div>
-    <div class="direct">
-      <p>Let&rsquo;s be direct: Boom isn&rsquo;t for everyone. But if you want meaningful responsibility, room to lead, and the chance to build something that truly matters &mdash; this is worth your time.</p>
-    </div>
-  </div>
-</section>
-
-<section class="jobs" id="jobs" data-section="careers-jobs">
-  <div class="wrap">
-    <h2 class="sect-title">Open roles</h2>
-    <p class="lede">We&rsquo;re looking for talented, mission-driven people to help us build the future of vacation rental technology.</p>
-    <a class="job" href="https://jobs.deel.com/job-boards/bc8ec313-d5a9-4de7-84a1-0cc5a9dd0197/job-details/da7cffdd-9eab-45bc-81bc-22eb9b1c9f81" target="_blank" rel="noopener" data-track="careers_apply" data-track-label="Customer Onboarding Specialist">
-      <span class="t">Customer Onboarding Specialist (STR SaaS)</span>
-      <span class="tag">S&amp;M</span><span class="tag">EU</span><span class="tag">Full-time</span>
-      <span class="apply">Apply &rarr;</span>
-    </a>
-    <a class="job" href="https://jobs.deel.com/job-boards/bc8ec313-d5a9-4de7-84a1-0cc5a9dd0197/job-details/92e18e48-9443-4b4e-b46f-ea6dd4867717" target="_blank" rel="noopener" data-track="careers_apply" data-track-label="Sales Development Representative">
-      <span class="t">Sales Development Representative</span>
-      <span class="tag">S&amp;M</span><span class="tag">United States, EU</span><span class="tag">Full-time</span>
-      <span class="apply">Apply &rarr;</span>
-    </a>
-    <div class="nofit">
-      <h3>Don&rsquo;t see the perfect role?</h3>
-      <p>We&rsquo;re always interested in exceptional people. If Boom resonates with you, keep an eye on this page &mdash; or reach out when the timing feels right. Build boldly. Think long-term. Move the industry forward.</p>
-    </div>
-  </div>
-</section>
-
 <div class="wrap">
-  <div class="cta" data-section="careers-cta">
-    <h2>Join the future of property management with Boom.</h2>
-    <a class="btn" href="see-boom-in-action.html" data-track="cta_book_demo">Schedule a demo &rarr;</a>
-  </div>
+<div class="kicker">Careers</div>
+<h1>We are hiring!</h1>
+<p>Join the team redefining hospitality with agentic AI — growing across engineering, data science, and customer success, in 20 countries and counting.</p>
+<div style="display:flex;gap:12px;margin-top:26px;flex-wrap:wrap">
+<a class="btn" data-track="careers_view_roles" data-track-label="hero" href="#jobs">See open roles →</a>
+<a class="btn ghost" href="about-us.html">About Boom</a>
 </div>
-
+</div>
+</header>
+<section data-section="careers-story">
+<div class="wrap">
+<h2 class="sect-title">Our story</h2>
+<div class="lede">
+<p>Boom was founded by operators and technologists who lived the daily friction of running vacation rental businesses firsthand.</p>
+<p>The industry was relying on stitched-together tools, manual workflows, and reactive decision-making — all while expectations from guests and owners kept rising. The problem wasn’t effort. It was infrastructure.</p>
+<p class="accent">Boom was built to change that.</p>
+</div>
+</div>
+</section>
+<div class="tagline" data-section="careers-tagline">
+<div class="wrap">
+<div class="big">“Create a modern, intelligent platform that actually works the way vacation rental teams do — and evolves with them.”</div>
+<p class="sub">From day one, the vision was clear. Today, Boom powers forward-thinking property managers who want clarity instead of complexity, automation instead of burnout, and insight instead of guesswork.</p>
+</div>
+</div>
+<section data-section="careers-team">
+<div class="wrap">
+<h2 class="sect-title">A truly global team</h2>
+<div class="lede">
+<p>Boom is proudly remote-first and globally distributed. Our team spans multiple continents and countries, bringing together diverse perspectives, backgrounds, and lived experiences. We believe better products are built when different viewpoints are at the table — and when talent isn’t limited by geography.</p>
+<p class="accent">What connects us isn’t location. It’s shared standards, shared ownership, and shared ambition.</p>
+</div>
+</div>
+</section>
+<section data-section="careers-how">
+<div class="wrap">
+<h2 class="sect-title">How we work</h2>
+<div class="cards">
+<div class="card"><span class="n">01</span><h3>Remote-first by design</h3><p>Work where you do your best thinking.</p></div>
+<div class="card"><span class="n">02</span><h3>Asynchronous-friendly</h3><p>Deep work &gt; constant meetings.</p></div>
+<div class="card"><span class="n">03</span><h3>Outcome-driven</h3><p>We measure impact, not hours.</p></div>
+<div class="card"><span class="n">04</span><h3>High trust, high accountability</h3><p>We hire adults and treat them like it.</p></div>
+<div class="card"><span class="n">05</span><h3>Fast-moving, thoughtful execution</h3><p>Speed matters, but clarity matters more.</p></div>
+</div>
+<p style="margin-top:22px;font-size:15px;font-weight:700;color:var(--text-faint)">This isn’t a place to hide. It’s a place to grow.</p>
+</div>
+</section>
+<section class="values" data-section="careers-values">
+<div class="wrap">
+<h2 class="sect-title">Our core values</h2>
+<div class="cards">
+<div class="card"><span class="n">✦</span><h3>Ownership over permission</h3><p>If you see a problem, you help solve it. We value people who take initiative and follow through.</p></div>
+<div class="card"><span class="n">✦</span><h3>Clarity beats complexity</h3><p>In our product, our communication, and our decisions — simple scales, messy doesn’t.</p></div>
+<div class="card"><span class="n">✦</span><h3>Build for the long term</h3><p>We’re not chasing trends or shortcuts. We’re building durable technology and durable careers.</p></div>
+<div class="card"><span class="n">✦</span><h3>Progress over perfection</h3><p>Momentum matters. We ship, learn, refine, and move forward.</p></div>
+<div class="card"><span class="n">✦</span><h3>Respect the human behind the role</h3><p>Our platform supports people — and so do we. Burnout is not a badge of honor here.</p></div>
+</div>
+</div>
+</section>
+<section data-section="careers-why">
+<div class="wrap">
+<h2 class="sect-title">Why work at Boom?</h2>
+<div class="why-list">
+<div class="row"><span>→</span><span>You’ll help define a category — not just maintain a product</span></div>
+<div class="row"><span>→</span><span>You’ll work alongside smart, kind, highly driven people</span></div>
+<div class="row"><span>→</span><span>You’ll have real ownership and visible impact</span></div>
+<div class="row"><span>→</span><span>You’ll grow as the company grows — professionally and personally</span></div>
+<div class="row"><span>→</span><span>You’ll be part of a company that values thinking and doing</span></div>
+</div>
+<div class="direct">
+<p>Let’s be direct: Boom isn’t for everyone. But if you want meaningful responsibility, room to lead, and the chance to build something that truly matters — this is worth your time.</p>
+</div>
+</div>
+</section>
+<section class="jobs" data-section="careers-jobs" id="jobs">
+<div class="wrap">
+<h2 class="sect-title">Open roles</h2>
+<p class="lede">We’re looking for talented, mission-driven people to help us build the future of vacation rental technology.</p>
+<a class="job" data-track="careers_apply" data-track-label="Customer Onboarding Specialist" href="https://jobs.deel.com/job-boards/bc8ec313-d5a9-4de7-84a1-0cc5a9dd0197/job-details/da7cffdd-9eab-45bc-81bc-22eb9b1c9f81" rel="noopener" target="_blank">
+<span class="t">Customer Onboarding Specialist (STR SaaS)</span>
+<span class="tag">S&amp;M</span><span class="tag">EU</span><span class="tag">Full-time</span>
+<span class="apply">Apply →</span>
+</a>
+<a class="job" data-track="careers_apply" data-track-label="Sales Development Representative" href="https://jobs.deel.com/job-boards/bc8ec313-d5a9-4de7-84a1-0cc5a9dd0197/job-details/92e18e48-9443-4b4e-b46f-ea6dd4867717" rel="noopener" target="_blank">
+<span class="t">Sales Development Representative</span>
+<span class="tag">S&amp;M</span><span class="tag">United States, EU</span><span class="tag">Full-time</span>
+<span class="apply">Apply →</span>
+</a>
+<div class="nofit">
+<h3>Don’t see the perfect role?</h3>
+<p>We’re always interested in exceptional people. If Boom resonates with you, keep an eye on this page — or reach out when the timing feels right. Build boldly. Think long-term. Move the industry forward.</p>
+</div>
+</div>
+</section>
+<div class="wrap">
+<div class="cta" data-section="careers-cta">
+<h2>Join the future of property management with Boom.</h2>
+<a class="btn" data-track="cta_book_demo" href="see-boom-in-action.html">Schedule a demo →</a>
+</div>
+</div>
 <footer>
-  &copy; 2026 Boom &middot; <a href="home.html">Home</a> &middot; <a href="resources.html">Resources</a> &middot; <a href="careers.html">Careers</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms-of-conditions.html">Terms</a>
+  © 2026 Boom · <a href="home.html">Home</a> · <a href="resources.html">Resources</a> · <a href="careers.html">Careers</a> · <a href="privacy-policy.html">Privacy</a> · <a href="terms-of-conditions.html">Terms</a>
 </footer>
 </body>
 </html>

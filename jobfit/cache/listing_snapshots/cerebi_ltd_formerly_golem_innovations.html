@@ -1,159 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
-    <!-- Primary Meta Tags -->
-    <title>CereBI — Operational Intelligence for Complex Supply Chains</title>
-    <meta name="title" content="CereBI — Operational Intelligence for Complex Supply Chains" />
-    <meta name="description" content="CereBI is the operational intelligence layer for complex supply chains. Detect risk earlier, understand what is driving it, and move from fragmented signals to clear, explainable action." />
-    <meta name="keywords" content="operational intelligence, supply chain intelligence, AI supply chain, anomaly detection, forecasting, decision support, control tower, enterprise operations" />
-    <meta name="author" content="CereBI" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="language" content="English" />
-    <meta name="geo.region" content="IL" />
-    <meta name="geo.placename" content="Israel" />
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+<!-- Primary Meta Tags -->
+<title>CereBI — Operational Intelligence for Complex Supply Chains</title>
+<meta content="CereBI — Operational Intelligence for Complex Supply Chains" name="title"/>
+<meta content="CereBI is the operational intelligence layer for complex supply chains. Detect risk earlier, understand what is driving it, and move from fragmented signals to clear, explainable action." name="description"/>
+<meta content="operational intelligence, supply chain intelligence, AI supply chain, anomaly detection, forecasting, decision support, control tower, enterprise operations" name="keywords"/>
+<meta content="CereBI" name="author"/>
+<meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
+<meta content="English" name="language"/>
+<meta content="IL" name="geo.region"/>
+<meta content="Israel" name="geo.placename"/>
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta content="website" property="og:type"/>
+<meta content="https://cerebi.ai/" property="og:url"/>
+<meta content="CereBI — Operational Intelligence for Complex Supply Chains" property="og:title"/>
+<meta content="Move from fragmented signals to explainable decisions and recommended actions. CereBI is the operational intelligence layer for complex supply chains." property="og:description"/>
+<meta content="https://cerebi.ai/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png" property="og:image"/>
+<meta content="https://cerebi.ai/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png" property="og:image:secure_url"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="CereBI — Operational Intelligence for Complex Supply Chains" property="og:image:alt"/>
+<meta content="CereBI" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://cerebi.ai/" name="twitter:url"/>
+<meta content="CereBI — Operational Intelligence for Complex Supply Chains" name="twitter:title"/>
+<meta content="Move from fragmented signals to explainable decisions and recommended actions." name="twitter:description"/>
+<meta content="https://cerebi.ai/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png" name="twitter:image"/>
+<meta content="CereBI — Operational Intelligence for Complex Supply Chains" name="twitter:image:alt"/>
+<!-- Technical SEO -->
+<meta content="#0B1120" name="theme-color"/>
+<meta content="#0B1120" name="msapplication-TileColor"/>
+<meta content="CereBI" name="application-name"/>
+<meta content="CereBI" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<!-- Favicon and Icons -->
+<link href="/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png" rel="shortcut icon" type="image/png"/>
+<link href="/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png" rel="apple-touch-icon"/>
+<!-- Canonical URL -->
+<link href="https://cerebi.ai/" rel="canonical"/>
+<!-- Hreflang -->
+<link href="https://cerebi.ai/" hreflang="en" rel="alternate"/>
+<link href="https://cerebi.ai/" hreflang="x-default" rel="alternate"/>
+<!-- Preconnect for performance -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Roboto+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- JSON-LD: Organization -->
 
-    <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://cerebi.ai/" />
-    <meta property="og:title" content="CereBI — Operational Intelligence for Complex Supply Chains" />
-    <meta property="og:description" content="Move from fragmented signals to explainable decisions and recommended actions. CereBI is the operational intelligence layer for complex supply chains." />
-    <meta property="og:image" content="https://cerebi.ai/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png" />
-    <meta property="og:image:secure_url" content="https://cerebi.ai/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="CereBI — Operational Intelligence for Complex Supply Chains" />
-    <meta property="og:site_name" content="CereBI" />
-    <meta property="og:locale" content="en_US" />
+<!-- JSON-LD: SoftwareApplication -->
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://cerebi.ai/" />
-    <meta name="twitter:title" content="CereBI — Operational Intelligence for Complex Supply Chains" />
-    <meta name="twitter:description" content="Move from fragmented signals to explainable decisions and recommended actions." />
-    <meta name="twitter:image" content="https://cerebi.ai/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png" />
-    <meta name="twitter:image:alt" content="CereBI — Operational Intelligence for Complex Supply Chains" />
+<!-- JSON-LD: WebSite -->
 
-    <!-- Technical SEO -->
-    <meta name="theme-color" content="#0B1120" />
-    <meta name="msapplication-TileColor" content="#0B1120" />
-    <meta name="application-name" content="CereBI" />
-    <meta name="apple-mobile-web-app-title" content="CereBI" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="format-detection" content="telephone=no" />
 
-    <!-- Favicon and Icons -->
-    <link rel="icon" type="image/png" href="/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png" sizes="32x32">
-    <link rel="shortcut icon" type="image/png" href="/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png">
-    <link rel="apple-touch-icon" href="/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://cerebi.ai/" />
-
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="en" href="https://cerebi.ai/" />
-    <link rel="alternate" hreflang="x-default" href="https://cerebi.ai/" />
-
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- JSON-LD: Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "CereBI",
-      "alternateName": "CereBI AI",
-      "url": "https://cerebi.ai",
-      "logo": "https://cerebi.ai/uploads/517c7cae-1476-4626-9e42-5aafa1098191.png",
-      "description": "Operational intelligence platform for complex supply chain and enterprise environments.",
-      "slogan": "Operational intelligence for complex supply chains",
-      "foundingDate": "2023",
-      "founder": [
-        { "@type": "Person", "name": "Eran Attedgi", "jobTitle": "Co-Founder & CEO" },
-        { "@type": "Person", "name": "Dor Trainic", "jobTitle": "Co-Founder & CBDO" },
-        { "@type": "Person", "name": "Shy Alon", "jobTitle": "Co-Founder & CTO" }
-      ],
-      "employee": [
-        { "@type": "Person", "name": "Alon Feldman", "jobTitle": "Chief Scientist, Optimization & Reasoning" },
-        { "@type": "Person", "name": "Alon Sagi", "jobTitle": "Chief Scientist, Predictive & Location Intelligence" }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "IL"
-      },
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "email": "info@cerebi.ai",
-        "availableLanguage": ["English", "Hebrew"]
-      }],
-      "sameAs": [
-        "https://www.linkedin.com/company/cerebi-ai"
-      ],
-      "knowsAbout": [
-        "Operational Intelligence",
-        "Supply Chain Management",
-        "Logistics Optimization",
-        "Anomaly Detection",
-        "Forecasting",
-        "Decision Support",
-        "Artificial Intelligence"
-      ]
-    }
-    </script>
-
-    <!-- JSON-LD: SoftwareApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "CereBI",
-      "applicationCategory": "BusinessApplication",
-      "applicationSubCategory": "Supply Chain Operational Intelligence",
-      "operatingSystem": "Web",
-      "url": "https://cerebi.ai",
-      "description": "Operational intelligence platform that helps enterprises detect risk earlier, understand what is driving it, quantify impact, and move toward clear action.",
-      "featureList": [
-        "Anomaly Detection",
-        "Forecasting",
-        "Risk Understanding",
-        "Operational Impact Quantification",
-        "Decision Support",
-        "Multi-source Data Integration"
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
-
-    <!-- JSON-LD: WebSite -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "CereBI",
-      "url": "https://cerebi.ai",
-      "description": "Operational intelligence for complex supply chains",
-      "publisher": { "@type": "Organization", "name": "CereBI" }
-    }
-    </script>
-    <script type="module" crossorigin src="/assets/index-BnTun07G.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-JJC2s0so.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<link crossorigin="" href="/assets/index-JJC2s0so.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="root"></div>
+</body>
 </html>

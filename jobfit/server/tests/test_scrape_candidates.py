@@ -142,3 +142,23 @@ def test_cookie_widget_links_are_dropped_and_cap_is_respected():
     candidates = CandidateExtractor().extract(_page(html), CAREER_URL, cap=4)
     assert len(candidates) == 4
     assert all("cookies-policy" not in c.href for c in candidates)
+
+
+def test_strip_non_content_leaves_the_links_the_extractor_reads():
+    """Snapshots are stored stripped; the extractor must see the same page."""
+    from jobfit.scrape.candidates import strip_non_content
+
+    html = """<html><head><style>a{color:red}</style>
+    <script>var jobs = [{"title": "Fake Job", "url": "/nope"}];</script></head>
+    <body><svg><a href="/icon">icon</a></svg><noscript><a href="/ns">enable js</a></noscript>
+    <ul><li><a href="/careers/backend-1">Senior Backend Engineer</a></li>
+    <li><a href="/careers/devops-2">DevOps Engineer</a></li></ul></body></html>"""
+    stripped = strip_non_content(html)
+    assert "Fake Job" not in stripped and "color:red" not in stripped
+    assert "/icon" not in stripped and "/ns" not in stripped
+
+    extractor = CandidateExtractor()
+    before = [(c.text, c.href) for c in extractor.extract(_page(html), CAREER_URL)]
+    after = [(c.text, c.href) for c in extractor.extract(_page(stripped), CAREER_URL)]
+    assert before == after
+    assert [href for _, href in after] == [f"{CAREER_URL}backend-1", f"{CAREER_URL}devops-2"]

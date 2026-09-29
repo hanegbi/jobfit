@@ -1,456 +1,297 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <title>Jobs | Talamoos</title>
-
 <!-- utf8 -->
-<meta charset="UTF-8">
-
+<meta charset="utf-8"/>
 <!-- disable zoom on mobile -->
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-
-
+<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport"/>
 <!-- meta description -->
-<meta name="description" content="Current job openings at Talamoos">
-
-
+<meta content="Current job openings at Talamoos" name="description"/>
 <!-- <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet"> -->
-
-
-
-
 <!-- jQuery & Bootstrap -->
-<script src="lib/jquery/jquery-3.3.1.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+
+<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <!-- general css -->
-<link href="lib/style.css" rel="stylesheet">
-
-
-
-
-
+<link href="lib/style.css" rel="stylesheet"/>
 <!-- google analytics -->
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-84GQDZNPB2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-84GQDZNPB2');
-</script>
 
 
-
-<script>
-$(function () {
-  $(document).scroll(function () {
-    if ($(".navbar").offset().top > 50) {
-        $('.navbar').addClass("navbar-after-scrolled");
-        $('.navbar-brand img').attr('src','img/talamoos-blue.png');
-        $(".navbar-toggler").removeClass("navbar-dark");
-        $(".navbar-toggler").addClass("navbar-light");
-        $(".dropdown-menu").addClass("dropdown-menu-scrolled");
-    } else {
-        $('.navbar').removeClass("navbar-after-scrolled");
-        $('.navbar-brand img').attr('src','img/talamoos-white.png')
-        $(".navbar-toggler").removeClass("navbar-light");
-        $(".navbar-toggler").addClass("navbar-dark");
-        $(".dropdown-menu").removeClass("dropdown-menu-scrolled");
-
-    }  
-
-    // var $nav = $(".navbar-fixed-top");
-    // $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-  });
-  ;
-});
-
-
-</script>
 
 <!-- Digital accessibility (UserWay) -->
-<script src="https://cdn.userway.org/widget.js" data-account="me6ba6sxNJ"></script>
 
 </head>
-
-
 <body>
-
-
-
-
 <!-- site wrapper -->
 <div class="site-wrapper">
-
-
-
-
-
-
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg sticky-top navbar-fixed-top">
-    <a class="navbar-brand" href="./"><img src="img/talamoos-white.png" class="navbar-img"></a>
-    
-    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div id="navbarNavDropdown" class="navbar-collapse collapse">
-        <ul class="navbar-nav mr-auto">
-        </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-                <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<a class="navbar-brand" href="./"><img class="navbar-img" src="img/talamoos-white.png"/></a>
+<button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-dark" data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="navbar-collapse collapse" id="navbarNavDropdown">
+<ul class="navbar-nav mr-auto">
+</ul>
+<ul class="navbar-nav">
+<li class="nav-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" id="navbarDropdownMenuLink">
                   PLATFORM
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="platform-overview.html">Overview</a></li>
-                    <li><a class="dropdown-item" href="platform-technologies.html">Technologies</a></li>
-                </ul>
-            </li>
-
-             <li class="nav-item dropdown">
-                <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+<li><a class="dropdown-item" href="platform-overview.html">Overview</a></li>
+<li><a class="dropdown-item" href="platform-technologies.html">Technologies</a></li>
+</ul>
+</li>
+<li class="nav-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" id="navbarDropdownMenuLink">
                   SOLUTIONS
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="solutions-content.html">Content (OTT / Publishers)</a></li>
-                    <li><a class="dropdown-item" href="solutions-custom.html">Custom</a></li>
-                </ul>
-            </li>
-
-             <li class="nav-item dropdown">
-                <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+<li><a class="dropdown-item" href="solutions-content.html">Content (OTT / Publishers)</a></li>
+<li><a class="dropdown-item" href="solutions-custom.html">Custom</a></li>
+</ul>
+</li>
+<li class="nav-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" id="navbarDropdownMenuLink">
                   EVENTS
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="events-events.html">Events</a></li>
-                </ul>
-            </li>
-
-
-            <li class="nav-item dropdown">
-                <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+<li><a class="dropdown-item" href="events-events.html">Events</a></li>
+</ul>
+</li>
+<li class="nav-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown" id="navbarDropdownMenuLink">
                   ABOUT
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="about-contact.html">Contact Us</a></li>
-                    <li><a class="dropdown-item" href="about-jobs.html">Jobs</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+<ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+<li><a class="dropdown-item" href="about-contact.html">Contact Us</a></li>
+<li><a class="dropdown-item" href="about-jobs.html">Jobs</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </nav>
-
-
-
-
-
-
 <div class="header-container" style="background-image: url(img/about-jobs.jpg);">
-  <div class="container">
-    <div class="header-overlay" style="opacity: 0.6;"></div>
-    <div class="header-content">
-      <div class="row">
-        <div class="col-sm-3 text-center"></div>
-        <div class="col-sm-6 text-center">
-          <br>
-          <h1>Current Openings</h1>
-          <h2>We are growing</h2>
-        </div>
-      </div>
-
-     
-    </div>
-  </div>
+<div class="container">
+<div class="header-overlay" style="opacity: 0.6;"></div>
+<div class="header-content">
+<div class="row">
+<div class="col-sm-3 text-center"></div>
+<div class="col-sm-6 text-center">
+<br/>
+<h1>Current Openings</h1>
+<h2>We are growing</h2>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-<br><br>
+</div>
+</div>
+</div>
+</div>
+<br/><br/>
 <div class="jobs-dna">
-  <div class="container">
-    <div class="jumbotron text-center">
-      <h2>Talamoos DNA</h2>
-      <p>
-        <span class="text-nowrap">&#9733 Be a good person. </span> You know if you are &#9733 <br>
-        &#9733 Passion to learn new things &#9733 <br>
-        &#9733 Be a Team Player &#9733 <br>
-        &#9733 Autodidact &#9733 
+<div class="container">
+<div class="jumbotron text-center">
+<h2>Talamoos DNA</h2>
+<p>
+<span class="text-nowrap">★ Be a good person. </span> You know if you are ★ <br/>
+        ★ Passion to learn new things ★ <br/>
+        ★ Be a Team Player ★ <br/>
+        ★ Autodidact ★ 
       </p>
-    </div>
-  </div>
 </div>
-
-
-
+</div>
+</div>
 <div class="jobs-title">
-  <div class="container">
-    <h2>Open Positions at Talamoos</h2>
-  </div>
+<div class="container">
+<h2>Open Positions at Talamoos</h2>
 </div>
-
-
-
-
+</div>
 <div class="jobs-team">
-  <div class="container text-center">
-    <hr>
-    <h3>&#9733 Infrastructure & Operation Team &#9733</h3>
-    <div class="desc">The Infrastructure & Operations Team at Talamoos is looking for strong and talented big data developers to join our party. Some of our customers are internet scale corporations, and thus, from day one our (multi) cloud deployments supports (multi) internet scale Machine Learning operations. You can imagine the challenges :)</div>
-    
-    
-    <div>
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#job-10011" aria-expanded="false" aria-controls="job-10011">Cloud DevOps</button>
-      <div class="collapse" id="job-10011">
-        <div class="well jobs-job">
-          <h4>Cloud DevOps (JobID: 10011)</h4>
-          <h5>Job Highlights</h5>
-          <ul>
-            <li>Install / Config / Manage clusters</li>
-            <li>Design and Implement multi data center infrastructure environments (and multi clouds)</li>
-            <li>Automation Automation Automation (ideal: forget about sshâ¦)</li>
-            <li>Create tools for monitoring in house technologies</li>
-            <li>Design and Implement a real time backup system </li>
-            <li>Support simple REST interface for a complex multi-tier system with real time SLA</li>
-          </ul>
-          <h5>Job Requirements</h5>
-          <ul>
-            <li>Passion for managing large clusters of servers</li>
-            <li>Experience with <b>Cassandra</b> and MySql</li>
-            <li><b>Strong unix knowledge</b></li>
-            <li>Experience with Chef (and/or Vagrant)</li>
-            <li>Experience with AWS / Google Cloud</li>
-            <li>Bonus: Experience with Spark / Kafka / Storm and the rest of the family</li>
-            <li>Bonus: JVM deep understanding / Memory management</li>
-          </ul>
-          <div class="text-center">
-            <a class="btn btn-danger" href="mailto:jobs@talamoos.com?subject=jobid:10011 ">Apply now! Send your CV</a>
-          </div>
-          </div>
-      </div>
-    </div>
-
-
-    <div>
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#job-10012" aria-expanded="false" aria-controls="job-10012">Infrastructure Team Leader</button>
-      <div class="collapse" id="job-10012">
-        <div class="well jobs-job">
-          <h4>Infrastructure Team Leader (JobID: 10012)</h4>
-          <h5>Job Highlights</h5>
-          <ul>
-            <li>Lead a team of DevOps</li>
-            <li>Get your hands dirty (be a part of the team)</li>
-          </ul>
-          <h5>Job Requirements</h5>
-          <ul>
-            <li>Be a super talented DevOps. See "Cloud DevOps (JobID: 10011)" for more details</li>
-            <li>Experience managing a team</li>
-          </ul>
-          <div class="text-center">
-            <a class="btn btn-danger" href="mailto:jobs@talamoos.com?subject=jobid:10012 ">Apply now! Send your CV</a>
-          </div>
-          </div>
-      </div>
-    </div>
-
-
-  </div>
+<div class="container text-center">
+<hr/>
+<h3>★ Infrastructure &amp; Operation Team ★</h3>
+<div class="desc">The Infrastructure &amp; Operations Team at Talamoos is looking for strong and talented big data developers to join our party. Some of our customers are internet scale corporations, and thus, from day one our (multi) cloud deployments supports (multi) internet scale Machine Learning operations. You can imagine the challenges :)</div>
+<div>
+<button aria-controls="job-10011" aria-expanded="false" class="btn btn-primary" data-target="#job-10011" data-toggle="collapse" type="button">Cloud DevOps</button>
+<div class="collapse" id="job-10011">
+<div class="well jobs-job">
+<h4>Cloud DevOps (JobID: 10011)</h4>
+<h5>Job Highlights</h5>
+<ul>
+<li>Install / Config / Manage clusters</li>
+<li>Design and Implement multi data center infrastructure environments (and multi clouds)</li>
+<li>Automation Automation Automation (ideal: forget about sshâ¦)</li>
+<li>Create tools for monitoring in house technologies</li>
+<li>Design and Implement a real time backup system </li>
+<li>Support simple REST interface for a complex multi-tier system with real time SLA</li>
+</ul>
+<h5>Job Requirements</h5>
+<ul>
+<li>Passion for managing large clusters of servers</li>
+<li>Experience with <b>Cassandra</b> and MySql</li>
+<li><b>Strong unix knowledge</b></li>
+<li>Experience with Chef (and/or Vagrant)</li>
+<li>Experience with AWS / Google Cloud</li>
+<li>Bonus: Experience with Spark / Kafka / Storm and the rest of the family</li>
+<li>Bonus: JVM deep understanding / Memory management</li>
+</ul>
+<div class="text-center">
+<a class="btn btn-danger" href="mailto:jobs@talamoos.com?subject=jobid:10011 ">Apply now! Send your CV</a>
 </div>
-    
-
-
-
-
+</div>
+</div>
+</div>
+<div>
+<button aria-controls="job-10012" aria-expanded="false" class="btn btn-primary" data-target="#job-10012" data-toggle="collapse" type="button">Infrastructure Team Leader</button>
+<div class="collapse" id="job-10012">
+<div class="well jobs-job">
+<h4>Infrastructure Team Leader (JobID: 10012)</h4>
+<h5>Job Highlights</h5>
+<ul>
+<li>Lead a team of DevOps</li>
+<li>Get your hands dirty (be a part of the team)</li>
+</ul>
+<h5>Job Requirements</h5>
+<ul>
+<li>Be a super talented DevOps. See "Cloud DevOps (JobID: 10011)" for more details</li>
+<li>Experience managing a team</li>
+</ul>
+<div class="text-center">
+<a class="btn btn-danger" href="mailto:jobs@talamoos.com?subject=jobid:10012 ">Apply now! Send your CV</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jobs-team">
-  <div class="container text-center">
-    <hr>
-    <h3>&#9733 Dev Team &#9733</h3>
-    <div class="desc">The Dev Team at Talamoos is looking for strong and talented big data engineers to join our party. Talamoos is a fully managed, scalable, Machine Learning platform that operates in real time. In internet scale. Without any ML knowledge. If you understand the âfewâ challenges in the last sentences, you can continue reading the job description :)</div>
-    
-    
-    <div>
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#job-10051" aria-expanded="false" aria-controls="job-10051">R&D Engineer</button>
-      <div class="collapse" id="job-10051">
-        <div class="well jobs-job">
-          <h4>R&D Engineer (JobID: 10051)</h4>
-          <h5>Job Highlights</h5>
-          <ul>
-            <li>Develop the next generation of Machine Learning</li>
-            <li>Design and develop scalable, fully distributed, fault tolerance systems - from scratch!</li>
-            <li>Optimize Java code - we care about every bit. (Spoiler: we use mostly primitives)</li>
-            <li>Big Big Data (store / process / realtimeâ¦)</li>
-          </ul>
-          <h5>Job Requirements</h5>
-          <ul>
-            <li>Java super expert</li>
-            <li>Experience with Big Data / Distributed systems (kafka, storm, ...)</li>
-            <li>Experience with Cassandra / MySql and other Databases</li>
-            <li>Experience with AWS / Google Cloud</li>
-            <li>B.Sc. in computer science / related</li>
-            <li>Bonus: Machine Learning background</li>
-            <li>Bonus: JVM deep understanding / Garbage collector</li>
-          </ul>
-          <div class="text-center">
-            <a class="btn btn-danger" href="mailto:jobs@talamoos.com?subject=jobid:10051 ">Apply now! Send your CV</a>
-          </div>
-          </div>
-      </div>
-    </div>
-
-
-    <div>
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#job-10052" aria-expanded="false" aria-controls="job-10052">R&D Team Leader</button>
-      <div class="collapse" id="job-10052">
-        <div class="well jobs-job">
-          <h4>R&D Team Leader (JobID: 10052)</h4>
-          <h5>Job Highlights</h5>
-          <ul>
-            <li>Lead a team of engineers</li>
-            <li>Get your hands dirty (be a part of the team)</li>
-          </ul>
-          <h5>Job Requirements</h5>
-          <ul>
-            <li>Be a super talented engineer. See JobID: 10051 for more details</li>
-            <li>Experience managing a team</li>
-          </ul>
-          <div class="text-center">
-            <a class="btn btn-danger" href="mailto:jobs@talamoos.com?subject=jobid:10052 ">Apply now! Send your CV</a>
-          </div>
-          </div>
-      </div>
-    </div>
-
-
-  </div>
+<div class="container text-center">
+<hr/>
+<h3>★ Dev Team ★</h3>
+<div class="desc">The Dev Team at Talamoos is looking for strong and talented big data engineers to join our party. Talamoos is a fully managed, scalable, Machine Learning platform that operates in real time. In internet scale. Without any ML knowledge. If you understand the âfewâ challenges in the last sentences, you can continue reading the job description :)</div>
+<div>
+<button aria-controls="job-10051" aria-expanded="false" class="btn btn-primary" data-target="#job-10051" data-toggle="collapse" type="button">R&amp;D Engineer</button>
+<div class="collapse" id="job-10051">
+<div class="well jobs-job">
+<h4>R&amp;D Engineer (JobID: 10051)</h4>
+<h5>Job Highlights</h5>
+<ul>
+<li>Develop the next generation of Machine Learning</li>
+<li>Design and develop scalable, fully distributed, fault tolerance systems - from scratch!</li>
+<li>Optimize Java code - we care about every bit. (Spoiler: we use mostly primitives)</li>
+<li>Big Big Data (store / process / realtimeâ¦)</li>
+</ul>
+<h5>Job Requirements</h5>
+<ul>
+<li>Java super expert</li>
+<li>Experience with Big Data / Distributed systems (kafka, storm, ...)</li>
+<li>Experience with Cassandra / MySql and other Databases</li>
+<li>Experience with AWS / Google Cloud</li>
+<li>B.Sc. in computer science / related</li>
+<li>Bonus: Machine Learning background</li>
+<li>Bonus: JVM deep understanding / Garbage collector</li>
+</ul>
+<div class="text-center">
+<a class="btn btn-danger" href="mailto:jobs@talamoos.com?subject=jobid:10051 ">Apply now! Send your CV</a>
 </div>
-    
-
-
-
-
-
-
-
-
-
+</div>
+</div>
+</div>
+<div>
+<button aria-controls="job-10052" aria-expanded="false" class="btn btn-primary" data-target="#job-10052" data-toggle="collapse" type="button">R&amp;D Team Leader</button>
+<div class="collapse" id="job-10052">
+<div class="well jobs-job">
+<h4>R&amp;D Team Leader (JobID: 10052)</h4>
+<h5>Job Highlights</h5>
+<ul>
+<li>Lead a team of engineers</li>
+<li>Get your hands dirty (be a part of the team)</li>
+</ul>
+<h5>Job Requirements</h5>
+<ul>
+<li>Be a super talented engineer. See JobID: 10051 for more details</li>
+<li>Experience managing a team</li>
+</ul>
+<div class="text-center">
+<a class="btn btn-danger" href="mailto:jobs@talamoos.com?subject=jobid:10052 ">Apply now! Send your CV</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jobs-team">
-  <div class="container text-center">
-    <hr>
-    <h3>&#9733 Algorithmic Team &#9733</h3>
-    <div class="desc">The Algorithmic Team at Talamoos is looking for strong and talented scientists with strong research passion. Talamoos is all about the next generation of machine learning - so if you want to create the next big technology, forget about classic ML and join Talamoos. You wonât be tweaking models :)</div>
-    
-
-    <div>
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#job-10081" aria-expanded="false" aria-controls="job-10081">Senior Data Scientist</button>
-      <div class="collapse" id="job-10081">
-        <div class="well jobs-job">
-          <h4>Senior Data Scientist (JobID: 10081)</h4>
-          <h5>Job Highlights</h5>
-          <ul>
-            <li>Develop the next generation of Machine Learning</li>
-            <li>Research Research Research</li>
-            <li>Push code to production</li>
-            <li>Big Big Data (store / process / realtimeâ¦)</li>
-          </ul>
-          <h5>Job Requirements</h5>
-          <ul>
-            <li>Java Dev (yes, you are going to write code, and not just in R)</li>
-            <li>Deep knowledge in Machine Learning (yes - be ready to forget anything you know about classic ML)</li>
-            <li>Technical system understanding (we are developing a system, not tweaking a model)</li>
-            <li>PhD in computer science / related (M.Sc. if you have a strong research record)</li>
-          </ul>
-          <div class="text-center">
-            <a class="btn btn-danger" href="mailto:jobs@talamoos.com?subject=jobid:10081 ">Apply now! Send your CV</a>
-          </div>
-          </div>
-      </div>
-    </div>
-
-
-  </div>
+<div class="container text-center">
+<hr/>
+<h3>★ Algorithmic Team ★</h3>
+<div class="desc">The Algorithmic Team at Talamoos is looking for strong and talented scientists with strong research passion. Talamoos is all about the next generation of machine learning - so if you want to create the next big technology, forget about classic ML and join Talamoos. You wonât be tweaking models :)</div>
+<div>
+<button aria-controls="job-10081" aria-expanded="false" class="btn btn-primary" data-target="#job-10081" data-toggle="collapse" type="button">Senior Data Scientist</button>
+<div class="collapse" id="job-10081">
+<div class="well jobs-job">
+<h4>Senior Data Scientist (JobID: 10081)</h4>
+<h5>Job Highlights</h5>
+<ul>
+<li>Develop the next generation of Machine Learning</li>
+<li>Research Research Research</li>
+<li>Push code to production</li>
+<li>Big Big Data (store / process / realtimeâ¦)</li>
+</ul>
+<h5>Job Requirements</h5>
+<ul>
+<li>Java Dev (yes, you are going to write code, and not just in R)</li>
+<li>Deep knowledge in Machine Learning (yes - be ready to forget anything you know about classic ML)</li>
+<li>Technical system understanding (we are developing a system, not tweaking a model)</li>
+<li>PhD in computer science / related (M.Sc. if you have a strong research record)</li>
+</ul>
+<div class="text-center">
+<a class="btn btn-danger" href="mailto:jobs@talamoos.com?subject=jobid:10081 ">Apply now! Send your CV</a>
 </div>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <span class="footer-menu">PLATFORM</span>
-        <ul>
-          <li><a href="platform-overview.html">Overview</a></li>
-          <li><a href="platform-technologies.html">Technologies</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-3">
-        <span class="footer-menu">SOLUTIONS</span>
-        <ul>
-          <li><a href="solutions-content.html">Content (OTT / Publishers)</a></li>
-          <li><a href="solutions-custom.html">Custom</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-3">
-        <span class="footer-menu">EVENTS</span>
-        <ul>
-          <li><a href="events-events.html">Events</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-3">
-        <span class="footer-menu">ABOUT</span>
-        <ul>
-          <li><a href="about-contact.html">Contact Us</a></li>
-          <li><a href="about-jobs.html">Jobs</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12 text-center"><img src="img/talamoos-grey.png"></div>
-    </div>
-
-
-  </div>
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+<span class="footer-menu">PLATFORM</span>
+<ul>
+<li><a href="platform-overview.html">Overview</a></li>
+<li><a href="platform-technologies.html">Technologies</a></li>
+</ul>
 </div>
-
-
-
-
-
+<div class="col-lg-3">
+<span class="footer-menu">SOLUTIONS</span>
+<ul>
+<li><a href="solutions-content.html">Content (OTT / Publishers)</a></li>
+<li><a href="solutions-custom.html">Custom</a></li>
+</ul>
+</div>
+<div class="col-lg-3">
+<span class="footer-menu">EVENTS</span>
+<ul>
+<li><a href="events-events.html">Events</a></li>
+</ul>
+</div>
+<div class="col-lg-3">
+<span class="footer-menu">ABOUT</span>
+<ul>
+<li><a href="about-contact.html">Contact Us</a></li>
+<li><a href="about-jobs.html">Jobs</a></li>
+</ul>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12 text-center"><img src="img/talamoos-grey.png"/></div>
+</div>
+</div>
+</div>
 <!-- site wrapper -->
-</div>  
-
-
+</div>
 </body>
-
 </html>

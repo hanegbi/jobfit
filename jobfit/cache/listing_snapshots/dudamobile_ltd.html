@@ -1,1683 +1,1079 @@
 <!DOCTYPE html>
 
-<script type="text/javascript">
-    // user language to dashborad
-    var language = "en",
-    	hrefLang = "";	
 
-    if(language != "en"){
-    	hrefLang = "/"+language;  	
-    }
-
-    if(language == "ita"){
-    	language = "it";
-    } else if (language == "deu") {
-    	language = "de";
-    }
-</script>
 <html lang="en">
 <head>
-                    <script src="https://app.termly.io/resource-blocker/4edcead9-e9e7-47c0-8cba-8243103531f6"></script>
-                <style>
-                    div#termly-code-snippet-support div {font-family: "Duda Sans"!important;font-weight: 500;}
-                    div#termly-code-snippet-support button {font-family: "Duda Sans"!important;line-height: normal;height: auto;}
-                </style>
-                
-<script>
-  // set Cookie function
-  function setCookie(cname, cvalue, exdays) {
-      var d = new Date();
-      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-      var expires = "expires="+d.toUTCString();
-      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; domain=.duda.co;";
-  }
 
-  // get Coockie by name
-  function getCookie(name){
-    var re = new RegExp(name + "=([^;]+)");
-    var value = re.exec(document.cookie);
-    return (value != null) ? unescape(value[1]) : null;
-  }
 
-</script>
 
 <!-- check if test domain -->
+<!-- Meta Tags -->
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Duda" name="author"/>
+<meta content="Looking to work at Duda? Discover all our career opportunities and open positions. Build your career while embracing all the accompanying benefits." name="description"/>
+<meta content="#FD5B27" name="theme-color"/>
+<meta content="clymnpbxinlo36bz29xuuvv7f0e6" name="clym-site-verification"/>
+<meta content="jvexa7cv6c1xctlpogt4qb2c2lmdkv" name="facebook-domain-verification"/>
+<!-- Facebook OG Tags -->
+<meta content="en" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="https://www.duda.co/careers" property="og:url"/>
+<meta content="Duda Careers ┃ We're Hiring, Join Our Top-Notch Team" property="og:site_name"/>
+<meta content="https://du-cdn.cdn-website.com/duda_website/images/careers/careers-thumb.png?v=1" property="og:image"/>
+<meta content="1200" property="og:image:height"/>
+<meta content="630" property="og:image:width"/>
+<meta content="Duda Careers ┃ We're Hiring, Join Our Top-Notch Team" property="og:title"/>
+<meta content="Looking to work at Duda? Discover all our career opportunities and open positions. Build your career while embracing all the accompanying benefits." property="og:description"/>
+<meta content="161064618402-51goh4uk64hvv25f5o09d5qtpt6ip6mm.apps.googleusercontent.com" name="google-signin-client_id"/>
+<link href="https://googleads.g.doubleclick.net" rel="preconnect"/>
+<link href="https://www.google.com" rel="preconnect"/>
+<link href="https://www.google.co.il" rel="preconnect"/>
+<link href="https://segment.prod.bidr.io" rel="preconnect"/>
+<link href="https://www.googleadservices.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://du-cdn.cdn-website.com" rel="preconnect"/>
+<link href="https://abm2.listenloop.com" rel="preconnect"/>
+<link href="https://www.google-analytics.com" rel="preconnect"/>
+<!-- Alternate links -->
+<link href="https://www.duda.co/careers" rel="canonical"/>
+<title>Duda Careers ┃ We're Hiring, Join Our Top-Notch Team</title>
+<link href="https://irp.cdn-website.com/a8ff2f1c/site_favicon_16_1733229120548.ico" rel="icon" type="image/x-icon"/>
+<!-- Critical CSS -->
 
-    <!-- Meta Tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1">
-    <meta charset="UTF-8">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Duda">
-    <meta name="description" content="Looking to work at Duda? Discover all our career opportunities and open positions. Build your career while embracing all the accompanying benefits.">
-    <meta name="theme-color" content="#FD5B27">
-    <meta name="clym-site-verification" content="clymnpbxinlo36bz29xuuvv7f0e6"/>
-    <meta name="facebook-domain-verification" content="jvexa7cv6c1xctlpogt4qb2c2lmdkv" />
-    
-    <!-- Facebook OG Tags -->
-    <meta property="og:locale" content="en">
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://www.duda.co/careers"/>
-    <meta property="og:site_name" content="Duda Careers ┃ We're Hiring, Join Our Top-Notch Team">
-        <meta property="og:image" content="https://du-cdn.cdn-website.com/duda_website/images/careers/careers-thumb.png?v=1">
-        <meta property="og:image:height" content="1200" />
-    <meta property="og:image:width" content="630" />
-    <meta property="og:title" content="Duda Careers ┃ We're Hiring, Join Our Top-Notch Team"/>
-    <meta property="og:description" content="Looking to work at Duda? Discover all our career opportunities and open positions. Build your career while embracing all the accompanying benefits.">
-    <meta name="google-signin-client_id" content="161064618402-51goh4uk64hvv25f5o09d5qtpt6ip6mm.apps.googleusercontent.com">
-    
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net">
-    <link rel="preconnect" href="https://www.google.com">
-    <link rel="preconnect" href="https://www.google.co.il">
-    <link rel="preconnect" href="https://segment.prod.bidr.io">
-    <link rel="preconnect" href="https://www.googleadservices.com">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://du-cdn.cdn-website.com">
-    <link rel="preconnect" href="https://abm2.listenloop.com">
-    <link rel="preconnect" href="https://www.google-analytics.com">
+<!-- begin Convert Experiences code-->
 
-    
-    
-    <!-- Alternate links -->
-    <link rel="canonical" href="https://www.duda.co/careers" />
-    <title>Duda Careers ┃ We're Hiring, Join Our Top-Notch Team</title>
-    <link rel="icon" type="image/x-icon" href="https://irp.cdn-website.com/a8ff2f1c/site_favicon_16_1733229120548.ico"/>
-
-    
-    <!-- Critical CSS -->
-    <style type="text/css">
-        .medium-logo-img{width:80px;height:40px;vertical-align:middle;transition:all .3s ease-out}.medium-logo-img .letter{fill:#fff}.medium-logo-img .shape{fill:#f66035}.medium-logo-img.whiteLogo .letter{fill:#f66035}.medium-logo-img.whiteLogo .shape{fill:#fff}.stuck .medium-logo-img.whiteLogo .letter{fill:#fff}.stuck .medium-logo-img.whiteLogo .shape{fill:#f66035}
-html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}a{background-color:transparent}strong{font-weight:bolder}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{box-sizing:border-box;font-size:100%}*,::after,::before{box-sizing:inherit}body{margin:0;padding:0;background:#fefefe;font-family:"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;font-weight:400;line-height:1.5;color:#0a0a0a;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}img{display:inline-block;vertical-align:middle;max-width:100%;height:auto;-ms-interpolation-mode:bicubic}:-ms-input-placeholder{color:#cacaca}::placeholder{color:#cacaca}.row{max-width:1200px;margin-right:auto;margin-left:auto}.row::after,.row::before{display:table;content:' ';-ms-flex-preferred-size:0;flex-basis:0;-ms-flex-order:1;order:1}.row::after{clear:both}.columns{width:100%;float:left;padding-right:.625rem;padding-left:.625rem}@media print,screen and (min-width:40em){.columns{padding-right:.9375rem;padding-left:.9375rem}}.columns,.columns:last-child:not(:first-child){float:left;clear:none}.columns:last-child:not(:first-child){float:right}.small-12{width:100%}@media print,screen and (min-width:40em){.medium-6{width:50%}.medium-10{width:83.3333333333%}.medium-12{width:100%}.medium-centered{margin-right:auto;margin-left:auto}.medium-centered{float:none;clear:both}}@media print,screen and (min-width:64em){.large-4{width:33.3333333333%}.large-6{width:50%}.large-7{width:58.3333333333%}.large-12{width:100%}.large-centered{margin-right:auto;margin-left:auto}.large-centered{float:none;clear:both}}.button{display:inline-block;vertical-align:middle;margin:0 0 1rem 0;padding:.85em 1em;border:1px solid transparent;border-radius:0;font-family:inherit;font-size:.9rem;-webkit-appearance:none;line-height:1;text-align:center}.button{background-color:#1779ba;color:#fefefe}@media screen and (max-width:0em),screen and (min-width:40em){.show-for-small-only{display:none!important}}@media screen and (max-width:39.99875em){.show-for-medium{display:none!important}}@media print,screen and (min-width:64em){.hide-for-large{display:none!important}}@media screen and (max-width:63.99875em){.show-for-large{display:none!important}}.show-for-sr{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.text-center{text-align:center}a{color:#f56d41;text-decoration:underline;text-decoration:none}.medium-logo-img{width:80px;height:40px;vertical-align:middle}.medium-logo-img .letter{fill:#FFFFFF}.medium-logo-img .shape{fill:#F66035}.show-for-logged{display:none!important}.show-for-notlogged{display:inline-block!important}body,html{height:100%}.off-canvas-wrap{width:100%;overflow:hidden;position:relative}.inner-wrap{background-color:#fff}.row-flex{width:100%;max-width:1180px;margin:0 auto;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-line-pack:center;align-content:center}@media (max-width:40em){.row-flex{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:center;justify-content:center;-ms-flex-line-pack:center;align-content:center}}@media (min-width:120em){.row-flex{max-width:1650px}}hr{max-width:100%;margin:1.25rem 0 1.1875rem}:focus{outline:0}section.hero-section{background-position:center;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;padding:80px 20px 50px;height:600px;text-align:center}@media (max-width:40em){section.hero-section{height:375px;padding:55px 20px 10px}}section.hero-section .sub-title{font-size:25px;font-weight:500;line-height:34px;margin:20px auto 0;max-width:600px}@media (max-width:40em){section.hero-section .sub-title{font-size:20px;line-height:26px}}section .section-subtitle{font-size:22px;font-weight:400;margin-bottom:10px}@media (max-width:40em){section .section-subtitle{font-size:20px;line-height:30px}}section .section-title{font-size:22px;font-weight:600;margin-bottom:10px;font-family:'Cal Sans'}ul{margin-bottom:20px}@media (max-width:400px){ul{font-size:14px;line-height:24px}}ul.no-bullet{list-style:none;margin-left:0}li,ul{margin:0;padding:0}.arrow-icon{width:17px;height:17px;margin-bottom:-3px;fill:#F56D41}body{font-family:"Duda Sans",sans-serif;color:#0d101c;background:#fff;font-weight:550;font-size:17px}@media (max-width:40em){body{font-size:16px}}.container,.row{margin:auto;max-width:1200px}.container{padding-right:15px;padding-left:15px}@media (max-width:40em){.container{padding-right:20px;padding-left:20px}}@media (max-width:40em){.row{padding-right:5px;padding-left:5px}}h1,h2{margin:0;font-family:'Cal Sans';line-height:1.1}h1{font-size:60px}@media (max-width:64em){h1{font-size:44px}}@media (max-width:40em){h1{font-size:36px}}h2{font-size:50px;margin-bottom:60px}@media (max-width:64em){h2{font-size:38px}}@media (max-width:40em){h2{font-size:30px}}p{font-size:17px;margin:16px;margin:0 0 16px}@media (max-width:40em){p{font-size:16px}}.button{font-size:18px;background-color:#f56d41;border-radius:60px;padding:0 30px;height:48px;line-height:49px;margin-bottom:0;border:0;color:#fff;font-weight:550}section{float:left;width:100%;padding:70px 0;position:relative}.left{float:left}.main-header-container{position:absolute;top:0;z-index:10000;width:100%;border-bottom:1px solid transparent;height:72px;padding:0 40px;font-size:16px;font-weight:550}@media (max-width:64em){.main-header-container{padding:0 25px;height:64px}}.main-header-container .rootLink.item-start{min-width:150px;border:1px solid #f66035;border-radius:60px;color:#f56d41;margin-left:15px;text-align:center}@media (min-width:1100px){.main-header-container .rootLink.item-start{padding:0 30px}}@media (max-width:1024px){.main-header-container .rootLink.item-start{height:36px;line-height:36px;margin-top:10px}}.main-header-container.white-nav:not(.stuck):not(.not-white-nav) .globalNav .colorize{color:#ebedef}.main-header-container.white-nav:not(.stuck):not(.not-white-nav) .globalNav .rootLink.item-start{border-color:#fff}.main-header-container.white-nav:not(.stuck):not(.not-white-nav) .globalNav .primary svg{fill:#fff}.main-header-container.white-nav:not(.stuck):not(.not-white-nav) #hamburger .line{background-color:#fff}@media (max-width:64em){.main-header-container .medium-logo-img{width:70px;height:32px;padding:0}}.main-header-container #hamburger{width:36px;height:18px;position:relative;display:block;margin:0 auto}@media (max-width:64em){.main-header-container #hamburger{zoom:0.88}}@media (max-width:40em){.main-header-container #hamburger{zoom:0.75}}.main-header-container #hamburger .line{width:36px;height:2px;display:block;background-color:#617279;position:absolute;right:0}.main-header-container #hamburger .line:first-child{top:0}.main-header-container #hamburger .line:nth-child(2){top:50%;margin-top:-1px;width:28px}.main-header-container #hamburger .line:nth-child(3){top:100%;margin-top:-2px;width:26px}@media (min-width:64em){.main-header-container #hamburger .line{display:none}}.mobile-menu{position:fixed;top:0;bottom:0;width:100%;background:#fff;display:none;padding-top:65px;overflow:auto;z-index:9}.mobile-menu ul{letter-spacing:.05em}.mobile-menu ul li .label{display:inline-block;width:100%;font-size:18px;padding:15px 25px;margin:10px 0;color:#617279;text-transform:capitalize;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between}@media (max-width:40em){.mobile-menu ul li .label{padding:10px 25px;font-size:14px}}.mobile-menu ul li .label a:not(.button){color:#617279}.mobile-menu ul li .label svg{float:right;font-size:24px}@media (max-width:40em){.mobile-menu ul li .label svg{font-size:19px}}.mobile-menu ul li.signup-li:before{content:"";border-top:1px solid rgba(97,114,121,.2);right:0;left:0;position:absolute;margin:0 25px}.mobile-menu ul.sub-menu{margin-left:0;background-color:#f8f9fb;box-shadow:inset 0 4px 13px 0 rgba(0,0,0,.03);padding:20px 25px}@media (max-width:40em){.mobile-menu ul.sub-menu{padding:15px 25px}}.mobile-menu ul.sub-menu li{letter-spacing:normal}.mobile-menu ul.sub-menu li a{width:100%;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;font-size:18px;padding:15px 0;color:#313131}@media (max-width:40em){.mobile-menu ul.sub-menu li a{font-size:14px;padding:10px 0}}.mobile-menu ul.sub-menu li a .txt .title{font-weight:600}.mobile-menu ul.sub-menu li a .txt .des{color:#617279;font-weight:300}.mobile-menu ul .platform .sub-menu li:first-of-type{border-bottom:1px solid #ecedef;margin-bottom:5px}.mobile-menu ul .platform .sub-menu li:first-of-type a{padding-bottom:20px}.mobile-menu ul .resources .sub-menu{float:left;padding-right:10px}.mobile-menu ul .resources .sub-menu li{float:left;width:50%;padding-right:12px}.mobile-menu ul .resources .sub-menu li a{font-size:13px;line-height:16px;height:55px}.mobile-menu ul .resources .sub-menu li a .txt{height:26px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center}.mobile-menu .signup-btn{display:block;margin:auto;width:fit-content}.globalNav{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:absolute;left:0;top:13px;right:0;z-index:500;height:45px;perspective:2000px;padding-left:40px;padding-right:40px}@media (max-width:1090px){.globalNav{padding-left:20px;padding-right:20px}}@media (max-width:64em){.globalNav{top:0;height:64px;padding-left:20px;padding-right:20px}}.globalNav .navSection.hamburger{position:absolute;top:19px;right:0;left:auto}@media (max-width:64em){.globalNav .navSection.hamburger{top:25px;right:0}}@media (min-width:64em){.globalNav .navSection.hamburger{display:none}}.globalNav ul{padding:0;margin:0}.globalNav li{list-style:none}.globalNav a{text-decoration:none}.globalNav .navRoot{position:relative}.globalNav .navSection.logo{position:absolute;top:0;left:0}@media (max-width:64em){.globalNav .navSection.logo{position:relative;float:left}}.globalNav .navSection.primary,.globalNav .navSection.secondary{display:none}@media (min-width:64em){.globalNav .navSection.primary,.globalNav .navSection.secondary{display:-ms-flexbox;display:flex}}.globalNav .navSection.primary{-ms-flex-pack:center;justify-content:center;position:absolute;top:0;left:100px}.globalNav .navSection.secondary{position:absolute;top:0;right:0}.globalNav .rootLink{display:inline-block;height:45px;white-space:nowrap;line-height:45px;margin:0;padding:0 10px;font-weight:550}@media (max-width:64em){.globalNav .rootLink{height:64px;line-height:64px}}@media (min-width:670px){.globalNav .rootLink{padding:0 calc(10px + (100vw - 670px) * .040541)}}@media (min-width:1023px){.globalNav .rootLink{padding:0 16px}}@media (min-width:1200px){.globalNav .rootLink{padding:0 16px}}.globalNav .navSection.logo .rootLink{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;padding-left:0}@media (max-width:64em){.globalNav .navSection.logo .rootLink{padding:0}}.globalNav .navSection.primary .rootLink{text-transform:capitalize}.globalNav .colorize{color:#0d101c}.globalNav .hasDropdown svg{height:8px;width:6px}.globalNav .dropdownRoot{position:absolute;z-index:1000;left:0;right:0;top:50px;transform:rotateX(-15deg);transform-origin:50% -50px;opacity:0;will-change:transform,opacity;display:none}@media (min-width:670px){.globalNav .dropdownRoot{display:block}}.globalNav .dropdownBackground{background:#fff;border-radius:8px;border:0 solid #ecedef;overflow:hidden;box-shadow:0 2px 10px 0 rgba(47,55,58,.25);width:520px;height:400px;transform:translateX(0);transform-origin:0 0}.globalNav .alternateBackground,.globalNav .dropdownBackground{position:absolute;top:0;left:0;will-change:transform}.globalNav .alternateBackground{right:0;height:1000px;background:#f6f9fc}.globalNav .dropdownArrow{top:-5px;margin:0 0 0 -6px;width:12px;height:12px;transform:rotate(45deg);border-radius:1px 0 0 0;background:#fff;box-shadow:-1px -1px 0 #eaeaea;will-change:transform}.globalNav .dropdownArrow,.globalNav .dropdownContainer{position:absolute;left:0}.globalNav .dropdownContainer{overflow:hidden;top:0;transform:translateX(0);will-change:transform,width,height}.globalNav .dropdownSection{opacity:0;will-change:transform,opacity;background:red}.globalNav .dropdownSection.active{opacity:1;transform:translateX(0)}.globalNav .dropdownSection.left{transform:translateX(-150px)}.globalNav .dropdownContent{position:absolute;top:0;left:0}.globalNav .dropdownContent .small-title{opacity:1;font-size:10px;text-transform:uppercase;line-height:28px;font-weight:350}.globalNav .dropdownContent hr{width:100%;border:1px solid #eff0f0;margin:15px 0}.globalNav .linkGroup{padding:25px 40px}.globalNav .linkContainer{display:block;padding:4px 0 2px}.globalNav .linkTitle{margin:0;letter-spacing:0;color:#0d101c}.globalNav .linkSub{margin:5px 0 0;display:block;color:#61616c;font-size:13px}.globalNav .platformGroup{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;width:190px;max-width:calc(100vw - 85px);margin:-5px -10px}.globalNav .platformGroup .linkContainer,.globalNav .platformGroup>li{-webkit-box-flex:1;display:-ms-flexbox;display:flex}.globalNav .platformGroup li{width:100%}.globalNav .platformGroup .linkContainer{-ms-flex:1;flex:1;-ms-flex-align:center;align-items:center}.globalNav .solutionsGroup{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;width:190px;max-width:calc(100vw - 85px);margin:-5px -10px}.globalNav .solutionsGroup .linkContainer,.globalNav .solutionsGroup>li{-webkit-box-flex:1;display:-ms-flexbox;display:flex}.globalNav .solutionsGroup>li{width:100%}.globalNav .solutionsGroup .linkContainer{-ms-flex:1;flex:1;-ms-flex-align:center;align-items:center}.globalNav .resourcesGroup{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;width:190px;max-width:calc(100vw - 85px)}.globalNav .resourcesGroup>li{width:100%}.globalNav .resourcesGroup .linkContainer,.globalNav .resourcesGroup>li{-webkit-box-flex:1;display:-ms-flexbox;display:flex}.globalNav .resourcesGroup .linkContainer{-ms-flex:1;flex:1;-ms-flex-align:center;align-items:center}.globalNav .productLinkContent{-ms-flex:1;flex:1;-ms-flex-direction:column;flex-direction:column}.globalNav .productLinkContent{display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center}form select option:not(:checked){color:#313131}@font-face{font-family:'Duda Sans';font-weight:300;src:url("../../fonts/duda-sans/woff2/DudaSans-Light.woff2") format("woff2")}@font-face{font-family:'Duda Sans';font-weight:350;src:url("../../fonts/duda-sans/woff2/DudaSans-Regular.woff2") format("woff2")}@font-face{font-family:'Duda Sans';font-weight:550;src:url("../../fonts/duda-sans/woff2/DudaSans-Medium.woff2") format("woff2")}@font-face{font-family:'Duda Sans';font-weight:700;src:url("../../fonts/duda-sans/woff2/DudaSans-Bold.woff2") format("woff2")}@font-face{font-family:'Duda Sans';font-weight:900;src:url("../../fonts/duda-sans/woff2/DudaSans-Black.woff2") format("woff2")}@font-face{font-family:'Cal Sans';font-weight:600;src:url("../../fonts/cal-sans/CalSans-SemiBold.woff2") format("woff2")}    </style>
-
-        <!-- begin Convert Experiences code-->
-    <script type="text/javascript" src="//cdn-4.convertexperiments.com/js/10024211-10024125.js"></script>
-    <!-- end Convert Experiences code -->
-    
-    
+<!-- end Convert Experiences code -->
 </head>
-
-<body class="fullBleed " lang="en">
+<body class="fullBleed" lang="en">
 <div data-scroll="mobile-top"></div>
-
-
 <div id="main-svg-sprite" style="height: 0; width: 0; position: absolute; visibility: hidden;">
-    <svg>
 
-        <style type="text/css">
-        	.path{fill:#f56d41;}
-        	.letter{fill:#FFFFFF;}
-        </style>
-
-		<symbol id="logo_duda" viewBox="0 0 500 223.689">
-			<path class="path" d="M474.267,223.689H25.733C11.521,223.689,0,212.167,0,197.955V25.733C0,11.521,11.521,0,25.733,0h448.534
-			  C488.479,0,500,11.521,500,25.733v172.222C500,212.167,488.479,223.689,474.267,223.689z"/>
-			<g>
-			  <path class="letter" d="M330.501,46.093v47.58c-7.674-5.631-16.131-8.966-26.357-8.966c-25.556,0-46.349,20.792-46.349,46.349
-			    c0,25.557,20.792,46.35,46.349,46.35c10.226,0,18.684-3.335,26.357-8.966v7.143h23.332V46.093H330.501z M306.22,155.603
-			    c-13.535,0-24.547-11.012-24.547-24.548c0-13.535,11.011-24.547,24.547-24.547c13.536,0,24.547,11.012,24.547,24.547
-			    C330.767,144.592,319.756,155.603,306.22,155.603z"/>
-			  <path class="letter" d="M121.621,46.093v47.58c-7.674-5.631-16.132-8.966-26.357-8.966c-25.556,0-46.349,20.792-46.349,46.349
-			    c0,25.557,20.792,46.35,46.349,46.35c10.226,0,18.684-3.335,26.357-8.966v7.143h23.332V46.093H121.621z M97.34,155.603
-			    c-13.535,0-24.547-11.012-24.547-24.548c0-13.535,11.012-24.547,24.547-24.547c13.536,0,24.548,11.012,24.548,24.547
-			    C121.888,144.592,110.876,155.603,97.34,155.603z"/>
-			  <path class="letter" d="M369.291,97.922l8.153,15.972c9.451-6.36,18.399-9.967,28.822-9.967c20.846,0,21.058,16.077,21.058,16.077
-			    s-11.483-0.618-20.581-0.442c-12.19,0.265-38.512,4.328-38.512,29.944c0,17.313,13.514,28.089,32.064,28.089
-			    c18.903,0,26.234-6.89,28.001-9.981l0.088,8.282h22.701v-52.712c0-17.404-11.748-38.834-44.253-38.834
-			    C387.134,84.35,375.121,93.417,369.291,97.922z M403.298,159.929c-5.3,0-14.133-1.325-14.133-11.395
-			    c0-7.331,8.745-11.218,17.489-11.395c9.451-0.177,20.669,0,20.669,0C427.324,153.216,413.898,159.929,403.298,159.929z"/>
-			  <path class="letter" d="M183.186,134.77c0,10.027,8.128,18.155,18.154,18.155h1c10.027,0,18.154-8.128,18.154-18.155
-			    c0-11.493,0-44.544,0-44.544h23.449v85.402h-22.574l-0.033-10.951c-2.467,3.566-9.641,10.691-25.132,10.691
-			    c-10.621,0-21.821-5.458-27.618-12.118c-5.764-6.619-8.687-16.398-8.687-29.067V90.226h23.286V134.77z"/>
-			</g>
-		</symbol>
-
-        <symbol id="gear">
-            <defs>
-                <style>
-                    .gear-cls-1 {
-                        fill: #ED7233;
-                        fill-rule: evenodd;
-                    }
-                </style>
-            </defs>
-            <path class="gear-cls-1"
-                  d="M127.989,63.055c0,0.315.012,0.629,0.012,0.945a64.345,64.345,0,0,1-.874,10.567Q121.862,75.7,113.87,76.63a51.1,51.1,0,0,1-3.038,8.663q5.663,5.719,9.065,9.893a64.158,64.158,0,0,1-6.514,9.528q-5.131-1.651-12.522-4.847a51.7,51.7,0,0,1-6.952,5.98q2.047,7.79,2.906,13.108a63.655,63.655,0,0,1-10.4,5Q82.8,119.967,78,113.505a51.227,51.227,0,0,1-9.02,1.689q-2.12,7.761-4.034,12.8c-0.315,0-.629.012-0.945,0.012a64.345,64.345,0,0,1-10.568-.874Q52.3,121.862,51.37,113.87a51.1,51.1,0,0,1-8.663-3.038q-5.719,5.663-9.893,9.065a64.177,64.177,0,0,1-9.529-6.514q1.652-5.131,4.848-12.522a51.734,51.734,0,0,1-5.98-6.952q-7.789,2.047-13.108,2.906a63.721,63.721,0,0,1-5.005-10.4Q8.033,82.8,14.495,78a51.236,51.236,0,0,1-1.688-9.02q-7.761-2.12-12.8-4.034C0.007,64.63,0,64.316,0,64A64.419,64.419,0,0,1,.873,53.433Q6.138,52.3,14.13,51.37a51.054,51.054,0,0,1,3.038-8.663Q11.505,36.989,8.1,32.814a64.141,64.141,0,0,1,6.514-9.529q5.131,1.652,12.522,4.848a51.706,51.706,0,0,1,6.952-5.98q-2.047-7.789-2.906-13.108a63.721,63.721,0,0,1,10.4-5.005Q45.2,8.033,50,14.495a51.234,51.234,0,0,1,9.02-1.688q2.12-7.761,4.033-12.8C63.37,0.007,63.684,0,64,0A64.419,64.419,0,0,1,74.568.873Q75.7,6.138,76.63,14.13a51.055,51.055,0,0,1,8.663,3.038q5.719-5.663,9.893-9.064a64.121,64.121,0,0,1,9.528,6.514q-1.651,5.131-4.847,12.522a51.677,51.677,0,0,1,5.98,6.952q7.79-2.047,13.108-2.906a63.655,63.655,0,0,1,5,10.4Q119.967,45.2,113.505,50a51.225,51.225,0,0,1,1.689,9.02Q122.955,61.141,127.989,63.055ZM64,29.014A34.986,34.986,0,1,0,98.986,64,34.986,34.986,0,0,0,64,29.014Z"/>
-        </symbol>
-
-
-        <symbol id="arrow-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        	<path fill-rule="evenodd" clip-rule="evenodd" d="M12.4167 0H1.66669V2H10.003L0.169128 11.8337L1.58333 13.2479L11.4167 3.41469V11.75H13.4167V1C13.4167 0.447715 12.969 0 12.4167 0Z" fill="#f56d41"/>
-        </symbol>
-
-        <symbol id="arrow-icon-white" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        	<path fill-rule="evenodd" clip-rule="evenodd" d="M12.4167 0H1.66669V2H10.003L0.169128 11.8337L1.58333 13.2479L11.4167 3.41469V11.75H13.4167V1C13.4167 0.447715 12.969 0 12.4167 0Z" fill="#fff"/>
-        </symbol>
-
-        <symbol id="arrow-icon-black" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        	<path fill-rule="evenodd" clip-rule="evenodd" d="M12.4167 0H1.66669V2H10.003L0.169128 11.8337L1.58333 13.2479L11.4167 3.41469V11.75H13.4167V1C13.4167 0.447715 12.969 0 12.4167 0Z" fill="#0C101C"/>
-        </symbol>
-
-        <symbol id="arrow-icon-purple" viewBox="0 0 17 17">
-        	<g>
-        		<path d="M3.83325 8.5H13.1666" stroke="#8C4BFB" stroke-linecap="round" stroke-linejoin="round"/>
-        		<path d="M10.5 11.1667L13.1667 8.5" stroke="#8C4BFB" stroke-linecap="round" stroke-linejoin="round"/>
-        		<path d="M10.5 5.8335L13.1667 8.50016" stroke="#8C4BFB" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-        </symbol>
-
-		<symbol id="question-circle" viewBox="0 0 431.855 431.855" width="11.7" height="11">
-			<g>
-				<path d="M409.133,109.203c-19.608-33.592-46.205-60.189-79.798-79.796C295.736,9.801,259.058,0,219.273,0
-					c-39.781,0-76.47,9.801-110.063,29.407c-33.595,19.604-60.192,46.201-79.8,79.796C9.801,142.8,0,179.489,0,219.267
-					c0,39.78,9.804,76.463,29.407,110.062c19.607,33.592,46.204,60.189,79.799,79.798c33.597,19.605,70.283,29.407,110.063,29.407
-					s76.47-9.802,110.065-29.407c33.593-19.602,60.189-46.206,79.795-79.798c19.603-33.596,29.403-70.284,29.403-110.062
-					C438.533,179.485,428.732,142.795,409.133,109.203z M255.82,356.309c0,2.662-0.862,4.853-2.573,6.563
-					c-1.704,1.711-3.895,2.567-6.557,2.567h-54.823c-2.664,0-4.854-0.856-6.567-2.567c-1.714-1.711-2.57-3.901-2.57-6.563v-54.823
-					c0-2.662,0.855-4.853,2.57-6.563c1.713-1.708,3.903-2.563,6.567-2.563h54.823c2.662,0,4.853,0.855,6.557,2.563
-					c1.711,1.711,2.573,3.901,2.573,6.563V356.309z M325.338,187.574c-2.382,7.043-5.044,12.804-7.994,17.275
-					c-2.949,4.473-7.187,9.042-12.709,13.703c-5.51,4.663-9.891,7.996-13.135,9.998c-3.23,1.995-7.898,4.713-13.982,8.135
-					c-6.283,3.613-11.465,8.326-15.555,14.134c-4.093,5.804-6.139,10.513-6.139,14.126c0,2.67-0.862,4.859-2.574,6.571
-					c-1.707,1.711-3.897,2.566-6.56,2.566h-54.82c-2.664,0-4.854-0.855-6.567-2.566c-1.715-1.712-2.568-3.901-2.568-6.571v-10.279
-					c0-12.752,4.993-24.701,14.987-35.832c9.994-11.136,20.986-19.368,32.979-24.698c9.13-4.186,15.604-8.47,19.41-12.847
-					c3.812-4.377,5.715-10.188,5.715-17.417c0-6.283-3.572-11.897-10.711-16.849c-7.139-4.947-15.27-7.421-24.409-7.421
-					c-9.9,0-18.082,2.285-24.555,6.855c-6.283,4.565-14.465,13.322-24.554,26.263c-1.713,2.286-4.093,3.431-7.139,3.431
-					c-2.284,0-4.093-0.57-5.424-1.709L121.35,145.89c-4.377-3.427-5.138-7.422-2.286-11.991
-					c24.366-40.542,59.672-60.813,105.922-60.813c16.563,0,32.744,3.903,48.541,11.708c15.796,7.801,28.979,18.842,39.546,33.119
-					c10.554,14.272,15.845,29.787,15.845,46.537C328.904,172.824,327.71,180.529,325.338,187.574z"/>
-			</g>
-		</symbol>
-
-		<!-- Pricing 2026 tooltip icon (stroke style) -->
-		<svg id="i-info-circle-2026" width="14" height="14" viewBox="0 0 14 14" fill="none">
-		  <path d="M7.00002 12.8333C10.2217 12.8333 12.8334 10.2216 12.8334 6.99993C12.8334 3.77827 10.2217 1.1666 7.00002 1.1666C3.77836 1.1666 1.16669 3.77827 1.16669 6.99993C1.16669 10.2216 3.77836 12.8333 7.00002 12.8333Z" stroke="#9B9BA2" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-		  <path d="M7 9.33327V6.99994" stroke="#9B9BA2" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-		  <path d="M6.9271 4.81246H7.00002M6.85419 4.81246C6.85419 4.73192 6.91946 4.66663 7.00002 4.66663C7.08058 4.66663 7.14585 4.73192 7.14585 4.81246C7.14585 4.893 7.08058 4.95829 7.00002 4.95829C6.91946 4.95829 6.85419 4.893 6.85419 4.81246Z" stroke="#9B9BA2" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-		</svg>
-
-		<svg id="i-info-circle" width="16" height="16" viewBox="0 0 16 16" fill="none">
-		  <path d="M8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0ZM8 1.5C4.41015 1.5 1.5 4.41015 1.5 8C1.5 11.5899 4.41015 14.5 8 14.5C11.5899 14.5 14.5 11.5899 14.5 8C14.5 4.41015 11.5899 1.5 8 1.5Z" fill="#5D6068"/>
-		  <path d="M8.05005 6.5C8.46426 6.5 8.80005 6.83579 8.80005 7.25V10.75C8.80005 11.1642 8.46426 11.5 8.05005 11.5C7.63584 11.5 7.30005 11.1642 7.30005 10.75V7.25C7.30005 6.83579 7.63584 6.5 8.05005 6.5ZM8.05005 4C8.46426 4 8.80005 4.33579 8.80005 4.75C8.80005 5.16421 8.46426 5.5 8.05005 5.5C7.63584 5.5 7.30005 5.16421 7.30005 4.75C7.30005 4.33579 7.63584 4 8.05005 4Z" fill="#5D6068"/>
-		</svg>
-
-		<symbol id="i-circle" width="16" height="16" viewBox="0 0 16 16" fill="none">
-			<g id="Functional/i_info_circle">
-			<path id="Vector" d="M7.45955 5.90188L7.45953 5.9019L7.46132 5.90341C7.61546 6.0341 7.79644 6.0999 7.99998 6.0999C8.19925 6.0999 8.37633 6.03148 8.52711 5.89745C8.6849 5.75719 8.76002 5.5656 8.76002 5.33543C8.76002 5.12392 8.68673 4.94164 8.54025 4.79516C8.39376 4.64868 8.21148 4.57539 7.99998 4.57539C7.78602 4.57539 7.60111 4.6483 7.45166 4.79435C7.30195 4.94066 7.22664 5.12318 7.22664 5.33543C7.22664 5.56805 7.30144 5.76134 7.45955 5.90188ZM7.4 10.666C7.4 10.9974 7.66863 11.266 8 11.266C8.33137 11.266 8.6 10.9974 8.6 10.666V7.99935C8.6 7.66798 8.33137 7.39935 8 7.39935C7.66863 7.39935 7.4 7.66798 7.4 7.99935V10.666ZM8 14.6C11.6451 14.6 14.6 11.6451 14.6 8C14.6 4.35492 11.6451 1.4 8 1.4C4.35492 1.4 1.4 4.35492 1.4 8C1.4 11.6451 4.35492 14.6 8 14.6ZM13.4 8C13.4 10.9823 10.9823 13.4 8 13.4C5.01766 13.4 2.6 10.9823 2.6 8C2.6 5.01766 5.01766 2.6 8 2.6C10.9823 2.6 13.4 5.01766 13.4 8Z" fill="#93959A" stroke="#93959A" stroke-width="0.2"/>
-			</g>
-		</symbol>
-
-		<symbol id="arrow-down" viewBox="0 0 13 8">
-		    <g>
-		        <g transform="translate(-282.000000, -99.000000)">
-		            <polygon transform="translate(288.500000, 103.000000) rotate(90.000000) translate(-288.500000, -103.000000) " points="289.351351 103 285 98.4 286.324324 97 292 103 286.324324 109 285 107.6"></polygon>
-		        </g>
-		    </g>
-		</symbol>
-
-    </svg>
-</div><style type="text/css">
-.main-menu .bar nav .primary a,.main-menu .bar nav .secondary a{color:#161111;font-weight:350;line-height:16px;letter-spacing:-.16px;transition:.2s;font-size:16px}.main-menu-holder{display:block;float:left;width:100%;height:73px}.main-menu{width:100%;top:0;z-index:1000}.main-menu.stuck{position:fixed}.main-menu .bar nav .secondary .signup-button:hover,.main-menu.stuck .bar nav .secondary .signup-button,.main-menu.sub-menu-active .bar nav .secondary .signup-button{color:#fff;background-color:#f07c5a;border-color:#f07c5a}.main-menu li,.main-menu ul{list-style:none;padding:0;margin:0}.main-menu a{text-decoration:none}.main-menu .bar nav .secondary .signup-button.mobile,.main-menu .bar nav .secondary a.contact-button:after,.main-menu .show-for-logged,.main-menu .show-for-notlogged{display:none}.main-menu .bar{border-bottom:1px solid #e4e4e6;background:#f9f7f5;z-index:1000;position:relative}.main-menu .bar nav{display:flex;width:100%;max-width:1360px;padding:0 20px;height:73px;justify-content:space-between;align-items:center;align-content:center;margin:auto}.main-menu .bar nav .logo{max-width:68px;height:30px}.main-menu .bar nav .logo svg{height:30px;max-width:100%}.main-menu .bar nav .primary{display:flex;align-items:center;justify-content:space-between;align-content:center;padding:0 30px;gap:30px;margin-right:auto;height:100%}.main-menu .bar nav .primary li{height:100%}.main-menu .bar nav .primary a{display:flex;align-items:center;height:100%;position:relative}.main-menu .bar nav .primary a:after,.main-menu .bar nav .secondary a:not(.signup-button):after{transition:.2s;opacity:0;position:absolute;bottom:-1px;content:"";height:3px;width:100%;background-color:#f07c5a}.main-menu .bar nav .primary a .arrow-down{max-width:12px;max-height:6px;margin:2px 0 0 6px;transition:.4s}.main-menu .bar nav .primary a[data-submenu]{cursor:pointer}.main-menu .bar nav .primary a:hover:after,.main-menu .bar nav .secondary a:hover:after,.main-menu.sub-menu-active[opened-submenu=platform] .bar a[data-submenu=platform]:after,.main-menu.sub-menu-active[opened-submenu=resources] .bar a[data-submenu=resources]:after,.main-menu.sub-menu-active[opened-submenu=solutions] .bar a[data-submenu=solutions]:after{opacity:1}.main-menu .bar nav .secondary{display:flex;align-items:center;gap:30px;height:100%}.main-menu .bar nav .secondary a,.main-menu .bar nav .secondary li{display:flex;align-items:center;height:100%}@media (max-width:1100px){.main-menu .bar nav .primary{gap:25px}.main-menu .bar nav .secondary{gap:15px}}.main-menu .bar nav .secondary a{position:relative}.main-menu .bar nav .secondary a.contact-button{gap:3px}@media (max-width:1200px){.main-menu .bar nav .secondary a.contact-button .first-part{display:none}}.main-menu .bar nav .secondary a.contact-button span:nth-child(2){text-decoration:underline}.main-menu .bar nav .secondary .login-button{color:#9b9ba2}.main-menu .bar nav .secondary .signup-button{width:unset;min-width:147px;padding:0 5px;height:42px;border-radius:12px;border:1.5px solid #e2e2e4;align-items:center;justify-content:center;transition:.2s;line-height:38px;display:block;text-align:center}.main-menu .bar .hamburger{width:18px;height:13px;margin-left:18px;position:relative;cursor:pointer}.main-menu .bar .hamburger .line{position:absolute;width:16px;height:2px;background-color:#0d101c;transition:.2s}.main-menu .bar .hamburger .line:first-child{top:0}.main-menu .bar .hamburger .line:nth-child(2),.main-menu .bar .hamburger .line:nth-child(3){top:6px}.main-menu .bar .hamburger .line:nth-child(4){top:12px}.main-menu .bar .hamburger.active .line:first-child,.main-menu .bar .hamburger.active .line:nth-child(4){opacity:0;top:6px}.main-menu .bar .hamburger.active .line:nth-child(2){transform:rotateZ(45deg);transition-delay:0.5s}.main-menu .bar .hamburger.active .line:nth-child(3){transform:rotateZ(-45deg);transition-delay:0.5s}.main-menu .sub-menu-holder{position:relative}.main-menu .sub-menu-holder .sub-menu{position:absolute;width:100%;background-color:#f9f7f5;display:flex;top:0;justify-content:center;z-index:-99;opacity:0;transition:.3s ease-out;transform:translateY(-100%);border-bottom:1px solid #e4e4e6}.main-menu .sub-menu-holder .sub-menu .sub-menu-down{overflow-y:auto;display:flex;justify-content:center;width:100%}.main-menu .sub-menu-holder .sub-menu .sub-menu-title{font-family:Cal Sans;font-size:18px;font-weight:500;letter-spacing:.01em;background:#f9f7f5;width:100%;display:flex;z-index:1000;align-items:center;padding:20px 0;color:#211d1c;cursor:pointer;border-top:1px solid #e4e4e6}.main-menu .sub-menu-holder .sub-menu .sub-menu-title:first-child{border-top:0 solid #e4e4e6}.main-menu .sub-menu-holder .sub-menu .sub-menu-title .arrow-down{max-width:12px;max-height:6px;margin-left:6px;transition:.4s}.main-menu .sub-menu-holder .sub-menu .sub-menu-title.active .arrow-down,.main-menu.sub-menu-active[opened-submenu=platform] .bar a[data-submenu=platform] .arrow-down,.main-menu.sub-menu-active[opened-submenu=resources] .bar a[data-submenu=resources] .arrow-down,.main-menu.sub-menu-active[opened-submenu=solutions] .bar a[data-submenu=solutions] .arrow-down{transform:rotate(180deg)}.main-menu .sub-menu-holder .sub-menu:before{content:"";width:50%;background-color:#edebe9;position:absolute;top:0;bottom:0;right:0}.main-menu .sub-menu-holder .sub-menu .content{width:100%;max-width:1360px;margin:0 auto;background-color:#f9f7f5;z-index:1;display:none;justify-content:space-between}.main-menu .sub-menu-holder .sub-menu .content .title{text-align:left;margin-bottom:10px;color:#5d6068;font-size:12px;line-height:100%;letter-spacing:-.12px}.main-menu .sub-menu-holder .sub-menu .content .title.badge{display:flex;padding:var(--spapcing-half,4px) var(--spacing--three-quarters,6px);justify-content:center;align-items:center;gap:10px;border-radius:var(--border-radius-sm,6px);background:#c1e5f6;width:fit-content}.main-menu .sub-menu-holder .sub-menu .content .title:not(:first-child){margin-top:17px}.main-menu .sub-menu-holder .sub-menu .content .item{display:block;padding:16px 12px 16px 0;transition:.3s}.main-menu .sub-menu-holder .sub-menu .content .item .txt{font-family:Cal Sans;font-size:16px;font-weight:500;line-height:110%;letter-spacing:.08px;text-align:left;color:#211d1c;display:flex;align-items:center}.main-menu .sub-menu-holder .sub-menu .content .item .txt .arrow-right{width:9px;height:16px;margin-left:auto}.main-menu .sub-menu-holder .sub-menu .content .item .des{font-size:14px;font-weight:350;line-height:18px;letter-spacing:-.005em;text-align:left;color:#61616c}.main-menu .sub-menu-holder .sub-menu .content .left-side{padding:36px 20px;display:flex;justify-content:space-between;width:100%}.main-menu .sub-menu-holder .sub-menu .content .left-side .column{width:32%;padding:0}.main-menu .sub-menu-holder .sub-menu .content .left-side .column .item .txt{margin-bottom:7px}.main-menu .sub-menu-holder .sub-menu .content .right-side{padding:36px 20px 30px 50px;background-color:#edebe9;min-width:400px;max-width:400px}@media (min-width:"640px"){.main-menu .sub-menu-holder .sub-menu .content .item:hover{background-color:#edebe9;padding:16px 12px;border-radius:12px}.main-menu .sub-menu-holder .sub-menu .content .right-side .item:hover{background-color:#f9f7f5}}.main-menu .sub-menu-holder .sub-menu .content .right-side hr{border:0;border-bottom:1px solid #d3d3d3;margin:10px 0}.main-menu .sub-menu-holder .sub-menu .content .right-side .visual{margin:25px 20px 30px 0;max-width:460px;display:flex;overflow:hidden;border-radius:10px;background-size:100%;background-repeat:no-repeat;background-position:center;transition:.3s;aspect-ratio:1.4036697248}.main-menu .sub-menu-holder .sub-menu .content .right-side .visual img{opacity:0}.main-menu .sub-menu-holder .sub-menu .content .right-side .visual:hover{background-size:108%}.main-menu .sub-menu-holder .sub-menu .secondary{width:100%;padding:20px;border-top:1px solid #e4e4e6;gap:15px;display:flex;flex-wrap:wrap;text-align:center;align-items:center;margin:auto 0 0;justify-content:space-around}@media (min-width:"1000px"){.main-menu .bar .hamburger,.main-menu .sub-menu-holder .sub-menu .secondary,.main-menu .sub-menu-holder .sub-menu .sub-menu-title{display:none}}.main-menu .sub-menu-holder .sub-menu .secondary .contact-button{width:47%;max-width:200px;height:50px;display:flex;border-radius:12px;border:1.5px solid #0d101c;align-items:center;justify-content:center;color:#0d101c}.main-menu .sub-menu-holder .sub-menu .secondary .signup-button{width:47%;max-width:200px;height:50px;display:flex;border-radius:12px;align-items:center;justify-content:center;color:#fff;background-color:#f07c5a;border-color:#f07c5a}.main-menu .sub-menu-holder .sub-menu .secondary .login-wrap{margin-top:10px;flex-basis:100%}.main-menu .sub-menu-holder .sub-menu .secondary .login-wrap .login-button{color:#5d6068}.main-menu.sub-menu-active .bar nav .primary a{color:#6a6e7d}.main-menu.sub-menu-active .bar nav .primary a:hover,.main-menu.sub-menu-active[opened-submenu=platform] .bar a[data-submenu=platform],.main-menu.sub-menu-active[opened-submenu=resources] .bar a[data-submenu=resources],.main-menu.sub-menu-active[opened-submenu=solutions] .bar a[data-submenu=solutions]{color:#0c101c}.main-menu.sub-menu-active .bar nav .primary a .arrow-down path{stroke:#6a6e7d}@media (max-width:"1000px"){.main-menu .bar nav .primary,.main-menu .bar nav .secondary .contact-button,.main-menu .bar nav .secondary .login-button,.main-menu .bar nav .secondary .signup-button.desktop,.main-menu .sub-menu-holder .sub-menu:before{display:none}.main-menu .bar nav .secondary{margin-left:auto}.main-menu .bar nav .secondary .signup-button{min-width:100px;height:30px;font-size:13px;letter-spacing:-.01em}.main-menu .bar nav .secondary .signup-button.mobile{display:flex}.main-menu .sub-menu-holder .sub-menu{position:fixed;flex-direction:column;height:100%;justify-content:flex-start;padding-top:94px}.main-menu .sub-menu-holder .sub-menu .sub-menu-down{flex-direction:column;height:100%;justify-content:flex-start;padding:0 25px}.main-menu .sub-menu-holder .sub-menu .content .right-side{min-width:300px;padding:30px 20px}.main-menu.sub-menu-active{position:fixed}.main-menu.sub-menu-active .bar nav .secondary .signup-button{opacity:0}}.main-menu.sub-menu-active .sub-menu-holder .sub-menu{z-index:999;opacity:1;transform:translateY(0)}.main-menu.sub-menu-active .sub-menu-holder .sub-menu.slide-up{transform:translateY(-400px);opacity:0}.main-menu.sub-menu-active[opened-submenu=platform] [data-submenu=platform],.main-menu.sub-menu-active[opened-submenu=resources] [data-submenu=resources],.main-menu.sub-menu-active[opened-submenu=solutions] [data-submenu=solutions]{display:flex}.main-menu.sub-menu-active[opened-submenu=platform] .bar a[data-submenu=platform] .arrow-down path,.main-menu.sub-menu-active[opened-submenu=resources] .bar a[data-submenu=resources] .arrow-down path,.main-menu.sub-menu-active[opened-submenu=solutions] .bar a[data-submenu=solutions] .arrow-down path{stroke:#0c101c}.main-menu.sub-menu-active[opened-submenu=solutions] .sub-menu .content .left-side .column{width:49%}@media (max-width:"640px"){.main-menu .sub-menu-holder .sub-menu{border-bottom:0 solid #e4e4e6}.main-menu .sub-menu-holder .sub-menu .content{flex-direction:column}.main-menu .sub-menu-holder .sub-menu .content .item .des,.main-menu .sub-menu-holder .sub-menu .content[data-submenu=solutions] .column:nth-child(2) .title{display:none}.main-menu .sub-menu-holder .sub-menu .content .title,.main-menu .sub-menu-holder .sub-menu .content .title:not(:first-child){margin-top:25px}.main-menu .sub-menu-holder .sub-menu .content .item{padding:8px 20px 8px 0;margin-bottom:9px}.main-menu .sub-menu-holder .sub-menu .content .left-side{flex-direction:column;width:100%;padding:0 0 20px}.main-menu .sub-menu-holder .sub-menu .content .left-side .column,.main-menu.sub-menu-active[opened-submenu=solutions] .sub-menu .content .left-side .column{width:100%}.main-menu .sub-menu-holder .sub-menu .content .left-side .column .item .txt{margin-bottom:0}.main-menu .sub-menu-holder .sub-menu .content .right-side{width:100%;min-width:unset;margin-bottom:25px;padding:15px 5px 15px 25px}.main-menu .sub-menu-holder .sub-menu .content .right-side hr{margin-right:25px}}
-</style>
+</div>
 <!-- Large Menu -->
-<div class="off-canvas-wrap" data-offcanvas>
+<div class="off-canvas-wrap" data-offcanvas="">
+<!-- start Main Menu -->
+<div class="main-menu-holder">
+<div class="main-menu">
+<div class="bar">
+<nav>
+<a class="logo" href="/">
 
-  <!-- start Main Menu -->
-  <div class="main-menu-holder">
-  <div class="main-menu">
-    <div class="bar">
-      <nav>
-        <a href="/" class="logo">
-          <svg>
-            <use
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              xlink:href="#logo_duda_textfill"
-            ></use>
-          </svg>
-        </a>
-        <ul class="primary">
-          <li>
-            <a data-submenu="platform"
-              >Platform<svg
-                class="arrow-down"
-                width="12"
-                height="6"
-                viewBox="0 0 12 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1.5 0.75L6 5.25L10.5 0.75"
-                  stroke="#0C101C"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a data-submenu="solutions"
-              >Solutions
-              <svg
-                class="arrow-down"
-                width="12"
-                height="6"
-                viewBox="0 0 12 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1.5 0.75L6 5.25L10.5 0.75"
-                  stroke="#0C101C"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                /></svg
-            ></a>
-          </li>
-          <li>
-            <a data-submenu="resources"
-              >Resources
-              <svg
-                class="arrow-down"
-                width="12"
-                height="6"
-                viewBox="0 0 12 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1.5 0.75L6 5.25L10.5 0.75"
-                  stroke="#0C101C"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                /></svg
-            ></a>
-          </li>
-          <li>
-            <a href="/pricing">Pricing</a>
-          </li>
-          <li>
-            <a href="/enterprise">Enterprise</a>
-          </li>
-        </ul>
-        <ul class="secondary">
-          <li>
-            <a
-              href="/login"
-              class="login-button"
-              >Log in</a
-            >
-          </li>
-          <li>
-            <a href="/contact" class="contact-button">
-              <span class="first-part">Building at scale? </span><span>Book a demo</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/signup?dm_referral=NEW_Top_Navbar"
-              class="signup-button desktop"
-            >
+</a>
+<ul class="primary">
+<li>
+<a data-submenu="platform">Platform
+</a>
+</li>
+<li>
+<a data-submenu="solutions">Solutions
+              </a>
+</li>
+<li>
+<a data-submenu="resources">Resources
+              </a>
+</li>
+<li>
+<a href="/pricing">Pricing</a>
+</li>
+<li>
+<a href="/enterprise">Enterprise</a>
+</li>
+</ul>
+<ul class="secondary">
+<li>
+<a class="login-button" href="/login">Log in</a>
+</li>
+<li>
+<a class="contact-button" href="/contact">
+<span class="first-part">Building at scale? </span><span>Book a demo</span>
+</a>
+</li>
+<li>
+<a class="signup-button desktop" href="/signup?dm_referral=NEW_Top_Navbar">
               Start free trial
             </a>
-            <a
-              href="/signup?dm_referral=NEW_Mobile_Menu"
-              class="signup-button mobile"
-            >
+<a class="signup-button mobile" href="/signup?dm_referral=NEW_Mobile_Menu">
               Start free trial
             </a>
-          </li>
-        </ul>
-        <div class="hamburger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-      </nav>
-    </div>
-
-    <div class="sub-menu-holder">
-    <div class="sub-menu">
-      <div class="sub-menu-down">
-        <a class="sub-menu-title" data-submenu-link="platform"
-          >Platform<svg
-            class="arrow-down"
-            width="12"
-            height="6"
-            viewBox="0 0 12 6"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1.5 0.75L6 5.25L10.5 0.75"
-              stroke="#0C101C"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            /></svg
-        ></a>
-        <div class="content" data-submenu="platform">
-          <div class="left-side">
-            <div class="column">
-              <div class="title">
+</li>
+</ul>
+<div class="hamburger">
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+</div>
+</nav>
+</div>
+<div class="sub-menu-holder">
+<div class="sub-menu">
+<div class="sub-menu-down">
+<a class="sub-menu-title" data-submenu-link="platform">Platform</a>
+<div class="content" data-submenu="platform">
+<div class="left-side">
+<div class="column">
+<div class="title">
                 Build
               </div>
-              <a
-                class="item"
-                href="/website-builder"
-              >
-                <div class="txt">Website builder</div>
-                <div class="des">
+<a class="item" href="/website-builder">
+<div class="txt">Website builder</div>
+<div class="des">
                   Create high-performing sites at scale
                 </div>
-              </a>
-              <a
-                class="item"
-                href="/vibe"
-              >
-                <div class="txt">Vibe</div>
-                <div class="des">
-                  Generate client-ready sites & web apps
+</a>
+<a class="item" href="/vibe">
+<div class="txt">Vibe</div>
+<div class="des">
+                  Generate client-ready sites &amp; web apps
                 </div>
-              </a>
-              <a
-                class="item"
-                href="/widget-builder"
-              >
-                <div class="txt">AI Widget Builder</div>
-                <div class="des">
+</a>
+<a class="item" href="/widget-builder">
+<div class="txt">AI Widget Builder</div>
+<div class="des">
                   Build custom website elements with AI
                 </div>
-              </a>
-              <a
-                class="item"
-                href="/website-builder/automation"
-              >
-                <div class="txt">Platform automation</div>
-                <div class="des">
+</a>
+<a class="item" href="/website-builder/automation">
+<div class="txt">Platform automation</div>
+<div class="des">
                   Automate site building and management
                 </div>
-              </a>
-            </div>
-            <!-- /column -->
-            <div class="column">
-              <div class="title">Get found</div>
-              <a class="item" href="/seo">
-                <div class="txt">SEO</div>
-                <div class="des">
+</a>
+</div>
+<!-- /column -->
+<div class="column">
+<div class="title">Get found</div>
+<a class="item" href="/seo">
+<div class="txt">SEO</div>
+<div class="des">
                   Build sites that win more search traffic
                 </div>
-              </a>
-              <a class="item" href="/AEO">
-                <div class="txt">AEO</div>
-                <div class="des">
+</a>
+<a class="item" href="/AEO">
+<div class="txt">AEO</div>
+<div class="des">
                   Monitor and grow your clients’ AI Visibility
                 </div>
-              </a>
-              <div class="title">Convert</div>
-              <a class="item" href="/bookings">
-                <div class="txt">Bookings</div>
-                <div class="des">
+</a>
+<div class="title">Convert</div>
+<a class="item" href="/bookings">
+<div class="txt">Bookings</div>
+<div class="des">
                   Convert leads with integrated scheduling
                 </div>
-              </a>
-              <a class="item" href="/ecommerce" >
-                <div class="txt">eCommerce</div>
-                <div class="des">
+</a>
+<a class="item" href="/ecommerce">
+<div class="txt">eCommerce</div>
+<div class="des">
                   Launch high-converting online stores
                 </div>
-              </a>
-            </div>
-            <!-- /column -->
-            <div class="column">
-              <div class="title">Professional tools</div>
-              <a
-                class="item"
-                href="/website-builder/white-label"
-              >
-                <div class="txt">White label</div>
-                <div class="des">
+</a>
+</div>
+<!-- /column -->
+<div class="column">
+<div class="title">Professional tools</div>
+<a class="item" href="/website-builder/white-label">
+<div class="txt">White label</div>
+<div class="des">
                   Make Duda’s entire platform your own
                 </div>
-              </a>
-              <a class="item" href="/client-management">
-                <div class="txt">Client management</div>
-                <div class="des">
+</a>
+<a class="item" href="/client-management">
+<div class="txt">Client management</div>
+<div class="des">
                   Invite clients with role-based permissions
                 </div>
-              </a>
-              <a class="item" href="/team-collaboration" >
-                <div class="txt">Team collaboration</div>
-                <div class="des">
+</a>
+<a class="item" href="/team-collaboration">
+<div class="txt">Team collaboration</div>
+<div class="des">
                   Work alongside your teammates
                 </div>
-              </a>
-              <a
-                class="item"
-                href="/website-builder/app-store"
-              >
-                <div class="txt">App store</div>
-                <div class="des">
+</a>
+<a class="item" href="/website-builder/app-store">
+<div class="txt">App store</div>
+<div class="des">
                   Extend your sites with powerful apps
                 </div>
-              </a>
-              <a
-                class="item"
-                href="/website-builder/security"
-              >
-                <div class="txt">
+</a>
+<a class="item" href="/website-builder/security">
+<div class="txt">
                   Security
                 </div>
-                <div class="des">
+<div class="des">
                   Rely on robust, enterprise-grade security
                 </div>
-              </a>
-            </div>
-            <!-- /column -->
-          </div>
-          <!-- /left-side -->
-          <div class="right-side">
-            <div class="title">More from Duda</div>
-            <a
-              class="item"
-              href="/website-builder/templates"
-            >
-              <div class="txt">
+</a>
+</div>
+<!-- /column -->
+</div>
+<!-- /left-side -->
+<div class="right-side">
+<div class="title">More from Duda</div>
+<a class="item" href="/website-builder/templates">
+<div class="txt">
                 Templates
-                <svg class="arrow-right">
-                  <use xlink:href="#arrow-right"></use>
-                </svg>
-              </div>
-            </a>
-            <a
-              class="item"
-              href="/inspiration"
-            >
-              <div class="txt">
+                
+</div>
+</a>
+<a class="item" href="/inspiration">
+<div class="txt">
                 Made with Duda
-                <svg class="arrow-right">
-                  <use xlink:href="#arrow-right"></use>
-                </svg>
-              </div>
-            </a>
-            <a
-              class="item"
-              href="/accessibility"
-            >
-              <div class="txt">
+                
+</div>
+</a>
+<a class="item" href="/accessibility">
+<div class="txt">
                 Accessibility
-                <svg class="arrow-right">
-                  <use xlink:href="#arrow-right"></use>
-                </svg>
-              </div>
-            </a>
-            <a href="/knowledge/2026-ai-visibility-aeo-report"  
-              class="visual"
-              style="background-image: url(https://du-cdn.cdn-website.com/duda_website/images/mega-menu/report-2026.png?v=1);" 
-            >
-            </a>
-          </div>
-          <!-- /right-side -->
-        </div>
-        <!-- /data -->
-        <a class="sub-menu-title" data-submenu-link="solutions"
-          >Solutions<svg
-            class="arrow-down"
-            width="12"
-            height="6"
-            viewBox="0 0 12 6"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1.5 0.75L6 5.25L10.5 0.75"
-              stroke="#0C101C"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            /></svg
-        ></a>
-        <div class="content" data-submenu="solutions">
-          <div class="left-side">
-            <div class="column">
-              <div class="title">Duda for</div>
-              <a
-                class="item"
-                href="/solutions/agencies"
-              >
-                <div class="txt">Agencies</div>
-                <div class="des">
+                
+</div>
+</a>
+<a class="visual" href="/knowledge/2026-ai-visibility-aeo-report" style="background-image: url(https://du-cdn.cdn-website.com/duda_website/images/mega-menu/report-2026.png?v=1);">
+</a>
+</div>
+<!-- /right-side -->
+</div>
+<!-- /data -->
+<a class="sub-menu-title" data-submenu-link="solutions">Solutions</a>
+<div class="content" data-submenu="solutions">
+<div class="left-side">
+<div class="column">
+<div class="title">Duda for</div>
+<a class="item" href="/solutions/agencies">
+<div class="txt">Agencies</div>
+<div class="des">
                   See why Duda is the top website builder
                   for agency growth
                 </div>
-              </a>
-              <a
-                class="item"
-                href="/solutions/hosts"
-              >
-                <div class="txt">Hosting platforms</div>
-                <div class="des">
+</a>
+<a class="item" href="/solutions/hosts">
+<div class="txt">Hosting platforms</div>
+<div class="des">
                   Compliment your services with sites
                 </div>
-              </a>
-            </div>
-            <!-- /column -->
-            <div class="column">
-              <div class="title">&nbsp;</div>
-              <a
-                class="item"
-                href="/solutions/saas-platforms"
-              >
-                <div class="txt">Vertical SaaS</div>
-                <div class="des">
+</a>
+</div>
+<!-- /column -->
+<div class="column">
+<div class="title"> </div>
+<a class="item" href="/solutions/saas-platforms">
+<div class="txt">Vertical SaaS</div>
+<div class="des">
                   Integrate a white-label website builder
                 </div>
-              </a>
-              <a
-                class="item"
-                href="/solutions/point-of-sale"
-              >
-                <div class="txt">Point of Sale</div>
-                <div class="des">
+</a>
+<a class="item" href="/solutions/point-of-sale">
+<div class="txt">Point of Sale</div>
+<div class="des">
                   Drive transaction volume with sites
                 </div>
-              </a>
-            </div>
-            <!-- /column -->
-          </div>
-          <!-- /left-side -->
-          <div class="right-side">
-            <div class="title">Industry case studies</div>
-            <a
-              class="item"
-              href="/success-stories/appfolio"
-            >
-              <div class="txt">
+</a>
+</div>
+<!-- /column -->
+</div>
+<!-- /left-side -->
+<div class="right-side">
+<div class="title">Industry case studies</div>
+<a class="item" href="/success-stories/appfolio">
+<div class="txt">
                 Property management
-                <svg class="arrow-right">
-                  <use xlink:href="#arrow-right"></use>
-                </svg>
-              </div>
-            </a>
-            <a
-              class="item"
-              href="/success-stories/hospitality"
-            >
-              <div class="txt">
-                Travel & hospitality
-                <svg class="arrow-right">
-                  <use xlink:href="#arrow-right"></use>
-                </svg>
-              </div>
-            </a>
-            <a
-              class="item"
-              href="/success-stories/moovs"
-            >
-              <div class="txt">
+                
+</div>
+</a>
+<a class="item" href="/success-stories/hospitality">
+<div class="txt">
+                Travel &amp; hospitality
+                
+</div>
+</a>
+<a class="item" href="/success-stories/moovs">
+<div class="txt">
                 Transportation
-                <svg class="arrow-right">
-                  <use xlink:href="#arrow-right"></use>
-                </svg>
-              </div>
-            </a>
-            <hr />
-            <a
-              class="item"
-              href="/success-stories"
-            >
-              <div class="txt">
+                
+</div>
+</a>
+<hr/>
+<a class="item" href="/success-stories">
+<div class="txt">
                 View all success stories
-                <svg class="arrow-right">
-                  <use xlink:href="#arrow-right"></use>
-                </svg>
-              </div>
-            </a>
-          </div>
-          <!-- /right-side -->
-        </div>
-        <!-- /data -->
-        <a class="sub-menu-title" data-submenu-link="resources"
-          >Resources<svg
-            class="arrow-down"
-            width="12"
-            height="6"
-            viewBox="0 0 12 6"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1.5 0.75L6 5.25L10.5 0.75"
-              stroke="#0C101C"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            /></svg
-        ></a>
-        <div class="content" data-submenu="resources">
-          <div class="left-side">
-            <div class="column">
-              <div class="title">Start</div>
-              <a
-                class="item"
-                href="/website-builder/templates"
-              >
-                <div class="txt">Templates</div>
-                <div class="des">
+                
+</div>
+</a>
+</div>
+<!-- /right-side -->
+</div>
+<!-- /data -->
+<a class="sub-menu-title" data-submenu-link="resources">Resources</a>
+<div class="content" data-submenu="resources">
+<div class="left-side">
+<div class="column">
+<div class="title">Start</div>
+<a class="item" href="/website-builder/templates">
+<div class="txt">Templates</div>
+<div class="des">
                   Get started with beautiful templates
                 </div>
-              </a>
-              <a
-                class="item"
-                href="/inspiration"
-              >
-                <div class="txt">Inspiration</div>
-                <div class="des">
+</a>
+<a class="item" href="/inspiration">
+<div class="txt">Inspiration</div>
+<div class="des">
                   Browse real sites that clients already love
                 </div>
-              </a>
-              <a
-                class="item"
-                href="https://developer.duda.co/docs/partner-api-introduction"
-              >
-                <div class="txt">Developers</div>
-                <div class="des">
+</a>
+<a class="item" href="https://developer.duda.co/docs/partner-api-introduction">
+<div class="txt">Developers</div>
+<div class="des">
                   Discover APIs, extensions, and other tools
                 </div>
-              </a>
-              <a
-                class="item"
-                href="/experts"
-              >
-                <div class="txt">Hire an expert</div>
-                <div class="des">
+</a>
+<a class="item" href="/experts">
+<div class="txt">Hire an expert</div>
+<div class="des">
                   Hire expert fulfillment services
                 </div>
-              </a>
-            </div>
-            <!-- /column -->
-            <div class="column">
-              <div class="title">Learn</div>
-              <a class="item" href="https://academy.duda.co">
-                <div class="txt">Duda Academy</div>
-                <div class="des">
+</a>
+</div>
+<!-- /column -->
+<div class="column">
+<div class="title">Learn</div>
+<a class="item" href="https://academy.duda.co">
+<div class="txt">Duda Academy</div>
+<div class="des">
                   Take your skills to the next level
                 </div>
-              </a>
-              <a class="item" href="https://blog.duda.co/">
-                <div class="txt">Blog</div>
-                <div class="des">
+</a>
+<a class="item" href="https://blog.duda.co/">
+<div class="txt">Blog</div>
+<div class="des">
                   Get insights to grow your business
                 </div>
-              </a>
-              <a class="item" href="/webinars" >
-                <div class="txt">Webinars</div>
-                <div class="des">
+</a>
+<a class="item" href="/webinars">
+<div class="txt">Webinars</div>
+<div class="des">
                   Learn from experts, live or on-demand
                 </div>
-              </a>
-            </div>
-            <div class="column">
-              <div class="title">Discvoer</div>
-              <a class="item" href="/success-stories" >
-                <div class="txt">Success Stories</div>
-                <div class="des">
+</a>
+</div>
+<div class="column">
+<div class="title">Discvoer</div>
+<a class="item" href="/success-stories">
+<div class="txt">Success Stories</div>
+<div class="des">
                   Get inspired by real wins
                 </div>
-              </a>
-              <a class="item" href="/use-cases" >
-                <div class="txt">Use cases</div>
-                <div class="des">
+</a>
+<a class="item" href="/use-cases">
+<div class="txt">Use cases</div>
+<div class="des">
                   Explore integration examples with Duda
                 </div>
-              </a>
-              <a class="item" href="/product-updates">
-                <div class="txt">Product Updates</div>
-                <div class="des">
+</a>
+<a class="item" href="/product-updates">
+<div class="txt">Product Updates</div>
+<div class="des">
                   Discover Duda's latest releases
                 </div>
-              </a>
-            </div>
-            <!-- /column -->
-          </div>
-          <!-- /left-side -->
-          <div class="right-side">
-            <div class="title">Get help</div>
-            <a
-              class="item"
-              href="https://support.duda.co/hc/en-us"
-            >
-              <div class="txt">
+</a>
+</div>
+<!-- /column -->
+</div>
+<!-- /left-side -->
+<div class="right-side">
+<div class="title">Get help</div>
+<a class="item" href="https://support.duda.co/hc/en-us">
+<div class="txt">
                 Support
-                <svg class="arrow-right">
-                  <use xlink:href="#arrow-right"></use>
-                </svg>
-              </div>
-            </a>
-            <a class="item" href="https://status.duda.co/">
-              <div class="txt">
+                
+</div>
+</a>
+<a class="item" href="https://status.duda.co/">
+<div class="txt">
                 System status
-                <svg class="arrow-right">
-                  <use xlink:href="#arrow-right"></use>
-                </svg>
-              </div>
-            </a>
-            <a href="/knowledge/2026-ai-visibility-aeo-report"  
-              class="visual"
-              style="background-image: url(https://du-cdn.cdn-website.com/duda_website/images/mega-menu/report-2026.png?v=1);" 
-            >
-            </a>
-          </div>
-          <!-- /right-side -->
-        </div>
-        <!-- /data -->
-        <a class="sub-menu-title" href="/pricing"
-          >Pricing</a
-        >
-        <a class="sub-menu-title" href="/enterprise"
-          >Enterprise</a
-        >
-      </div>
-      <!-- /sub-menu-down -->
-      <div class="secondary">
-        <a href="/contact" class="contact-button"
-          >Contact sales</a
-        >
-        <a href="/signup?dm_referral=NEW_Mobile_Menu" class="signup-button"
-          >Start free trial</a
-        >
-        <div class="login-wrap">
-          <a href="/login" class="login-button"
-            >Log in</a
-          >
-        </div>
-      </div>
-    </div>
-    <!-- /sub-menu -->
-    </div>
-    <!-- /sub-menu-holder -->
-
-    <div
-      style="
+                
+</div>
+</a>
+<a class="visual" href="/knowledge/2026-ai-visibility-aeo-report" style="background-image: url(https://du-cdn.cdn-website.com/duda_website/images/mega-menu/report-2026.png?v=1);">
+</a>
+</div>
+<!-- /right-side -->
+</div>
+<!-- /data -->
+<a class="sub-menu-title" href="/pricing">Pricing</a>
+<a class="sub-menu-title" href="/enterprise">Enterprise</a>
+</div>
+<!-- /sub-menu-down -->
+<div class="secondary">
+<a class="contact-button" href="/contact">Contact sales</a>
+<a class="signup-button" href="/signup?dm_referral=NEW_Mobile_Menu">Start free trial</a>
+<div class="login-wrap">
+<a class="login-button" href="/login">Log in</a>
+</div>
+</div>
+</div>
+<!-- /sub-menu -->
+</div>
+<!-- /sub-menu-holder -->
+<div style="
         height: 0;
         width: 0;
         position: absolute;
         visibility: hidden;
-      "
-    >
-      <svg
-        style="position: absolute; width: 0; height: 0"
-        width="0"
-        height="0"
-      >
-        <style type="text/css">
-          .logo-st0 {
-            fill: #F07C5A;
-          }
+      ">
 
-          .logo-st1 {
-            fill: #ffffff;
-          }
-        </style>
-        <symbol
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px"
-          y="0px"
-          viewBox="0 0 500 223.689"
-          style="enable-background: new 0 0 500 223.689"
-          xml:space="preserve"
-          id="logo_duda_textfill"
-        >
-          <path
-            class="logo-st0"
-            d="M474.267,223.689H25.733C11.521,223.689,0,212.167,0,197.955V25.733C0,11.521,11.521,0,25.733,0h448.534
-          C488.479,0,500,11.521,500,25.733v172.222C500,212.167,488.479,223.689,474.267,223.689z"
-          />
-          <g>
-            <path
-              class="logo-st1"
-              d="M330.501,46.093v47.58c-7.674-5.631-16.131-8.966-26.357-8.966c-25.556,0-46.349,20.792-46.349,46.349
-            c0,25.557,20.792,46.35,46.349,46.35c10.226,0,18.684-3.335,26.357-8.966v7.143h23.332V46.093H330.501z M306.22,155.603
-            c-13.535,0-24.547-11.012-24.547-24.548c0-13.535,11.011-24.547,24.547-24.547c13.536,0,24.547,11.012,24.547,24.547
-            C330.767,144.592,319.756,155.603,306.22,155.603z"
-            />
-            <path
-              class="logo-st1"
-              d="M121.621,46.093v47.58c-7.674-5.631-16.132-8.966-26.357-8.966c-25.556,0-46.349,20.792-46.349,46.349
-            c0,25.557,20.792,46.35,46.349,46.35c10.226,0,18.684-3.335,26.357-8.966v7.143h23.332V46.093H121.621z M97.34,155.603
-            c-13.535,0-24.547-11.012-24.547-24.548c0-13.535,11.012-24.547,24.547-24.547c13.536,0,24.548,11.012,24.548,24.547
-            C121.888,144.592,110.876,155.603,97.34,155.603z"
-            />
-            <path
-              class="logo-st1"
-              d="M369.291,97.922l8.153,15.972c9.451-6.36,18.399-9.967,28.822-9.967c20.846,0,21.058,16.077,21.058,16.077
-            s-11.483-0.618-20.581-0.442c-12.19,0.265-38.512,4.328-38.512,29.944c0,17.313,13.514,28.089,32.064,28.089
-            c18.903,0,26.234-6.89,28.001-9.981l0.088,8.282h22.701v-52.712c0-17.404-11.748-38.834-44.253-38.834
-            C387.134,84.35,375.121,93.417,369.291,97.922z M403.298,159.929c-5.3,0-14.133-1.325-14.133-11.395
-            c0-7.331,8.745-11.218,17.489-11.395c9.451-0.177,20.669,0,20.669,0C427.324,153.216,413.898,159.929,403.298,159.929z"
-            />
-            <path
-              class="logo-st1"
-              d="M183.186,134.77c0,10.027,8.128,18.155,18.154,18.155h1c10.027,0,18.154-8.128,18.154-18.155
-            c0-11.493,0-44.544,0-44.544h23.449v85.402h-22.574l-0.033-10.951c-2.467,3.566-9.641,10.691-25.132,10.691
-            c-10.621,0-21.821-5.458-27.618-12.118c-5.764-6.619-8.687-16.398-8.687-29.067V90.226h23.286V134.77z"
-            />
-          </g>
-        </symbol>
-      </svg>
-    </div>
-    <svg
-      style="position: absolute; width: 0; height: 0"
-        width="0"
-        height="0"
-      >
-      <symbol xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none" id="arrow-right">
-        <path d="M1.2188 1.21875L7.71875 7.71875L1.21875 14.2188" stroke="#61616C" stroke-width="2.4375" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
-      </symbol>
-    </svg>
-  </div><!-- end Main Menu -->
-</div><!-- /main-menu-holder -->
-  
-
-    
-    <!-- Start of main content -->
-  <div class="inner-wrap">
-    <div class="main-section">
-
-
-<div class="careers jobs-page">
-	<section class="hero-section jobs-hero">
-	    <div class="content">
-    		<div class="icon">
-    			<div class="shadow">
-    				<img src="//du-cdn.cdn-website.com/duda_website/img/common/header_shadow.svg?v=2">
-    			</div>
-    			<img src="//du-cdn.cdn-website.com/duda_website/img/careers/careers_header_icon.svg?v=2">
-    		</div>
-    	    <h1>Careers</h1>
-    	    <div class="sub-title">Roll with Us</div>
-	    </div>
-	</section>
-	<section class="collective">
-		<div class="container text-center">
-			<h2 class="section-title">Duda is a collective</h2>
-			<div class="row">
-				<div class="columns large-7 large-centered medium-10 medium-centered small-12">
-					<p class="main-p">
-						Made up of warm, approachable people. We have fun exchanging ideas, building innovations and collaborating to get work done.
-                        <a data-scroll-to="anchor-info-tables" class="anchor">View Job Openings 
-                            <svg class="arrow-icon">
-                               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-icon"></use>
-                            </svg>
-                        </a>
-					</p>
-				</div>
-			</div>
-		</div>
-		    <div class="up-pictures show-for-small-only">
-        <div class="pictures">
-            <div class="vertical">
-                <div class="pic pic-3">
-                    <div class="up-image">
-                        <img 
-                             srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_1.png?v=2 1x,
-                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_1@2x.png?v=2 2x" >                
-                    </div>
-                </div>
-                <div class="pic pic-4">
-                    <div class="up-image">
-                        <img 
-                             srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_3.png?v=2 1x,
-                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_3@2x.png?v=2 2x" >
-                    </div>
-                </div>
-                <div class="pic pic-2">
-                    <div class="up-image">
-                        <img 
-                             srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_5.png?v=2 1x,
-                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_5@2x.png?v=2 2x" >
-                    </div>
-                </div>
-            </div><!-- /vertical -->
-            <div class="vertical">
-                <div class="pic pic-5">
-                    <div class="up-image">
-                        <img 
-                             srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_2.png?v=2 1x,
-                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_2@2x.png?v=2 2x" >
-                    </div>
-                </div>
-                <div class="pic pic-6">
-                    <div class="up-image">
-                        <img 
-                             srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_4.png?v=2 1x,
-                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_4@2x.png?v=2 2x" >
-                    </div>
-                </div>
-                <div class="pic pic-7">
-                    <div class="up-image">
-                        <img 
-                             srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_6.png?v=2 1x,
-                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_6@2x.png?v=2 2x" >
-                    </div>
-                </div>
-            </div><!-- /vertical -->
-        </div><!-- /pictures -->
-    </div><!-- /up-pictures -->    <div class="up-pictures show-for-medium">
-        <div class="pictures">
-            <div class="vertical">
-                <div class="pic pic-1">
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_a.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_a@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_b.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_b@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_c.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_c@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_d.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_d@2x.png?v=3 2x" >                     
-                    </div>
-                </div>
-                <div class="pic pic-2">
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_a.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_a@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_b.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_b@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_c.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_c@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_d.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_d@2x.png?v=3 2x" >                     
-                    </div>
-                </div>
-            </div><!-- /vertical -->
-            <div class="vertical">
-                <div class="pic pic-3">
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_a.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_a@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_b.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_b@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_c.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_c@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_d.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_d@2x.png?v=3 2x" >                     
-                    </div>
-                </div>
-                <div class="pic pic-4">
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_a.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_a@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_b.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_b@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_c.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_c@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_d.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_d@2x.png?v=3 2x" >                     
-                    </div>
-                </div>
-            </div><!-- /vertical -->
-            <div class="vertical">
-                <div class="pic pic-5">
-                    <div class="up-image">
-                        <video loop="true" muted="true"
-                            poster="//du-cdn.cdn-website.com/duda_website/img/color-gifs/hila/hila.png?v=3">
-                            <source src="//du-cdn.cdn-website.com/duda_website/img/color-gifs/hila/hila.mp4?v=3" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="up-image">
-                        <video loop="true" muted="true"
-                            poster="//du-cdn.cdn-website.com/duda_website/img/color-gifs/jordan/jordan.png?v=3">
-                            <source src="//du-cdn.cdn-website.com/duda_website/img/color-gifs/jordan/jordan.mp4?v=3" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="up-image">
-                        <video loop="true" muted="true"
-                            poster="//du-cdn.cdn-website.com/duda_website/img/color-gifs/ralphie/ralphie.png?v=3">
-                            <source src="//du-cdn.cdn-website.com/duda_website/img/color-gifs/ralphie/ralphie.mp4?v=3" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div><!-- /vertical -->
-            <div class="vertical">
-                <div class="pic pic-6">
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_a.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_a@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_b.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_b@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_c.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_c@2x.png?v=3 2x" >                     
-                    </div>
-                </div>
-                <div class="pic pic-7">
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_a.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_a@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_b.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_b@2x.png?v=3 2x" >                     
-                    </div>
-                    <div class="up-image">
-                        <img
-                            srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_c.png?v=3 1x,
-                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_c@2x.png?v=3 2x" >                     
-                    </div>
-                </div>
-            </div><!-- /vertical -->
-        </div><!-- /pictures -->
-    </div><!-- /up-pictures -->
-
-	</section>
-
-	<section>
-		<div data-scroll="anchor-info-tables" style="float: left; width: 100%; transform: translateY(-120px);" id="jobs-list"></div>
-		<div class="container">
-			<div class="row">
-			    <div class="small-12 text-center pb-40 columns">
-			        <h2 class="section-title">Current Job Openings</h2>
-			    </div>            
-			    <div class="large-12 columns"> 
-			    	 <div id="advice-quotation-bubble" class="quotation-bubble">
-			    	 	<div class="cloud">
-			    	 		<div class="up-txt">
-			        	 		<img src="//du-cdn.cdn-website.com/duda_website/img/careers/cloud/cloud.svg?v=2">
-								<div class="txt white">... My advice is, do what your parents did! Get a job, sir!</div>
-							</div>
-			    	 	</div>
-			    	 	<div class="oval-2">
-			    	 		<img src="//du-cdn.cdn-website.com/duda_website/img/careers/cloud/big-bubble.svg?v=2">
-			    	 	</div>
-			    	 	<div class="oval-1">
-			    	 		<img src="//du-cdn.cdn-website.com/duda_website/img/careers/cloud/small-bubble.svg?v=2">
-			    	 	</div>
-			    	 	<div class="dude">
-			    	 		<img src="//du-cdn.cdn-website.com/duda_website/img/careers/dude_bubble.svg?v=2">
-			    	 	</div>
-			    	 </div><!-- /quotation-bubble -->
-
-					<div class="filter">
-						<form>
-							<label>
-								Country
-								<select class="countries-list">
-									<option value="all">All</option>
-									<option value="us">USA</option>
-									<option value="il">Israel</option>
-									<option value="uk">UK</option>
-									<option value="br">Brazil</option>
-									<option value="ca">Canada</option>
-									<option value="ph">Philippines</option>
-								</select>			    	 				    	 		
-							</label>
-							<label>
-								Department
-								<select class="department-list">
-									<option value="all">All</option>
-									<option value="rd">R&D</option>
-									<option value="product-management-ux">Product Management & UX</option>
-									<option value="customer-success">Customer Success</option>
-									<option value="customer-support">Customer Support</option>
-									<option value="customer-education">Customer Education</option>
-									<option value="hr">HR</option>
-									<option value="finance">Finance</option>
-									<option value="sales">Sales</option>
-									<option value="sales-ops">Sales Ops</option>
-									<option value="marketing">Marketing</option>
-									<option value="people-team">People Team</option>
-								</select>
-							</label>
-						</form>
-					</div>
-			        <div class="jobs-list">
-			        	<h3 class="rd">R&D</h3><h3 class="product-management-ux">Product Management & UX</h3>
-<div class="job-box il product-management-ux">
-    <a href="/careers/7981609003">
-        <div class="title">
-        	Senior Product Designer         </div>
-        <div class="location">
-        	Tel Aviv	    </div>
-    </a>
 </div>
 
+</div><!-- end Main Menu -->
+</div><!-- /main-menu-holder -->
+<!-- Start of main content -->
+<div class="inner-wrap">
+<div class="main-section">
+<div class="careers jobs-page">
+<section class="hero-section jobs-hero">
+<div class="content">
+<div class="icon">
+<div class="shadow">
+<img src="//du-cdn.cdn-website.com/duda_website/img/common/header_shadow.svg?v=2"/>
+</div>
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/careers_header_icon.svg?v=2"/>
+</div>
+<h1>Careers</h1>
+<div class="sub-title">Roll with Us</div>
+</div>
+</section>
+<section class="collective">
+<div class="container text-center">
+<h2 class="section-title">Duda is a collective</h2>
+<div class="row">
+<div class="columns large-7 large-centered medium-10 medium-centered small-12">
+<p class="main-p">
+						Made up of warm, approachable people. We have fun exchanging ideas, building innovations and collaborating to get work done.
+                        <a class="anchor" data-scroll-to="anchor-info-tables">View Job Openings 
+                            
+</a>
+</p>
+</div>
+</div>
+</div>
+<div class="up-pictures show-for-small-only">
+<div class="pictures">
+<div class="vertical">
+<div class="pic pic-3">
+<div class="up-image">
+<img srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_1.png?v=2 1x,
+                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_1@2x.png?v=2 2x"/>
+</div>
+</div>
+<div class="pic pic-4">
+<div class="up-image">
+<img srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_3.png?v=2 1x,
+                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_3@2x.png?v=2 2x"/>
+</div>
+</div>
+<div class="pic pic-2">
+<div class="up-image">
+<img srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_5.png?v=2 1x,
+                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_5@2x.png?v=2 2x"/>
+</div>
+</div>
+</div><!-- /vertical -->
+<div class="vertical">
+<div class="pic pic-5">
+<div class="up-image">
+<img srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_2.png?v=2 1x,
+                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_2@2x.png?v=2 2x"/>
+</div>
+</div>
+<div class="pic pic-6">
+<div class="up-image">
+<img srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_4.png?v=2 1x,
+                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_4@2x.png?v=2 2x"/>
+</div>
+</div>
+<div class="pic pic-7">
+<div class="up-image">
+<img srcset="https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_6.png?v=2 1x,
+                                        https://du-cdn.cdn-website.com/duda_website/img/careers/pictures-mobile/pic_6@2x.png?v=2 2x"/>
+</div>
+</div>
+</div><!-- /vertical -->
+</div><!-- /pictures -->
+</div><!-- /up-pictures --> <div class="up-pictures show-for-medium">
+<div class="pictures">
+<div class="vertical">
+<div class="pic pic-1">
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_a.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_a@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_b.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_b@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_c.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_c@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_d.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_1_d@2x.png?v=3 2x"/>
+</div>
+</div>
+<div class="pic pic-2">
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_a.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_a@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_b.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_b@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_c.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_c@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_d.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_2_d@2x.png?v=3 2x"/>
+</div>
+</div>
+</div><!-- /vertical -->
+<div class="vertical">
+<div class="pic pic-3">
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_a.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_a@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_b.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_b@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_c.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_c@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_d.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_3_d@2x.png?v=3 2x"/>
+</div>
+</div>
+<div class="pic pic-4">
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_a.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_a@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_b.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_b@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_c.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_c@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_d.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_4_d@2x.png?v=3 2x"/>
+</div>
+</div>
+</div><!-- /vertical -->
+<div class="vertical">
+<div class="pic pic-5">
+<div class="up-image">
+<video loop="true" muted="true" poster="//du-cdn.cdn-website.com/duda_website/img/color-gifs/hila/hila.png?v=3">
+<source src="//du-cdn.cdn-website.com/duda_website/img/color-gifs/hila/hila.mp4?v=3" type="video/mp4"/>
+</video>
+</div>
+<div class="up-image">
+<video loop="true" muted="true" poster="//du-cdn.cdn-website.com/duda_website/img/color-gifs/jordan/jordan.png?v=3">
+<source src="//du-cdn.cdn-website.com/duda_website/img/color-gifs/jordan/jordan.mp4?v=3" type="video/mp4"/>
+</video>
+</div>
+<div class="up-image">
+<video loop="true" muted="true" poster="//du-cdn.cdn-website.com/duda_website/img/color-gifs/ralphie/ralphie.png?v=3">
+<source src="//du-cdn.cdn-website.com/duda_website/img/color-gifs/ralphie/ralphie.mp4?v=3" type="video/mp4"/>
+</video>
+</div>
+</div>
+</div><!-- /vertical -->
+<div class="vertical">
+<div class="pic pic-6">
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_a.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_a@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_b.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_b@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_c.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_6_c@2x.png?v=3 2x"/>
+</div>
+</div>
+<div class="pic pic-7">
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_a.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_a@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_b.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_b@2x.png?v=3 2x"/>
+</div>
+<div class="up-image">
+<img srcset="//du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_c.png?v=3 1x,
+                                    //du-cdn.cdn-website.com/duda_website/img/careers/pictures/version-2/pic_7_c@2x.png?v=3 2x"/>
+</div>
+</div>
+</div><!-- /vertical -->
+</div><!-- /pictures -->
+</div><!-- /up-pictures -->
+</section>
+<section>
+<div data-scroll="anchor-info-tables" id="jobs-list" style="float: left; width: 100%; transform: translateY(-120px);"></div>
+<div class="container">
+<div class="row">
+<div class="small-12 text-center pb-40 columns">
+<h2 class="section-title">Current Job Openings</h2>
+</div>
+<div class="large-12 columns">
+<div class="quotation-bubble" id="advice-quotation-bubble">
+<div class="cloud">
+<div class="up-txt">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/cloud/cloud.svg?v=2"/>
+<div class="txt white">... My advice is, do what your parents did! Get a job, sir!</div>
+</div>
+</div>
+<div class="oval-2">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/cloud/big-bubble.svg?v=2"/>
+</div>
+<div class="oval-1">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/cloud/small-bubble.svg?v=2"/>
+</div>
+<div class="dude">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/dude_bubble.svg?v=2"/>
+</div>
+</div><!-- /quotation-bubble -->
+<div class="filter">
+<form>
+<label>
+								Country
+								<select class="countries-list">
+<option value="all">All</option>
+<option value="us">USA</option>
+<option value="il">Israel</option>
+<option value="uk">UK</option>
+<option value="br">Brazil</option>
+<option value="ca">Canada</option>
+<option value="ph">Philippines</option>
+</select>
+</label>
+<label>
+								Department
+								<select class="department-list">
+<option value="all">All</option>
+<option value="rd">R&amp;D</option>
+<option value="product-management-ux">Product Management &amp; UX</option>
+<option value="customer-success">Customer Success</option>
+<option value="customer-support">Customer Support</option>
+<option value="customer-education">Customer Education</option>
+<option value="hr">HR</option>
+<option value="finance">Finance</option>
+<option value="sales">Sales</option>
+<option value="sales-ops">Sales Ops</option>
+<option value="marketing">Marketing</option>
+<option value="people-team">People Team</option>
+</select>
+</label>
+</form>
+</div>
+<div class="jobs-list">
+<h3 class="rd">R&amp;D</h3><h3 class="product-management-ux">Product Management &amp; UX</h3>
 <div class="job-box il product-management-ux">
-    <a href="/careers/7879384003">
-        <div class="title">
-        	Senior Product Manager         </div>
-        <div class="location">
+<a href="/careers/7981609003">
+<div class="title">
+        	Senior Product Designer         </div>
+<div class="location">
         	Tel Aviv	    </div>
-    </a>
+</a>
+</div>
+<div class="job-box il product-management-ux">
+<a href="/careers/7879384003">
+<div class="title">
+        	Senior Product Manager         </div>
+<div class="location">
+        	Tel Aviv	    </div>
+</a>
 </div>
 <h3 class="customer-success">Customer Success</h3><h3 class="customer-support">Customer Support</h3>
 <div class="job-box br customer-support">
-    <a href="/careers/7798674003">
-        <div class="title">
+<a href="/careers/7798674003">
+<div class="title">
         	Bilingual Technical Support Engineer         </div>
-        <div class="location">
+<div class="location">
         	Florianópolis/SC	    </div>
-    </a>
+</a>
 </div>
-
 <div class="job-box us customer-support">
-    <a href="/careers/7978377003">
-        <div class="title">
+<a href="/careers/7978377003">
+<div class="title">
         	Technical Support Engineer         </div>
-        <div class="location">
+<div class="location">
         	Louisville, Colorado	    </div>
-    </a>
+</a>
 </div>
 <h3 class="customer-education">Customer Education</h3><h3 class="hr">HR</h3><h3 class="finance">Finance</h3>
 <div class="job-box br finance">
-    <a href="/careers/7974123003">
-        <div class="title">
-        	Deal Desk & Contracts Operations Specialist        </div>
-        <div class="location">
+<a href="/careers/7974123003">
+<div class="title">
+        	Deal Desk &amp; Contracts Operations Specialist        </div>
+<div class="location">
         	Florianópolis/SC	    </div>
-    </a>
+</a>
 </div>
 <h3 class="sales">Sales</h3>
 <div class="job-box uk sales">
-    <a href="/careers/7791677003">
-        <div class="title">
+<a href="/careers/7791677003">
+<div class="title">
         	Senior Account Executive, Mid Market - UK        </div>
-        <div class="location">
+<div class="location">
         	London, England, United Kingdom	    </div>
-    </a>
+</a>
 </div>
-
 <div class="job-box us sales">
-    <a href="/careers/7747621003">
-        <div class="title">
+<a href="/careers/7747621003">
+<div class="title">
         	Senior Partner GTM Manager        </div>
-        <div class="location">
+<div class="location">
         	Louisville, Colorado	    </div>
-    </a>
+</a>
 </div>
-<h3 class="sales-ops">Sales Ops</h3><h3 class="marketing">Marketing</h3>			        				<div class="job-box us marketing">
-			        				    <a href="/careers/marketing-automation-manager-louisville">
-			        				        <div class="title">Marketing Automation Manager</div>
-			        				        <div class="location">Louisville, CO</div>
-			        				    </a>
-			        				</div>
-			        				<h3 class="people-team">People Team</h3>
-			            <div class="no-jobs-found">
-                            <h2 class="section-title">Sorry dude!</h2>
-                            <p>
+<h3 class="sales-ops">Sales Ops</h3><h3 class="marketing">Marketing</h3> <div class="job-box us marketing">
+<a href="/careers/marketing-automation-manager-louisville">
+<div class="title">Marketing Automation Manager</div>
+<div class="location">Louisville, CO</div>
+</a>
+</div>
+<h3 class="people-team">People Team</h3>
+<div class="no-jobs-found">
+<h2 class="section-title">Sorry dude!</h2>
+<p>
                             	There are no open positions <span class="department">{team_name}</span><span class="country">{location}</span>right now.
                             </p>
-                            <img src="//du-cdn.cdn-website.com/duda_website/img/careers/bowling.svg">
-			            </div><!-- /no-jobs-found -->
-
-			        </div>
-
-	        		<!-- if no jobs available -->
-	        					    </div>
-			</div>  
-		</div><!-- /container -->
-	</section>
-	    <section class="benefits benefits-il" style="display:none;">
-        <div class="container">
-            <div class="row text-center">
-                <h2 class="section-title">Our Awesome Advantages</h2>
-            </div>
-            <div class="row-flex text-center">
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/aim_high_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Aim High</div>
-                    <p>We fund your education, provide pensions, and offer many opportunities for job growth.</p>
-                </div><!-- /benefit-item -->
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/fun_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Join the Fun</div>
-                    <p>With cool Dudes & Dudettes, you’ll enjoy your time at the office and at off-hours hangouts. </p>
-                </div><!-- /benefit-item -->
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/live_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Live it Up</div>
-                    <p>We’re a family-friendly company that respects your time–both on and off the job.</p>
-                </div><!-- /benefit-item -->
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/play_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Play Hard</div>
-                    <p>Work with cutting-edge technologies including React, Spring Boot, Node.js and Java in a serverless architecture.</p>
-                </div><!-- /benefit-item -->
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/location_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Love Your Location</div>
-                    <p>Work next to Sarona market, with breathtaking sea views and delicious restaurants that will accept your 10bis.</p>
-                </div><!-- /benefit-item -->
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/impact_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Make an Impact</div>
-                    <p>Your ideas and initiatives can impact our product and every other aspect of Duda.</p>
-                </div><!-- /benefit-item -->
-            </div>    
-        </div>    
-    </section>    <section class="benefits benefits-us" style="display:none;">
-        <div class="container">
-            <div class="row text-center">
-                <h2 class="section-title">Work Perks & Benefits</h2>
-            </div>
-            <div class="row-flex text-center">
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/cha-ching_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Cha-ching</div>
-                    <p>We offer competitive compensation, 401k, stock options and tuition reimbursement.</p>
-                </div><!-- /benefit-item -->
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/check-ups_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Check-ups</div>
-                    <p>We’ve got you covered with comprehensive medical, dental and vision insurance.</p>
-                </div><!-- /benefit-item -->
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/tgif_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">TGIF</div>
-                    <p>On Fridays, we work from<br class="show-only-for-large"> home. Pajama dress code encouraged.</p>
-                </div><!-- /benefit-item -->
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/relax_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Relax</div>
-                    <p>Enjoy your time off with our unlimited PTO policy.</p>
-                </div><!-- /benefit-item -->
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/toolbox_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Toolbox</div>
-                    <p>We’ll set you up with a laptop<br class="show-only-for-large"> and any equipment you<br class="show-only-for-large"> need on the job.</p>
-                </div><!-- /benefit-item -->
-                <div class="large-4 medium-6 small-12 benefit-item">
-                    <div class="img-wrapper">
-                        <img src="//du-cdn.cdn-website.com/duda_website/img/careers/good_times_icon.svg?v=1">
-                    </div>
-                    <div class="section-subtitle">Good Times</div>
-                    <p>Partake in catered lunches, games and lively in-office events. Bowling, anyone?</p>
-                </div><!-- /benefit-item -->
-            </div>    
-        </div>    
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-	<section class="text-center diversity">
-		<div class="container">
-			<div class="row">
-				<h2 class="section-title">Duda’s Commitment to Diversity</h2>
-				<p class="main-p">In order for a company to be at its very best, we believe it must incorporate people from various backgrounds, whether they be ethnic, religious, or connected to gender, sexual orientation and more. Every day, we seek to make Duda a more diverse company –– and we promise to keep doing better.</p>
-				<div class="columns large-6">
-					<h4>Distribution by Age</h4>
-					<img loading="lazy"
-					 		src="//du-cdn.cdn-website.com/duda_website/img/careers/age@3x.svg?v=2">
-				</div>
-				<div class="columns large-6">
-					<h4>Distribution by Gender</h4>
-					<img loading="lazy"
-					 		srcset="//du-cdn.cdn-website.com/duda_website/img/careers/gender@1x.jpg?v=2 1x, 
-					 					//du-cdn.cdn-website.com/duda_website/img/careers/gender@2x.jpg?v=2 2x">
-				</div>
-			</div>
-		</div><!-- /container -->
-	</section>
-
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/bowling.svg"/>
+</div><!-- /no-jobs-found -->
 </div>
-
+<!-- if no jobs available -->
+</div>
+</div>
+</div><!-- /container -->
+</section>
+<section class="benefits benefits-il" style="display:none;">
+<div class="container">
+<div class="row text-center">
+<h2 class="section-title">Our Awesome Advantages</h2>
+</div>
+<div class="row-flex text-center">
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/aim_high_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Aim High</div>
+<p>We fund your education, provide pensions, and offer many opportunities for job growth.</p>
+</div><!-- /benefit-item -->
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/fun_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Join the Fun</div>
+<p>With cool Dudes &amp; Dudettes, you’ll enjoy your time at the office and at off-hours hangouts. </p>
+</div><!-- /benefit-item -->
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/live_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Live it Up</div>
+<p>We’re a family-friendly company that respects your time–both on and off the job.</p>
+</div><!-- /benefit-item -->
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/play_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Play Hard</div>
+<p>Work with cutting-edge technologies including React, Spring Boot, Node.js and Java in a serverless architecture.</p>
+</div><!-- /benefit-item -->
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/location_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Love Your Location</div>
+<p>Work next to Sarona market, with breathtaking sea views and delicious restaurants that will accept your 10bis.</p>
+</div><!-- /benefit-item -->
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/impact_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Make an Impact</div>
+<p>Your ideas and initiatives can impact our product and every other aspect of Duda.</p>
+</div><!-- /benefit-item -->
+</div>
+</div>
+</section> <section class="benefits benefits-us" style="display:none;">
+<div class="container">
+<div class="row text-center">
+<h2 class="section-title">Work Perks &amp; Benefits</h2>
+</div>
+<div class="row-flex text-center">
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/cha-ching_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Cha-ching</div>
+<p>We offer competitive compensation, 401k, stock options and tuition reimbursement.</p>
+</div><!-- /benefit-item -->
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/check-ups_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Check-ups</div>
+<p>We’ve got you covered with comprehensive medical, dental and vision insurance.</p>
+</div><!-- /benefit-item -->
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/tgif_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">TGIF</div>
+<p>On Fridays, we work from<br class="show-only-for-large"/> home. Pajama dress code encouraged.</p>
+</div><!-- /benefit-item -->
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/relax_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Relax</div>
+<p>Enjoy your time off with our unlimited PTO policy.</p>
+</div><!-- /benefit-item -->
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/toolbox_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Toolbox</div>
+<p>We’ll set you up with a laptop<br class="show-only-for-large"/> and any equipment you<br class="show-only-for-large"/> need on the job.</p>
+</div><!-- /benefit-item -->
+<div class="large-4 medium-6 small-12 benefit-item">
+<div class="img-wrapper">
+<img src="//du-cdn.cdn-website.com/duda_website/img/careers/good_times_icon.svg?v=1"/>
+</div>
+<div class="section-subtitle">Good Times</div>
+<p>Partake in catered lunches, games and lively in-office events. Bowling, anyone?</p>
+</div><!-- /benefit-item -->
+</div>
+</div>
+</section>
+<section class="text-center diversity">
+<div class="container">
+<div class="row">
+<h2 class="section-title">Duda’s Commitment to Diversity</h2>
+<p class="main-p">In order for a company to be at its very best, we believe it must incorporate people from various backgrounds, whether they be ethnic, religious, or connected to gender, sexual orientation and more. Every day, we seek to make Duda a more diverse company –– and we promise to keep doing better.</p>
+<div class="columns large-6">
+<h4>Distribution by Age</h4>
+<img loading="lazy" src="//du-cdn.cdn-website.com/duda_website/img/careers/age@3x.svg?v=2"/>
+</div>
+<div class="columns large-6">
+<h4>Distribution by Gender</h4>
+<img loading="lazy" srcset="//du-cdn.cdn-website.com/duda_website/img/careers/gender@1x.jpg?v=2 1x, 
+					 					//du-cdn.cdn-website.com/duda_website/img/careers/gender@2x.jpg?v=2 2x"/>
+</div>
+</div>
+</div><!-- /container -->
+</section>
+</div>
 </div>
 <!-- End of main content -->
 <footer style="display:none;">
-	<div class="container">
-		<ul class="lists">
-			<li>
-				<ul class="no-bullet small">
-					<li class="top">
-						<strong>Platform</strong>
-					</li>
-					<li><a href="/website-builder">Website Builder</a></li>
-					<li><a href="/team-collaboration">Team Collaboration Tools</a></li>
-					<li><a href="/client-management">Client Management</a></li>
-					<li><a href="/website-builder/diy-simple-editor">The Simple Editor</a></li>
-					<li><a href="/website-builder/white-label">White Label</a></li>
-					<li><a href="/seo">SEO</a></li>
-					<li><a href="/ai-stack">AI Stack</a></li>
-					<li><a href="/ai-visibility">AI Visibility</a></li>
-					<li><a href="/website-builder/automation">Automation</a></li>
-					<li><a href="/website-builder/security">Security</a></li>
-					<li><a href="/features">Full Feature Index</a></li>
-				</ul>
-				<ul class="no-bullet">
-					<li class="top">
-						<strong>Solutions</strong>
-					</li>
-					<li><a href="/solutions/agencies">Duda for Agencies</a></li>
-					<li><a href="/solutions/saas-platforms">Duda for SaaS</a></li>
-					<li><a href="/solutions/hosts">Duda for Hosts</a></li>
-					<li><a href="/solutions/point-of-sale">Duda for POS</a></li>
-					<li><a href="/enterprise">Duda for Enterprise</a></li>
-					<li><a href="/use-cases">Use Cases</a></li>
-				</ul>		
-			</li>
+<div class="container">
+<ul class="lists">
+<li>
+<ul class="no-bullet small">
+<li class="top">
+<strong>Platform</strong>
+</li>
+<li><a href="/website-builder">Website Builder</a></li>
+<li><a href="/team-collaboration">Team Collaboration Tools</a></li>
+<li><a href="/client-management">Client Management</a></li>
+<li><a href="/website-builder/diy-simple-editor">The Simple Editor</a></li>
+<li><a href="/website-builder/white-label">White Label</a></li>
+<li><a href="/seo">SEO</a></li>
+<li><a href="/ai-stack">AI Stack</a></li>
+<li><a href="/ai-visibility">AI Visibility</a></li>
+<li><a href="/website-builder/automation">Automation</a></li>
+<li><a href="/website-builder/security">Security</a></li>
+<li><a href="/features">Full Feature Index</a></li>
+</ul>
+<ul class="no-bullet">
+<li class="top">
+<strong>Solutions</strong>
+</li>
+<li><a href="/solutions/agencies">Duda for Agencies</a></li>
+<li><a href="/solutions/saas-platforms">Duda for SaaS</a></li>
+<li><a href="/solutions/hosts">Duda for Hosts</a></li>
+<li><a href="/solutions/point-of-sale">Duda for POS</a></li>
+<li><a href="/enterprise">Duda for Enterprise</a></li>
+<li><a href="/use-cases">Use Cases</a></li>
+</ul>
+</li>
+<li>
+<ul class="no-bullet small">
+<li class="top">
+<strong>Key Features</strong>
+</li>
+<li><a href="/website-builder/app-store">App Store</a></li>
+<li><a href="/ecommerce">eCommerce</a></li>
+<li><a href="/membership">Membership</a></li>
+<li><a href="/website-builder/templates">Templates</a></li>
+<li><a href="/website-builder/personalization">Personalization</a></li>
+<li><a href="/widget-builder">AI Widget Builder</a></li>
+<li><a href="/accessibility">Accessibility</a></li>
+<li><a href="/client-billing">Client Billing</a></li>
+<li><a href="/bookings">Bookings</a></li>
+</ul>
+<ul class="no-bullet small">
+<li class="top">
+<strong>Compare</strong>
+</li>
+<li><a href="/compare/duda-vs-wordpress">Duda vs. WordPress</a></li>
+<li><a href="/compare/duda-vs-squarespace">Duda vs. Squarespace</a></li>
+<li><a href="/compare/duda-vs-wix">Duda vs. Wix</a></li>
+<li><a href="/compare/duda-vs-webflow">Duda vs. Webflow</a></li>
+<li><a href="/compare/duda-vs-lovable">Duda vs. Lovable</a></li>
+</ul>
+</li>
+<li>
+<ul class="no-bullet">
+<li class="top">
+<strong>About Us</strong>
+</li>
+<li><a href="/about">Our Story</a></li>
+<li><a href="/about/management">Management</a></li>
+<li><a href="/press">Press</a></li>
+<li><a href="/website-builder/reviews">Reviews</a></li>
+<li><a href="/careers">Careers</a></li>
+</ul>
+<ul class="no-bullet small">
+<li class="top">
+<strong>Support</strong>
+</li>
+<li><a href="https://support.duda.co/hc/en-us">Support Portal</a></li>
+<li><a href="https://status.duda.co/">System Health Check</a></li>
+</ul>
+</li>
+<li>
+<ul class="no-bullet">
+<li class="top">
+<strong>Resources</strong>
+</li>
+<li><a href="https://blog.duda.co">Blog</a></li>
+<li><a href="https://academy.duda.co/">Duda Academy</a></li>
+<li><a href="/webinars">Webinars</a></li>
+<li><a href="/product-updates">Product Updates</a></li>
+<li><a href="/inspiration">Made with Duda</a></li>
+<li><a href="/success-stories">Success Stories</a></li>
+<li><a href="https://developer.duda.co/docs/partner-api-introduction">Developer Portal</a></li>
+<li><a href="/experts">Duda Experts</a></li>
+<li><a href="/community">Duda Community</a></li>
+<li><a href="/affiliates">Affiliate Program</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="langs-row">
+<div class="container">
+<div class="languages">
+<div class="list">
+<a class="item active" data-lang="en" href="/careers">English</a>
+<a class="item" data-lang="es" href="/es/careers">Español</a>
+<a class="item" data-lang="pt" href="/pt/careers">Português</a>
+<div class="arrow"></div>
+</div>
+<div class="da-button">
+<div class="globe">
+<img alt="globe" loading="lazy" src="//du-cdn.cdn-website.com/duda_website/img/footer/language.svg?v=4"/>
+</div>
+<div class="txt">
+<span class="active">English</span>
+<span class="">Español</span>
+<span class="">Português</span>
+<span class="">Français</span>
+<span class="">Italiano</span>
+<span class="">Deutsche</span>
+</div>
+<div class="arrow">
+<img alt="arrow" loading="lazy" src="//du-cdn.cdn-website.com/duda_website/img/footer/arrow.svg?v=4"/>
+</div>
+</div>
+</div>
+<div class="proud">
 
-			<li>
-				<ul class="no-bullet small">
-					<li class="top">
-						<strong>Key Features</strong>
-					</li>
-					<li><a href="/website-builder/app-store">App Store</a></li>
-					<li><a href="/ecommerce">eCommerce</a></li>
-					<li><a href="/membership">Membership</a></li>
-					<li><a href="/website-builder/templates">Templates</a></li>
-					<li><a href="/website-builder/personalization">Personalization</a></li>
-					<li><a href="/widget-builder">AI Widget Builder</a></li>
-					<li><a href="/accessibility">Accessibility</a></li>
-					<li><a href="/client-billing">Client Billing</a></li>
-					<li><a href="/bookings">Bookings</a></li>
-				</ul>
-				<ul class="no-bullet small">
-					<li class="top">
-						<strong>Compare</strong>
-					</li>
-					<li><a href="/compare/duda-vs-wordpress">Duda vs. WordPress</a></li>
-					<li><a href="/compare/duda-vs-squarespace">Duda vs. Squarespace</a></li>
-					<li><a href="/compare/duda-vs-wix">Duda vs. Wix</a></li>
-					<li><a href="/compare/duda-vs-webflow">Duda vs. Webflow</a></li>
-					<li><a href="/compare/duda-vs-lovable">Duda vs. Lovable</a></li>
-				</ul>	
-			</li>
-			<li>
-				<ul class="no-bullet">
-					<li class="top">
-						<strong>About Us</strong>
-					</li>
-					<li><a href="/about">Our Story</a></li>
-					<li><a href="/about/management">Management</a></li>
-					<li><a href="/press">Press</a></li>
-					<li><a href="/website-builder/reviews">Reviews</a></li>
-					<li><a href="/careers">Careers</a></li>
-				</ul>
-				<ul class="no-bullet small">
-					<li class="top">
-						<strong>Support</strong>
-					</li>
-					<li><a href="https://support.duda.co/hc/en-us">Support Portal</a></li>
-					<li><a href="https://status.duda.co/">System Health Check</a></li>
-				</ul>	
-			</li>
-			<li>
-				<ul class="no-bullet">
-					<li class="top">
-						<strong>Resources</strong>
-					</li>
-					<li><a href="https://blog.duda.co">Blog</a></li>
-					<li><a href="https://academy.duda.co/">Duda Academy</a></li>
-					<li><a href="/webinars">Webinars</a></li>
-					<li><a href="/product-updates">Product Updates</a></li>
-					<li><a href="/inspiration">Made with Duda</a></li>
-					<li><a href="/success-stories">Success Stories</a></li>
-					<li><a href="https://developer.duda.co/docs/partner-api-introduction">Developer Portal</a></li>
-					<li><a href="/experts">Duda Experts</a></li>
-					<li><a href="/community">Duda Community</a></li>
-					<li><a href="/affiliates">Affiliate Program</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
 
-	<div class="langs-row">
-		<div class="container">
-			<div class="languages">
-				<div class="list">
-					<a href="/careers" data-lang="en" class="item active">English</a>
-					<a href="/es/careers" data-lang="es" class="item ">Español</a>
-					<a href="/pt/careers" data-lang="pt" class="item ">Português</a>
-					<div class="arrow"></div>
-				</div>
-				<div class="da-button">
-					<div class="globe">
-						<img alt="globe"  
-						loading="lazy"
-						src="//du-cdn.cdn-website.com/duda_website/img/footer/language.svg?v=4">
-					</div>
-					<div class="txt">
-						<span class="active">English</span>
-						<span class="">Español</span>
-						<span class="">Português</span>
-						<span class="">Français</span>
-						<span class="">Italiano</span>
-						<span class="">Deutsche</span>
-					</div>
-					<div class="arrow">
-						<img loading="lazy" alt="arrow" src="//du-cdn.cdn-website.com/duda_website/img/footer/arrow.svg?v=4">
-					</div>
-				</div>
-			</div>
-			<div class="proud"> 
-				<svg xmlns="http://www.w3.org/2000/svg" width="65" height="64" viewBox="0 0 65 64" fill="none">
-				  <g clip-path="url(#clip0_19196_82348)">
-				    <path d="M20.6498 52.2646L25.8902 51.8731L21.84 55.2577L23.8629 60.1249L19.4072 57.3874L15.405 60.8015L16.6416 55.6884L12.1859 52.9509L17.4419 52.5557L18.6305 47.413L20.6498 52.2646Z" fill="white"/>
-				    <path d="M10.1447 37.915L14.1297 41.3407L8.87211 40.874L6.8647 45.7476L5.64582 40.6622L0.401367 40.2503L4.88927 37.5058L3.6704 32.4204L7.66899 35.8544L12.1438 33.0551L10.1447 37.915Z" fill="white"/>
-				    <path d="M12.8547 20.34L13.2514 25.5801L9.86276 21.5332L4.99764 23.5609L7.73066 19.1025L4.31262 15.1037L9.42702 16.3352L12.16 11.8768L12.5604 17.1324L17.7043 18.3159L12.8547 20.34Z" fill="white"/>
-				    <path d="M27.1917 9.82048L23.771 13.8098L24.2311 8.55159L19.3551 6.55024L24.4389 5.32504L24.8443 0.0800781L27.5944 4.56457L32.6783 3.33936L29.2492 7.34223L32.0541 11.8135L27.1917 9.82048Z" fill="white"/>
-				    <path d="M44.7689 12.5108L39.5293 12.9128L43.5727 9.52006L41.54 4.657L46.0012 7.38549L49.9966 3.96338L48.7702 9.07904L53.2314 11.8075L47.9762 12.2133L46.7979 17.3583L44.7689 12.5108Z" fill="white"/>
-				    <path d="M55.3034 26.8371L51.3105 23.4205L56.5692 23.8752L58.5654 18.997L59.7959 24.0796L65.0413 24.4795L60.5597 27.2343L61.7902 32.3169L57.7838 28.892L53.3154 31.7016L55.3034 26.8371Z" fill="white"/>
-				    <path d="M52.6312 44.4173L52.2239 39.178L55.6207 43.2181L60.4817 41.1804L57.7577 45.6443L61.1839 49.6362L56.067 48.4151L53.3431 52.879L52.932 47.6243L47.7857 46.4512L52.6312 44.4173Z" fill="white"/>
-				    <path d="M38.3816 55.0657L41.7397 51.0236L41.3616 56.2883L46.2682 58.2134L41.2041 59.5177L40.8805 64.7683L38.0608 60.3273L32.9967 61.6315L36.3629 57.5757L33.4887 53.1487L38.3816 55.0657Z" fill="white"/>
-				    <path d="M22.1774 30.5032C22.1428 30.3618 22.0881 30.2378 22.0134 30.1311C21.9387 30.0217 21.8454 29.9297 21.7333 29.855C21.624 29.7777 21.4959 29.7203 21.3492 29.683C21.2052 29.643 21.0465 29.623 20.8731 29.623C20.4997 29.623 20.181 29.7123 19.9169 29.891C19.6555 30.0697 19.4555 30.3271 19.3168 30.6632C19.1808 30.9993 19.1127 31.4047 19.1127 31.8795C19.1127 32.3596 19.1781 32.7703 19.3088 33.1118C19.4395 33.4532 19.6342 33.7146 19.8929 33.8959C20.1516 34.0773 20.473 34.168 20.8571 34.168C21.1959 34.168 21.4773 34.1186 21.7013 34.02C21.928 33.9213 22.0974 33.7812 22.2094 33.5999C22.3215 33.4185 22.3775 33.2051 22.3775 32.9597L22.7616 32.9997H20.8891V31.4154H24.522V32.5516C24.522 33.2985 24.3633 33.9373 24.0459 34.4681C23.7311 34.9962 23.2964 35.4016 22.7416 35.6843C22.1894 35.9644 21.556 36.1044 20.8411 36.1044C20.0436 36.1044 19.3435 35.9351 18.7407 35.5963C18.1378 35.2576 17.6671 34.7748 17.3283 34.148C16.9923 33.5212 16.8242 32.7757 16.8242 31.9115C16.8242 31.234 16.9269 30.6339 17.1323 30.1111C17.3403 29.5883 17.6284 29.1469 17.9965 28.7868C18.3646 28.424 18.79 28.1506 19.2728 27.9666C19.7556 27.7799 20.273 27.6865 20.8251 27.6865C21.3106 27.6865 21.7613 27.7559 22.1774 27.8946C22.5962 28.0306 22.9656 28.2253 23.2857 28.4787C23.6084 28.7294 23.8685 29.0268 24.0659 29.3709C24.2632 29.715 24.3833 30.0924 24.4259 30.5032H22.1774Z" fill="white"/>
-				    <path d="M28.7119 35.9924H25.5592V27.7985H28.6799C29.5228 27.7985 30.2509 27.9626 30.8644 28.2907C31.4805 28.6161 31.9553 29.0855 32.2887 29.699C32.6248 30.3098 32.7928 31.042 32.7928 31.8955C32.7928 32.749 32.6261 33.4825 32.2927 34.096C31.9593 34.7068 31.4872 35.1762 30.8764 35.5043C30.2656 35.8297 29.5441 35.9924 28.7119 35.9924ZM27.7837 34.104H28.6319C29.0373 34.104 29.3827 34.0386 29.6681 33.9079C29.9562 33.7772 30.1749 33.5519 30.3243 33.2318C30.4763 32.9117 30.5523 32.4663 30.5523 31.8955C30.5523 31.3247 30.475 30.8792 30.3203 30.5592C30.1682 30.2391 29.9442 30.0137 29.6481 29.883C29.3547 29.7523 28.9946 29.687 28.5679 29.687H27.7837V34.104Z" fill="white"/>
-				    <path d="M33.8221 35.9924V27.7985H37.3589C37.967 27.7985 38.4991 27.9186 38.9552 28.1586C39.4113 28.3987 39.7661 28.7361 40.0195 29.1709C40.2729 29.6056 40.3996 30.1137 40.3996 30.6952C40.3996 31.282 40.2689 31.7901 40.0075 32.2196C39.7487 32.649 39.3847 32.9797 38.9152 33.2118C38.4485 33.4438 37.903 33.5599 37.2789 33.5599H35.1664V31.8315H36.8308C37.0921 31.8315 37.3149 31.7861 37.4989 31.6954C37.6856 31.6021 37.8283 31.47 37.927 31.2993C38.0284 31.1286 38.079 30.9273 38.079 30.6952C38.079 30.4605 38.0284 30.2604 37.927 30.0951C37.8283 29.927 37.6856 29.799 37.4989 29.711C37.3149 29.6203 37.0921 29.575 36.8308 29.575H36.0466V35.9924H33.8221Z" fill="white"/>
-				    <path d="M41.2157 35.9924V27.7985H44.7525C45.3607 27.7985 45.8928 27.9092 46.3489 28.1306C46.805 28.352 47.1598 28.6707 47.4132 29.0868C47.6665 29.5029 47.7932 30.0017 47.7932 30.5832C47.7932 31.17 47.6625 31.6648 47.4011 32.0675C47.1424 32.4703 46.7783 32.7743 46.3089 32.9797C45.8421 33.1851 45.2967 33.2878 44.6725 33.2878H42.5601V31.5594H44.2244C44.4858 31.5594 44.7085 31.5274 44.8926 31.4634C45.0793 31.3967 45.222 31.2913 45.3207 31.1473C45.422 31.0033 45.4727 30.8152 45.4727 30.5832C45.4727 30.3485 45.422 30.1578 45.3207 30.0111C45.222 29.8617 45.0793 29.7523 44.8926 29.683C44.7085 29.611 44.4858 29.575 44.2244 29.575H43.4403V35.9924H41.2157ZM46.0168 32.2316L48.0653 35.9924H45.6488L43.6483 32.2316H46.0168Z" fill="white"/>
-				  </g>
-				  <defs>
-				    <clipPath id="clip0_19196_82348">
-				      <rect width="65" height="64" fill="white"/>
-				    </clipPath>
-				  </defs>
-				</svg>
 
-				<svg xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67" fill="none">
-				  <mask id="mask0_19196_82351" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="66" height="66">
-				    <path d="M34.7242 65.6705C52.6432 64.9428 66.5813 49.8266 65.8536 31.9057C65.1259 13.9866 50.0097 0.0485643 32.0888 0.77627C14.1679 1.50398 0.231673 16.6202 0.959379 34.5411C1.68708 52.4601 16.8033 66.3982 34.7242 65.6705Z" fill="white"/>
-				  </mask>
-				  <g mask="url(#mask0_19196_82351)">
-				    <mask id="mask1_19196_82351" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="67" height="67">
-				      <path d="M66.8153 0.000976562H0.000366211V66.3543H66.8153V0.000976562Z" fill="white"/>
-				    </mask>
-				    <g mask="url(#mask1_19196_82351)">
-				      <path d="M66.8153 0.000976562H0.000366211V66.3543H66.8153V0.000976562Z" fill="white"/>
-				    </g>
-				  </g>
-				  <mask id="mask2_19196_82351" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="5" y="5" width="57" height="56">
-				    <path d="M61.0559 33.203C61.0559 48.4831 48.6692 60.8699 33.389 60.8699C18.1089 60.8699 5.72217 48.4831 5.72217 33.203C5.72217 17.9229 18.1089 5.53613 33.389 5.53613C48.6692 5.53613 61.0559 17.9229 61.0559 33.203Z" fill="white"/>
-				  </mask>
-				  <g mask="url(#mask2_19196_82351)">
-				    <path d="M61.0559 5.53613H5.72217V60.8699H61.0559V5.53613Z" fill="#211D1C"/>
-				  </g>
-				  <path d="M23.9019 35.9785C24.6689 35.9785 25.3529 36.1244 25.9399 36.4307C26.5228 36.7325 26.9847 37.1483 27.311 37.6777H27.3101C27.6407 38.2019 27.8051 38.7892 27.8052 39.4297V39.8105H26.1753V39.4297C26.1752 39.0457 26.0855 38.7173 25.9136 38.4346L25.9106 38.4297C25.7439 38.1455 25.4993 37.9193 25.1646 37.752L25.1597 37.749C24.8365 37.5817 24.4221 37.4883 23.9019 37.4883C23.3745 37.4883 22.9563 37.5702 22.6333 37.7158L22.6313 37.7168C22.3023 37.863 22.072 38.0494 21.9214 38.2676L21.9224 38.2686C21.7737 38.4861 21.6998 38.7264 21.6997 38.999C21.6997 39.1922 21.7362 39.3635 21.8052 39.5166L21.8638 39.624C21.9308 39.7307 22.0267 39.8405 22.1577 39.9521L22.3081 40.0625C22.471 40.1725 22.6744 40.2832 22.9224 40.3926L23.186 40.498C23.3731 40.5678 23.582 40.6362 23.813 40.7041L24.1753 40.8057L24.1802 40.8066C24.7393 40.9609 25.2412 41.1333 25.6841 41.3252C26.133 41.5197 26.5228 41.7489 26.8472 42.0156H26.8462C27.1779 42.2836 27.4363 42.6022 27.6128 42.9717C27.7922 43.3473 27.8754 43.773 27.8755 44.2373C27.8754 44.7117 27.7741 45.1512 27.563 45.5459L27.562 45.5449C27.3593 45.9279 27.0728 46.2504 26.7095 46.5127C26.3528 46.7735 25.9368 46.9678 25.4673 47.1006L25.4683 47.1016C25.0016 47.2349 24.4972 47.2998 23.9585 47.2998C23.469 47.2998 22.9828 47.2369 22.5005 47.1113C22.0109 46.9838 21.559 46.7863 21.147 46.5186L21.1421 46.5156C20.7218 46.2336 20.3831 45.87 20.1284 45.4297L20.1265 45.4268C19.867 44.9684 19.7456 44.435 19.7456 43.8418V43.4609H21.3677V43.8418C21.3677 44.2241 21.4448 44.5185 21.5767 44.7432C21.72 44.9872 21.9076 45.1824 22.1421 45.333C22.3958 45.4926 22.6757 45.6111 22.9829 45.6865H22.9839C23.3098 45.7604 23.6347 45.7978 23.9585 45.7979C24.4632 45.7978 24.8808 45.7223 25.2202 45.585H25.2222C25.5704 45.4456 25.8169 45.2595 25.9839 45.0381L25.9849 45.0371C26.1527 44.8154 26.2388 44.5583 26.2388 44.251C26.2387 44.0112 26.1992 43.811 26.1284 43.6445C26.0624 43.4896 25.949 43.3401 25.7739 43.1992L25.7671 43.1934C25.5948 43.0479 25.3451 42.901 25.0054 42.7598L25.0005 42.7578C24.6638 42.6116 24.2337 42.4641 23.7075 42.3164H23.7065C23.1815 42.1671 22.7025 42.0023 22.272 41.8213C21.8343 41.6372 21.4501 41.4216 21.1235 41.1729L21.1206 41.1709C20.7891 40.9142 20.5281 40.6085 20.3452 40.2539L20.3442 40.252C20.1575 39.884 20.0698 39.4673 20.0698 39.0137C20.0699 38.5624 20.1669 38.1409 20.3667 37.7578C20.563 37.3817 20.838 37.059 21.1851 36.792L21.188 36.79C21.5384 36.5246 21.9445 36.324 22.4009 36.1855H22.4019C22.8652 36.0466 23.3665 35.9785 23.9019 35.9785ZM32.9517 35.9785C33.6098 35.9785 34.2153 36.0985 34.7603 36.3447C35.3012 36.5893 35.768 36.9414 36.1567 37.3975C36.5456 37.8538 36.8389 38.3981 37.0405 39.0225L37.1118 39.2598C37.2663 39.8194 37.3413 40.4304 37.3413 41.0889V42.1895C37.3413 42.9411 37.2421 43.6325 37.0405 44.2588L37.0415 44.2598C36.8447 44.8803 36.5531 45.4224 36.1646 45.8789C35.78 46.3362 35.3156 46.6898 34.7739 46.9346C34.2289 47.1808 33.6235 47.2998 32.9653 47.2998C32.3198 47.2998 31.7202 47.1798 31.1724 46.9346H31.1714C30.6303 46.69 30.1637 46.3379 29.7749 45.8818C29.3867 45.4263 29.0908 44.8851 28.8843 44.2656V44.2646C28.6767 43.6367 28.5757 42.9431 28.5757 42.1895V41.0889C28.5757 40.3362 28.6739 39.6454 28.8765 39.0225L28.8774 39.0215C29.0838 38.3974 29.3794 37.8535 29.7681 37.3975C30.1569 36.9414 30.6234 36.5893 31.1646 36.3447C31.7084 36.099 32.3063 35.9785 32.9517 35.9785ZM42.7065 35.9785C43.4822 35.9785 44.1745 36.1215 44.77 36.4219H44.769C45.3623 36.7163 45.8348 37.1451 46.1782 37.7041L46.3013 37.918C46.574 38.4281 46.7393 39.017 46.8052 39.6748L46.8472 40.0928H45.2202L45.1802 39.7568C45.119 39.2415 44.9859 38.8238 44.7925 38.4932C44.6037 38.1708 44.3449 37.9272 44.0103 37.7578L44.0054 37.7559C43.6792 37.585 43.252 37.4883 42.7065 37.4883C42.276 37.4883 41.9057 37.5709 41.5884 37.7256C41.2671 37.8823 40.9929 38.1072 40.7642 38.4053L40.7622 38.4072C40.5323 38.7029 40.3509 39.066 40.2212 39.502C40.0965 39.9369 40.0308 40.4294 40.0308 40.9824V42.2812C40.0308 42.8163 40.0931 43.3026 40.2144 43.7402C40.3352 44.1761 40.5095 44.544 40.7319 44.8496C40.9575 45.1531 41.2289 45.3854 41.5474 45.5508C41.858 45.712 42.2205 45.7979 42.6431 45.7979C43.2123 45.7978 43.6579 45.7064 43.9966 45.5449C44.3381 45.3796 44.598 45.1401 44.7847 44.8213C44.9777 44.4914 45.1141 44.0641 45.1802 43.5273L45.2212 43.1924H46.8481L46.8052 43.6123C46.7298 44.351 46.5237 45.0062 46.1782 45.5664V45.5674C45.8297 46.1271 45.3522 46.5585 44.7544 46.8574C44.1531 47.1581 43.4446 47.2998 42.6431 47.2998C42.0104 47.2998 41.4251 47.1797 40.894 46.9326L40.8931 46.9316C40.3717 46.6866 39.9221 46.339 39.5483 45.8926L39.5474 45.8916C39.1742 45.4406 38.8913 44.9064 38.6948 44.2969C38.4975 43.6843 38.4009 43.0107 38.4009 42.2812V40.9971C38.4009 40.2676 38.4971 39.5958 38.6948 38.9873C38.8916 38.3773 39.1778 37.8435 39.5562 37.3926C39.9352 36.9409 40.392 36.5906 40.9233 36.3457C41.4598 36.0986 42.057 35.9785 42.7065 35.9785ZM32.9517 37.5098C32.516 37.5098 32.1374 37.592 31.8091 37.748C31.4772 37.9059 31.1933 38.1325 30.9556 38.4316C30.7216 38.732 30.5349 39.1016 30.4009 39.5469C30.2723 39.9898 30.2056 40.498 30.2056 41.0742V42.1895C30.2056 42.7703 30.2723 43.2836 30.4009 43.7314L30.5112 44.0527C30.6323 44.3598 30.7846 44.627 30.9644 44.8564C31.2013 45.154 31.4837 45.3796 31.814 45.5371H31.8149C32.1488 45.6939 32.5299 45.7763 32.9653 45.7764C33.4222 45.7764 33.8098 45.6933 34.1362 45.5381C34.4672 45.3806 34.7476 45.1548 34.98 44.8574C35.214 44.5532 35.396 44.1822 35.521 43.7383L35.522 43.7363C35.6514 43.2874 35.7192 42.7723 35.7192 42.1895V41.0742C35.7192 40.4966 35.6512 39.9876 35.522 39.5439L35.521 39.54C35.3963 39.0973 35.2131 38.73 34.9761 38.4316L34.9741 38.4287C34.7423 38.1319 34.4594 37.9068 34.1235 37.749C33.791 37.5928 33.403 37.5098 32.9517 37.5098ZM52.9683 33.249C53.1782 33.2492 53.3479 33.42 53.3481 33.6299C53.3479 33.8398 53.1782 34.0095 52.9683 34.0098H13.7935C13.5833 34.0098 13.4128 33.8399 13.4126 33.6299C13.4128 33.4198 13.5834 33.249 13.7935 33.249H52.9683ZM31.645 19.2881C32.4207 19.2881 33.113 19.4311 33.7085 19.7314H33.7075C34.3014 20.0262 34.7742 20.4557 35.1177 21.0156H35.1167C35.4631 21.5727 35.6685 22.2333 35.7437 22.9844L35.7856 23.4023H34.1587L34.1187 23.0664C34.0574 22.5509 33.9235 22.1334 33.73 21.8027C33.5413 21.4804 33.2833 21.2367 32.9487 21.0674L32.9438 21.0654C32.6177 20.8946 32.1904 20.7979 31.645 20.7979C31.2145 20.7979 30.8442 20.8795 30.5269 21.0342C30.2054 21.1909 29.9314 21.4167 29.7026 21.7148L29.7007 21.7168C29.4705 22.0128 29.2874 22.3759 29.1577 22.8125C29.0333 23.2471 28.9693 23.7396 28.9692 24.292V25.5908C28.9692 26.1259 29.0315 26.6121 29.1528 27.0498C29.2737 27.4856 29.448 27.8535 29.6704 28.1592C29.896 28.4627 30.1673 28.695 30.4858 28.8604C30.7965 29.0216 31.159 29.1064 31.5815 29.1064C32.1508 29.1064 32.5964 29.016 32.9351 28.8545C33.2766 28.6892 33.5365 28.4496 33.7231 28.1309C33.9162 27.8009 34.0526 27.3736 34.1187 26.8369L34.1597 26.502H35.7866L35.7437 26.9219C35.6682 27.6606 35.4621 28.3158 35.1167 28.876L35.1157 28.877C34.7673 29.4365 34.2906 29.8681 33.6929 30.167C33.0916 30.4676 32.383 30.6093 31.5815 30.6094C30.9489 30.6094 30.3635 30.4893 29.8325 30.2422L29.8315 30.2412C29.3102 29.9961 28.8606 29.6486 28.4868 29.2021L28.4858 29.2012C28.1127 28.7502 27.8298 28.216 27.6333 27.6064C27.4359 26.9939 27.3394 26.3203 27.3394 25.5908V24.3066C27.3394 23.5771 27.4355 22.9054 27.6333 22.2969C27.8301 21.6869 28.1163 21.1531 28.4946 20.7021C28.8737 20.2504 29.3305 19.9002 29.8618 19.6553C30.3982 19.4081 30.9954 19.2881 31.645 19.2881ZM19.1821 19.6758L23.0718 29.9531L23.2671 30.4678H21.5464L21.4546 30.2197L20.4839 27.5879H16.3481L15.3794 30.2188L15.2876 30.4678H13.5679L13.7622 29.9531L17.644 19.6758L17.7378 19.4297H19.0894L19.1821 19.6758ZM25.6802 30.4678H24.0503V19.4297H25.6802V30.4678ZM40.9761 19.4297C41.7697 19.4297 42.4649 19.5656 43.0444 19.8574H43.0454C43.6239 20.1467 44.0733 20.5577 44.3774 21.0898C44.6779 21.6157 44.8227 22.2148 44.8228 22.874C44.8227 23.5579 44.6792 24.1698 44.3765 24.6943L44.3755 24.6963C44.0698 25.2202 43.6201 25.6169 43.0435 25.8867C42.466 26.1568 41.7714 26.2822 40.9761 26.2822H38.731V30.4678H37.1021V19.4297H40.9761ZM49.3931 19.6758L53.2827 29.9531L53.478 30.4678H51.7583L51.6665 30.2197L50.6958 27.5879H46.5591L45.5903 30.2188L45.4985 30.4678H43.7788L43.9731 29.9531L47.855 19.6758L47.9487 19.4297H49.3003L49.3931 19.6758ZM16.9038 26.0791H19.9272L18.4136 21.9756L16.9038 26.0791ZM47.1147 26.0791H50.1392L48.6245 21.9756L47.1147 26.0791ZM38.731 24.7803H40.9761C41.551 24.7803 41.9816 24.6865 42.2905 24.5264C42.615 24.3559 42.8328 24.1365 42.9663 23.873L42.9683 23.8691C43.1157 23.5856 43.1929 23.261 43.1929 22.8877C43.1928 22.5253 43.1164 22.1987 42.9663 21.9023L42.9644 21.8984C42.8288 21.6239 42.6084 21.3955 42.2827 21.2168L42.2778 21.2139C41.9722 21.0404 41.5465 20.9395 40.9761 20.9395H38.731V24.7803Z" fill="white"/>
-				</svg>
-
-				<svg xmlns="http://www.w3.org/2000/svg" width="63" height="65" viewBox="0 0 63 65" fill="none">
-				  <path d="M48.9937 21.4061C49.4462 21.3319 50.2153 21.3994 50.691 21.3954C56.1801 21.3493 61.0234 24.7672 61.5719 30.4647C61.8702 33.5627 61.4827 36.5192 59.4674 39.0399C57.4621 41.5474 54.6968 42.4968 51.5992 42.8368C51.1004 42.8918 50.4118 42.8999 49.9039 42.8808C47.2909 42.7821 44.7854 42.2048 42.692 40.5731C40.5175 38.9243 39.2635 36.3828 38.985 33.6776C38.6836 30.7487 39.2067 27.6024 41.0982 25.2538C43.135 22.725 45.8722 21.7533 48.9937 21.4061ZM54.4674 30.4149C54.1684 27.6319 52.4862 26.0258 49.6666 26.2997C46.7347 26.6328 46.0194 29.3983 46.023 31.9393C46.0257 33.8266 46.1775 35.8977 47.7496 37.2099C48.5723 37.896 49.8871 38.0787 50.9293 37.9413C54.6217 37.5029 54.7767 33.298 54.4674 30.4149Z" fill="#F9F7F5"/>
-				  <path d="M26.0311 21.4057C26.2373 21.3738 26.9644 21.3841 27.1904 21.3856C28.0882 21.3934 28.9854 21.4302 29.8808 21.496C30.4076 21.5363 31.0465 21.6246 31.5602 21.6423C33.4257 21.7067 35.3124 21.7087 37.1796 21.7249L37.18 27.9915L32.1857 27.9923C32.1813 27.5415 32.1629 27.0772 32.1505 26.6255C30.5179 25.9645 28.8616 25.8193 27.118 25.8941C26.1322 25.9364 24.5597 26.2691 24.6511 27.5474C24.6865 28.0426 25.1722 28.5034 25.6141 28.678C26.7741 29.1363 28.0998 29.2036 29.325 29.3863C30.4467 29.5246 31.5729 29.6717 32.6728 29.9254C35.5176 30.5813 37.7472 32.115 37.9577 35.2483C38.0781 37.0392 37.8705 38.6274 36.6335 40.0529C34.7837 42.1838 31.9936 42.6374 29.3369 42.8436C28.3295 42.8821 27.0188 42.9365 26.015 42.8168C23.299 42.4929 20.6686 42.5429 17.9386 42.516L17.938 36.3064L22.936 36.3067L22.9372 37.578C24.47 38.4034 26.8781 38.4296 28.5946 38.3387C29.6367 38.2837 31.2068 37.9337 31.0061 36.5615C30.9018 35.8481 30.0318 35.551 29.4299 35.3894C26.256 34.6622 22.4903 34.9097 19.7951 32.8303C17.3328 30.9228 17.1756 26.5464 19.1156 24.2368C20.8359 22.1888 23.5111 21.6586 26.0311 21.4057Z" fill="#F9F7F5"/>
-				  <path d="M30.7744 0.348972C33.8356 0.200804 37.5644 0.706316 40.4922 1.51108C46.8083 3.28763 52.4207 6.97349 56.5605 12.0638C57.2519 12.9067 58.2166 14.116 58.7578 15.0648C58.0741 15.1497 57.2139 15.1257 56.5088 15.1244C55.1211 13.1295 53.2649 11.1406 51.4502 9.52573C48.9326 10.1472 46.4725 10.7084 43.8965 11.0462C43.0981 11.151 42.2643 11.2368 41.4775 11.3968C41.8515 12.613 42.1965 13.8378 42.5107 15.0707C41.8318 15.1343 41.2603 15.1239 40.5752 15.1234C40.1785 13.9587 39.9603 12.8091 39.4785 11.599C39.1398 11.5971 38.8135 11.6107 38.4756 11.6283C36.6021 11.7255 34.7443 11.8354 32.8682 11.8382C31.2228 11.852 29.5764 11.8206 27.9326 11.7445C26.7391 11.6854 25.5031 11.5662 24.3213 11.5326C23.9076 12.5028 23.493 14.0849 23.2227 15.1234C22.5358 15.1274 21.9621 15.1338 21.2783 15.0619C21.5244 13.87 22.1006 12.3717 22.2764 11.3246C21.3855 11.1413 20.0493 11.0273 19.0742 10.8646C16.8402 10.4969 14.6246 10.0248 12.4346 9.45053C10.4476 11.1206 8.79692 13.0357 7.27246 15.1234C6.53301 15.1248 5.71612 15.1469 4.98828 15.0785C5.69957 13.9046 7.20712 11.9881 8.10645 10.9828C12.6302 5.93913 18.6317 2.45379 25.2539 1.02378C27.2885 0.594528 28.7484 0.460155 30.7744 0.348972ZM33.501 2.53647C32.7263 2.17634 32.2258 2.10731 31.3945 2.16831C28.2798 2.81786 26.1937 6.89428 25.0322 9.59897C25.918 9.77506 27.5119 9.81925 28.4512 9.84702C29.7891 9.89008 31.1283 9.91279 32.4668 9.91538C33.8781 9.91734 35.2901 9.88226 36.6992 9.81089C37.3504 9.77845 38.1021 9.76965 38.7314 9.63218C37.9588 7.41803 35.6891 3.55431 33.501 2.53647ZM36.6543 2.55014C38.765 5.21569 39.4288 6.28226 40.7559 9.47983C43.0173 9.29758 46.0112 8.76556 48.2334 8.32261C48.6979 8.22329 49.0101 8.15448 49.4639 8.00425C48.9713 7.57279 48.1763 7.09138 47.6152 6.74448C44.7829 4.96779 41.6822 3.66113 38.4326 2.87534C37.9677 2.76415 37.1019 2.53896 36.6543 2.55014ZM27.0322 2.53354C26.4724 2.58824 25.5156 2.82593 24.9502 2.97007C21.8782 3.74812 18.9444 4.99533 16.2529 6.66831C15.757 6.97144 14.8049 7.58433 14.3867 7.96811C14.8579 8.07205 15.3287 8.1787 15.7988 8.28745C18.0631 8.75617 20.7184 9.22492 23.0166 9.43882C23.7446 7.74562 24.5323 6.12414 25.5635 4.59018C25.7405 4.327 27.1174 2.57676 27.1211 2.56382C27.0437 2.53127 27.0746 2.5327 27.0322 2.53354Z" fill="#F9F7F5"/>
-				  <path d="M56.5096 49.2767C57.1492 49.274 58.1271 49.2463 58.74 49.3216C58.4913 49.7844 57.9432 50.5413 57.6258 50.9759C55.7397 53.5517 53.4764 55.8291 50.9129 57.7318C45.3648 61.8876 38.5971 64.0905 31.6658 63.9964C30.3739 63.9893 29.1417 63.9653 27.866 63.7972C19.1281 62.6443 11.4285 58.0772 6.16386 51.0091C5.96483 50.7418 5.05988 49.565 5.09745 49.2972C5.79953 49.2607 6.58759 49.2763 7.29667 49.2767C8.59488 51.1477 10.5919 53.3685 12.3387 54.8392C14.9196 54.2111 17.469 53.633 20.1082 53.3031C20.8363 53.2117 21.5895 53.1272 22.3113 53.0033C21.9511 51.793 21.5469 50.5551 21.2898 49.3226C21.7541 49.2509 22.7148 49.2749 23.2254 49.2767C23.5514 50.4714 23.9036 51.6597 24.281 52.8392C25.8585 52.6458 27.8126 52.6032 29.4129 52.5755C31.4534 52.5252 33.4948 52.5336 35.535 52.6009C36.8781 52.6491 38.1463 52.7726 39.5086 52.7806C39.8897 51.6313 40.2354 50.4698 40.5447 49.2992C41.1856 49.2871 41.8653 49.2618 42.5017 49.2943C42.359 50.1039 41.6902 52.293 41.4129 53.0453C42.1261 53.1687 42.884 53.2438 43.6053 53.3441C44.725 53.5095 45.8412 53.6966 46.9529 53.9066C47.8404 54.08 48.7233 54.276 49.6014 54.4935C50.0922 54.6121 50.8807 54.8304 51.3621 54.8812C51.7582 54.6392 52.3583 54.0219 52.7088 53.6888C54.1686 52.3002 55.2935 50.8709 56.5096 49.2767ZM30.8523 54.4828C30.3499 54.4796 28.492 54.454 28.0965 54.516C27.1863 54.5708 25.8968 54.6112 25.0203 54.7142C26.3185 58.2419 30.2267 64.8637 34.5984 61.0824C36.1047 59.7369 36.9183 58.4651 37.8406 56.6751C38.1535 56.0681 38.4991 55.4411 38.742 54.8001C38.064 54.6036 36.0966 54.5554 35.3221 54.5384C33.8327 54.5081 32.3426 54.4899 30.8523 54.4828ZM23.0144 54.9486C22.8264 54.9472 22.4545 54.9346 22.2869 54.9613C20.3069 55.2216 18.3085 55.4803 16.3533 55.8851C15.8404 55.9912 14.7982 56.1939 14.3191 56.3851C14.7592 56.7511 15.4436 57.1808 15.9305 57.4867C17.5414 58.5181 19.2439 59.399 21.0164 60.1175C23.3879 61.0591 24.7574 61.3376 27.1687 61.8949L27.1307 61.8382C26.8628 61.4439 26.5362 61.074 26.2371 60.7005C24.8474 58.9664 23.9067 56.9698 23.0144 54.9486ZM41.0242 54.9544C40.4557 55.4893 40.3183 55.9573 39.9881 56.6458C39.7282 57.1862 39.4527 57.7193 39.1639 58.2445C38.7289 59.0499 38.2296 59.8186 37.6717 60.5433C37.3592 60.949 36.8833 61.4861 36.6092 61.8851C38.8563 61.487 41.0519 60.838 43.1541 59.9496C45.6508 58.8186 47.1932 57.9773 49.4666 56.4183C47.4958 55.9573 45.5072 55.578 43.5057 55.2806C42.7055 55.1576 41.7892 55.0864 41.0242 54.9544Z" fill="#F9F7F5"/>
-				  <path d="M3.00034 21.7807C4.46768 21.7604 5.98336 21.7799 7.45395 21.7798L16.4283 21.7807L16.4281 26.945L13.0607 26.9443L13.0591 37.4079L16.4284 37.4066L16.4282 42.5817L3.02772 42.5488L3 37.4069L6.37088 37.4086L6.37085 26.9441L3.02762 26.9237L3.00034 21.7807Z" fill="#F9F7F5"/>
-				</svg>
-			</div>
-		</div>
-	</div>
-
-	<div class="down-footer">
-		<div class="container">
-			<div class="copyrights">
-				<div class="up-year">
-					Duda <span class="c">&#xa9;</span> <span id="year">2026</span>						
-				</div>
-				<a href="/legal/privacy">Privacy</a>
-				<a href="/legal/terms">Terms</a>
-				<a href="https://support.duda.co/hc/en-us/articles/1500001498461">GDPR</a>
-				<a href="/legal/privacy#ca-privacy-notice">CA Privacy Notice</a>
-			</div>
-			<div class="social-icons">
-	<a href="https://www.facebook.com/duda" class="icon facebook">
-		<span class="show-for-sr">facebook</span>
-		<img alt="facebook" 
-			loading="lazy" 
-			src="https://du-cdn.cdn-website.com/duda_website/images/footer/icons/facebook.svg?v=8">
-	</a>
-	<!-- <a href="https://www.instagram.com/buildwithduda" class="icon instagram">
+</div>
+</div>
+</div>
+<div class="down-footer">
+<div class="container">
+<div class="copyrights">
+<div class="up-year">
+					Duda <span class="c">©</span> <span id="year">2026</span>
+</div>
+<a href="/legal/privacy">Privacy</a>
+<a href="/legal/terms">Terms</a>
+<a href="https://support.duda.co/hc/en-us/articles/1500001498461">GDPR</a>
+<a href="/legal/privacy#ca-privacy-notice">CA Privacy Notice</a>
+</div>
+<div class="social-icons">
+<a class="icon facebook" href="https://www.facebook.com/duda">
+<span class="show-for-sr">facebook</span>
+<img alt="facebook" loading="lazy" src="https://du-cdn.cdn-website.com/duda_website/images/footer/icons/facebook.svg?v=8"/>
+</a>
+<!-- <a href="https://www.instagram.com/buildwithduda" class="icon instagram">
 		<span class="show-for-sr">instagram</span>
 		<img alt="instagram" 
 			loading="lazy" 
 			src="https://du-cdn.cdn-website.com/duda_website/images/footer/icons/instagram.svg?v=8">
 	</a> -->
-	<a href="https://x.com/DudaPlatform" class="icon twitter">
-		<span class="show-for-sr">twitter</span>
-		<img alt="twitter" 
-			loading="lazy" 
-			src="https://du-cdn.cdn-website.com/duda_website/images/footer/icons/x.svg?v=9">
-	</a>
-	<a href="https://www.linkedin.com/company/duda" class="icon linkedin">
-		<span class="show-for-sr">linkedin</span>
-		<img alt="linkedin" 
-			loading="lazy" 
-			src="https://du-cdn.cdn-website.com/duda_website/images/footer/icons/linkedin.svg?v=8">
-	</a>
-	<a href="https://www.youtube.com/user/dudamobile" class="icon youtube">
-		<span class="show-for-sr">youtube</span>
-		<img alt="youtube" 
-			loading="lazy" 
-			src="https://du-cdn.cdn-website.com/duda_website/images/footer/icons/youtube.svg?v=8">
-	</a>
+<a class="icon twitter" href="https://x.com/DudaPlatform">
+<span class="show-for-sr">twitter</span>
+<img alt="twitter" loading="lazy" src="https://du-cdn.cdn-website.com/duda_website/images/footer/icons/x.svg?v=9"/>
+</a>
+<a class="icon linkedin" href="https://www.linkedin.com/company/duda">
+<span class="show-for-sr">linkedin</span>
+<img alt="linkedin" loading="lazy" src="https://du-cdn.cdn-website.com/duda_website/images/footer/icons/linkedin.svg?v=8"/>
+</a>
+<a class="icon youtube" href="https://www.youtube.com/user/dudamobile">
+<span class="show-for-sr">youtube</span>
+<img alt="youtube" loading="lazy" src="https://du-cdn.cdn-website.com/duda_website/images/footer/icons/youtube.svg?v=8"/>
+</a>
 </div>
-			<!-- <div class="proud"> 
+<!-- <div class="proud"> 
 				<svg><use xlink:href="#footer-heart"></use></svg> 
 				<div class="txt">Proudly Built with Duda</div> 
 			</div> -->
-		</div>		
-	</div>
-
-</footer>
-
-<div style="height: 0; width: 0; position: absolute; visibility: hidden">
- 	<svg> 
- 		<style type="text/css">.path {
-					fill: #f66035;
-				}
-				.letter {
-					fill: #ffffff;
-				}</style> 
-		 <symbol id="arrow-down" viewBox="0 0 13 8"> <g> <g transform="translate(-282.000000, -99.000000)"> <polygon transform="translate(288.500000, 103.000000) rotate(90.000000) translate(-288.500000, -103.000000) " points="289.351351 103 285 98.4 286.324324 97 292 103 286.324324 109 285 107.6"></polygon> 
-		</g> 
-		</g> 
-		</symbol> 
-		 <symbol id="footer-heart" fill="none"> <path d="M7.88693 0.354891C9.14077 0.141255 10.4266 0.211728 11.6495 0.561116C12.8725 0.910504 14.0015 1.5299 14.9533 2.37364L15.0057 2.42039L15.0539 2.37789C15.9622 1.58073 17.0301 0.986435 18.1863 0.634658C19.3426 0.282881 20.5605 0.181709 21.7589 0.337891L22.1074 0.388891C23.618 0.649713 25.03 1.3142 26.1938 2.31197C27.3575 3.30975 28.2298 4.60368 28.7182 6.05674C29.2066 7.5098 29.293 9.0679 28.9682 10.566C28.6434 12.0642 27.9195 13.4466 26.8731 14.5669L26.6181 14.829L26.5501 14.8871L15.9959 25.3406C15.7524 25.5817 15.4297 25.7263 15.0877 25.7477C14.7457 25.769 14.4075 25.6657 14.1358 25.4568L14.0027 25.3406L3.3876 14.8261C2.26308 13.732 1.46334 12.3479 1.07696 10.8273C0.690576 9.3066 0.732626 7.70866 1.19845 6.21042C1.66428 4.71218 2.5357 3.37211 3.71621 2.33861C4.89672 1.30511 6.34025 0.618528 7.88693 0.354891Z" fill="#F66035"></path> 
-		</symbol> 
-	</svg> 
 </div>
+</div>
+</footer>
+<div style="height: 0; width: 0; position: absolute; visibility: hidden">
 
+</div>
 </div>
 </div>
 <!-- Exit Medium and Small Menu -->
 
-</div>
 
-<script>
-    const ipgeolocationApi = "https://api.ipgeolocation.io/ipgeo";
-</script>
-<link rel="stylesheet" href="/_templates/jake/css/min/careers.css?v=01.31.41" />
-<script src="/_templates/jake/js/min/careers.js?v=01.31.41"></script>
-
+<link href="/_templates/jake/css/min/careers.css?v=01.31.41" rel="stylesheet"/>
 
 <!-- Other Scripts -->
-<script type="text/javascript" src="/common/min/scripts.js?v=01.31.41" defer></script>
 
-
-
-                <!-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<!-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
             <script>
               window.OneSignal = window.OneSignal || [];
               OneSignal.push(function() {
@@ -1687,21 +1083,12 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2
                 });
               });
             </script> -->
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MNXB');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNXB"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <script type="text/javascript">!function(){var b=function(){window.__AudioEyeSiteHash = "2e54404bb786d5879baf749bcb238bdf"; var a=document.createElement("script");a.src="https://wsmcdn.audioeye.com/aem.js";a.type="text/javascript";a.setAttribute("async","");document.getElementsByTagName("body")[0].appendChild(a)};"complete"!==document.readyState?window.addEventListener?window.addEventListener("load",b):window.attachEvent&&window.attachEvent("onload",b):b()}();</script>
-    
-    <script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
+<!-- Google Tag Manager -->
+
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+
+<!-- End Google Tag Manager (noscript) -->
 
 
 </body>

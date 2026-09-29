@@ -1,837 +1,560 @@
 <!DOCTYPE html>
-<html lang="en-US" class="no-js">
 
+<html class="no-js" lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Vishay Jobs | Israel - Vishay Jobs</title>
-    <!-- Google tag starts (gtag.js) -->
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-
-    gtag('consent', 'default', {
-        ad_storage: 'denied',
-        analytics_storage: 'denied',
-        functionality_storage: 'denied',
-        personalization_storage: 'denied',
-        security_storage: 'granted'
-    });
-    </script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTX22PL1BE"></script>
-    <script>
-        gtag('js', new Date());
-        gtag('config', 'G-WTX22PL1BE',{
-            anonymize_ip: true
-        });
-    </script>
-
-    <script>
-        function clearGACookies() {
-            // Clear all Google Analytics cookies
-            var cookiesToClear = ['_ga', '_gid', '_gat', '_gat_gtag_' + 'G-WTX22PL1BE'.replace(/-/g, '_')];
-            
-            // Find all _ga_* cookies (property-specific)
-            document.cookie.split(';').forEach(function(cookie) {
-                var name = cookie.split('=')[0].trim();
-                if (name.indexOf('_ga_') === 0) {
-                    cookiesToClear.push(name);
-                }
-            });
-            
-            // Get domain parts for proper cookie clearing
-            var hostname = window.location.hostname;
-            var domainParts = hostname.split('.');
-            var domains = [hostname]; // Current domain
-            
-            // Add parent domain if on subdomain (e.g., www.example.com -> .example.com)
-            if (domainParts.length > 2) {
-                domains.push('.' + domainParts.slice(-2).join('.'));
-            } else if (domainParts.length === 2) {
-                domains.push('.' + hostname);
-            }
-            
-            // Delete each cookie by setting it to expire in the past
-            cookiesToClear.forEach(function(cookieName) {
-                // Clear for all possible paths and domains
-                ['/', '/wp-content', '/wp-admin'].forEach(function(path) {
-                    domains.forEach(function(domain) {
-                        document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=' + path + '; domain=' + domain;
-                        document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=' + path;
-                    });
-                });
-            });
-        }
-
-        function getOneTrustConsent() {
-
-            if (!window.Optanon) return;
-            
-            var consentGroups = OnetrustActiveGroups;
-            var groups = consentGroups.split(",");
-            var hasAnalytics = groups.includes("C0002");
-            var hasPerformance = groups.includes("C0002");
-            var hasAds = groups.includes("C0004");
-
-            // Clear GA cookies if analytics consent is denied
-            if (!hasAnalytics) {
-                clearGACookies();
-            }
-
-            gtag('consent', 'update', {
-                analytics_storage: hasAnalytics ? 'granted' : 'denied',
-                ad_storage: hasAds ? 'granted' : 'denied',
-                functionality_storage: 'granted',
-                personalization_storage: hasAds ? 'granted' : 'denied'
-            });
-
-            /* shows video preview blocker depending on whether performance cookies are accepted */
-            document.querySelectorAll('.video__blocker').forEach(el => {
-                el.style.display = hasPerformance ? 'none' : 'flex';
-            });
-
-            /* shows video iframe depending on whether performance cookies are accepted */
-            document.querySelectorAll('.video__preflight iframe[data-src]').forEach(el => {
-                if(hasPerformance) {
-                    el.style.display = 'block';
-                    el.src = el.dataset.src;
-                } else {
-                    el.style.display = 'none';
-                    el.src = '';
-                }
-            });
-            
-        }
-
-        window.OptanonWrapper = function() {
-            getOneTrustConsent();
-        };
-
-        // Clear cookies on initial page load if consent is denied
-        // This handles cases where cookies exist from previous visits
-        (function() {
-            function checkAndClearOnLoad() {
-                // Wait for OneTrust to be available
-                if (typeof window.Optanon !== 'undefined' && typeof OnetrustActiveGroups !== 'undefined') {
-                    var consentGroups = OnetrustActiveGroups;
-                    var groups = consentGroups.split(",");
-                    var hasAnalytics = groups.includes("C0002");
-                    
-                    if (!hasAnalytics) {
-                        clearGACookies();
-                    }
-                } else {
-                    // Retry after a short delay if OneTrust isn't loaded yet
-                    setTimeout(checkAndClearOnLoad, 100);
-                }
-            }
-            
-            // Check when DOM is ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', checkAndClearOnLoad);
-            } else {
-                checkAndClearOnLoad();
-            }
-        })();
-    </script>
-    
-    <!-- Google tag ends (gtag.js) -->
-     
-    <script src="https://kit.fontawesome.com/5ba3ac843d.js" crossorigin="anonymous"></script>
-    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-
-	<!-- This site is optimized with the Yoast SEO Premium plugin v28.3 (Yoast SEO v28.3) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
-	<link rel="canonical" href="https://jobs.vishay.com/locations/israel/" />
-	<meta property="og:locale" content="en_US" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Israel" />
-	<meta property="og:url" content="https://jobs.vishay.com/locations/israel/" />
-	<meta property="og:site_name" content="Vishay Jobs" />
-	<meta property="article:modified_time" content="2026-09-10T07:18:27+00:00" />
-	<meta property="og:image" content="https://jobs.vishay.com/wp-content/uploads/2023/12/poster-israel.jpg" />
-	<meta property="og:image:width" content="2000" />
-	<meta property="og:image:height" content="832" />
-	<meta property="og:image:type" content="image/jpeg" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:label1" content="Est. reading time" />
-	<meta name="twitter:data1" content="1 minute" />
-	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/jobs.vishay.com\/locations\/israel\/","url":"https:\/\/jobs.vishay.com\/locations\/israel\/","name":"Israel - Vishay Jobs","isPartOf":{"@id":"https:\/\/jobs.vishay.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/jobs.vishay.com\/locations\/israel\/#primaryimage"},"image":{"@id":"https:\/\/jobs.vishay.com\/locations\/israel\/#primaryimage"},"thumbnailUrl":"https:\/\/jobs.vishay.com\/wp-content\/uploads\/2023\/12\/poster-israel.jpg","datePublished":"2023-09-13T13:43:17+00:00","dateModified":"2026-09-10T07:18:27+00:00","breadcrumb":{"@id":"https:\/\/jobs.vishay.com\/locations\/israel\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/jobs.vishay.com\/locations\/israel\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/jobs.vishay.com\/locations\/israel\/#primaryimage","url":"https:\/\/jobs.vishay.com\/wp-content\/uploads\/2023\/12\/poster-israel.jpg","contentUrl":"https:\/\/jobs.vishay.com\/wp-content\/uploads\/2023\/12\/poster-israel.jpg","width":2000,"height":832},{"@type":"BreadcrumbList","@id":"https:\/\/jobs.vishay.com\/locations\/israel\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/jobs.vishay.com\/"},{"@type":"ListItem","position":2,"name":"Locations","item":"https:\/\/jobs.vishay.com\/locations\/"},{"@type":"ListItem","position":3,"name":"Israel"}]},{"@type":"WebSite","@id":"https:\/\/jobs.vishay.com\/#website","url":"https:\/\/jobs.vishay.com\/","name":"Vishay Jobs","description":"Together, let’s build The DNA of tech®","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/jobs.vishay.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
-	<!-- / Yoast SEO Premium plugin. -->
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title>Vishay Jobs | Israel - Vishay Jobs</title>
+<!-- Google tag starts (gtag.js) -->
 
 
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://jobs.vishay.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjobs.vishay.com%2Flocations%2Fisrael%2F" />
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://jobs.vishay.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjobs.vishay.com%2Flocations%2Fisrael%2F&#038;format=xml" />
-<style id="wp-img-auto-sizes-contain-inline-css">
-img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
-/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
-</style>
-<style id="wp-emoji-styles-inline-css">
 
-	img.wp-smiley, img.emoji {
-		display: inline !important;
-		border: none !important;
-		box-shadow: none !important;
-		height: 1em !important;
-		width: 1em !important;
-		margin: 0 0.07em !important;
-		vertical-align: -0.1em !important;
-		background: none !important;
-		padding: 0 !important;
-	}
-/*# sourceURL=wp-emoji-styles-inline-css */
-</style>
-<style id="wp-block-library-inline-css">
-:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
 
-/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
-</style>
-<style id="classic-theme-styles-inline-css">
-/*! This file is auto-generated */
-.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
-/*# sourceURL=/wp-includes/css/classic-themes.min.css */
-</style>
+<!-- Google tag ends (gtag.js) -->
 
-<style id="global-styles-inline-css">
-:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
-/*# sourceURL=global-styles-inline-css */
-</style>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<!-- This site is optimized with the Yoast SEO Premium plugin v28.3 (Yoast SEO v28.3) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+<link href="https://jobs.vishay.com/locations/israel/" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="Israel" property="og:title"/>
+<meta content="https://jobs.vishay.com/locations/israel/" property="og:url"/>
+<meta content="Vishay Jobs" property="og:site_name"/>
+<meta content="2026-09-10T07:18:27+00:00" property="article:modified_time"/>
+<meta content="https://jobs.vishay.com/wp-content/uploads/2023/12/poster-israel.jpg" property="og:image"/>
+<meta content="2000" property="og:image:width"/>
+<meta content="832" property="og:image:height"/>
+<meta content="image/jpeg" property="og:image:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Est. reading time" name="twitter:label1"/>
+<meta content="1 minute" name="twitter:data1"/>
 
-<link rel='stylesheet' id='corestyles-css' href='https://jobs.vishay.com/wp-content/themes/vishay/assets/css/styles.min.css?ver=1790594897' media='all' />
-<script id="corescripts-js" src="https://jobs.vishay.com/wp-content/themes/vishay/assets/js/app.bundle.js?ver=1790594897"></script>
-<link rel="https://api.w.org/" href="https://jobs.vishay.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://jobs.vishay.com/wp-json/wp/v2/pages/264" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://jobs.vishay.com/xmlrpc.php?rsd" />
-<meta name="generator" content="WordPress 7.1.2" />
-<link rel='shortlink' href='https://jobs.vishay.com/?p=264' />
-    <!-- OneTrust Cookies Consent Notice start for jobs.vishay.com -->
-    <script type="text/javascript" src="https://cdn.cookielaw.org/consent/f54b6d49-b1b2-4790-b67c-f47077997725/OtAutoBlock.js"></script>
-    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="f54b6d49-b1b2-4790-b67c-f47077997725"></script>
-    <!-- OneTrust Cookies Consent Notice end for jobs.vishay.com -->
+<!-- / Yoast SEO Premium plugin. -->
+<link href="https://jobs.vishay.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjobs.vishay.com%2Flocations%2Fisrael%2F" rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"/>
+<link href="https://jobs.vishay.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjobs.vishay.com%2Flocations%2Fisrael%2F&amp;format=xml" rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"/>
+
+
+
+
+
+<link href="https://jobs.vishay.com/wp-content/themes/vishay/assets/css/styles.min.css?ver=1790594897" id="corestyles-css" media="all" rel="stylesheet"/>
+
+<link href="https://jobs.vishay.com/wp-json/" rel="https://api.w.org/"/><link href="https://jobs.vishay.com/wp-json/wp/v2/pages/264" rel="alternate" title="JSON" type="application/json"/><link href="https://jobs.vishay.com/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+<meta content="WordPress 7.1.2" name="generator"/>
+<link href="https://jobs.vishay.com/?p=264" rel="shortlink"/>
+<!-- OneTrust Cookies Consent Notice start for jobs.vishay.com -->
+
+
+<!-- OneTrust Cookies Consent Notice end for jobs.vishay.com -->
 </head>
-
 <body>
-	<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG53DH3M"
-height="0" width="0" style="display:none;visibility:hidden class="optanon-category-C0003"></iframe></noscript>
+<!-- Google Tag Manager (noscript) -->
+
 <!-- End Google Tag Manager (noscript) -->
-    <header class="header">
-        <div class="header__masthead">
-            <a href="/" class="header__logo"></a>
-            <div class="gtranslate_wrapper" id="gt-wrapper-26358017"></div>        </div>
-        <div class="header__nav">
-            <div class="header__nav__inner">
-                <nav class="nav nav--primary">
-                    <ul id="menu-header-nav" class="menu"><li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-275"><a href="https://jobs.vishay.com/locations/">Locations</a>
+<header class="header">
+<div class="header__masthead">
+<a class="header__logo" href="/"></a>
+<div class="gtranslate_wrapper" id="gt-wrapper-26358017"></div> </div>
+<div class="header__nav">
+<div class="header__nav__inner">
+<nav class="nav nav--primary">
+<ul class="menu" id="menu-header-nav"><li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-275" id="menu-item-275"><a href="https://jobs.vishay.com/locations/">Locations</a>
 <ul class="sub-menu">
-	<li id="menu-item-279" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-279"><a href="https://jobs.vishay.com/locations/europe/">Europe</a></li>
-	<li id="menu-item-278" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-264 current_page_item menu-item-278"><a href="https://jobs.vishay.com/locations/israel/" aria-current="page">Israel</a></li>
-	<li id="menu-item-277" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277"><a href="https://jobs.vishay.com/locations/americas/">Americas</a></li>
-	<li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276"><a href="https://jobs.vishay.com/locations/asia/">Asia</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-279" id="menu-item-279"><a href="https://jobs.vishay.com/locations/europe/">Europe</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-264 current_page_item menu-item-278" id="menu-item-278"><a aria-current="page" href="https://jobs.vishay.com/locations/israel/">Israel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277" id="menu-item-277"><a href="https://jobs.vishay.com/locations/americas/">Americas</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-276" id="menu-item-276"><a href="https://jobs.vishay.com/locations/asia/">Asia</a></li>
 </ul>
 </li>
-<li id="menu-item-274" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-274"><a href="https://jobs.vishay.com/career-areas/">Career Areas</a></li>
-<li id="menu-item-273" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-273"><a href="https://jobs.vishay.com/life-at-vishay/">Life at Vishay</a></li>
-<li id="menu-item-272" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-272"><a href="https://jobs.vishay.com/who-we-are/">Who We Are</a>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-274" id="menu-item-274"><a href="https://jobs.vishay.com/career-areas/">Career Areas</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-273" id="menu-item-273"><a href="https://jobs.vishay.com/life-at-vishay/">Life at Vishay</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-272" id="menu-item-272"><a href="https://jobs.vishay.com/who-we-are/">Who We Are</a>
 <ul class="sub-menu">
-	<li id="menu-item-302" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-302"><a href="https://jobs.vishay.com/who-we-are/our-story/">Our Story</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-302" id="menu-item-302"><a href="https://jobs.vishay.com/who-we-are/our-story/">Our Story</a></li>
 </ul>
 </li>
-<li id="menu-item-271" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-271"><a href="https://jobs.vishay.com/early-careers/">Early Careers</a></li>
-<li id="menu-item-146148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-146148"><a href="https://jobs.vishay.com/events/">Events</a></li>
-<li id="menu-item-26532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26532"><a href="https://jobs.vishay.com/jobs/">Search Jobs</a></li>
-</ul>                </nav>
-                <button id="toggle">Menu</button>
-            </div>
-        </div>
-    </header>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-271" id="menu-item-271"><a href="https://jobs.vishay.com/early-careers/">Early Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-146148" id="menu-item-146148"><a href="https://jobs.vishay.com/events/">Events</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26532" id="menu-item-26532"><a href="https://jobs.vishay.com/jobs/">Search Jobs</a></li>
+</ul> </nav>
+<button id="toggle">Menu</button>
+</div>
+</div>
+</header>
 <section class="search">
-    <div class="search__inner">
-        <div class="search__title">EXPLORE VISHAY CAREERS</div>
-        <form class="search__form" method="GET" action="/jobs">
-            <input type="text" name="search" placeholder="Search" />
-            <select name="region">
-                <option value="">Select region...</option>
-                <option value="americas">Americas</option><option value="asia">Asia</option><option value="europe">Europe</option><option value="israel">Israel</option>            </select>
-            <select name="category">
-                <option value="">Select category...</option>
-                <option value="administrative">Administrative</option><option value="apprenticeships-interns-and-temporary-staff">Apprenticeships, Interns and Temporary staff</option><option value="customer-service">Customer Service</option><option value="manufacturing-engineering">Manufacturing Engineering</option><option value="production">Production</option><option value="quality">Quality</option><option value="research-development-and-technical-engineering">Research, Development and Technical Engineering</option><option value="sales-marketing">Sales &amp; Marketing</option>            </select>
-            <button type="submit" class="btn btn--quaternary">Submit</button>
-        </form>
-    </div>
+<div class="search__inner">
+<div class="search__title">EXPLORE VISHAY CAREERS</div>
+<form action="/jobs" class="search__form" method="GET">
+<input name="search" placeholder="Search" type="text"/>
+<select name="region">
+<option value="">Select region...</option>
+<option value="americas">Americas</option><option value="asia">Asia</option><option value="europe">Europe</option><option value="israel">Israel</option> </select>
+<select name="category">
+<option value="">Select category...</option>
+<option value="administrative">Administrative</option><option value="apprenticeships-interns-and-temporary-staff">Apprenticeships, Interns and Temporary staff</option><option value="customer-service">Customer Service</option><option value="manufacturing-engineering">Manufacturing Engineering</option><option value="production">Production</option><option value="quality">Quality</option><option value="research-development-and-technical-engineering">Research, Development and Technical Engineering</option><option value="sales-marketing">Sales &amp; Marketing</option> </select>
+<button class="btn btn--quaternary" type="submit">Submit</button>
+</form>
+</div>
 </section>
 <div class="video-hero video-hero--deep video-hero--none">
-    <video src="https://jobs.vishay.com/wp-content/uploads/2023/12/0603_KIMCO_Vishay-Maps_Israel_600x1440_AE_001-1.mp4" poster="https://jobs.vishay.com/wp-content/uploads/2023/12/poster-israel.jpg" class="video-hero__video" loop autoplay
-        muted></video>
-    <div class="video-hero__inner video-hero__inner--left">
-        <div class="video-hero__content">
-            <h6>Locations</h6>
-            <h1>Israel</h1>
-            <p>Be part of a community, be part of an international network</p>
-        </div>
-    </div>
+<video autoplay="" class="video-hero__video" loop="" muted="" poster="https://jobs.vishay.com/wp-content/uploads/2023/12/poster-israel.jpg" src="https://jobs.vishay.com/wp-content/uploads/2023/12/0603_KIMCO_Vishay-Maps_Israel_600x1440_AE_001-1.mp4"></video>
+<div class="video-hero__inner video-hero__inner--left">
+<div class="video-hero__content">
+<h6>Locations</h6>
+<h1>Israel</h1>
+<p>Be part of a community, be part of an international network</p>
+</div>
+</div>
 </div><section class="container">
-    <div class="container__inner container__inner--pad-top">
-        <div data-aos="fade" data-aos-duration="500" class="container__content container__content--cols container__content--centered intro">
-            <p>We provide numerous opportunities to launch and grow your career in new directions, supported by leaders who encourage you to put your ideas forward. It’s a collaborative and open culture where your achievements are recognized with a shared purpose of working on quality products with a positive global impact.</p>
-        </div>
-    </div>
+<div class="container__inner container__inner--pad-top">
+<div class="container__content container__content--cols container__content--centered intro" data-aos="fade" data-aos-duration="500">
+<p>We provide numerous opportunities to launch and grow your career in new directions, supported by leaders who encourage you to put your ideas forward. It’s a collaborative and open culture where your achievements are recognized with a shared purpose of working on quality products with a positive global impact.</p>
+</div>
+</div>
 </section><div class="container">
-    <div class="container__inner container__inner--centered">
-        <div class="stats">
-                        <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="0" class="stats__stat stats__stat--people">
-                <span class="stats__number">2.5K</span>
-                <span class="stats__label">Employees in region</span>
-            </div>
-                        <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="100" class="stats__stat stats__stat--building">
-                <span class="stats__number">5</span>
-                <span class="stats__label">Cities across Israel</span>
-            </div>
-                        <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="200" class="stats__stat stats__stat--calendar">
-                <span class="stats__number">1969</span>
-                <span class="stats__label">Year Vishay Israel was launched</span>
-            </div>
-                    </div>
-    </div>
-</div><section class="container container--secondary ">
-    <div class="container__inner container__inner--centered container__inner--vpad locations">
-        <h2>Find a location near you</h2>
-
-        <div class="locations__flags">
-                    </div>
-
-                <div class="splide locations__slider">
-            <div class="splide__track">
-                <div class="splide__list">
-                                        <div class="splide__slide">                    
-                        <div class="location shadow shadowed--sm">
-                            <div class="location__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Beer-Sheva_IL.jpg')"></div>
-                            <div class="location__content">
-                                <div class="location__header">
-                                    <div class="location__title">
-                                                                <h3 class="notranslate">Beer Sheva, IL</h3>
-                                                                    </div>
-                                                                        <div class="location__pin">
-                                        <a href="https://maps.app.goo.gl/Lh3yXAccTgDYEG1x9" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></a>
-                                    </div>
-                                                                    </div>
-
-                                                                                                                                <div class="location__country">
-                                                                                                                                                <div class="location__flag"><span style="background-image:url('https://jobs.vishay.com/wp-content/themes/vishay/assets/images/flags/icon-flag-israel.svg');"></span>Israel</div>
-                                </div>
-                                
-                                
-
-                                
-                                
-                                                                
-                                 
-                                
-                                
-                                <div class="location__links">
-                                <a href="/jobs?city=beer-sheva-il" class="link link--primary">Jobs in this location<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z"/></svg></a>
-                                                                </div>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="splide__slide">                    
-                        <div class="location shadow shadowed--sm">
-                            <div class="location__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Dimona_IL.jpg')"></div>
-                            <div class="location__content">
-                                <div class="location__header">
-                                    <div class="location__title">
-                                                                <h3 class="notranslate">Dimona, IL</h3>
-                                                                    </div>
-                                                                        <div class="location__pin">
-                                        <a href="https://maps.app.goo.gl/ursUdNNYCuYYfwM57" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></a>
-                                    </div>
-                                                                    </div>
-
-                                                                                                                                <div class="location__country">
-                                                                                                                                                <div class="location__flag"><span style="background-image:url('https://jobs.vishay.com/wp-content/themes/vishay/assets/images/flags/icon-flag-israel.svg');"></span>Israel</div>
-                                </div>
-                                
-                                
-
-                                
-                                
-                                                                
-                                 
-                                
-                                
-                                <div class="location__links">
-                                <a href="/jobs?city=dimona-il" class="link link--primary">Jobs in this location<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z"/></svg></a>
-                                                                </div>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="splide__slide">                    
-                        <div class="location shadow shadowed--sm">
-                            <div class="location__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Migdal-Haemek_IL.jpg')"></div>
-                            <div class="location__content">
-                                <div class="location__header">
-                                    <div class="location__title">
-                                                                <h3 class="notranslate">Migdal Haemek, IL</h3>
-                                                                    </div>
-                                                                        <div class="location__pin">
-                                        <a href="https://maps.app.goo.gl/K8iB2N6VxzuaWuje8" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></a>
-                                    </div>
-                                                                    </div>
-
-                                                                                                                                <div class="location__country">
-                                                                                                                                                <div class="location__flag"><span style="background-image:url('https://jobs.vishay.com/wp-content/themes/vishay/assets/images/flags/icon-flag-israel.svg');"></span>Israel</div>
-                                </div>
-                                
-                                
-
-                                
-                                
-                                                                
-                                 
-                                
-                                
-                                <div class="location__links">
-                                <a href="/jobs?city=migdal-haemek-il" class="link link--primary">Jobs in this location<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z"/></svg></a>
-                                                                </div>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="splide__slide">                    
-                        <div class="location shadow shadowed--sm">
-                            <div class="location__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Petach-Tikva_IL.jpg')"></div>
-                            <div class="location__content">
-                                <div class="location__header">
-                                    <div class="location__title">
-                                                                <h3 class="notranslate">Petach Tikva, IL</h3>
-                                                                    </div>
-                                                                        <div class="location__pin">
-                                        <a href="https://maps.app.goo.gl/wNxW81t6JDYHBkDQA" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></a>
-                                    </div>
-                                                                    </div>
-
-                                                                                                                                <div class="location__country">
-                                                                                                                                                <div class="location__flag"><span style="background-image:url('https://jobs.vishay.com/wp-content/themes/vishay/assets/images/flags/icon-flag-israel.svg');"></span>Israel</div>
-                                </div>
-                                
-                                
-
-                                
-                                
-                                                                
-                                 
-                                
-                                
-                                <div class="location__links">
-                                <a href="/jobs?city=petach-tikva-il" class="link link--primary">Jobs in this location<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z"/></svg></a>
-                                                                </div>
-                            </div>
-                        </div>
-                    </div>
-                                        <div class="splide__slide">                    
-                        <div class="location shadow shadowed--sm">
-                            <div class="location__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Kanot.jpg')"></div>
-                            <div class="location__content">
-                                <div class="location__header">
-                                    <div class="location__title">
-                                                                <h3 class="notranslate">Kanot, IL</h3>
-                                                                    </div>
-                                                                        <div class="location__pin">
-                                        <a href="https://maps.app.goo.gl/omT3gnRnRq5vfw6K8" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></a>
-                                    </div>
-                                                                    </div>
-
-                                                                                                
-                                
-
-                                
-                                                                <div class="location__country">
-                                                                                                                                                <div class="location__flag"><span style="background-image:url('https://jobs.vishay.com/wp-content/themes/vishay/assets/images/flags/icon-flag-israel.svg');"></span>Israel</div>
-                                </div>
-                                
-                                                                
-                                 
-                                
-                                
-                                <div class="location__links">
-                                <a href="/jobs?city=kanot-il" class="link link--primary">Jobs in this location<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z"/></svg></a>
-                                                                </div>
-                            </div>
-                        </div>
-                    </div>
-                                    </div>
-            </div>
-        </div>
-        
-    </div>
+<div class="container__inner container__inner--centered">
+<div class="stats">
+<div class="stats__stat stats__stat--people" data-aos="fade-up" data-aos-delay="0" data-aos-duration="750">
+<span class="stats__number">2.5K</span>
+<span class="stats__label">Employees in region</span>
+</div>
+<div class="stats__stat stats__stat--building" data-aos="fade-up" data-aos-delay="100" data-aos-duration="750">
+<span class="stats__number">5</span>
+<span class="stats__label">Cities across Israel</span>
+</div>
+<div class="stats__stat stats__stat--calendar" data-aos="fade-up" data-aos-delay="200" data-aos-duration="750">
+<span class="stats__number">1969</span>
+<span class="stats__label">Year Vishay Israel was launched</span>
+</div>
+</div>
+</div>
+</div><section class="container container--secondary">
+<div class="container__inner container__inner--centered container__inner--vpad locations">
+<h2>Find a location near you</h2>
+<div class="locations__flags">
+</div>
+<div class="splide locations__slider">
+<div class="splide__track">
+<div class="splide__list">
+<div class="splide__slide">
+<div class="location shadow shadowed--sm">
+<div class="location__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Beer-Sheva_IL.jpg')"></div>
+<div class="location__content">
+<div class="location__header">
+<div class="location__title">
+<h3 class="notranslate">Beer Sheva, IL</h3>
+</div>
+<div class="location__pin">
+<a href="https://maps.app.goo.gl/Lh3yXAccTgDYEG1x9" target="_blank"></a>
+</div>
+</div>
+<div class="location__country">
+<div class="location__flag"><span style="background-image:url('https://jobs.vishay.com/wp-content/themes/vishay/assets/images/flags/icon-flag-israel.svg');"></span>Israel</div>
+</div>
+<div class="location__links">
+<a class="link link--primary" href="/jobs?city=beer-sheva-il">Jobs in this location</a>
+</div>
+</div>
+</div>
+</div>
+<div class="splide__slide">
+<div class="location shadow shadowed--sm">
+<div class="location__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Dimona_IL.jpg')"></div>
+<div class="location__content">
+<div class="location__header">
+<div class="location__title">
+<h3 class="notranslate">Dimona, IL</h3>
+</div>
+<div class="location__pin">
+<a href="https://maps.app.goo.gl/ursUdNNYCuYYfwM57" target="_blank"></a>
+</div>
+</div>
+<div class="location__country">
+<div class="location__flag"><span style="background-image:url('https://jobs.vishay.com/wp-content/themes/vishay/assets/images/flags/icon-flag-israel.svg');"></span>Israel</div>
+</div>
+<div class="location__links">
+<a class="link link--primary" href="/jobs?city=dimona-il">Jobs in this location</a>
+</div>
+</div>
+</div>
+</div>
+<div class="splide__slide">
+<div class="location shadow shadowed--sm">
+<div class="location__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Migdal-Haemek_IL.jpg')"></div>
+<div class="location__content">
+<div class="location__header">
+<div class="location__title">
+<h3 class="notranslate">Migdal Haemek, IL</h3>
+</div>
+<div class="location__pin">
+<a href="https://maps.app.goo.gl/K8iB2N6VxzuaWuje8" target="_blank"></a>
+</div>
+</div>
+<div class="location__country">
+<div class="location__flag"><span style="background-image:url('https://jobs.vishay.com/wp-content/themes/vishay/assets/images/flags/icon-flag-israel.svg');"></span>Israel</div>
+</div>
+<div class="location__links">
+<a class="link link--primary" href="/jobs?city=migdal-haemek-il">Jobs in this location</a>
+</div>
+</div>
+</div>
+</div>
+<div class="splide__slide">
+<div class="location shadow shadowed--sm">
+<div class="location__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Petach-Tikva_IL.jpg')"></div>
+<div class="location__content">
+<div class="location__header">
+<div class="location__title">
+<h3 class="notranslate">Petach Tikva, IL</h3>
+</div>
+<div class="location__pin">
+<a href="https://maps.app.goo.gl/wNxW81t6JDYHBkDQA" target="_blank"></a>
+</div>
+</div>
+<div class="location__country">
+<div class="location__flag"><span style="background-image:url('https://jobs.vishay.com/wp-content/themes/vishay/assets/images/flags/icon-flag-israel.svg');"></span>Israel</div>
+</div>
+<div class="location__links">
+<a class="link link--primary" href="/jobs?city=petach-tikva-il">Jobs in this location</a>
+</div>
+</div>
+</div>
+</div>
+<div class="splide__slide">
+<div class="location shadow shadowed--sm">
+<div class="location__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Kanot.jpg')"></div>
+<div class="location__content">
+<div class="location__header">
+<div class="location__title">
+<h3 class="notranslate">Kanot, IL</h3>
+</div>
+<div class="location__pin">
+<a href="https://maps.app.goo.gl/omT3gnRnRq5vfw6K8" target="_blank"></a>
+</div>
+</div>
+<div class="location__country">
+<div class="location__flag"><span style="background-image:url('https://jobs.vishay.com/wp-content/themes/vishay/assets/images/flags/icon-flag-israel.svg');"></span>Israel</div>
+</div>
+<div class="location__links">
+<a class="link link--primary" href="/jobs?city=kanot-il">Jobs in this location</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section><section class="container">
-    <div
-        class="container__inner container__inner--stacked container__inner--pad-both">
-        <div class="cols cols--left alternating">
-                        <div class="cols__col cols__col--2 alternating__image">
-                                <img src="https://jobs.vishay.com/wp-content/uploads/2023/11/Discover-Israel-slideshow.gif" alt="">
-            </div>
-                        <div class="cols__col cols__col--2 alternating__content">
-                <h2>Discover Vishay Israel</h2>
-                <p>We work collaboratively as a unit led by ethical, supportive, and transparent leaders, strengthened by our passion for delivering innovative technology to millions of people around the world. You will have the opportunity to take on new challenges that will drive your career advancement, provide training and development focused on the future, and be surrounded by colleagues around the world who feel like family.</p>
-                            </div>
-        </div>
-    </div>
+<div class="container__inner container__inner--stacked container__inner--pad-both">
+<div class="cols cols--left alternating">
+<div class="cols__col cols__col--2 alternating__image">
+<img alt="" src="https://jobs.vishay.com/wp-content/uploads/2023/11/Discover-Israel-slideshow.gif"/>
+</div>
+<div class="cols__col cols__col--2 alternating__content">
+<h2>Discover Vishay Israel</h2>
+<p>We work collaboratively as a unit led by ethical, supportive, and transparent leaders, strengthened by our passion for delivering innovative technology to millions of people around the world. You will have the opportunity to take on new challenges that will drive your career advancement, provide training and development focused on the future, and be surrounded by colleagues around the world who feel like family.</p>
+</div>
+</div>
+</div>
 </section><section class="container">
-    <div
-        class="container__inner container__inner--stacked container__inner--pad-bottom">
-        <div class="cols cols--right alternating">
-                        <div class="cols__col cols__col--2 alternating__image">
-                                <img src="https://jobs.vishay.com/wp-content/uploads/2026/09/תמונה-לאתר-קריירות-002.jpg" alt="">
-            </div>
-                        <div class="cols__col cols__col--2 alternating__content">
-                <h2>Leveraging globalization to make an impact </h2>
-                <p>In the mid-1980s, Dr. Felix Zandman’s vision of globalization put Vishay on the map in Israel. We worked with the government to bring jobs into the then-struggling city of Dimona with a repurposed factory space. We acquired companies such as Dale, Draloric, and Sfernice, we launched, and leadership and training were put in place to train a new workforce.</p>
-                            </div>
-        </div>
-    </div>
+<div class="container__inner container__inner--stacked container__inner--pad-bottom">
+<div class="cols cols--right alternating">
+<div class="cols__col cols__col--2 alternating__image">
+<img alt="" src="https://jobs.vishay.com/wp-content/uploads/2026/09/תמונה-לאתר-קריירות-002.jpg"/>
+</div>
+<div class="cols__col cols__col--2 alternating__content">
+<h2>Leveraging globalization to make an impact </h2>
+<p>In the mid-1980s, Dr. Felix Zandman’s vision of globalization put Vishay on the map in Israel. We worked with the government to bring jobs into the then-struggling city of Dimona with a repurposed factory space. We acquired companies such as Dale, Draloric, and Sfernice, we launched, and leadership and training were put in place to train a new workforce.</p>
+</div>
+</div>
+</div>
 </section><div class="featured">
-    <div class="featured__content">
-        <div class="featured__content-inner">
-            <h3>  High Quality Content</h3>
-            <h2></h2>
-            <p>For more information about the high-quality work we do, our amazing clients, and to get a feel for the inviting work culture and amenities here, please enjoy this video.</p>
-                    </div>
-    </div>
-
-        <div class="featured__image" style="background-image: url('https://jobs.vishay.com/wp-content/uploads/2023/12/poster-migdal-haemek.jpg');">
-                <a href="javascript:void(0);" id="modal__button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path
-                    d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z" />
-            </svg>
-        </a>
-    </div>
-    <div class="featured__modal modal" id="modal">
-        <div class="featured__video modal__inner">
-            <span class="modal__close">&times;</span>
-            <video controls id='modal__video' src="https://jobs.vishay.com/wp-content/uploads/2026/09/ברוכים_הבאים_לווישיי_מגדל_2026_-_אנגלית-720p.mp4"></video>
-        </div>
-    </div>
-    </div><div class="container">
-    <div class="container__inner">
-                <section class="splide slider" dir="ltr" data-splide='{"type": "loop", "perMove": 1, "autoplay": true, "interval": "7000", "speed": "1000"}'>
-            <div class="splide__track">
-                <ul class="splide__list">
-                                <li class="splide__slide quote quote__inner gradient--primary">
-                    <div class="quote__quote">
-                        <p>I believe the future vision for Vishay is to be at the forefront of technological innovation. By investing heavily in research, we can lead the industry in pioneering new solutions".</p>
-                        <span class="notranslate">Dvir Zaigerman, Senior Manager Engineering, MLCC, Israel</span>
-                    </div>
-                    <div class="quote__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Zaigerman-Dvir-quote-image.png');"></div>
-                </li>
-                                <li class="splide__slide quote quote__inner gradient--primary">
-                    <div class="quote__quote">
-                        <p>Vishay provides great support, tools, and training for professional development. Their open-door policy and willingness to offer support from every level in the organization speaks to their great HR and leadership team and programs.”</p>
-                        <span class="notranslate">Michael Dobrovitsky,  Maintenance Manager, Non-Linear Resistors, Israel</span>
-                    </div>
-                    <div class="quote__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Dobrovitsky-Michael_Israel.jpg');"></div>
-                </li>
-                                <li class="splide__slide quote quote__inner gradient--primary">
-                    <div class="quote__quote">
-                        <p>In every step of my 20-year career at Vishay, I have been provided the knowledge and support I needed to succeed. Across the company, you can find colleagues who have built their careers at Vishay from the ground up. Vishay offers everyone a chance to develop and fulfill their dreams.”</p>
-                        <span class="notranslate">Sharon Genon, Director Regional Logistics, Israel</span>
-                    </div>
-                    <div class="quote__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Sharon-Genon_Israel-2_.jpg');"></div>
-                </li>
-                                </ul>
-            </div>
-        </section>
-    </div>
+<div class="featured__content">
+<div class="featured__content-inner">
+<h3>  High Quality Content</h3>
+<h2></h2>
+<p>For more information about the high-quality work we do, our amazing clients, and to get a feel for the inviting work culture and amenities here, please enjoy this video.</p>
+</div>
+</div>
+<div class="featured__image" style="background-image: url('https://jobs.vishay.com/wp-content/uploads/2023/12/poster-migdal-haemek.jpg');">
+<a href="javascript:void(0);" id="modal__button">
+</a>
+</div>
+<div class="featured__modal modal" id="modal">
+<div class="featured__video modal__inner">
+<span class="modal__close">×</span>
+<video controls="" id="modal__video" src="https://jobs.vishay.com/wp-content/uploads/2026/09/ברוכים_הבאים_לווישיי_מגדל_2026_-_אנגלית-720p.mp4"></video>
+</div>
+</div>
 </div><div class="container">
-    <div class="container__inner container__inner--centered container__inner--stacked container__inner--pad-bottom">
-        <div class="container__content container__content--centered container__content--cols">
-            <h2>We’ll help you be your best</h2>
-                        <p>With the right support, there’s nothing you can’t do. That’s why we offer benefits that support your life and your career. While exact benefits depend on where you work, we provide a variety benefit programs to all employees worldwide.</p>
-                    </div>
-        
-                                <div class="reasons">
-                        <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="0" class="reason reason--3">
-            <div class="reason__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Israel-benefits-perks.png');"></div>
-            <h3>Perks that make you feel special</h3>
-            <p>Here, you are part of Vishay from day one. We offer nice extras such as subsidized meals, a great cafeteria, transportation services, special programs for production workers, as well as the possibility of hybrid work modules.</p>
-                    </div>
-                                <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="100" class="reason reason--3">
-            <div class="reason__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Wellbeing-3-col-1.png');"></div>
-            <h3>Wellbeing for you and those around you</h3>
-            <p>Need an extra day for a special personal occasion? Passionate about community giving? How about perks for your kids, like “fun days,” travel offers, and summer employment? Maybe you need a loan on favorable terms? We like going above and beyond to keep our people happy.</p>
-                    </div>
-                                <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="200" class="reason reason--3">
-            <div class="reason__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Israel-benefits-development-recognition.png');"></div>
-            <h3>Development and recognition</h3>
-            <p>We believe in promotion and career growth for you. We provide various learning opportunities, external courses, and tuition assistance. Growth and excellence are recognized with promotion opportunities, financial rewards, and referral awards.</p>
-                    </div>
-                        </div>
-                
-    </div>
+<div class="container__inner">
+<section class="splide slider" data-splide='{"type": "loop", "perMove": 1, "autoplay": true, "interval": "7000", "speed": "1000"}' dir="ltr">
+<div class="splide__track">
+<ul class="splide__list">
+<li class="splide__slide quote quote__inner gradient--primary">
+<div class="quote__quote">
+<p>I believe the future vision for Vishay is to be at the forefront of technological innovation. By investing heavily in research, we can lead the industry in pioneering new solutions".</p>
+<span class="notranslate">Dvir Zaigerman, Senior Manager Engineering, MLCC, Israel</span>
+</div>
+<div class="quote__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Zaigerman-Dvir-quote-image.png');"></div>
+</li>
+<li class="splide__slide quote quote__inner gradient--primary">
+<div class="quote__quote">
+<p>Vishay provides great support, tools, and training for professional development. Their open-door policy and willingness to offer support from every level in the organization speaks to their great HR and leadership team and programs.”</p>
+<span class="notranslate">Michael Dobrovitsky,  Maintenance Manager, Non-Linear Resistors, Israel</span>
+</div>
+<div class="quote__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Dobrovitsky-Michael_Israel.jpg');"></div>
+</li>
+<li class="splide__slide quote quote__inner gradient--primary">
+<div class="quote__quote">
+<p>In every step of my 20-year career at Vishay, I have been provided the knowledge and support I needed to succeed. Across the company, you can find colleagues who have built their careers at Vishay from the ground up. Vishay offers everyone a chance to develop and fulfill their dreams.”</p>
+<span class="notranslate">Sharon Genon, Director Regional Logistics, Israel</span>
+</div>
+<div class="quote__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Sharon-Genon_Israel-2_.jpg');"></div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+</div><div class="container">
+<div class="container__inner container__inner--centered container__inner--stacked container__inner--pad-bottom">
+<div class="container__content container__content--centered container__content--cols">
+<h2>We’ll help you be your best</h2>
+<p>With the right support, there’s nothing you can’t do. That’s why we offer benefits that support your life and your career. While exact benefits depend on where you work, we provide a variety benefit programs to all employees worldwide.</p>
+</div>
+<div class="reasons">
+<div class="reason reason--3" data-aos="fade-up" data-aos-delay="0" data-aos-duration="750">
+<div class="reason__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Israel-benefits-perks.png');"></div>
+<h3>Perks that make you feel special</h3>
+<p>Here, you are part of Vishay from day one. We offer nice extras such as subsidized meals, a great cafeteria, transportation services, special programs for production workers, as well as the possibility of hybrid work modules.</p>
+</div>
+<div class="reason reason--3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="750">
+<div class="reason__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Wellbeing-3-col-1.png');"></div>
+<h3>Wellbeing for you and those around you</h3>
+<p>Need an extra day for a special personal occasion? Passionate about community giving? How about perks for your kids, like “fun days,” travel offers, and summer employment? Maybe you need a loan on favorable terms? We like going above and beyond to keep our people happy.</p>
+</div>
+<div class="reason reason--3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="750">
+<div class="reason__image" style="background-image:url('https://jobs.vishay.com/wp-content/uploads/2023/11/Israel-benefits-development-recognition.png');"></div>
+<h3>Development and recognition</h3>
+<p>We believe in promotion and career growth for you. We provide various learning opportunities, external courses, and tuition assistance. Growth and excellence are recognized with promotion opportunities, financial rewards, and referral awards.</p>
+</div>
+</div>
+</div>
 </div><div class="container container--tertiary">
-    <div class="container__inner container__inner--centered container__inner--stacked">
-        <h2 data-aos="fade" data-aos-duration="750">Recent job postings</h2>
-        <div class="latest-jobs-row">
-                                                                        <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="0" class="latest-jobs-row__card latest-jobs-row__card--tertiary shadowed shadowed--sm">
-                <div class="latest-jobs-row__accent"></div>
-                <h3 class="notranslate">Planner</h3>
-                <div class="latest-jobs-row__subtitle notranslate">
+<div class="container__inner container__inner--centered container__inner--stacked">
+<h2 data-aos="fade" data-aos-duration="750">Recent job postings</h2>
+<div class="latest-jobs-row">
+<div class="latest-jobs-row__card latest-jobs-row__card--tertiary shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="0" data-aos-duration="750">
+<div class="latest-jobs-row__accent"></div>
+<h3 class="notranslate">Planner</h3>
+<div class="latest-jobs-row__subtitle notranslate">
                 Dimona, IL, Israel                </div>
-                <div class="notranslate"><p>We are seeking great talent to help us build The DNA of tech.&reg; Vishay manufactures one of the world&#8217;s largest&#8230;</p>
+<div class="notranslate"><p>We are seeking great talent to help us build The DNA of tech.® Vishay manufactures one of the world’s largest…</p>
 </div>
-                <a class="link link--primary" href="https://jobs.vishay.com/jobs/planner-4/">Read More<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z"/></svg></a>
-            </div>
-                                                <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="100" class="latest-jobs-row__card latest-jobs-row__card--primary shadowed shadowed--sm">
-                <div class="latest-jobs-row__accent"></div>
-                <h3 class="notranslate">Electronics Technician</h3>
-                <div class="latest-jobs-row__subtitle notranslate">
+<a class="link link--primary" href="https://jobs.vishay.com/jobs/planner-4/">Read More</a>
+</div>
+<div class="latest-jobs-row__card latest-jobs-row__card--primary shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="100" data-aos-duration="750">
+<div class="latest-jobs-row__accent"></div>
+<h3 class="notranslate">Electronics Technician</h3>
+<div class="latest-jobs-row__subtitle notranslate">
                 Beer Sheva, IL, Israel                </div>
-                <div class="notranslate"><p>We are seeking great talent to help us build The DNA of tech.&reg; Vishay manufactures one of the world&#8217;s largest&#8230;</p>
+<div class="notranslate"><p>We are seeking great talent to help us build The DNA of tech.® Vishay manufactures one of the world’s largest…</p>
 </div>
-                <a class="link link--primary" href="https://jobs.vishay.com/jobs/electronics-technician/">Read More<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z"/></svg></a>
-            </div>
-                                                <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="200" class="latest-jobs-row__card latest-jobs-row__card--secondary shadowed shadowed--sm">
-                <div class="latest-jobs-row__accent"></div>
-                <h3 class="notranslate">HR Student</h3>
-                <div class="latest-jobs-row__subtitle notranslate">
+<a class="link link--primary" href="https://jobs.vishay.com/jobs/electronics-technician/">Read More</a>
+</div>
+<div class="latest-jobs-row__card latest-jobs-row__card--secondary shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="200" data-aos-duration="750">
+<div class="latest-jobs-row__accent"></div>
+<h3 class="notranslate">HR Student</h3>
+<div class="latest-jobs-row__subtitle notranslate">
                 Dimona, IL, Israel                </div>
-                <div class="notranslate"><p>We are seeking great talent to help us build The DNA of tech.&reg; Vishay manufactures one of the world&#8217;s largest&#8230;</p>
+<div class="notranslate"><p>We are seeking great talent to help us build The DNA of tech.® Vishay manufactures one of the world’s largest…</p>
 </div>
-                <a class="link link--primary" href="https://jobs.vishay.com/jobs/hr-student/">Read More<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z"/></svg></a>
-            </div>
-                                                <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="300" class="latest-jobs-row__card latest-jobs-row__card--tertiary shadowed shadowed--sm">
-                <div class="latest-jobs-row__accent"></div>
-                <h3 class="notranslate">Buyer, General &amp; Spare Parts</h3>
-                <div class="latest-jobs-row__subtitle notranslate">
+<a class="link link--primary" href="https://jobs.vishay.com/jobs/hr-student/">Read More</a>
+</div>
+<div class="latest-jobs-row__card latest-jobs-row__card--tertiary shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="300" data-aos-duration="750">
+<div class="latest-jobs-row__accent"></div>
+<h3 class="notranslate">Buyer, General &amp; Spare Parts</h3>
+<div class="latest-jobs-row__subtitle notranslate">
                 Petach Tikva, IL, Israel                </div>
-                <div class="notranslate"><p>We are seeking great talent to help us build The DNA of tech.&reg; Vishay manufactures one of the world&#8217;s largest&#8230;</p>
+<div class="notranslate"><p>We are seeking great talent to help us build The DNA of tech.® Vishay manufactures one of the world’s largest…</p>
 </div>
-                <a class="link link--primary" href="https://jobs.vishay.com/jobs/buyer-general-spare-parts/">Read More<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z"/></svg></a>
-            </div>
-                                                <div data-aos="fade-up" data-aos-duration="750" data-aos-delay="400" class="latest-jobs-row__card latest-jobs-row__card--tertiary shadowed shadowed--sm">
-                <div class="latest-jobs-row__accent"></div>
-                <h3 class="notranslate">Process Engineer</h3>
-                <div class="latest-jobs-row__subtitle notranslate">
+<a class="link link--primary" href="https://jobs.vishay.com/jobs/buyer-general-spare-parts/">Read More</a>
+</div>
+<div class="latest-jobs-row__card latest-jobs-row__card--tertiary shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="400" data-aos-duration="750">
+<div class="latest-jobs-row__accent"></div>
+<h3 class="notranslate">Process Engineer</h3>
+<div class="latest-jobs-row__subtitle notranslate">
                 Beer Sheva, IL, Israel                </div>
-                <div class="notranslate"><p>We are seeking great talent to help us build The DNA of tech.&reg; Vishay manufactures one of the world&#8217;s largest&#8230;</p>
+<div class="notranslate"><p>We are seeking great talent to help us build The DNA of tech.® Vishay manufactures one of the world’s largest…</p>
 </div>
-                <a class="link link--primary" href="https://jobs.vishay.com/jobs/process-engineer-5/">Read More<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><path d="M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z"/></svg></a>
-            </div>
-                                                        </div>
-        <a href="/jobs/?region=israel" class="btn btn--primary">See All Jobs</a>
-    </div>
+<a class="link link--primary" href="https://jobs.vishay.com/jobs/process-engineer-5/">Read More</a>
+</div>
+</div>
+<a class="btn btn--primary" href="/jobs/?region=israel">See All Jobs</a>
+</div>
 </div>
 <section class="container gradient gradient--secondary gradient--dotted">
-    <div class="container__inner container__inner--centered container__inner--stacked">
-        <div class="job-alerts">
-            <h3>Sign up for personalized job alerts</h3>
-            <p>Vishay has been growing for over 60 years and we're always looking for new people who are passionate about tech, innovation and helping transform the world around us. Sound like you? Sign up to stay informed about the latest jobs openings in this region or related to your career interests.</p>
-            <a href="https://vishay.wd3.myworkdayjobs.com/en-US/VishayCareers/jobAlerts" target="_blank" class="btn btn--tertiary">Sign up now</a>
-        </div>
-    </div>
+<div class="container__inner container__inner--centered container__inner--stacked">
+<div class="job-alerts">
+<h3>Sign up for personalized job alerts</h3>
+<p>Vishay has been growing for over 60 years and we're always looking for new people who are passionate about tech, innovation and helping transform the world around us. Sound like you? Sign up to stay informed about the latest jobs openings in this region or related to your career interests.</p>
+<a class="btn btn--tertiary" href="https://vishay.wd3.myworkdayjobs.com/en-US/VishayCareers/jobAlerts" target="_blank">Sign up now</a>
+</div>
+</div>
 </section>
-
-<section class="roles" aria-label="">
-	<div class="container">
-	<div class="container__inner container__inner--stacked container__inner--pad-"">
-							<h2 class="roles__title" data-aos="fade-up" data-aos-duration="500" data-gt-block>
-					How will you build <span>The DNA of tech®?</span>				</h2>
-			
-							<div class="roles__grid">
-											<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
-							<div class="roles__card-image-wrapper">
-																	<img width="656" height="656" src="https://jobs.vishay.com/wp-content/uploads/2023/11/Administration-category-image.png" class="roles__card-image" alt="" loading="lazy" decoding="async" srcset="https://jobs.vishay.com/wp-content/uploads/2023/11/Administration-category-image.png 656w, https://jobs.vishay.com/wp-content/uploads/2023/11/Administration-category-image-300x300.png 300w, https://jobs.vishay.com/wp-content/uploads/2023/11/Administration-category-image-150x150.png 150w" sizes="auto, (max-width: 656px) 100vw, 656px" />															</div>
-							<div class="roles__card-content">
-                                   
-                                                                        
-								<h3 class="roles__card-heading">Administrative</h3>
-
-																	<div class="roles__card-description">
+<section aria-label="" class="roles">
+<div class="container">
+<div "="" class="container__inner container__inner--stacked container__inner--pad-">
+<h2 class="roles__title" data-aos="fade-up" data-aos-duration="500" data-gt-block="">
+					How will you build <span>The DNA of tech®?</span> </h2>
+<div class="roles__grid">
+<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="100" data-aos-duration="500">
+<div class="roles__card-image-wrapper">
+<img alt="" class="roles__card-image" decoding="async" height="656" loading="lazy" sizes="auto, (max-width: 656px) 100vw, 656px" src="https://jobs.vishay.com/wp-content/uploads/2023/11/Administration-category-image.png" srcset="https://jobs.vishay.com/wp-content/uploads/2023/11/Administration-category-image.png 656w, https://jobs.vishay.com/wp-content/uploads/2023/11/Administration-category-image-300x300.png 300w, https://jobs.vishay.com/wp-content/uploads/2023/11/Administration-category-image-150x150.png 150w" width="656"/> </div>
+<div class="roles__card-content">
+<h3 class="roles__card-heading">Administrative</h3>
+<div class="roles__card-description">
 										A lot of work goes on behind the scenes to make sure that we are an ethical and financially-viable company, and a great place to work. 									</div>
-								
-								<a class="link link--primary link--icon" href="/jobs/?category=administrative">Explore Roles</a>
-									
-							</div>
-						</article>
-											<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-							<div class="roles__card-image-wrapper">
-																	<img width="656" height="656" src="https://jobs.vishay.com/wp-content/uploads/2023/11/Apprentice-category-image.png" class="roles__card-image" alt="" loading="lazy" decoding="async" srcset="https://jobs.vishay.com/wp-content/uploads/2023/11/Apprentice-category-image.png 656w, https://jobs.vishay.com/wp-content/uploads/2023/11/Apprentice-category-image-300x300.png 300w, https://jobs.vishay.com/wp-content/uploads/2023/11/Apprentice-category-image-150x150.png 150w" sizes="auto, (max-width: 656px) 100vw, 656px" />															</div>
-							<div class="roles__card-content">
-                                   
-                                                                        
-								<h3 class="roles__card-heading">Apprenticeships, Interns and Temporary staff</h3>
-
-																	<div class="roles__card-description">
+<a class="link link--primary link--icon" href="/jobs/?category=administrative">Explore Roles</a>
+</div>
+</article>
+<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
+<div class="roles__card-image-wrapper">
+<img alt="" class="roles__card-image" decoding="async" height="656" loading="lazy" sizes="auto, (max-width: 656px) 100vw, 656px" src="https://jobs.vishay.com/wp-content/uploads/2023/11/Apprentice-category-image.png" srcset="https://jobs.vishay.com/wp-content/uploads/2023/11/Apprentice-category-image.png 656w, https://jobs.vishay.com/wp-content/uploads/2023/11/Apprentice-category-image-300x300.png 300w, https://jobs.vishay.com/wp-content/uploads/2023/11/Apprentice-category-image-150x150.png 150w" width="656"/> </div>
+<div class="roles__card-content">
+<h3 class="roles__card-heading">Apprenticeships, Interns and Temporary staff</h3>
+<div class="roles__card-description">
 										Whatever path you’re on, our early career programs will set you apart as you pursue your passions. Here, you’ll work on quality projects.									</div>
-								
-								<a class="link link--primary link--icon" href="/jobs/?category=apprenticeships-interns-and-temporary-staff">Explore Roles</a>
-									
-							</div>
-						</article>
-											<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-							<div class="roles__card-image-wrapper">
-																	<img width="450" height="450" src="https://jobs.vishay.com/wp-content/uploads/2023/11/Penelope-Jas-M.-Dizon_Manila_.jpg" class="roles__card-image" alt="" loading="lazy" decoding="async" srcset="https://jobs.vishay.com/wp-content/uploads/2023/11/Penelope-Jas-M.-Dizon_Manila_.jpg 450w, https://jobs.vishay.com/wp-content/uploads/2023/11/Penelope-Jas-M.-Dizon_Manila_-300x300.jpg 300w, https://jobs.vishay.com/wp-content/uploads/2023/11/Penelope-Jas-M.-Dizon_Manila_-150x150.jpg 150w" sizes="auto, (max-width: 450px) 100vw, 450px" />															</div>
-							<div class="roles__card-content">
-                                   
-                                                                        
-								<h3 class="roles__card-heading">Customer Service</h3>
-
-																	<div class="roles__card-description">
+<a class="link link--primary link--icon" href="/jobs/?category=apprenticeships-interns-and-temporary-staff">Explore Roles</a>
+</div>
+</article>
+<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500">
+<div class="roles__card-image-wrapper">
+<img alt="" class="roles__card-image" decoding="async" height="450" loading="lazy" sizes="auto, (max-width: 450px) 100vw, 450px" src="https://jobs.vishay.com/wp-content/uploads/2023/11/Penelope-Jas-M.-Dizon_Manila_.jpg" srcset="https://jobs.vishay.com/wp-content/uploads/2023/11/Penelope-Jas-M.-Dizon_Manila_.jpg 450w, https://jobs.vishay.com/wp-content/uploads/2023/11/Penelope-Jas-M.-Dizon_Manila_-300x300.jpg 300w, https://jobs.vishay.com/wp-content/uploads/2023/11/Penelope-Jas-M.-Dizon_Manila_-150x150.jpg 150w" width="450"/> </div>
+<div class="roles__card-content">
+<h3 class="roles__card-heading">Customer Service</h3>
+<div class="roles__card-description">
 										Customer Service connects us to the people who rely on our products. Our teams build relationships and ensure satisfaction across every interaction. 									</div>
-								
-								<a class="link link--primary link--icon" href="/jobs/?category=customer-service">Explore Roles</a>
-									
-							</div>
-						</article>
-											<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-							<div class="roles__card-image-wrapper">
-																	<img width="768" height="512" src="https://jobs.vishay.com/wp-content/uploads/2026/05/Manufacturing-768x512.jpg" class="roles__card-image" alt="" loading="lazy" decoding="async" srcset="https://jobs.vishay.com/wp-content/uploads/2026/05/Manufacturing-768x512.jpg 768w, https://jobs.vishay.com/wp-content/uploads/2026/05/Manufacturing-300x200.jpg 300w, https://jobs.vishay.com/wp-content/uploads/2026/05/Manufacturing.jpg 800w" sizes="auto, (max-width: 768px) 100vw, 768px" />															</div>
-							<div class="roles__card-content">
-                                   
-                                                                        
-								<h3 class="roles__card-heading">Manufacturing Engineering</h3>
-
-																	<div class="roles__card-description">
+<a class="link link--primary link--icon" href="/jobs/?category=customer-service">Explore Roles</a>
+</div>
+</article>
+<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
+<div class="roles__card-image-wrapper">
+<img alt="" class="roles__card-image" decoding="async" height="512" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="https://jobs.vishay.com/wp-content/uploads/2026/05/Manufacturing-768x512.jpg" srcset="https://jobs.vishay.com/wp-content/uploads/2026/05/Manufacturing-768x512.jpg 768w, https://jobs.vishay.com/wp-content/uploads/2026/05/Manufacturing-300x200.jpg 300w, https://jobs.vishay.com/wp-content/uploads/2026/05/Manufacturing.jpg 800w" width="768"/> </div>
+<div class="roles__card-content">
+<h3 class="roles__card-heading">Manufacturing Engineering</h3>
+<div class="roles__card-description">
 										We're a fast-paced, global manufacturing superpower. We take pride in our quality, reliability and delivery capability.									</div>
-								
-								<a class="link link--primary link--icon" href="/jobs/?category=manufacturing-engineering">Explore Roles</a>
-									
-							</div>
-						</article>
-											<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500">
-							<div class="roles__card-image-wrapper">
-																	<img width="768" height="471" src="https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-768x471.jpg" class="roles__card-image" alt="" loading="lazy" decoding="async" srcset="https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-768x471.jpg 768w, https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-300x184.jpg 300w, https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-1024x627.jpg 1024w, https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-1536x941.jpg 1536w, https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-2048x1255.jpg 2048w" sizes="auto, (max-width: 768px) 100vw, 768px" />															</div>
-							<div class="roles__card-content">
-                                   
-                                                                        
-								<h3 class="roles__card-heading">Production</h3>
-
-																	<div class="roles__card-description">
+<a class="link link--primary link--icon" href="/jobs/?category=manufacturing-engineering">Explore Roles</a>
+</div>
+</article>
+<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
+<div class="roles__card-image-wrapper">
+<img alt="" class="roles__card-image" decoding="async" height="471" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-768x471.jpg" srcset="https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-768x471.jpg 768w, https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-300x184.jpg 300w, https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-1024x627.jpg 1024w, https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-1536x941.jpg 1536w, https://jobs.vishay.com/wp-content/uploads/2026/06/13-Vishay-Broll-scaled-e1780671842958-2048x1255.jpg 2048w" width="768"/> </div>
+<div class="roles__card-content">
+<h3 class="roles__card-heading">Production</h3>
+<div class="roles__card-description">
 										Production is where ideas become reality. Our teams bring products to life every day, focusing on precision, efficiency, and reliability. 									</div>
-								
-								<a class="link link--primary link--icon" href="/jobs/?category=production">Explore Roles</a>
-									
-							</div>
-						</article>
-											<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-duration="500" data-aos-delay="600">
-							<div class="roles__card-image-wrapper">
-																	<img width="768" height="512" src="https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-768x512.jpeg" class="roles__card-image" alt="" loading="lazy" decoding="async" srcset="https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-768x512.jpeg 768w, https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-300x200.jpeg 300w, https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-1024x683.jpeg 1024w, https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-1536x1024.jpeg 1536w, https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-2048x1365.jpeg 2048w" sizes="auto, (max-width: 768px) 100vw, 768px" />															</div>
-							<div class="roles__card-content">
-                                   
-                                                                        
-								<h3 class="roles__card-heading">Quality</h3>
-
-																	<div class="roles__card-description">
+<a class="link link--primary link--icon" href="/jobs/?category=production">Explore Roles</a>
+</div>
+</article>
+<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="600" data-aos-duration="500">
+<div class="roles__card-image-wrapper">
+<img alt="" class="roles__card-image" decoding="async" height="512" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-768x512.jpeg" srcset="https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-768x512.jpeg 768w, https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-300x200.jpeg 300w, https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-1024x683.jpeg 1024w, https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-1536x1024.jpeg 1536w, https://jobs.vishay.com/wp-content/uploads/2026/05/Quality-2048x1365.jpeg 2048w" width="768"/> </div>
+<div class="roles__card-content">
+<h3 class="roles__card-heading">Quality</h3>
+<div class="roles__card-description">
 										Quality is at the heart of everything we do. Our teams ensure every product meets the highest standards, from compliance to performance.									</div>
-								
-								<a class="link link--primary link--icon" href="/jobs/?category=quality">Explore Roles</a>
-									
-							</div>
-						</article>
-											<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700">
-							<div class="roles__card-image-wrapper">
-																	<img width="768" height="513" src="https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-768x513.jpg" class="roles__card-image" alt="" loading="lazy" decoding="async" srcset="https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-768x513.jpg 768w, https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-300x200.jpg 300w, https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-1024x684.jpg 1024w, https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-1536x1025.jpg 1536w, https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-2048x1367.jpg 2048w" sizes="auto, (max-width: 768px) 100vw, 768px" />															</div>
-							<div class="roles__card-content">
-                                   
-                                                                        
-								<h3 class="roles__card-heading">Research, Development and Technical Engineering</h3>
-
-																	<div class="roles__card-description">
+<a class="link link--primary link--icon" href="/jobs/?category=quality">Explore Roles</a>
+</div>
+</article>
+<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="700" data-aos-duration="500">
+<div class="roles__card-image-wrapper">
+<img alt="" class="roles__card-image" decoding="async" height="513" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-768x513.jpg" srcset="https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-768x513.jpg 768w, https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-300x200.jpg 300w, https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-1024x684.jpg 1024w, https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-1536x1025.jpg 1536w, https://jobs.vishay.com/wp-content/uploads/2026/05/Research-Development-and-Technical-2048x1367.jpg 2048w" width="768"/> </div>
+<div class="roles__card-content">
+<h3 class="roles__card-heading">Research, Development and Technical Engineering</h3>
+<div class="roles__card-description">
 										Research, engineering and technology are the soul of Vishay and drive our success today and into the future. Here, you will have an imprint on the products that go to market.  									</div>
-								
-								<a class="link link--primary link--icon" href="/jobs/?category=research-development-and-technical-engineering">Explore Roles</a>
-									
-							</div>
-						</article>
-											<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">
-							<div class="roles__card-image-wrapper">
-																	<img width="656" height="656" src="https://jobs.vishay.com/wp-content/uploads/2023/11/Marketing-sales-category-image.png" class="roles__card-image" alt="" loading="lazy" decoding="async" srcset="https://jobs.vishay.com/wp-content/uploads/2023/11/Marketing-sales-category-image.png 656w, https://jobs.vishay.com/wp-content/uploads/2023/11/Marketing-sales-category-image-300x300.png 300w, https://jobs.vishay.com/wp-content/uploads/2023/11/Marketing-sales-category-image-150x150.png 150w" sizes="auto, (max-width: 656px) 100vw, 656px" />															</div>
-							<div class="roles__card-content">
-                                   
-                                                                        
-								<h3 class="roles__card-heading">Sales &amp; Marketing</h3>
-
-																	<div class="roles__card-description">
+<a class="link link--primary link--icon" href="/jobs/?category=research-development-and-technical-engineering">Explore Roles</a>
+</div>
+</article>
+<article class="roles__card shadowed shadowed--sm" data-aos="fade-up" data-aos-delay="800" data-aos-duration="500">
+<div class="roles__card-image-wrapper">
+<img alt="" class="roles__card-image" decoding="async" height="656" loading="lazy" sizes="auto, (max-width: 656px) 100vw, 656px" src="https://jobs.vishay.com/wp-content/uploads/2023/11/Marketing-sales-category-image.png" srcset="https://jobs.vishay.com/wp-content/uploads/2023/11/Marketing-sales-category-image.png 656w, https://jobs.vishay.com/wp-content/uploads/2023/11/Marketing-sales-category-image-300x300.png 300w, https://jobs.vishay.com/wp-content/uploads/2023/11/Marketing-sales-category-image-150x150.png 150w" width="656"/> </div>
+<div class="roles__card-content">
+<h3 class="roles__card-heading">Sales &amp; Marketing</h3>
+<div class="roles__card-description">
 										Customers are number one with us and our marketing and sales teams are building relationships that will fuel Vishay’s growth. 									</div>
-								
-								<a class="link link--primary link--icon" href="/jobs/?category=sales-marketing">Explore Roles</a>
-									
-							</div>
-						</article>
-									</div>
-					</div>
-	</div>
+<a class="link link--primary link--icon" href="/jobs/?category=sales-marketing">Explore Roles</a>
+</div>
+</article>
+</div>
+</div>
+</div>
 </section>
-<section data-aos="fade-up" data-aos-duration="500" class="container">
-    <div class="container__inner container__inner--pad-bottom">
-        <div class="container__content container__content--cols container__content--centered gradient gradient--tertiary panel" dir="rtl">
-            <p>דו"ח שכר שווה לעובדת ועובד לשנת 2025 – ווישיי ישראל</p>
-                                                <a class="btn btn--tertiary" href="https://jobs.vishay.com/wp-content/uploads/2026/08/Vishay-Equal-Pay-Report-2025.pdf" target="_blank">Equal Pay Report</a>
-        </div>
-    </div>
+<section class="container" data-aos="fade-up" data-aos-duration="500">
+<div class="container__inner container__inner--pad-bottom">
+<div class="container__content container__content--cols container__content--centered gradient gradient--tertiary panel" dir="rtl">
+<p>דו"ח שכר שווה לעובדת ועובד לשנת 2025 – ווישיי ישראל</p>
+<a class="btn btn--tertiary" href="https://jobs.vishay.com/wp-content/uploads/2026/08/Vishay-Equal-Pay-Report-2025.pdf" target="_blank">Equal Pay Report</a>
+</div>
+</div>
 </section>
 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__top">
-            <a href="/" class="footer__logo"></a>
-            <div class="footer__social">
-                <a href="https://www.facebook.com/VishayIntertechnology" class="btn btn--quinary btn--icon" target="_blank">
-				    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/company/vishay-intertechnology-inc-/" class="btn btn--quinary btn--icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
-                </a>
-                <a href="https://x.com/VishayIndust" class="btn btn--quinary btn--icon">
-                   <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
-                </a>
-                <a href="https://www.youtube.com/channel/UCE6Jf_nlhptGtRfPYX5HUIw" class="btn btn--quinary btn--icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
-                </a>
-            </div>
-        </div>
-        <div class="footer__content">
-            <p>Vishay's top quality components and supportive services enable the world's leading technology brands to dream, invent and produce today's most innovative products. With one of the world's largest selections of electronic components and an obsession with quality, we are the DNA behind their success.</p>
-            <div class="footer__nav">
-                <nav>
-                    <ul id="menu-footer-nav-left" class="menu"><li id="menu-item-304" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-304"><a target="_blank" href="https://www.vishay.com">Vishay.com</a></li>
-<li id="menu-item-289" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-289"><a href="https://jobs.vishay.com/career-areas/">Career Areas</a></li>
-<li id="menu-item-290" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-290"><a href="https://jobs.vishay.com/life-at-vishay/">Life at Vishay</a></li>
-<li id="menu-item-291" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-291"><a href="https://jobs.vishay.com/who-we-are/">Who We Are</a></li>
-</ul>                </nav>
-                <nav>
-                    <ul id="menu-footer-nav-right" class="menu"><li id="menu-item-294" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-294"><a href="https://jobs.vishay.com/locations/">Locations</a></li>
-<li id="menu-item-293" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-293"><a href="https://jobs.vishay.com/early-careers/">Early Careers</a></li>
-<li id="menu-item-30871" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30871"><a href="https://jobs.vishay.com/jobs/">Search Jobs</a></li>
-</ul>                </nav>
-            </div>
-        </div>
-        <div class="footer__legal">
-            <p>&copy; 2026 Vishay - All rights reserved</p>
-            <nav>
-                <button id="ot-sdk-btn" class="ot-sdk-show-settings footer__cookie">Cookies</button>
-                <ul id="menu-legal-nav" class="menu"><li id="menu-item-30860" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30860"><a target="_blank" href="https://www.vishay.com/en/Privacy-Center/privacy-center/">Privacy Center</a></li>
-<li id="menu-item-30867" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30867"><a target="_blank" href="https://www.eeoc.gov/sites/default/files/2022-10/EEOC_KnowYourRights_screen_reader_10_20.pdf">Anti-Discrimination</a></li>
-<li id="menu-item-182392" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-182392"><a href="https://jobs.vishay.com/wp-content/uploads/2025/07/EEO-Statement-Vishay-Intertechnology-2025.pdf">EEO Statement</a></li>
-<li id="menu-item-194395" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-194395"><a target="_blank" href="https://www.vishay.com/files/landingpage/Privacy/Vishay%20Global%20Employee-Applicant-Independent%20Contractor%20Notice%20v3.pdf">Employee/Applicant Privacy Notice</a></li>
-<li id="menu-item-105087" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-105087"><a target="_blank" href="https://jobs.vishay.com/wp-content/uploads/2026/08/Vishay-Equal-Pay-Report-2025.pdf">Equal Pay Israel</a></li>
-<li id="menu-item-179118" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-179118"><a target="_blank" href="/wp-content/uploads/2025/04/Vishay-Hungary-Tender-Communication.pdf">GINOP-PLUSZ-3-2-1-21</a></li>
-<li id="menu-item-189358" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-189358"><a href="https://jobs.vishay.com/legal-notice/">Legal Notice</a></li>
-</ul>            </nav>
-        </div>
-    </div>
+<div class="footer__inner">
+<div class="footer__top">
+<a class="footer__logo" href="/"></a>
+<div class="footer__social">
+<a class="btn btn--quinary btn--icon" href="https://www.facebook.com/VishayIntertechnology" target="_blank">
+
+</a>
+<a class="btn btn--quinary btn--icon" href="https://www.linkedin.com/company/vishay-intertechnology-inc-/">
+
+</a>
+<a class="btn btn--quinary btn--icon" href="https://x.com/VishayIndust">
+
+</a>
+<a class="btn btn--quinary btn--icon" href="https://www.youtube.com/channel/UCE6Jf_nlhptGtRfPYX5HUIw">
+
+</a>
+</div>
+</div>
+<div class="footer__content">
+<p>Vishay's top quality components and supportive services enable the world's leading technology brands to dream, invent and produce today's most innovative products. With one of the world's largest selections of electronic components and an obsession with quality, we are the DNA behind their success.</p>
+<div class="footer__nav">
+<nav>
+<ul class="menu" id="menu-footer-nav-left"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-304" id="menu-item-304"><a href="https://www.vishay.com" target="_blank">Vishay.com</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-289" id="menu-item-289"><a href="https://jobs.vishay.com/career-areas/">Career Areas</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-290" id="menu-item-290"><a href="https://jobs.vishay.com/life-at-vishay/">Life at Vishay</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-291" id="menu-item-291"><a href="https://jobs.vishay.com/who-we-are/">Who We Are</a></li>
+</ul> </nav>
+<nav>
+<ul class="menu" id="menu-footer-nav-right"><li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-294" id="menu-item-294"><a href="https://jobs.vishay.com/locations/">Locations</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-293" id="menu-item-293"><a href="https://jobs.vishay.com/early-careers/">Early Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30871" id="menu-item-30871"><a href="https://jobs.vishay.com/jobs/">Search Jobs</a></li>
+</ul> </nav>
+</div>
+</div>
+<div class="footer__legal">
+<p>© 2026 Vishay - All rights reserved</p>
+<nav>
+<button class="ot-sdk-show-settings footer__cookie" id="ot-sdk-btn">Cookies</button>
+<ul class="menu" id="menu-legal-nav"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30860" id="menu-item-30860"><a href="https://www.vishay.com/en/Privacy-Center/privacy-center/" target="_blank">Privacy Center</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30867" id="menu-item-30867"><a href="https://www.eeoc.gov/sites/default/files/2022-10/EEOC_KnowYourRights_screen_reader_10_20.pdf" target="_blank">Anti-Discrimination</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-182392" id="menu-item-182392"><a href="https://jobs.vishay.com/wp-content/uploads/2025/07/EEO-Statement-Vishay-Intertechnology-2025.pdf">EEO Statement</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-194395" id="menu-item-194395"><a href="https://www.vishay.com/files/landingpage/Privacy/Vishay%20Global%20Employee-Applicant-Independent%20Contractor%20Notice%20v3.pdf" target="_blank">Employee/Applicant Privacy Notice</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-105087" id="menu-item-105087"><a href="https://jobs.vishay.com/wp-content/uploads/2026/08/Vishay-Equal-Pay-Report-2025.pdf" target="_blank">Equal Pay Israel</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-179118" id="menu-item-179118"><a href="/wp-content/uploads/2025/04/Vishay-Hungary-Tender-Communication.pdf" target="_blank">GINOP-PLUSZ-3-2-1-21</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-189358" id="menu-item-189358"><a href="https://jobs.vishay.com/legal-notice/">Legal Notice</a></li>
+</ul> </nav>
+</div>
+</div>
 </footer>
-<script type="speculationrules">
-{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/vishay/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
-</script>
-<script id="gt_widget_script_26358017-js-before">
-window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['26358017'] = {"default_language":"en","languages":["en","zh-CN","zh-TW","cs","nl","fr","de","iw","hu","it","ja","ko","ms","pt","ru","es"],"url_structure":"sub_directory","native_language_names":1,"detect_browser_language":1,"wrapper_selector":"#gt-wrapper-26358017","select_language_label":"Select Language","horizontal_position":"inline","flags_location":"\/wp-content\/plugins\/gtranslate\/flags\/"};
-//# sourceURL=gt_widget_script_26358017-js-before
-</script><script src="https://jobs.vishay.com/wp-content/plugins/gtranslate/js/dropdown.js?ver=3.1.1" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/locations/israel/" data-gt-orig-domain="jobs.vishay.com" data-gt-widget-id="26358017" defer></script><script id="wp-emoji-settings" type="application/json">
-{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://jobs.vishay.com/wp-includes/js/wp-emoji-release.min.js?ver=7.1.2"}}
-</script>
-<script type="module">
-/*! This file is auto-generated */
-var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
-//# sourceURL=https://jobs.vishay.com/wp-includes/js/wp-emoji-loader.min.js
-</script>
+
+
+
 </body>
 </html>
 <!-- plugin=object-cache-pro client=phpredis metric#hits=4834 metric#misses=5 metric#hit-ratio=99.9 metric#bytes=3158958 metric#prefetches=542 metric#store-reads=21 metric#store-writes=23 metric#store-hits=552 metric#store-misses=0 metric#sql-queries=7 metric#ms-total=219.91 metric#ms-cache=17.50 metric#ms-cache-avg=0.4069 metric#ms-cache-ratio=8.0 sample#redis-hits=155410187 sample#redis-misses=791765 sample#redis-hit-ratio=99.5 sample#redis-ops-per-sec=20 sample#redis-evicted-keys=0 sample#redis-used-memory=126113512 sample#redis-used-memory-rss=115576832 sample#redis-memory-fragmentation-ratio=0.9 sample#redis-connected-clients=1 sample#redis-tracking-clients=0 sample#redis-rejected-connections=0 sample#redis-keys=79365 -->

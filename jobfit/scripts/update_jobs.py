@@ -37,7 +37,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from jobfit import ats_fetchers, company_registry, company_review, config, connections, cv, pipeline_lock, scoring, techmap_source, translation  # noqa: E402
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
 from jobfit.scrape import bootstrap as scrape_bootstrap  # noqa: E402
-from jobfit.scrape import titles  # noqa: E402
+from jobfit.scrape import candidates, titles  # noqa: E402
 from jobfit.scrape.ids import normalize_job_url  # noqa: E402,F401 - re-exported: the job-id rule lives with the scrape package
 
 logger = logging.getLogger("jobfit.update_jobs")
@@ -884,7 +884,7 @@ def discover_plans(companies: dict[str, str | None], planner, store, snapshots_d
             if page is not None:
                 snapshots_dir.mkdir(parents=True, exist_ok=True)
                 tmp = snapshots_dir / f"{company_id}.html.tmp"
-                tmp.write_text(page.html, encoding="utf-8")
+                tmp.write_text(candidates.strip_non_content(page.html), encoding="utf-8")
                 tmp.replace(snapshots_dir / f"{company_id}.html")
             return company, plan
 

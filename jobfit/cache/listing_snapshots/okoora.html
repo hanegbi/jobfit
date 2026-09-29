@@ -1,663 +1,115 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!-- [GCM v2] Google Consent Mode v2 default â synchronous, fires before any tracking script -->
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'denied',personalization_storage:'denied',security_storage:'granted',wait_for_update:500});</script>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N8QSX7NZ');</script>
-  <!-- End Google Tag Manager -->
-  <!-- Google tag (gtag.js) â GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-77MHLYYTP2"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-77MHLYYTP2');</script>
-  <!-- [CMP] Cookiebot â Auto Blocking Mode. Set data-cbid to your Domain Group ID from cookiebot.com/dashboard -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="479df544-2c5a-4a78-8167-c32ea38f45c2" data-blockingmode="auto" type="text/javascript" async></script>
-  <script src="../partials/consent.js" defer></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Careers &mdash; Okoora</title>
-  <link rel="icon" type="image/png" href="../images/favicon/favicon_.png">
-  <meta name="description" content="Join the team building the intelligence layer for global finance. See open positions at Okoora."><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="../css/style.css">
+<meta charset="utf-8"/>
+<!-- [GCM v2] Google Consent Mode v2 default â synchronous, fires before any tracking script -->
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    .cr { font-family: 'Fira Sans Condensed', sans-serif; }
+<!-- Google Tag Manager -->
 
-    /* Scroll animations */
-    .ok-anim { opacity: 0; transform: translateY(22px); transition: opacity .55s ease, transform .55s ease; }
-    .ok-anim.is-vis { opacity: 1; transform: none; }
-    .ok-anim[data-d="1"] { transition-delay: .08s; }
-    .ok-anim[data-d="2"] { transition-delay: .16s; }
-    .ok-anim[data-d="3"] { transition-delay: .24s; }
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) â GA4 -->
 
-    /* Section badge */
-    .cr-badge {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: fit-content;
-      border: 1px solid rgba(35,32,230,0.09);
-      border-radius: 20px; padding: 10px 20px;
-      font-family: 'Fira Sans Condensed', sans-serif;
-      font-size: 14px; font-weight: 600; line-height: 18px;
-      color: #272727; background: #fff;
-    }
 
-    /* ============================================================
-       HERO
-    ============================================================ */
-    .cr-hero {
-      padding-top: 105px;
-      background: #fff url('../images/Hub.png') center center / cover no-repeat;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(35,32,230,0.10);
-    }
-    .cr-hero__ellipse {
-      position: absolute;
-      top: -40px; right: -120px;
-      width: 600px; height: 600px;
-      pointer-events: none; opacity: .45; z-index: 0;
-    }
-    .cr-hero__ellipse img { width: 100%; height: 100%; object-fit: contain; }
-    .cr-hero__inner {
-      max-width: 1200px !important; margin: 0 auto;
-      padding: 64px 48px 80px;
-      position: relative; z-index: 1;
-      display: flex; flex-direction: column; gap: 28px;
-      margin-left: auto; margin-right: auto;
-      text-align: left; align-items: flex-start;
-    }
-    .cr-hero h1 {
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 400; line-height: 1.05; color: #272727;
-    }
-    .cr-hero h1 .blue { color: #2320e6; font-weight: 500; }
-    .cr-hero__sub {
-      font-size: clamp(16px, 1.6vw, 20px);
-      font-weight: 400; line-height: 1.6; color: #555;
-      max-width: 600px;
-    }
-    .cr-hero__scroll {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 15px; font-weight: 500; color: #2320e6;
-      text-decoration: none; border-bottom: 1px solid transparent;
-      transition: border-color .18s;
-    }
-    .cr-hero__scroll:hover { border-color: #2320e6; }
-    .cr-hero__scroll svg { width: 16px; height: 16px; flex-shrink: 0; }
+<!-- [CMP] Cookiebot â Auto Blocking Mode. Set data-cbid to your Domain Group ID from cookiebot.com/dashboard -->
 
-    /* ============================================================
-       VALUES STRIP
-    ============================================================ */
-    .cr-values {
-      padding: 72px 0;
-      background: #fff;
-      border-bottom: 1px solid rgba(35,32,230,0.08);
-    }
-    .cr-values__inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 48px;
-    }
-    .cr-values__heading {
-      font-size: clamp(28px, 3vw, 40px); font-weight: 600;
-      color: #272727; line-height: 1.1; margin-bottom: 48px;
-      text-align: center;
-    }
-    .cr-values__heading .blue { color: #2320e6; }
-    .cr-values__grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
-    }
-    .cr-val-card {
-      background: #fff;
-      border-bottom: 3px solid;
-      border-image: linear-gradient(90deg, hsla(240,71%,96%,0) 0%, hsla(341,72%,70%,1) 50%, hsla(231,89%,45%,1) 100%) 1;
-      box-shadow: 0 4px 12px rgba(0,0,0,.04), 0 12px 24px rgba(0,0,0,.03);
-      padding: 32px 30px 32px 36px;
-      display: flex; flex-direction: column; gap: 14px; align-items: flex-start;
-    }
-    .cr-val-card__icon {
-      width: 36px; height: 36px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .cr-val-card__icon svg { width: 28px; height: 28px; stroke: #2320e6; }
-    .cr-val-card__title {
-      font-size: clamp(22px, 2.4vw, 28px); font-weight: 500;
-      color: #2320e6; line-height: 1.1;
-    }
-    .cr-val-card__desc {
-      font-size: 16px; font-weight: 400; line-height: 1.55; color: #9d9d9d;
-    }
 
-    /* ============================================================
-       POSITIONS
-    ============================================================ */
-    .cr-positions {
-      padding: 80px 0 120px;
-      background: #fff;
-    }
-    .cr-positions__inner {
-      max-width: 1000px; margin: 0 auto; padding: 0 48px;
-    }
-    .cr-positions__heading-row {
-      display: flex; align-items: baseline; gap: 14px;
-      margin-bottom: 48px;
-    }
-    .cr-positions__heading {
-      font-size: clamp(30px, 3.5vw, 44px); font-weight: 600; color: #272727; line-height: 1.1;
-    }
-    .cr-positions__count {
-      font-size: 18px; font-weight: 400; color: #9d9d9d;
-    }
-    .cr-positions__layout {
-      display: grid; grid-template-columns: 160px 1fr; gap: 48px; align-items: start;
-    }
-    .cr-sidebar {
-      position: sticky; top: 100px;
-    }
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Careers — Okoora</title>
+<link href="../images/favicon/favicon_.png" rel="icon" type="image/png"/>
+<meta content="Join the team building the intelligence layer for global finance. See open positions at Okoora." name="description"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="../css/style.css" rel="stylesheet"/>
 
-    /* Department filter pills */
-    .cr-filters {
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .cr-filter {
-      background: transparent; border: 1px solid transparent;
-      border-radius: 30px; padding: 10px 14px;
-      font-family: 'Fira Sans Condensed', sans-serif;
-      font-size: 13px; font-weight: 500; color: #555;
-      cursor: pointer; transition: background .15s, color .15s, border-color .15s;
-      line-height: 1; text-align: left;
-    }
-    .cr-filter:hover { color: #2320e6; }
-    .cr-filter--active { background: #2320e6; border-color: #2320e6; color: #fff; }
-    .cr-filter--active:hover { background: #1a18c0; border-color: #1a18c0; color: #fff; }
-
-    /* ============================================================
-       JOB LIST
-    ============================================================ */
-    .cr-jobs { display: flex; flex-direction: column; gap: 0; }
-
-    .cr-job {
-      display: grid; grid-template-columns: 1fr auto;
-      align-items: center; gap: 24px;
-      padding: 28px 0;
-      border-bottom: 1px solid rgba(35,32,230,0.08);
-      text-decoration: none;
-      transition: background .12s;
-    }
-    .cr-job:first-child { border-top: 1px solid rgba(35,32,230,0.08); }
-
-    .cr-job__left { display: flex; flex-direction: column; gap: 8px; }
-
-    .cr-job__meta {
-      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-    }
-    .cr-job__dept {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.4px;
-      color: #2320e6; background: rgba(35,32,230,0.08);
-      border-radius: 4px; padding: 3px 8px;
-      line-height: 1.4; white-space: nowrap;
-    }
-
-    .cr-job__title {
-      font-size: clamp(20px, 2.2vw, 26px); font-weight: 500;
-      color: #272727; line-height: 1.15;
-      transition: color .15s;
-    }
-    .cr-job:hover .cr-job__title { color: #2320e6; }
-
-    .cr-job__attrs {
-      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-    }
-    .cr-job__attr {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 14px; font-weight: 400; color: #9d9d9d; line-height: 1;
-    }
-    .cr-job__attr svg { width: 13px; height: 13px; flex-shrink: 0; stroke: #9d9d9d; }
-
-    .cr-job__apply {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #0d2bd8; color: #fff;
-      font-family: 'Fira Sans Condensed', sans-serif;
-      font-size: 15px; font-weight: 500;
-      padding: 0 16px 0 22px; height: 44px;
-      border-radius: 40px; text-decoration: none; white-space: nowrap;
-      flex-shrink: 0;
-      transition: opacity .15s;
-    }
-    .cr-job__apply:hover { opacity: .88; }
-    .cr-job__apply-arrow {
-      width: 24px; height: 24px; border-radius: 60px;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,.15); flex-shrink: 0;
-    }
-    .cr-job__apply-arrow svg { width: 11px; height: 11px; }
-
-    /* ============================================================
-       STATES: LOADING / EMPTY / ERROR
-    ============================================================ */
-
-    .cr-state {
-      text-align: center; padding: 80px 24px;
-      display: flex; flex-direction: column; align-items: center; gap: 20px;
-    }
-    .cr-state__icon {
-      width: 56px; height: 56px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .cr-state__icon--error { background: rgba(220,53,69,0.1); }
-    .cr-state__icon--empty { background: rgba(35,32,230,0.08); }
-    .cr-state__icon svg { width: 24px; height: 24px; }
-    .cr-state__icon--error svg { stroke: #dc3545; }
-    .cr-state__icon--empty svg { stroke: #2320e6; }
-    .cr-state__title {
-      font-size: 24px; font-weight: 600; color: #272727; line-height: 1.2;
-    }
-    .cr-state__desc {
-      font-size: 16px; font-weight: 400; color: #9d9d9d; max-width: 360px; line-height: 1.6;
-    }
-    .cr-state__btn {
-      display: inline-flex; align-items: center;
-      background: #2320e6; color: #fff;
-      font-family: 'Fira Sans Condensed', sans-serif;
-      font-size: 15px; font-weight: 500;
-      padding: 0 24px; height: 44px; border-radius: 40px;
-      border: none; cursor: pointer; text-decoration: none;
-      transition: opacity .15s;
-    }
-    .cr-state__btn:hover { opacity: .88; }
-
-    /* ============================================================
-       RESPONSIVE
-    ============================================================ */
-    @media (max-width: 900px) {
-      .cr-values__grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 680px) {
-      .cr-hero__inner, .cr-values__inner, .cr-positions__inner {
-        padding-left: 20px; padding-right: 20px;
-      }
-      .cr-hero { padding-top: 80px; }
-      .cr-hero__inner { padding-top: 32px; padding-bottom: 48px; }
-      .cr-values { padding: 56px 0; }
-      .cr-values__grid { grid-template-columns: 1fr; }
-      .cr-positions { padding: 60px 0 80px; }
-      .cr-positions__layout { grid-template-columns: 1fr; gap: 32px; }
-      .cr-sidebar { position: static; }
-      .cr-filters { flex-direction: row; flex-wrap: wrap; }
-      .cr-job { grid-template-columns: 1fr; gap: 16px; }
-      .cr-job__apply { align-self: flex-start; }
-    }
-  </style>
-<script src="https://cdn.userway.org/widget.js" data-account="oeaYDwEaBP"></script></head>
+</head>
 <body class="cr">
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8QSX7NZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
 
 <!-- ============================================================
      HEADER
 ============================================================ -->
 <div id="site-header"></div>
-
 <main>
-
-  <!-- ============================================================
+<!-- ============================================================
        HERO
   ============================================================ -->
-  <section class="cr-hero" aria-labelledby="cr-hero-h">
-    <div class="cr-hero__inner">
-      <div class="cr-badge ok-anim">Join Okoora</div>
-      <h1 id="cr-hero-h" class="ok-anim" data-d="1">
+<section aria-labelledby="cr-hero-h" class="cr-hero">
+<div class="cr-hero__inner">
+<div class="cr-badge ok-anim">Join Okoora</div>
+<h1 class="ok-anim" data-d="1" id="cr-hero-h">
         Work at the <span class="blue">intelligence layer</span> for global finance.
       </h1>
-      <p class="cr-hero__sub ok-anim" data-d="2">
+<p class="cr-hero__sub ok-anim" data-d="2">
         We're building the system that operates currency across every transaction, platform, and policy. If you want to work on hard problems at the intersection of AI and global finance, you're in the right place.
       </p>
-      <a href="#cr-positions" class="cr-hero__scroll ok-anim" data-d="3">
+<a class="cr-hero__scroll ok-anim" data-d="3" href="#cr-positions">
         See open positions
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M3 8l5 5 5-5"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- ============================================================
+        
+</a>
+</div>
+</section>
+<!-- ============================================================
        VALUES
   ============================================================ -->
-  <section class="cr-values" aria-label="Why Okoora">
-    <div class="cr-values__inner">
-      <h2 class="cr-values__heading ok-anim">
+<section aria-label="Why Okoora" class="cr-values">
+<div class="cr-values__inner">
+<h2 class="cr-values__heading ok-anim">
         Built for people who want <span class="blue">the real problem.</span>
-      </h2>
-      <div class="cr-values__grid">
-        <div class="cr-val-card ok-anim" data-d="1">
-          <div class="cr-val-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M9 12l2 2l4 -4"/></svg>
-          </div>
-          <h3 class="cr-val-card__title">Real infrastructure, at scale</h3>
-          <p class="cr-val-card__desc">Every line of code touches live financial flows. No toy problems â you're operating currency for businesses that depend on it every day.</p>
-        </div>
-        <div class="cr-val-card ok-anim" data-d="2">
-          <div class="cr-val-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3l-9 9 9 9M12 3l9 9-9 9"/></svg>
-          </div>
-          <h3 class="cr-val-card__title">Move fast with full ownership</h3>
-          <p class="cr-val-card__desc">Small teams, full ownership of your domain, and a direct line to impact. You see what you ship in production the same week.</p>
-        </div>
-        <div class="cr-val-card ok-anim" data-d="3">
-          <div class="cr-val-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
-          </div>
-          <h3 class="cr-val-card__title">AI at the core, not as an add-on</h3>
-          <p class="cr-val-card__desc">Okoora was built AI-first. Intelligence runs through every pricing, exposure, and governance decision â not bolted on after the fact.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+</h2>
+<div class="cr-values__grid">
+<div class="cr-val-card ok-anim" data-d="1">
+<div aria-hidden="true" class="cr-val-card__icon">
 
-  <!-- ============================================================
+</div>
+<h3 class="cr-val-card__title">Real infrastructure, at scale</h3>
+<p class="cr-val-card__desc">Every line of code touches live financial flows. No toy problems â you're operating currency for businesses that depend on it every day.</p>
+</div>
+<div class="cr-val-card ok-anim" data-d="2">
+<div aria-hidden="true" class="cr-val-card__icon">
+
+</div>
+<h3 class="cr-val-card__title">Move fast with full ownership</h3>
+<p class="cr-val-card__desc">Small teams, full ownership of your domain, and a direct line to impact. You see what you ship in production the same week.</p>
+</div>
+<div class="cr-val-card ok-anim" data-d="3">
+<div aria-hidden="true" class="cr-val-card__icon">
+
+</div>
+<h3 class="cr-val-card__title">AI at the core, not as an add-on</h3>
+<p class="cr-val-card__desc">Okoora was built AI-first. Intelligence runs through every pricing, exposure, and governance decision â not bolted on after the fact.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ============================================================
        OPEN POSITIONS
   ============================================================ -->
-  <section class="cr-positions" id="cr-positions" aria-labelledby="cr-positions-h">
-    <div class="cr-positions__inner">
-
-      <div class="cr-positions__heading-row ok-anim">
-        <h2 id="cr-positions-h" class="cr-positions__heading">Open positions</h2>
-        <span class="cr-positions__count" id="cr-count" aria-live="polite"></span>
-      </div>
-
-      <div class="cr-positions__layout">
-        <aside class="cr-sidebar">
-          <div class="cr-filters" id="cr-filters" role="group" aria-label="Filter by department">
-            <button class="cr-filter cr-filter--active" data-dept="all" aria-pressed="true">All</button>
-          </div>
-        </aside>
-        <div class="cr-main">
-          <div id="cr-loading" hidden></div>
-          <!-- Job cards (populated by JS) -->
-          <div class="cr-jobs" id="cr-jobs" hidden aria-live="polite" style="min-height:0"></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
+<section aria-labelledby="cr-positions-h" class="cr-positions" id="cr-positions">
+<div class="cr-positions__inner">
+<div class="cr-positions__heading-row ok-anim">
+<h2 class="cr-positions__heading" id="cr-positions-h">Open positions</h2>
+<span aria-live="polite" class="cr-positions__count" id="cr-count"></span>
+</div>
+<div class="cr-positions__layout">
+<aside class="cr-sidebar">
+<div aria-label="Filter by department" class="cr-filters" id="cr-filters" role="group">
+<button aria-pressed="true" class="cr-filter cr-filter--active" data-dept="all">All</button>
+</div>
+</aside>
+<div class="cr-main">
+<div hidden="" id="cr-loading"></div>
+<!-- Job cards (populated by JS) -->
+<div aria-live="polite" class="cr-jobs" hidden="" id="cr-jobs" style="min-height:0"></div>
+</div>
+</div>
+</div>
+</section>
 </main>
-
 <!-- ============================================================
      FOOTER
 ============================================================ -->
 
-<script>
-(function () {
-  'use strict';
 
-  /* Scroll animations */
-  var anims = document.querySelectorAll('.ok-anim');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-vis'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.10 });
-    anims.forEach(function (el) { io.observe(el); });
-  } else {
-    anims.forEach(function (el) { el.classList.add('is-vis'); });
-  }
-
-  /* Nav mega menus */
-  var triggers = document.querySelectorAll('.ok-nav__trigger');
-  triggers.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var expanded = btn.getAttribute('aria-expanded') === 'true';
-      triggers.forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
-      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-    });
-  });
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.ok-nav__item--mega') && !e.target.closest('.ok-nav__item--drop')) {
-      triggers.forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
-    }
-  });
-
-  /* Mobile menu */
-  var burger = document.getElementById('ok-burger');
-  var mobileMenu = document.getElementById('ok-mobile-menu');
-  var backdrop = document.querySelector('.ok-backdrop');
-  if (burger && mobileMenu) {
-    function openMobile() {
-      mobileMenu.classList.add('is-open');
-      burger.classList.add('is-open');
-      burger.setAttribute('aria-expanded', 'true');
-      burger.setAttribute('aria-label', 'Close menu');
-      document.body.style.overflow = 'hidden';
-      if (backdrop) backdrop.classList.add('ok-backdrop--vis');
-    }
-    function closeMobile() {
-      mobileMenu.classList.remove('is-open');
-      burger.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.setAttribute('aria-label', 'Open menu');
-      document.body.style.overflow = '';
-      if (backdrop) backdrop.classList.remove('ok-backdrop--vis');
-    }
-    burger.addEventListener('click', function () {
-      mobileMenu.classList.contains('is-open') ? closeMobile() : openMobile();
-    });
-    if (backdrop) backdrop.addEventListener('click', closeMobile);
-
-    mobileMenu.querySelectorAll('.ok-mobile-menu__trigger').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var targetId = btn.getAttribute('data-target');
-        var sub = document.getElementById(targetId);
-        var wasOpen = btn.classList.contains('is-open');
-        mobileMenu.querySelectorAll('.ok-mobile-menu__trigger').forEach(function (b) {
-          b.classList.remove('is-open'); b.setAttribute('aria-expanded', 'false');
-        });
-        mobileMenu.querySelectorAll('.ok-mobile-menu__sub').forEach(function (s) { s.classList.remove('is-open'); });
-        if (!wasOpen && sub) {
-          btn.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true'); sub.classList.add('is-open');
-        }
-      });
-    });
-  }
-
-  /* Smooth scroll for anchor links */
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      var target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-}());
-</script>
-
-<script>
-/* ============================================================
-   CAREERS â Positions loader
-   Fetches open positions directly from the Comeet API.
-============================================================ */
-(function () {
-  'use strict';
-
-  var COMPANY_ID = '85.00C';
-  var API_TOKEN  = '58C1BBC2C60B1826D410A410A4163058C26D4';
-  var API_URL    = 'https://www.comeet.com/careers-api/1.0/company/' + COMPANY_ID + '/positions?token=' + API_TOKEN;
-
-  var elLoading = document.getElementById('cr-loading');
-  var elJobs    = document.getElementById('cr-jobs');
-  var elError   = document.getElementById('cr-error');
-  var elEmpty   = document.getElementById('cr-empty');
-  var elCount   = document.getElementById('cr-count');
-  var elFilters = document.getElementById('cr-filters');
-
-  var allPositions  = [];
-  var activeDept    = 'all';
-
-  /* ---------- helpers ---------- */
-
-  function show(el)  { if (el) el.hidden = false; }
-  function hide(el)  { if (el) el.hidden = true;  }
-
-  function setState(state) {
-    hide(elLoading); hide(elJobs); hide(elError); hide(elEmpty);
-    if (state === 'loading') show(elLoading);
-    else if (state === 'jobs')  show(elJobs);
-    else if (state === 'error') show(elError);
-    else if (state === 'empty') show(elEmpty);
-  }
-
-  function field(pos, key) {
-    var v = pos[key];
-    return (v !== undefined && v !== null && v !== '') ? v : '';
-  }
-
-  function locationLabel(pos) {
-    var city = (pos.location_object && pos.location_object.city) || '';
-    var country = (pos.location_object && pos.location_object.country) || '';
-    var loc = pos.location || '';
-    if (city && country) return city + ', ' + country;
-    if (loc) return loc;
-    return city || country;
-  }
-
-  function employmentLabel(pos) {
-    return field(pos, 'employment_type') || '';
-  }
-
-  function applyUrl(pos) {
-    return pos.careers_page_url || pos.careers_page_active_url || '#';
-  }
-
-  function escHtml(str) {
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-
-  /* ---------- render ---------- */
-
-  function renderJob(pos) {
-    var title    = escHtml(pos.name || 'Open Position');
-    var dept     = escHtml(field(pos, 'department') || '');
-    var loc      = escHtml(locationLabel(pos));
-    var empType  = escHtml(employmentLabel(pos));
-    var url      = escHtml(applyUrl(pos));
-
-    var attrs = '';
-    if (loc) {
-      attrs += '<span class="cr-job__attr">'
-             + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>'
-             + loc + '</span>';
-    }
-    if (empType) {
-      attrs += '<span class="cr-job__attr">'
-             + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>'
-             + empType + '</span>';
-    }
-
-    return '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="cr-job">'
-         + '<div class="cr-job__left">'
-         + '<div class="cr-job__meta">' + (dept ? '<span class="cr-job__dept">' + dept + '</span>' : '') + '</div>'
-         + '<div class="cr-job__title">' + title + '</div>'
-         + (attrs ? '<div class="cr-job__attrs">' + attrs + '</div>' : '')
-         + '</div>'
-         + '<span class="cr-job__apply" aria-label="Apply for ' + title + '">'
-         + 'Apply'
-         + '<span class="cr-job__apply-arrow" aria-hidden="true">'
-         + '<svg viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-         + '</span></span>'
-         + '</a>';
-  }
-
-  function renderFilters(positions) {
-    var depts = {};
-    positions.forEach(function (p) {
-      var d = field(p, 'department');
-      if (d) depts[d] = (depts[d] || 0) + 1;
-    });
-    var sorted = Object.keys(depts).sort();
-
-    // Remove previously generated filter buttons (keep "All")
-    var existing = elFilters.querySelectorAll('[data-dept]:not([data-dept="all"])');
-    existing.forEach(function (b) { b.remove(); });
-
-    sorted.forEach(function (dept) {
-      var btn = document.createElement('button');
-      btn.className = 'cr-filter';
-      btn.setAttribute('data-dept', dept);
-      btn.setAttribute('aria-pressed', 'false');
-      btn.textContent = dept;
-      elFilters.appendChild(btn);
-    });
-
-    elFilters.querySelectorAll('.cr-filter').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        activeDept = btn.getAttribute('data-dept');
-        elFilters.querySelectorAll('.cr-filter').forEach(function (b) {
-          b.classList.remove('cr-filter--active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('cr-filter--active');
-        btn.setAttribute('aria-pressed', 'true');
-        renderVisible();
-      });
-    });
-  }
-
-  function renderVisible() {
-    var visible = activeDept === 'all'
-      ? allPositions
-      : allPositions.filter(function (p) { return field(p, 'department') === activeDept; });
-
-    if (visible.length === 0) {
-      setState('empty');
-      elCount.textContent = '';
-      return;
-    }
-
-    elJobs.innerHTML = visible.map(renderJob).join('');
-    elCount.textContent = visible.length + ' position' + (visible.length === 1 ? '' : 's');
-    setState('jobs');
-  }
-
-  /* ---------- fetch ---------- */
-
-  window.loadPositions = function () {
-    setState('loading');
-
-    fetch(API_URL)
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.json();
-      })
-      .then(function (data) {
-        // Comeet may return an array directly, or wrap in { positions: [...] }
-        allPositions = Array.isArray(data) ? data
-          : (Array.isArray(data.positions) ? data.positions : []);
-
-        if (allPositions.length === 0) {
-          setState('empty');
-          return;
-        }
-
-        renderFilters(allPositions);
-        renderVisible();
-      })
-      .catch(function (err) {
-        console.error('[careers]', err);
-        var desc = document.querySelector('#cr-error .cr-state__desc');
-        if (desc) desc.textContent = 'Error: ' + err.message;
-        setState('error');
-      });
-  };
-
-  loadPositions();
-}());
-</script>
 <div id="site-footer"></div>
-<script src="../js/nav-mega.js" defer></script>
-<script src="../partials/nav.js?v=20260803d" defer></script>
-<script src="../partials/inject.js?v=20260804a" defer></script>
+
+
+
 </body>
 </html>

@@ -1,264 +1,64 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Jobs - StoreYa.com</title>
-
-    <meta name="description" content="Looking for a Job? StoreYa is growing fast and we&#39;re always looking for great people to join our team!" />
-
-
-
-    <!--
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jobs - StoreYa.com</title>
+<meta content="Looking for a Job? StoreYa is growing fast and we're always looking for great people to join our team!" name="description"/>
+<!--
 
     <link href='//fonts.googleapis.com/css?family=Fira+Sans:400,300,300italic,400italic,500,500italic,700italic,700|Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css' />
 
     -->
+<!-- preload fonts -->
+<link as="font" crossorigin="crossorigin" href="/common/fonts/roboto-v20-latin-300.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="crossorigin" href="/common/fonts/roboto-v20-latin-500.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="crossorigin" href="/common/fonts/roboto-v20-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="crossorigin" href="/common/fonts/roboto-v20-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="crossorigin" href="/common/fonts/fira-sans-v10-latin-500.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="crossorigin" href="/common/fonts/fira-sans-v10-latin-700.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="crossorigin" href="/common/fonts/fira-sans-v10-latin-regular.woff2" rel="preload" type="font/woff2"/>
+<link href="/common/css/new/fonts.css?v=202608042" rel="stylesheet" type="text/css"/>
+<link href="/common/css/stylenew-public.css?v=202608042" rel="stylesheet" type="text/css"/>
+<link href="/common/css/new/global.css?v=202608042" rel="stylesheet" type="text/css"/>
+
+
+<!-- new sign up PU -->
+<link href="/common/css/new/signup_popup.css?v=202608042" rel="stylesheet" type="text/css"/>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
 
-    <!-- preload fonts -->
-
-
-
-    <link rel="preload" as="font" type="font/woff2"
-
-          href="/common/fonts/roboto-v20-latin-300.woff2" crossorigin=crossorigin />
-
-    <link rel="preload" as="font" type="font/woff2"
-
-          href="/common/fonts/roboto-v20-latin-500.woff2" crossorigin=crossorigin />
-
-    <link rel="preload" as="font" type="font/woff2"
-
-          href="/common/fonts/roboto-v20-latin-700.woff2" crossorigin=crossorigin />
-
-    <link rel="preload" as="font" type="font/woff2"
-
-          href="/common/fonts/roboto-v20-latin-regular.woff2" crossorigin=crossorigin />
-
-    <link rel="preload" as="font" type="font/woff2"
-
-          href="/common/fonts/fira-sans-v10-latin-500.woff2" crossorigin=crossorigin />
-
-    <link rel="preload" as="font" type="font/woff2"
-
-          href="/common/fonts/fira-sans-v10-latin-700.woff2" crossorigin=crossorigin />
-
-    <link rel="preload" as="font" type="font/woff2"
-
-          href="/common/fonts/fira-sans-v10-latin-regular.woff2" crossorigin=crossorigin />
-
-
-
-
-
-
-
-    <link href="/common/css/new/fonts.css?v=202608042" rel="stylesheet" type="text/css" />
-
-
-
-    <link href="/common/css/stylenew-public.css?v=202608042" rel="stylesheet" type="text/css" />
-
-    <link href="/common/css/new/global.css?v=202608042" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <script src="/common/js/hp-new/bootstrap.min.js"></script>
-
-
-
-
-
-    <!-- new sign up PU -->
-
-    <link href="/common/css/new/signup_popup.css?v=202608042" rel="stylesheet" type="text/css" />
-
-    <script type="text/javascript" src="/common/js/products/signup.js?v=202608042"></script>
-
-
-
-    
-
-
-
-
-
-
-
-    
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1SNBRQHQX9"></script>
-
-<script>
-
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() { dataLayer.push(arguments); }
-
-    gtag('js', new Date());
-
-
-
-    gtag('config', 'G-1SNBRQHQX9');
-
-
-
-	gtag('config', 'AW-869069185');
-
-
-
-    window.addEventListener('load', function () {
-
-        if (window.location.href.indexOf('reg=true') === -1) {
-
-            return;
-
-        }
-
-        var match = document.cookie.match(/(?:^|; )stry_reg_email=([^;]*)/);
-
-        var email = match ? decodeURIComponent(match[1]) : 'missing@email.com';
-
-        if (match) {
-
-            document.cookie = 'stry_reg_email=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;';
-
-        }
-
-        gtag('event', 'sign_up', { method: 'email', user_data: { email_address: email } });
-
-    });
-
-</script>
-
-<script src="/common/js/tr.js?v=202608042" async></script>
-
-    
-
-<script>
-
-    window.dataLayer = window.dataLayer || [];
-
-    window.dataLayer.push({
-
-        "event": "user_data_ready"
-
-    });
-
-</script>
 
 
 
 <!-- Google Tag Manager -->
 
-<noscript>
-
-    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MCCDT7"
-
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-
-</noscript>
-
-<script>
-
-    (function (w, d, s, l, i) {
-
-        w[l] = w[l] || []; w[l].push({
-
-            'gtm.start':
-
-                new Date().getTime(), event: 'gtm.js'
-
-        }); var f = d.getElementsByTagName(s)[0],
-
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-
-                '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-
-    })(window, document, 'script', 'dataLayer', 'GTM-MCCDT7');</script>
 
 <!-- End Google Tag Manager -->
 
-<script src="/common/js/zendeskCustomLauncher.js?v=202608042" async></script>
-
-
-
 </head>
-
 <body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="navbar-sy scrolling">
-
-        <div class="wrapper">
-
-
-
-            <a role="button" tabindex="0" href="/" class="logo"></a>
-
-
-
-            <ul class="nav-mid">
-
-                <li><a role="button" tabindex="0" class="link" href="/public/trafficbooster">Traffic Booster</a></li>
-
-                <li><a role="button" tabindex="0" class="link" href="/public/trafficboosterPricingB">Pricing</a></li>
-
-                <li class="dd-link">
-
-                    <a role="button" tabindex="0" class="link dd-link" id="products-dd-link">Products<svg xmlns="http://www.w3.org/2000/svg" baseProfile="tiny" viewBox="0 0 10.289 6.563" style="height: 8px;width: 25px;"><path d="M5.212 6.563L0 1.423 1.404 0l3.788 3.735L8.865.01l1.424 1.404"></path></svg></a>
-
-                    <div class="navbar-dropdown-menu-wrapper dropdown-content dd-link" id="productsDropdown" style="opacity:0;">
-
-                        <div class="navbar-dropdown-menu-col gray">
-
-                            <img class="advertise" src="/common/images/hp-new/advertise-icon.png" width="33" height="21" />
-
-                            <h4>Advertise</h4>
-
-                            <p>Let us scale your business! Our AI will set up and optimize your ads on Google, Facebook & Instagram.</p>
-
-                            <ul>
-
-                                <li><a role="button" tabindex="0" href="/public/trafficbooster">Google Ads for eCommerce</a></li>
-
-                                <li><a role="button" tabindex="0" href="/public/trafficboostermsa">Microsoft Ads for eCommerce</a></li>
-
-                                <li><a role="button" tabindex="0" href="/public/trafficboosterEnterprise">Enterprise Edition</a></li>
-
-                            </ul>
-
-                        </div>
-
-
-
-                        <!-- <div class="navbar-dropdown-menu-col">
+<div class="navbar-sy scrolling">
+<div class="wrapper">
+<a class="logo" href="/" role="button" tabindex="0"></a>
+<ul class="nav-mid">
+<li><a class="link" href="/public/trafficbooster" role="button" tabindex="0">Traffic Booster</a></li>
+<li><a class="link" href="/public/trafficboosterPricingB" role="button" tabindex="0">Pricing</a></li>
+<li class="dd-link">
+<a class="link dd-link" id="products-dd-link" role="button" tabindex="0">Products</a>
+<div class="navbar-dropdown-menu-wrapper dropdown-content dd-link" id="productsDropdown" style="opacity:0;">
+<div class="navbar-dropdown-menu-col gray">
+<img class="advertise" height="21" src="/common/images/hp-new/advertise-icon.png" width="33"/>
+<h4>Advertise</h4>
+<p>Let us scale your business! Our AI will set up and optimize your ads on Google, Facebook &amp; Instagram.</p>
+<ul>
+<li><a href="/public/trafficbooster" role="button" tabindex="0">Google Ads for eCommerce</a></li>
+<li><a href="/public/trafficboostermsa" role="button" tabindex="0">Microsoft Ads for eCommerce</a></li>
+<li><a href="/public/trafficboosterEnterprise" role="button" tabindex="0">Enterprise Edition</a></li>
+</ul>
+</div>
+<!-- <div class="navbar-dropdown-menu-col">
 
                 <img class="sell" src="~/common/images/hp-new/sell-on-social-icon.png" width="23" height="22" />
 
@@ -275,846 +75,360 @@
                 </ul>
 
             </div>-->
-
-
-
-                        <div class="navbar-dropdown-menu-col">
-
-                            <img class="insights" src="/common/images/hp-new/insights-icon.png" width="19" height="17" />
-
-                            <h4>Insights & optimization</h4>
-
-                            <p>Generate product descriptions using AI, and get free site and Facebook account audits.</p>
-
-                            <ul>
-
-                                <li><a role="button" tabindex="0" href="/public/ProductDescriptionWizard">Product Description Wizard</a></li>
-
-                                <li><a role="button" tabindex="0" href="/public/benchmark-hero">Benchmark Hero</a></li>
-
-                                <li><a role="button" tabindex="0" href="/public/growth-hero">Growth Hero</a></li>
-
-
-
-                            </ul>
-
-                        </div>
-
-
-
-                        <div class="navbar-dropdown-menu-col">
-
-                            <img class="promotions" src="/common/images/hp-new/promotions-icon.png" width="26" height="34" />
-
-                            <h4>On-site promotions</h4>
-
-                            <p>Easily create on-site promotions that will increase your online store’s conversion rate.</p>
-
-                            <ul>
-
-                                <li><a role="button" tabindex="0" href="/public/couponpop">Coupon Pop</a></li>
-
-                                <li><a role="button" tabindex="0" href="/public/exitpop">Exit Pop</a></li>
-
-
-
-                            </ul>
-
-                        </div>
-
-                    </div>
-
-                </li>
-
-
-
-                <li><a role="button" tabindex="0" class="link" href="/public/successstories">Success Stories</a></li>
-
-                <!-- <li><a class="link" href="https://blog.storeya.com">Blog</a></li>-->
-
-                <li><a role="button" tabindex="0" href="https://storeya.zendesk.com/home" target="_blank" rel="nofollow" class="link">Support</a></li>
-
-                <!-- <li class="line-right"></li> -->
-
-                
-
-            </ul><ul>
-
-                <li><a role="button" tabindex="0" class="link login-popup" onclick="CallLogIn();">Log in</a></li>
-
-                <li><a id="freeTrial_btn" class="btn-sy btn-cfa btn-pill freeTrialbtn btn-orange" onclick="CallSignUp();">Free Account</a></li>
-
-                
-
-            </ul>
-
-
-
-            <div class="mobile-menu mobile-only"></div>
-
-
-
-        </div>
-
-    </div>
-
-
-
-    <div class="wrapper">
-
-
-
-        <div class="main-wrapper">
-
-            
-
-
-
-
-
-<link href="/common/css/new/stylePublic.css" rel="stylesheet" />
-
-<link href="/common/css/twt/bootstrap.min.css" rel="stylesheet" />
-
-<link href="/common/css/jobs.css" rel="stylesheet" />
-
-<link rel="canonical" href="https://www.storeya.com/public/jobs">
-
-
-
-<div id="body_container" class="greybk">
-
-    <div class="body_shadow">
-
-        <div class="product_container">
-
-            <div id="left_container">
-
-                <h1>Grow With Us</h1>
-
-
-
-
-
-
-
-
-
-                <h3>Careers</h3>
-
-
-
-                <div class="clearfix ajob">
-
-                    <img class="fleft imgmargin" src="/common/images/jobs/google-account-manager.png" />
-
-                    <div class="job_desc">
-
-                        <h5>A Junior PPC campaign manager</h5>
-
-                        <div class="job_first_text">
-
-                            <span>
+<div class="navbar-dropdown-menu-col">
+<img class="insights" height="17" src="/common/images/hp-new/insights-icon.png" width="19"/>
+<h4>Insights &amp; optimization</h4>
+<p>Generate product descriptions using AI, and get free site and Facebook account audits.</p>
+<ul>
+<li><a href="/public/ProductDescriptionWizard" role="button" tabindex="0">Product Description Wizard</a></li>
+<li><a href="/public/benchmark-hero" role="button" tabindex="0">Benchmark Hero</a></li>
+<li><a href="/public/growth-hero" role="button" tabindex="0">Growth Hero</a></li>
+</ul>
+</div>
+<div class="navbar-dropdown-menu-col">
+<img class="promotions" height="34" src="/common/images/hp-new/promotions-icon.png" width="26"/>
+<h4>On-site promotions</h4>
+<p>Easily create on-site promotions that will increase your online store’s conversion rate.</p>
+<ul>
+<li><a href="/public/couponpop" role="button" tabindex="0">Coupon Pop</a></li>
+<li><a href="/public/exitpop" role="button" tabindex="0">Exit Pop</a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><a class="link" href="/public/successstories" role="button" tabindex="0">Success Stories</a></li>
+<!-- <li><a class="link" href="https://blog.storeya.com">Blog</a></li>-->
+<li><a class="link" href="https://storeya.zendesk.com/home" rel="nofollow" role="button" tabindex="0" target="_blank">Support</a></li>
+<!-- <li class="line-right"></li> -->
+</ul><ul>
+<li><a class="link login-popup" onclick="CallLogIn();" role="button" tabindex="0">Log in</a></li>
+<li><a class="btn-sy btn-cfa btn-pill freeTrialbtn btn-orange" id="freeTrial_btn" onclick="CallSignUp();">Free Account</a></li>
+</ul>
+<div class="mobile-menu mobile-only"></div>
+</div>
+</div>
+<div class="wrapper">
+<div class="main-wrapper">
+<link href="/common/css/new/stylePublic.css" rel="stylesheet"/>
+<link href="/common/css/twt/bootstrap.min.css" rel="stylesheet"/>
+<link href="/common/css/jobs.css" rel="stylesheet"/>
+<link href="https://www.storeya.com/public/jobs" rel="canonical"/>
+<div class="greybk" id="body_container">
+<div class="body_shadow">
+<div class="product_container">
+<div id="left_container">
+<h1>Grow With Us</h1>
+<h3>Careers</h3>
+<div class="clearfix ajob">
+<img class="fleft imgmargin" src="/common/images/jobs/google-account-manager.png"/>
+<div class="job_desc">
+<h5>A Junior PPC campaign manager</h5>
+<div class="job_first_text">
+<span>
 
                                 StoreYa offers a suite of marketing and advertising apps that helps 500,000 SMBs from 186 countries to increase sales, leads, and social following. We're looking these days to add another Google Ads Account Manager to join our amazing team!
 
 
 
                             </span>
-
-                            <br />Join us at <a href="/">StoreYa.com</a>
-
-                        </div>
-
-
-
-                        <p class="requirements"><b>Responsibilities</b></p>
-
-                        <div class="uldiv">
-
-                            <ul>
-
-                                <li>Work directly with clients to meet the goals of their Google & Facebook ad campaigns, including Customer Success and Retention Calls</li>
-
-                                <li>Set up new campaigns and scale up existing ones</li>
-
-                                <li>Daily optimization and management of the accounts</li>
-
-                                <li>Characterize recommendations for improving and automating our in-house technology supporting the Facebook ads setup and optimization</li>
-
-
-
-                            </ul>
-
-                        </div>
-
-
-
-                        <p class="requirements"><b>Requirements</b></p>
-
-                        <div class="uldiv">
-
-                            <ul>
-
-                                <li>Native English speaker with strong written and verbal skills</li>
-
-                                <li>1 year of hands-on experience managing Google and Facebook ad campaigns in English is a must</li>
-
-                                <li>Prior experience in customer service or account management is a must</li>
-
-                                <li>Technical, analytical, detail-oriented, diligent, proactive, organized, accountable, and highly motivated team player</li>
-
-                                <li>Experience with eCommerce Google & Facebook ads accounts is a must</li>
-
-                            </ul>
-
-                        </div>
-
-
-
-                        <p class="requirements"><b>Daily tasks include</b></p>
-
-                        <div class="uldiv">
-
-                            <ul>
-
-                                <li>Manage campaigns in Google, Facebook, Bing, TikTok, Pinterest on behalf of our clients with specific performance-oriented targets </li>
-
-                                <li>Help mapping structures that can be automated in media platforms across all channels</li>
-
-                                <li>Communication & support with strategic clients</li>
-
-                                <li>Explore additional performance-oriented channels for our clients</li>
-
-                            </ul>
-
-                        </div>
-
-
-
-
-
-                        <p>Our offices are located in Ramat-Hasharon and we work in a Hybrid manner (partially there and partially remotely). If you meet all the requirements or you've done something that will blow our minds, please send us your CV to: <a href="mailto:jobs@storeya.com">jobs@storeya.com</a></p>
-
-                    </div>
-
-                </div>
-
-
-
-
-
-                <div class="clearfix ajob">
-
-                    <img class="fleft imgmargin" src="/common/images/jobs/google-account-manager.png" />
-
-                    <div class="job_desc">
-
-                        <h5>A senior PPC campaign manager</h5>
-
-                        <div class="job_first_text">
-
-                            <span>
+<br/>Join us at <a href="/">StoreYa.com</a>
+</div>
+<p class="requirements"><b>Responsibilities</b></p>
+<div class="uldiv">
+<ul>
+<li>Work directly with clients to meet the goals of their Google &amp; Facebook ad campaigns, including Customer Success and Retention Calls</li>
+<li>Set up new campaigns and scale up existing ones</li>
+<li>Daily optimization and management of the accounts</li>
+<li>Characterize recommendations for improving and automating our in-house technology supporting the Facebook ads setup and optimization</li>
+</ul>
+</div>
+<p class="requirements"><b>Requirements</b></p>
+<div class="uldiv">
+<ul>
+<li>Native English speaker with strong written and verbal skills</li>
+<li>1 year of hands-on experience managing Google and Facebook ad campaigns in English is a must</li>
+<li>Prior experience in customer service or account management is a must</li>
+<li>Technical, analytical, detail-oriented, diligent, proactive, organized, accountable, and highly motivated team player</li>
+<li>Experience with eCommerce Google &amp; Facebook ads accounts is a must</li>
+</ul>
+</div>
+<p class="requirements"><b>Daily tasks include</b></p>
+<div class="uldiv">
+<ul>
+<li>Manage campaigns in Google, Facebook, Bing, TikTok, Pinterest on behalf of our clients with specific performance-oriented targets </li>
+<li>Help mapping structures that can be automated in media platforms across all channels</li>
+<li>Communication &amp; support with strategic clients</li>
+<li>Explore additional performance-oriented channels for our clients</li>
+</ul>
+</div>
+<p>Our offices are located in Ramat-Hasharon and we work in a Hybrid manner (partially there and partially remotely). If you meet all the requirements or you've done something that will blow our minds, please send us your CV to: <a href="mailto:jobs@storeya.com">jobs@storeya.com</a></p>
+</div>
+</div>
+<div class="clearfix ajob">
+<img class="fleft imgmargin" src="/common/images/jobs/google-account-manager.png"/>
+<div class="job_desc">
+<h5>A senior PPC campaign manager</h5>
+<div class="job_first_text">
+<span>
 
                                 StoreYa offers a suite of marketing and advertising apps that helps 500,000 SMBs from 186 countries to increase sales, leads, and social following. We're looking these days to add another Google Ads Account Manager to join our amazing team!
 
 
 
                             </span>
-
-                            <br />Join us at <a href="/">StoreYa.com</a>
-
-                        </div>
-
-
-
-                        <p class="requirements"><b>Responsibilities</b></p>
-
-                        <div class="uldiv">
-
-                            <ul>
-
-                                <li>Work directly with clients to meet the goals of their Google & Facebook ad campaigns, including Customer Success and Retention Calls</li>
-
-                                <li>Set up new campaigns and scale up existing ones</li>
-
-                                <li>Daily optimization and management of the accounts</li>
-
-                                <li>Characterize recommendations for improving and automating our in-house technology supporting the Facebook ads setup and optimization</li>
-
-
-
-                            </ul>
-
-                        </div>
-
-
-
-                        <p class="requirements"><b>Requirements</b></p>
-
-                        <div class="uldiv">
-
-                            <ul>
-
-                                <li>Native English speaker with strong written and verbal skills</li>
-
-                                <li>2-4 years of hands-on experience managing Google and Facebook ad campaigns in English is a must</li>
-
-                                <li>Prior experience in customer service or account management is a must</li>
-
-                                <li>Technical, analytical, detail-oriented, diligent, proactive, organized, accountable, and highly motivated team player</li>
-
-                                <li>Experience with eCommerce Google & Facebook ads accounts is a must</li>
-
-                            </ul>
-
-                        </div>
-
-
-
-                        <p class="requirements"><b>Daily tasks include</b></p>
-
-                        <div class="uldiv">
-
-                            <ul>
-
-                                <li>Manage campaigns in Google, Facebook, Bing, TikTok, Pinterest on behalf of our clients with specific performance-oriented targets </li>
-
-                                <li>Help mapping structures that can be automated in media platforms across all channels</li>
-
-                                <li>Communication & support with strategic clients</li>
-
-                                <li>Explore additional performance-oriented channels for our clients</li>
-
-                            </ul>
-
-                        </div>
-
-
-
-
-
-                        <p>Our offices are located in Ramat-Hasharon and we work in a Hybrid manner (partially there and partially remotely). If you meet all the requirements or you've done something that will blow our minds, please send us your CV to: <a href="mailto:jobs@storeya.com">jobs@storeya.com</a></p>
-
-                    </div>
-
-                </div>
-
-
-
-
-
-
-
-                <div class="clearfix ajob">
-
-                    <img class="fleft imgmargin" src="/common/images/jobs/dev1_icon.png" />
-
-                    <div class="job_desc">
-
-                        <h5>An Experienced .NET Developer (2+ years)</h5>
-
-                        <div class="job_first_text">
-
-                            <span>Want to build the apps and infrastructure that will boost the sales of 500,000 SMB’s, enabling them to sell like the big guns!?</span>
-
-                            <br />Join us at <a href="/">StoreYa.com</a>
-
-                        </div>
-
-
-
-                        <p class="requirements"><b>Requirements</b></p>
-
-                        <div class="uldiv" style="float:none;">
-
-                            <ul>
-
-                                <li>Experience with C# and the .NET MVC</li>
-
-                                <li>Experience architecting and deploying web projects</li>
-
-                                <li>Experience with modern JavaScript Frameworks (JQuery, AngularJS, etc.)</li>
-
-                                <li>Experience with database architecture and design - Advantage</li>
-
-                            </ul>
-
-                        </div>
-
-                        <p>Our offices are located in Ramat-Hasharon and Berlin. If you meet all the requirements or you've done something that'll blow our minds, please send us your resume and work to: <a href="mailto:jobs@storeya.com">jobs@storeya.com</a></p>
-
-                    </div>
-
-                </div>
-
-
-
-
-
-
-
-                <div class="clearfix ajob">
-
-                    <img class="fleft imgmargin" src="/common/images/jobs/dev2_icon.png" />
-
-                    <div class="job_desc">
-
-                        <h5>An Experienced Frontend Developer (2+ years)</h5>
-
-                        <div class="job_first_text">
-
-                            <span>Want to build the apps and infrastructure that will boost the sales of 500,000 SMB’s, enabling them to sell like the big guns!?</span>
-
-                            <br />Join us at <a href="/">StoreYa.com</a>
-
-                        </div>
-
-
-
-                        <p class="requirements"><b>Requirements</b></p>
-
-                        <div class="uldiv">
-
-                            <ul>
-
-                                <li>Strong client side JavaScript experience (2+ years)</li>
-
-                                <li>Experience designing modular, object-oriented JavaScript</li>
-
-                                <li>Expert with HTML and CSS; you won’t be designing and cutting, but you will be tweaking</li>
-
-                                <li>Experience with one or more rich-client frameworks, like Angular, Knockout - advantage</li>
-
-                                <li>Experience with server-side web frameworks such as MVC ASP.Net - advantage</li>
-
-                            </ul>
-
-                        </div>
-
-                        <p>Our offices are located in Ramat-Hasharon and Berlin. If you meet all the requirements or you've done something that'll blow our minds, please send us your resume and work to: <a href="mailto:jobs@storeya.com">jobs@storeya.com</a></p>
-
-                    </div>
-
-                </div>
-
-
-
-
-
-
-
-                <h3>Benefits</h3>
-
-                <div class="clearfix benefits_lists">
-
-                    <ul class="benefits_ul fleft">
-
-
-
-                        <li class="benefits_li clearfix">
-
-                            <img class="fleft" src="/common/images/jobs/Competitive_Salary.png" />
-
-                            <div class="benefits_texts">
-
-                                <h6 class="benefits_title">Competitive Salary</h6>
-
-                                <div class="benefits_desc">Get a sweet salary and full pension plan</div>
-
-                            </div>
-
-                        </li>
-
-
-
-                        <li class="benefits_li clearfix">
-
-                            <img class="fleft" src="/common/images/jobs/Professional_conventions.png" />
-
-                            <div class="benefits_texts">
-
-                                <h6 class="benefits_title">Professional conventions</h6>
-
-                                <div class="benefits_desc">Attend conferences that will contribute to your professional growth</div>
-
-                            </div>
-
-                        </li>
-
-
-
-                        <li class="benefits_li clearfix">
-
-                            <img class="fleft" src="/common/images/jobs/Awesome_Offices.png" />
-
-                            <div class="benefits_texts">
-
-                                <h6 class="benefits_title">AWESOME OFFICES</h6>
-
-                                <div class="benefits_desc">Home environment, Best Location at Ramat-Hasharon - no traffic jams and great places to eat</div>
-
-                            </div>
-
-                        </li>
-
-
-
-                        <li class="benefits_li clearfix">
-
-                            <img class="fleft" src="/common/images/jobs/Pets_Friendly.png" />
-
-                            <div class="benefits_texts">
-
-                                <h6 class="benefits_title">Pet Friendly</h6>
-
-                                <div class="benefits_desc">Bring your dog to work day is... every day</div>
-
-                            </div>
-
-                        </li>
-
-
-
-                        <li class="benefits_li clearfix">
-
-                            <img class="fleft" src="/common/images/jobs/Innovative_Technologies.png" />
-
-                            <div class="benefits_texts">
-
-                                <h6 class="benefits_title">INNOVATIVE TECHNOLOGIES</h6>
-
-                                <div class="benefits_desc">We are always happy to incorporate the latest technologies into our products</div>
-
-                            </div>
-
-                        </li>
-
-                    </ul>
-
-
-
-                    <ul class="benefits_ul fleft">
-
-
-
-                        <li class="benefits_li clearfix">
-
-                            <img class="fleft" src="/common/images/jobs/Great_personal.png" />
-
-                            <div class="benefits_texts">
-
-                                <h6 class="benefits_title">Great personal and professional balance</h6>
-
-                                <div class="benefits_desc">We believe in running a marathon not a sprint. No white nights in our office</div>
-
-                            </div>
-
-                        </li>
-
-
-
-                        <li class="benefits_li clearfix">
-
-                            <img class="fleft" src="/common/images/jobs/Touch_the_lives.png" />
-
-                            <div class="benefits_texts">
-
-                                <h6 class="benefits_title">Touch the lives of others</h6>
-
-                                <div class="benefits_desc">Our tools are changing the lives of 500,000+ small to medium businesses around the world.</div>
-
-                            </div>
-
-                        </li>
-
-
-
-                        <li class="benefits_li clearfix">
-
-                            <img class="fleft" src="/common/images/jobs/Great_Gear.png" />
-
-                            <div class="benefits_texts">
-
-                                <h6 class="benefits_title">Great Gear</h6>
-
-                                <div class="benefits_desc">New laptop/computer along with an external monitor</div>
-
-                            </div>
-
-                        </li>
-
-
-
-                        <li class="benefits_li clearfix">
-
-                            <img class="fleft" src="/common/images/jobs/Awesome_People.png" />
-
-                            <div class="benefits_texts">
-
-                                <h6 class="benefits_title">Awesome People</h6>
-
-                                <div class="benefits_desc">Great environment. Come and see for yourself</div>
-
-                            </div>
-
-                        </li>
-
-
-
-                        <li class="benefits_li clearfix">
-
-                            <img class="fleft" src="/common/images/jobs/Paid_Time_Off.png" />
-
-                            <div class="benefits_texts">
-
-                                <h6 class="benefits_title">PAID TIME OFF</h6>
-
-                                <div class="benefits_desc">Paid holidays and vacation days</div>
-
-                            </div>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class="about_us clearfix">
-
-                    <h3>About StoreYa</h3>
-
-                    <p class="about_us_p">
+<br/>Join us at <a href="/">StoreYa.com</a>
+</div>
+<p class="requirements"><b>Responsibilities</b></p>
+<div class="uldiv">
+<ul>
+<li>Work directly with clients to meet the goals of their Google &amp; Facebook ad campaigns, including Customer Success and Retention Calls</li>
+<li>Set up new campaigns and scale up existing ones</li>
+<li>Daily optimization and management of the accounts</li>
+<li>Characterize recommendations for improving and automating our in-house technology supporting the Facebook ads setup and optimization</li>
+</ul>
+</div>
+<p class="requirements"><b>Requirements</b></p>
+<div class="uldiv">
+<ul>
+<li>Native English speaker with strong written and verbal skills</li>
+<li>2-4 years of hands-on experience managing Google and Facebook ad campaigns in English is a must</li>
+<li>Prior experience in customer service or account management is a must</li>
+<li>Technical, analytical, detail-oriented, diligent, proactive, organized, accountable, and highly motivated team player</li>
+<li>Experience with eCommerce Google &amp; Facebook ads accounts is a must</li>
+</ul>
+</div>
+<p class="requirements"><b>Daily tasks include</b></p>
+<div class="uldiv">
+<ul>
+<li>Manage campaigns in Google, Facebook, Bing, TikTok, Pinterest on behalf of our clients with specific performance-oriented targets </li>
+<li>Help mapping structures that can be automated in media platforms across all channels</li>
+<li>Communication &amp; support with strategic clients</li>
+<li>Explore additional performance-oriented channels for our clients</li>
+</ul>
+</div>
+<p>Our offices are located in Ramat-Hasharon and we work in a Hybrid manner (partially there and partially remotely). If you meet all the requirements or you've done something that will blow our minds, please send us your CV to: <a href="mailto:jobs@storeya.com">jobs@storeya.com</a></p>
+</div>
+</div>
+<div class="clearfix ajob">
+<img class="fleft imgmargin" src="/common/images/jobs/dev1_icon.png"/>
+<div class="job_desc">
+<h5>An Experienced .NET Developer (2+ years)</h5>
+<div class="job_first_text">
+<span>Want to build the apps and infrastructure that will boost the sales of 500,000 SMB’s, enabling them to sell like the big guns!?</span>
+<br/>Join us at <a href="/">StoreYa.com</a>
+</div>
+<p class="requirements"><b>Requirements</b></p>
+<div class="uldiv" style="float:none;">
+<ul>
+<li>Experience with C# and the .NET MVC</li>
+<li>Experience architecting and deploying web projects</li>
+<li>Experience with modern JavaScript Frameworks (JQuery, AngularJS, etc.)</li>
+<li>Experience with database architecture and design - Advantage</li>
+</ul>
+</div>
+<p>Our offices are located in Ramat-Hasharon and Berlin. If you meet all the requirements or you've done something that'll blow our minds, please send us your resume and work to: <a href="mailto:jobs@storeya.com">jobs@storeya.com</a></p>
+</div>
+</div>
+<div class="clearfix ajob">
+<img class="fleft imgmargin" src="/common/images/jobs/dev2_icon.png"/>
+<div class="job_desc">
+<h5>An Experienced Frontend Developer (2+ years)</h5>
+<div class="job_first_text">
+<span>Want to build the apps and infrastructure that will boost the sales of 500,000 SMB’s, enabling them to sell like the big guns!?</span>
+<br/>Join us at <a href="/">StoreYa.com</a>
+</div>
+<p class="requirements"><b>Requirements</b></p>
+<div class="uldiv">
+<ul>
+<li>Strong client side JavaScript experience (2+ years)</li>
+<li>Experience designing modular, object-oriented JavaScript</li>
+<li>Expert with HTML and CSS; you won’t be designing and cutting, but you will be tweaking</li>
+<li>Experience with one or more rich-client frameworks, like Angular, Knockout - advantage</li>
+<li>Experience with server-side web frameworks such as MVC ASP.Net - advantage</li>
+</ul>
+</div>
+<p>Our offices are located in Ramat-Hasharon and Berlin. If you meet all the requirements or you've done something that'll blow our minds, please send us your resume and work to: <a href="mailto:jobs@storeya.com">jobs@storeya.com</a></p>
+</div>
+</div>
+<h3>Benefits</h3>
+<div class="clearfix benefits_lists">
+<ul class="benefits_ul fleft">
+<li class="benefits_li clearfix">
+<img class="fleft" src="/common/images/jobs/Competitive_Salary.png"/>
+<div class="benefits_texts">
+<h6 class="benefits_title">Competitive Salary</h6>
+<div class="benefits_desc">Get a sweet salary and full pension plan</div>
+</div>
+</li>
+<li class="benefits_li clearfix">
+<img class="fleft" src="/common/images/jobs/Professional_conventions.png"/>
+<div class="benefits_texts">
+<h6 class="benefits_title">Professional conventions</h6>
+<div class="benefits_desc">Attend conferences that will contribute to your professional growth</div>
+</div>
+</li>
+<li class="benefits_li clearfix">
+<img class="fleft" src="/common/images/jobs/Awesome_Offices.png"/>
+<div class="benefits_texts">
+<h6 class="benefits_title">AWESOME OFFICES</h6>
+<div class="benefits_desc">Home environment, Best Location at Ramat-Hasharon - no traffic jams and great places to eat</div>
+</div>
+</li>
+<li class="benefits_li clearfix">
+<img class="fleft" src="/common/images/jobs/Pets_Friendly.png"/>
+<div class="benefits_texts">
+<h6 class="benefits_title">Pet Friendly</h6>
+<div class="benefits_desc">Bring your dog to work day is... every day</div>
+</div>
+</li>
+<li class="benefits_li clearfix">
+<img class="fleft" src="/common/images/jobs/Innovative_Technologies.png"/>
+<div class="benefits_texts">
+<h6 class="benefits_title">INNOVATIVE TECHNOLOGIES</h6>
+<div class="benefits_desc">We are always happy to incorporate the latest technologies into our products</div>
+</div>
+</li>
+</ul>
+<ul class="benefits_ul fleft">
+<li class="benefits_li clearfix">
+<img class="fleft" src="/common/images/jobs/Great_personal.png"/>
+<div class="benefits_texts">
+<h6 class="benefits_title">Great personal and professional balance</h6>
+<div class="benefits_desc">We believe in running a marathon not a sprint. No white nights in our office</div>
+</div>
+</li>
+<li class="benefits_li clearfix">
+<img class="fleft" src="/common/images/jobs/Touch_the_lives.png"/>
+<div class="benefits_texts">
+<h6 class="benefits_title">Touch the lives of others</h6>
+<div class="benefits_desc">Our tools are changing the lives of 500,000+ small to medium businesses around the world.</div>
+</div>
+</li>
+<li class="benefits_li clearfix">
+<img class="fleft" src="/common/images/jobs/Great_Gear.png"/>
+<div class="benefits_texts">
+<h6 class="benefits_title">Great Gear</h6>
+<div class="benefits_desc">New laptop/computer along with an external monitor</div>
+</div>
+</li>
+<li class="benefits_li clearfix">
+<img class="fleft" src="/common/images/jobs/Awesome_People.png"/>
+<div class="benefits_texts">
+<h6 class="benefits_title">Awesome People</h6>
+<div class="benefits_desc">Great environment. Come and see for yourself</div>
+</div>
+</li>
+<li class="benefits_li clearfix">
+<img class="fleft" src="/common/images/jobs/Paid_Time_Off.png"/>
+<div class="benefits_texts">
+<h6 class="benefits_title">PAID TIME OFF</h6>
+<div class="benefits_desc">Paid holidays and vacation days</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="about_us clearfix">
+<h3>About StoreYa</h3>
+<p class="about_us_p">
 
                         StoreYa's marketing platform offers the only fully autonomous, performance-based advertising AI solution for eCommerce. Founded in 2012, we currently serve over 500,000 online sellers, entrepreneurs, and innovators, just like you.
 
-                        <br /><br />
+                        <br/><br/>
 
                         Created by former eCommerce owners and expert PPC managers, our founding team understands the day-to-day struggles that you face. This first-hand knowledge of these common difficulties — such as lack of workforce, budget, and resources — led to the development and launch of StoreYa.
 
 
 
-                        <br /><br />
+                        <br/><br/>
 
                         Ultimately, we're here to help online sellers like you scale and succeed, offering a host of free and paid eCommerce marketing tools.
 
-                        <br /><br />
+                        <br/><br/>
 
                         Our most popular tool is Traffic Booster.
 
-                        <br /><br />
+                        <br/><br/>
 
                         We created Traffic Booster to manage Google, Facebook, Instagram, and Microsoft Ads and optimize these campaigns in real-time. And as Google and Facebook partners, we were vetted by PayPal for two years and chosen to be PayPal's sole solution for its merchants at its app center.
 
                     </p>
-
-                    <img class="about_us_img" src="/common/images/jobs/storeya_icon.png" />
-
-                </div>
-
-
-
-
-
-            </div>
-
-            <br style="clear:both;" />
-
-        </div>
-
-    </div>
-
+<img class="about_us_img" src="/common/images/jobs/storeya_icon.png"/>
 </div>
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-
-
-    
-
-
-
+</div>
+<br style="clear:both;"/>
+</div>
+</div>
+</div>
+</div>
+</div>
 <footer class="footer clearfix" role="contentinfo">
-
-    <div class="footer-wrapper wrapper12">
-
-        <div class="inner-wrapper">
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="col footer-col">
-
-                <h3 onclick="document.getElementsByClassName('footer-col')[0].classList.toggle('open');">
+<div class="footer-wrapper wrapper12">
+<div class="inner-wrapper">
+<div class="col footer-col">
+<h3 onclick="document.getElementsByClassName('footer-col')[0].classList.toggle('open');">
 
                     Products <span class="arrow"></span>
-
-                </h3>
-
-                <ul class="footer-col-wrapper">
-
-                    <li><a href="/public/trafficbooster">Traffic Booster</a></li>
-
-                    <li><a href="/public/products">Marketing Tools</a></li>
-
-                    <li><a href="/public/successstories">Success stories</a></li>
-
-
-
-                    <li>
-
-                        <a href="/public/reviews">Reviews</a>
-
-                    </li>
-
-                    <li><a href="/public/pricing">Pricing</a></li>
-
-                    <li><a href="/public/faq" rel="nofollow">FAQ</a></li>
-
-                    <li><a href="https://storeya.zendesk.com/home" target="_blank" rel="nofollow">Support</a></li>
-
-
-
-                </ul>
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-            <div class="col footer-col">
-
-                <h3 onclick="document.getElementsByClassName('footer-col')[1].classList.toggle('open');">
+</h3>
+<ul class="footer-col-wrapper">
+<li><a href="/public/trafficbooster">Traffic Booster</a></li>
+<li><a href="/public/products">Marketing Tools</a></li>
+<li><a href="/public/successstories">Success stories</a></li>
+<li>
+<a href="/public/reviews">Reviews</a>
+</li>
+<li><a href="/public/pricing">Pricing</a></li>
+<li><a href="/public/faq" rel="nofollow">FAQ</a></li>
+<li><a href="https://storeya.zendesk.com/home" rel="nofollow" target="_blank">Support</a></li>
+</ul>
+</div>
+<div class="col footer-col">
+<h3 onclick="document.getElementsByClassName('footer-col')[1].classList.toggle('open');">
 
                     Resources <span class="arrow"></span>
-
-                </h3>
-
-                <ul class="footer-col-wrapper">
-
-                    <li><a href="https://blog.storeya.com" target="_blank">Blog</a></li>
-
-                    <li><a href="/ppc/DSAGuide" rel="nofollow">Dynamic Search Ads Guide</a></li>
-
-                    <li><a href="/ppc/" rel="nofollow">PPC vs. SEO</a></li>
-
-                    <li><a href="/ppc/EverythingAboutAdWords">Google Ads Guide</a></li>
-
-                    <li><a href="/ppc/GuideGoogleShopping">Google Shopping Guide</a></li>
-
-                    <li><a href="/ppc/DoesGoogleAdWordsWork">Does Google Ads Work?</a></li>
-
-                    <li><a href="/ppc/RaiseGoogleCTRs">How To Raise Your Google CTR</a></li>
-
-                </ul>
-
-
-
-            </div>
-
-
-
-            <div class="col footer-col">
-
-                <h3 onclick="document.getElementsByClassName('footer-col')[2].classList.toggle('open');">
+</h3>
+<ul class="footer-col-wrapper">
+<li><a href="https://blog.storeya.com" target="_blank">Blog</a></li>
+<li><a href="/ppc/DSAGuide" rel="nofollow">Dynamic Search Ads Guide</a></li>
+<li><a href="/ppc/" rel="nofollow">PPC vs. SEO</a></li>
+<li><a href="/ppc/EverythingAboutAdWords">Google Ads Guide</a></li>
+<li><a href="/ppc/GuideGoogleShopping">Google Shopping Guide</a></li>
+<li><a href="/ppc/DoesGoogleAdWordsWork">Does Google Ads Work?</a></li>
+<li><a href="/ppc/RaiseGoogleCTRs">How To Raise Your Google CTR</a></li>
+</ul>
+</div>
+<div class="col footer-col">
+<h3 onclick="document.getElementsByClassName('footer-col')[2].classList.toggle('open');">
 
                     Company <span class="arrow"></span>
-
-                </h3>
-
-                <ul class="footer-col-wrapper">
-
-
-
-                    <li><a href="/public/aboutus" rel="nofollow">About us</a></li>
-
-                    <li><a href="/public/contactus" rel="nofollow">Customer service</a></li>
-
-                    <li><a href="/public/privacy" rel="nofollow">Privacy policy</a></li>
-
-
-
-                    <li><a href="/public/terms" rel="nofollow">Terms &amp; conditions</a></li>
-
-                    <li><a href="/public/jobs" rel="nofollow">Jobs</a></li>
-
-
-
-                    <li><a href="/public/partners">Partners</a></li>
-
-                    <li><a href="/public/press">Press</a></li>
-
-                </ul>
-
-
-
-            </div>
-
-            <div class="col footer-col social">
-
-                <h3 onclick="document.getElementsByClassName('footer-col')[3].classList.toggle('open');">
+</h3>
+<ul class="footer-col-wrapper">
+<li><a href="/public/aboutus" rel="nofollow">About us</a></li>
+<li><a href="/public/contactus" rel="nofollow">Customer service</a></li>
+<li><a href="/public/privacy" rel="nofollow">Privacy policy</a></li>
+<li><a href="/public/terms" rel="nofollow">Terms &amp; conditions</a></li>
+<li><a href="/public/jobs" rel="nofollow">Jobs</a></li>
+<li><a href="/public/partners">Partners</a></li>
+<li><a href="/public/press">Press</a></li>
+</ul>
+</div>
+<div class="col footer-col social">
+<h3 onclick="document.getElementsByClassName('footer-col')[3].classList.toggle('open');">
 
                     Community
 
                 </h3>
-
-                <ul class="footer-col-wrapper">
-
-                    <li>
-
-                        <a href="http://www.facebook.com/StoreYacom" target="_blank" rel="nofollow">
-
-                            <i class="fb">
-
-                                <img src="/common/images/hp-new/2022/fb.svg" width="25" height="25">
-
-                            </i>
+<ul class="footer-col-wrapper">
+<li>
+<a href="http://www.facebook.com/StoreYacom" rel="nofollow" target="_blank">
+<i class="fb">
+<img height="25" src="/common/images/hp-new/2022/fb.svg" width="25"/>
+</i>
 
                             Facebook
 
                         </a>
-
-                    </li>
-
-                    <!-- <li>
+</li>
+<!-- <li>
 
         <a href="https://twitter.com/#!/StoreYaCom" target="_blank" rel="nofollow">
 
@@ -1129,196 +443,52 @@
         </a>
 
     </li>-->
-
-
-
-                    <li>
-
-                        <a href="http://www.linkedin.com/company/2347493" target="_blank" rel="nofollow">
-
-                            <i class="linkedin">
-
-                                <img src="/common/images/hp-new/2022/linkedin.svg" width="25" height="25">
-
-                            </i>
+<li>
+<a href="http://www.linkedin.com/company/2347493" rel="nofollow" target="_blank">
+<i class="linkedin">
+<img height="25" src="/common/images/hp-new/2022/linkedin.svg" width="25"/>
+</i>
 
                             Linkedin
 
                         </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="https://instagram.com/storeya_com#" target="_blank" rel="nofollow">
-
-                            <i class="instagram">
-
-                                <img src="/common/images/hp-new/2022/instagram.svg" width="25" height="25">
-
-                            </i>
+</li>
+<li>
+<a href="https://instagram.com/storeya_com#" rel="nofollow" target="_blank">
+<i class="instagram">
+<img height="25" src="/common/images/hp-new/2022/instagram.svg" width="25"/>
+</i>
 
                             Instagram
 
                         </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="https://www.tiktok.com/@storeya.com" target="_blank" rel="nofollow">
-
-                            <i class="instagram">
-
-                                <img src="/common/images/hp-new/2022/tiktok.svg" width="25" height="25">
-
-                            </i>
+</li>
+<li>
+<a href="https://www.tiktok.com/@storeya.com" rel="nofollow" target="_blank">
+<i class="instagram">
+<img height="25" src="/common/images/hp-new/2022/tiktok.svg" width="25"/>
+</i>
 
                             TikTok
 
                         </a>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="bottom-footer">
-
-    <div class="wrapper12">
-
-        <!-- <div class="shop"></div>
+<div class="wrapper12">
+<!-- <div class="shop"></div>
 
         <div class="cart" style="left: 220.573%;"></div>-->
-
-    </div>
-
-    <span class="copyright clearfix">Copyright &copy; 2026 StoreYa Feed LTD. </span>
-
 </div>
-
+<span class="copyright clearfix">Copyright © 2026 StoreYa Feed LTD. </span>
+</div>
 </footer>
 
 
-
-
-
-    <script src="/common/js/global.js?v=202608042"></script>
-
-    <script src="/common/js/platformspopup.js"></script>
-
-    <!-- <script src="/common/js/signuppopupnew.js?v=202608042"></script>-->
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    
-
-
-
-<script>
-
-     // Products dropdown: keyboard (Space, Enter) and click support for accessibility
-
-        (function () {
-
-            var link = document.getElementById('products-dd-link');
-
-            var dropdown = document.getElementById('productsDropdown');
-
-            if (!link || !dropdown) return;
-
-
-
-            function toggleDropdown(open) {
-
-                var isOpen = open !== undefined ? open : !dropdown.classList.contains('not-hidden');
-
-                dropdown.classList.toggle('not-hidden', isOpen);
-
-                dropdown.style.opacity = isOpen ? '1' : '0';
-
-                link.setAttribute('aria-expanded', isOpen);
-
-            }
-
-
-
-            function closeDropdown() {
-
-                toggleDropdown(false);
-
-            }
-
-
-
-            link.addEventListener('click', function (e) {
-
-                e.preventDefault();
-
-                toggleDropdown();
-
-            });
-
-
-
-            link.addEventListener('keydown', function (e) {
-
-                if (e.key === ' ' || e.key === 'Spacebar' || e.keyCode === 32 || e.key === 'Enter' || e.keyCode === 13) {
-
-                    
-
-                    e.preventDefault();
-
-                    toggleDropdown();
-
-                }
-
-            });
-
-
-
-            document.addEventListener('keydown', function (e) {
-
-                if (e.key === 'Escape' || e.keyCode === 27) closeDropdown();
-
-            });
-
-
-
-            document.addEventListener('click', function (e) {
-
-                if (dropdown.classList.contains('not-hidden') && !link.contains(e.target) && !dropdown.contains(e.target)) {
-
-                    closeDropdown();
-
-                }
-
-            });
-
-        })();
-
-</script>
-
-
+<!-- <script src="/common/js/signuppopupnew.js?v=202608042"></script>-->
 
 </body>
-
 </html>
-

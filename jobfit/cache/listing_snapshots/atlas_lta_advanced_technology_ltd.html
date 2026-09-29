@@ -1,404 +1,237 @@
 <!DOCTYPE html>
-<html lang="en-US" class="no-js">
+
+<html class="no-js" lang="en-US">
 <head>
-<meta charset="UTF-8"><link rel="preload" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-cssa1a3e9600bec5c3335f900d54076c43bc40540a8b36a95a33f3f5b6b5f9cb.css" as="style" media="all" />
-<link rel="preload" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css4b42f51ee8e557244c6dddb9a7957c9743b6a2dc123402444ac50a7fb2c0f.css" as="style" media="all" />
-<link rel="preload" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css3bd940db5f088ece6aada57f0c156976583b4a305a31cd679b0813a867531.css" as="style" media="all" />
-<link rel="preload" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css9c496258cf73f2471f6e3461afd53772dd0877536c2c37c7b2ee072b38aff.css" as="style" media="all" />
-<link rel="preload" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css28db567496b7f9b7e685f636ad515466a2ddf7baf236f487a949b93c0cfff.css" as="style" media="all" />
-<link rel="preload" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-cssed4fe1dab33f1c333230311cb46085b6d5f071409b73144bc9166cd0bdbba.css" as="style" media="all" />
-<link rel="preload" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css94eefdc14364823b38093f6718901815e5970bd7cca334bd1001714a1d7ed.css" as="style" media="all" />
-<link rel="preload" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css9452c662b5a7866d3ae0d3b1cf94a6e5f07adad817bd32ce80f74f790b912.css" as="style" media="all" />
-<link rel="preload" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css3b1795784e3c8fdcdac09081eec445b5c013ce60bf4a570d92ce992f7367a.css" as="style" media="all" />
-<link rel="preload" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css1ca0b0020ec664343a95d68d3be8239a0f122c8a659c401503c94caecfd0a.css" as="style" media="all" /><script data-cfasync="false">if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]iebrowser/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?iebrowser=1"}else{document.location.href=href.replace("#","?iebrowser=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&iebrowser=1"}else{document.location.href=href.replace("#","&iebrowser=1#")}}}}</script>
-
-<script data-cfasync="false">class FVMLoader{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach(t=>window.addEventListener(t,e.userEventListener,e.eventOptions))}_removeUserInteractionListener(e){this.triggerEvents.forEach(t=>window.removeEventListener(t,e.userEventListener,e.eventOptions))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._runAllDelayedCSS(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("wpr-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=fvmdelay]").forEach(e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)})}_runAllDelayedCSS(){document.querySelectorAll("link[rel=fvmdelay]").forEach(e=>{e.setAttribute("rel","stylesheet")})}async _transformScript(e){return await this._requestAnimFrame(),new Promise(t=>{const n=document.createElement("script");let r;[...e.attributes].forEach(e=>{let t=e.nodeName;"type"!==t&&("data-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))}),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)})}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"wpr-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["wpr"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("DOMContentLoaded2",()=>t.bind(document)(n))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map(e=>"load"===e||0===e.indexOf("load.")?"wpr-jquery-load":e).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]})}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("DOMContentLoaded2")),await this._requestAnimFrame(),window.dispatchEvent(new Event("DOMContentLoaded2")),await this._requestAnimFrame(),document.dispatchEvent(new Event("wpr-readystatechange")),await this._requestAnimFrame(),document.wpronreadystatechange&&document.wpronreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("wpr-load")),await this._requestAnimFrame(),window.wpronload&&window.wpronload(),await this._requestAnimFrame(),this.allJQueries.forEach(e=>e(window).trigger("wpr-jquery-load")),window.dispatchEvent(new Event("wpr-pageshow")),await this._requestAnimFrame(),window.wpronpageshow&&window.wpronpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let a=e.get(n);void 0===a&&(a=n.nextSibling,e.set(n,a));const s=document.createDocumentFragment();r.setStart(s,0),s.appendChild(r.createContextualFragment(t)),i.insertBefore(s,a)}}async _requestAnimFrame(){return new Promise(e=>requestAnimationFrame(e))}static run(){const e=new FVMLoader(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}FVMLoader.run();</script><meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0"><meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' /><title>Careers Archive | Atlas LTA Advanced Technology</title><meta name="description" content="All vacancies at the LTA Company. With us you will find a friendly team, fast career growth and decent pay." /><link rel="canonical" href="https://atlas-lta.com/careers/" /><meta property="og:locale" content="en_US" /><meta property="og:type" content="website" /><meta property="og:title" content="Careers Archive | Atlas LTA Advanced Technology" /><meta property="og:description" content="All vacancies at the LTA Company. With us you will find a friendly team, fast career growth and decent pay." /><meta property="og:url" content="https://atlas-lta.com/careers/" /><meta property="og:site_name" content="Atlas LTA Advanced Technology" /><meta name="twitter:card" content="summary_large_image" /><meta name="google-site-verification" content="nT19PvJEZf0auulmp8fqM_7UXxjxQ7V44jHT1e_xaV4" /><meta name="google-site-verification" content="-NCwp4ZFcLRafvCgnnz_GhourX6wUV4-SNCuKtwDsDc" />
-
-<link rel="profile" href="http://gmpg.org/xfn/11">
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+<meta charset="utf-8"/><link as="style" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-cssa1a3e9600bec5c3335f900d54076c43bc40540a8b36a95a33f3f5b6b5f9cb.css" media="all" rel="preload"/>
+<link as="style" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css4b42f51ee8e557244c6dddb9a7957c9743b6a2dc123402444ac50a7fb2c0f.css" media="all" rel="preload"/>
+<link as="style" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css3bd940db5f088ece6aada57f0c156976583b4a305a31cd679b0813a867531.css" media="all" rel="preload"/>
+<link as="style" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css9c496258cf73f2471f6e3461afd53772dd0877536c2c37c7b2ee072b38aff.css" media="all" rel="preload"/>
+<link as="style" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css28db567496b7f9b7e685f636ad515466a2ddf7baf236f487a949b93c0cfff.css" media="all" rel="preload"/>
+<link as="style" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-cssed4fe1dab33f1c333230311cb46085b6d5f071409b73144bc9166cd0bdbba.css" media="all" rel="preload"/>
+<link as="style" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css94eefdc14364823b38093f6718901815e5970bd7cca334bd1001714a1d7ed.css" media="all" rel="preload"/>
+<link as="style" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css9452c662b5a7866d3ae0d3b1cf94a6e5f07adad817bd32ce80f74f790b912.css" media="all" rel="preload"/>
+<link as="style" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css3b1795784e3c8fdcdac09081eec445b5c013ce60bf4a570d92ce992f7367a.css" media="all" rel="preload"/>
+<link as="style" href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css1ca0b0020ec664343a95d68d3be8239a0f122c8a659c401503c94caecfd0a.css" media="all" rel="preload"/>
+<meta content="width=device-width, initial-scale=1,maximum-scale=1.0" name="viewport"/><meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/><title>Careers Archive | Atlas LTA Advanced Technology</title><meta content="All vacancies at the LTA Company. With us you will find a friendly team, fast career growth and decent pay." name="description"/><link href="https://atlas-lta.com/careers/" rel="canonical"/><meta content="en_US" property="og:locale"/><meta content="website" property="og:type"/><meta content="Careers Archive | Atlas LTA Advanced Technology" property="og:title"/><meta content="All vacancies at the LTA Company. With us you will find a friendly team, fast career growth and decent pay." property="og:description"/><meta content="https://atlas-lta.com/careers/" property="og:url"/><meta content="Atlas LTA Advanced Technology" property="og:site_name"/><meta content="summary_large_image" name="twitter:card"/><meta content="nT19PvJEZf0auulmp8fqM_7UXxjxQ7V44jHT1e_xaV4" name="google-site-verification"/><meta content="-NCwp4ZFcLRafvCgnnz_GhourX6wUV4-SNCuKtwDsDc" name="google-site-verification"/>
+<link href="http://gmpg.org/xfn/11" rel="profile"/>
 
 
 
-<style id='wp-img-auto-sizes-contain-inline-css' type='text/css' media="all">img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}</style>
-<style id='classic-theme-styles-inline-css' type='text/css' media="all">/*! This file is auto-generated */
-.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}</style>
-<style id='global-styles-inline-css' type='text/css' media="all">:root{--wp--preset--aspect-ratio--square:1;--wp--preset--aspect-ratio--4-3:4/3;--wp--preset--aspect-ratio--3-4:3/4;--wp--preset--aspect-ratio--3-2:3/2;--wp--preset--aspect-ratio--2-3:2/3;--wp--preset--aspect-ratio--16-9:16/9;--wp--preset--aspect-ratio--9-16:9/16;--wp--preset--color--black:#000000;--wp--preset--color--cyan-bluish-gray:#abb8c3;--wp--preset--color--white:#ffffff;--wp--preset--color--pale-pink:#f78da7;--wp--preset--color--vivid-red:#cf2e2e;--wp--preset--color--luminous-vivid-orange:#ff6900;--wp--preset--color--luminous-vivid-amber:#fcb900;--wp--preset--color--light-green-cyan:#7bdcb5;--wp--preset--color--vivid-green-cyan:#00d084;--wp--preset--color--pale-cyan-blue:#8ed1fc;--wp--preset--color--vivid-cyan-blue:#0693e3;--wp--preset--color--vivid-purple:#9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum:linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple:linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux:linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk:linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean:linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass:linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight:linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small:13px;--wp--preset--font-size--medium:20px;--wp--preset--font-size--large:36px;--wp--preset--font-size--x-large:42px;--wp--preset--spacing--20:0.44rem;--wp--preset--spacing--30:0.67rem;--wp--preset--spacing--40:1rem;--wp--preset--spacing--50:1.5rem;--wp--preset--spacing--60:2.25rem;--wp--preset--spacing--70:3.38rem;--wp--preset--spacing--80:5.06rem;--wp--preset--shadow--natural:6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep:12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp:6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined:6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp:6px 6px 0px rgb(0, 0, 0)}:where(.is-layout-flex){gap:.5em}:where(.is-layout-grid){gap:.5em}body .is-layout-flex{display:flex}.is-layout-flex{flex-wrap:wrap;align-items:center}.is-layout-flex>:is(*,div){margin:0}body .is-layout-grid{display:grid}.is-layout-grid>:is(*,div){margin:0}:where(.wp-block-columns.is-layout-flex){gap:2em}:where(.wp-block-columns.is-layout-grid){gap:2em}:where(.wp-block-post-template.is-layout-flex){gap:1.25em}:where(.wp-block-post-template.is-layout-grid){gap:1.25em}.has-black-color{color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-color{color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-color{color:var(--wp--preset--color--white)!important}.has-pale-pink-color{color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-color{color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-color{color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-color{color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-color{color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-color{color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-color{color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-color{color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-color{color:var(--wp--preset--color--vivid-purple)!important}.has-black-background-color{background-color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-background-color{background-color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-background-color{background-color:var(--wp--preset--color--white)!important}.has-pale-pink-background-color{background-color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-background-color{background-color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-background-color{background-color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-background-color{background-color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-background-color{background-color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-background-color{background-color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-background-color{background-color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-background-color{background-color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-background-color{background-color:var(--wp--preset--color--vivid-purple)!important}.has-black-border-color{border-color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-border-color{border-color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-border-color{border-color:var(--wp--preset--color--white)!important}.has-pale-pink-border-color{border-color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-border-color{border-color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-border-color{border-color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-border-color{border-color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-border-color{border-color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-border-color{border-color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-border-color{border-color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-border-color{border-color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-border-color{border-color:var(--wp--preset--color--vivid-purple)!important}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background:var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple)!important}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background:var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan)!important}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange)!important}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red)!important}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background:var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray)!important}.has-cool-to-warm-spectrum-gradient-background{background:var(--wp--preset--gradient--cool-to-warm-spectrum)!important}.has-blush-light-purple-gradient-background{background:var(--wp--preset--gradient--blush-light-purple)!important}.has-blush-bordeaux-gradient-background{background:var(--wp--preset--gradient--blush-bordeaux)!important}.has-luminous-dusk-gradient-background{background:var(--wp--preset--gradient--luminous-dusk)!important}.has-pale-ocean-gradient-background{background:var(--wp--preset--gradient--pale-ocean)!important}.has-electric-grass-gradient-background{background:var(--wp--preset--gradient--electric-grass)!important}.has-midnight-gradient-background{background:var(--wp--preset--gradient--midnight)!important}.has-small-font-size{font-size:var(--wp--preset--font-size--small)!important}.has-medium-font-size{font-size:var(--wp--preset--font-size--medium)!important}.has-large-font-size{font-size:var(--wp--preset--font-size--large)!important}.has-x-large-font-size{font-size:var(--wp--preset--font-size--x-large)!important}</style>
-
-<link rel='stylesheet' id='contact-form-7-css' href='https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-cssa1a3e9600bec5c3335f900d54076c43bc40540a8b36a95a33f3f5b6b5f9cb.css' type='text/css' media='all' />
-<link rel='stylesheet' id='image-map-pro-dist-css-css' href='https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css4b42f51ee8e557244c6dddb9a7957c9743b6a2dc123402444ac50a7fb2c0f.css' type='text/css' media='all' />
-<link rel='stylesheet' id='parent-style-css' href='https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css3bd940db5f088ece6aada57f0c156976583b4a305a31cd679b0813a867531.css' type='text/css' media='all' />
-<link rel='stylesheet' id='theme-style-css' href='https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css9c496258cf73f2471f6e3461afd53772dd0877536c2c37c7b2ee072b38aff.css' type='text/css' media='all' />
-<link rel='stylesheet' id='source-sans-css' href='https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css28db567496b7f9b7e685f636ad515466a2ddf7baf236f487a949b93c0cfff.css' type='text/css' media='all' />
-<link rel='stylesheet' id='wp-pagenavi-css' href='https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-cssed4fe1dab33f1c333230311cb46085b6d5f071409b73144bc9166cd0bdbba.css' type='text/css' media='all' />
-<link rel='stylesheet' id='jquery-lazyloadxt-spinner-css-css' href='https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css94eefdc14364823b38093f6718901815e5970bd7cca334bd1001714a1d7ed.css' type='text/css' media='all' />
-<link rel='stylesheet' id='a3a3_lazy_load-css' href='https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css9452c662b5a7866d3ae0d3b1cf94a6e5f07adad817bd32ce80f74f790b912.css' type='text/css' media='all' />
-<link rel='stylesheet' id='jquery-ui-smoothness-css' href='https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css3b1795784e3c8fdcdac09081eec445b5c013ce60bf4a570d92ce992f7367a.css' type='text/css' media='all' />
-<link rel='stylesheet' id='fancybox-css' href='https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css1ca0b0020ec664343a95d68d3be8239a0f122c8a659c401503c94caecfd0a.css' type='text/css' media='all' />
-<script type="text/javascript" src="https://atlas-lta.com/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-content/plugins/easy-fancybox/vendor/purify.min.js" id="fancybox-purify-js"></script>
-<script type="text/javascript" id="jquery-fancybox-js-extra">
-/* <![CDATA[ */
-var efb_i18n = {"close":"Close","next":"Next","prev":"Previous","startSlideshow":"Start slideshow","toggleSize":"Toggle size"};
-//# sourceURL=jquery-fancybox-js-extra
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-content/plugins/easy-fancybox/fancybox/1.5.4/jquery.fancybox.min.js" id="jquery-fancybox-js"></script>
-<script type="text/javascript" id="jquery-fancybox-js-after">
-/* <![CDATA[ */
-var fb_timeout, fb_opts={'autoScale':true,'showCloseButton':true,'width':800,'height':600,'margin':20,'pixelRatio':'false','padding':0,'centerOnScroll':false,'enableEscapeButton':true,'overlayShow':true,'hideOnOverlayClick':true,'overlayColor':'#000000','minVpHeight':320,'disableCoreLightbox':'true','enableBlockControls':'true','fancybox_openBlockControls':'true' };
-if(typeof easy_fancybox_handler==='undefined'){
-var easy_fancybox_handler=function(){
-jQuery([".nolightbox","a.wp-block-file__button","a.pin-it-button","a[href*='pinterest.com\/pin\/create']","a[href*='facebook.com\/share']","a[href*='twitter.com\/share']"].join(',')).addClass('nofancybox');
-jQuery('a.fancybox-close').on('click',function(e){e.preventDefault();jQuery.fancybox.close()});
-/* IMG */
-						var unlinkedImageBlocks=jQuery(".wp-block-image > img:not(.nofancybox,figure.nofancybox>img)");
-						unlinkedImageBlocks.wrap(function() {
-							var href = jQuery( this ).attr( "src" );
-							return "<a href='" + href + "'></a>";
-						});
-var fb_IMG_select=jQuery('a[href*=".jpg" i]:not(.nofancybox,li.nofancybox>a,figure.nofancybox>a),area[href*=".jpg" i]:not(.nofancybox),a[href*=".jpeg" i]:not(.nofancybox,li.nofancybox>a,figure.nofancybox>a),area[href*=".jpeg" i]:not(.nofancybox),a[href*=".png" i]:not(.nofancybox,li.nofancybox>a,figure.nofancybox>a),area[href*=".png" i]:not(.nofancybox),a[href*=".webp" i]:not(.nofancybox,li.nofancybox>a,figure.nofancybox>a),area[href*=".webp" i]:not(.nofancybox)');
-fb_IMG_select.addClass('fancybox image');
-var fb_IMG_sections=jQuery('.gallery,.wp-block-gallery,.tiled-gallery,.wp-block-jetpack-tiled-gallery,.ngg-galleryoverview,.ngg-imagebrowser,.nextgen_pro_blog_gallery,.nextgen_pro_film,.nextgen_pro_horizontal_filmstrip,.ngg-pro-masonry-wrapper,.ngg-pro-mosaic-container,.nextgen_pro_sidescroll,.nextgen_pro_slideshow,.nextgen_pro_thumbnail_grid,.tiled-gallery');
-fb_IMG_sections.each(function(){jQuery(this).find(fb_IMG_select).attr('rel','gallery-'+fb_IMG_sections.index(this));});
-jQuery('a.fancybox,area.fancybox,.fancybox>a').each(function(){jQuery(this).fancybox(jQuery.extend(true,{},fb_opts,{'transition':'elastic','transitionIn':'elastic','easingIn':'easeOutBack','transitionOut':'elastic','easingOut':'easeInBack','opacity':false,'hideOnContentClick':false,'titleShow':true,'titlePosition':'over','titleFromAlt':true,'showNavArrows':true,'enableKeyboardNav':true,'cyclic':false,'mouseWheel':'false'}))});
-/* Inline */
-jQuery('a.fancybox-inline,area.fancybox-inline,.fancybox-inline>a').each(function(){jQuery(this).fancybox(jQuery.extend(true,{},fb_opts,{'type':'inline','autoDimensions':true,'scrolling':'no','easingIn':'easeOutBack','easingOut':'easeInBack','opacity':false,'hideOnContentClick':false,'titleShow':false}))});
-};};
-jQuery(easy_fancybox_handler);jQuery(document).on('post-load',easy_fancybox_handler);
-
-//# sourceURL=jquery-fancybox-js-after
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-content/plugins/easy-fancybox/vendor/jquery.easing.min.js" id="jquery-easing-js"></script>
+<link href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-cssa1a3e9600bec5c3335f900d54076c43bc40540a8b36a95a33f3f5b6b5f9cb.css" id="contact-form-7-css" media="all" rel="stylesheet" type="text/css"/>
+<link href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css4b42f51ee8e557244c6dddb9a7957c9743b6a2dc123402444ac50a7fb2c0f.css" id="image-map-pro-dist-css-css" media="all" rel="stylesheet" type="text/css"/>
+<link href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css3bd940db5f088ece6aada57f0c156976583b4a305a31cd679b0813a867531.css" id="parent-style-css" media="all" rel="stylesheet" type="text/css"/>
+<link href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css9c496258cf73f2471f6e3461afd53772dd0877536c2c37c7b2ee072b38aff.css" id="theme-style-css" media="all" rel="stylesheet" type="text/css"/>
+<link href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css28db567496b7f9b7e685f636ad515466a2ddf7baf236f487a949b93c0cfff.css" id="source-sans-css" media="all" rel="stylesheet" type="text/css"/>
+<link href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-cssed4fe1dab33f1c333230311cb46085b6d5f071409b73144bc9166cd0bdbba.css" id="wp-pagenavi-css" media="all" rel="stylesheet" type="text/css"/>
+<link href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css94eefdc14364823b38093f6718901815e5970bd7cca334bd1001714a1d7ed.css" id="jquery-lazyloadxt-spinner-css-css" media="all" rel="stylesheet" type="text/css"/>
+<link href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css9452c662b5a7866d3ae0d3b1cf94a6e5f07adad817bd32ce80f74f790b912.css" id="a3a3_lazy_load-css" media="all" rel="stylesheet" type="text/css"/>
+<link href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css3b1795784e3c8fdcdac09081eec445b5c013ce60bf4a570d92ce992f7367a.css" id="jquery-ui-smoothness-css" media="all" rel="stylesheet" type="text/css"/>
+<link href="https://atlas-lta.com/wp-content/cache/fvm/min/1766414585-css1ca0b0020ec664343a95d68d3be8239a0f122c8a659c401503c94caecfd0a.css" id="fancybox-css" media="all" rel="stylesheet" type="text/css"/>
 
 
 
 
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-
-})(window,document,'script','dataLayer','GTM-5QKWP6X');</script>
 
 
 </head>
 <body class="archive post-type-archive post-type-archive-careers wp-theme-atlas wp-child-theme-atlas-child-theme">
-
- <div class="wrap">
-
-	 
-
-
+<div class="wrap">
 <div class="home-poster gp-clearfix">
-
 <header class="header gp-clearfix">
 <div class="header-inner gp-clearfix">
-
-
 <div class="logo">
-	<a class="site-title" href="https://atlas-lta.com/"><img src="/wp-content/uploads/2020/03/logo-2.png" alt="Atlas LTA Advanced Technology"></a>
+<a class="site-title" href="https://atlas-lta.com/"><img alt="Atlas LTA Advanced Technology" src="/wp-content/uploads/2020/03/logo-2.png"/></a>
 </div>
-			<div class="meta mvs-bread" typeof="BreadcrumbList" vocab="http://schema.org/">
-					<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Atlas LTA Advanced Technology." href="https://atlas-lta.com" class="home" ><span property="name">Home</span></a><meta property="position" content="1"></span> / <span class="archive post-careers-archive current-item">Careers</span>			</div>	
-	
-	
-	<div id="menu" class="menunav">
-<ul id="menu-main" class="top-menu"><li id="menu-item-38" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38"><a href="#">Our Solutions</a>
+<div class="meta mvs-bread" typeof="BreadcrumbList" vocab="http://schema.org/">
+<span property="itemListElement" typeof="ListItem"><a class="home" href="https://atlas-lta.com" property="item" title="Go to Atlas LTA Advanced Technology." typeof="WebPage"><span property="name">Home</span></a><meta content="1" property="position"/></span> / <span class="archive post-careers-archive current-item">Careers</span> </div>
+<div class="menunav" id="menu">
+<ul class="top-menu" id="menu-main"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38" id="menu-item-38"><a href="#">Our Solutions</a>
 <ul class="sub-menu">
-	<li id="menu-item-53" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53"><a href="/communications-surveilance/">Communications &#038; Surveillance</a></li>
-	<li id="menu-item-54" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-54"><a href="/travel-leisure/">Travel &#038; Leisure</a></li>
-	<li id="menu-item-55" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55"><a href="/atlant/">Transportation</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53" id="menu-item-53"><a href="/communications-surveilance/">Communications &amp; Surveillance</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-54" id="menu-item-54"><a href="/travel-leisure/">Travel &amp; Leisure</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55" id="menu-item-55"><a href="/atlant/">Transportation</a></li>
 </ul>
 </li>
-<li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39"><a href="/about/">About</a></li>
-<li id="menu-item-40" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-40"><a href="#">Products</a>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39" id="menu-item-39"><a href="/about/">About</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-40" id="menu-item-40"><a href="#">Products</a>
 <ul class="sub-menu">
-	<li id="menu-item-56" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-56"><a href="/tethered-aerostats/">Tethered Aerostats</a></li>
-	<li id="menu-item-57" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-57"><a href="/high-altitude-platforms/">High Altitude Platforms</a></li>
-	<li id="menu-item-58" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58"><a href="/unmanned-airships/">Unmanned Airships</a></li>
-	<li id="menu-item-59" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-59"><a href="/tethered-passenger-balloons/">Tethered Passenger Balloons</a></li>
-	<li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-60"><a href="/atlas-electric-airships/">Atlas Electric Airships</a></li>
-	<li id="menu-item-61" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-61"><a href="/atlant/">ATLANT</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-56" id="menu-item-56"><a href="/tethered-aerostats/">Tethered Aerostats</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-57" id="menu-item-57"><a href="/high-altitude-platforms/">High Altitude Platforms</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58" id="menu-item-58"><a href="/unmanned-airships/">Unmanned Airships</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-59" id="menu-item-59"><a href="/tethered-passenger-balloons/">Tethered Passenger Balloons</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-60" id="menu-item-60"><a href="/atlas-electric-airships/">Atlas Electric Airships</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-61" id="menu-item-61"><a href="/atlant/">ATLANT</a></li>
 </ul>
 </li>
-<li id="menu-item-41" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-41"><a href="#">Media</a>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-41" id="menu-item-41"><a href="#">Media</a>
 <ul class="sub-menu">
-	<li id="menu-item-904" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-904"><a href="/media/">All categories</a></li>
-	<li id="menu-item-906" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-906"><a href="/category/media-about-us/">Media about us</a></li>
-	<li id="menu-item-907" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-907"><a href="/category/press-releases/">Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-904" id="menu-item-904"><a href="/media/">All categories</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-906" id="menu-item-906"><a href="/category/media-about-us/">Media about us</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-907" id="menu-item-907"><a href="/category/press-releases/">Releases</a></li>
 </ul>
 </li>
-<li id="menu-item-42" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-42"><a href="/careers/" aria-current="page">Careers</a></li>
-<li id="menu-item-43" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-43"><a href="/contacts/">Contacts</a></li>
-<li id="menu-item-1037" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1037"><a href="https://atlas-lta.com/category/blog/">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-42" id="menu-item-42"><a aria-current="page" href="/careers/">Careers</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-43" id="menu-item-43"><a href="/contacts/">Contacts</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1037" id="menu-item-1037"><a href="https://atlas-lta.com/category/blog/">Blog</a></li>
 </ul></div>
 </div>
-
-
-
 <div id="mob">
- <a href="#mobilemenu"><i class="fa fa-bars"></i></a> 
+<a href="#mobilemenu"><i class="fa fa-bars"></i></a>
 </div>
-
- </header>
-
-	
-	
-	
-		
-	
-		
-	
-
+</header>
 </div>
-
-	 			 
 <div class="post-container gp-clearfix">
- 
 <h1 class="home-title">Careers</h1>
-	
-<div class="mvs-grid">	
-	
-	<div class="grid-item" >
-  			<div class="item"> 
-				<div class="post-careers">
-					<a href="https://atlas-lta.com/careers/project-manager/" class="slide_button"></a>
-					<div class="post-careers-content">
-						<span class="post-careers-date">July 19, 2022</span>
-						<h3 class="post-careers-title">Project Manager</h3>
-				<span class="post-careers-price">COMPETITIVE SALARY AND BENEFITS</span>
-								
-						
-
-						<span class="post-careers-read">Learn more</span>
-					</div>
-				</div>
-			</div>	
-	</div>
-	
-
-	<div class="grid-item" >
-  			<div class="item"> 
-				<div class="post-careers">
-					<a href="https://atlas-lta.com/careers/system-engineer/" class="slide_button"></a>
-					<div class="post-careers-content">
-						<span class="post-careers-date">March 17, 2020</span>
-						<h3 class="post-careers-title">System Engineer</h3>
-				<span class="post-careers-price">COMPETITIVE SALARY AND BENEFITS</span>
-								
-						
-
-						<span class="post-careers-read">Learn more</span>
-					</div>
-				</div>
-			</div>	
-	</div>
-	
-
-	<div class="grid-item" >
-  			<div class="item"> 
-				<div class="post-careers">
-					<a href="https://atlas-lta.com/careers/qa-manager/" class="slide_button"></a>
-					<div class="post-careers-content">
-						<span class="post-careers-date">March 17, 2020</span>
-						<h3 class="post-careers-title">QA Manager</h3>
-				<span class="post-careers-price">COMPETITIVE SALARY AND BENEFITS</span>
-								
-						
-
-						<span class="post-careers-read">Learn more</span>
-					</div>
-				</div>
-			</div>	
-	</div>
-	
+<div class="mvs-grid">
+<div class="grid-item">
+<div class="item">
+<div class="post-careers">
+<a class="slide_button" href="https://atlas-lta.com/careers/project-manager/"></a>
+<div class="post-careers-content">
+<span class="post-careers-date">July 19, 2022</span>
+<h3 class="post-careers-title">Project Manager</h3>
+<span class="post-careers-price">COMPETITIVE SALARY AND BENEFITS</span>
+<span class="post-careers-read">Learn more</span>
 </div>
- 
-
-
-
 </div>
- 
- <div class="footer gp-clearfix">
- <div class="footer-wrap">
-
-	<div class="foot-menu">
-	 
-		<div class="foot-row">
-			<div class="foot-column">			
-<div class="menu-footer-first-container"><ul><li>Home</li><li id="menu-item-170" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-170"><a href="/about/">About</a></li>
-<li id="menu-item-171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-171"><a href="/media/">Media</a></li>
-<li id="menu-item-172" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-172"><a href="/careers/" aria-current="page">Careers</a></li>
-<li id="menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-173"><a href="/contacts/">Contacts</a></li>
-</ul></div>			</div>
-			
-			<div class="foot-column">
-<div class="menu-footer-second-container"><ul><li>Our solutions</li><li id="menu-item-174" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-174"><a href="/communications-surveilance/">Communication &#038; Surveillance</a></li>
-<li id="menu-item-175" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-175"><a href="/travel-leisure/">Travel &#038; Leisure</a></li>
-<li id="menu-item-176" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-176"><a href="/atlant/">Transportation</a></li>
-</ul></div>				
-			</div>
-			
-			<div class="foot-column">
-<div class="menu-footer-third-container"><ul><li>Products</li><li id="menu-item-177" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-177"><a href="/tethered-aerostats/">Tethered Aerostats</a></li>
-<li id="menu-item-178" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-178"><a href="/high-altitude-platforms/">High Altitude Platforms</a></li>
-<li id="menu-item-179" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-179"><a href="/unmanned-airships/">Unmanned Airships</a></li>
-<li id="menu-item-180" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-180"><a href="/tethered-passenger-balloons/">Tethered Passenger Balloons</a></li>
-<li id="menu-item-181" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-181"><a href="/atlas-electric-airships/">Atlas Electric Airships</a></li>
-<li id="menu-item-182" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-182"><a href="/atlant/">ATLANT</a></li>
-</ul></div>					
-			</div>
-		</div>
-		
-	</div>
-	<div class="foot-info">
-	 
-		<span class="foot-info-title">Social media</span>
-		<span>
-			<span class="social-icons">
-									<a href="https://www.instagram.com/atlas_lta/" target="_blank" rel="noopener" ><i class="icon-instagram icon-social"></i></a>
-													<a href="https://www.facebook.com/Atlas-LTA-Advanced-Technology-LTD-102559184716660" target="_blank" rel="noopener" ><i class="icon-facebook icon-social"></i></a>
-													<a href="https://twitter.com/LtaAtlas" target="_blank" rel="noopener" ><i class="icon-tweetter icon-social"></i></a>
-													<a href="https://www.linkedin.com/company/atlas-lta-advance-technology-ltd/?viewAsMember=true" target="_blank" rel="noopener" ><i class="icon-linkedin icon-social"></i></a>
-													<a href="https://www.youtube.com/channel/UCVwl0PTAv2GhG0yPmImyGdg" target="_blank" rel="noopener" ><i class="icon-youtube icon-social"></i></a>
-							
-			
-			
-			
-			</span>
-		</span>
-		<span class="foot-logo">
-			<img src="/wp-content/themes/atlas-child-theme/mvs/img/foot-logo.png" alt="Atlas LTA Advanced Technology">
-		</span>
-		
-	 </div>
-
+</div>
+</div>
+<div class="grid-item">
+<div class="item">
+<div class="post-careers">
+<a class="slide_button" href="https://atlas-lta.com/careers/system-engineer/"></a>
+<div class="post-careers-content">
+<span class="post-careers-date">March 17, 2020</span>
+<h3 class="post-careers-title">System Engineer</h3>
+<span class="post-careers-price">COMPETITIVE SALARY AND BENEFITS</span>
+<span class="post-careers-read">Learn more</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid-item">
+<div class="item">
+<div class="post-careers">
+<a class="slide_button" href="https://atlas-lta.com/careers/qa-manager/"></a>
+<div class="post-careers-content">
+<span class="post-careers-date">March 17, 2020</span>
+<h3 class="post-careers-title">QA Manager</h3>
+<span class="post-careers-price">COMPETITIVE SALARY AND BENEFITS</span>
+<span class="post-careers-read">Learn more</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer gp-clearfix">
+<div class="footer-wrap">
+<div class="foot-menu">
+<div class="foot-row">
+<div class="foot-column">
+<div class="menu-footer-first-container"><ul><li>Home</li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-170" id="menu-item-170"><a href="/about/">About</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-171" id="menu-item-171"><a href="/media/">Media</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-172" id="menu-item-172"><a aria-current="page" href="/careers/">Careers</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-173" id="menu-item-173"><a href="/contacts/">Contacts</a></li>
+</ul></div> </div>
+<div class="foot-column">
+<div class="menu-footer-second-container"><ul><li>Our solutions</li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-174" id="menu-item-174"><a href="/communications-surveilance/">Communication &amp; Surveillance</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-175" id="menu-item-175"><a href="/travel-leisure/">Travel &amp; Leisure</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-176" id="menu-item-176"><a href="/atlant/">Transportation</a></li>
+</ul></div>
+</div>
+<div class="foot-column">
+<div class="menu-footer-third-container"><ul><li>Products</li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-177" id="menu-item-177"><a href="/tethered-aerostats/">Tethered Aerostats</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-178" id="menu-item-178"><a href="/high-altitude-platforms/">High Altitude Platforms</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-179" id="menu-item-179"><a href="/unmanned-airships/">Unmanned Airships</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-180" id="menu-item-180"><a href="/tethered-passenger-balloons/">Tethered Passenger Balloons</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-181" id="menu-item-181"><a href="/atlas-electric-airships/">Atlas Electric Airships</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-182" id="menu-item-182"><a href="/atlant/">ATLANT</a></li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="foot-info">
+<span class="foot-info-title">Social media</span>
+<span>
+<span class="social-icons">
+<a href="https://www.instagram.com/atlas_lta/" rel="noopener" target="_blank"><i class="icon-instagram icon-social"></i></a>
+<a href="https://www.facebook.com/Atlas-LTA-Advanced-Technology-LTD-102559184716660" rel="noopener" target="_blank"><i class="icon-facebook icon-social"></i></a>
+<a href="https://twitter.com/LtaAtlas" rel="noopener" target="_blank"><i class="icon-tweetter icon-social"></i></a>
+<a href="https://www.linkedin.com/company/atlas-lta-advance-technology-ltd/?viewAsMember=true" rel="noopener" target="_blank"><i class="icon-linkedin icon-social"></i></a>
+<a href="https://www.youtube.com/channel/UCVwl0PTAv2GhG0yPmImyGdg" rel="noopener" target="_blank"><i class="icon-youtube icon-social"></i></a>
+</span>
+</span>
+<span class="foot-logo">
+<img alt="Atlas LTA Advanced Technology" src="/wp-content/themes/atlas-child-theme/mvs/img/foot-logo.png"/>
+</span>
+</div>
 </div>
 </div>
 <div class="foot-line">
-	 <div class="footer-wrap">
-		<div class="foot-line-left">
-			<a class="link-privacy" href="/privacy-policy/">Terms, Conditions and Privacy Policy</a>
-		 </div>
-		<div class="foot-line-right">
-		 	<span>2020 © Atlas. All rights reserved</span>
-		 </div>
-	</div>	 
+<div class="footer-wrap">
+<div class="foot-line-left">
+<a class="link-privacy" href="/privacy-policy/">Terms, Conditions and Privacy Policy</a>
 </div>
- 
+<div class="foot-line-right">
+<span>2020 © Atlas. All rights reserved</span>
+</div>
+</div>
+</div>
+</div>
 
- </div>
-<script type="speculationrules">
-{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/atlas-child-theme/*","/wp-content/themes/atlas/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
-</script>
 
-<script type= "text/javascript">function gotoal(link){window.open(link.replace("_","http://"));}</script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-includes/js/dist/hooks.min.js" id="wp-hooks-js"></script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-includes/js/dist/i18n.min.js" id="wp-i18n-js"></script>
-<script type="text/javascript" id="wp-i18n-js-after">
-/* <![CDATA[ */
-wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
-//# sourceURL=wp-i18n-js-after
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js" id="swv-js"></script>
-<script type="text/javascript" id="contact-form-7-js-before">
-/* <![CDATA[ */
-var wpcf7 = {
-    "api": {
-        "root": "https:\/\/atlas-lta.com\/wp-json\/",
-        "namespace": "contact-form-7\/v1"
-    },
-    "cached": 1
-};
-//# sourceURL=contact-form-7-js-before
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-content/plugins/contact-form-7/includes/js/index.js" id="contact-form-7-js"></script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-content/plugins/image-map-pro-wordpress/js/image-map-pro.min.js" id="image-map-pro-dist-js-js"></script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-content/themes/atlas/scripts/custom.js" id="custom-js"></script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
-<script type="text/javascript" id="jquery-lazyloadxt-js-extra">
-/* <![CDATA[ */
-var a3_lazyload_params = {"apply_images":"1","apply_videos":"1"};
-//# sourceURL=jquery-lazyloadxt-js-extra
-/* ]]> */
-</script>
-<script type="text/javascript" src="//atlas-lta.com/wp-content/plugins/a3-lazy-load/assets/js/jquery.lazyloadxt.extra.min.js" id="jquery-lazyloadxt-js"></script>
-<script type="text/javascript" src="//atlas-lta.com/wp-content/plugins/a3-lazy-load/assets/js/jquery.lazyloadxt.srcset.min.js" id="jquery-lazyloadxt-srcset-js"></script>
-<script type="text/javascript" id="jquery-lazyloadxt-extend-js-extra">
-/* <![CDATA[ */
-var a3_lazyload_extend_params = {"edgeY":"10","horizontal_container_classnames":""};
-//# sourceURL=jquery-lazyloadxt-extend-js-extra
-/* ]]> */
-</script>
-<script type="text/javascript" src="//atlas-lta.com/wp-content/plugins/a3-lazy-load/assets/js/jquery.lazyloadxt.extend.js" id="jquery-lazyloadxt-extend-js"></script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-includes/js/jquery/ui/core.min.js" id="jquery-ui-core-js"></script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-includes/js/jquery/ui/datepicker.min.js" id="jquery-ui-datepicker-js"></script>
-<script type="text/javascript" id="jquery-ui-datepicker-js-after">
-/* <![CDATA[ */
-jQuery(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM dd, yy","firstDay":1,"isRTL":false});});
-//# sourceURL=jquery-ui-datepicker-js-after
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://atlas-lta.com/wp-content/plugins/contact-form-7/includes/js/html5-fallback.js" id="contact-form-7-html5-fallback-js"></script>
 
-<div id="mobilemenu" class="mobilemenu">
- <ul id="menu-main-1" class="top-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38"><a href="#">Our Solutions</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="mobilemenu" id="mobilemenu">
+<ul class="top-menu" id="menu-main-1"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38"><a href="#">Our Solutions</a>
 <ul class="sub-menu">
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53"><a href="/communications-surveilance/">Communications &#038; Surveillance</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-54"><a href="/travel-leisure/">Travel &#038; Leisure</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55"><a href="/atlant/">Transportation</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53"><a href="/communications-surveilance/">Communications &amp; Surveillance</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-54"><a href="/travel-leisure/">Travel &amp; Leisure</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55"><a href="/atlant/">Transportation</a></li>
 </ul>
 </li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39"><a href="/about/">About</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-40"><a href="#">Products</a>
 <ul class="sub-menu">
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-56"><a href="/tethered-aerostats/">Tethered Aerostats</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-57"><a href="/high-altitude-platforms/">High Altitude Platforms</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58"><a href="/unmanned-airships/">Unmanned Airships</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-59"><a href="/tethered-passenger-balloons/">Tethered Passenger Balloons</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-60"><a href="/atlas-electric-airships/">Atlas Electric Airships</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-61"><a href="/atlant/">ATLANT</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-56"><a href="/tethered-aerostats/">Tethered Aerostats</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-57"><a href="/high-altitude-platforms/">High Altitude Platforms</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58"><a href="/unmanned-airships/">Unmanned Airships</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-59"><a href="/tethered-passenger-balloons/">Tethered Passenger Balloons</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-60"><a href="/atlas-electric-airships/">Atlas Electric Airships</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-61"><a href="/atlant/">ATLANT</a></li>
 </ul>
 </li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-41"><a href="#">Media</a>
 <ul class="sub-menu">
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-904"><a href="/media/">All categories</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-906"><a href="/category/media-about-us/">Media about us</a></li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-907"><a href="/category/press-releases/">Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-904"><a href="/media/">All categories</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-906"><a href="/category/media-about-us/">Media about us</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-907"><a href="/category/press-releases/">Releases</a></li>
 </ul>
 </li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-42"><a href="/careers/" aria-current="page">Careers</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-42"><a aria-current="page" href="/careers/">Careers</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-43"><a href="/contacts/">Contacts</a></li>
 <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1037"><a href="https://atlas-lta.com/category/blog/">Blog</a></li>
 </ul></div>
 
-
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QKWP6X"
-
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-	
 </body>
 </html>
 <!-- Cached page generated by WP-Super-Cache on 2026-09-28 12:10:16 -->
-
 <!-- Dynamic Super Cache -->

@@ -1,2030 +1,561 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+
+<html dir="rtl" lang="he">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>מצפן הקריירה של Tipando - גלה את הנתיב שלך</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@400;500;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&amp;family=Rubik:wght@400;500;700;800;900&amp;family=Assistant:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 
-  :root {
-    --blue: #3AAFE4;
-    --blue-dark: #1e8abf;
-    --blue-deep: #0d5f8a;
-    --orange: #F5A623;
-    --orange-dark: #d4861a;
-    --dark: #1c2333;
-    --dark2: #2c3547;
-    --light: #f0f7fc;
-    --white: #ffffff;
-    --gray: #6b7a94;
-    --gray-light: #e8f1f8;
-    --text: #1c2333;
-  }
-
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Assistant', 'Heebo', sans-serif;
-    background: var(--white);
-    color: var(--text);
-    overflow-x: hidden;
-    direction: rtl;
-  }
-
-  h1, h2, h3, h4, h5, h6,
-  .hero-eyebrow, .section-tag, .step-title, .pillar-name,
-  .expert-name, .fear-q, .get-title, .good-news-title,
-  .nav-cta, .btn-orange, .btn-outline, .btn-blue {
-    font-family: 'Rubik', 'Heebo', sans-serif;
-  }
-
-  /* ===== NAV ===== */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.1rem 4rem;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(58,175,228,0.15);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.07);
-  }
-  .nav-logo img { height: 42px; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    text-decoration: none; color: var(--dark2);
-    font-size: 0.95rem; font-weight: 500;
-    opacity: 0.75; transition: opacity 0.2s, color 0.2s;
-  }
-  .nav-links a:hover { opacity: 1; color: var(--blue); }
-  .nav-cta {
-    background: var(--orange); color: var(--white);
-    border: none; padding: 0.7rem 1.8rem;
-    font-size: 0.95rem; font-weight: 700;
-    border-radius: 6px; cursor: pointer;
-    transition: all 0.25s; box-shadow: 0 4px 15px rgba(245,166,35,0.35);
-  }
-  .nav-cta:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,166,35,0.45); }
-
-  /* ===== HERO ===== */
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(145deg, var(--dark) 0%, var(--dark2) 55%, #1a3a52 100%);
-    position: relative; overflow: hidden;
-    display: flex; align-items: center;
-    padding-top: 80px;
-  }
-  .hero-bg-orb {
-    position: absolute; border-radius: 50%;
-    filter: blur(80px); pointer-events: none;
-  }
-  .orb1 { width: 600px; height: 600px; background: rgba(58,175,228,0.12); top: -100px; left: -100px; }
-  .orb2 { width: 400px; height: 400px; background: rgba(245,166,35,0.08); bottom: 0; right: 100px; }
-  .orb3 { width: 300px; height: 300px; background: rgba(58,175,228,0.06); bottom: 100px; left: 200px; }
-
-  .hero-grid {
-    display: grid; grid-template-columns: 1fr 420px;
-    gap: 4rem; align-items: center;
-    width: 100%; max-width: 1280px; margin: 0 auto; padding: 5rem 4rem;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    background: rgba(58,175,228,0.15); border: 1px solid rgba(58,175,228,0.3);
-    padding: 0.4rem 1rem; border-radius: 50px;
-    font-size: 0.8rem; font-weight: 600; color: var(--blue);
-    letter-spacing: 0.05em; margin-bottom: 1.75rem;
-    opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards;
-  }
-
-  .hero-title {
-    font-size: clamp(2.4rem, 4.5vw, 4rem);
-    font-weight: 900; line-height: 1.2; color: var(--white);
-    margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp 0.7s ease 0.35s forwards;
-  }
-  .hero-title .highlight {
-    color: var(--orange);
-    position: relative;
-  }
-  .hero-title .blue-word { color: var(--blue); }
-
-  .hero-desc {
-    font-size: 1.1rem; line-height: 1.9; color: rgba(255,255,255,0.72);
-    font-weight: 300; max-width: 540px;
-    margin-bottom: 2.5rem;
-    opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards;
-  }
-
-  .hero-actions {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.7s ease 0.65s forwards;
-  }
-  .btn-orange {
-    background: var(--orange); color: var(--white);
-    border: none; padding: 1.05rem 2.2rem;
-    font-size: 1rem; font-weight: 700;
-    border-radius: 8px; cursor: pointer;
-    transition: all 0.3s; box-shadow: 0 6px 25px rgba(245,166,35,0.4);
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .btn-orange:hover { background: var(--orange-dark); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(245,166,35,0.5); }
-  .btn-outline {
-    background: transparent; border: 1.5px solid rgba(255,255,255,0.3);
-    color: var(--white); padding: 1.05rem 2.2rem;
-    font-size: 1rem; font-weight: 500;
-    border-radius: 8px; cursor: pointer; transition: all 0.3s;
-  }
-  .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
-
-  /* Hero card - compass visual */
-  .hero-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px; padding: 2.5rem;
-    backdrop-filter: blur(12px);
-    opacity: 0; animation: fadeIn 1s ease 0.6s forwards;
-    position: relative; overflow: hidden;
-  }
-  .hero-card::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(58,175,228,0.05) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  /* Compass SVG visual */
-  .compass-visual {
-    width: 200px; height: 200px; margin: 0 auto 1.5rem;
-    position: relative;
-  }
-  .compass-svg {
-    width: 100%; height: 100%;
-  }
-  .compass-ring-outer {
-    fill: none; stroke: rgba(58,175,228,0.3); stroke-width: 2;
-    animation: spin 25s linear infinite;
-    transform-origin: center;
-  }
-  .compass-ring-inner {
-    fill: none; stroke: rgba(245,166,35,0.3); stroke-width: 1; stroke-dasharray: 4 8;
-    animation: spin 15s linear infinite reverse;
-    transform-origin: center;
-  }
-  .compass-center-bg {
-    fill: url(#compassGrad);
-    stroke: rgba(255,255,255,0.15); stroke-width: 1;
-  }
-  .compass-needle-n {
-    fill: url(#needleGradN);
-    animation: needleOscillate 3s ease-in-out infinite;
-    transform-origin: 100px 110px;
-  }
-  .compass-needle-s {
-    fill: rgba(255,255,255,0.2);
-    animation: needleOscillate 3s ease-in-out infinite;
-    transform-origin: 100px 110px;
-  }
-  .compass-center-dot {
-    fill: var(--white);
-    filter: drop-shadow(0 0 4px rgba(58,175,228,0.8));
-  }
-  .compass-tick { stroke: rgba(58,175,228,0.5); stroke-width: 1.5; }
-  .compass-tick-major { stroke: rgba(245,166,35,0.8); stroke-width: 2; }
-
-  @keyframes needleOscillate {
-    0%, 100% { transform: rotate(35deg); }
-    50% { transform: rotate(45deg); }
-  }
-
-  .card-tags { display: flex; flex-direction: column; gap: 0.6rem; }
-  .ctag {
-    display: flex; align-items: center; gap: 0.75rem;
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    padding: 0.6rem 1rem; border-radius: 8px;
-    font-size: 0.85rem; color: rgba(255,255,255,0.8); font-weight: 500;
-    transition: background 0.2s;
-    animation: float 4s ease-in-out infinite;
-  }
-  .ctag:nth-child(2) { animation-delay: 0.7s; }
-  .ctag:nth-child(3) { animation-delay: 1.4s; }
-  .ctag .dot {
-    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-  }
-  /* SVG icons for ctag */
-  .ctag-icon {
-    width: 20px; height: 20px; flex-shrink: 0; opacity: 0.85;
-  }
-
-  /* ===== PROBLEM ===== */
-  .problem-section {
-    background: var(--light);
-    padding: 7rem 4rem;
-    position: relative; overflow: hidden;
-  }
-  .problem-section::before {
-    content: '';
-    position: absolute; top: 0; right: 0; left: 0; height: 4px;
-    background: linear-gradient(to left, var(--orange), var(--blue));
-  }
-  .section-inner { max-width: 1200px; margin: 0 auto; }
-
-  .section-tag {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--blue);
-    margin-bottom: 1rem;
-  }
-  .section-tag::after { content: ''; width: 2.5rem; height: 2px; background: var(--blue); }
-
-  .section-title {
-    font-size: clamp(1.9rem, 3vw, 2.8rem);
-    font-weight: 900; line-height: 1.2;
-    margin-bottom: 1rem;
-  }
-  .section-sub { font-size: 1.05rem; line-height: 1.8; color: var(--gray); max-width: 560px; margin-bottom: 3.5rem; }
-
-  .fears-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-  }
-  .fear-card {
-    background: var(--white);
-    border: 1px solid rgba(58,175,228,0.12);
-    border-radius: 14px; padding: 2rem;
-    position: relative; overflow: hidden;
-    transition: all 0.3s;
-  }
-  .fear-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-color: var(--blue); }
-  .fear-icon { margin-bottom: 1rem; color: var(--blue); }
-  .fear-icon svg { width: 36px; height: 36px; }
-  .fear-q { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--dark); }
-  .fear-text { font-size: 0.9rem; line-height: 1.7; color: var(--gray); }
-  .fear-add { font-size: 0.88rem; line-height: 1.65; color: var(--gray); margin-top: 0.5rem; font-style: italic; }
-  .fear-card::after {
-    content: '';
-    position: absolute; bottom: 0; right: 0; left: 0; height: 3px;
-    background: linear-gradient(to left, var(--blue), var(--orange));
-    transform: scaleX(0); transition: transform 0.3s;
-    transform-origin: right;
-  }
-  .fear-card:hover::after { transform: scaleX(1); }
-
-  /* Funnel connector between fears and good-news */
-  .fears-to-goodnews {
-    display: flex; justify-content: center; align-items: center;
-    margin: 1.5rem 0 0;
-    position: relative;
-  }
-  .funnel-arrow {
-    display: flex; flex-direction: column; align-items: center; gap: 0;
-  }
-  .funnel-lines {
-    display: flex; gap: 3rem;
-  }
-  .funnel-line {
-    width: 2px; height: 40px;
-    background: linear-gradient(to bottom, rgba(58,175,228,0.4), rgba(58,175,228,0.8));
-  }
-  .funnel-merge {
-    width: 0; height: 0;
-    border-left: 60px solid transparent;
-    border-right: 60px solid transparent;
-    border-top: 20px solid rgba(58,175,228,0.25);
-  }
-  .funnel-stem { width: 2px; height: 30px; background: rgba(58,175,228,0.8); }
-  .funnel-tip {
-    width: 0; height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 12px solid var(--blue);
-  }
-
-  .good-news {
-    margin-top: 0; padding: 2.5rem 3rem;
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
-    border-radius: 16px; color: var(--white);
-    display: flex; align-items: center; gap: 2.5rem;
-    border: 1px solid rgba(58,175,228,0.2);
-  }
-  .good-news-icon { flex-shrink: 0; color: var(--orange); }
-  .good-news-icon svg { width: 56px; height: 56px; }
-  .good-news-title { font-size: 1.4rem; font-weight: 900; margin-bottom: 0.5rem; color: var(--orange); }
-  .good-news-text { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.8); }
-
-  /* ===== SOLUTION ===== */
-  .solution-section { padding: 7rem 4rem; }
-  .solution-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  }
-  .solution-headline {
-    font-size: clamp(1.9rem, 3vw, 2.8rem);
-    font-weight: 900; line-height: 1.3;
-    margin-bottom: 1rem;
-  }
-  .solution-headline strong {
-    display: block;
-    font-size: 1.1em;
-  }
-  .solution-visual {
-    background: linear-gradient(135deg, var(--dark), var(--dark2));
-    border-radius: 20px; padding: 3rem;
-    position: relative; overflow: hidden;
-    border: 1px solid rgba(58,175,228,0.15);
-  }
-  .solution-visual::before {
-    content: '';
-    position: absolute; width: 300px; height: 300px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(58,175,228,0.1) 0%, transparent 70%);
-    top: -80px; left: -80px;
-  }
-  .birkman-badge {
-    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 12px; padding: 1.5rem;
-    display: flex; align-items: center; gap: 1.25rem;
-    margin-bottom: 1.5rem;
-  }
-  .birkman-logo { width: 50px; height: 50px; background: var(--white); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .birkman-logo svg { width: 30px; height: 30px; }
-  .birkman-name { font-weight: 800; color: var(--white); font-size: 1rem; }
-  .birkman-sub { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 0.2rem; }
-  .pillars { display: flex; flex-direction: column; gap: 1rem; }
-  .pillar {
-    display: flex; align-items: center; gap: 1rem;
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px; padding: 1rem 1.25rem;
-    color: var(--white); font-size: 0.9rem; font-weight: 500;
-    transition: background 0.2s;
-  }
-  .pillar:hover { background: rgba(58,175,228,0.1); }
-  .pillar-icon { flex-shrink: 0; }
-  .pillar-icon svg { width: 24px; height: 24px; }
-  .pillar-name { font-weight: 700; }
-  .pillar-sub { font-size: 0.8rem; opacity: 0.6; margin-top: 0.1rem; }
-
-  /* ===== PROCESS ===== */
-  .process-section {
-    background: var(--dark);
-    padding: 7rem 4rem;
-    position: relative; overflow: hidden;
-  }
-  .process-section .section-title { color: var(--white); }
-  .process-section .section-sub { color: rgba(255,255,255,0.6); }
-  .process-section .section-tag { color: var(--blue); }
-  .process-section .section-tag::after { background: var(--blue); }
-  .process-bg-text {
-    position: absolute; font-family: 'Rubik', sans-serif;
-    font-size: 18vw; font-weight: 900;
-    color: rgba(255,255,255,0.02);
-    top: 50%; left: 50%; transform: translate(-50%,-50%);
-    white-space: nowrap; pointer-events: none; letter-spacing: 0.05em;
-  }
-
-  .steps-timeline { position: relative; }
-  .step-item {
-    display: grid; grid-template-columns: 1fr auto;
-    gap: 2rem; align-items: start;
-    margin-bottom: 2.5rem; position: relative;
-  }
-  .step-item:last-child { margin-bottom: 0; }
-  .step-content {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px; padding: 2rem 2.5rem;
-    transition: all 0.3s;
-  }
-  .step-content:hover { background: rgba(58,175,228,0.08); border-color: rgba(58,175,228,0.2); transform: translateX(-5px); }
-  .step-num-wrap {
-    width: 56px; height: 56px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 4px 20px rgba(58,175,228,0.4);
-    position: relative; z-index: 1;
-  }
-  .step-num-wrap.orange { background: linear-gradient(135deg, var(--orange), var(--orange-dark)); box-shadow: 0 4px 20px rgba(245,166,35,0.4); }
-  .step-num { font-weight: 900; color: white; font-size: 1.3rem; }
-  .step-title { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
-  .step-desc { font-size: 0.92rem; line-height: 1.75; color: rgba(255,255,255,0.65); }
-  .step-badge {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.25);
-    border-radius: 50px; padding: 0.3rem 0.8rem;
-    font-size: 0.78rem; font-weight: 600; color: var(--orange);
-    margin-top: 0.75rem;
-  }
-  .step-badge-icon svg { width: 14px; height: 14px; vertical-align: middle; margin-left: 0.3rem; }
-  .step-note-orange {
-    margin-top: 1.25rem;
-    font-size: 0.88rem; font-weight: 700; color: var(--orange);
-    font-style: italic;
-  }
-
-  /* ===== EXPERT ===== */
-  .expert-section { padding: 7rem 4rem; background: var(--light); }
-  .expert-grid { display: grid; grid-template-columns: 360px 1fr; gap: 5rem; align-items: center; }
-  .expert-card {
-    background: var(--white); border-radius: 20px;
-    overflow: hidden; box-shadow: 0 10px 50px rgba(0,0,0,0.08);
-    border: 1px solid rgba(58,175,228,0.1);
-  }
-  .expert-avatar {
-    width: 100%; aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--dark), var(--dark2));
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-  }
-  .expert-avatar::after {
-    content: 'א';
-    position: absolute;
-    font-family: 'Rubik', sans-serif;
-    font-size: 14rem; font-weight: 900;
-    color: rgba(58,175,228,0.08);
-    top: -20px; right: -20px;
-  }
-  .expert-avatar-inner {
-    position: relative; z-index: 1;
-    width: 130px; height: 130px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Rubik', sans-serif;
-    font-size: 3rem; font-weight: 900; color: white;
-    box-shadow: 0 10px 30px rgba(58,175,228,0.4);
-  }
-  .expert-info { padding: 2rem; }
-  .expert-name { font-size: 1.5rem; font-weight: 900; margin-bottom: 0.25rem; }
-  .expert-role { font-size: 0.88rem; color: var(--blue); font-weight: 600; margin-bottom: 1.25rem; }
-  .linkedin-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--light); border: 1px solid rgba(58,175,228,0.2);
-    border-radius: 50px; padding: 0.4rem 0.9rem;
-    font-size: 0.8rem; font-weight: 600; color: var(--dark2);
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .linkedin-badge:hover { background: var(--blue); color: white; border-color: var(--blue); }
-  .linkedin-badge svg { width: 16px; height: 16px; }
-
-  .expert-body .section-tag::after { background: var(--blue); }
-  .expert-desc { font-size: 1rem; line-height: 1.85; color: var(--gray); margin-bottom: 2rem; }
-  .expert-points { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-  .expert-points li {
-    display: flex; align-items: flex-start; gap: 0.75rem;
-    font-size: 0.95rem; line-height: 1.6; color: var(--dark2);
-  }
-  .expert-points li .point-icon { color: var(--orange); flex-shrink: 0; margin-top: 0.1rem; }
-  .expert-points li .point-icon svg { width: 16px; height: 16px; }
-
-  /* ===== TESTIMONIALS ===== */
-  .testimonials-section { background: var(--dark); padding: 7rem 4rem; }
-  .testimonials-section .section-title { color: var(--white); }
-  .testimonials-section .section-sub { color: rgba(255,255,255,0.6); }
-  .testimonials-section .section-tag { color: var(--orange); }
-  .testimonials-section .section-tag::after { background: var(--orange); }
-  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .tcard {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px; padding: 2.25rem;
-    transition: all 0.3s; position: relative;
-    display: flex; flex-direction: column;
-  }
-  .tcard:hover { background: rgba(58,175,228,0.07); border-color: rgba(58,175,228,0.2); }
-  .quote-mark {
-    font-family: 'Rubik', sans-serif;
-    font-size: 5rem; line-height: 1; color: rgba(245,166,35,0.2);
-    position: absolute; top: 0.5rem; left: 1.5rem;
-    pointer-events: none;
-  }
-  .tcard-text { font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; font-style: italic; }
-  .tcard-author { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; }
-  .tavatar {
-    width: 52px; height: 52px; border-radius: 50%;
-    overflow: hidden; flex-shrink: 0;
-    border: 2px solid rgba(58,175,228,0.4);
-  }
-  .tavatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .tname { font-weight: 700; color: white; font-size: 0.9rem; }
-  .tdetail { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 0.1rem; }
-
-  /* ===== CTA ===== */
-  .cta-section {
-    padding: 8rem 4rem;
-    background: linear-gradient(145deg, #f5f9fd 0%, #e8f4fc 100%);
-    text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    width: 400px; height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(58,175,228,0.06) 0%, transparent 70%);
-    top: 50%; left: 50%; transform: translate(-50%,-50%);
-    pointer-events: none;
-  }
-  .cta-section .section-title { max-width: 650px; margin: 0 auto 1rem; }
-  .cta-section .section-sub { margin: 0 auto 3rem; text-align: center; }
-  .cta-section .section-tag { justify-content: center; }
-  .cta-section .section-tag::after { display: none; }
-  .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-  .btn-blue {
-    background: var(--blue); color: var(--white);
-    border: none; padding: 1.1rem 2.5rem;
-    font-size: 1.05rem; font-weight: 700;
-    border-radius: 8px; cursor: pointer;
-    transition: all 0.3s; box-shadow: 0 6px 25px rgba(58,175,228,0.35);
-  }
-  .btn-blue:hover { background: var(--blue-dark); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(58,175,228,0.45); }
-  .trust-badges {
-    display: flex; justify-content: center; gap: 2.5rem;
-    margin-top: 2.5rem; flex-wrap: wrap;
-  }
-  .tbadge { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--gray); font-weight: 500; }
-  .tbadge svg { width: 18px; height: 18px; color: var(--blue); flex-shrink: 0; }
-
-  /* ===== REGISTRATION SECTION ===== */
-  .register-section {
-    background: var(--white);
-    padding: 7rem 4rem;
-    border-top: 1px solid var(--gray-light);
-  }
-  .register-inner { max-width: 760px; margin: 0 auto; }
-  .register-title { font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 900; margin-bottom: 0.5rem; color: var(--dark); }
-  .register-investment-label { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.75rem; }
-  .register-price {
-    font-size: 2.5rem; font-weight: 900; color: var(--orange);
-    display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.25rem;
-  }
-  .register-price-original {
-    font-size: 1.1rem; color: var(--gray); text-decoration: line-through; font-weight: 400;
-  }
-  .register-promo { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.5rem; }
-  .register-payment-opts { font-size: 0.88rem; color: var(--gray); margin-bottom: 2rem; }
-  .register-includes { margin-bottom: 2rem; }
-  .register-includes h4 { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 0.75rem; }
-  .register-includes ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .register-includes li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9rem; color: var(--dark2); }
-  .register-includes li svg { margin-top: 0.2rem; }
-  .register-includes li svg { width: 16px; height: 16px; color: var(--blue); flex-shrink: 0; }
-  .register-note {
-    background: var(--light); border-right: 3px solid var(--orange);
-    border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 2rem;
-    font-size: 0.88rem; color: var(--dark2); line-height: 1.7;
-  }
-  .register-note strong { color: var(--dark); font-weight: 700; display: block; margin-bottom: 0.5rem; }
-  .register-what-is-not {
-    background: var(--dark); border-radius: 12px; padding: 1.5rem 2rem;
-    margin-bottom: 1.5rem; color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.75;
-  }
-  .register-what-is-not h4 { color: var(--orange); font-weight: 700; margin-bottom: 0.75rem; font-size: 0.95rem; }
-  .register-for-whom {
-    background: var(--light); border-radius: 12px; padding: 1.5rem 2rem;
-    margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.75;
-  }
-  .register-for-whom h4 { color: var(--blue); font-weight: 700; margin-bottom: 0.75rem; font-size: 0.95rem; }
-  .register-for-whom ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-  .register-for-whom li::before { content: '•'; color: var(--blue); margin-left: 0.5rem; }
-  .expandable { overflow: hidden; max-height: 0; transition: max-height 0.4s ease; }
-  .expandable.open { max-height: 600px; }
-  .expand-btn {
-    background: none; border: 1px solid rgba(58,175,228,0.3);
-    color: var(--blue); font-size: 0.9rem; font-weight: 600;
-    padding: 0.65rem 1.4rem; border-radius: 8px; cursor: pointer;
-    margin-bottom: 1rem; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem;
-  }
-  .expand-btn:hover { background: rgba(58,175,228,0.08); }
-  .expand-btn svg { width: 16px; height: 16px; transition: transform 0.3s; }
-  .expand-btn.open svg { transform: rotate(180deg); }
-  .register-cta-btn {
-    width: 100%; padding: 1.2rem; font-size: 1.1rem; font-weight: 700;
-    background: var(--orange); color: white; border: none; border-radius: 10px;
-    cursor: pointer; transition: all 0.3s;
-    box-shadow: 0 6px 25px rgba(245,166,35,0.4);
-    margin-top: 0.5rem;
-  }
-  .register-cta-btn:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(245,166,35,0.5); }
-
-  /* ===== FOOTER ===== */
-  footer {
-    background: var(--dark); color: rgba(255,255,255,0.5);
-    padding: 2.5rem 4rem;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.88rem;
-  }
-  footer img { height: 32px; filter: brightness(0) invert(1); opacity: 0.6; }
-  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
-  footer a:hover { color: var(--blue); }
-  footer .footer-links { display: flex; gap: 1.5rem; }
-
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
-
-  .reveal {
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-  }
-  .reveal.visible { opacity: 1; transform: none; }
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.3s; }
-  .reveal-d4 { transition-delay: 0.4s; }
-
-  /* ===== MOBILE HAMBURGER ===== */
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: none;
-    border: none;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--dark2);
-    border-radius: 2px;
-    transition: all 0.3s;
-  }
-  .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-  .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 0; }
-    .nav-hamburger { display: flex; }
-    .nav-links { display: none; width: 100%; flex-direction: column; gap: 0; padding: 0.5rem 0 1rem; order: 3; }
-    .nav-links.open { display: flex; }
-    .nav-links li { border-top: 1px solid rgba(58,175,228,0.12); }
-    .nav-links a { display: block; padding: 0.75rem 0.5rem; font-size: 1rem; }
-    .nav-cta { order: 2; padding: 0.55rem 1rem; font-size: 0.85rem; }
-    .nav-logo img { height: 34px; }
-    .hero { padding-top: 70px; }
-    .hero-grid { grid-template-columns: 1fr; padding: 3rem 1.5rem 2.5rem; gap: 2.5rem; }
-    .hero-title { font-size: clamp(2rem, 7vw, 3rem); }
-    .hero-desc { font-size: 1rem; }
-    .hero-card { max-width: 420px; margin: 0 auto; }
-    .problem-section, .solution-section, .process-section, .expert-section,
-    .testimonials-section, .cta-section, .register-section { padding: 4rem 1.5rem; }
-    .fears-grid { grid-template-columns: 1fr; }
-    .good-news { flex-direction: column; gap: 1.25rem; padding: 2rem 1.5rem; text-align: center; }
-    .solution-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .step-item { grid-template-columns: auto 1fr; direction: ltr; }
-    .step-content { padding: 1.5rem; }
-    .step-content:hover { transform: translateX(5px); }
-    .expert-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .expert-card { max-width: 340px; margin: 0 auto; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .cta-actions { flex-direction: column; align-items: center; }
-    .cta-actions button { width: 100%; max-width: 320px; }
-    .trust-badges { gap: 1.25rem; }
-    footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; text-align: center; }
-    footer .footer-links { justify-content: center; }
-  }
-
-  @media (max-width: 600px) {
-    nav { padding: 0.9rem 1.1rem; }
-    .nav-logo img { height: 28px; }
-    .hero-grid { padding: 2.5rem 1.1rem 2rem; }
-    .hero-eyebrow { font-size: 0.72rem; }
-    .hero-title { font-size: clamp(1.75rem, 8vw, 2.5rem); }
-    .hero-actions { flex-direction: column; }
-    .hero-actions button { width: 100%; }
-    .btn-orange, .btn-outline, .btn-blue { padding: 0.9rem 1.5rem; font-size: 0.95rem; }
-    .section-title { font-size: clamp(1.5rem, 6vw, 2.2rem) !important; }
-    .section-sub { font-size: 0.95rem; }
-    .fear-card { padding: 1.5rem; }
-    .step-content { padding: 1.25rem; }
-    .funnel-lines { gap: 1.5rem; }
-  }
-
-  /* ===== PAYMENT MODAL ===== */
-  .pay-overlay {
-    display: none; position: fixed; inset: 0; z-index: 1000;
-    background: rgba(10,18,30,0.82); backdrop-filter: blur(6px);
-    align-items: flex-start; justify-content: center;
-    padding: 1rem;
-    overflow-y: auto;
-  }
-  .pay-overlay.open { display: flex; }
-
-  .pay-modal {
-    background: var(--white); border-radius: 20px;
-    width: 100%; max-width: 520px;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-    overflow: hidden; position: relative;
-    animation: paySlideUp 0.35s ease;
-    margin: auto;
-  }
-  @keyframes paySlideUp {
-    from { opacity:0; transform:translateY(30px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-
-  .pay-modal-header {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
-    padding: 1.5rem 1.75rem 1.25rem;
-    position: relative;
-  }
-  .pay-modal-close {
-    position: absolute; top: 1rem; left: 1rem;
-    background: rgba(255,255,255,0.1); border: none;
-    color: white; width: 34px; height: 34px; border-radius: 50%;
-    font-size: 1.1rem; cursor: pointer; display: flex;
-    align-items: center; justify-content: center;
-    transition: background 0.2s;
-  }
-  .pay-modal-close:hover { background: rgba(255,255,255,0.2); }
-  .pay-product-title {
-    font-family: 'Rubik', 'Heebo', sans-serif;
-    font-size: 1.3rem; font-weight: 900; color: white;
-    margin-bottom: 0.4rem;
-  }
-  .pay-product-sub { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem; }
-  .pay-price-row {
-    display: flex; align-items: baseline; gap: 0.5rem;
-  }
-  .pay-price-amount {
-    font-family: 'Rubik', 'Heebo', sans-serif;
-    font-size: 2.6rem; font-weight: 900; color: var(--orange);
-    line-height: 1;
-  }
-  .pay-price-currency { font-size: 1.2rem; color: rgba(255,255,255,0.7); font-weight: 600; }
-  .pay-price-note { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
-
-  .pay-includes {
-    display: flex; flex-direction: column; gap: 0.5rem;
-    margin-top: 1rem;
-  }
-  .pay-include-item {
-    display: flex; align-items: center; gap: 0.6rem;
-    font-size: 0.83rem; color: rgba(255,255,255,0.75);
-  }
-  .pay-include-item::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
-
-  .pay-modal-body { padding: 1.25rem 1.75rem; }
-
-  .pay-field-group { margin-bottom: 0.85rem; }
-  .pay-label {
-    display: block; font-size: 0.83rem; font-weight: 600;
-    color: var(--dark2); margin-bottom: 0.4rem;
-  }
-  .pay-input {
-    width: 100%; padding: 0.75rem 1rem;
-    border: 1.5px solid #dde3ec; border-radius: 8px;
-    font-family: 'Heebo', sans-serif; font-size: 0.95rem;
-    color: var(--dark); background: #fafbfd;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    direction: rtl;
-  }
-  .pay-input:focus {
-    outline: none; border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(58,175,228,0.15);
-  }
-  .pay-input.error { border-color: #e74c3c; }
-
-  .pay-submit {
-    width: 100%; padding: 1rem;
-    background: var(--orange); color: white;
-    border: none; border-radius: 10px;
-    font-family: 'Heebo', sans-serif; font-size: 1.05rem; font-weight: 700;
-    cursor: pointer; margin-top: 0.5rem;
-    transition: all 0.25s; box-shadow: 0 6px 20px rgba(245,166,35,0.35);
-    display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-  }
-  .pay-submit:hover { background: var(--orange-dark); transform: translateY(-2px); }
-  .pay-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-  .pay-security {
-    display: flex; align-items: center; justify-content: center;
-    gap: 0.5rem; margin-top: 1rem;
-    font-size: 0.78rem; color: var(--gray);
-  }
-  .pay-security::before { content: '🔒'; }
-
-  .pay-error-msg {
-    display: none; background: #fff0f0; border: 1px solid #fcc;
-    border-radius: 8px; padding: 0.75rem 1rem;
-    font-size: 0.85rem; color: #c0392b;
-    margin-bottom: 1rem; text-align: center;
-  }
-
-  /* ===== SUCCESS / ERROR BANNERS ===== */
-  .status-banner {
-    display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 500;
-    padding: 1.25rem 2rem; text-align: center;
-    font-size: 1rem; font-weight: 600; font-family: 'Heebo', sans-serif;
-    animation: fadeDown 0.4s ease;
-  }
-  @keyframes fadeDown {
-    from { opacity:0; transform:translateY(-20px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-  .status-banner.success { background: #27ae60; color: white; display: block; }
-  .status-banner.error   { background: #e74c3c; color: white; display: block; }
-
-  /* ===== CARDCOM REDIRECT FORM (hidden) ===== */
-  #cardcom-form { display: none; }
-
-  /* ===== PAGE PRICE DISPLAY ===== */
-  .page-price-block {
-    display: flex; align-items: baseline; gap: 0.75rem;
-    margin-bottom: 1.5rem; flex-wrap: wrap;
-  }
-  .page-price-list {
-    font-size: 1.15rem; font-weight: 500;
-    color: rgba(255,255,255,0.45);
-    text-decoration: line-through;
-  }
-  .page-price-promo {
-    font-size: 2rem; font-weight: 900; color: var(--orange);
-    line-height: 1;
-  }
-  .page-price-currency { font-size: 1.1rem; font-weight: 700; color: var(--orange); }
-  .page-price-note {
-    font-size: 0.78rem; color: rgba(255,255,255,0.5);
-    align-self: flex-end; padding-bottom: 0.15rem;
-  }
-  /* Dark-on-light variant for CTA section */
-  .page-price-block.dark .page-price-list  { color: rgba(0,0,0,0.35); }
-  .page-price-block.dark .page-price-promo { color: var(--orange-dark); }
-  .page-price-block.dark .page-price-currency { color: var(--orange-dark); }
-  .page-price-block.dark .page-price-note { color: var(--gray); }
-
-  /* ===== GATE SCREEN ===== */
-  .gate-msg {
-    background: rgba(58,175,228,0.08);
-    border: 1px solid rgba(58,175,228,0.2);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 1.25rem;
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-  .gate-msg-icon { font-size: 1.75rem; flex-shrink: 0; }
-  .gate-msg-text { font-size: 0.9rem; color: var(--dark2); line-height: 1.7; }
-  .gate-calendly-link {
-    text-align: center;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--gray-light);
-  }
-  .gate-calendly-btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
-    width: 100%; padding: 0.7rem 1rem;
-    background: transparent;
-    color: var(--blue);
-    border: 1.5px solid var(--blue);
-    border-radius: 10px;
-    font-family: 'Heebo', sans-serif; font-size: 0.88rem; font-weight: 600;
-    cursor: pointer; text-decoration: none;
-    transition: all 0.2s;
-  }
-  .gate-calendly-btn:hover { background: rgba(58,175,228,0.08); transform: translateY(-1px); }
-
-  /* ===== REGISTRATION FORM ===== */
-  .reg-form-section {
-    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.05em; color: var(--gray);
-    margin: 1.1rem 0 0.5rem;
-    border-bottom: 1px solid var(--gray-light);
-    padding-bottom: 0.35rem;
-  }
-  .pay-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .gender-options { display: flex; gap: 2rem; padding: 0.6rem 0; }
-  .gender-opt {
-    display: flex; align-items: center; gap: 0.5rem;
-    font-size: 0.95rem; cursor: pointer; font-family: 'Heebo', sans-serif;
-  }
-  .gender-opt input[type="radio"] { cursor: pointer; accent-color: var(--blue); width:16px; height:16px; }
-
-  /* ===== PRICE DISPLAY (modal header) ===== */
-  .price-line-list {
-    text-decoration: line-through;
-    color: var(--orange);
-    font-size: 1rem; margin-left: 0.5rem;
-  }
-  .price-final-amount { font-size: 2.1rem; font-weight: 800; color: white; }
-  .coupon-applied-badge {
-    display: inline-block;
-    background: rgba(80,200,120,0.2); border: 1px solid rgba(80,200,120,0.4);
-    border-radius: 20px; padding: 0.2rem 0.9rem;
-    font-size: 0.78rem; color: #8fff8f; margin-top: 0.3rem;
-  }
-  #coupon-status { font-size: 0.82rem; margin-top: 0.25rem; min-height: 1.2rem; }
-  #coupon-status.ok  { color: #27ae60; }
-  #coupon-status.err { color: #e74c3c; }
-
-  /* ===== CALENDLY BUTTON ===== */
-  .btn-calendly {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: transparent;
-    border: 2px solid rgba(58,175,228,0.6); color: var(--blue);
-    padding: 0.85rem 1.8rem;
-    font-family: 'Heebo', sans-serif; font-size: 0.95rem; font-weight: 700;
-    border-radius: 8px; cursor: pointer; text-decoration: none;
-    transition: all 0.25s;
-  }
-  .btn-calendly:hover { background: rgba(58,175,228,0.12); border-color: var(--blue); transform: translateY(-2px); }
-  .btn-calendly-white { border-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.85); }
-  .btn-calendly-white:hover { background: rgba(255,255,255,0.08); border-color: white; color: white; }
-
-  /* ===== MODAL BACK BUTTON ===== */
-  .pay-modal-back {
-    position: absolute; left: 1rem; top: 1rem;
-    background: rgba(255,255,255,0.1); border: none;
-    color: rgba(255,255,255,0.8); width: 36px; height: 36px;
-    border-radius: 50%; cursor: pointer; font-size: 0.85rem;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-  }
-  .pay-modal-back:hover { background: rgba(255,255,255,0.2); }
-
-  @media (max-width: 600px) {
-    .pay-field-row { grid-template-columns: 1fr; }
-  }
-
-  /* ===== GET SECTION (hidden - deleted from V3) ===== */
-  .get-section { display: none; }
-</style>
 </head>
 <body>
-
 <!-- ===== STATUS BANNER ===== -->
-<div id="status-banner" class="status-banner"></div>
-
+<div class="status-banner" id="status-banner"></div>
 <!-- ===== PAYMENT MODAL ===== -->
 <!-- ===== PAYMENT / REGISTRATION MODAL ===== -->
-<div class="pay-overlay" id="pay-overlay" role="dialog" aria-modal="true">
-  <div class="pay-modal">
-
-    <!-- ── STEP 1: FITTING CODE GATE ── -->
-    <div id="gate-screen">
-      <div class="pay-modal-header">
-        <button class="pay-modal-close" onclick="closePayModal()" aria-label="סגור">✕</button>
-        <div class="pay-product-title">מצפן הקריירה של Tipando</div>
-        
-        <div class="pay-price-row" id="gate-price-row">
-          <span class="pay-price-currency">₪</span>
-          <span class="pay-price-amount" id="gate-display-price">2,900</span>
-        </div>
-      </div>
-      <div class="pay-modal-body">
-        <div class="gate-msg">
-          <div class="gate-msg-icon">🔑</div>
-          <p class="gate-msg-text">
+<div aria-modal="true" class="pay-overlay" id="pay-overlay" role="dialog">
+<div class="pay-modal">
+<!-- ── STEP 1: FITTING CODE GATE ── -->
+<div id="gate-screen">
+<div class="pay-modal-header">
+<button aria-label="סגור" class="pay-modal-close" onclick="closePayModal()">✕</button>
+<div class="pay-product-title">מצפן הקריירה של Tipando</div>
+<div class="pay-price-row" id="gate-price-row">
+<span class="pay-price-currency">₪</span>
+<span class="pay-price-amount" id="gate-display-price">2,900</span>
+</div>
+</div>
+<div class="pay-modal-body">
+<div class="gate-msg">
+<div class="gate-msg-icon">🔑</div>
+<p class="gate-msg-text">
             הזמנות ניתן לבצע רק <strong>לאחר פגישת התאמה</strong>
-            וקבלת <strong>קוד אישי</strong>.<br><br>
+            וקבלת <strong>קוד אישי</strong>.<br/><br/>
             לאחר קבלת הקוד, ניתן להמשיך לתהליך ההרשמה והרכישה.
           </p>
-        </div>
-        <div class="pay-field-group">
-          <label class="pay-label" for="gate-code-input">קוד אישי *</label>
-          <input class="pay-input" id="gate-code-input" type="text"
-                 placeholder="הכנס את הקוד האישי שלך" dir="ltr"
-                 onkeydown="if(event.key==='Enter')validateFittingCode()">
-        </div>
-        <div class="pay-error-msg" id="gate-error" style="display:none"></div>
-        <button class="pay-submit" id="gate-btn" onclick="validateFittingCode()">
-          <span>אמת קוד והמשך</span><span>→</span>
-        </button>
-        <div style="text-align:center; font-size:0.78rem; color:var(--gray); margin-top:0.75rem; padding:0.6rem 1rem; background:var(--light); border-radius:8px; line-height:1.5;">
+</div>
+<div class="pay-field-group">
+<label class="pay-label" for="gate-code-input">קוד אישי *</label>
+<input class="pay-input" dir="ltr" id="gate-code-input" onkeydown="if(event.key==='Enter')validateFittingCode()" placeholder="הכנס את הקוד האישי שלך" type="text"/>
+</div>
+<div class="pay-error-msg" id="gate-error" style="display:none"></div>
+<button class="pay-submit" id="gate-btn" onclick="validateFittingCode()">
+<span>אמת קוד והמשך</span><span>→</span>
+</button>
+<div style="text-align:center; font-size:0.78rem; color:var(--gray); margin-top:0.75rem; padding:0.6rem 1rem; background:var(--light); border-radius:8px; line-height:1.5;">
           הנחה מיוחדת תינתן לחיילים משרתים, חיילים משוחררים וסטודנטים
         </div>
-        <div class="gate-calendly-link">
-          <a href="javascript:void(0)" onclick="openCalendly()" class="gate-calendly-btn">
+<div class="gate-calendly-link">
+<a class="gate-calendly-btn" href="javascript:void(0)" onclick="openCalendly()">
             לקביעת שיחת התאמה ←
           </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── STEP 2: REGISTRATION FORM ── -->
-    <div id="reg-screen" style="display:none">
-      <div class="pay-modal-header" style="position:relative;">
-        <button class="pay-modal-close" onclick="closePayModal()" aria-label="סגור">✕</button>
-        <button class="pay-modal-back" onclick="showGate()" title="חזור">‹</button>
-        <div class="pay-product-title">מצפן הקריירה של Tipando</div>
-        
-        <div class="pay-price-row" id="reg-price-row">
-          <span class="pay-price-currency">₪</span>
-          <span class="pay-price-amount" id="reg-display-price">2,900</span>
-        </div>
-        <div id="reg-price-note" class="pay-price-note" style="display:none"></div>
-        <div class="pay-price-note" id="reg-payment-info">תשלום חד-פעמי · מאובטח · אין חידושים אוטומטיים</div>
-        <div class="pay-includes">
-          <div class="pay-include-item">שאלון Birkman המדעי המלא</div>
-          <div class="pay-include-item">דוח מצפן קריירה אישי בעברית</div>
-          <div class="pay-include-item">פגישת VIP עם אורית אמיר (שעה)</div>
-        </div>
-      </div>
-      <div class="pay-modal-body">
-        <div class="pay-error-msg" id="reg-error" style="display:none"></div>
-
-        <div class="reg-form-section">שם באנגלית - לשאלון Birkman</div>
-        <div class="pay-field-row">
-          <div class="pay-field-group">
-            <label class="pay-label" for="reg-fname-e">שם פרטי (English) *</label>
-            <input class="pay-input" id="reg-fname-e" type="text" placeholder="John" dir="ltr">
-          </div>
-          <div class="pay-field-group">
-            <label class="pay-label" for="reg-lname-e">שם משפחה (English) *</label>
-            <input class="pay-input" id="reg-lname-e" type="text" placeholder="Cohen" dir="ltr">
-          </div>
-        </div>
-
-        <div class="reg-form-section">שם בעברית</div>
-        <div class="pay-field-row">
-          <div class="pay-field-group">
-            <label class="pay-label" for="reg-fname-h">שם פרטי *</label>
-            <input class="pay-input" id="reg-fname-h" type="text" placeholder="יוחנן">
-          </div>
-          <div class="pay-field-group">
-            <label class="pay-label" for="reg-lname-h">שם משפחה *</label>
-            <input class="pay-input" id="reg-lname-h" type="text" placeholder="כהן">
-          </div>
-        </div>
-
-        <div class="reg-form-section">פרטי קשר</div>
-        <div class="pay-field-group">
-          <label class="pay-label" for="reg-email">כתובת אימייל *</label>
-          <input class="pay-input" id="reg-email" type="email" placeholder="your@email.com" dir="ltr">
-        </div>
-        <div class="pay-field-group">
-          <label class="pay-label" for="reg-phone">מספר טלפון *</label>
-          <input class="pay-input" id="reg-phone" type="tel" placeholder="05X-XXXXXXX" dir="ltr">
-        </div>
-
-        <div class="pay-field-group">
-          <label class="pay-label">מין *</label>
-          <div class="gender-options">
-            <label class="gender-opt"><input type="radio" name="reg-gender" value="Male"> זכר</label>
-            <label class="gender-opt"><input type="radio" name="reg-gender" value="Female"> נקבה</label>
-          </div>
-        </div>
-
-        <!-- Coupon code is passed silently from the gate step - no visible field needed -->
-        <input type="hidden" id="reg-coupon" value="">
-        <div id="coupon-status" style="display:none"></div>
-
-        <button class="pay-submit" id="reg-submit-btn" onclick="submitRegistration()">
-          <span>לתשלום מאובטח</span><span>→</span>
-        </button>
-        <div class="pay-security">תשלום מאובטח באמצעות קארדקום · SSL מוצפן</div>
-      </div>
-    </div>
-
-  </div>
 </div>
-
+</div>
+</div>
+<!-- ── STEP 2: REGISTRATION FORM ── -->
+<div id="reg-screen" style="display:none">
+<div class="pay-modal-header" style="position:relative;">
+<button aria-label="סגור" class="pay-modal-close" onclick="closePayModal()">✕</button>
+<button class="pay-modal-back" onclick="showGate()" title="חזור">‹</button>
+<div class="pay-product-title">מצפן הקריירה של Tipando</div>
+<div class="pay-price-row" id="reg-price-row">
+<span class="pay-price-currency">₪</span>
+<span class="pay-price-amount" id="reg-display-price">2,900</span>
+</div>
+<div class="pay-price-note" id="reg-price-note" style="display:none"></div>
+<div class="pay-price-note" id="reg-payment-info">תשלום חד-פעמי · מאובטח · אין חידושים אוטומטיים</div>
+<div class="pay-includes">
+<div class="pay-include-item">שאלון Birkman המדעי המלא</div>
+<div class="pay-include-item">דוח מצפן קריירה אישי בעברית</div>
+<div class="pay-include-item">פגישת VIP עם אורית אמיר (שעה)</div>
+</div>
+</div>
+<div class="pay-modal-body">
+<div class="pay-error-msg" id="reg-error" style="display:none"></div>
+<div class="reg-form-section">שם באנגלית - לשאלון Birkman</div>
+<div class="pay-field-row">
+<div class="pay-field-group">
+<label class="pay-label" for="reg-fname-e">שם פרטי (English) *</label>
+<input class="pay-input" dir="ltr" id="reg-fname-e" placeholder="John" type="text"/>
+</div>
+<div class="pay-field-group">
+<label class="pay-label" for="reg-lname-e">שם משפחה (English) *</label>
+<input class="pay-input" dir="ltr" id="reg-lname-e" placeholder="Cohen" type="text"/>
+</div>
+</div>
+<div class="reg-form-section">שם בעברית</div>
+<div class="pay-field-row">
+<div class="pay-field-group">
+<label class="pay-label" for="reg-fname-h">שם פרטי *</label>
+<input class="pay-input" id="reg-fname-h" placeholder="יוחנן" type="text"/>
+</div>
+<div class="pay-field-group">
+<label class="pay-label" for="reg-lname-h">שם משפחה *</label>
+<input class="pay-input" id="reg-lname-h" placeholder="כהן" type="text"/>
+</div>
+</div>
+<div class="reg-form-section">פרטי קשר</div>
+<div class="pay-field-group">
+<label class="pay-label" for="reg-email">כתובת אימייל *</label>
+<input class="pay-input" dir="ltr" id="reg-email" placeholder="your@email.com" type="email"/>
+</div>
+<div class="pay-field-group">
+<label class="pay-label" for="reg-phone">מספר טלפון *</label>
+<input class="pay-input" dir="ltr" id="reg-phone" placeholder="05X-XXXXXXX" type="tel"/>
+</div>
+<div class="pay-field-group">
+<label class="pay-label">מין *</label>
+<div class="gender-options">
+<label class="gender-opt"><input name="reg-gender" type="radio" value="Male"/> זכר</label>
+<label class="gender-opt"><input name="reg-gender" type="radio" value="Female"/> נקבה</label>
+</div>
+</div>
+<!-- Coupon code is passed silently from the gate step - no visible field needed -->
+<input id="reg-coupon" type="hidden" value=""/>
+<div id="coupon-status" style="display:none"></div>
+<button class="pay-submit" id="reg-submit-btn" onclick="submitRegistration()">
+<span>לתשלום מאובטח</span><span>→</span>
+</button>
+<div class="pay-security">תשלום מאובטח באמצעות קארדקום · SSL מוצפן</div>
+</div>
+</div>
+</div>
+</div>
 <!-- ===== CARDCOM HIDDEN FORM (auto-submits server-side via Netlify function) ===== -->
-<form id="cardcom-form" method="POST"
-      action="/.netlify/functions/create-payment"
-      target="_self">
-  <!-- Cardcom credentials (overridden server-side; kept here for reference) -->
-  <input type="hidden" name="TerminalNumber"      value="185458">
-  <input type="hidden" name="UserName"            value="J4CnrYnA3ua8AB52OQbw">
-  <input type="hidden" name="CoinID"              value="1">
-  <input type="hidden" name="SumToBill"           id="cc-sum"       value="2900">
-  <input type="hidden" name="ProductName"         value="מצפן הקריירה של Tipando">
-  <input type="hidden" name="Language"            value="he">
-  <input type="hidden" name="Operation"           value="1">
-  <input type="hidden" name="MaxPayments"         id="cc-max-payments" value="1">
-  <input type="hidden" name="SuccessRedirectUrl"  id="cc-success"   value="">
-  <input type="hidden" name="ErrorRedirectUrl"    id="cc-error"     value="">
-  <input type="hidden" name="ReturnValue"         id="cc-return"    value="">
-  <input type="hidden" name="IndicatorUrl"        id="cc-indicator" value="">
-  <!-- Invoice head -->
-  <input type="hidden" name="InvoiceHead.CustName"    id="cc-name"  value="">
-  <input type="hidden" name="InvoiceHead.SendByEmail" value="true">
-  <input type="hidden" name="InvoiceHead.Email"       id="cc-email" value="">
-  <input type="hidden" name="InvoiceHead.Language"    value="he">
-  <!-- Registration fields (passed through for n8n automation) -->
-  <input type="hidden" name="FirstNameE"    id="cc-fname-e"     value="">
-  <input type="hidden" name="LastNameE"     id="cc-lname-e"     value="">
-  <input type="hidden" name="FirstNameH"    id="cc-fname-h"     value="">
-  <input type="hidden" name="LastNameH"     id="cc-lname-h"     value="">
-  <input type="hidden" name="Email_Address" id="cc-email-addr"  value="">
-  <input type="hidden" name="Phone_Number"  id="cc-phone"       value="">
-  <input type="hidden" name="Gender"        id="cc-gender"      value="">
-  <input type="hidden" name="CouponCode"    id="cc-coupon"      value="">
-  <input type="hidden" name="ListPrice"     id="cc-list-price"  value="">
-  <input type="hidden" name="PromoPrice"    id="cc-promo-price" value="">
-  <!-- InvoiceLines are added server-side by the Netlify function -->
+<form action="/.netlify/functions/create-payment" id="cardcom-form" method="POST" target="_self">
+<!-- Cardcom credentials (overridden server-side; kept here for reference) -->
+<input name="TerminalNumber" type="hidden" value="185458"/>
+<input name="UserName" type="hidden" value="J4CnrYnA3ua8AB52OQbw"/>
+<input name="CoinID" type="hidden" value="1"/>
+<input id="cc-sum" name="SumToBill" type="hidden" value="2900"/>
+<input name="ProductName" type="hidden" value="מצפן הקריירה של Tipando"/>
+<input name="Language" type="hidden" value="he"/>
+<input name="Operation" type="hidden" value="1"/>
+<input id="cc-max-payments" name="MaxPayments" type="hidden" value="1"/>
+<input id="cc-success" name="SuccessRedirectUrl" type="hidden" value=""/>
+<input id="cc-error" name="ErrorRedirectUrl" type="hidden" value=""/>
+<input id="cc-return" name="ReturnValue" type="hidden" value=""/>
+<input id="cc-indicator" name="IndicatorUrl" type="hidden" value=""/>
+<!-- Invoice head -->
+<input id="cc-name" name="InvoiceHead.CustName" type="hidden" value=""/>
+<input name="InvoiceHead.SendByEmail" type="hidden" value="true"/>
+<input id="cc-email" name="InvoiceHead.Email" type="hidden" value=""/>
+<input name="InvoiceHead.Language" type="hidden" value="he"/>
+<!-- Registration fields (passed through for n8n automation) -->
+<input id="cc-fname-e" name="FirstNameE" type="hidden" value=""/>
+<input id="cc-lname-e" name="LastNameE" type="hidden" value=""/>
+<input id="cc-fname-h" name="FirstNameH" type="hidden" value=""/>
+<input id="cc-lname-h" name="LastNameH" type="hidden" value=""/>
+<input id="cc-email-addr" name="Email_Address" type="hidden" value=""/>
+<input id="cc-phone" name="Phone_Number" type="hidden" value=""/>
+<input id="cc-gender" name="Gender" type="hidden" value=""/>
+<input id="cc-coupon" name="CouponCode" type="hidden" value=""/>
+<input id="cc-list-price" name="ListPrice" type="hidden" value=""/>
+<input id="cc-promo-price" name="PromoPrice" type="hidden" value=""/>
+<!-- InvoiceLines are added server-side by the Netlify function -->
 </form>
-
-
 <!-- ===== NAV ===== -->
 <nav>
-  <div class="nav-logo">
-    <a href="http://tipando.com" aria-label="חזור לאתר טיפאנדו"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDI3MDAgNjg2IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zOnNlcmlmPSJodHRwOi8vd3d3LnNlcmlmLmNvbS8iIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MjsiPgogICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4xNDE0NiwwLDAsMS4xNDE0NiwtNzYuODI1MiwtMTczLjc4MikiPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDcuODc4LDAsMCw3Ljg3OCwtMzY5Mi45NiwtMjgxNi45NykiPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCg1MCwwLDAsNTAsNTg3LjczNSw0MzcuNTU1KSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMC4xMzcsLTAuMjk0QzAuMTM3LC0wLjI3MSAwLjE0MSwtMC4yNDggMC4xNTEsLTAuMjI3QzAuMTYsLTAuMjA2IDAuMTcyLC0wLjE4NyAwLjE4OSwtMC4xN0MwLjIwNiwtMC4xNTMgMC4yMjUsLTAuMTQgMC4yNDYsLTAuMTMyQzAuMjY3LC0wLjEyMyAwLjI5LC0wLjExOCAwLjMxMywtMC4xMThMMC4zMTMsLTBDMC4yNiwtMCAwLjIxMSwtMC4wMTMgMC4xNjYsLTAuMDRDMC4xMjEsLTAuMDY2IDAuMDg1LC0wLjEwMiAwLjA1OSwtMC4xNDdDMC4wMzIsLTAuMTkyIDAuMDE5LC0wLjI0MSAwLjAxOSwtMC4yOTRMMC4wMTksLTAuODc1TDAuMTM3LC0wLjg3NUwwLjEzNywtMC41ODlMMC4zMTMsLTAuNTg5TDAuMzEzLC0wLjQ3TDAuMTM3LC0wLjQ3TDAuMTM3LC0wLjI5NFoiIHN0eWxlPSJmaWxsOnJnYig2NCw2NCw2NCk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDYwNC40MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuMDI1LC0wLjg3NUwwLjE0MywtMC44NzVMMC4xNDMsLTAuNzU3TDAuMDI1LC0wLjc1N0wwLjAyNSwtMC44NzVaTTAuMDI1LC0wLjU5TDAuMTQzLC0wLjU5TDAuMTQzLC0wTDAuMDI1LC0wTDAuMDI1LC0wLjU5WiIgc3R5bGU9ImZpbGw6cmdiKDY0LDY0LDY0KTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCg1MCwwLDAsNTAsNjEyLjgzNSw0MzcuNTU1KSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMC4wMjYsMC4yOEwwLjAyNiwtMC41OUwwLjMyNywtMC41OUMwLjM3OCwtMC41ODkgMC40MjYsLTAuNTc1IDAuNDcxLC0wLjU0OEMwLjUxNSwtMC41MjEgMC41NSwtMC40ODYgMC41NzYsLTAuNDQyQzAuNjAxLC0wLjM5NyAwLjYxNCwtMC4zNDggMC42MTQsLTAuMjk2QzAuNjE0LC0wLjI0MyAwLjYwMSwtMC4xOTQgMC41NzUsLTAuMTQ5QzAuNTQ5LC0wLjEwMyAwLjUxMywtMC4wNjggMC40NjgsLTAuMDQyQzAuNDIzLC0wLjAxNSAwLjM3NCwtMC4wMDIgMC4zMiwtMC4wMDJDMC4yNTMsLTAuMDAyIDAuMTk1LC0wLjAyMSAwLjE0NCwtMC4wNkwwLjE0NCwwLjI4TDAuMDI2LDAuMjhaTTAuMTQ0LC0wLjQ3MkwwLjE0NCwtMC4yOTZDMC4xNDQsLTAuMjczIDAuMTQ5LC0wLjI1IDAuMTU4LC0wLjIyOUMwLjE2NywtMC4yMDcgMC4xNzksLTAuMTg4IDAuMTk2LC0wLjE3MUMwLjIxMywtMC4xNTQgMC4yMzIsLTAuMTQyIDAuMjUzLC0wLjEzM0MwLjI3NCwtMC4xMjQgMC4yOTcsLTAuMTIgMC4zMiwtMC4xMkMwLjM0MywtMC4xMiAwLjM2NiwtMC4xMjQgMC4zODcsLTAuMTMzQzAuNDA4LC0wLjE0MiAwLjQyNywtMC4xNTQgMC40NDQsLTAuMTcxQzAuNDc5LC0wLjIwOCAwLjQ5NiwtMC4yNDkgMC40OTYsLTAuMjk2QzAuNDk2LC0wLjMxOSAwLjQ5MiwtMC4zNDIgMC40ODMsLTAuMzYzQzAuNDc0LC0wLjM4NCAwLjQ2MSwtMC40MDMgMC40NDQsLTAuNDJDMC40MjcsLTAuNDM3IDAuNDA4LC0wLjQ1IDAuMzg3LC0wLjQ1OUMwLjM2NiwtMC40NjggMC4zNDMsLTAuNDcyIDAuMzIsLTAuNDcyTDAuMTQ0LC0wLjQ3MloiIHN0eWxlPSJmaWxsOnJnYig2NCw2NCw2NCk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDY0NC43MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjEsLTAuNTlMMC42MSwtMEwwLjMwOSwtMEMwLjI1NywtMC4wMDEgMC4yMDksLTAuMDE1IDAuMTY1LC0wLjA0MkMwLjEyLC0wLjA2OSAwLjA4NSwtMC4xMDQgMC4wNTksLTAuMTQ5QzAuMDMzLC0wLjE5NCAwLjAyLC0wLjI0MyAwLjAyLC0wLjI5NUMwLjAyLC0wLjM0OCAwLjAzMywtMC4zOTggMC4wNiwtMC40NDNDMC4wODYsLTAuNDg4IDAuMTIyLC0wLjUyNCAwLjE2NywtMC41NTFDMC4yMTIsLTAuNTc3IDAuMjYyLC0wLjU5IDAuMzE1LC0wLjU5QzAuMzQ4LC0wLjU5IDAuMzc5LC0wLjU4NSAwLjQxLC0wLjU3NUMwLjQ0LC0wLjU2NSAwLjQ2NywtMC41NTEgMC40OTIsLTAuNTMyTDAuNDkyLC0wLjU5TDAuNjEsLTAuNTlaTTAuNDkyLC0wLjI5NUMwLjQ5MiwtMC4zMTggMC40ODgsLTAuMzQxIDAuNDc5LC0wLjM2M0MwLjQ3LC0wLjM4NCAwLjQ1NywtMC40MDMgMC40NCwtMC40MkMwLjQyMywtMC40MzcgMC40MDQsLTAuNDUgMC4zODMsLTAuNDU5QzAuMzYxLC0wLjQ2OCAwLjMzOCwtMC40NzIgMC4zMTUsLTAuNDcyQzAuMjY4LC0wLjQ3MiAwLjIyNywtMC40NTUgMC4xOSwtMC40MkMwLjE3MywtMC40MDMgMC4xNjEsLTAuMzg0IDAuMTUyLC0wLjM2M0MwLjE0MywtMC4zNDEgMC4xMzksLTAuMzE4IDAuMTM5LC0wLjI5NUMwLjEzOSwtMC4yNDggMC4xNTYsLTAuMjA2IDAuMTksLTAuMTdDMC4yMjYsLTAuMTM2IDAuMjY4LC0wLjExOSAwLjMxNSwtMC4xMTlMMC40OTIsLTAuMTE5TDAuNDkyLC0wLjI5NVoiIHN0eWxlPSJmaWxsOnJnYig2NCw2NCw2NCk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDY3Ni45ODUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjE0LC0wTDAuNDk1LC0wTDAuNDk1LC0wLjI5NUMwLjQ5NSwtMC4zMTggMC40OTEsLTAuMzQxIDAuNDgyLC0wLjM2M0MwLjQ3MiwtMC4zODQgMC40NiwtMC40MDMgMC40NDMsLTAuNDJDMC40MjYsLTAuNDM3IDAuNDA3LC0wLjQ1IDAuMzg2LC0wLjQ1OUMwLjM2NSwtMC40NjggMC4zNDIsLTAuNDcyIDAuMzE4LC0wLjQ3MkwwLjE0NCwtMC40NzJMMC4xNDQsLTBMMC4wMjUsLTBMMC4wMjUsLTAuNTlMMC4zMTgsLTAuNTlDMC4zNzIsLTAuNTkgMC40MjIsLTAuNTc3IDAuNDY3LC0wLjU1MUMwLjUxMiwtMC41MjUgMC41NDgsLTAuNDg5IDAuNTc1LC0wLjQ0M0MwLjYwMSwtMC4zOTggMC42MTQsLTAuMzQ5IDAuNjE0LC0wLjI5NUwwLjYxNCwtMFoiIHN0eWxlPSJmaWxsOnJnYig2NCw2NCw2NCk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDcwOC45MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjA5LC0wLjg3NUwwLjYwOSwtMEwwLjMwOCwtMEMwLjI1NywtMC4wMDEgMC4yMDksLTAuMDE2IDAuMTY1LC0wLjA0NEMwLjEyMSwtMC4wNzEgMC4wODYsLTAuMTA4IDAuMDYsLTAuMTU1QzAuMDM0LC0wLjIgMC4wMjEsLTAuMjQ5IDAuMDIxLC0wLjMwMkMwLjAyMSwtMC4zNTUgMC4wMzQsLTAuNDA1IDAuMDYxLC0wLjQ1QzAuMDg3LC0wLjQ5NSAwLjEyMywtMC41MyAwLjE2OCwtMC41NTdDMC4yMTMsLTAuNTgzIDAuMjYyLC0wLjU5NiAwLjMxNSwtMC41OTZDMC4zNDcsLTAuNTk2IDAuMzc4LC0wLjU5MSAwLjQwOSwtMC41ODFDMC40MzksLTAuNTcgMC40NjYsLTAuNTU2IDAuNDkxLC0wLjUzN0wwLjQ5MSwtMC44NzVMMC42MDksLTAuODc1Wk0wLjQ5MSwtMC4xMThMMC40OTEsLTAuMzAyQzAuNDkxLC0wLjMyNSAwLjQ4NywtMC4zNDggMC40NzgsLTAuMzY5QzAuNDY4LC0wLjM5IDAuNDU2LC0wLjQwOSAwLjQzOSwtMC40MjZDMC40MjIsLTAuNDQzIDAuNDAzLC0wLjQ1NiAwLjM4MiwtMC40NjVDMC4zNjEsLTAuNDc0IDAuMzM4LC0wLjQ3OCAwLjMxNSwtMC40NzhDMC4yOTIsLTAuNDc4IDAuMjY5LC0wLjQ3NCAwLjI0OCwtMC40NjVDMC4yMjcsLTAuNDU2IDAuMjA4LC0wLjQ0MyAwLjE5MSwtMC40MjZDMC4xNzQsLTAuNDA5IDAuMTYyLC0wLjM5IDAuMTUzLC0wLjM2OUMwLjE0MywtMC4zNDggMC4xMzksLTAuMzI1IDAuMTM5LC0wLjMwMkMwLjEzOSwtMC4yNzcgMC4xNDQsLTAuMjUzIDAuMTUzLC0wLjIzQzAuMTYyLC0wLjIwNiAwLjE3NSwtMC4xODYgMC4xOTEsLTAuMTdDMC4yMDgsLTAuMTUzIDAuMjI3LC0wLjE0IDAuMjQ4LC0wLjEzMkMwLjI2OSwtMC4xMjMgMC4yOTIsLTAuMTE4IDAuMzE1LC0wLjExOEwwLjQ5MSwtMC4xMThaIiBzdHlsZT0iZmlsbDpyZ2IoNjQsNjQsNjQpO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDUwLDAsMCw1MCw3NDEuMDg1LDQzNy41NTUpIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0wLjMxMSwtMC41OThDMC4zNjQsLTAuNTk4IDAuNDEzLC0wLjU4NSAwLjQ1OSwtMC41NThDMC41MDMsLTAuNTMxIDAuNTM5LC0wLjQ5NSAwLjU2NiwtMC40NDlDMC41OTIsLTAuNDAyIDAuNjA1LC0wLjM1MSAwLjYwNSwtMC4yOTZMMC42MDUsLTAuMjk1QzAuNjA1LC0wLjI0IDAuNTkyLC0wLjE4OSAwLjU2NiwtMC4xNDNDMC41NCwtMC4wOTcgMC41MDQsLTAuMDYgMC40NTksLTAuMDMzQzAuNDE0LC0wLjAwNiAwLjM2NCwwLjAwOCAwLjMxLDAuMDA4QzAuMjU3LDAuMDA4IDAuMjA3LC0wLjAwNSAwLjE2MiwtMC4wMzJDMC4xMTcsLTAuMDU5IDAuMDgxLC0wLjA5NSAwLjA1NSwtMC4xNDJDMC4wMjgsLTAuMTg3IDAuMDE1LC0wLjIzOCAwLjAxNSwtMC4yOTVMMC4wMTUsLTAuMjk2QzAuMDE1LC0wLjM1MSAwLjAyOCwtMC40MDIgMC4wNTQsLTAuNDQ5QzAuMDgsLTAuNDk1IDAuMTE2LC0wLjUzMSAwLjE2MiwtMC41NThDMC4yMDcsLTAuNTg1IDAuMjU2LC0wLjU5OCAwLjMxMSwtMC41OThaTTAuNDM3LC0wLjE2QzAuNDcyLC0wLjE5NSAwLjQ5LC0wLjI0IDAuNDksLTAuMjk1QzAuNDksLTAuMzUgMC40NzIsLTAuMzk1IDAuNDM3LC0wLjQzQzAuNDAyLC0wLjQ2NSAwLjM1OSwtMC40ODMgMC4zMSwtMC40ODNDMC4yNjEsLTAuNDgzIDAuMjE4LC0wLjQ2NSAwLjE4MywtMC40M0MwLjE0OCwtMC4zOTUgMC4xMzEsLTAuMzUgMC4xMzEsLTAuMjk1QzAuMTMxLC0wLjI0IDAuMTQ4LC0wLjE5NSAwLjE4MywtMC4xNkMwLjIsLTAuMTQzIDAuMjE5LC0wLjEzMSAwLjI0MSwtMC4xMjJDMC4yNjMsLTAuMTEzIDAuMjg2LC0wLjEwOCAwLjMxLC0wLjEwOEMwLjMzNCwtMC4xMDggMC4zNTcsLTAuMTEzIDAuMzc5LC0wLjEyMkMwLjQwMSwtMC4xMzEgMC40MiwtMC4xNDMgMC40MzcsLTAuMTZaIiBzdHlsZT0iZmlsbDpyZ2IoNjQsNjQsNjQpO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KC0wLjQ2MjUxOSwwLDAsMC40NjI1MTksOTIwLjMxOCwtNTI4LjUwOSkiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTM2Mi40NiwxNDk5LjYzQzE1NjkuODEsMTQ5OS42MyAxNzM4LjE2LDE2NjcuOTggMTczOC4xNiwxODc1LjMzTDE3MzguMTYsMjI1MS4wM0w5ODYuNzUzLDIyNTEuMDNDNzc5LjM5NywyMjUxLjAzIDYxMS4wNSwyMDgyLjY5IDYxMS4wNSwxODc1LjMzQzYxMS4wNSwxNjY3Ljk4IDc3OS4zOTcsMTQ5OS42MyA5ODYuNzUzLDE0OTkuNjNMMTM2Mi40NiwxNDk5LjYzWk0xNjE2LjgsMTg3NS4zM0MxNjE2LjgsMTczNC45NSAxNTAyLjgzLDE2MjAuOTkgMTM2Mi40NiwxNjIwLjk5QzEzNjIuNDYsMTYyMC45OSA5ODYuNzUzLDE2MjAuOTkgOTg2Ljc1MywxNjIwLjk5Qzg0Ni4zNzYsMTYyMC45OSA3MzIuNDA4LDE3MzQuOTUgNzMyLjQwOCwxODc1LjMzQzczMi40MDgsMjAxNS43MSA4NDYuMzc2LDIxMjkuNjggOTg2Ljc1MywyMTI5LjY4TDE2MTYuOCwyMTI5LjY4TDE2MTYuOCwxODc1LjMzWiIgc3R5bGU9ImZpbGw6cmdiKDMsMTcwLDI0Nyk7Ii8+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuNDYyNTE5LDAsMCwwLjQ2MjUxOSw5NC40MTk3LC00MTAuODcpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTEzNjIuNDYsMTQ5OS42M0MxNTY5LjgxLDE0OTkuNjMgMTczOC4xNiwxNjY3Ljk4IDE3MzguMTYsMTg3NS4zM0wxNzM4LjE2LDIyNTEuMDNMOTg2Ljc1MywyMjUxLjAzQzc3OS4zOTcsMjI1MS4wMyA2MTEuMDUsMjA4Mi42OSA2MTEuMDUsMTg3NS4zM0M2MTEuMDUsMTY2Ny45OCA3NzkuMzk3LDE0OTkuNjMgOTg2Ljc1MywxNDk5LjYzTDEzNjIuNDYsMTQ5OS42M1pNMTYxNi44LDE4NzUuMzNDMTYxNi44LDE3MzQuOTUgMTUwMi44MywxNjIwLjk5IDEzNjIuNDYsMTYyMC45OUMxMzYyLjQ2LDE2MjAuOTkgOTg2Ljc1MywxNjIwLjk5IDk4Ni43NTMsMTYyMC45OUM4NDYuMzc2LDE2MjAuOTkgNzMyLjQwOCwxNzM0Ljk1IDczMi40MDgsMTg3NS4zM0M3MzIuNDA4LDIwMTUuNzEgODQ2LjM3NiwyMTI5LjY4IDk4Ni43NTMsMjEyOS42OEwxNjE2LjgsMjEyOS42OEwxNjE2LjgsMTg3NS4zM1oiIHN0eWxlPSJmaWxsOnJnYigyNTUsMTUwLDApO2ZpbGwtb3BhY2l0eTowLjg7Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=" alt="Tipando Logo" style="height:44px; width:auto; display:block;"></a>
-  </div>
-  
-  <button class="nav-hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="#problem">הבעיה</a></li>
-    <li><a href="#solution">הפתרון</a></li>
-    <li><a href="#process">התהליך</a></li>
-    <li><a href="#expert">אורית אמיר</a></li>
-  </ul>
-  <button class="nav-cta" onclick="openPayModal()">אני רוצה להתחבר למצפן שלי</button>
+<div class="nav-logo">
+<a aria-label="חזור לאתר טיפאנדו" href="http://tipando.com"><img alt="Tipando Logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDI3MDAgNjg2IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zOnNlcmlmPSJodHRwOi8vd3d3LnNlcmlmLmNvbS8iIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MjsiPgogICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4xNDE0NiwwLDAsMS4xNDE0NiwtNzYuODI1MiwtMTczLjc4MikiPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDcuODc4LDAsMCw3Ljg3OCwtMzY5Mi45NiwtMjgxNi45NykiPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCg1MCwwLDAsNTAsNTg3LjczNSw0MzcuNTU1KSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMC4xMzcsLTAuMjk0QzAuMTM3LC0wLjI3MSAwLjE0MSwtMC4yNDggMC4xNTEsLTAuMjI3QzAuMTYsLTAuMjA2IDAuMTcyLC0wLjE4NyAwLjE4OSwtMC4xN0MwLjIwNiwtMC4xNTMgMC4yMjUsLTAuMTQgMC4yNDYsLTAuMTMyQzAuMjY3LC0wLjEyMyAwLjI5LC0wLjExOCAwLjMxMywtMC4xMThMMC4zMTMsLTBDMC4yNiwtMCAwLjIxMSwtMC4wMTMgMC4xNjYsLTAuMDRDMC4xMjEsLTAuMDY2IDAuMDg1LC0wLjEwMiAwLjA1OSwtMC4xNDdDMC4wMzIsLTAuMTkyIDAuMDE5LC0wLjI0MSAwLjAxOSwtMC4yOTRMMC4wMTksLTAuODc1TDAuMTM3LC0wLjg3NUwwLjEzNywtMC41ODlMMC4zMTMsLTAuNTg5TDAuMzEzLC0wLjQ3TDAuMTM3LC0wLjQ3TDAuMTM3LC0wLjI5NFoiIHN0eWxlPSJmaWxsOnJnYig2NCw2NCw2NCk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDYwNC40MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuMDI1LC0wLjg3NUwwLjE0MywtMC44NzVMMC4xNDMsLTAuNzU3TDAuMDI1LC0wLjc1N0wwLjAyNSwtMC44NzVaTTAuMDI1LC0wLjU5TDAuMTQzLC0wLjU5TDAuMTQzLC0wTDAuMDI1LC0wTDAuMDI1LC0wLjU5WiIgc3R5bGU9ImZpbGw6cmdiKDY0LDY0LDY0KTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCg1MCwwLDAsNTAsNjEyLjgzNSw0MzcuNTU1KSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMC4wMjYsMC4yOEwwLjAyNiwtMC41OUwwLjMyNywtMC41OUMwLjM3OCwtMC41ODkgMC40MjYsLTAuNTc1IDAuNDcxLC0wLjU0OEMwLjUxNSwtMC41MjEgMC41NSwtMC40ODYgMC41NzYsLTAuNDQyQzAuNjAxLC0wLjM5NyAwLjYxNCwtMC4zNDggMC42MTQsLTAuMjk2QzAuNjE0LC0wLjI0MyAwLjYwMSwtMC4xOTQgMC41NzUsLTAuMTQ5QzAuNTQ5LC0wLjEwMyAwLjUxMywtMC4wNjggMC40NjgsLTAuMDQyQzAuNDIzLC0wLjAxNSAwLjM3NCwtMC4wMDIgMC4zMiwtMC4wMDJDMC4yNTMsLTAuMDAyIDAuMTk1LC0wLjAyMSAwLjE0NCwtMC4wNkwwLjE0NCwwLjI4TDAuMDI2LDAuMjhaTTAuMTQ0LC0wLjQ3MkwwLjE0NCwtMC4yOTZDMC4xNDQsLTAuMjczIDAuMTQ5LC0wLjI1IDAuMTU4LC0wLjIyOUMwLjE2NywtMC4yMDcgMC4xNzksLTAuMTg4IDAuMTk2LC0wLjE3MUMwLjIxMywtMC4xNTQgMC4yMzIsLTAuMTQyIDAuMjUzLC0wLjEzM0MwLjI3NCwtMC4xMjQgMC4yOTcsLTAuMTIgMC4zMiwtMC4xMkMwLjM0MywtMC4xMiAwLjM2NiwtMC4xMjQgMC4zODcsLTAuMTMzQzAuNDA4LC0wLjE0MiAwLjQyNywtMC4xNTQgMC40NDQsLTAuMTcxQzAuNDc5LC0wLjIwOCAwLjQ5NiwtMC4yNDkgMC40OTYsLTAuMjk2QzAuNDk2LC0wLjMxOSAwLjQ5MiwtMC4zNDIgMC40ODMsLTAuMzYzQzAuNDc0LC0wLjM4NCAwLjQ2MSwtMC40MDMgMC40NDQsLTAuNDJDMC40MjcsLTAuNDM3IDAuNDA4LC0wLjQ1IDAuMzg3LC0wLjQ1OUMwLjM2NiwtMC40NjggMC4zNDMsLTAuNDcyIDAuMzIsLTAuNDcyTDAuMTQ0LC0wLjQ3MloiIHN0eWxlPSJmaWxsOnJnYig2NCw2NCw2NCk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDY0NC43MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjEsLTAuNTlMMC42MSwtMEwwLjMwOSwtMEMwLjI1NywtMC4wMDEgMC4yMDksLTAuMDE1IDAuMTY1LC0wLjA0MkMwLjEyLC0wLjA2OSAwLjA4NSwtMC4xMDQgMC4wNTksLTAuMTQ5QzAuMDMzLC0wLjE5NCAwLjAyLC0wLjI0MyAwLjAyLC0wLjI5NUMwLjAyLC0wLjM0OCAwLjAzMywtMC4zOTggMC4wNiwtMC40NDNDMC4wODYsLTAuNDg4IDAuMTIyLC0wLjUyNCAwLjE2NywtMC41NTFDMC4yMTIsLTAuNTc3IDAuMjYyLC0wLjU5IDAuMzE1LC0wLjU5QzAuMzQ4LC0wLjU5IDAuMzc5LC0wLjU4NSAwLjQxLC0wLjU3NUMwLjQ0LC0wLjU2NSAwLjQ2NywtMC41NTEgMC40OTIsLTAuNTMyTDAuNDkyLC0wLjU5TDAuNjEsLTAuNTlaTTAuNDkyLC0wLjI5NUMwLjQ5MiwtMC4zMTggMC40ODgsLTAuMzQxIDAuNDc5LC0wLjM2M0MwLjQ3LC0wLjM4NCAwLjQ1NywtMC40MDMgMC40NCwtMC40MkMwLjQyMywtMC40MzcgMC40MDQsLTAuNDUgMC4zODMsLTAuNDU5QzAuMzYxLC0wLjQ2OCAwLjMzOCwtMC40NzIgMC4zMTUsLTAuNDcyQzAuMjY4LC0wLjQ3MiAwLjIyNywtMC40NTUgMC4xOSwtMC40MkMwLjE3MywtMC40MDMgMC4xNjEsLTAuMzg0IDAuMTUyLC0wLjM2M0MwLjE0MywtMC4zNDEgMC4xMzksLTAuMzE4IDAuMTM5LC0wLjI5NUMwLjEzOSwtMC4yNDggMC4xNTYsLTAuMjA2IDAuMTksLTAuMTdDMC4yMjYsLTAuMTM2IDAuMjY4LC0wLjExOSAwLjMxNSwtMC4xMTlMMC40OTIsLTAuMTE5TDAuNDkyLC0wLjI5NVoiIHN0eWxlPSJmaWxsOnJnYig2NCw2NCw2NCk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDY3Ni45ODUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjE0LC0wTDAuNDk1LC0wTDAuNDk1LC0wLjI5NUMwLjQ5NSwtMC4zMTggMC40OTEsLTAuMzQxIDAuNDgyLC0wLjM2M0MwLjQ3MiwtMC4zODQgMC40NiwtMC40MDMgMC40NDMsLTAuNDJDMC40MjYsLTAuNDM3IDAuNDA3LC0wLjQ1IDAuMzg2LC0wLjQ1OUMwLjM2NSwtMC40NjggMC4zNDIsLTAuNDcyIDAuMzE4LC0wLjQ3MkwwLjE0NCwtMC40NzJMMC4xNDQsLTBMMC4wMjUsLTBMMC4wMjUsLTAuNTlMMC4zMTgsLTAuNTlDMC4zNzIsLTAuNTkgMC40MjIsLTAuNTc3IDAuNDY3LC0wLjU1MUMwLjUxMiwtMC41MjUgMC41NDgsLTAuNDg5IDAuNTc1LC0wLjQ0M0MwLjYwMSwtMC4zOTggMC42MTQsLTAuMzQ5IDAuNjE0LC0wLjI5NUwwLjYxNCwtMFoiIHN0eWxlPSJmaWxsOnJnYig2NCw2NCw2NCk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDcwOC45MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjA5LC0wLjg3NUwwLjYwOSwtMEwwLjMwOCwtMEMwLjI1NywtMC4wMDEgMC4yMDksLTAuMDE2IDAuMTY1LC0wLjA0NEMwLjEyMSwtMC4wNzEgMC4wODYsLTAuMTA4IDAuMDYsLTAuMTU1QzAuMDM0LC0wLjIgMC4wMjEsLTAuMjQ5IDAuMDIxLC0wLjMwMkMwLjAyMSwtMC4zNTUgMC4wMzQsLTAuNDA1IDAuMDYxLC0wLjQ1QzAuMDg3LC0wLjQ5NSAwLjEyMywtMC41MyAwLjE2OCwtMC41NTdDMC4yMTMsLTAuNTgzIDAuMjYyLC0wLjU5NiAwLjMxNSwtMC41OTZDMC4zNDcsLTAuNTk2IDAuMzc4LC0wLjU5MSAwLjQwOSwtMC41ODFDMC40MzksLTAuNTcgMC40NjYsLTAuNTU2IDAuNDkxLC0wLjUzN0wwLjQ5MSwtMC44NzVMMC42MDksLTAuODc1Wk0wLjQ5MSwtMC4xMThMMC40OTEsLTAuMzAyQzAuNDkxLC0wLjMyNSAwLjQ4NywtMC4zNDggMC40NzgsLTAuMzY5QzAuNDY4LC0wLjM5IDAuNDU2LC0wLjQwOSAwLjQzOSwtMC40MjZDMC40MjIsLTAuNDQzIDAuNDAzLC0wLjQ1NiAwLjM4MiwtMC40NjVDMC4zNjEsLTAuNDc0IDAuMzM4LC0wLjQ3OCAwLjMxNSwtMC40NzhDMC4yOTIsLTAuNDc4IDAuMjY5LC0wLjQ3NCAwLjI0OCwtMC40NjVDMC4yMjcsLTAuNDU2IDAuMjA4LC0wLjQ0MyAwLjE5MSwtMC40MjZDMC4xNzQsLTAuNDA5IDAuMTYyLC0wLjM5IDAuMTUzLC0wLjM2OUMwLjE0MywtMC4zNDggMC4xMzksLTAuMzI1IDAuMTM5LC0wLjMwMkMwLjEzOSwtMC4yNzcgMC4xNDQsLTAuMjUzIDAuMTUzLC0wLjIzQzAuMTYyLC0wLjIwNiAwLjE3NSwtMC4xODYgMC4xOTEsLTAuMTdDMC4yMDgsLTAuMTUzIDAuMjI3LC0wLjE0IDAuMjQ4LC0wLjEzMkMwLjI2OSwtMC4xMjMgMC4yOTIsLTAuMTE4IDAuMzE1LC0wLjExOEwwLjQ5MSwtMC4xMThaIiBzdHlsZT0iZmlsbDpyZ2IoNjQsNjQsNjQpO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDUwLDAsMCw1MCw3NDEuMDg1LDQzNy41NTUpIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0wLjMxMSwtMC41OThDMC4zNjQsLTAuNTk4IDAuNDEzLC0wLjU4NSAwLjQ1OSwtMC41NThDMC41MDMsLTAuNTMxIDAuNTM5LC0wLjQ5NSAwLjU2NiwtMC40NDlDMC41OTIsLTAuNDAyIDAuNjA1LC0wLjM1MSAwLjYwNSwtMC4yOTZMMC42MDUsLTAuMjk1QzAuNjA1LC0wLjI0IDAuNTkyLC0wLjE4OSAwLjU2NiwtMC4xNDNDMC41NCwtMC4wOTcgMC41MDQsLTAuMDYgMC40NTksLTAuMDMzQzAuNDE0LC0wLjAwNiAwLjM2NCwwLjAwOCAwLjMxLDAuMDA4QzAuMjU3LDAuMDA4IDAuMjA3LC0wLjAwNSAwLjE2MiwtMC4wMzJDMC4xMTcsLTAuMDU5IDAuMDgxLC0wLjA5NSAwLjA1NSwtMC4xNDJDMC4wMjgsLTAuMTg3IDAuMDE1LC0wLjIzOCAwLjAxNSwtMC4yOTVMMC4wMTUsLTAuMjk2QzAuMDE1LC0wLjM1MSAwLjAyOCwtMC40MDIgMC4wNTQsLTAuNDQ5QzAuMDgsLTAuNDk1IDAuMTE2LC0wLjUzMSAwLjE2MiwtMC41NThDMC4yMDcsLTAuNTg1IDAuMjU2LC0wLjU5OCAwLjMxMSwtMC41OThaTTAuNDM3LC0wLjE2QzAuNDcyLC0wLjE5NSAwLjQ5LC0wLjI0IDAuNDksLTAuMjk1QzAuNDksLTAuMzUgMC40NzIsLTAuMzk1IDAuNDM3LC0wLjQzQzAuNDAyLC0wLjQ2NSAwLjM1OSwtMC40ODMgMC4zMSwtMC40ODNDMC4yNjEsLTAuNDgzIDAuMjE4LC0wLjQ2NSAwLjE4MywtMC40M0MwLjE0OCwtMC4zOTUgMC4xMzEsLTAuMzUgMC4xMzEsLTAuMjk1QzAuMTMxLC0wLjI0IDAuMTQ4LC0wLjE5NSAwLjE4MywtMC4xNkMwLjIsLTAuMTQzIDAuMjE5LC0wLjEzMSAwLjI0MSwtMC4xMjJDMC4yNjMsLTAuMTEzIDAuMjg2LC0wLjEwOCAwLjMxLC0wLjEwOEMwLjMzNCwtMC4xMDggMC4zNTcsLTAuMTEzIDAuMzc5LC0wLjEyMkMwLjQwMSwtMC4xMzEgMC40MiwtMC4xNDMgMC40MzcsLTAuMTZaIiBzdHlsZT0iZmlsbDpyZ2IoNjQsNjQsNjQpO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KC0wLjQ2MjUxOSwwLDAsMC40NjI1MTksOTIwLjMxOCwtNTI4LjUwOSkiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTM2Mi40NiwxNDk5LjYzQzE1NjkuODEsMTQ5OS42MyAxNzM4LjE2LDE2NjcuOTggMTczOC4xNiwxODc1LjMzTDE3MzguMTYsMjI1MS4wM0w5ODYuNzUzLDIyNTEuMDNDNzc5LjM5NywyMjUxLjAzIDYxMS4wNSwyMDgyLjY5IDYxMS4wNSwxODc1LjMzQzYxMS4wNSwxNjY3Ljk4IDc3OS4zOTcsMTQ5OS42MyA5ODYuNzUzLDE0OTkuNjNMMTM2Mi40NiwxNDk5LjYzWk0xNjE2LjgsMTg3NS4zM0MxNjE2LjgsMTczNC45NSAxNTAyLjgzLDE2MjAuOTkgMTM2Mi40NiwxNjIwLjk5QzEzNjIuNDYsMTYyMC45OSA5ODYuNzUzLDE2MjAuOTkgOTg2Ljc1MywxNjIwLjk5Qzg0Ni4zNzYsMTYyMC45OSA3MzIuNDA4LDE3MzQuOTUgNzMyLjQwOCwxODc1LjMzQzczMi40MDgsMjAxNS43MSA4NDYuMzc2LDIxMjkuNjggOTg2Ljc1MywyMTI5LjY4TDE2MTYuOCwyMTI5LjY4TDE2MTYuOCwxODc1LjMzWiIgc3R5bGU9ImZpbGw6cmdiKDMsMTcwLDI0Nyk7Ii8+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuNDYyNTE5LDAsMCwwLjQ2MjUxOSw5NC40MTk3LC00MTAuODcpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTEzNjIuNDYsMTQ5OS42M0MxNTY5LjgxLDE0OTkuNjMgMTczOC4xNiwxNjY3Ljk4IDE3MzguMTYsMTg3NS4zM0wxNzM4LjE2LDIyNTEuMDNMOTg2Ljc1MywyMjUxLjAzQzc3OS4zOTcsMjI1MS4wMyA2MTEuMDUsMjA4Mi42OSA2MTEuMDUsMTg3NS4zM0M2MTEuMDUsMTY2Ny45OCA3NzkuMzk3LDE0OTkuNjMgOTg2Ljc1MywxNDk5LjYzTDEzNjIuNDYsMTQ5OS42M1pNMTYxNi44LDE4NzUuMzNDMTYxNi44LDE3MzQuOTUgMTUwMi44MywxNjIwLjk5IDEzNjIuNDYsMTYyMC45OUMxMzYyLjQ2LDE2MjAuOTkgOTg2Ljc1MywxNjIwLjk5IDk4Ni43NTMsMTYyMC45OUM4NDYuMzc2LDE2MjAuOTkgNzMyLjQwOCwxNzM0Ljk1IDczMi40MDgsMTg3NS4zM0M3MzIuNDA4LDIwMTUuNzEgODQ2LjM3NiwyMTI5LjY4IDk4Ni43NTMsMjEyOS42OEwxNjE2LjgsMjEyOS42OEwxNjE2LjgsMTg3NS4zM1oiIHN0eWxlPSJmaWxsOnJnYigyNTUsMTUwLDApO2ZpbGwtb3BhY2l0eTowLjg7Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=" style="height:44px; width:auto; display:block;"/></a>
+</div>
+<button aria-label="תפריט" class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+<ul class="nav-links">
+<li><a href="#problem">הבעיה</a></li>
+<li><a href="#solution">הפתרון</a></li>
+<li><a href="#process">התהליך</a></li>
+<li><a href="#expert">אורית אמיר</a></li>
+</ul>
+<button class="nav-cta" onclick="openPayModal()">אני רוצה להתחבר למצפן שלי</button>
 </nav>
-
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-bg-orb orb1"></div>
-  <div class="hero-bg-orb orb2"></div>
-  <div class="hero-bg-orb orb3"></div>
-
-  <div class="hero-grid">
-    <div class="hero-content">
-      <div class="hero-eyebrow">מצפן הקריירה של Tipando</div>
-      <h1 class="hero-title">
-        העולם משתנה.<br>
-        <span class="highlight">האם הקריירה שלך</span><br>
-        <span class="blue-word">מוכנה לזה?</span>
-      </h1>
-      <p class="hero-desc">
-        בעידן שבו טכנולוגיה מאיצה תהליכים, הערך האנושי לא נעלם - הוא משתנה.<br><strong style="color:rgba(255,255,255,0.9)">הגיע הזמן להפסיק לנחש ולהתחיל לנווט</strong> - עם מדע מבוסס נתונים אישיותיים, ניסיון אסטרטגי וליווי אישי מדויק עבורך.
+<div class="hero-bg-orb orb1"></div>
+<div class="hero-bg-orb orb2"></div>
+<div class="hero-bg-orb orb3"></div>
+<div class="hero-grid">
+<div class="hero-content">
+<div class="hero-eyebrow">מצפן הקריירה של Tipando</div>
+<h1 class="hero-title">
+        העולם משתנה.<br/>
+<span class="highlight">האם הקריירה שלך</span><br/>
+<span class="blue-word">מוכנה לזה?</span>
+</h1>
+<p class="hero-desc">
+        בעידן שבו טכנולוגיה מאיצה תהליכים, הערך האנושי לא נעלם - הוא משתנה.<br/><strong style="color:rgba(255,255,255,0.9)">הגיע הזמן להפסיק לנחש ולהתחיל לנווט</strong> - עם מדע מבוסס נתונים אישיותיים, ניסיון אסטרטגי וליווי אישי מדויק עבורך.
       </p>
-      <div class="hero-actions">
-        <button onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})" class="btn-orange">
+<div class="hero-actions">
+<button class="btn-orange" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">
           לקביעת שיחת התאמה אישית ←
         </button>
-        <button class="btn-outline" onclick="document.getElementById('solution').scrollIntoView({behavior:'smooth'})">
+<button class="btn-outline" onclick="document.getElementById('solution').scrollIntoView({behavior:'smooth'})">
           איך זה עובד?
         </button>
-      </div>
-    </div>
+</div>
+</div>
+<div class="hero-card">
+<div class="compass-visual">
 
-    <div class="hero-card">
-      <div class="compass-visual">
-        <svg class="compass-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="compassGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#2c3547"/>
-              <stop offset="100%" stop-color="#1c2333"/>
-            </radialGradient>
-            <linearGradient id="needleGradN" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#F5A623"/>
-              <stop offset="100%" stop-color="#d4861a"/>
-            </linearGradient>
-          </defs>
-          <!-- Outer decorative ring with ticks -->
-          <circle cx="100" cy="100" r="90" class="compass-ring-outer"/>
-          <!-- Tick marks -->
-          <line x1="100" y1="12" x2="100" y2="20" class="compass-tick-major"/>
-          <line x1="100" y1="180" x2="100" y2="188" class="compass-tick-major"/>
-          <line x1="12" y1="100" x2="20" y2="100" class="compass-tick-major"/>
-          <line x1="180" y1="100" x2="188" y2="100" class="compass-tick-major"/>
-          <line x1="38" y1="38" x2="44" y2="44" class="compass-tick"/>
-          <line x1="156" y1="38" x2="162" y2="44" class="compass-tick"/>
-          <line x1="38" y1="162" x2="44" y2="156" class="compass-tick"/>
-          <line x1="156" y1="162" x2="162" y2="156" class="compass-tick"/>
-          <!-- Inner dashed ring -->
-          <circle cx="100" cy="100" r="72" class="compass-ring-inner"/>
-          <!-- Center background -->
-          <circle cx="100" cy="100" r="55" class="compass-center-bg"/>
-          <!-- Compass needle -->
-          <polygon points="100,52 96,110 100,118 104,110" class="compass-needle-n"/>
-          <polygon points="100,148 96,110 100,118 104,110" class="compass-needle-s"/>
-          <!-- Center dot -->
-          <circle cx="100" cy="110" r="5" class="compass-center-dot"/>
-          <!-- Cardinal labels -->
-          <text x="100" y="36" text-anchor="middle" fill="rgba(245,166,35,0.9)" font-size="11" font-family="Rubik,sans-serif" font-weight="700">N</text>
-          <text x="100" y="172" text-anchor="middle" fill="rgba(58,175,228,0.7)" font-size="10" font-family="Rubik,sans-serif">S</text>
-          <text x="28" y="104" text-anchor="middle" fill="rgba(58,175,228,0.7)" font-size="10" font-family="Rubik,sans-serif">W</text>
-          <text x="172" y="104" text-anchor="middle" fill="rgba(58,175,228,0.7)" font-size="10" font-family="Rubik,sans-serif">E</text>
-          <!-- Center text -->
-          <text x="100" y="96" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9" font-family="Rubik,sans-serif" font-weight="600">הצפון</text>
-          <text x="100" y="108" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="9" font-family="Rubik,sans-serif" font-weight="600">שלך</text>
-        </svg>
-      </div>
-      <div class="card-tags">
-        <div class="ctag">
-          <span class="ctag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3AAFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+</div>
+<div class="card-tags">
+<div class="ctag">
+<span class="ctag-icon"></span>
           חוזקות ייחודיות מולדות
         </div>
-        <div class="ctag">
-          <span class="ctag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+<div class="ctag">
+<span class="ctag-icon"></span>
           תחומי עניין ומוטיבציה
         </div>
-        <div class="ctag">
-          <span class="ctag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#5cb85c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+<div class="ctag">
+<span class="ctag-icon"></span>
           כיווני קריירה מותאמים לך
         </div>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ===== PROBLEM ===== -->
 <section class="problem-section" id="problem">
-  <div class="section-inner">
-    <div class="section-tag reveal">הבעיה האמיתית</div>
-    <h2 class="section-title reveal">מרגישים שהקרקע רועדת?<br><span style="color:var(--blue)">אתם לא לבד.</span></h2>
-    <p class="section-sub reveal">עם כניסת ה-AI לכל תחום אפשרי, צעירים רבים חווים בלבול וחוסר ודאות מול שוק עבודה משתנה:</p>
-
-    <div class="fears-grid">
-      <div class="fear-card reveal">
-        <div class="fear-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3AAFE4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1" fill="#3AAFE4"/></svg></div>
-        <div class="fear-q">האם AI יחליף את המקצוע שלי?</div>
-        <p class="fear-text">מחצית מהמשרות הקיימות היום עלולות להפוך לאוטומטיות בשנים הקרובות.</p>
-        <p class="fear-add">איך אדע איזה כיוון מתאים לי?</p>
-      </div>
-      <div class="fear-card reveal reveal-d1">
-        <div class="fear-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3AAFE4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <div class="fear-q">מה ללמוד כדי שיהיה רלוונטי בעוד 10 שנים?</div>
-        <p class="fear-text">4 שנות לימוד ועשרות אלפי שקלים ואז לגלות שהתחום שבחרתי כבר לא קיים...</p>
-        <p class="fear-add">תמיד אפשר לתקן - אבל לא חבל על הזמן היקר?</p>
-      </div>
-      <div class="fear-card reveal reveal-d2">
-        <div class="fear-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3AAFE4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-        <div class="fear-q">מהן החוזקות שלי, שמכונה לא תוכל להחליף?</div>
-        <p class="fear-text">כל אחת ואחד נושאים בתוכם כישרונות טבעיים, ייחודיים.</p>
-        <p class="fear-add">הבעיה היא שרובנו לא יודעים לזהות ולאזן אותם.</p>
-      </div>
-    </div>
-
-    <div class="good-news reveal">
-      <div class="good-news-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <div>
-        <div class="good-news-title">הבשורה הטובה: השינוי הוא לא איום - הוא הזדמנות</div>
-        <p class="good-news-text">זה בדיוק מה שמצפן הקריירה של Tipando עושה - ממפה את ה-DNA האישיותי, הייחודי שלכם <strong style="color:var(--orange)">ומצביע על הכיוון שמתאים לכם.</strong></p>
-      </div>
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-tag reveal">הבעיה האמיתית</div>
+<h2 class="section-title reveal">מרגישים שהקרקע רועדת?<br/><span style="color:var(--blue)">אתם לא לבד.</span></h2>
+<p class="section-sub reveal">עם כניסת ה-AI לכל תחום אפשרי, צעירים רבים חווים בלבול וחוסר ודאות מול שוק עבודה משתנה:</p>
+<div class="fears-grid">
+<div class="fear-card reveal">
+<div class="fear-icon"></div>
+<div class="fear-q">האם AI יחליף את המקצוע שלי?</div>
+<p class="fear-text">מחצית מהמשרות הקיימות היום עלולות להפוך לאוטומטיות בשנים הקרובות.</p>
+<p class="fear-add">איך אדע איזה כיוון מתאים לי?</p>
+</div>
+<div class="fear-card reveal reveal-d1">
+<div class="fear-icon"></div>
+<div class="fear-q">מה ללמוד כדי שיהיה רלוונטי בעוד 10 שנים?</div>
+<p class="fear-text">4 שנות לימוד ועשרות אלפי שקלים ואז לגלות שהתחום שבחרתי כבר לא קיים...</p>
+<p class="fear-add">תמיד אפשר לתקן - אבל לא חבל על הזמן היקר?</p>
+</div>
+<div class="fear-card reveal reveal-d2">
+<div class="fear-icon"></div>
+<div class="fear-q">מהן החוזקות שלי, שמכונה לא תוכל להחליף?</div>
+<p class="fear-text">כל אחת ואחד נושאים בתוכם כישרונות טבעיים, ייחודיים.</p>
+<p class="fear-add">הבעיה היא שרובנו לא יודעים לזהות ולאזן אותם.</p>
+</div>
+</div>
+<div class="good-news reveal">
+<div class="good-news-icon"></div>
+<div>
+<div class="good-news-title">הבשורה הטובה: השינוי הוא לא איום - הוא הזדמנות</div>
+<p class="good-news-text">זה בדיוק מה שמצפן הקריירה של Tipando עושה - ממפה את ה-DNA האישיותי, הייחודי שלכם <strong style="color:var(--orange)">ומצביע על הכיוון שמתאים לכם.</strong></p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ===== SOLUTION ===== -->
 <section class="solution-section" id="solution">
-  <div class="section-inner" style="max-width:1200px;margin:0 auto;">
-    <div class="solution-grid">
-      <div>
-        <div class="section-tag reveal">הפתרון שלנו</div>
-        <h2 class="solution-headline reveal" style="text-align:right;">
-          <span style="color:var(--orange);font-weight:900;">מדע</span> מבוסס נתונים<br>
-          + <span style="color:var(--orange);font-weight:900;">ניסיון</span> אסטרטגי<br>
+<div class="section-inner" style="max-width:1200px;margin:0 auto;">
+<div class="solution-grid">
+<div>
+<div class="section-tag reveal">הפתרון שלנו</div>
+<h2 class="solution-headline reveal" style="text-align:right;">
+<span style="color:var(--orange);font-weight:900;">מדע</span> מבוסס נתונים<br/>
+          + <span style="color:var(--orange);font-weight:900;">ניסיון</span> אסטרטגי<br/>
           + <span style="color:var(--orange);font-weight:900;">כיוון אישי</span> מדויק לך.
         </h2>
-        <p class="section-sub reveal">אנחנו משלבים בין שיטת Birkman הבינלאומית לבין שנים של עבודה עם אלפי סטודנטים, מנהלים והנהלות בארגונים מובילים.</p>
-        <ul class="expert-points reveal" style="margin-bottom:2rem;">
-          <li><span class="point-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10 6 15 6 11 9.5 12.5 15 8 11.5 3.5 15 5 9.5 1 6 6 6"/></svg></span>לא אינטואיציה.</li>
-          <li><span class="point-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10 6 15 6 11 9.5 12.5 15 8 11.5 3.5 15 5 9.5 1 6 6 6"/></svg></span>לא שאלון שטחי.</li>
-          <li><span class="point-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10 6 15 6 11 9.5 12.5 15 8 11.5 3.5 15 5 9.5 1 6 6 6"/></svg></span><strong>אלא מיפוי עומק מבוסס נתונים לבחירת כיוון קריירה שמתאים לך.</strong></li>
-        </ul>
-        <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.5rem;">
-          <button onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})" class="btn-orange reveal">
+<p class="section-sub reveal">אנחנו משלבים בין שיטת Birkman הבינלאומית לבין שנים של עבודה עם אלפי סטודנטים, מנהלים והנהלות בארגונים מובילים.</p>
+<ul class="expert-points reveal" style="margin-bottom:2rem;">
+<li><span class="point-icon"></span>לא אינטואיציה.</li>
+<li><span class="point-icon"></span>לא שאלון שטחי.</li>
+<li><span class="point-icon"></span><strong>אלא מיפוי עומק מבוסס נתונים לבחירת כיוון קריירה שמתאים לך.</strong></li>
+</ul>
+<div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.5rem;">
+<button class="btn-orange reveal" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">
             לקביעת שיחת התאמה אישית ←
           </button>
-        </div>
-      </div>
-      <div class="solution-visual reveal">
-        <div class="pillars">
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3AAFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#3AAFE4"/></svg></div>
-            <div>
-              <div class="pillar-name">Birkman Method®</div>
-              <div class="pillar-sub">שיטת האבחון המדעי המוכחת עולמית</div>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3AAFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-            <div>
-              <div class="pillar-name">כישורים טבעיים</div>
-              <div class="pillar-sub">מה הכישורים הטבעיים שנולדתם איתם</div>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3AAFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-            <div>
-              <div class="pillar-name">תחומי עניין ומוטיבציה</div>
-              <div class="pillar-sub">מה מניע אתכם</div>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3AAFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-            <div>
-              <div class="pillar-name">סביבת עבודה אידיאלית</div>
-              <div class="pillar-sub">איפה אתם פורחים</div>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3AAFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-            <div>
-              <div class="pillar-name">מסלולי קריירה</div>
-              <div class="pillar-sub">כיוונים המתאימים לפרופיל שלך</div>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3AAFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
-            <div>
-              <div class="pillar-name">המלצות</div>
-              <div class="pillar-sub">המלצות שמותאמות ל-DNA האישיותי הייחודי שלכם</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+<div class="solution-visual reveal">
+<div class="pillars">
+<div class="pillar">
+<div class="pillar-icon"></div>
+<div>
+<div class="pillar-name">Birkman Method®</div>
+<div class="pillar-sub">שיטת האבחון המדעי המוכחת עולמית</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-icon"></div>
+<div>
+<div class="pillar-name">כישורים טבעיים</div>
+<div class="pillar-sub">מה הכישורים הטבעיים שנולדתם איתם</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-icon"></div>
+<div>
+<div class="pillar-name">תחומי עניין ומוטיבציה</div>
+<div class="pillar-sub">מה מניע אתכם</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-icon"></div>
+<div>
+<div class="pillar-name">סביבת עבודה אידיאלית</div>
+<div class="pillar-sub">איפה אתם פורחים</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-icon"></div>
+<div>
+<div class="pillar-name">מסלולי קריירה</div>
+<div class="pillar-sub">כיוונים המתאימים לפרופיל שלך</div>
+</div>
+</div>
+<div class="pillar">
+<div class="pillar-icon"></div>
+<div>
+<div class="pillar-name">המלצות</div>
+<div class="pillar-sub">המלצות שמותאמות ל-DNA האישיותי הייחודי שלכם</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ===== PROCESS ===== -->
 <section class="process-section" id="process">
-  <div class="process-bg-text">COMPASS</div>
-  <div class="section-inner" style="max-width:900px;margin:0 auto;">
-    <div class="section-tag reveal">התהליך</div>
-    <h2 class="section-title reveal">חמישה צעדים לדיוק מצפן הקריירה</h2>
-    <p class="section-sub reveal" style="margin-bottom:4rem;">פשוט. מובנה. משנה חיים.</p>
-
-    <div class="steps-timeline">
-      <div class="step-item reveal">
-        <div class="step-content">
-          <div class="step-title">שיחת התאמה אישית</div>
-          <p class="step-desc">השיחה מאפשרת לוודא שהתהליך מתאים לשלב שבו אתם נמצאים. מטרתה להבין את נקודת הפתיחה שלכם ולבחון האם תהליך זה נכון עבורכם כעת. זיכרו שלא כל התלבטות מצריכה תהליך עומק. ולא כל שלב בחיים נכון לעבודה כזו.</p>
-          <div class="step-badge" style="cursor:pointer;" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})"><span class="step-badge-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91" transform="scale(0.58)"/></svg></span><a href="javascript:void(0)" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})" style="color:inherit;text-decoration:none;">לקביעת שיחת ההתאמה ←</a></div>
-        </div>
-        <div class="step-num-wrap"><div class="step-num">1</div></div>
-      </div>
-
-      <div class="step-item reveal reveal-d1">
-        <div class="step-content">
-          <div class="step-title">הרשמה ותשלום</div>
-          <p class="step-desc">לאחר שיחת התאמה ממוקדת - הצטרפות מהירה ומאובטחת למסלול מצפן הקריירה של Tipando.</p>
-          <div class="step-badge" style="cursor:pointer;" onclick="openPayModal()"><span class="step-badge-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2" ry="2" transform="scale(0.58)"/><path d="M5 6V4a7 7 0 0 1 14 0v2" transform="scale(0.58)"/></svg></span><a href="javascript:void(0)" onclick="openPayModal()" style="color:inherit;text-decoration:none;">הרשמה מאובטחת ←</a></div>
-        </div>
-        <div class="step-num-wrap orange"><div class="step-num">2</div></div>
-      </div>
-
-      <div class="step-item reveal reveal-d2">
-        <div class="step-content">
-          <div class="step-title">מילוי שאלון בירקמן</div>
-          <p class="step-desc">תקבלו הזמנה אישית למילוי שאלון Birkman העולמי המקוון.</p>
-          <p class="step-note-orange">שיטה מדעית מוכחת.</p>
-        </div>
-        <div class="step-num-wrap"><div class="step-num">3</div></div>
-      </div>
-
-      <div class="step-item reveal reveal-d3">
-        <div class="step-content">
-          <div class="step-title">דו״ח מצפן קריירה אסטרטגי מותאם אישית</div>
-          <p class="step-desc">תקבלו למייל דו״ח מקיף ומנותח שממפה את הפוטנציאל המלא שלכם: חוזקות, כישורים, סגנון עבודה מותאם ובעיקר - מציאת כיווני הקריירה שמתאימים לכם אישית.</p>
-          <p class="step-note-orange">דו״ח אישי ומפורט.</p>
-        </div>
-        <div class="step-num-wrap orange"><div class="step-num">4</div></div>
-      </div>
-
-      <div class="step-item reveal reveal-d4">
-        <div class="step-content">
-          <div class="step-title">פגישת עומק לניתוח והטמעה</div>
-          <p class="step-desc">יחד נדייק את התוצאות להבנת תוכנית הפעולה המתאימה לך.</p>
-          <p class="step-note-orange">ליווי אישי מדויק בשבילך.</p>
-        </div>
-        <div class="step-num-wrap"><div class="step-num">5</div></div>
-      </div>
-    </div>
-  </div>
+<div class="process-bg-text">COMPASS</div>
+<div class="section-inner" style="max-width:900px;margin:0 auto;">
+<div class="section-tag reveal">התהליך</div>
+<h2 class="section-title reveal">חמישה צעדים לדיוק מצפן הקריירה</h2>
+<p class="section-sub reveal" style="margin-bottom:4rem;">פשוט. מובנה. משנה חיים.</p>
+<div class="steps-timeline">
+<div class="step-item reveal">
+<div class="step-content">
+<div class="step-title">שיחת התאמה אישית</div>
+<p class="step-desc">השיחה מאפשרת לוודא שהתהליך מתאים לשלב שבו אתם נמצאים. מטרתה להבין את נקודת הפתיחה שלכם ולבחון האם תהליך זה נכון עבורכם כעת. זיכרו שלא כל התלבטות מצריכה תהליך עומק. ולא כל שלב בחיים נכון לעבודה כזו.</p>
+<div class="step-badge" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;"><span class="step-badge-icon"></span><a href="javascript:void(0)" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})" style="color:inherit;text-decoration:none;">לקביעת שיחת ההתאמה ←</a></div>
+</div>
+<div class="step-num-wrap"><div class="step-num">1</div></div>
+</div>
+<div class="step-item reveal reveal-d1">
+<div class="step-content">
+<div class="step-title">הרשמה ותשלום</div>
+<p class="step-desc">לאחר שיחת התאמה ממוקדת - הצטרפות מהירה ומאובטחת למסלול מצפן הקריירה של Tipando.</p>
+<div class="step-badge" onclick="openPayModal()" style="cursor:pointer;"><span class="step-badge-icon"></span><a href="javascript:void(0)" onclick="openPayModal()" style="color:inherit;text-decoration:none;">הרשמה מאובטחת ←</a></div>
+</div>
+<div class="step-num-wrap orange"><div class="step-num">2</div></div>
+</div>
+<div class="step-item reveal reveal-d2">
+<div class="step-content">
+<div class="step-title">מילוי שאלון בירקמן</div>
+<p class="step-desc">תקבלו הזמנה אישית למילוי שאלון Birkman העולמי המקוון.</p>
+<p class="step-note-orange">שיטה מדעית מוכחת.</p>
+</div>
+<div class="step-num-wrap"><div class="step-num">3</div></div>
+</div>
+<div class="step-item reveal reveal-d3">
+<div class="step-content">
+<div class="step-title">דו״ח מצפן קריירה אסטרטגי מותאם אישית</div>
+<p class="step-desc">תקבלו למייל דו״ח מקיף ומנותח שממפה את הפוטנציאל המלא שלכם: חוזקות, כישורים, סגנון עבודה מותאם ובעיקר - מציאת כיווני הקריירה שמתאימים לכם אישית.</p>
+<p class="step-note-orange">דו״ח אישי ומפורט.</p>
+</div>
+<div class="step-num-wrap orange"><div class="step-num">4</div></div>
+</div>
+<div class="step-item reveal reveal-d4">
+<div class="step-content">
+<div class="step-title">פגישת עומק לניתוח והטמעה</div>
+<p class="step-desc">יחד נדייק את התוצאות להבנת תוכנית הפעולה המתאימה לך.</p>
+<p class="step-note-orange">ליווי אישי מדויק בשבילך.</p>
+</div>
+<div class="step-num-wrap"><div class="step-num">5</div></div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ===== EXPERT ===== -->
 <section class="expert-section" id="expert">
-  <div class="section-inner" style="max-width:1100px;margin:0 auto;">
-    <div class="expert-grid">
-      <div class="expert-card">
-        <div class="expert-avatar">
-          <img src="orit-amir.jpg" alt="אורית אמיר" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="expert-avatar-inner" style="display:none;">אא</div>
-        </div>
-        <div class="expert-info">
-          <div class="expert-name">אורית אמיר</div>
-          <div class="expert-role">יועצת מומחית לפיתוח מנהיגות אישית וארגונית</div>
-          <a class="linkedin-badge" href="https://www.linkedin.com/in/orit-amir/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="#0077b5" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+<div class="section-inner" style="max-width:1100px;margin:0 auto;">
+<div class="expert-grid">
+<div class="expert-card">
+<div class="expert-avatar">
+<img alt="אורית אמיר" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" src="orit-amir.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/>
+<div class="expert-avatar-inner" style="display:none;">אא</div>
+</div>
+<div class="expert-info">
+<div class="expert-name">אורית אמיר</div>
+<div class="expert-role">יועצת מומחית לפיתוח מנהיגות אישית וארגונית</div>
+<a class="linkedin-badge" href="https://www.linkedin.com/in/orit-amir/" rel="noopener" target="_blank">
+
             LinkedIn
           </a>
-        </div>
-      </div>
-
-      <div class="expert-body">
-        <div class="section-tag reveal">על אורית אמיר</div>
-        <h2 class="section-title reveal">כשנתונים יבשים מקבלים משמעות<br><span style="color:var(--blue)">משנה חיים</span></h2>
-        <p class="expert-desc reveal">
+</div>
+</div>
+<div class="expert-body">
+<div class="section-tag reveal">על אורית אמיר</div>
+<h2 class="section-title reveal">כשנתונים יבשים מקבלים משמעות<br/><span style="color:var(--blue)">משנה חיים</span></h2>
+<p class="expert-desc reveal">
           אורית אמיר מביאה ניסיון רב, מעל שני עשורים, של עבודה עם אלפי סטודנטים, מנהלים צעירים ובכירים בארגונים מובילים בארץ ובעולם, בליווי תהליכי זהות, מנהיגות והחלטת החלטות. אורית לא רק מפרשת נתונים - היא עוזרת לתרגם אותם להחלטות חיים אמיתיות ומעשיות.
         </p>
-        <ul class="expert-points reveal">
-          <li><span class="point-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10 6 15 6 11 9.5 12.5 15 8 11.5 3.5 15 5 9.5 1 6 6 6"/></svg></span>מומחית מוסמכת בשיטת Birkman עם ניסיון בינלאומי</li>
-          <li><span class="point-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10 6 15 6 11 9.5 12.5 15 8 11.5 3.5 15 5 9.5 1 6 6 6"/></svg></span>ייעוץ ללמעלה מאלפי צעירים ומנהלים בנקודות מפנה</li>
-          <li><span class="point-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10 6 15 6 11 9.5 12.5 15 8 11.5 3.5 15 5 9.5 1 6 6 6"/></svg></span>מתמחה בהתאמה בין פרופיל אישי לשוק עבודה עתידי</li>
-          <li><span class="point-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10 6 15 6 11 9.5 12.5 15 8 11.5 3.5 15 5 9.5 1 6 6 6"/></svg></span>גישה חמה, ישירה ומעשית - תוצאות ולא סיסמאות</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<ul class="expert-points reveal">
+<li><span class="point-icon"></span>מומחית מוסמכת בשיטת Birkman עם ניסיון בינלאומי</li>
+<li><span class="point-icon"></span>ייעוץ ללמעלה מאלפי צעירים ומנהלים בנקודות מפנה</li>
+<li><span class="point-icon"></span>מתמחה בהתאמה בין פרופיל אישי לשוק עבודה עתידי</li>
+<li><span class="point-icon"></span>גישה חמה, ישירה ומעשית - תוצאות ולא סיסמאות</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ===== TESTIMONIALS ===== -->
 <section class="testimonials-section" id="testimonials">
-  <div class="section-inner" style="max-width:1200px;margin:0 auto;">
-    <div class="section-tag reveal">מה אומרים</div>
-    <h2 class="section-title reveal">מי שעשה את הצעד - מדבר</h2>
-    <p class="section-sub reveal">סטודנטים וצעירים שעברו את התהליך משתפים בחוויה.</p>
-
-    <div class="testimonials-grid">
-      <div class="tcard reveal">
-        <div class="quote-mark">״</div>
-        <p class="tcard-text">הגעתי לאורית כשאני ״במסלול הבטוח״ - עבודה במשרד ממשלתי. דרך מצפן הקריירה של טיפאנדו ושאלון בירקמן היא שיקפה לי בדיוק מפתיע את מה שבאמת רציתי: עולם המשפט. היום אני סטודנטית בשנה ג׳ למשפטים ויו״ר אגודת הסטודנטים - והכול התחיל בהחלטה האמיצה לשנות כיוון.</p>
-        <div class="tcard-author">
-          <div class="tavatar"><img src="data:image/jpeg;base64,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" alt="נופר משה"></div>
-          <div>
-            <div class="tname">נופר משה</div>
-            <div class="tdetail">סטודנטית למשפטים שנה ג׳, יו״ר אגודת הסטודנטים במרכז האקדמי פרס</div>
-          </div>
-        </div>
-      </div>
-      <div class="tcard reveal reveal-d1">
-        <div class="quote-mark">״</div>
-        <p class="tcard-text">לצאת מה-Comfort Zone שכל כך אהבתי היה מאתגר ומלווה בחששות.<br>בעזרת פגישות אישיות מדויקות שחיזקו את התובנות מדו״ח הקריירה, יצאתי לדרך חדשה - נכונה ומדויקת עבורי.<br>החוזקות והכלים שרכשתי במהלך הקריירה באים היום לידי ביטוי ביזמות, בהתפתחות עסקית ובעשייה חברתית.</p>
-        <div class="tcard-author">
-          <div class="tavatar"><img src="data:image/jpeg;base64,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" alt="מעיין לנצמן"></div>
-          <div>
-            <div class="tname">מעיין לנצמן</div>
-            <div class="tdetail">סמנכ״לית, בית ספר לקולינריה</div>
-          </div>
-        </div>
-      </div>
-      <div class="tcard reveal reveal-d2">
-        <div class="quote-mark">״</div>
-        <p class="tcard-text">חבל שלא הכרתי את השאלון הזה כשהייתי צעיר יותר - זה היה חוסך לי הרבה תיקונים בדרך.<br>ועדיין, גם אחרי שנים של ניסיון, לראות את הדברים כתובים שחור על גבי לבן יצר עבורי WOW moment. זה חידד לי מה נכון עבורי - ולא פחות חשוב, ממה עדיף להימנע.<br>ממליץ במיוחד למי ששואל את עצמו לאן מפה? או מתלבט בין כמה אפשרויות מקצועיות.</p>
-        <div class="tcard-author">
-          <div class="tavatar"><img src="data:image/jpeg;base64,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" alt="עומרי דזבלי"></div>
-          <div>
-            <div class="tname">עומרי דזבלי</div>
-            <div class="tdetail">ראש צוות מוצר בחברת הייטק</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="section-inner" style="max-width:1200px;margin:0 auto;">
+<div class="section-tag reveal">מה אומרים</div>
+<h2 class="section-title reveal">מי שעשה את הצעד - מדבר</h2>
+<p class="section-sub reveal">סטודנטים וצעירים שעברו את התהליך משתפים בחוויה.</p>
+<div class="testimonials-grid">
+<div class="tcard reveal">
+<div class="quote-mark">״</div>
+<p class="tcard-text">הגעתי לאורית כשאני ״במסלול הבטוח״ - עבודה במשרד ממשלתי. דרך מצפן הקריירה של טיפאנדו ושאלון בירקמן היא שיקפה לי בדיוק מפתיע את מה שבאמת רציתי: עולם המשפט. היום אני סטודנטית בשנה ג׳ למשפטים ויו״ר אגודת הסטודנטים - והכול התחיל בהחלטה האמיצה לשנות כיוון.</p>
+<div class="tcard-author">
+<div class="tavatar"><img alt="נופר משה" src="data:image/jpeg;base64,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"/></div>
+<div>
+<div class="tname">נופר משה</div>
+<div class="tdetail">סטודנטית למשפטים שנה ג׳, יו״ר אגודת הסטודנטים במרכז האקדמי פרס</div>
+</div>
+</div>
+</div>
+<div class="tcard reveal reveal-d1">
+<div class="quote-mark">״</div>
+<p class="tcard-text">לצאת מה-Comfort Zone שכל כך אהבתי היה מאתגר ומלווה בחששות.<br/>בעזרת פגישות אישיות מדויקות שחיזקו את התובנות מדו״ח הקריירה, יצאתי לדרך חדשה - נכונה ומדויקת עבורי.<br/>החוזקות והכלים שרכשתי במהלך הקריירה באים היום לידי ביטוי ביזמות, בהתפתחות עסקית ובעשייה חברתית.</p>
+<div class="tcard-author">
+<div class="tavatar"><img alt="מעיין לנצמן" src="data:image/jpeg;base64,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"/></div>
+<div>
+<div class="tname">מעיין לנצמן</div>
+<div class="tdetail">סמנכ״לית, בית ספר לקולינריה</div>
+</div>
+</div>
+</div>
+<div class="tcard reveal reveal-d2">
+<div class="quote-mark">״</div>
+<p class="tcard-text">חבל שלא הכרתי את השאלון הזה כשהייתי צעיר יותר - זה היה חוסך לי הרבה תיקונים בדרך.<br/>ועדיין, גם אחרי שנים של ניסיון, לראות את הדברים כתובים שחור על גבי לבן יצר עבורי WOW moment. זה חידד לי מה נכון עבורי - ולא פחות חשוב, ממה עדיף להימנע.<br/>ממליץ במיוחד למי ששואל את עצמו לאן מפה? או מתלבט בין כמה אפשרויות מקצועיות.</p>
+<div class="tcard-author">
+<div class="tavatar"><img alt="עומרי דזבלי" src="data:image/jpeg;base64,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"/></div>
+<div>
+<div class="tname">עומרי דזבלי</div>
+<div class="tdetail">ראש צוות מוצר בחברת הייטק</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ===== FINAL CTA ===== -->
 <section class="cta-section">
-  <div class="section-inner" style="max-width:1200px;margin:0 auto;">
-    <div class="section-tag reveal">מוכנים?</div>
-    <h2 class="section-title reveal">אל תחכו שהעתיד יקרה לכם.<br><span style="color:var(--blue)">צרו אותו.</span></h2>
-    <p class="section-sub reveal" style="max-width:520px;">כל יום שעובר בלי כיוון הוא יום שהיה יכול להיות שלב בדרך. אנחנו אתכם בצעד הראשון. מתחילים?</p>
-    <div class="register-price reveal" style="justify-content:center; margin-bottom:0.5rem;">
-      <span style="font-size:2.5rem;font-weight:900;color:var(--orange);">₪2,900</span>
-    </div>
-    <div class="reveal" style="color:var(--gray);font-size:0.9rem;margin-bottom:1.5rem;">הנחה מיוחדת תינתן לחיילים משרתים, חיילים משוחררים וסטודנטים</div>
-    <div class="cta-actions reveal">
-      <button onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})" class="btn-orange" style="font-size:1.1rem; padding:1.1rem 2.8rem;">
+<div class="section-inner" style="max-width:1200px;margin:0 auto;">
+<div class="section-tag reveal">מוכנים?</div>
+<h2 class="section-title reveal">אל תחכו שהעתיד יקרה לכם.<br/><span style="color:var(--blue)">צרו אותו.</span></h2>
+<p class="section-sub reveal" style="max-width:520px;">כל יום שעובר בלי כיוון הוא יום שהיה יכול להיות שלב בדרך. אנחנו אתכם בצעד הראשון. מתחילים?</p>
+<div class="register-price reveal" style="justify-content:center; margin-bottom:0.5rem;">
+<span style="font-size:2.5rem;font-weight:900;color:var(--orange);">₪2,900</span>
+</div>
+<div class="reveal" style="color:var(--gray);font-size:0.9rem;margin-bottom:1.5rem;">הנחה מיוחדת תינתן לחיילים משרתים, חיילים משוחררים וסטודנטים</div>
+<div class="cta-actions reveal">
+<button class="btn-orange" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})" style="font-size:1.1rem; padding:1.1rem 2.8rem;">
         לקביעת שיחת התאמה אישית ←
       </button>
-      <button class="btn-blue" onclick="document.getElementById('process').scrollIntoView({behavior:'smooth'})" style="font-size:1rem; padding:1rem 2.2rem;">
+<button class="btn-blue" onclick="document.getElementById('process').scrollIntoView({behavior:'smooth'})" style="font-size:1rem; padding:1rem 2.2rem;">
         תזכירו לי שוב את התהליך
       </button>
-    </div>
-    <div class="trust-badges reveal">
-      <div class="tbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> תשלום מאובטח</div>
-      <div class="tbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> שיטה מוכחת בינלאומית</div>
-      <div class="tbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> דו״ח מפורט ישירות למייל</div>
-      <div class="tbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> פגישת ייעוץ אישית</div>
-    </div>
-  </div>
+</div>
+<div class="trust-badges reveal">
+<div class="tbadge"> תשלום מאובטח</div>
+<div class="tbadge"> שיטה מוכחת בינלאומית</div>
+<div class="tbadge"> דו״ח מפורט ישירות למייל</div>
+<div class="tbadge"> פגישת ייעוץ אישית</div>
+</div>
+</div>
 </section>
-
 <!-- ===== REGISTER SECTION ===== -->
 <section class="register-section" id="register">
-  <div class="register-inner">
-    <h2 class="register-title reveal">מצפן הקריירה של Tipando</h2>
-    <div class="register-investment-label">השקעה בתהליך:</div>
-    <div class="register-price reveal">
-      <span style="font-size:2.5rem;font-weight:900;color:var(--orange);">₪2,900</span>
-    </div>
-    <div class="register-promo reveal" style="color:var(--gray); font-weight:500; margin-bottom:0.5rem;">הנחה מיוחדת תינתן לחיילים משרתים, חיילים משוחררים וסטודנטים</div>
+<div class="register-inner">
+<h2 class="register-title reveal">מצפן הקריירה של Tipando</h2>
+<div class="register-investment-label">השקעה בתהליך:</div>
+<div class="register-price reveal">
+<span style="font-size:2.5rem;font-weight:900;color:var(--orange);">₪2,900</span>
+</div>
+<div class="register-promo reveal" style="color:var(--gray); font-weight:500; margin-bottom:0.5rem;">הנחה מיוחדת תינתן לחיילים משרתים, חיילים משוחררים וסטודנטים</div>
+<div class="register-includes reveal">
+<h4>התהליך כולל:</h4>
+<ul>
+<li>
 
-    <div class="register-includes reveal">
-      <h4>התהליך כולל:</h4>
-      <ul>
-        <li>
-          <svg viewBox="0 0 16 16" fill="none" stroke="#3AAFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:0.2rem;"><polyline points="1 8 5 13 15 3"/></svg>
-          <div>
+<div>
             שאלון Birkman מלא
           </div>
-        </li>
-        <li>
-          <svg viewBox="0 0 16 16" fill="none" stroke="#3AAFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 8 5 13 15 3"/></svg>
+</li>
+<li>
+
           דוח קריירה אסטרטגי אישי בעברית
         </li>
-        <li>
-          <svg viewBox="0 0 16 16" fill="none" stroke="#3AAFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 8 5 13 15 3"/></svg>
+<li>
+
           שעת פגישה אישית עם <strong><a href="#expert" style="color:inherit;text-decoration:underline;">אורית אמיר</a></strong>
-        </li>
-        <li style="color:var(--gray)">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="7"/><line x1="8" y1="5" x2="8" y2="8"/><line x1="8" y1="11" x2="8.01" y2="11"/></svg>
+</li>
+<li style="color:var(--gray)">
+
           ההצטרפות לאחר שיחת התאמה בלבד *
         </li>
-      </ul>
-    </div>
-
-    <div class="register-note reveal">
-      <strong>מה מטרת שיחת ההתאמה?</strong>
+</ul>
+</div>
+<div class="register-note reveal">
+<strong>מה מטרת שיחת ההתאמה?</strong>
       השיחה מאפשרת לוודא שהתהליך מתאים לשלב שבו אתם נמצאים. אורית תבין את נקודת הפתיחה שלכם ותבחן האם תהליך זה נכון עבורכם כעת. לא כל התלבטות מצריכה תהליך עומק. ולא כל שלב בחיים נכון לעבודה כזו.
     </div>
+<button class="expand-btn reveal" id="btn-what-not" onclick="toggleExpand('panel-what-not','btn-what-not')">
 
-    <button class="expand-btn reveal" id="btn-what-not" onclick="toggleExpand('panel-what-not','btn-what-not')">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>
       מה זה לא
     </button>
-    <div class="expandable" id="panel-what-not">
-      <div class="register-for-whom">
-        <h4>חשוב לדעת - זה לא:</h4>
-        <ul>
-          <li>זה לא שאלון של 20 דקות שמסתיים בתוצאה גנרית</li>
-          <li>זה לא ייעוץ תעסוקתי כללי</li>
-          <li>זה לא טרנד עתידני</li>
-          <li>זה לא הבטחה להיות ״חסין AI״</li>
-          <li><strong>זהו תהליך עומק מבוסס מדע, שדורש השקעה אמיתית - ומייצר תוצאות אמיתיות</strong></li>
-        </ul>
-      </div>
-    </div>
+<div class="expandable" id="panel-what-not">
+<div class="register-for-whom">
+<h4>חשוב לדעת - זה לא:</h4>
+<ul>
+<li>זה לא שאלון של 20 דקות שמסתיים בתוצאה גנרית</li>
+<li>זה לא ייעוץ תעסוקתי כללי</li>
+<li>זה לא טרנד עתידני</li>
+<li>זה לא הבטחה להיות ״חסין AI״</li>
+<li><strong>זהו תהליך עומק מבוסס מדע, שדורש השקעה אמיתית - ומייצר תוצאות אמיתיות</strong></li>
+</ul>
+</div>
+</div>
+<button class="expand-btn reveal" id="btn-for-whom" onclick="toggleExpand('panel-for-whom','btn-for-whom')">
 
-    <button class="expand-btn reveal" id="btn-for-whom" onclick="toggleExpand('panel-for-whom','btn-for-whom')">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>
       למי זה מיועד
     </button>
-    <div class="expandable" id="panel-for-whom">
-      <div class="register-for-whom">
-        <h4>התהליך מתאים ל:</h4>
-        <ul>
-          <li>סטודנטים בתחילת הדרך שרוצים לבחור נכון מההתחלה</li>
-          <li>מתלבטים לגבי המשך מסלול - האם להמשיך, לשנות כיוון, להתמחות</li>
-          <li>צעירים אחרי צבא שרוצים לבנות דרך ברורה קדימה</li>
-          <li>הורים שרוצים לתת לילדיהם כלים מדויקים לבחירת עתידם</li>
-        </ul>
-      </div>
-    </div>
-
-    <button class="register-cta-btn reveal" onclick="openCalendly()">לקביעת מועד השיחה ←</button>
-  </div>
+<div class="expandable" id="panel-for-whom">
+<div class="register-for-whom">
+<h4>התהליך מתאים ל:</h4>
+<ul>
+<li>סטודנטים בתחילת הדרך שרוצים לבחור נכון מההתחלה</li>
+<li>מתלבטים לגבי המשך מסלול - האם להמשיך, לשנות כיוון, להתמחות</li>
+<li>צעירים אחרי צבא שרוצים לבנות דרך ברורה קדימה</li>
+<li>הורים שרוצים לתת לילדיהם כלים מדויקים לבחירת עתידם</li>
+</ul>
+</div>
+</div>
+<button class="register-cta-btn reveal" onclick="openCalendly()">לקביעת מועד השיחה ←</button>
+</div>
 </section>
-
 <!-- ===== FOOTER ===== -->
 <footer>
-  <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDI3MDAgNjg2IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zOnNlcmlmPSJodHRwOi8vd3d3LnNlcmlmLmNvbS8iIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MjsiPgogICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4xNDE0NiwwLDAsMS4xNDE0NiwtNzYuODI1MiwtMTczLjc4MikiPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDcuODc4LDAsMCw3Ljg3OCwtMzY5Mi45NiwtMjgxNi45NykiPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCg1MCwwLDAsNTAsNTg3LjczNSw0MzcuNTU1KSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMC4xMzcsLTAuMjk0QzAuMTM3LC0wLjI3MSAwLjE0MSwtMC4yNDggMC4xNTEsLTAuMjI3QzAuMTYsLTAuMjA2IDAuMTcyLC0wLjE4NyAwLjE4OSwtMC4xN0MwLjIwNiwtMC4xNTMgMC4yMjUsLTAuMTQgMC4yNDYsLTAuMTMyQzAuMjY3LC0wLjEyMyAwLjI5LC0wLjExOCAwLjMxMywtMC4xMThMMC4zMTMsLTBDMC4yNiwtMCAwLjIxMSwtMC4wMTMgMC4xNjYsLTAuMDRDMC4xMjEsLTAuMDY2IDAuMDg1LC0wLjEwMiAwLjA1OSwtMC4xNDdDMC4wMzIsLTAuMTkyIDAuMDE5LC0wLjI0MSAwLjAxOSwtMC4yOTRMMC4wMTksLTAuODc1TDAuMTM3LC0wLjg3NUwwLjEzNywtMC41ODlMMC4zMTMsLTAuNTg5TDAuMzEzLC0wLjQ3TDAuMTM3LC0wLjQ3TDAuMTM3LC0wLjI5NFoiIHN0eWxlPSJmaWxsOnJnYigyNTUsMjU1LDI1NSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDYwNC40MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuMDI1LC0wLjg3NUwwLjE0MywtMC44NzVMMC4xNDMsLTAuNzU3TDAuMDI1LC0wLjc1N0wwLjAyNSwtMC44NzVaTTAuMDI1LC0wLjU5TDAuMTQzLC0wLjU5TDAuMTQzLC0wTDAuMDI1LC0wTDAuMDI1LC0wLjU5WiIgc3R5bGU9ImZpbGw6cmdiKDI1NSwyNTUsMjU1KTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCg1MCwwLDAsNTAsNjEyLjgzNSw0MzcuNTU1KSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMC4wMjYsMC4yOEwwLjAyNiwtMC41OUwwLjMyNywtMC41OUMwLjM3OCwtMC41ODkgMC40MjYsLTAuNTc1IDAuNDcxLC0wLjU0OEMwLjUxNSwtMC41MjEgMC41NSwtMC40ODYgMC41NzYsLTAuNDQyQzAuNjAxLC0wLjM5NyAwLjYxNCwtMC4zNDggMC42MTQsLTAuMjk2QzAuNjE0LC0wLjI0MyAwLjYwMSwtMC4xOTQgMC41NzUsLTAuMTQ5QzAuNTQ5LC0wLjEwMyAwLjUxMywtMC4wNjggMC40NjgsLTAuMDQyQzAuNDIzLC0wLjAxNSAwLjM3NCwtMC4wMDIgMC4zMiwtMC4wMDJDMC4yNTMsLTAuMDAyIDAuMTk1LC0wLjAyMSAwLjE0NCwtMC4wNkwwLjE0NCwwLjI4TDAuMDI2LDAuMjhaTTAuMTQ0LC0wLjQ3MkwwLjE0NCwtMC4yOTZDMC4xNDQsLTAuMjczIDAuMTQ5LC0wLjI1IDAuMTU4LC0wLjIyOUMwLjE2NywtMC4yMDcgMC4xNzksLTAuMTg4IDAuMTk2LC0wLjE3MUMwLjIxMywtMC4xNTQgMC4yMzIsLTAuMTQyIDAuMjUzLC0wLjEzM0MwLjI3NCwtMC4xMjQgMC4yOTcsLTAuMTIgMC4zMiwtMC4xMkMwLjM0MywtMC4xMiAwLjM2NiwtMC4xMjQgMC4zODcsLTAuMTMzQzAuNDA4LC0wLjE0MiAwLjQyNywtMC4xNTQgMC40NDQsLTAuMTcxQzAuNDc5LC0wLjIwOCAwLjQ5NiwtMC4yNDkgMC40OTYsLTAuMjk2QzAuNDk2LC0wLjMxOSAwLjQ5MiwtMC4zNDIgMC40ODMsLTAuMzYzQzAuNDc0LC0wLjM4NCAwLjQ2MSwtMC40MDMgMC40NDQsLTAuNDJDMC40MjcsLTAuNDM3IDAuNDA4LC0wLjQ1IDAuMzg3LC0wLjQ1OUMwLjM2NiwtMC40NjggMC4zNDMsLTAuNDcyIDAuMzIsLTAuNDcyTDAuMTQ0LC0wLjQ3MloiIHN0eWxlPSJmaWxsOnJnYigyNTUsMjU1LDI1NSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDY0NC43MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjEsLTAuNTlMMC42MSwtMEwwLjMwOSwtMEMwLjI1NywtMC4wMDEgMC4yMDksLTAuMDE1IDAuMTY1LC0wLjA0MkMwLjEyLC0wLjA2OSAwLjA4NSwtMC4xMDQgMC4wNTksLTAuMTQ5QzAuMDMzLC0wLjE5NCAwLjAyLC0wLjI0MyAwLjAyLC0wLjI5NUMwLjAyLC0wLjM0OCAwLjAzMywtMC4zOTggMC4wNiwtMC40NDNDMC4wODYsLTAuNDg4IDAuMTIyLC0wLjUyNCAwLjE2NywtMC41NTFDMC4yMTIsLTAuNTc3IDAuMjYyLC0wLjU5IDAuMzE1LC0wLjU5QzAuMzQ4LC0wLjU5IDAuMzc5LC0wLjU4NSAwLjQxLC0wLjU3NUMwLjQ0LC0wLjU2NSAwLjQ2NywtMC41NTEgMC40OTIsLTAuNTMyTDAuNDkyLC0wLjU5TDAuNjEsLTAuNTlaTTAuNDkyLC0wLjI5NUMwLjQ5MiwtMC4zMTggMC40ODgsLTAuMzQxIDAuNDc5LC0wLjM2M0MwLjQ3LC0wLjM4NCAwLjQ1NywtMC40MDMgMC40NCwtMC40MkMwLjQyMywtMC40MzcgMC40MDQsLTAuNDUgMC4zODMsLTAuNDU5QzAuMzYxLC0wLjQ2OCAwLjMzOCwtMC40NzIgMC4zMTUsLTAuNDcyQzAuMjY4LC0wLjQ3MiAwLjIyNywtMC40NTUgMC4xOSwtMC40MkMwLjE3MywtMC40MDMgMC4xNjEsLTAuMzg0IDAuMTUyLC0wLjM2M0MwLjE0MywtMC4zNDEgMC4xMzksLTAuMzE4IDAuMTM5LC0wLjI5NUMwLjEzOSwtMC4yNDggMC4xNTYsLTAuMjA2IDAuMTksLTAuMTdDMC4yMjYsLTAuMTM2IDAuMjY4LC0wLjExOSAwLjMxNSwtMC4xMTlMMC40OTIsLTAuMTE5TDAuNDkyLC0wLjI5NVoiIHN0eWxlPSJmaWxsOnJnYigyNTUsMjU1LDI1NSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDY3Ni45ODUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjE0LC0wTDAuNDk1LC0wTDAuNDk1LC0wLjI5NUMwLjQ5NSwtMC4zMTggMC40OTEsLTAuMzQxIDAuNDgyLC0wLjM2M0MwLjQ3MiwtMC4zODQgMC40NiwtMC40MDMgMC40NDMsLTAuNDJDMC40MjYsLTAuNDM3IDAuNDA3LC0wLjQ1IDAuMzg2LC0wLjQ1OUMwLjM2NSwtMC40NjggMC4zNDIsLTAuNDcyIDAuMzE4LC0wLjQ3MkwwLjE0NCwtMC40NzJMMC4xNDQsLTBMMC4wMjUsLTBMMC4wMjUsLTAuNTlMMC4zMTgsLTAuNTlDMC4zNzIsLTAuNTkgMC40MjIsLTAuNTc3IDAuNDY3LC0wLjU1MUMwLjUxMiwtMC41MjUgMC41NDgsLTAuNDg5IDAuNTc1LC0wLjQ0M0MwLjYwMSwtMC4zOTggMC42MTQsLTAuMzQ5IDAuNjE0LC0wLjI5NUwwLjYxNCwtMFoiIHN0eWxlPSJmaWxsOnJnYigyNTUsMjU1LDI1NSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDcwOC45MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjA5LC0wLjg3NUwwLjYwOSwtMEwwLjMwOCwtMEMwLjI1NywtMC4wMDEgMC4yMDksLTAuMDE2IDAuMTY1LC0wLjA0NEMwLjEyMSwtMC4wNzEgMC4wODYsLTAuMTA4IDAuMDYsLTAuMTU1QzAuMDM0LC0wLjIgMC4wMjEsLTAuMjQ5IDAuMDIxLC0wLjMwMkMwLjAyMSwtMC4zNTUgMC4wMzQsLTAuNDA1IDAuMDYxLC0wLjQ1QzAuMDg3LC0wLjQ5NSAwLjEyMywtMC41MyAwLjE2OCwtMC41NTdDMC4yMTMsLTAuNTgzIDAuMjYyLC0wLjU5NiAwLjMxNSwtMC41OTZDMC4zNDcsLTAuNTk2IDAuMzc4LC0wLjU5MSAwLjQwOSwtMC41ODFDMC40MzksLTAuNTcgMC40NjYsLTAuNTU2IDAuNDkxLC0wLjUzN0wwLjQ5MSwtMC44NzVMMC42MDksLTAuODc1Wk0wLjQ5MSwtMC4xMThMMC40OTEsLTAuMzAyQzAuNDkxLC0wLjMyNSAwLjQ4NywtMC4zNDggMC40NzgsLTAuMzY5QzAuNDY4LC0wLjM5IDAuNDU2LC0wLjQwOSAwLjQzOSwtMC40MjZDMC40MjIsLTAuNDQzIDAuNDAzLC0wLjQ1NiAwLjM4MiwtMC40NjVDMC4zNjEsLTAuNDc0IDAuMzM4LC0wLjQ3OCAwLjMxNSwtMC40NzhDMC4yOTIsLTAuNDc4IDAuMjY5LC0wLjQ3NCAwLjI0OCwtMC40NjVDMC4yMjcsLTAuNDU2IDAuMjA4LC0wLjQ0MyAwLjE5MSwtMC40MjZDMC4xNzQsLTAuNDA5IDAuMTYyLC0wLjM5IDAuMTUzLC0wLjM2OUMwLjE0MywtMC4zNDggMC4xMzksLTAuMzI1IDAuMTM5LC0wLjMwMkMwLjEzOSwtMC4yNzcgMC4xNDQsLTAuMjUzIDAuMTUzLC0wLjIzQzAuMTYyLC0wLjIwNiAwLjE3NSwtMC4xODYgMC4xOTEsLTAuMTdDMC4yMDgsLTAuMTUzIDAuMjI3LC0wLjE0IDAuMjQ4LC0wLjEzMkMwLjI2OSwtMC4xMjMgMC4yOTIsLTAuMTE4IDAuMzE1LC0wLjExOEwwLjQ5MSwtMC4xMThaIiBzdHlsZT0iZmlsbDpyZ2IoMjU1LDI1NSwyNTUpO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDUwLDAsMCw1MCw3NDEuMDg1LDQzNy41NTUpIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0wLjMxMSwtMC41OThDMC4zNjQsLTAuNTk4IDAuNDEzLC0wLjU4NSAwLjQ1OSwtMC41NThDMC41MDMsLTAuNTMxIDAuNTM5LC0wLjQ5NSAwLjU2NiwtMC40NDlDMC41OTIsLTAuNDAyIDAuNjA1LC0wLjM1MSAwLjYwNSwtMC4yOTZMMC42MDUsLTAuMjk1QzAuNjA1LC0wLjI0IDAuNTkyLC0wLjE4OSAwLjU2NiwtMC4xNDNDMC41NCwtMC4wOTcgMC41MDQsLTAuMDYgMC40NTksLTAuMDMzQzAuNDE0LC0wLjAwNiAwLjM2NCwwLjAwOCAwLjMxLDAuMDA4QzAuMjU3LDAuMDA4IDAuMjA3LC0wLjAwNSAwLjE2MiwtMC4wMzJDMC4xMTcsLTAuMDU5IDAuMDgxLC0wLjA5NSAwLjA1NSwtMC4xNDJDMC4wMjgsLTAuMTg3IDAuMDE1LC0wLjIzOCAwLjAxNSwtMC4yOTVMMC4wMTUsLTAuMjk2QzAuMDE1LC0wLjM1MSAwLjAyOCwtMC40MDIgMC4wNTQsLTAuNDQ5QzAuMDgsLTAuNDk1IDAuMTE2LC0wLjUzMSAwLjE2MiwtMC41NThDMC4yMDcsLTAuNTg1IDAuMjU2LC0wLjU5OCAwLjMxMSwtMC41OThaTTAuNDM3LC0wLjE2QzAuNDcyLC0wLjE5NSAwLjQ5LC0wLjI0IDAuNDksLTAuMjk1QzAuNDksLTAuMzUgMC40NzIsLTAuMzk1IDAuNDM3LC0wLjQzQzAuNDAyLC0wLjQ2NSAwLjM1OSwtMC40ODMgMC4zMSwtMC40ODNDMC4yNjEsLTAuNDgzIDAuMjE4LC0wLjQ2NSAwLjE4MywtMC40M0MwLjE0OCwtMC4zOTUgMC4xMzEsLTAuMzUgMC4xMzEsLTAuMjk1QzAuMTMxLC0wLjI0IDAuMTQ4LC0wLjE5NSAwLjE4MywtMC4xNkMwLjIsLTAuMTQzIDAuMjE5LC0wLjEzMSAwLjI0MSwtMC4xMjJDMC4yNjMsLTAuMTEzIDAuMjg2LC0wLjEwOCAwLjMxLC0wLjEwOEMwLjMzNCwtMC4xMDggMC4zNTcsLTAuMTEzIDAuMzc5LC0wLjEyMkMwLjQwMSwtMC4xMzEgMC40MiwtMC4xNDMgMC40MzcsLTAuMTZaIiBzdHlsZT0iZmlsbDpyZ2IoMjU1LDI1NSwyNTUpO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KC0wLjQ2MjUxOSwwLDAsMC40NjI1MTksOTIwLjMxOCwtNTI4LjUwOSkiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTM2Mi40NiwxNDk5LjYzQzE1NjkuODEsMTQ5OS42MyAxNzM4LjE2LDE2NjcuOTggMTczOC4xNiwxODc1LjMzTDE3MzguMTYsMjI1MS4wM0w5ODYuNzUzLDIyNTEuMDNDNzc5LjM5NywyMjUxLjAzIDYxMS4wNSwyMDgyLjY5IDYxMS4wNSwxODc1LjMzQzYxMS4wNSwxNjY3Ljk4IDc3OS4zOTcsMTQ5OS42MyA5ODYuNzUzLDE0OTkuNjNMMTM2Mi40NiwxNDk5LjYzWk0xNjE2LjgsMTg3NS4zM0MxNjE2LjgsMTczNC45NSAxNTAyLjgzLDE2MjAuOTkgMTM2Mi40NiwxNjIwLjk5QzEzNjIuNDYsMTYyMC45OSA5ODYuNzUzLDE2MjAuOTkgOTg2Ljc1MywxNjIwLjk5Qzg0Ni4zNzYsMTYyMC45OSA3MzIuNDA4LDE3MzQuOTUgNzMyLjQwOCwxODc1LjMzQzczMi40MDgsMjAxNS43MSA4NDYuMzc2LDIxMjkuNjggOTg2Ljc1MywyMTI5LjY4TDE2MTYuOCwyMTI5LjY4TDE2MTYuOCwxODc1LjMzWiIgc3R5bGU9ImZpbGw6cmdiKDMsMTcwLDI0Nyk7Ii8+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuNDYyNTE5LDAsMCwwLjQ2MjUxOSw5NC40MTk3LC00MTAuODcpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTEzNjIuNDYsMTQ5OS42M0MxNTY5LjgxLDE0OTkuNjMgMTczOC4xNiwxNjY3Ljk4IDE3MzguMTYsMTg3NS4zM0wxNzM4LjE2LDIyNTEuMDNMOTg2Ljc1MywyMjUxLjAzQzc3OS4zOTcsMjI1MS4wMyA2MTEuMDUsMjA4Mi42OSA2MTEuMDUsMTg3NS4zM0M2MTEuMDUsMTY2Ny45OCA3NzkuMzk3LDE0OTkuNjMgOTg2Ljc1MywxNDk5LjYzTDEzNjIuNDYsMTQ5OS42M1pNMTYxNi44LDE4NzUuMzNDMTYxNi44LDE3MzQuOTUgMTUwMi44MywxNjIwLjk5IDEzNjIuNDYsMTYyMC45OUMxMzYyLjQ2LDE2MjAuOTkgOTg2Ljc1MywxNjIwLjk5IDk4Ni43NTMsMTYyMC45OUM4NDYuMzc2LDE2MjAuOTkgNzMyLjQwOCwxNzM0Ljk1IDczMi40MDgsMTg3NS4zM0M3MzIuNDA4LDIwMTUuNzEgODQ2LjM3NiwyMTI5LjY4IDk4Ni43NTMsMjEyOS42OEwxNjE2LjgsMjEyOS42OEwxNjE2LjgsMTg3NS4zM1oiIHN0eWxlPSJmaWxsOnJnYigyNTUsMTUwLDApO2ZpbGwtb3BhY2l0eTowLjg7Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K" alt="Tipando" style="height:34px; width:auto; display:block;">
-  <div>© 2025 Tipando. כל הזכויות שמורות.</div>
-  <div class="footer-links">
-    <a href="#">פרטיות</a>
-    <a href="#">תנאים</a>
-    <a href="#">צרו קשר</a>
-  </div>
+<img alt="Tipando" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDI3MDAgNjg2IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zOnNlcmlmPSJodHRwOi8vd3d3LnNlcmlmLmNvbS8iIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MjsiPgogICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4xNDE0NiwwLDAsMS4xNDE0NiwtNzYuODI1MiwtMTczLjc4MikiPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDcuODc4LDAsMCw3Ljg3OCwtMzY5Mi45NiwtMjgxNi45NykiPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCg1MCwwLDAsNTAsNTg3LjczNSw0MzcuNTU1KSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMC4xMzcsLTAuMjk0QzAuMTM3LC0wLjI3MSAwLjE0MSwtMC4yNDggMC4xNTEsLTAuMjI3QzAuMTYsLTAuMjA2IDAuMTcyLC0wLjE4NyAwLjE4OSwtMC4xN0MwLjIwNiwtMC4xNTMgMC4yMjUsLTAuMTQgMC4yNDYsLTAuMTMyQzAuMjY3LC0wLjEyMyAwLjI5LC0wLjExOCAwLjMxMywtMC4xMThMMC4zMTMsLTBDMC4yNiwtMCAwLjIxMSwtMC4wMTMgMC4xNjYsLTAuMDRDMC4xMjEsLTAuMDY2IDAuMDg1LC0wLjEwMiAwLjA1OSwtMC4xNDdDMC4wMzIsLTAuMTkyIDAuMDE5LC0wLjI0MSAwLjAxOSwtMC4yOTRMMC4wMTksLTAuODc1TDAuMTM3LC0wLjg3NUwwLjEzNywtMC41ODlMMC4zMTMsLTAuNTg5TDAuMzEzLC0wLjQ3TDAuMTM3LC0wLjQ3TDAuMTM3LC0wLjI5NFoiIHN0eWxlPSJmaWxsOnJnYigyNTUsMjU1LDI1NSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDYwNC40MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuMDI1LC0wLjg3NUwwLjE0MywtMC44NzVMMC4xNDMsLTAuNzU3TDAuMDI1LC0wLjc1N0wwLjAyNSwtMC44NzVaTTAuMDI1LC0wLjU5TDAuMTQzLC0wLjU5TDAuMTQzLC0wTDAuMDI1LC0wTDAuMDI1LC0wLjU5WiIgc3R5bGU9ImZpbGw6cmdiKDI1NSwyNTUsMjU1KTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCg1MCwwLDAsNTAsNjEyLjgzNSw0MzcuNTU1KSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMC4wMjYsMC4yOEwwLjAyNiwtMC41OUwwLjMyNywtMC41OUMwLjM3OCwtMC41ODkgMC40MjYsLTAuNTc1IDAuNDcxLC0wLjU0OEMwLjUxNSwtMC41MjEgMC41NSwtMC40ODYgMC41NzYsLTAuNDQyQzAuNjAxLC0wLjM5NyAwLjYxNCwtMC4zNDggMC42MTQsLTAuMjk2QzAuNjE0LC0wLjI0MyAwLjYwMSwtMC4xOTQgMC41NzUsLTAuMTQ5QzAuNTQ5LC0wLjEwMyAwLjUxMywtMC4wNjggMC40NjgsLTAuMDQyQzAuNDIzLC0wLjAxNSAwLjM3NCwtMC4wMDIgMC4zMiwtMC4wMDJDMC4yNTMsLTAuMDAyIDAuMTk1LC0wLjAyMSAwLjE0NCwtMC4wNkwwLjE0NCwwLjI4TDAuMDI2LDAuMjhaTTAuMTQ0LC0wLjQ3MkwwLjE0NCwtMC4yOTZDMC4xNDQsLTAuMjczIDAuMTQ5LC0wLjI1IDAuMTU4LC0wLjIyOUMwLjE2NywtMC4yMDcgMC4xNzksLTAuMTg4IDAuMTk2LC0wLjE3MUMwLjIxMywtMC4xNTQgMC4yMzIsLTAuMTQyIDAuMjUzLC0wLjEzM0MwLjI3NCwtMC4xMjQgMC4yOTcsLTAuMTIgMC4zMiwtMC4xMkMwLjM0MywtMC4xMiAwLjM2NiwtMC4xMjQgMC4zODcsLTAuMTMzQzAuNDA4LC0wLjE0MiAwLjQyNywtMC4xNTQgMC40NDQsLTAuMTcxQzAuNDc5LC0wLjIwOCAwLjQ5NiwtMC4yNDkgMC40OTYsLTAuMjk2QzAuNDk2LC0wLjMxOSAwLjQ5MiwtMC4zNDIgMC40ODMsLTAuMzYzQzAuNDc0LC0wLjM4NCAwLjQ2MSwtMC40MDMgMC40NDQsLTAuNDJDMC40MjcsLTAuNDM3IDAuNDA4LC0wLjQ1IDAuMzg3LC0wLjQ1OUMwLjM2NiwtMC40NjggMC4zNDMsLTAuNDcyIDAuMzIsLTAuNDcyTDAuMTQ0LC0wLjQ3MloiIHN0eWxlPSJmaWxsOnJnYigyNTUsMjU1LDI1NSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDY0NC43MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjEsLTAuNTlMMC42MSwtMEwwLjMwOSwtMEMwLjI1NywtMC4wMDEgMC4yMDksLTAuMDE1IDAuMTY1LC0wLjA0MkMwLjEyLC0wLjA2OSAwLjA4NSwtMC4xMDQgMC4wNTksLTAuMTQ5QzAuMDMzLC0wLjE5NCAwLjAyLC0wLjI0MyAwLjAyLC0wLjI5NUMwLjAyLC0wLjM0OCAwLjAzMywtMC4zOTggMC4wNiwtMC40NDNDMC4wODYsLTAuNDg4IDAuMTIyLC0wLjUyNCAwLjE2NywtMC41NTFDMC4yMTIsLTAuNTc3IDAuMjYyLC0wLjU5IDAuMzE1LC0wLjU5QzAuMzQ4LC0wLjU5IDAuMzc5LC0wLjU4NSAwLjQxLC0wLjU3NUMwLjQ0LC0wLjU2NSAwLjQ2NywtMC41NTEgMC40OTIsLTAuNTMyTDAuNDkyLC0wLjU5TDAuNjEsLTAuNTlaTTAuNDkyLC0wLjI5NUMwLjQ5MiwtMC4zMTggMC40ODgsLTAuMzQxIDAuNDc5LC0wLjM2M0MwLjQ3LC0wLjM4NCAwLjQ1NywtMC40MDMgMC40NCwtMC40MkMwLjQyMywtMC40MzcgMC40MDQsLTAuNDUgMC4zODMsLTAuNDU5QzAuMzYxLC0wLjQ2OCAwLjMzOCwtMC40NzIgMC4zMTUsLTAuNDcyQzAuMjY4LC0wLjQ3MiAwLjIyNywtMC40NTUgMC4xOSwtMC40MkMwLjE3MywtMC40MDMgMC4xNjEsLTAuMzg0IDAuMTUyLC0wLjM2M0MwLjE0MywtMC4zNDEgMC4xMzksLTAuMzE4IDAuMTM5LC0wLjI5NUMwLjEzOSwtMC4yNDggMC4xNTYsLTAuMjA2IDAuMTksLTAuMTdDMC4yMjYsLTAuMTM2IDAuMjY4LC0wLjExOSAwLjMxNSwtMC4xMTlMMC40OTIsLTAuMTE5TDAuNDkyLC0wLjI5NVoiIHN0eWxlPSJmaWxsOnJnYigyNTUsMjU1LDI1NSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDY3Ni45ODUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjE0LC0wTDAuNDk1LC0wTDAuNDk1LC0wLjI5NUMwLjQ5NSwtMC4zMTggMC40OTEsLTAuMzQxIDAuNDgyLC0wLjM2M0MwLjQ3MiwtMC4zODQgMC40NiwtMC40MDMgMC40NDMsLTAuNDJDMC40MjYsLTAuNDM3IDAuNDA3LC0wLjQ1IDAuMzg2LC0wLjQ1OUMwLjM2NSwtMC40NjggMC4zNDIsLTAuNDcyIDAuMzE4LC0wLjQ3MkwwLjE0NCwtMC40NzJMMC4xNDQsLTBMMC4wMjUsLTBMMC4wMjUsLTAuNTlMMC4zMTgsLTAuNTlDMC4zNzIsLTAuNTkgMC40MjIsLTAuNTc3IDAuNDY3LC0wLjU1MUMwLjUxMiwtMC41MjUgMC41NDgsLTAuNDg5IDAuNTc1LC0wLjQ0M0MwLjYwMSwtMC4zOTggMC42MTQsLTAuMzQ5IDAuNjE0LC0wLjI5NUwwLjYxNCwtMFoiIHN0eWxlPSJmaWxsOnJnYigyNTUsMjU1LDI1NSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoNTAsMCwwLDUwLDcwOC45MzUsNDM3LjU1NSkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTAuNjA5LC0wLjg3NUwwLjYwOSwtMEwwLjMwOCwtMEMwLjI1NywtMC4wMDEgMC4yMDksLTAuMDE2IDAuMTY1LC0wLjA0NEMwLjEyMSwtMC4wNzEgMC4wODYsLTAuMTA4IDAuMDYsLTAuMTU1QzAuMDM0LC0wLjIgMC4wMjEsLTAuMjQ5IDAuMDIxLC0wLjMwMkMwLjAyMSwtMC4zNTUgMC4wMzQsLTAuNDA1IDAuMDYxLC0wLjQ1QzAuMDg3LC0wLjQ5NSAwLjEyMywtMC41MyAwLjE2OCwtMC41NTdDMC4yMTMsLTAuNTgzIDAuMjYyLC0wLjU5NiAwLjMxNSwtMC41OTZDMC4zNDcsLTAuNTk2IDAuMzc4LC0wLjU5MSAwLjQwOSwtMC41ODFDMC40MzksLTAuNTcgMC40NjYsLTAuNTU2IDAuNDkxLC0wLjUzN0wwLjQ5MSwtMC44NzVMMC42MDksLTAuODc1Wk0wLjQ5MSwtMC4xMThMMC40OTEsLTAuMzAyQzAuNDkxLC0wLjMyNSAwLjQ4NywtMC4zNDggMC40NzgsLTAuMzY5QzAuNDY4LC0wLjM5IDAuNDU2LC0wLjQwOSAwLjQzOSwtMC40MjZDMC40MjIsLTAuNDQzIDAuNDAzLC0wLjQ1NiAwLjM4MiwtMC40NjVDMC4zNjEsLTAuNDc0IDAuMzM4LC0wLjQ3OCAwLjMxNSwtMC40NzhDMC4yOTIsLTAuNDc4IDAuMjY5LC0wLjQ3NCAwLjI0OCwtMC40NjVDMC4yMjcsLTAuNDU2IDAuMjA4LC0wLjQ0MyAwLjE5MSwtMC40MjZDMC4xNzQsLTAuNDA5IDAuMTYyLC0wLjM5IDAuMTUzLC0wLjM2OUMwLjE0MywtMC4zNDggMC4xMzksLTAuMzI1IDAuMTM5LC0wLjMwMkMwLjEzOSwtMC4yNzcgMC4xNDQsLTAuMjUzIDAuMTUzLC0wLjIzQzAuMTYyLC0wLjIwNiAwLjE3NSwtMC4xODYgMC4xOTEsLTAuMTdDMC4yMDgsLTAuMTUzIDAuMjI3LC0wLjE0IDAuMjQ4LC0wLjEzMkMwLjI2OSwtMC4xMjMgMC4yOTIsLTAuMTE4IDAuMzE1LC0wLjExOEwwLjQ5MSwtMC4xMThaIiBzdHlsZT0iZmlsbDpyZ2IoMjU1LDI1NSwyNTUpO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDUwLDAsMCw1MCw3NDEuMDg1LDQzNy41NTUpIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0wLjMxMSwtMC41OThDMC4zNjQsLTAuNTk4IDAuNDEzLC0wLjU4NSAwLjQ1OSwtMC41NThDMC41MDMsLTAuNTMxIDAuNTM5LC0wLjQ5NSAwLjU2NiwtMC40NDlDMC41OTIsLTAuNDAyIDAuNjA1LC0wLjM1MSAwLjYwNSwtMC4yOTZMMC42MDUsLTAuMjk1QzAuNjA1LC0wLjI0IDAuNTkyLC0wLjE4OSAwLjU2NiwtMC4xNDNDMC41NCwtMC4wOTcgMC41MDQsLTAuMDYgMC40NTksLTAuMDMzQzAuNDE0LC0wLjAwNiAwLjM2NCwwLjAwOCAwLjMxLDAuMDA4QzAuMjU3LDAuMDA4IDAuMjA3LC0wLjAwNSAwLjE2MiwtMC4wMzJDMC4xMTcsLTAuMDU5IDAuMDgxLC0wLjA5NSAwLjA1NSwtMC4xNDJDMC4wMjgsLTAuMTg3IDAuMDE1LC0wLjIzOCAwLjAxNSwtMC4yOTVMMC4wMTUsLTAuMjk2QzAuMDE1LC0wLjM1MSAwLjAyOCwtMC40MDIgMC4wNTQsLTAuNDQ5QzAuMDgsLTAuNDk1IDAuMTE2LC0wLjUzMSAwLjE2MiwtMC41NThDMC4yMDcsLTAuNTg1IDAuMjU2LC0wLjU5OCAwLjMxMSwtMC41OThaTTAuNDM3LC0wLjE2QzAuNDcyLC0wLjE5NSAwLjQ5LC0wLjI0IDAuNDksLTAuMjk1QzAuNDksLTAuMzUgMC40NzIsLTAuMzk1IDAuNDM3LC0wLjQzQzAuNDAyLC0wLjQ2NSAwLjM1OSwtMC40ODMgMC4zMSwtMC40ODNDMC4yNjEsLTAuNDgzIDAuMjE4LC0wLjQ2NSAwLjE4MywtMC40M0MwLjE0OCwtMC4zOTUgMC4xMzEsLTAuMzUgMC4xMzEsLTAuMjk1QzAuMTMxLC0wLjI0IDAuMTQ4LC0wLjE5NSAwLjE4MywtMC4xNkMwLjIsLTAuMTQzIDAuMjE5LC0wLjEzMSAwLjI0MSwtMC4xMjJDMC4yNjMsLTAuMTEzIDAuMjg2LC0wLjEwOCAwLjMxLC0wLjEwOEMwLjMzNCwtMC4xMDggMC4zNTcsLTAuMTEzIDAuMzc5LC0wLjEyMkMwLjQwMSwtMC4xMzEgMC40MiwtMC4xNDMgMC40MzcsLTAuMTZaIiBzdHlsZT0iZmlsbDpyZ2IoMjU1LDI1NSwyNTUpO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KC0wLjQ2MjUxOSwwLDAsMC40NjI1MTksOTIwLjMxOCwtNTI4LjUwOSkiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTM2Mi40NiwxNDk5LjYzQzE1NjkuODEsMTQ5OS42MyAxNzM4LjE2LDE2NjcuOTggMTczOC4xNiwxODc1LjMzTDE3MzguMTYsMjI1MS4wM0w5ODYuNzUzLDIyNTEuMDNDNzc5LjM5NywyMjUxLjAzIDYxMS4wNSwyMDgyLjY5IDYxMS4wNSwxODc1LjMzQzYxMS4wNSwxNjY3Ljk4IDc3OS4zOTcsMTQ5OS42MyA5ODYuNzUzLDE0OTkuNjNMMTM2Mi40NiwxNDk5LjYzWk0xNjE2LjgsMTg3NS4zM0MxNjE2LjgsMTczNC45NSAxNTAyLjgzLDE2MjAuOTkgMTM2Mi40NiwxNjIwLjk5QzEzNjIuNDYsMTYyMC45OSA5ODYuNzUzLDE2MjAuOTkgOTg2Ljc1MywxNjIwLjk5Qzg0Ni4zNzYsMTYyMC45OSA3MzIuNDA4LDE3MzQuOTUgNzMyLjQwOCwxODc1LjMzQzczMi40MDgsMjAxNS43MSA4NDYuMzc2LDIxMjkuNjggOTg2Ljc1MywyMTI5LjY4TDE2MTYuOCwyMTI5LjY4TDE2MTYuOCwxODc1LjMzWiIgc3R5bGU9ImZpbGw6cmdiKDMsMTcwLDI0Nyk7Ii8+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuNDYyNTE5LDAsMCwwLjQ2MjUxOSw5NC40MTk3LC00MTAuODcpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTEzNjIuNDYsMTQ5OS42M0MxNTY5LjgxLDE0OTkuNjMgMTczOC4xNiwxNjY3Ljk4IDE3MzguMTYsMTg3NS4zM0wxNzM4LjE2LDIyNTEuMDNMOTg2Ljc1MywyMjUxLjAzQzc3OS4zOTcsMjI1MS4wMyA2MTEuMDUsMjA4Mi42OSA2MTEuMDUsMTg3NS4zM0M2MTEuMDUsMTY2Ny45OCA3NzkuMzk3LDE0OTkuNjMgOTg2Ljc1MywxNDk5LjYzTDEzNjIuNDYsMTQ5OS42M1pNMTYxNi44LDE4NzUuMzNDMTYxNi44LDE3MzQuOTUgMTUwMi44MywxNjIwLjk5IDEzNjIuNDYsMTYyMC45OUMxMzYyLjQ2LDE2MjAuOTkgOTg2Ljc1MywxNjIwLjk5IDk4Ni43NTMsMTYyMC45OUM4NDYuMzc2LDE2MjAuOTkgNzMyLjQwOCwxNzM0Ljk1IDczMi40MDgsMTg3NS4zM0M3MzIuNDA4LDIwMTUuNzEgODQ2LjM3NiwyMTI5LjY4IDk4Ni43NTMsMjEyOS42OEwxNjE2LjgsMjEyOS42OEwxNjE2LjgsMTg3NS4zM1oiIHN0eWxlPSJmaWxsOnJnYigyNTUsMTUwLDApO2ZpbGwtb3BhY2l0eTowLjg7Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K" style="height:34px; width:auto; display:block;"/>
+<div>© 2025 Tipando. כל הזכויות שמורות.</div>
+<div class="footer-links">
+<a href="#">פרטיות</a>
+<a href="#">תנאים</a>
+<a href="#">צרו קשר</a>
+</div>
 </footer>
 
-<script>
-  // ═══════════════════════════════════════════════════════════════════
-  //  CONFIGURATION - update these values before going live
-  // ═══════════════════════════════════════════════════════════════════
-
-  // ── Pricing fallback (overridden by Google Sheets if sheet is shared) ──
-  var FALLBACK_LIST_PRICE  = 0;    // ← Set a fallback list price (0 = not shown)
-  var FALLBACK_PROMO_PRICE = 2900;  // ← Fallback selling price
-
-  // ── Site URL (needed for Cardcom redirect) ──
-  var SITE_URL = 'https://compass.tipando.com';
-  // ↑ Change to your live domain when going live: 'https://tipando.com'
-
-  // ── Calendly: paste Orit's scheduling link here ──
-  var CALENDLY_URL = 'https://calendly.com/earlysmart-orit_amir/tipando_career_compass_call?month=2026-03';
-
-  // ── Google Sheets pricing source (Dashboard tab) ──
-  var SHEET_ID      = '1uvZlx33JiuKlBU8FAq4q9h9i2iouScYb';
-  var DASHBOARD_GID = '2038997716';
-  // Sheet must be shared with "Anyone with the link can view"
-
-  // ── n8n Webhook URLs ──
-  var WEBHOOK_URL           = '';                          // optional lead capture
-  var CARDCOM_INDICATOR_URL = 'PASTE_YOUR_N8N_WEBHOOK_URL_HERE';
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  RUNTIME STATE
-  // ═══════════════════════════════════════════════════════════════════
-  var listPrice    = FALLBACK_LIST_PRICE;
-  var promoPrice   = FALLBACK_PROMO_PRICE;
-  var finalPrice   = FALLBACK_PROMO_PRICE;
-  var appliedCoupon = null;   // { discount_type, discount_value, description }
-  var fittingCode   = '';
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  SCROLL REVEAL + COMPASS + HAMBURGER
-  // ═══════════════════════════════════════════════════════════════════
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
-
-  // Compass needle animation handled by CSS @keyframes needleOscillate
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  EXPANDABLE PANELS
-  // ═══════════════════════════════════════════════════════════════════
-  function toggleExpand(id, btnId) {
-    var panel = document.getElementById(id);
-    var btn = document.getElementById(btnId);
-    if (!panel) return;
-    panel.classList.toggle('open');
-    if (btn) btn.classList.toggle('open');
-  }
-
-  var hamburger = document.getElementById('hamburger');
-  var navLinksEl = document.querySelector('.nav-links');
-  if (hamburger) {
-    hamburger.addEventListener('click', function() {
-      hamburger.classList.toggle('open');
-      navLinksEl.classList.toggle('open');
-    });
-    navLinksEl.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        hamburger.classList.remove('open');
-        navLinksEl.classList.remove('open');
-      });
-    });
-  }
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  PRICING - fetch from Google Sheets Dashboard tab
-  // ═══════════════════════════════════════════════════════════════════
-  function fetchPricing() {
-    if (!SHEET_ID || !DASHBOARD_GID) return;
-    var url = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID +
-              '/gviz/tq?tqx=out:json&gid=' + DASHBOARD_GID;
-    fetch(url)
-      .then(function(r) { return r.text(); })
-      .then(function(text) {
-        // gviz returns: google.visualization.Query.setResponse({...});
-        var jsonStr = text.replace(/^[^(]+\(/, '').replace(/\);?\s*$/, '');
-        var data = JSON.parse(jsonStr);
-        var rows = data.table && data.table.rows ? data.table.rows : [];
-        rows.forEach(function(row) {
-          if (!row.c) return;
-          for (var i = 0; i < row.c.length - 1; i++) {
-            var cell = row.c[i];
-            if (!cell || cell.v == null) continue;
-            var label = String(cell.v).toLowerCase();
-            var nextVal = row.c[i + 1] && row.c[i + 1].v != null ? parseFloat(row.c[i + 1].v) : NaN;
-            if (isNaN(nextVal)) continue;
-            if (label.includes('list price') || label.includes('מחיר מחירון') || label.includes('list')) {
-              if (nextVal > 0) listPrice = nextVal;
-            }
-            if (label.includes('promo') || label.includes('מחיר מבצע') || label.includes('promotional')) {
-              if (nextVal > 0) promoPrice = nextVal;
-            }
-          }
-        });
-        finalPrice = promoPrice || listPrice || FALLBACK_PROMO_PRICE;
-        updateAllPriceDisplays();
-      })
-      .catch(function() { /* use fallback prices */ });
-  }
-
-  // Format a price with thousands separators (2900 → "2,900")
-  function fmtPrice(n) {
-    return Number(n).toLocaleString('en-US');
-  }
-
-  function updateAllPriceDisplays() {
-    // Gate screen shows List Price (full price before discount)
-    document.getElementById('gate-display-price').textContent = fmtPrice(listPrice || finalPrice);
-    // Reg form shows the final discounted price (updated separately by updateRegPriceDisplay)
-    document.getElementById('reg-display-price').textContent  = fmtPrice(finalPrice);
-  }
-
-  function calculateFinalPrice() {
-    if (appliedCoupon) {
-      // If the sheet provided an explicit Final Price (column G), use it directly.
-      if (appliedCoupon.final_price && appliedCoupon.final_price >= 1) {
-        finalPrice = appliedCoupon.final_price;
-      } else if (appliedCoupon.discount_value > 0) {
-        var base = listPrice || promoPrice || FALLBACK_PROMO_PRICE;
-        if (appliedCoupon.discount_type === 'FIXED') {
-          finalPrice = Math.max(1, Math.round(base - appliedCoupon.discount_value));
-        } else { // PERCENT
-          finalPrice = Math.max(1, Math.round(base * (1 - appliedCoupon.discount_value / 100)));
-        }
-      } else {
-        finalPrice = promoPrice || listPrice || FALLBACK_PROMO_PRICE;
-      }
-    } else {
-      finalPrice = promoPrice || listPrice || FALLBACK_PROMO_PRICE;
-    }
-    updateRegPriceDisplay();
-  }
-
-  function updateRegPriceDisplay() {
-    var display = finalPrice;
-    document.getElementById('reg-display-price').textContent = fmtPrice(display);
-
-    // Show/hide struck-through list price
-    var noteEl = document.getElementById('reg-price-note');
-    if (appliedCoupon && appliedCoupon.discount_value > 0) {
-      var base = listPrice || promoPrice || FALLBACK_PROMO_PRICE;
-      noteEl.innerHTML = '<span dir="ltr" style="unicode-bidi:embed"><span class="price-line-list">₪' + fmtPrice(base) + '</span> → ₪' + fmtPrice(finalPrice) + '</span>';
-      noteEl.style.display = '';
-    } else if (listPrice > 0 && listPrice > finalPrice) {
-      noteEl.innerHTML = '<span dir="ltr" style="unicode-bidi:embed"><span class="price-line-list">₪' + fmtPrice(listPrice) + '</span> → ₪' + fmtPrice(finalPrice) + '</span>';
-      noteEl.style.display = '';
-    } else {
-      noteEl.style.display = 'none';
-    }
-
-    // Update the payment info line below the price
-    var payInfoEl = document.getElementById('reg-payment-info');
-    if (payInfoEl) {
-      var maxPay = (appliedCoupon && appliedCoupon.max_payments) ? appliedCoupon.max_payments : 1;
-      if (maxPay > 1) {
-        var perPayment = Math.ceil(finalPrice / maxPay);
-        payInfoEl.innerHTML = '<strong>' + maxPay + ' תשלומים שווים של ₪' + fmtPrice(perPayment) + '</strong> · מאובטח';
-      } else {
-        payInfoEl.textContent = 'תשלום חד-פעמי · מאובטח · אין חידושים אוטומטיים';
-      }
-    }
-  }
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  MODAL OPEN / CLOSE
-  // ═══════════════════════════════════════════════════════════════════
-  function openPayModal() {
-    showGate();
-    document.getElementById('pay-overlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closePayModal() {
-    document.getElementById('pay-overlay').classList.remove('open');
-    document.body.style.overflow = '';
-    // Reset gate error
-    var gErr = document.getElementById('gate-error');
-    gErr.style.display = 'none'; gErr.textContent = '';
-  }
-
-  document.getElementById('pay-overlay').addEventListener('click', function(e) {
-    if (e.target === this) closePayModal();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closePayModal();
-  });
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  GATE SCREEN (STEP 1)
-  // ═══════════════════════════════════════════════════════════════════
-  function showGate() {
-    document.getElementById('gate-screen').style.display = '';
-    document.getElementById('reg-screen').style.display  = 'none';
-    document.getElementById('gate-display-price').textContent = fmtPrice(listPrice || finalPrice);
-    // Reset state
-    document.getElementById('gate-code-input').value = '';
-    var gErr = document.getElementById('gate-error');
-    gErr.style.display = 'none'; gErr.textContent = '';
-    var btn = document.getElementById('gate-btn');
-    btn.disabled = false; btn.innerHTML = '<span>אמת קוד והמשך</span><span>→</span>';
-  }
-
-  function showGateError(msg) {
-    var el = document.getElementById('gate-error');
-    el.textContent = msg; el.style.display = 'block';
-  }
-
-  function validateFittingCode() {
-    var code = document.getElementById('gate-code-input').value.trim();
-    if (!code) { showGateError('אנא הכנס קוד אישי'); return; }
-
-    var btn = document.getElementById('gate-btn');
-    btn.disabled = true;
-    btn.innerHTML = '<span>בודק קוד...</span>';
-
-    fetch('/.netlify/functions/validate-coupon?code=' + encodeURIComponent(code))
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        if (data.valid) {
-          fittingCode   = code;
-          appliedCoupon = {
-            discount_type:  data.discount_type,
-            discount_value: data.discount_value || 0,
-            max_payments:   data.max_payments   || 1,
-            final_price:    data.final_price    || null,   // explicit price from column G
-            description:    data.description    || code
-          };
-          calculateFinalPrice();
-          showRegForm();
-        } else {
-          showGateError(data.error || 'קוד לא תקין. אנא בדוק שוב.');
-          btn.disabled = false;
-          btn.innerHTML = '<span>אמת קוד והמשך</span><span>→</span>';
-        }
-      })
-      .catch(function() {
-        showGateError('שגיאה בבדיקת הקוד. אנא נסה שנית.');
-        btn.disabled = false;
-        btn.innerHTML = '<span>אמת קוד והמשך</span><span>→</span>';
-      });
-  }
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  REGISTRATION FORM (STEP 2)
-  // ═══════════════════════════════════════════════════════════════════
-  function showRegForm() {
-    document.getElementById('gate-screen').style.display  = 'none';
-    document.getElementById('reg-screen').style.display   = '';
-    // Pre-fill coupon field
-    document.getElementById('reg-coupon').value = fittingCode;
-    // Update coupon status line
-    var statusEl = document.getElementById('coupon-status');
-    statusEl.style.display = '';  // always show after code is validated
-    if (appliedCoupon && appliedCoupon.discount_value > 0) {
-      statusEl.className = 'ok';
-      var discLabel = appliedCoupon.discount_type === 'FIXED'
-        ? '₪' + appliedCoupon.discount_value + ' הנחה'
-        : appliedCoupon.discount_value + '% הנחה';
-      var maxPay = appliedCoupon.max_payments || 1;
-      var payLabel = maxPay > 1 ? ' | ' + maxPay + ' תשלומים' : '';
-      statusEl.textContent = '✓ קוד אושר - ' + discLabel + payLabel;
-    } else {
-      statusEl.className = 'ok';
-      statusEl.textContent = '✓ קוד אושר';
-    }
-    updateRegPriceDisplay();
-    // Clear previous reg errors
-    var rErr = document.getElementById('reg-error');
-    rErr.style.display = 'none'; rErr.textContent = '';
-    // Reset button
-    var btn = document.getElementById('reg-submit-btn');
-    btn.disabled = false; btn.innerHTML = '<span>לתשלום מאובטח</span><span>→</span>';
-    // Clear fields
-    ['reg-fname-e','reg-lname-e','reg-fname-h','reg-lname-h','reg-email','reg-phone'].forEach(function(id) {
-      document.getElementById(id).classList.remove('error');
-    });
-  }
-
-  function showRegError(msg, fieldId) {
-    var el = document.getElementById('reg-error');
-    el.textContent = msg; el.style.display = 'block';
-    if (fieldId) document.getElementById(fieldId).classList.add('error');
-  }
-
-  function submitRegistration() {
-    // Collect fields
-    var fNameE  = document.getElementById('reg-fname-e').value.trim();
-    var lNameE  = document.getElementById('reg-lname-e').value.trim();
-    var fNameH  = document.getElementById('reg-fname-h').value.trim();
-    var lNameH  = document.getElementById('reg-lname-h').value.trim();
-    var email   = document.getElementById('reg-email').value.trim();
-    var phone   = document.getElementById('reg-phone').value.trim();
-    var genderEl = document.querySelector('input[name="reg-gender"]:checked');
-    var gender  = genderEl ? genderEl.value : '';
-
-    // Clear previous errors
-    ['reg-fname-e','reg-lname-e','reg-fname-h','reg-lname-h','reg-email','reg-phone'].forEach(function(id) {
-      document.getElementById(id).classList.remove('error');
-    });
-    document.getElementById('reg-error').style.display = 'none';
-
-    // Validate
-    if (!fNameE) { showRegError('אנא הכנס שם פרטי באנגלית', 'reg-fname-e'); return; }
-    if (!lNameE) { showRegError('אנא הכנס שם משפחה באנגלית', 'reg-lname-e'); return; }
-    if (!fNameH) { showRegError('אנא הכנס שם פרטי בעברית', 'reg-fname-h'); return; }
-    if (!lNameH) { showRegError('אנא הכנס שם משפחה בעברית', 'reg-lname-h'); return; }
-    if (!email || !email.includes('@')) { showRegError('אנא הכנס כתובת אימייל תקינה', 'reg-email'); return; }
-    if (!phone) { showRegError('אנא הכנס מספר טלפון', 'reg-phone'); return; }
-    if (!gender) { showRegError('אנא בחר מין'); return; }
-
-    // Disable submit
-    var btn = document.getElementById('reg-submit-btn');
-    btn.disabled = true; btn.innerHTML = '<span>מעביר לדף תשלום...</span>';
-
-    // Build Cardcom redirect URLs
-    var base = (window.location.protocol === 'file:')
-               ? SITE_URL
-               : window.location.href.split('?')[0];
-    var successUrl = base + '?payment=success&email=' + encodeURIComponent(email);
-    var errorUrl   = base + '?payment=error';
-
-    // Generate order reference
-    var orderRef = 'TIP-' + Date.now().toString(36).toUpperCase();
-
-    // Auto-generated: LastName_FirstName (Birkman format: LastName_FirstName in English)
-    var lastNameFirstName = lNameE + '_' + fNameE;
-
-    // Build ReturnValue with all registration fields for n8n
-    var returnValue = [
-      orderRef, fNameE, lNameE, fNameH, lNameH,
-      email, phone, gender, fittingCode, finalPrice
-    ].join('|');
-
-    // Full display name (Hebrew for invoice)
-    var fullNameInvoice = lNameH + ' ' + fNameH;
-
-    // Populate hidden Cardcom form fields
-    document.getElementById('cc-sum').value         = finalPrice;
-    document.getElementById('cc-success').value     = successUrl;
-    document.getElementById('cc-error').value       = errorUrl;
-    document.getElementById('cc-return').value      = returnValue;
-    document.getElementById('cc-name').value        = fullNameInvoice;
-    document.getElementById('cc-email').value       = email;
-    // Registration fields
-    document.getElementById('cc-fname-e').value     = fNameE;
-    document.getElementById('cc-lname-e').value     = lNameE;
-    document.getElementById('cc-fname-h').value     = fNameH;
-    document.getElementById('cc-lname-h').value     = lNameH;
-    document.getElementById('cc-email-addr').value  = email;
-    document.getElementById('cc-phone').value       = phone;
-    document.getElementById('cc-gender').value      = gender;
-    document.getElementById('cc-coupon').value      = fittingCode;
-    document.getElementById('cc-max-payments').value = (appliedCoupon && appliedCoupon.max_payments) ? appliedCoupon.max_payments : 1;
-    document.getElementById('cc-list-price').value  = listPrice  || '';
-    document.getElementById('cc-promo-price').value = promoPrice || '';
-    // n8n indicator URL
-    if (CARDCOM_INDICATOR_URL && CARDCOM_INDICATOR_URL !== 'PASTE_YOUR_N8N_WEBHOOK_URL_HERE') {
-      document.getElementById('cc-indicator').value = CARDCOM_INDICATOR_URL;
-    }
-
-    // Optional lead-capture webhook (fire-and-forget)
-    function goToCardcom() {
-      document.getElementById('cardcom-form').submit();
-    }
-
-    if (WEBHOOK_URL) {
-      fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          order_ref: orderRef, timestamp: new Date().toISOString(),
-          first_name_e: fNameE, last_name_e: lNameE,
-          first_name_h: fNameH, last_name_h: lNameH,
-          email: email, phone: phone, gender: gender,
-          coupon: fittingCode, price: finalPrice,
-          product: 'מצפן הקריירה של Tipando', currency: 'ILS',
-          status: 'LEAD - payment initiated'
-        }),
-        mode: 'no-cors'
-      }).catch(function(){}).finally(goToCardcom);
-    } else {
-      goToCardcom();
-    }
-  }
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  CALENDLY
-  // ═══════════════════════════════════════════════════════════════════
-  function openCalendly() {
-    if (!CALENDLY_URL || CALENDLY_URL === 'PASTE_ORITS_CALENDLY_URL_HERE') {
-      alert('קישור ה-Calendly טרם הוגדר. אנא צרו קשר ישירות עם אורית.');
-      return;
-    }
-    window.open(CALENDLY_URL, '_blank');
-  }
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  HANDLE RETURN FROM CARDCOM
-  // ═══════════════════════════════════════════════════════════════════
-  (function checkPaymentReturn() {
-    var params = new URLSearchParams(window.location.search);
-    var status = params.get('payment');
-    if (!status) return;
-
-    var banner = document.getElementById('status-banner');
-    if (status === 'success') {
-      banner.textContent = '✅ תשלום בוצע בהצלחה! בדוק את תיבת הדואר שלך לאישור ולפרטים הבאים.';
-      banner.className = 'status-banner success';
-    } else if (status === 'error') {
-      var errCode = params.get('cardcom_code') || '';
-      var errDesc = params.get('cardcom_desc') || '';
-      var errDetail = errCode ? ' (קוד: ' + errCode + (errDesc ? ' - ' + errDesc : '') + ')' : '';
-      banner.textContent = '❌ הייתה בעיה בתשלום. אנא נסה שנית או צור קשר.' + errDetail;
-      banner.className = 'status-banner error';
-    }
-    setTimeout(function() { banner.style.display = 'none'; }, 8000);
-    history.replaceState({}, '', window.location.pathname);
-  })();
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  INIT - fetch pricing on page load
-  // ═══════════════════════════════════════════════════════════════════
-  fetchPricing();
-
-</script>
 </body>
 </html>

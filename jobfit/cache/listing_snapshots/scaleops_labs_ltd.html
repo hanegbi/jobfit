@@ -1,1887 +1,1115 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-                <script type="text/javascript" data-cookieconsent="ignore">
-	window.dataLayer = window.dataLayer || [];
-
-	function gtag() {
-		dataLayer.push(arguments);
-	}
-
-	gtag("consent", "default", {
-		ad_personalization: "denied",
-		ad_storage: "denied",
-		ad_user_data: "denied",
-		analytics_storage: "denied",
-		functionality_storage: "denied",
-		personalization_storage: "denied",
-		security_storage: "granted",
-		wait_for_update: 500,
-	});
-	gtag("set", "ads_data_redaction", true);
-	</script>
-<script type="text/javascript"
-		id="Cookiebot"
-		src="https://consent.cookiebot.com/uc.js"
-		data-implementation="wp"
-		data-cbid="4e332a23-e144-43cc-967d-6dc153c0c27c"
-		data-georegions="{'region':'DE, FI, FR, BE, BG, CI, CW, CY, DK, GR, HU, IS, IE, IT, LV, LI, LU, LT, MT, PL, PT, RE, SK, SI, ES','cbid':'fd1b9e0c-08c2-4db9-b7aa-84a6f67a1cff'}"					data-blockingmode="auto"
-	></script>
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-MDQXJFNW');</script>
-        <!-- End Google Tag Manager -->
-        <script type="text/javascript">
-  !function(){"use strict";!function(e,t){var r=e.amplitude||{_q:[],_iq:{}};if(r.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var n=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,r){return function(n){e._q.push({name:t,args:Array.prototype.slice.call(r,0),resolve:n})}},o=function(e,t,r){e[t]=function(){if(r)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},i=function(e){for(var t=0;t<m.length;t++)o(e,m[t],!1);for(var r=0;r<y.length;r++)o(e,y[r],!0)};r.invoked=!0;var a=t.createElement("script");a.type="text/javascript",a.crossOrigin="anonymous",a.src="https://cdn.amplitude.com/libs/plugin-ga-events-forwarder-browser-0.4.2-min.js.gz",a.onload=function(){e.gaEventsForwarder&&e.gaEventsForwarder.plugin&&e.amplitude.add(e.gaEventsForwarder.plugin())};var c=t.createElement("script");c.type="text/javascript",c.integrity="sha384-pY2pkwHaLM/6UIseFHVU3hOKr6oAvhLcdYkoRZyaMDWLjpM6B7nTxtOdE823WAOQ",c.crossOrigin="anonymous",c.async=!0,c.src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz",c.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var u=t.getElementsByTagName("script")[0];u.parentNode.insertBefore(a,u),u.parentNode.insertBefore(c,u);for(var p=function(){return this._q=[],this},d=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],l=0;l<d.length;l++)n(p,d[l]);r.Identify=p;for(var g=function(){return this._q=[],this},v=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],f=0;f<v.length;f++)n(g,v[f]);r.Revenue=g;var m=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset","extendSession"],y=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];i(r),r.createInstance=function(e){return r._iq[e]={_q:[]},i(r._iq[e]),r._iq[e]},e.amplitude=r}}(window,document)}();
-
-  amplitude.init('d446c82be09a2c229b8d0781cc74d814');
-</script><script src="https://scaleops.chilipiper.com/concierge-js/cjs/concierge.js"
-        crossorigin="anonymous"
-        type="text/javascript"
-        data-cookieconsent="ignore"></script>
-<script data-cookieconsent="ignore">
-(function() {
-  // Settings
-  var TENANT = "scaleops";
-  var ROUTER = "inbound-leads";
-  var ONFIRE_KEY = "07ad0e66-63cc-4fed-906d-0ec6862f4ba8";
-  var FORM_IDS = [
-    "b9133aa3-2ea0-49d6-9d7a-c91fffcadb13",
-    "e4d45450-a761-470a-ae3a-29544b01d06a",
-    "8179574e-830e-4586-8d5a-0fcb9a138e33",
-    "e5b58f89-88f7-49f2-9fd0-ef78ed782f29"
-  ];
-  var visitorCountry = "Not Provided";
-
-  // Helpers
-  function isTargetForm(id) {
-    return FORM_IDS.length === 0 || FORM_IDS.includes(id.toString());
-  }
-  function getDomain(email) {
-    return email.includes("@") ? email.split("@")[1].toLowerCase() : "";
-  }
-
-  // IP lookup
-  function fetchCountry() {
-    fetch("https://ipwho.is/?output=json")
-      .then(function(r) { return r.json(); })
-      .then(function(d) { visitorCountry = d.country || "Not Provided"; })
-      .catch(function() {});
-  }
-
-  // Company data
-  function fetchCompanyData(lead, domain) {
-    return fetch("https://api.onfire.ai/dlatform/external/v1/website-enrich", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "X-Api-Key": ONFIRE_KEY },
-      body: JSON.stringify({ websites: [domain], queries: ["Kubernetes", "engineering"] })
-    })
-      .then(function(r) { return r.json(); })
-      .then(function(results) {
-        if (Array.isArray(results) && results.length > 0 && results[0].data) {
-          if (results[0].data.Kubernetes !== undefined) lead.kubernetes = results[0].data.Kubernetes;
-          if (results[0].data.Engineering !== undefined) lead.engineering = results[0].data.Engineering;
-        }
-      })
-      .catch(function() {});
-  }
-
-  // Mixpanel tracking
-  function trackInMixpanel(lead, email) {
-    if (typeof mixpanel === "undefined") {
-      console.warn("[ChiliPiper] Mixpanel not available");
-      return;
-    }
-    try {
-      mixpanel.track("Book A Demo Submitted", {
-        email: email, firstname: lead.firstname, lastname: lead.lastname,
-        phone: lead.phone, companyName: lead.company
-      });
-      mixpanel.identify(email);
-      mixpanel.people.set({
-        "$name": lead.firstname + " " + lead.lastname,
-        "$first_name": lead.firstname, "$last_name": lead.lastname,
-        "$email": email, "$phone": lead.phone, companyName: lead.company
-      });
-    } catch (err) {
-      console.error("[ChiliPiper] Mixpanel error:", err);
-    }
-  }
-
-  // Form handler
-  window.addEventListener("message", function(e) {
-    var type = e.data.type, eventName = e.data.eventName;
-
-    // On form ready: fetch country
-    if (type === "hsFormCallback" && eventName === "onFormReady") {
-      fetchCountry();
-      return;
-    }
-
-    // On form submit
-    var isSubmit = ["hsFormCallback", "hsCallsToActionCallback"].includes(type) &&
-                   ["onFormSubmitted", "onCallToActionFormSubmitted"].includes(eventName);
-    if (!isSubmit || !isTargetForm(e.data.id)) return;
-
-    var lead = e.data.data.submissionValues || {};
-    for (var k in lead) if (Array.isArray(lead[k])) lead[k] = lead[k].join(";");
-    lead.ip_country = visitorCountry;
-
-    var email = (lead.email || "").trim();
-    var domain = getDomain(email);
-
-    // No domain: submit immediately
-    if (!domain) {
-      ChiliPiper.submit(TENANT, ROUTER, { map: true, lead: lead });
-      return;
-    }
-
-    // Track in Mixpanel
-    if (lead.submitted_demo_form) {
-      trackInMixpanel(lead, email);
-    }
-
-    // Enrich and submit
-    fetchCompanyData(lead, domain).finally(function() {
-      ChiliPiper.submit(TENANT, ROUTER, { map: true, lead: lead });
-    });
-  });
-})();
-</script><script>
-!function(w,d,t,u,n,a,m){w['GravityPixelObject']=n;w[n]=w[n]||function(){
-(w[n].q=w[n].q||[]).push(arguments)},w[n].l=1*new Date();a=d.createElement(t),
-m=d.getElementsByTagName(t)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m)
-}(window,document,'script','https://code.trygravity.ai/gr-pix.js','gravity');
-gravity('init', 'ec0c409a-ce6e-44b2-9acb-13a481cf740f');
-</script><script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"97177059", enableAutoSpaTracking: true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><meta name='robots' content='noindex, nofollow' />
-<link rel="preconnect" href="https://vz-05c708cf-e3c.b-cdn.net" crossorigin>
-<link rel="dns-prefetch" href="https://vz-05c708cf-e3c.b-cdn.net">
-<link rel="preload" href="https://scaleops.com/build/assets/Scandium-VF-CW0nQqO_.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://scaleops.com/build/assets/SaansRegular-CRIy43oF.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://scaleops.com/build/assets/SaansMedium-OhhNPY7B.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://scaleops.com/build/assets/SaansSemiBold-N37K-xCt.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://scaleops.com/build/assets/SaansBold-DEEx1eU5.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://scaleops.com/build/assets/SaansLight-BnCwq9L2.woff2" as="font" type="font/woff2" crossorigin>
-
-	<!-- This site is optimized with the Yoast SEO plugin v28.2 - https://yoast.com/product/yoast-seo-wordpress/ -->
-	<title>Careers - ScaleOps</title>
-	<meta property="og:locale" content="en_US" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="ScaleOps - Careers - We&#039;re Hiring!" />
-	<meta property="og:description" content="Join the team! Curiosity and dedication to excellence are in our DNA. We aim high and hold ourselves to the highest standards but maintain focus on progress, not perfection." />
-	<meta property="og:url" content="https://scaleops.com/careers/" />
-	<meta property="og:site_name" content="ScaleOps" />
-	<meta property="article:modified_time" content="2026-08-04T15:17:58+00:00" />
-	<meta property="og:image" content="https://scaleops.com/content/uploads/2026/03/mc255--1024x540.jpg" />
-	<meta property="og:image:width" content="1024" />
-	<meta property="og:image:height" content="540" />
-	<meta property="og:image:type" content="image/jpeg" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:label1" content="Est. reading time" />
-	<meta name="twitter:data1" content="1 minute" />
-	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/scaleops.com\/careers\/","url":"https:\/\/scaleops.com\/careers\/","name":"Careers - ScaleOps","isPartOf":{"@id":"https:\/\/scaleops.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/scaleops.com\/careers\/#primaryimage"},"image":{"@id":"https:\/\/scaleops.com\/careers\/#primaryimage"},"thumbnailUrl":"https:\/\/scaleops.com\/content\/uploads\/2026\/03\/mc255-.jpg","datePublished":"2024-11-21T12:11:02+00:00","dateModified":"2026-08-04T15:17:58+00:00","breadcrumb":{"@id":"https:\/\/scaleops.com\/careers\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/scaleops.com\/careers\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/scaleops.com\/careers\/#primaryimage","url":"https:\/\/scaleops.com\/content\/uploads\/2026\/03\/mc255-.jpg","contentUrl":"https:\/\/scaleops.com\/content\/uploads\/2026\/03\/mc255-.jpg","width":2048,"height":1080},{"@type":"BreadcrumbList","@id":"https:\/\/scaleops.com\/careers\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/scaleops.com\/"},{"@type":"ListItem","position":2,"name":"Careers"}]},{"@type":"WebSite","@id":"https:\/\/scaleops.com\/#website","url":"https:\/\/scaleops.com\/","name":"ScaleOps","description":"Kubernetes Resource Optimization","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/scaleops.com\/search\/{search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
-	<!-- / Yoast SEO plugin. -->
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 
 
-<link rel='dns-prefetch' href='//js.hs-scripts.com' />
-<style id="wp-img-auto-sizes-contain-inline-css">
-img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
-/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
-</style>
-<style id="wp-block-heading-inline-css">
-h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
-/*# sourceURL=https://scaleops.com/wp/wp-includes/blocks/heading/style.min.css */
-</style>
-<style id="wp-block-paragraph-inline-css">
-.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
-/*# sourceURL=https://scaleops.com/wp/wp-includes/blocks/paragraph/style.min.css */
-</style>
-<style id="wp-block-button-inline-css">
-.wp-block-button__link{align-content:center;box-sizing:border-box;cursor:pointer;display:inline-block;height:100%;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}.wp-block-button__link.alignright{text-align:right}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons>.wp-block-button.has-custom-width{max-width:none}.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{width:100%}.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons>.wp-block-button.wp-block-button__width-25{width:calc(25% - var(--wp--style--block-gap, .5em)*.75)}.wp-block-buttons>.wp-block-button.wp-block-button__width-50{width:calc(50% - var(--wp--style--block-gap, .5em)*.5)}.wp-block-buttons>.wp-block-button.wp-block-button__width-75{width:calc(75% - var(--wp--style--block-gap, .5em)*.25)}.wp-block-buttons>.wp-block-button.wp-block-button__width-100{flex-basis:100%;width:100%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{width:25%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{width:50%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{width:75%}.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{border-radius:0}.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{border-radius:0!important}:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){border:2px solid;padding:.667em 1.333em}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){color:currentColor}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){background-color:initial;background-image:none}
-/*# sourceURL=https://scaleops.com/wp/wp-includes/blocks/button/style.min.css */
-</style>
-<style id="wp-block-buttons-inline-css">
-.wp-block-buttons{box-sizing:border-box}.wp-block-buttons.is-vertical{flex-direction:column}.wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-left{justify-content:flex-start}.wp-block-buttons.is-content-justification-left.is-vertical{align-items:flex-start}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.is-content-justification-center.is-vertical{align-items:center}.wp-block-buttons.is-content-justification-right{justify-content:flex-end}.wp-block-buttons.is-content-justification-right.is-vertical{align-items:flex-end}.wp-block-buttons.is-content-justification-space-between{justify-content:space-between}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons .wp-block-button__link{width:100%}.wp-block-button.aligncenter{text-align:center}
-/*# sourceURL=https://scaleops.com/wp/wp-includes/blocks/buttons/style.min.css */
-</style>
-<style id="wp-block-image-inline-css">
-.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
-/*# sourceURL=https://scaleops.com/wp/wp-includes/blocks/image/style.min.css */
-</style>
+<!-- Google Tag Manager -->
 
-<style id="global-styles-inline-css">
-:root{--wp--preset--color--white: #FFFFFF;--wp--preset--color--light: #F4F4FF;--wp--preset--color--light-gray: #F7F7FB;--wp--preset--color--light-pink: #FCF6FF;--wp--preset--color--light-purple: #EDEDFD;--wp--preset--color--purple: #B6B6FD;--wp--preset--color--blue: #5050EE;--wp--preset--color--navy: #020059;--wp--preset--color--navy-dark: #100A2C;--wp--preset--color--navy-deep: #01002C;--wp--preset--color--green: #1DDB8C;--wp--preset--color--pink: #FF4689;--wp--preset--color--nocturne: #010005;--wp--preset--color--black: #000000;--wp--preset--gradient--dark-blue-gradient: linear-gradient(180deg, #0D074F 0%, #4A41DA 100%);--wp--preset--gradient--dark-blue-gradient-reverse: linear-gradient(0deg, #0D074F 0%, #4A41DA 100%);--wp--preset--gradient--purple-glow: linear-gradient(90deg, #010214 0%, #2F1B6C 50%, #010214 100%);--wp--preset--gradient--midnight-violet: linear-gradient(180deg, #01002C 0%, #160548 100%);--wp--preset--font-size--small: 1rem;--wp--preset--font-size--medium: 1.125rem;--wp--preset--font-size--large: 1.25rem;--wp--preset--font-size--extra-large: 1.5rem;--wp--preset--font-size--2-5-xl: 1.75rem;--wp--preset--font-size--2-x-large: 1.875rem;--wp--preset--font-size--display: 1.875rem;--wp--preset--font-size--3-x-large: 2.25rem;--wp--preset--font-size--4-x-large: 2.5rem;--wp--preset--font-size--5-x-large: 3rem;--wp--preset--font-size--6-x-large: 3.75rem;--wp--preset--font-family--sans: 'Saans', ui-sans-serif, system-ui, sans-serif;--wp--preset--font-family--heading: 'Scandium', 'Saans', ui-sans-serif, system-ui, sans-serif;--wp--preset--font-family--mono: 'Saans Mono', ui-monospace, monospace;--wp--preset--font-family--semi-mono: 'Saans Semi Mono', ui-monospace, monospace;--wp--preset--spacing--small: 1rem;--wp--preset--spacing--medium: 2rem;--wp--preset--spacing--large: 3rem;--wp--preset--spacing--x-large: 4rem;--wp--preset--spacing--xx-large: 5rem;--wp--preset--spacing--xxx-large: 6rem;--wp--preset--spacing--xxxx-large: 7rem;}.wp-block-button .wp-block-button__link{--wp--preset--color--blue: #5050EE;--wp--preset--color--green: #1DDB8C;--wp--preset--color--fill-white: #FFFFFF;--wp--preset--color--white-border: #ffffff80;--wp--preset--color--fill-black: #000000;--wp--preset--color--black-border: #00000080;}:root { --wp--style--global--content-size: 1350px;--wp--style--global--wide-size: 1510px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 0.5rem; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 0.5rem; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 0.5rem;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 0.5rem;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 0.5rem;}:root :where(.is-layout-grid){gap: 0.5rem;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{font-family: 'Saans', ui-sans-serif, system-ui, sans-serif;font-size: 16px;font-weight: 300;line-height: 1.7;}:root :where(.wp-element-button, .wp-block-button__link){background-color: var(--wp--preset--color--blue);}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-light-color{color: var(--wp--preset--color--light) !important;}.has-light-gray-color{color: var(--wp--preset--color--light-gray) !important;}.has-light-pink-color{color: var(--wp--preset--color--light-pink) !important;}.has-light-purple-color{color: var(--wp--preset--color--light-purple) !important;}.has-purple-color{color: var(--wp--preset--color--purple) !important;}.has-blue-color{color: var(--wp--preset--color--blue) !important;}.has-navy-color{color: var(--wp--preset--color--navy) !important;}.has-navy-dark-color{color: var(--wp--preset--color--navy-dark) !important;}.has-navy-deep-color{color: var(--wp--preset--color--navy-deep) !important;}.has-green-color{color: var(--wp--preset--color--green) !important;}.has-pink-color{color: var(--wp--preset--color--pink) !important;}.has-nocturne-color{color: var(--wp--preset--color--nocturne) !important;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-light-background-color{background-color: var(--wp--preset--color--light) !important;}.has-light-gray-background-color{background-color: var(--wp--preset--color--light-gray) !important;}.has-light-pink-background-color{background-color: var(--wp--preset--color--light-pink) !important;}.has-light-purple-background-color{background-color: var(--wp--preset--color--light-purple) !important;}.has-purple-background-color{background-color: var(--wp--preset--color--purple) !important;}.has-blue-background-color{background-color: var(--wp--preset--color--blue) !important;}.has-navy-background-color{background-color: var(--wp--preset--color--navy) !important;}.has-navy-dark-background-color{background-color: var(--wp--preset--color--navy-dark) !important;}.has-navy-deep-background-color{background-color: var(--wp--preset--color--navy-deep) !important;}.has-green-background-color{background-color: var(--wp--preset--color--green) !important;}.has-pink-background-color{background-color: var(--wp--preset--color--pink) !important;}.has-nocturne-background-color{background-color: var(--wp--preset--color--nocturne) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-light-border-color{border-color: var(--wp--preset--color--light) !important;}.has-light-gray-border-color{border-color: var(--wp--preset--color--light-gray) !important;}.has-light-pink-border-color{border-color: var(--wp--preset--color--light-pink) !important;}.has-light-purple-border-color{border-color: var(--wp--preset--color--light-purple) !important;}.has-purple-border-color{border-color: var(--wp--preset--color--purple) !important;}.has-blue-border-color{border-color: var(--wp--preset--color--blue) !important;}.has-navy-border-color{border-color: var(--wp--preset--color--navy) !important;}.has-navy-dark-border-color{border-color: var(--wp--preset--color--navy-dark) !important;}.has-navy-deep-border-color{border-color: var(--wp--preset--color--navy-deep) !important;}.has-green-border-color{border-color: var(--wp--preset--color--green) !important;}.has-pink-border-color{border-color: var(--wp--preset--color--pink) !important;}.has-nocturne-border-color{border-color: var(--wp--preset--color--nocturne) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-dark-blue-gradient-gradient-background{background: var(--wp--preset--gradient--dark-blue-gradient) !important;}.has-dark-blue-gradient-reverse-gradient-background{background: var(--wp--preset--gradient--dark-blue-gradient-reverse) !important;}.has-purple-glow-gradient-background{background: var(--wp--preset--gradient--purple-glow) !important;}.has-midnight-violet-gradient-background{background: var(--wp--preset--gradient--midnight-violet) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-extra-large-font-size{font-size: var(--wp--preset--font-size--extra-large) !important;}.has-2-5-xl-font-size{font-size: var(--wp--preset--font-size--2-5-xl) !important;}.has-2-x-large-font-size{font-size: var(--wp--preset--font-size--2-x-large) !important;}.has-display-font-size{font-size: var(--wp--preset--font-size--display) !important;}.has-3-x-large-font-size{font-size: var(--wp--preset--font-size--3-x-large) !important;}.has-4-x-large-font-size{font-size: var(--wp--preset--font-size--4-x-large) !important;}.has-5-x-large-font-size{font-size: var(--wp--preset--font-size--5-x-large) !important;}.has-6-x-large-font-size{font-size: var(--wp--preset--font-size--6-x-large) !important;}.has-sans-font-family{font-family: var(--wp--preset--font-family--sans) !important;}.has-heading-font-family{font-family: var(--wp--preset--font-family--heading) !important;}.has-mono-font-family{font-family: var(--wp--preset--font-family--mono) !important;}.has-semi-mono-font-family{font-family: var(--wp--preset--font-family--semi-mono) !important;}.wp-block-button .wp-block-button__link.has-blue-color{color: var(--wp--preset--color--blue) !important;}.wp-block-button .wp-block-button__link.has-green-color{color: var(--wp--preset--color--green) !important;}.wp-block-button .wp-block-button__link.has-fill-white-color{color: var(--wp--preset--color--fill-white) !important;}.wp-block-button .wp-block-button__link.has-white-border-color{color: var(--wp--preset--color--white-border) !important;}.wp-block-button .wp-block-button__link.has-fill-black-color{color: var(--wp--preset--color--fill-black) !important;}.wp-block-button .wp-block-button__link.has-black-border-color{color: var(--wp--preset--color--black-border) !important;}.wp-block-button .wp-block-button__link.has-blue-background-color{background-color: var(--wp--preset--color--blue) !important;}.wp-block-button .wp-block-button__link.has-green-background-color{background-color: var(--wp--preset--color--green) !important;}.wp-block-button .wp-block-button__link.has-fill-white-background-color{background-color: var(--wp--preset--color--fill-white) !important;}.wp-block-button .wp-block-button__link.has-white-border-background-color{background-color: var(--wp--preset--color--white-border) !important;}.wp-block-button .wp-block-button__link.has-fill-black-background-color{background-color: var(--wp--preset--color--fill-black) !important;}.wp-block-button .wp-block-button__link.has-black-border-background-color{background-color: var(--wp--preset--color--black-border) !important;}.wp-block-button .wp-block-button__link.has-blue-border-color{border-color: var(--wp--preset--color--blue) !important;}.wp-block-button .wp-block-button__link.has-green-border-color{border-color: var(--wp--preset--color--green) !important;}.wp-block-button .wp-block-button__link.has-fill-white-border-color{border-color: var(--wp--preset--color--fill-white) !important;}.wp-block-button .wp-block-button__link.has-white-border-border-color{border-color: var(--wp--preset--color--white-border) !important;}.wp-block-button .wp-block-button__link.has-fill-black-border-color{border-color: var(--wp--preset--color--fill-black) !important;}.wp-block-button .wp-block-button__link.has-black-border-border-color{border-color: var(--wp--preset--color--black-border) !important;}
-/*# sourceURL=global-styles-inline-css */
-</style>
+<!-- End Google Tag Manager -->
 
-			<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.69-->
-			<script class="hsq-set-content-id" data-content-id="standard-page">
-				var _hsq = _hsq || [];
-				_hsq.push(["setContentType", "standard-page"]);
-			</script>
-			<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
-			<link rel="icon" href="https://scaleops.com/content/uploads/2026/02/cropped-favicon-32x32.png" sizes="32x32">
-<link rel="icon" href="https://scaleops.com/content/uploads/2026/02/cropped-favicon-192x192.png" sizes="192x192">
-<link rel="apple-touch-icon" href="https://scaleops.com/content/uploads/2026/02/cropped-favicon-180x180.png">
-<meta name="msapplication-TileImage" content="https://scaleops.com/content/uploads/2026/02/cropped-favicon-270x270.png">
-<style id="wp-custom-css">
-pre code {                                                       
-        font-size: inherit;                                        
-        color: inherit;                                            
-        word-break: normal                                         
-  }
-                                                                   
-  code {                                                         
-        color: var(--bs-code-color);
-        word-wrap: break-word;
-        font-size: .875em
-  }
+<meta content="noindex, nofollow" name="robots"/>
+<link crossorigin="" href="https://vz-05c708cf-e3c.b-cdn.net" rel="preconnect"/>
+<link href="https://vz-05c708cf-e3c.b-cdn.net" rel="dns-prefetch"/>
+<link as="font" crossorigin="" href="https://scaleops.com/build/assets/Scandium-VF-CW0nQqO_.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="https://scaleops.com/build/assets/SaansRegular-CRIy43oF.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="https://scaleops.com/build/assets/SaansMedium-OhhNPY7B.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="https://scaleops.com/build/assets/SaansSemiBold-N37K-xCt.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="https://scaleops.com/build/assets/SaansBold-DEEx1eU5.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="https://scaleops.com/build/assets/SaansLight-BnCwq9L2.woff2" rel="preload" type="font/woff2"/>
+<!-- This site is optimized with the Yoast SEO plugin v28.2 - https://yoast.com/product/yoast-seo-wordpress/ -->
+<title>Careers - ScaleOps</title>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="ScaleOps - Careers - We're Hiring!" property="og:title"/>
+<meta content="Join the team! Curiosity and dedication to excellence are in our DNA. We aim high and hold ourselves to the highest standards but maintain focus on progress, not perfection." property="og:description"/>
+<meta content="https://scaleops.com/careers/" property="og:url"/>
+<meta content="ScaleOps" property="og:site_name"/>
+<meta content="2026-08-04T15:17:58+00:00" property="article:modified_time"/>
+<meta content="https://scaleops.com/content/uploads/2026/03/mc255--1024x540.jpg" property="og:image"/>
+<meta content="1024" property="og:image:width"/>
+<meta content="540" property="og:image:height"/>
+<meta content="image/jpeg" property="og:image:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Est. reading time" name="twitter:label1"/>
+<meta content="1 minute" name="twitter:data1"/>
+
+<!-- / Yoast SEO plugin. -->
+<link href="//js.hs-scripts.com" rel="dns-prefetch"/>
 
 
-  pre code {
-        display: block;
-        word-break: normal
-  }
-
-  code {
-        color: var(--bs-code-color);
-        word-wrap: break-word;
-        font-size: .875em;
-        white-space: break-spaces;
-  }
-
-  @media (min-width: 1270px) {
-
-  #sign-in-header-button {
-        color: black !important;
-        position: relative;
-        border-radius: 0;
-  }
-
-  #sign-in-header-button::before {
-        content: '';
-        background-color: #BABABA;
-        left: 0;
-        width: 1px;
-        height: 100%;
-        position: absolute;
-        height: 1.5rem;
-  }
-
-  #sign-in-header-button:hover {
-        color: #0BC276 !important;
-  }
-
-  .afb-header--light-mode #sign-in-header-button {
-        color: white !important;
-  }
-
-  .afb-header--light-mode #sign-in-header-button:hover {
-        color: #0BC276 !important;
-  }
 
 
-  .afb-header--overlayed-absolute #sign-in-header-button {
-        color: black !important;
-  }
 
 
-  }
 
-  @media (max-width: 1024px) {
-        #sign-in-header-button {
-                    color: black;
-      padding: 1rem 2rem;
-      font-weight: 500;
-        }
-  }
+<!-- DO NOT COPY THIS SNIPPET! Start of Page Analytics Tracking for HubSpot WordPress plugin v11.3.69-->
 
-  .afb-header + script + p:empty {
-        display: none;
-  }
+<!-- DO NOT COPY THIS SNIPPET! End of Page Analytics Tracking for HubSpot WordPress plugin -->
+<link href="https://scaleops.com/content/uploads/2026/02/cropped-favicon-32x32.png" rel="icon" sizes="32x32"/>
+<link href="https://scaleops.com/content/uploads/2026/02/cropped-favicon-192x192.png" rel="icon" sizes="192x192"/>
+<link href="https://scaleops.com/content/uploads/2026/02/cropped-favicon-180x180.png" rel="apple-touch-icon"/>
+<meta content="https://scaleops.com/content/uploads/2026/02/cropped-favicon-270x270.png" name="msapplication-TileImage"/>
 
-  .page-id-4710 .b-featured-hero video {
-        filter: brightness(0.88) hue-rotate(2deg);
-            background-color: transparent;
-  }
+<link as="style" href="https://scaleops.com/build/assets/app-CeiAzeGU.css" rel="preload"/><link href="https://scaleops.com/build/assets/app-Duv3faQQ.js" rel="modulepreload"/><link href="https://scaleops.com/build/assets/code-languages-D_bIirKP.js" rel="modulepreload"/><link href="https://scaleops.com/build/assets/app-CeiAzeGU.css" rel="stylesheet"/> </head>
+<body class="wp-singular page page-id-1740 wp-embed-responsive wp-theme-scaleops careers">
+<!-- Google Tag Manager (noscript) -->
 
-  .page-id-188 #Automated-Smart-Pod-Placement + .b-demo-cta video {
-        filter: brightness(0.93) contrast(1.04) saturate(1.12);
-  }
-
-  @media (min-width: 768px) {
-      .parent-pageid-188 .b-featured-hero video {
-          background-color: transparent;
-          filter: brightness(0.91) hue-rotate(-2deg)
-  saturate(0.98);
-      }
-
-        .page-id-5650 .b-featured-hero video {
-        margin-top: -2rem
-  }
-
-  }
-
-.page-id-4710 .b-featured-hero video {
-  filter: brightness(0.88) hue-rotate(2deg);
-  background-color: transparent;
-}
-.page-id-188 #Automated-Smart-Pod-Placement + .b-demo-cta video {
-  filter: brightness(0.93) contrast(1.04) saturate(1.12);
-}
-@media (min-width: 768px) {
-  .parent-pageid-188 .b-featured-hero video {
-    filter: brightness(0.91) hue-rotate(-2deg) saturate(0.98);
-  }
-}
-
-.page-id-9764 .page-header-tc .video-showcase video {
-  mix-blend-mode: screen;
-  position: relative;
-}
-.page-id-9764 .page-header-tc .video-showcase__main {
-  z-index: auto;
-  position: relative;
-}
-.page-id-9764 .page-header-tc__content {
-  z-index: auto;
-}
-/* black backer behind the card so dark content inside it stays dark */
-.page-id-9764 .page-header-tc .video-showcase__main::before {
-  content: '';
-  position: absolute;
-  left: 22.003%; top: 29.186%;
-  width: 56.103%; height: 34.404%;
-  background: #000;
-  border-radius: 1.1% / 1.83%;
-}
-</style>
-        <link rel="preload" as="style" href="https://scaleops.com/build/assets/app-CeiAzeGU.css" /><link rel="modulepreload" href="https://scaleops.com/build/assets/app-Duv3faQQ.js" /><link rel="modulepreload" href="https://scaleops.com/build/assets/code-languages-D_bIirKP.js" /><link rel="stylesheet" href="https://scaleops.com/build/assets/app-CeiAzeGU.css" /><script type="module" src="https://scaleops.com/build/assets/app-Duv3faQQ.js"></script>            </head>
-
-    <body class="wp-singular page page-id-1740 wp-embed-responsive wp-theme-scaleops careers">
-                <!-- Google Tag Manager (noscript) -->
-        <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDQXJFNW" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-        </noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        
-        <div id="app">
-            <a class="sr-only focus:not-sr-only" href="#main">
+<!-- End Google Tag Manager (noscript) -->
+<div id="app">
+<a class="sr-only focus:not-sr-only" href="#main">
                 Skip to content
             </a>
+<section @keydown.escape.window="handleEscape" @scroll.window="handleScroll" class="afb-header afb-header--style-default site-header" x-bind:class="headerClasses" x-data="siteHeader({ isOverlayed: false })">
+<div class="container container--header">
+<div class="afb-header__body">
+<a aria-label="ScaleOps" class="afb-header__logo" href="https://scaleops.com/">
+<img alt="ScaleOps" class="afb-header__logo-image" decoding="async" height="37" loading="lazy" src="https://scaleops.com/content/uploads/2026/02/Logo_ScaleOps_For_Menu_Web_2026_DARK-3-2.svg" width="193"/>
+</a>
+<div class="afb-header__menu">
+<div class="container afb-header__menu-container">
+<nav @click="handleNavClick($event)" class="afb-header__nav-wrapper">
+<ul class="afb-header__nav">
+<li class="menu-item menu-item-3631 menu-item-depth-0 menu-item-has-children menu-item-is-platform-parent" id="menu-item-3631">
+<a aria-expanded="false" aria-haspopup="true" class="menu-item__link" href="#">
+<span class="menu-item-title">Product</span>
+<span aria-hidden="true" class="menu-item__arrow">
 
-            <section
-    class="afb-header afb-header--style-default site-header"
-    x-data="siteHeader({ isOverlayed: false })"
-    x-bind:class="headerClasses"
-    @scroll.window="handleScroll"
-    @keydown.escape.window="handleEscape"
->
-    
-    <div class="container container--header">
-        <div class="afb-header__body">
-            
-            <a href="https://scaleops.com/" class="afb-header__logo" aria-label="ScaleOps">
-                                                            <img width="193" height="37" src="https://scaleops.com/content/uploads/2026/02/Logo_ScaleOps_For_Menu_Web_2026_DARK-3-2.svg" class="afb-header__logo-image" alt="ScaleOps" decoding="async" loading="lazy" />
-                                                </a>
-
-            
-            <div class="afb-header__menu">
-                <div class="container afb-header__menu-container">
-                                            <nav
-                            class="afb-header__nav-wrapper"
-                            @click="handleNavClick($event)"
-                        >
-                            <ul class="afb-header__nav">
-      <li id="menu-item-3631" class="menu-item menu-item-3631 menu-item-depth-0 menu-item-has-children menu-item-is-platform-parent">
-  <a href="#" class="menu-item__link"
-      aria-haspopup="true" aria-expanded="false"      >
-          <span class="menu-item-title">Product</span>
-
-
-      <span class="menu-item__arrow" aria-hidden="true">
-  <svg width="9" height="6" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-  </svg>
 </span>
-      </a>
-
-      <div class="platform-menu">
-  <div class="platform-menu__zones">
-    
-    <div class="platform-menu__panels">
-              <section class="platform-group  menu-item-10533">
-  <div class="platform-group__head">
-    <p class="platform-group__title">Core Platform</p>
-          <p class="platform-group__tagline">Continuously right-sized CPU, memory, and nodes across VPA, HPA, and Karpenter</p>
-      </div>
-
-  <div class="platform-panel">
-    <ul class="platform-panel__grid">
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/automated-pod-rightsizing/">
-            <span class="platform-panel__item-title">Pod Rightsizing</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/karpenter-optimization/">
-            <span class="platform-panel__item-title">Karpenter Optimization</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/node-optimization/">
-            <span class="platform-panel__item-title">Node Optimization</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/smart-pod-placement/">
-            <span class="platform-panel__item-title">Smart Pod Placement</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/spot-optimization/">
-            <span class="platform-panel__item-title">Spot Optimization</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/replicas-optimization/">
-            <span class="platform-panel__item-title">Replicas Optimization</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/java-resource-management/">
-            <span class="platform-panel__item-title">Java Resource Management</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/kubernetes-cost-monitoring/">
-            <span class="platform-panel__item-title">Cost Monitoring</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/cluster-and-workload-troubleshooting/">
-            <span class="platform-panel__item-title">Workload Troubleshooting</span>
-                      </a>
-        </li>
-          </ul>
-  </div>
-</section>
-              <section class="platform-group  menu-item-10543">
-  <div class="platform-group__head">
-    <p class="platform-group__title">GPU Platform</p>
-          <p class="platform-group__tagline">Autonomous GPU and memory optimization across every accelerator</p>
-      </div>
-
-  <div class="platform-panel">
-    <ul class="platform-panel__grid">
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/automated-fractional-gpus/">
-            <span class="platform-panel__item-title">Automated Fractional GPUs</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/gpu-inference-observability/">
-            <span class="platform-panel__item-title">GPU Inference Observability</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/gpu-replicas-optimization/">
-            <span class="platform-panel__item-title">GPU Replicas Optimization</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/batch-inference-optimization/">
-            <span class="platform-panel__item-title">Batch Inference Optimization</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/gpu-memory-optimization/">
-            <span class="platform-panel__item-title">GPU Memory Optimization</span>
-                      </a>
-        </li>
-          </ul>
-  </div>
-</section>
-          </div>
-
-    
-    <div class="platform-menu__cards">
-      <section class="platform-group platform-group--compact">
-        <div class="platform-group__head">
-          <p class="platform-group__title">What Are You Running?</p>
-                  </div>
-
-        <div class="platform-panel">
-          <ul class="platform-panel__grid">
-                          <li class="platform-panel__item">
-  <a href="https://scaleops.com/solutions/applications/">
-    <span class="platform-panel__item-title">Applications</span>
-          <span class="platform-panel__item-sub">Continuously right-sized infrastructure for every microservice and stateful workload</span>
-      </a>
-</li>
-                          <li class="platform-panel__item">
-  <a href="https://scaleops.com/solutions/agents/">
-    <span class="platform-panel__item-title">Agents</span>
-          <span class="platform-panel__item-sub">Real-time resource management built for bursty, unpredictable agent execution</span>
-      </a>
-</li>
-                          <li class="platform-panel__item">
-  <a href="https://scaleops.com/solutions/models/">
-    <span class="platform-panel__item-title">Models</span>
-          <span class="platform-panel__item-sub">Autonomous GPU and compute management for inference and training workloads</span>
-      </a>
-</li>
-                      </ul>
-        </div>
-      </section>
-    </div>
-
-    
-          <div class="platform-menu__side">
-                  <section class="platform-group platform-group--compact menu-item-10552">
-  <div class="platform-group__head">
-    <p class="platform-group__title">ScaleOps AI</p>
-          <p class="platform-group__tagline">AI-native tools connecting ScaleOps to your agentic workflows</p>
-      </div>
-
-  <div class="platform-panel">
-    <ul class="platform-panel__grid">
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/ai-sre-agent/">
-            <span class="platform-panel__item-title">AI SRE Agent</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/scaleops-mcp/">
-            <span class="platform-panel__item-title">ScaleOps MCP</span>
-                      </a>
-        </li>
-          </ul>
-  </div>
-</section>
-                  <section class="platform-group platform-group--compact menu-item-10555">
-  <div class="platform-group__head">
-    <p class="platform-group__title">Technologies</p>
-          <p class="platform-group__tagline">Self-hosted by design, deployable anywhere you run Kubernetes</p>
-      </div>
-
-  <div class="platform-panel">
-    <ul class="platform-panel__grid">
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/self-hosted/">
-            <span class="platform-panel__item-title">Self-Hosted</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/scaleops-cloud/">
-            <span class="platform-panel__item-title">ScaleOps Cloud</span>
-                      </a>
-        </li>
-              <li class="platform-panel__item">
-          <a href="https://scaleops.com/product/air-gapped/">
-            <span class="platform-panel__item-title">Air-Gapped</span>
-                      </a>
-        </li>
-          </ul>
-  </div>
-</section>
-              </div>
-    
-    
-          <div class="platform-menu__cta-bar">
-        <a href="https://try.scaleops.com/playground" class="platform-menu__cta"
-           >
-          <span class="platform-menu__cta-label">Get a Platform Tour</span>
-          <span class="platform-menu__cta-arrow" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-      </div>
-      </div>
+</a>
+<div class="platform-menu">
+<div class="platform-menu__zones">
+<div class="platform-menu__panels">
+<section class="platform-group menu-item-10533">
+<div class="platform-group__head">
+<p class="platform-group__title">Core Platform</p>
+<p class="platform-group__tagline">Continuously right-sized CPU, memory, and nodes across VPA, HPA, and Karpenter</p>
 </div>
-  </li>
-      <li id="menu-item-404" class="menu-item menu-item-404 menu-item-depth-0">
-  <a href="https://scaleops.com/pricing/" class="menu-item__link"
-          >
-          <span class="menu-item-title">Pricing</span>
+<div class="platform-panel">
+<ul class="platform-panel__grid">
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/automated-pod-rightsizing/">
+<span class="platform-panel__item-title">Pod Rightsizing</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/karpenter-optimization/">
+<span class="platform-panel__item-title">Karpenter Optimization</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/node-optimization/">
+<span class="platform-panel__item-title">Node Optimization</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/smart-pod-placement/">
+<span class="platform-panel__item-title">Smart Pod Placement</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/spot-optimization/">
+<span class="platform-panel__item-title">Spot Optimization</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/replicas-optimization/">
+<span class="platform-panel__item-title">Replicas Optimization</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/java-resource-management/">
+<span class="platform-panel__item-title">Java Resource Management</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/kubernetes-cost-monitoring/">
+<span class="platform-panel__item-title">Cost Monitoring</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/cluster-and-workload-troubleshooting/">
+<span class="platform-panel__item-title">Workload Troubleshooting</span>
+</a>
+</li>
+</ul>
+</div>
+</section>
+<section class="platform-group menu-item-10543">
+<div class="platform-group__head">
+<p class="platform-group__title">GPU Platform</p>
+<p class="platform-group__tagline">Autonomous GPU and memory optimization across every accelerator</p>
+</div>
+<div class="platform-panel">
+<ul class="platform-panel__grid">
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/automated-fractional-gpus/">
+<span class="platform-panel__item-title">Automated Fractional GPUs</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/gpu-inference-observability/">
+<span class="platform-panel__item-title">GPU Inference Observability</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/gpu-replicas-optimization/">
+<span class="platform-panel__item-title">GPU Replicas Optimization</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/batch-inference-optimization/">
+<span class="platform-panel__item-title">Batch Inference Optimization</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/gpu-memory-optimization/">
+<span class="platform-panel__item-title">GPU Memory Optimization</span>
+</a>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<div class="platform-menu__cards">
+<section class="platform-group platform-group--compact">
+<div class="platform-group__head">
+<p class="platform-group__title">What Are You Running?</p>
+</div>
+<div class="platform-panel">
+<ul class="platform-panel__grid">
+<li class="platform-panel__item">
+<a href="https://scaleops.com/solutions/applications/">
+<span class="platform-panel__item-title">Applications</span>
+<span class="platform-panel__item-sub">Continuously right-sized infrastructure for every microservice and stateful workload</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/solutions/agents/">
+<span class="platform-panel__item-title">Agents</span>
+<span class="platform-panel__item-sub">Real-time resource management built for bursty, unpredictable agent execution</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/solutions/models/">
+<span class="platform-panel__item-title">Models</span>
+<span class="platform-panel__item-sub">Autonomous GPU and compute management for inference and training workloads</span>
+</a>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<div class="platform-menu__side">
+<section class="platform-group platform-group--compact menu-item-10552">
+<div class="platform-group__head">
+<p class="platform-group__title">ScaleOps AI</p>
+<p class="platform-group__tagline">AI-native tools connecting ScaleOps to your agentic workflows</p>
+</div>
+<div class="platform-panel">
+<ul class="platform-panel__grid">
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/ai-sre-agent/">
+<span class="platform-panel__item-title">AI SRE Agent</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/scaleops-mcp/">
+<span class="platform-panel__item-title">ScaleOps MCP</span>
+</a>
+</li>
+</ul>
+</div>
+</section>
+<section class="platform-group platform-group--compact menu-item-10555">
+<div class="platform-group__head">
+<p class="platform-group__title">Technologies</p>
+<p class="platform-group__tagline">Self-hosted by design, deployable anywhere you run Kubernetes</p>
+</div>
+<div class="platform-panel">
+<ul class="platform-panel__grid">
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/self-hosted/">
+<span class="platform-panel__item-title">Self-Hosted</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/scaleops-cloud/">
+<span class="platform-panel__item-title">ScaleOps Cloud</span>
+</a>
+</li>
+<li class="platform-panel__item">
+<a href="https://scaleops.com/product/air-gapped/">
+<span class="platform-panel__item-title">Air-Gapped</span>
+</a>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<div class="platform-menu__cta-bar">
+<a class="platform-menu__cta" href="https://try.scaleops.com/playground">
+<span class="platform-menu__cta-label">Get a Platform Tour</span>
+<span aria-hidden="true" class="platform-menu__cta-arrow">
 
-
-      </a>
-
-  </li>
-      <li id="menu-item-3626" class="menu-item menu-item-3626 menu-item-depth-0">
-  <a href="https://scaleops.com/resources/case-studies/" class="menu-item__link"
-          >
-          <span class="menu-item-title">Customers</span>
-
-
-      </a>
-
-  </li>
-      <li id="menu-item-3633" class="menu-item menu-item-3633 menu-item-depth-0 menu-item-has-children menu-item-is-mega-parent mega-menu-vertical-sections">
-  <a href="#" class="menu-item__link"
-      aria-haspopup="true" aria-expanded="false"      >
-          <span class="menu-item-title">Resources</span>
-
-
-      <span class="menu-item__arrow" aria-hidden="true">
-  <svg width="9" height="6" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-  </svg>
 </span>
-      </a>
-
-      <ul class="sub-menu sub-menu-depth-0 columns-2">
-  
-            <li id="menu-item-3615" class="menu-item menu-item-3615 menu-item-depth-1 menu-item-is-column menu-item-has-children">
-  <a href="#" class="menu-item__link">
-    <span class="menu-item-title">Resources</span>
-
-
-  </a>
-
-      <ul class="sub-menu sub-menu-depth-1">
-              <li id="menu-item-219" class="menu-item menu-item-219 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon">
-  <a href="https://scaleops.com/blog/" class="menu-item__link"
-     >
-    <img width="96" height="96" src="https://scaleops.com/content/uploads/2025/05/blog-icon.png" class="menu-item-icon" alt="" decoding="async" loading="lazy" />
-
-  <span class="menu-item-content">
-
-<span class="menu-item-title">Blog</span>
-
-
-  </span>
-  </a>
-
-  </li>
-              <li id="menu-item-3619" class="menu-item menu-item-3619 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon">
-  <a href="https://scaleops.com/resources/case-studies/" class="menu-item__link"
-     >
-    <img width="512" height="512" src="https://scaleops.com/content/uploads/2026/04/Customers.png" class="menu-item-icon" alt="" decoding="async" loading="lazy" srcset="https://scaleops.com/content/uploads/2026/04/Customers.png 512w, https://scaleops.com/content/uploads/2026/04/Customers-300x300.png 300w, https://scaleops.com/content/uploads/2026/04/Customers-150x150.png 150w" sizes="auto, (max-width: 512px) 100vw, 512px" />
-
-  <span class="menu-item-content">
-
+</a>
+</div>
+</div>
+</div>
+</li>
+<li class="menu-item menu-item-404 menu-item-depth-0" id="menu-item-404">
+<a class="menu-item__link" href="https://scaleops.com/pricing/">
+<span class="menu-item-title">Pricing</span>
+</a>
+</li>
+<li class="menu-item menu-item-3626 menu-item-depth-0" id="menu-item-3626">
+<a class="menu-item__link" href="https://scaleops.com/resources/case-studies/">
 <span class="menu-item-title">Customers</span>
+</a>
+</li>
+<li class="menu-item menu-item-3633 menu-item-depth-0 menu-item-has-children menu-item-is-mega-parent mega-menu-vertical-sections" id="menu-item-3633">
+<a aria-expanded="false" aria-haspopup="true" class="menu-item__link" href="#">
+<span class="menu-item-title">Resources</span>
+<span aria-hidden="true" class="menu-item__arrow">
 
-
-  </span>
-  </a>
-
-  </li>
-              <li id="menu-item-3067" class="menu-item menu-item-3067 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon">
-  <a href="https://scaleops.com/resources/events/" class="menu-item__link"
-     >
-    <img width="512" height="512" src="https://scaleops.com/content/uploads/2025/07/PRESS_With_Bg.png" class="menu-item-icon" alt="" decoding="async" loading="lazy" srcset="https://scaleops.com/content/uploads/2025/07/PRESS_With_Bg.png 512w, https://scaleops.com/content/uploads/2025/07/PRESS_With_Bg-300x300.png 300w, https://scaleops.com/content/uploads/2025/07/PRESS_With_Bg-150x150.png 150w" sizes="auto, (max-width: 512px) 100vw, 512px" />
-
-  <span class="menu-item-content">
-
+</span>
+</a>
+<ul class="sub-menu sub-menu-depth-0 columns-2">
+<li class="menu-item menu-item-3615 menu-item-depth-1 menu-item-is-column menu-item-has-children" id="menu-item-3615">
+<a class="menu-item__link" href="#">
+<span class="menu-item-title">Resources</span>
+</a>
+<ul class="sub-menu sub-menu-depth-1">
+<li class="menu-item menu-item-219 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon" id="menu-item-219">
+<a class="menu-item__link" href="https://scaleops.com/blog/">
+<img alt="" class="menu-item-icon" decoding="async" height="96" loading="lazy" src="https://scaleops.com/content/uploads/2025/05/blog-icon.png" width="96"/>
+<span class="menu-item-content">
+<span class="menu-item-title">Blog</span>
+</span>
+</a>
+</li>
+<li class="menu-item menu-item-3619 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon" id="menu-item-3619">
+<a class="menu-item__link" href="https://scaleops.com/resources/case-studies/">
+<img alt="" class="menu-item-icon" decoding="async" height="512" loading="lazy" sizes="auto, (max-width: 512px) 100vw, 512px" src="https://scaleops.com/content/uploads/2026/04/Customers.png" srcset="https://scaleops.com/content/uploads/2026/04/Customers.png 512w, https://scaleops.com/content/uploads/2026/04/Customers-300x300.png 300w, https://scaleops.com/content/uploads/2026/04/Customers-150x150.png 150w" width="512"/>
+<span class="menu-item-content">
+<span class="menu-item-title">Customers</span>
+</span>
+</a>
+</li>
+<li class="menu-item menu-item-3067 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon" id="menu-item-3067">
+<a class="menu-item__link" href="https://scaleops.com/resources/events/">
+<img alt="" class="menu-item-icon" decoding="async" height="512" loading="lazy" sizes="auto, (max-width: 512px) 100vw, 512px" src="https://scaleops.com/content/uploads/2025/07/PRESS_With_Bg.png" srcset="https://scaleops.com/content/uploads/2025/07/PRESS_With_Bg.png 512w, https://scaleops.com/content/uploads/2025/07/PRESS_With_Bg-300x300.png 300w, https://scaleops.com/content/uploads/2025/07/PRESS_With_Bg-150x150.png 150w" width="512"/>
+<span class="menu-item-content">
 <span class="menu-item-title">Events</span>
-
-
-  </span>
-  </a>
-
-  </li>
-              <li id="menu-item-3069" class="menu-item menu-item-3069 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon">
-  <a href="https://scaleops.com/resources/news/" class="menu-item__link"
-     >
-    <img width="56" height="56" src="https://scaleops.com/content/uploads/2025/08/Group-1000002782.png" class="menu-item-icon" alt="" decoding="async" loading="lazy" />
-
-  <span class="menu-item-content">
-
+</span>
+</a>
+</li>
+<li class="menu-item menu-item-3069 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon" id="menu-item-3069">
+<a class="menu-item__link" href="https://scaleops.com/resources/news/">
+<img alt="" class="menu-item-icon" decoding="async" height="56" loading="lazy" src="https://scaleops.com/content/uploads/2025/08/Group-1000002782.png" width="56"/>
+<span class="menu-item-content">
 <span class="menu-item-title">News</span>
-
-
-  </span>
-  </a>
-
-  </li>
-              <li id="menu-item-7199" class="menu-item menu-item-7199 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon">
-  <a href="https://scaleops.com/resources/videos/" class="menu-item__link"
-     >
-    <img width="512" height="512" src="https://scaleops.com/content/uploads/2025/12/Videos_Icon.png" class="menu-item-icon" alt="" decoding="async" loading="lazy" srcset="https://scaleops.com/content/uploads/2025/12/Videos_Icon.png 512w, https://scaleops.com/content/uploads/2025/12/Videos_Icon-300x300.png 300w, https://scaleops.com/content/uploads/2025/12/Videos_Icon-150x150.png 150w" sizes="auto, (max-width: 512px) 100vw, 512px" />
-
-  <span class="menu-item-content">
-
+</span>
+</a>
+</li>
+<li class="menu-item menu-item-7199 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon" id="menu-item-7199">
+<a class="menu-item__link" href="https://scaleops.com/resources/videos/">
+<img alt="" class="menu-item-icon" decoding="async" height="512" loading="lazy" sizes="auto, (max-width: 512px) 100vw, 512px" src="https://scaleops.com/content/uploads/2025/12/Videos_Icon.png" srcset="https://scaleops.com/content/uploads/2025/12/Videos_Icon.png 512w, https://scaleops.com/content/uploads/2025/12/Videos_Icon-300x300.png 300w, https://scaleops.com/content/uploads/2025/12/Videos_Icon-150x150.png 150w" width="512"/>
+<span class="menu-item-content">
 <span class="menu-item-title">Video</span>
-
-
-  </span>
-  </a>
-
-  </li>
-              <li id="menu-item-5246" class="menu-item menu-item-5246 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon">
-  <a href="https://docs.scaleops.com/" class="menu-item__link"
-     >
-    <img width="512" height="512" src="https://scaleops.com/content/uploads/2025/09/12Group-1000002778-1.png" class="menu-item-icon" alt="" decoding="async" loading="lazy" srcset="https://scaleops.com/content/uploads/2025/09/12Group-1000002778-1.png 512w, https://scaleops.com/content/uploads/2025/09/12Group-1000002778-1-300x300.png 300w, https://scaleops.com/content/uploads/2025/09/12Group-1000002778-1-150x150.png 150w" sizes="auto, (max-width: 512px) 100vw, 512px" />
-
-  <span class="menu-item-content">
-
+</span>
+</a>
+</li>
+<li class="menu-item menu-item-5246 menu-item-depth-2 menu-item-is-mega-item menu-item-has-icon" id="menu-item-5246">
+<a class="menu-item__link" href="https://docs.scaleops.com/">
+<img alt="" class="menu-item-icon" decoding="async" height="512" loading="lazy" sizes="auto, (max-width: 512px) 100vw, 512px" src="https://scaleops.com/content/uploads/2025/09/12Group-1000002778-1.png" srcset="https://scaleops.com/content/uploads/2025/09/12Group-1000002778-1.png 512w, https://scaleops.com/content/uploads/2025/09/12Group-1000002778-1-300x300.png 300w, https://scaleops.com/content/uploads/2025/09/12Group-1000002778-1-150x150.png 150w" width="512"/>
+<span class="menu-item-content">
 <span class="menu-item-title">Documentation</span>
-
-
-  </span>
-  </a>
-
-  </li>
-          </ul>
-  </li>
-      
-  
-      <li class="featured-articles-column featured-articles-column--standard menu-item-is-column">
-  <a href="#" class="menu-item__link" role="presentation" aria-hidden="true" tabindex="-1">
-    <span class="menu-item-title">Featured Article</span>
-  </a>
-
-      <a href="https://scaleops.com/blog/kubernetes-dra-gpu-enforcement/" class="featured-articles__image-link">
-      <img src="https://scaleops.com/content/uploads/2026/09/DRA-Keeps-Its-Promises.-Nothing-Checks-What-You-Actually-Used-768x502.png" alt="" class="featured-articles__image">
-    </a>
-  
-  <ul class="featured-articles__list">
-          <li class="featured-articles__item">
-        <a href="https://scaleops.com/blog/kubernetes-dra-gpu-enforcement/">
-          <span class="featured-articles__arrow">&rarr;</span>
-          <span class="featured-articles__post-title">DRA Keeps Its Promises. Nothing Checks What You Actually Used.</span>
-        </a>
-      </li>
-          <li class="featured-articles__item">
-        <a href="https://scaleops.com/blog/kubernetes-1-37/">
-          <span class="featured-articles__arrow">&rarr;</span>
-          <span class="featured-articles__post-title">Kubernetes 1.37 Resource Management: Primitives Get Reflexes</span>
-        </a>
-      </li>
-          <li class="featured-articles__item">
-        <a href="https://scaleops.com/blog/the-real-cost-of-always-on-ai-agents-on-kubernetes-and-how-to-kill-idle-gpu-burn/">
-          <span class="featured-articles__arrow">&rarr;</span>
-          <span class="featured-articles__post-title">The Real Cost of Always-On AI Agents on Kubernetes (and How to Kill Idle GPU Burn)</span>
-        </a>
-      </li>
-      </ul>
-
-      <a href="https://scaleops.com/blog/" class="featured-articles__see-all">
-      See all <span class="featured-articles__see-all-arrow">&rarr;</span>
-    </a>
-  </li>
-  </ul>
-  </li>
-      <li id="menu-item-1760" class="menu-item menu-item-1760 menu-item-depth-0 current-menu-ancestor menu-item-has-children">
-  <a href="#" class="menu-item__link"
-      aria-haspopup="true" aria-expanded="false"      >
-          <span class="menu-item-title">Company</span>
-
-
-      <span class="menu-item__arrow" aria-hidden="true">
-  <svg width="9" height="6" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-  </svg>
 </span>
-      </a>
+</a>
+</li>
+</ul>
+</li>
+<li class="featured-articles-column featured-articles-column--standard menu-item-is-column">
+<a aria-hidden="true" class="menu-item__link" href="#" role="presentation" tabindex="-1">
+<span class="menu-item-title">Featured Article</span>
+</a>
+<a class="featured-articles__image-link" href="https://scaleops.com/blog/kubernetes-dra-gpu-enforcement/">
+<img alt="" class="featured-articles__image" src="https://scaleops.com/content/uploads/2026/09/DRA-Keeps-Its-Promises.-Nothing-Checks-What-You-Actually-Used-768x502.png"/>
+</a>
+<ul class="featured-articles__list">
+<li class="featured-articles__item">
+<a href="https://scaleops.com/blog/kubernetes-dra-gpu-enforcement/">
+<span class="featured-articles__arrow">→</span>
+<span class="featured-articles__post-title">DRA Keeps Its Promises. Nothing Checks What You Actually Used.</span>
+</a>
+</li>
+<li class="featured-articles__item">
+<a href="https://scaleops.com/blog/kubernetes-1-37/">
+<span class="featured-articles__arrow">→</span>
+<span class="featured-articles__post-title">Kubernetes 1.37 Resource Management: Primitives Get Reflexes</span>
+</a>
+</li>
+<li class="featured-articles__item">
+<a href="https://scaleops.com/blog/the-real-cost-of-always-on-ai-agents-on-kubernetes-and-how-to-kill-idle-gpu-burn/">
+<span class="featured-articles__arrow">→</span>
+<span class="featured-articles__post-title">The Real Cost of Always-On AI Agents on Kubernetes (and How to Kill Idle GPU Burn)</span>
+</a>
+</li>
+</ul>
+<a class="featured-articles__see-all" href="https://scaleops.com/blog/">
+      See all <span class="featured-articles__see-all-arrow">→</span>
+</a>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-1760 menu-item-depth-0 current-menu-ancestor menu-item-has-children" id="menu-item-1760">
+<a aria-expanded="false" aria-haspopup="true" class="menu-item__link" href="#">
+<span class="menu-item-title">Company</span>
+<span aria-hidden="true" class="menu-item__arrow">
 
-      <ul class="sub-menu sub-menu-depth-1">
-      
-    <li id="menu-item-3624" class="menu-item menu-item-3624 menu-item-depth-1 menu-item-has-children">
-      <a href="#" class="menu-item__link"
-         >
-        <span class="menu-item-title">Company</span>
-
-
-                  <span class="menu-item__arrow" aria-hidden="true">
-  <svg width="9" height="6" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-  </svg>
 </span>
-              </a>
+</a>
+<ul class="sub-menu sub-menu-depth-1">
+<li class="menu-item menu-item-3624 menu-item-depth-1 menu-item-has-children" id="menu-item-3624">
+<a class="menu-item__link" href="#">
+<span class="menu-item-title">Company</span>
+<span aria-hidden="true" class="menu-item__arrow">
 
-              <ul class="sub-menu sub-menu-depth-2">
-      
-    <li id="menu-item-406" class="menu-item menu-item-406 menu-item-depth-2 menu-item-has-icon">
-      <a href="https://scaleops.com/about-us/" class="menu-item__link"
-         >
-        <img width="96" height="96" src="https://scaleops.com/content/uploads/2025/05/about-us-icon.jpg" class="menu-item-icon" alt="" decoding="async" loading="lazy" />
-
-  <span class="menu-item-content">
-
+</span>
+</a>
+<ul class="sub-menu sub-menu-depth-2">
+<li class="menu-item menu-item-406 menu-item-depth-2 menu-item-has-icon" id="menu-item-406">
+<a class="menu-item__link" href="https://scaleops.com/about-us/">
+<img alt="" class="menu-item-icon" decoding="async" height="96" loading="lazy" src="https://scaleops.com/content/uploads/2025/05/about-us-icon.jpg" width="96"/>
+<span class="menu-item-content">
 <span class="menu-item-title">About ScaleOps</span>
-
-
-  </span>
-              </a>
-
-          </li>
-      
-    <li id="menu-item-1761" class="menu-item menu-item-1761 menu-item-depth-2 menu-item--active menu-item-has-icon now-hiring-notice">
-      <a href="https://scaleops.com/careers/" class="menu-item__link"
-          aria-current="page" >
-        <img width="96" height="96" src="https://scaleops.com/content/uploads/2025/05/company-icon.png" class="menu-item-icon" alt="" decoding="async" loading="lazy" />
-
-  <span class="menu-item-content">
-
+</span>
+</a>
+</li>
+<li class="menu-item menu-item-1761 menu-item-depth-2 menu-item--active menu-item-has-icon now-hiring-notice" id="menu-item-1761">
+<a aria-current="page" class="menu-item__link" href="https://scaleops.com/careers/">
+<img alt="" class="menu-item-icon" decoding="async" height="96" loading="lazy" src="https://scaleops.com/content/uploads/2025/05/company-icon.png" width="96"/>
+<span class="menu-item-content">
 <span class="menu-item-title">Careers</span>
-
-
-  </span>
-              </a>
-
-          </li>
-      
-    <li id="menu-item-10559" class="menu-item menu-item-10559 menu-item-depth-2 menu-item-has-icon">
-      <a href="https://scaleops.com/partners/" class="menu-item__link"
-         >
-        <img width="58" height="58" src="https://scaleops.com/content/uploads/2026/08/Group-14372554dsf67.png" class="menu-item-icon" alt="" decoding="async" loading="lazy" />
-
-  <span class="menu-item-content">
-
+</span>
+</a>
+</li>
+<li class="menu-item menu-item-10559 menu-item-depth-2 menu-item-has-icon" id="menu-item-10559">
+<a class="menu-item__link" href="https://scaleops.com/partners/">
+<img alt="" class="menu-item-icon" decoding="async" height="58" loading="lazy" src="https://scaleops.com/content/uploads/2026/08/Group-14372554dsf67.png" width="58"/>
+<span class="menu-item-content">
 <span class="menu-item-title">Partners</span>
-
-
-  </span>
-              </a>
-
-          </li>
-      
-    <li id="menu-item-5776" class="menu-item menu-item-5776 menu-item-depth-2 menu-item-has-icon">
-      <a href="https://scaleops.com/contact-us/" class="menu-item__link"
-         >
-        <img width="512" height="512" src="https://scaleops.com/content/uploads/2025/10/contactus.png" class="menu-item-icon" alt="" decoding="async" loading="lazy" srcset="https://scaleops.com/content/uploads/2025/10/contactus.png 512w, https://scaleops.com/content/uploads/2025/10/contactus-300x300.png 300w, https://scaleops.com/content/uploads/2025/10/contactus-150x150.png 150w" sizes="auto, (max-width: 512px) 100vw, 512px" />
-
-  <span class="menu-item-content">
-
+</span>
+</a>
+</li>
+<li class="menu-item menu-item-5776 menu-item-depth-2 menu-item-has-icon" id="menu-item-5776">
+<a class="menu-item__link" href="https://scaleops.com/contact-us/">
+<img alt="" class="menu-item-icon" decoding="async" height="512" loading="lazy" sizes="auto, (max-width: 512px) 100vw, 512px" src="https://scaleops.com/content/uploads/2025/10/contactus.png" srcset="https://scaleops.com/content/uploads/2025/10/contactus.png 512w, https://scaleops.com/content/uploads/2025/10/contactus-300x300.png 300w, https://scaleops.com/content/uploads/2025/10/contactus-150x150.png 150w" width="512"/>
+<span class="menu-item-content">
 <span class="menu-item-title">Contact Us</span>
-
-
-  </span>
-              </a>
-
-          </li>
-  </ul>
-          </li>
-  </ul>
-  </li>
-  </ul>
-                        </nav>
-                    
-                    
-                    <div class="afb-header__buttons">
-                                                                                                                        <div class="wp-block-button is-style-toggle-small">
-    <a
-        href="#book-a-demo"
-                        class="wp-block-button__link has-white-border-background-color has-background wp-element-button"
-    >Book a Demo</a>
+</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<div class="afb-header__buttons">
+<div class="wp-block-button is-style-toggle-small">
+<a class="wp-block-button__link has-white-border-background-color has-background wp-element-button" href="#book-a-demo">Book a Demo</a>
 </div>
-                                                                                                                                                                                    <div class="wp-block-button is-style-toggle-small">
-    <a
-        href="https://try.scaleops.com"
-                 target="_blank" rel="noopener noreferrer"         class="wp-block-button__link has-green-background-color has-background wp-element-button"
-    >Get Started</a>
+<div class="wp-block-button is-style-toggle-small">
+<a class="wp-block-button__link has-green-background-color has-background wp-element-button" href="https://try.scaleops.com" rel="noopener noreferrer" target="_blank">Get Started</a>
 </div>
-                                                                                                                                                                                    <a
-                                        href="https://try.scaleops.com/login"
-                                                                                class="afb-header__sign-in"
-                                    >Sign In</a>
-                                                                                                        </div>
-                </div>
-            </div>
-
-            
-                            <button
-                    class="afb-header__button-nav"
-                    type="button"
-                    aria-label="Toggle navigation"
-                    x-bind:aria-expanded="mobileMenuOpen"
-                    aria-controls="navbarSupportedContent"
-                    @click="toggleMobileMenu"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                    </div>
-    </div>
+<a class="afb-header__sign-in" href="https://try.scaleops.com/login">Sign In</a>
+</div>
+</div>
+</div>
+<button @click="toggleMobileMenu" aria-controls="navbarSupportedContent" aria-label="Toggle navigation" class="afb-header__button-nav" type="button" x-bind:aria-expanded="mobileMenuOpen">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</div>
 </section>
-
-            <main id="main" class="">
-                             <div class="wp-block-post-content">
-    <section class="section has-inner-container has-responsive-spacing relative overflow-hidden alignfull wp-block-section" style="background-color: var(--wp--preset--color--white); --pt-mobile: 3rem; --pb-mobile: 3rem; --mt-mobile: 0rem; --mb-mobile: 0rem; --pt-desktop: 5rem; --pb-desktop: 5rem; --mt-desktop: 0rem; --mb-desktop: 0rem" data-section-bg="white">
-    
-    
-    <div class="section__card section__card--passthrough" style="">
-                <div class="section__content relative z-10 container section__content--wide">
-            <div class="acf-inner-blocks">
+<main class="" id="main">
+<div class="wp-block-post-content">
+<section class="section has-inner-container has-responsive-spacing relative overflow-hidden alignfull wp-block-section" data-section-bg="white" style="background-color: var(--wp--preset--color--white); --pt-mobile: 3rem; --pb-mobile: 3rem; --mt-mobile: 0rem; --mb-mobile: 0rem; --pt-desktop: 5rem; --pb-desktop: 5rem; --mt-desktop: 0rem; --mb-desktop: 0rem">
+<div class="section__card section__card--passthrough" style="">
+<div class="section__content relative z-10 container section__content--wide">
+<div class="acf-inner-blocks">
 <div class="w-full two-columns--widen-right">
-    <div class="two-columns__grid flex flex-col gap-8 md:grid  md:gap-12 lg:gap-16 items-center">
-        <div class="acf-inner-blocks">
+<div class="two-columns__grid flex flex-col gap-8 md:grid md:gap-12 lg:gap-16 items-center">
+<div class="acf-inner-blocks">
 <div class="column-item column-item--top wp-block-column-item">
-    <div class="acf-inner-blocks">
-
+<div class="acf-inner-blocks">
 <h1 class="wp-block-heading has-6-x-large-font-size">Join the ScaleOps Team</h1>
-
-
-
-<p class="has-medium-font-size wp-block-paragraph">We&#8217;re a global team on a mission to reimagine the ways enterprises manage their infrastructure. And we&#8217;re just getting started. </p>
-
-
-
+<p class="has-medium-font-size wp-block-paragraph">We’re a global team on a mission to reimagine the ways enterprises manage their infrastructure. And we’re just getting started. </p>
 <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button"><a id="scaleops-open-positions" class="wp-block-button__link has-white-color has-blue-background-color has-text-color has-background wp-element-button" href="#open-careers">Open Positions</a></div>
-</div>
-
+<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-blue-background-color has-text-color has-background wp-element-button" href="#open-careers" id="scaleops-open-positions">Open Positions</a></div>
 </div>
 </div>
-
-
+</div>
 <div class="column-item column-item--top wp-block-column-item">
-    <div class="acf-inner-blocks">
-
-<figure class="wp-block-image size-full has-custom-border"><img fetchpriority="high" decoding="async" width="2048" height="1080" src="https://scaleops.com/content/uploads/2026/03/mc255-.jpg" alt="" class="wp-image-8656" style="border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-left-radius:30px;border-bottom-right-radius:30px" srcset="https://scaleops.com/content/uploads/2026/03/mc255-.jpg 2048w, https://scaleops.com/content/uploads/2026/03/mc255--300x158.jpg 300w, https://scaleops.com/content/uploads/2026/03/mc255--1024x540.jpg 1024w, https://scaleops.com/content/uploads/2026/03/mc255--768x405.jpg 768w, https://scaleops.com/content/uploads/2026/03/mc255--1536x810.jpg 1536w, https://scaleops.com/content/uploads/2026/03/mc255--150x79.jpg 150w, https://scaleops.com/content/uploads/2026/03/mc255--1920x1013.jpg 1920w" sizes="(max-width: 2048px) 100vw, 2048px" /></figure>
-
+<div class="acf-inner-blocks">
+<figure class="wp-block-image size-full has-custom-border"><img alt="" class="wp-image-8656" decoding="async" fetchpriority="high" height="1080" sizes="(max-width: 2048px) 100vw, 2048px" src="https://scaleops.com/content/uploads/2026/03/mc255-.jpg" srcset="https://scaleops.com/content/uploads/2026/03/mc255-.jpg 2048w, https://scaleops.com/content/uploads/2026/03/mc255--300x158.jpg 300w, https://scaleops.com/content/uploads/2026/03/mc255--1024x540.jpg 1024w, https://scaleops.com/content/uploads/2026/03/mc255--768x405.jpg 768w, https://scaleops.com/content/uploads/2026/03/mc255--1536x810.jpg 1536w, https://scaleops.com/content/uploads/2026/03/mc255--150x79.jpg 150w, https://scaleops.com/content/uploads/2026/03/mc255--1920x1013.jpg 1920w" style="border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-left-radius:30px;border-bottom-right-radius:30px" width="2048"/></figure>
 </div>
 </div>
-
 </div>
-    </div>
 </div>
-
 </div>
-        </div>
-    </div>
+</div>
+</div>
+</div>
 </section>
-
-
-<div class="b-icon-columns alignfull m-4 md:m-0 rounded-md py-[60px] md:py-20  align wp-block-icon-columns">
-    <div class="container">
-                    <h2 class="text-center text-4xl font-medium mb-10 md:mb-20 mt-0 md:leading-snug mx-auto">
+<div class="b-icon-columns alignfull m-4 md:m-0 rounded-md py-[60px] md:py-20 align wp-block-icon-columns">
+<div class="container">
+<h2 class="text-center text-4xl font-medium mb-10 md:mb-20 mt-0 md:leading-snug mx-auto">
                 Why ScaleOps? 
             </h2>
-        
-                    <div class="flex flex-col md:flex-row gap-14 justify-center">
-                                    <div class="text-center w-full md:w-1/4">
-                                                    <div class="mb-5">
-                                <img decoding="async" width="60" height="60" src="https://scaleops.com/content/uploads/2024/11/ExcellencyVector-1.svg" class="inline align-baseline w-16 h-16 object-contain shrink-0" alt="" />
-                            </div>
-                        
-                                                    <h5 class="mb-5 font-semibold text-[1.5rem]">
+<div class="flex flex-col md:flex-row gap-14 justify-center">
+<div class="text-center w-full md:w-1/4">
+<div class="mb-5">
+<img alt="" class="inline align-baseline w-16 h-16 object-contain shrink-0" decoding="async" height="60" src="https://scaleops.com/content/uploads/2024/11/ExcellencyVector-1.svg" width="60"/>
+</div>
+<h5 class="mb-5 font-semibold text-[1.5rem]">
                                 Excellence
                             </h5>
-                        
-                                                    <div class="text-lg leading-6">
+<div class="text-lg leading-6">
                                 We aim high and hold ourselves to the highest standards, but maintain focus on progress, not perfection.
                             </div>
-                                            </div>
-                                    <div class="text-center w-full md:w-1/4">
-                                                    <div class="mb-5">
-                                <img decoding="async" width="70" height="60" src="https://scaleops.com/content/uploads/2024/11/Teamwork-1.svg" class="inline align-baseline w-16 h-16 object-contain shrink-0" alt="" />
-                            </div>
-                        
-                                                    <h5 class="mb-5 font-semibold text-[1.5rem]">
+</div>
+<div class="text-center w-full md:w-1/4">
+<div class="mb-5">
+<img alt="" class="inline align-baseline w-16 h-16 object-contain shrink-0" decoding="async" height="60" src="https://scaleops.com/content/uploads/2024/11/Teamwork-1.svg" width="70"/>
+</div>
+<h5 class="mb-5 font-semibold text-[1.5rem]">
                                 Teamwork
                             </h5>
-                        
-                                                    <div class="text-lg leading-6">
+<div class="text-lg leading-6">
                                 We appreciate diversity within our teams and when a problem occurs, we work together to solve it.
                             </div>
-                                            </div>
-                                    <div class="text-center w-full md:w-1/4">
-                                                    <div class="mb-5">
-                                <img loading="lazy" decoding="async" width="60" height="60" src="https://scaleops.com/content/uploads/2024/11/Fun-1.svg" class="inline align-baseline w-16 h-16 object-contain shrink-0" alt="" />
-                            </div>
-                        
-                                                    <h5 class="mb-5 font-semibold text-[1.5rem]">
+</div>
+<div class="text-center w-full md:w-1/4">
+<div class="mb-5">
+<img alt="" class="inline align-baseline w-16 h-16 object-contain shrink-0" decoding="async" height="60" loading="lazy" src="https://scaleops.com/content/uploads/2024/11/Fun-1.svg" width="60"/>
+</div>
+<h5 class="mb-5 font-semibold text-[1.5rem]">
                                 Fun
                             </h5>
-                        
-                                                    <div class="text-lg leading-6">
+<div class="text-lg leading-6">
                                 From holiday celebrations to our fully-stocked kitchen and weekly happy-hours, we want you to feel at home at work.
                             </div>
-                                            </div>
-                                    <div class="text-center w-full md:w-1/4">
-                                                    <div class="mb-5">
-                                <img loading="lazy" decoding="async" width="60" height="60" src="https://scaleops.com/content/uploads/2024/11/Transparent-1.svg" class="inline align-baseline w-16 h-16 object-contain shrink-0" alt="" />
-                            </div>
-                        
-                                                    <h5 class="mb-5 font-semibold text-[1.5rem]">
+</div>
+<div class="text-center w-full md:w-1/4">
+<div class="mb-5">
+<img alt="" class="inline align-baseline w-16 h-16 object-contain shrink-0" decoding="async" height="60" loading="lazy" src="https://scaleops.com/content/uploads/2024/11/Transparent-1.svg" width="60"/>
+</div>
+<h5 class="mb-5 font-semibold text-[1.5rem]">
                                 Transparent
                             </h5>
-                        
-                                                    <div class="text-lg leading-6">
+<div class="text-lg leading-6">
                                 We work in a transparent environment of proactive communication and responsiveness. 
                             </div>
-                                            </div>
-                            </div>
-            </div>
 </div>
-
-
-<section class="section has-inner-container has-responsive-spacing relative overflow-hidden alignfull wp-block-section" style="background-color: var(--wp--preset--color--nocturne); color: var(--wp--preset--color--white); --pt-mobile: 2rem; --pb-mobile: 2rem; --mt-mobile: 0rem; --mb-mobile: 0rem; --pt-desktop: 3rem; --pb-desktop: 3rem; --mt-desktop: 0rem; --mb-desktop: 0rem" data-section-bg="nocturne">
-    
-    
-    <div class="section__card section__card--passthrough" style="">
-                <div class="section__content relative z-10 container section__content--wide">
-            <div class="acf-inner-blocks">
+</div>
+</div>
+</div>
+<section class="section has-inner-container has-responsive-spacing relative overflow-hidden alignfull wp-block-section" data-section-bg="nocturne" style="background-color: var(--wp--preset--color--nocturne); color: var(--wp--preset--color--white); --pt-mobile: 2rem; --pb-mobile: 2rem; --mt-mobile: 0rem; --mb-mobile: 0rem; --pt-desktop: 3rem; --pb-desktop: 3rem; --mt-desktop: 0rem; --mb-desktop: 0rem">
+<div class="section__card section__card--passthrough" style="">
+<div class="section__content relative z-10 container section__content--wide">
+<div class="acf-inner-blocks">
 <div class="b-image-gallery wp-block-image-gallery">
-        
-    <div class="md:hidden">
-        <div class="swiper image-gallery-swiper"
-            data-swiper='{
+<div class="md:hidden">
+<div class="swiper image-gallery-swiper" data-swiper='{
                 "spaceBetween": 16,
                 "grabCursor": true,
                 "autoHeight": true,
                 "loop": true
             }'>
-            <div class="swiper-wrapper">
-                                                            <div class="swiper-slide">
-                            <div class="rounded-lg overflow-hidden">
-                                <img loading="lazy" decoding="async" width="1024" height="683" src="https://scaleops.com/content/uploads/2025/12/ap3-50-1-1024x683.jpg" class="w-full h-auto object-cover" alt="" srcset="https://scaleops.com/content/uploads/2025/12/ap3-50-1-1024x683.jpg 1024w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-300x200.jpg 300w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-768x512.jpg 768w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-1536x1024.jpg 1536w, https://scaleops.com/content/uploads/2025/12/ap3-50-1.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" />
-                            </div>
-                        </div>
-                                                                                <div class="swiper-slide">
-                            <div class="rounded-lg overflow-hidden">
-                                <img loading="lazy" decoding="async" width="768" height="1024" src="https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-768x1024.jpeg" class="w-full h-auto object-cover" alt="" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1.jpeg 960w" sizes="auto, (max-width: 768px) 100vw, 768px" />
-                            </div>
-                        </div>
-                                                                                <div class="swiper-slide">
-                            <div class="rounded-lg overflow-hidden">
-                                <img loading="lazy" decoding="async" width="768" height="1024" src="https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-768x1024.jpeg" class="w-full h-auto object-cover" alt="" srcset="https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-1152x1536.jpeg 1152w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1.jpeg 1200w" sizes="auto, (max-width: 768px) 100vw, 768px" />
-                            </div>
-                        </div>
-                                                                                <div class="swiper-slide">
-                            <div class="rounded-lg overflow-hidden">
-                                <img loading="lazy" decoding="async" width="768" height="1024" src="https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-768x1024.jpeg" class="w-full h-auto object-cover" alt="" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/IMG_1788-Large.jpeg 960w" sizes="auto, (max-width: 768px) 100vw, 768px" />
-                            </div>
-                        </div>
-                                                                                <div class="swiper-slide">
-                            <div class="rounded-lg overflow-hidden">
-                                <img loading="lazy" decoding="async" width="1024" height="683" src="https://scaleops.com/content/uploads/2025/12/ap3-44-1-1024x683.jpg" class="w-full h-auto object-cover" alt="" srcset="https://scaleops.com/content/uploads/2025/12/ap3-44-1-1024x683.jpg 1024w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-300x200.jpg 300w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-768x512.jpg 768w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-1536x1024.jpg 1536w, https://scaleops.com/content/uploads/2025/12/ap3-44-1.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" />
-                            </div>
-                        </div>
-                                                                                <div class="swiper-slide">
-                            <div class="rounded-lg overflow-hidden">
-                                <img loading="lazy" decoding="async" width="1024" height="884" src="https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-1024x884.jpg" class="w-full h-auto object-cover" alt="" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-1024x884.jpg 1024w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-300x259.jpg 300w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-768x663.jpg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789.jpg 1200w" sizes="auto, (max-width: 1024px) 100vw, 1024px" />
-                            </div>
-                        </div>
-                                                                                <div class="swiper-slide">
-                            <div class="rounded-lg overflow-hidden">
-                                <img loading="lazy" decoding="async" width="1024" height="683" src="https://scaleops.com/content/uploads/2025/12/1757599137601-1-1024x683.jpeg" class="w-full h-auto object-cover" alt="" srcset="https://scaleops.com/content/uploads/2025/12/1757599137601-1-1024x683.jpeg 1024w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-300x200.jpeg 300w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-768x512.jpeg 768w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-1536x1024.jpeg 1536w, https://scaleops.com/content/uploads/2025/12/1757599137601-1.jpeg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" />
-                            </div>
-                        </div>
-                                                </div>
-        </div>
-    </div>
-
-    
-    <div class="image-gallery__grid hidden md:grid md:grid-cols-4 gap-4">
-                    <div class="image-gallery__item-1 md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-3 overflow-hidden rounded-lg relative aspect-[4/3] w-full">
-                <div class="absolute inset-0">
-                    <img loading="lazy" decoding="async" width="1024" height="683" src="https://scaleops.com/content/uploads/2025/12/ap3-50-1-1024x683.jpg" class="w-full h-full object-cover absolute inset-0" alt="" srcset="https://scaleops.com/content/uploads/2025/12/ap3-50-1-1024x683.jpg 1024w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-300x200.jpg 300w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-768x512.jpg 768w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-1536x1024.jpg 1536w, https://scaleops.com/content/uploads/2025/12/ap3-50-1.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" />
-                </div>
-            </div>
-        
-                    <div class="image-gallery__item-2 md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-2 overflow-hidden rounded-lg relative aspect-[4/3] w-full">
-                <div class="absolute inset-0">
-                    <img loading="lazy" decoding="async" width="768" height="1024" src="https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-768x1024.jpeg" class="w-full h-full object-cover absolute inset-0" alt="" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1.jpeg 960w" sizes="auto, (max-width: 768px) 100vw, 768px" />
-                </div>
-            </div>
-        
-                    <div class="image-gallery__item-3 md:col-start-4 md:col-end-5 md:row-start-1 md:row-end-3 overflow-hidden rounded-lg relative aspect-[2/3] w-full">
-                <div class="absolute inset-0">
-                    <img loading="lazy" decoding="async" width="768" height="1024" src="https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-768x1024.jpeg" class="w-full h-full object-cover absolute inset-0" alt="" srcset="https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-1152x1536.jpeg 1152w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1.jpeg 1200w" sizes="auto, (max-width: 768px) 100vw, 768px" />
-                </div>
-            </div>
-        
-                    <div class="image-gallery__item-4 md:col-start-1 md:col-end-2 md:row-start-3 md:row-end-4 overflow-hidden rounded-lg relative aspect-[4/3] w-full">
-                <div class="absolute inset-0">
-                    <img loading="lazy" decoding="async" width="768" height="1024" src="https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-768x1024.jpeg" class="w-full h-full object-cover absolute inset-0" alt="" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/IMG_1788-Large.jpeg 960w" sizes="auto, (max-width: 768px) 100vw, 768px" />
-                </div>
-            </div>
-        
-                    <div class="image-gallery__item-5 md:col-start-2 md:col-end-3 md:row-start-3 md:row-end-4 overflow-hidden rounded-lg relative aspect-[4/3] w-full">
-                <div class="absolute inset-0">
-                    <img loading="lazy" decoding="async" width="1024" height="683" src="https://scaleops.com/content/uploads/2025/12/ap3-44-1-1024x683.jpg" class="w-full h-full object-cover absolute inset-0" alt="" srcset="https://scaleops.com/content/uploads/2025/12/ap3-44-1-1024x683.jpg 1024w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-300x200.jpg 300w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-768x512.jpg 768w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-1536x1024.jpg 1536w, https://scaleops.com/content/uploads/2025/12/ap3-44-1.jpg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" />
-                </div>
-            </div>
-        
-                    <div class="image-gallery__item-6 md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-4 overflow-hidden rounded-lg relative aspect-[2/3] w-full h-full">
-                <div class="absolute inset-0">
-                    <img loading="lazy" decoding="async" width="1024" height="884" src="https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-1024x884.jpg" class="w-full h-full object-cover absolute inset-0" alt="" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-1024x884.jpg 1024w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-300x259.jpg 300w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-768x663.jpg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789.jpg 1200w" sizes="auto, (max-width: 1024px) 100vw, 1024px" />
-                </div>
-            </div>
-        
-                    <div class="image-gallery__item-7 md:col-start-4 md:col-end-5 md:row-start-3 md:row-end-4 overflow-hidden rounded-lg relative aspect-[4/3] w-full">
-                <div class="absolute inset-0">
-                    <img loading="lazy" decoding="async" width="1024" height="683" src="https://scaleops.com/content/uploads/2025/12/1757599137601-1-1024x683.jpeg" class="w-full h-full object-cover absolute inset-0" alt="" srcset="https://scaleops.com/content/uploads/2025/12/1757599137601-1-1024x683.jpeg 1024w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-300x200.jpeg 300w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-768x512.jpeg 768w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-1536x1024.jpeg 1536w, https://scaleops.com/content/uploads/2025/12/1757599137601-1.jpeg 2048w" sizes="auto, (max-width: 1024px) 100vw, 1024px" />
-                </div>
-            </div>
-            </div>
-    </div>
-
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="rounded-lg overflow-hidden">
+<img alt="" class="w-full h-auto object-cover" decoding="async" height="683" loading="lazy" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://scaleops.com/content/uploads/2025/12/ap3-50-1-1024x683.jpg" srcset="https://scaleops.com/content/uploads/2025/12/ap3-50-1-1024x683.jpg 1024w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-300x200.jpg 300w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-768x512.jpg 768w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-1536x1024.jpg 1536w, https://scaleops.com/content/uploads/2025/12/ap3-50-1.jpg 2048w" width="1024"/>
 </div>
-        </div>
-    </div>
+</div>
+<div class="swiper-slide">
+<div class="rounded-lg overflow-hidden">
+<img alt="" class="w-full h-auto object-cover" decoding="async" height="1024" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-768x1024.jpeg" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1.jpeg 960w" width="768"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="rounded-lg overflow-hidden">
+<img alt="" class="w-full h-auto object-cover" decoding="async" height="1024" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-768x1024.jpeg" srcset="https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-1152x1536.jpeg 1152w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1.jpeg 1200w" width="768"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="rounded-lg overflow-hidden">
+<img alt="" class="w-full h-auto object-cover" decoding="async" height="1024" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-768x1024.jpeg" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/IMG_1788-Large.jpeg 960w" width="768"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="rounded-lg overflow-hidden">
+<img alt="" class="w-full h-auto object-cover" decoding="async" height="683" loading="lazy" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://scaleops.com/content/uploads/2025/12/ap3-44-1-1024x683.jpg" srcset="https://scaleops.com/content/uploads/2025/12/ap3-44-1-1024x683.jpg 1024w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-300x200.jpg 300w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-768x512.jpg 768w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-1536x1024.jpg 1536w, https://scaleops.com/content/uploads/2025/12/ap3-44-1.jpg 2048w" width="1024"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="rounded-lg overflow-hidden">
+<img alt="" class="w-full h-auto object-cover" decoding="async" height="884" loading="lazy" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-1024x884.jpg" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-1024x884.jpg 1024w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-300x259.jpg 300w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-768x663.jpg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789.jpg 1200w" width="1024"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="rounded-lg overflow-hidden">
+<img alt="" class="w-full h-auto object-cover" decoding="async" height="683" loading="lazy" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://scaleops.com/content/uploads/2025/12/1757599137601-1-1024x683.jpeg" srcset="https://scaleops.com/content/uploads/2025/12/1757599137601-1-1024x683.jpeg 1024w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-300x200.jpeg 300w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-768x512.jpeg 768w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-1536x1024.jpeg 1536w, https://scaleops.com/content/uploads/2025/12/1757599137601-1.jpeg 2048w" width="1024"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="image-gallery__grid hidden md:grid md:grid-cols-4 gap-4">
+<div class="image-gallery__item-1 md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-3 overflow-hidden rounded-lg relative aspect-[4/3] w-full">
+<div class="absolute inset-0">
+<img alt="" class="w-full h-full object-cover absolute inset-0" decoding="async" height="683" loading="lazy" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://scaleops.com/content/uploads/2025/12/ap3-50-1-1024x683.jpg" srcset="https://scaleops.com/content/uploads/2025/12/ap3-50-1-1024x683.jpg 1024w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-300x200.jpg 300w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-768x512.jpg 768w, https://scaleops.com/content/uploads/2025/12/ap3-50-1-1536x1024.jpg 1536w, https://scaleops.com/content/uploads/2025/12/ap3-50-1.jpg 2048w" width="1024"/>
+</div>
+</div>
+<div class="image-gallery__item-2 md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-2 overflow-hidden rounded-lg relative aspect-[4/3] w-full">
+<div class="absolute inset-0">
+<img alt="" class="w-full h-full object-cover absolute inset-0" decoding="async" height="1024" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-768x1024.jpeg" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/IMG_1644-Large-1.jpeg 960w" width="768"/>
+</div>
+</div>
+<div class="image-gallery__item-3 md:col-start-4 md:col-end-5 md:row-start-1 md:row-end-3 overflow-hidden rounded-lg relative aspect-[2/3] w-full">
+<div class="absolute inset-0">
+<img alt="" class="w-full h-full object-cover absolute inset-0" decoding="async" height="1024" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-768x1024.jpeg" srcset="https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1-1152x1536.jpeg 1152w, https://scaleops.com/content/uploads/2024/12/WhatsApp-Image-2024-11-04-at-09.35.07-1-1.jpeg 1200w" width="768"/>
+</div>
+</div>
+<div class="image-gallery__item-4 md:col-start-1 md:col-end-2 md:row-start-3 md:row-end-4 overflow-hidden rounded-lg relative aspect-[4/3] w-full">
+<div class="absolute inset-0">
+<img alt="" class="w-full h-full object-cover absolute inset-0" decoding="async" height="1024" loading="lazy" sizes="auto, (max-width: 768px) 100vw, 768px" src="https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-768x1024.jpeg" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-768x1024.jpeg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1788-Large-225x300.jpeg 225w, https://scaleops.com/content/uploads/2024/12/IMG_1788-Large.jpeg 960w" width="768"/>
+</div>
+</div>
+<div class="image-gallery__item-5 md:col-start-2 md:col-end-3 md:row-start-3 md:row-end-4 overflow-hidden rounded-lg relative aspect-[4/3] w-full">
+<div class="absolute inset-0">
+<img alt="" class="w-full h-full object-cover absolute inset-0" decoding="async" height="683" loading="lazy" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://scaleops.com/content/uploads/2025/12/ap3-44-1-1024x683.jpg" srcset="https://scaleops.com/content/uploads/2025/12/ap3-44-1-1024x683.jpg 1024w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-300x200.jpg 300w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-768x512.jpg 768w, https://scaleops.com/content/uploads/2025/12/ap3-44-1-1536x1024.jpg 1536w, https://scaleops.com/content/uploads/2025/12/ap3-44-1.jpg 2048w" width="1024"/>
+</div>
+</div>
+<div class="image-gallery__item-6 md:col-start-3 md:col-end-4 md:row-start-2 md:row-end-4 overflow-hidden rounded-lg relative aspect-[2/3] w-full h-full">
+<div class="absolute inset-0">
+<img alt="" class="w-full h-full object-cover absolute inset-0" decoding="async" height="884" loading="lazy" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-1024x884.jpg" srcset="https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-1024x884.jpg 1024w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-300x259.jpg 300w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789-768x663.jpg 768w, https://scaleops.com/content/uploads/2024/12/IMG_1052-min-1-scaled-e1733074378789.jpg 1200w" width="1024"/>
+</div>
+</div>
+<div class="image-gallery__item-7 md:col-start-4 md:col-end-5 md:row-start-3 md:row-end-4 overflow-hidden rounded-lg relative aspect-[4/3] w-full">
+<div class="absolute inset-0">
+<img alt="" class="w-full h-full object-cover absolute inset-0" decoding="async" height="683" loading="lazy" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://scaleops.com/content/uploads/2025/12/1757599137601-1-1024x683.jpeg" srcset="https://scaleops.com/content/uploads/2025/12/1757599137601-1-1024x683.jpeg 1024w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-300x200.jpeg 300w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-768x512.jpeg 768w, https://scaleops.com/content/uploads/2025/12/1757599137601-1-1536x1024.jpeg 1536w, https://scaleops.com/content/uploads/2025/12/1757599137601-1.jpeg 2048w" width="1024"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-
-<div
-    id="open-careers"
-    class="bg-[#F5F4FF] p-4 md:p-8 alignfull"
-    x-data="greenhouseJobs"
-    data-board-token="scaleops"
-    data-jobs-url-base="https://scaleops.com/careers/job"
->
-    <div class="container py-12 md:py-24">
-        <h2 class="text-center font-bold text-4xl mb-8 md:ml-[22rem]">
-            <span x-show="loading" x-cloak>Loading open positions&hellip;</span>
-            <span x-show="!loading && !failed && jobs.length" x-cloak>
+<div class="bg-[#F5F4FF] p-4 md:p-8 alignfull" data-board-token="scaleops" data-jobs-url-base="https://scaleops.com/careers/job" id="open-careers" x-data="greenhouseJobs">
+<div class="container py-12 md:py-24">
+<h2 class="text-center font-bold text-4xl mb-8 md:ml-[22rem]">
+<span x-cloak="" x-show="loading">Loading open positions…</span>
+<span x-cloak="" x-show="!loading &amp;&amp; !failed &amp;&amp; jobs.length">
                 We have <span x-text="jobs.length"></span>
-                <span x-text="jobs.length === 1 ? 'open position' : 'open positions'"></span> now!
+<span x-text="jobs.length === 1 ? 'open position' : 'open positions'"></span> now!
             </span>
-            <span x-show="(!loading && !failed && !jobs.length) || failed" x-cloak>Open positions</span>
-        </h2>
+<span x-cloak="" x-show="(!loading &amp;&amp; !failed &amp;&amp; !jobs.length) || failed">Open positions</span>
+</h2>
+<div class="flex flex-col md:flex-row md:gap-12 xl:gap-24 mt-12 md:mt-24">
+<div class="flex flex-col md:hidden gap-4 mb-6" x-cloak="" x-show="!loading &amp;&amp; !failed &amp;&amp; jobs.length">
+<div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
+<div class="relative flex-1">
 
-        <div class="flex flex-col md:flex-row md:gap-12 xl:gap-24 mt-12 md:mt-24">
-            
-            <div class="flex flex-col md:hidden gap-4 mb-6" x-show="!loading && !failed && jobs.length" x-cloak>
-                <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                    <div class="relative flex-1">
-                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
-                        <select x-model="currentDepartment" aria-label="Filter by department" class="w-full h-10 pl-10 pr-10 appearance-none border border-gray-300 rounded-md bg-white text-sm cursor-pointer outline-none focus:ring-2 focus:ring-[#4339F2] text-gray-900">
-                            <template x-for="department in departments" :key="department.slug">
-                                <option :value="department.slug" x-text="`${department.name} (${department.count})`"></option>
-                            </template>
-                        </select>
-                        <div class="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2">
-                            <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                    </div>
+<select aria-label="Filter by department" class="w-full h-10 pl-10 pr-10 appearance-none border border-gray-300 rounded-md bg-white text-sm cursor-pointer outline-none focus:ring-2 focus:ring-[#4339F2] text-gray-900" x-model="currentDepartment">
+<template :key="department.slug" x-for="department in departments">
+<option :value="department.slug" x-text="`${department.name} (${department.count})`"></option>
+</template>
+</select>
+<div class="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2">
 
-                    <div class="relative flex-1">
-                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        <select x-model="currentLocation" aria-label="Filter by location" class="w-full h-10 pl-10 pr-10 appearance-none border border-gray-300 rounded-md bg-white text-sm cursor-pointer outline-none focus:ring-2 focus:ring-[#4339F2] text-gray-900">
-                            <template x-for="location in locations" :key="location.slug">
-                                <option :value="location.slug" x-text="location.name"></option>
-                            </template>
-                        </select>
-                        <div class="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2">
-                            <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
+</div>
+</div>
+<div class="relative flex-1">
 
-            
-            <div class="hidden md:flex w-64 flex-col gap-2" x-show="!loading && !failed && jobs.length" x-cloak>
-                <template x-for="department in departments" :key="department.slug">
-                    <button
-                        class="cursor-pointer flex items-center justify-start gap-1 text-left px-4 py-3 border-0 border-l-4 transition-all"
-                        :class="currentDepartment === department.slug ? 'bg-white border-[#4339F2] font-bold' : 'border-transparent bg-transparent hover:bg-white'"
-                        :aria-pressed="currentDepartment === department.slug"
-                        @click="currentDepartment = department.slug"
-                    >
-                        <span class="text-lg" x-text="department.name"></span>
-                        
-                        <span
-                            class="ml-auto inline-flex items-center justify-center min-w-[1.5rem] h-6 px-2 rounded-full text-xs font-medium tabular-nums transition-colors"
-                            :class="currentDepartment === department.slug ? 'bg-[#5050EE] text-white' : 'bg-[#EDEDFD] text-[#5050EE]'"
-                            x-text="department.count"
-                        ></span>
-                    </button>
-                </template>
-            </div>
+<select aria-label="Filter by location" class="w-full h-10 pl-10 pr-10 appearance-none border border-gray-300 rounded-md bg-white text-sm cursor-pointer outline-none focus:ring-2 focus:ring-[#4339F2] text-gray-900" x-model="currentLocation">
+<template :key="location.slug" x-for="location in locations">
+<option :value="location.slug" x-text="location.name"></option>
+</template>
+</select>
+<div class="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2">
 
-            
-            <div class="flex-1 relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4 h-fit">
-                
-                <div class="hidden md:flex justify-end mb-6 absolute right-0 bottom-full" x-show="!loading && !failed && jobs.length" x-cloak>
-                    <div class="relative w-64">
-                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        <select x-model="currentLocation" aria-label="Filter by location" class="w-full h-10 pl-10 pr-10 appearance-none border border-gray-300 rounded-md bg-white text-sm cursor-pointer outline-none focus:ring-2 focus:ring-[#4339F2] text-gray-900">
-                            <template x-for="location in locations" :key="location.slug">
-                                <option :value="location.slug" x-text="location.name"></option>
-                            </template>
-                        </select>
-                        <div class="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2">
-                            <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden md:flex w-64 flex-col gap-2" x-cloak="" x-show="!loading &amp;&amp; !failed &amp;&amp; jobs.length">
+<template :key="department.slug" x-for="department in departments">
+<button :aria-pressed="currentDepartment === department.slug" :class="currentDepartment === department.slug ? 'bg-white border-[#4339F2] font-bold' : 'border-transparent bg-transparent hover:bg-white'" @click="currentDepartment = department.slug" class="cursor-pointer flex items-center justify-start gap-1 text-left px-4 py-3 border-0 border-l-4 transition-all">
+<span class="text-lg" x-text="department.name"></span>
+<span :class="currentDepartment === department.slug ? 'bg-[#5050EE] text-white' : 'bg-[#EDEDFD] text-[#5050EE]'" class="ml-auto inline-flex items-center justify-center min-w-[1.5rem] h-6 px-2 rounded-full text-xs font-medium tabular-nums transition-colors" x-text="department.count"></span>
+</button>
+</template>
+</div>
+<div class="flex-1 relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4 h-fit">
+<div class="hidden md:flex justify-end mb-6 absolute right-0 bottom-full" x-cloak="" x-show="!loading &amp;&amp; !failed &amp;&amp; jobs.length">
+<div class="relative w-64">
 
-                
-                <p class="sr-only" aria-live="polite" x-text="loading || !jobs.length ? '' : `${visibleCount} ${visibleCount === 1 ? 'position' : 'positions'} shown`"></p>
+<select aria-label="Filter by location" class="w-full h-10 pl-10 pr-10 appearance-none border border-gray-300 rounded-md bg-white text-sm cursor-pointer outline-none focus:ring-2 focus:ring-[#4339F2] text-gray-900" x-model="currentLocation">
+<template :key="location.slug" x-for="location in locations">
+<option :value="location.slug" x-text="location.name"></option>
+</template>
+</select>
+<div class="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2">
 
-                
-                <template x-if="loading">
-                    <template x-for="i in 4" :key="i">
-                        <div class="bg-white p-6 animate-pulse">
-                            <div class="h-7 bg-gray-200 rounded w-3/4 mb-4"></div>
-                            <div class="flex gap-2 mb-6">
-                                <div class="h-7 bg-gray-100 rounded-full w-24"></div>
-                                <div class="h-7 bg-gray-100 rounded-full w-20"></div>
-                            </div>
-                            <div class="h-4 bg-gray-100 rounded w-28 ml-auto"></div>
-                        </div>
-                    </template>
-                </template>
-
-                
-                <div x-show="failed" x-cloak class="col-span-full bg-white p-6 rounded-md text-center">
-                    <h3 class="mt-0 text-lg font-bold text-gray-900 mb-1">We couldn't load our open positions</h3>
-                    <p>
+</div>
+</div>
+</div>
+<p aria-live="polite" class="sr-only" x-text="loading || !jobs.length ? '' : `${visibleCount} ${visibleCount === 1 ? 'position' : 'positions'} shown`"></p>
+<template x-if="loading">
+<template :key="i" x-for="i in 4">
+<div class="bg-white p-6 animate-pulse">
+<div class="h-7 bg-gray-200 rounded w-3/4 mb-4"></div>
+<div class="flex gap-2 mb-6">
+<div class="h-7 bg-gray-100 rounded-full w-24"></div>
+<div class="h-7 bg-gray-100 rounded-full w-20"></div>
+</div>
+<div class="h-4 bg-gray-100 rounded w-28 ml-auto"></div>
+</div>
+</template>
+</template>
+<div class="col-span-full bg-white p-6 rounded-md text-center" x-cloak="" x-show="failed">
+<h3 class="mt-0 text-lg font-bold text-gray-900 mb-1">We couldn't load our open positions</h3>
+<p>
                         You can view them directly on
-                        <a href="https://job-boards.eu.greenhouse.io/scaleops" target="_blank" rel="noopener">our Greenhouse job board</a>.
+                        <a href="https://job-boards.eu.greenhouse.io/scaleops" rel="noopener" target="_blank">our Greenhouse job board</a>.
                     </p>
-                </div>
-
-                
-                <div x-show="!loading && !failed && !jobs.length" x-cloak class="col-span-full bg-white p-6 rounded-md text-center">
-                    <h3 class="mt-0 text-lg font-bold text-gray-900 mb-1">No open positions right now</h3>
-                    <p>We don't have any open positions at this time. Please visit again soon.</p>
-                </div>
-
-                
-                <div x-show="!loading && !failed && jobs.length > 0 && visibleCount === 0" x-cloak class="col-span-full bg-white p-6 rounded-md text-center">
-                    <h3 class="mt-0 text-lg font-bold text-gray-900 mb-1">No positions found</h3>
-                    <p>Try adjusting your filters or checking back later for new opportunities.</p>
-                </div>
-
-                <template x-for="job in visibleJobs" :key="job.id">
-                    <a
-                        :href="job.url"
-                        class="group cursor-pointer job-card flex flex-col bg-white p-6 no-underline"
-                        :data-department="job.departmentSlug"
-                        :data-location="job.locationSlug"
-                    >
-                        <h3 class="mt-0 text-2xl font-bold mb-4" x-text="job.title"></h3>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <template x-if="job.location">
-                                <span class="px-3 py-1 border border-solid font-medium border-black rounded-full text-sm text-center" x-text="job.location"></span>
-                            </template>
-                            <template x-if="job.workplaceType">
-                                <span class="px-3 py-1 border border-solid font-medium border-black rounded-full text-sm text-center" x-text="job.workplaceType"></span>
-                            </template>
-                        </div>
-                        
-                        <div class="mt-auto flex justify-end">
-                            <span class="afc-button flex gap-2 items-center font-medium text-[16px] leading-none text-dark group-hover:text-[#5353E0] duration-200">
+</div>
+<div class="col-span-full bg-white p-6 rounded-md text-center" x-cloak="" x-show="!loading &amp;&amp; !failed &amp;&amp; !jobs.length">
+<h3 class="mt-0 text-lg font-bold text-gray-900 mb-1">No open positions right now</h3>
+<p>We don't have any open positions at this time. Please visit again soon.</p>
+</div>
+<div class="col-span-full bg-white p-6 rounded-md text-center" x-cloak="" x-show="!loading &amp;&amp; !failed &amp;&amp; jobs.length &gt; 0 &amp;&amp; visibleCount === 0">
+<h3 class="mt-0 text-lg font-bold text-gray-900 mb-1">No positions found</h3>
+<p>Try adjusting your filters or checking back later for new opportunities.</p>
+</div>
+<template :key="job.id" x-for="job in visibleJobs">
+<a :data-department="job.departmentSlug" :data-location="job.locationSlug" :href="job.url" class="group cursor-pointer job-card flex flex-col bg-white p-6 no-underline">
+<h3 class="mt-0 text-2xl font-bold mb-4" x-text="job.title"></h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<template x-if="job.location">
+<span class="px-3 py-1 border border-solid font-medium border-black rounded-full text-sm text-center" x-text="job.location"></span>
+</template>
+<template x-if="job.workplaceType">
+<span class="px-3 py-1 border border-solid font-medium border-black rounded-full text-sm text-center" x-text="job.workplaceType"></span>
+</template>
+</div>
+<div class="mt-auto flex justify-end">
+<span class="afc-button flex gap-2 items-center font-medium text-[16px] leading-none text-dark group-hover:text-[#5353E0] duration-200">
                                 Apply Online
-                                <svg class="w-4 h-4 fill-current" fill="none" height="16" viewBox="0 0 22 16" width="22" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m14.8982.302258 6.8181 7.000002c.3783.38829.3783 1.0072 0 1.39548l-6.8181 6.99996-1.4327-1.3954 5.1645-5.3023h-18.13v-2h18.13l-5.1645-5.30226z" fill="currentColor" fill-rule="evenodd"/></svg>
-                            </span>
-                        </div>
-                    </a>
-                </template>
-            </div>
-        </div>
-    </div>
+                                
+</span>
 </div>
-
-
+</a>
+</template>
 </div>
-
-                </main>
-
-            <footer class="site-footer site-footer--default">
-    <div class="container">
-        <div class="site-footer__top">
-
-            
-            <div class="site-footer__brand">
-                                    <a href="https://scaleops.com/" class="site-footer__logo">
-                        <img width="650" height="138" src="https://scaleops.com/content/uploads/2024/09/LOGO_ScaleOps_horiz_2026_BlackLOGO_ScaleOps_horiz_2026_White.svg" class="attachment-full size-full" alt="ScaleOps" decoding="async" loading="lazy" />
-                    </a>
-                
-                                    <p class="site-footer__tagline">Scale efficiently with the industry’s premier autonomous Kubernetes scaling engine. Real-time cost reduction without performance compromise.</p>
-                
-                                    <div class="site-footer__demo-card">
-                        <p class="site-footer__demo-heading">Autonomous Demo</p>
-                                                    <p class="site-footer__demo-text">Analyze your clusters live with our engineers.</p>
-                                                                            <div class="site-footer__demo-actions">
-                                                                    <div class="wp-block-button is-style-toggle-small">
-    <a
-        href="#book-a-demo"
-                        class="wp-block-button__link has-green-background-color has-background wp-element-button"
-    >Schedule Demo</a>
 </div>
-                                                                                                    <div class="wp-block-button is-style-toggle-small">
-    <a
-        href="https://try.scaleops.com/"
-                        class="wp-block-button__link has-white-border-background-color has-background wp-element-button"
-    >Quick Start</a>
 </div>
-                                                            </div>
-                                            </div>
-                            </div>
+</div>
+</div>
+</main>
+<footer class="site-footer site-footer--default">
+<div class="container">
+<div class="site-footer__top">
+<div class="site-footer__brand">
+<a class="site-footer__logo" href="https://scaleops.com/">
+<img alt="ScaleOps" class="attachment-full size-full" decoding="async" height="138" loading="lazy" src="https://scaleops.com/content/uploads/2024/09/LOGO_ScaleOps_horiz_2026_BlackLOGO_ScaleOps_horiz_2026_White.svg" width="650"/>
+</a>
+<p class="site-footer__tagline">Scale efficiently with the industry’s premier autonomous Kubernetes scaling engine. Real-time cost reduction without performance compromise.</p>
+<div class="site-footer__demo-card">
+<p class="site-footer__demo-heading">Autonomous Demo</p>
+<p class="site-footer__demo-text">Analyze your clusters live with our engineers.</p>
+<div class="site-footer__demo-actions">
+<div class="wp-block-button is-style-toggle-small">
+<a class="wp-block-button__link has-green-background-color has-background wp-element-button" href="#book-a-demo">Schedule Demo</a>
+</div>
+<div class="wp-block-button is-style-toggle-small">
+<a class="wp-block-button__link has-white-border-background-color has-background wp-element-button" href="https://try.scaleops.com/">Quick Start</a>
+</div>
+</div>
+</div>
+</div>
+<nav aria-label="Footer" class="site-footer__directories">
+<div class="site-footer__col">
+<section class="site-footer__group is-open" data-open="">
+<h3 class="site-footer__group-heading">
+<button aria-controls="footer-group-core-platform" aria-expanded="true" class="site-footer__group-toggle" type="button">
+<span>Core Platform</span>
 
-            
-                        <nav class="site-footer__directories" aria-label="Footer">
-                                                        <div class="site-footer__col">
-                                                                                <section class="site-footer__group is-open"  data-open >
-                                <h3 class="site-footer__group-heading">
-                                    <button type="button" class="site-footer__group-toggle" aria-expanded="true" aria-controls="footer-group-core-platform">
-                                        <span>Core Platform</span>
-                                        <svg class="site-footer__chevron" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.33" stroke-linecap="round"/></svg>
-                                    </button>
-                                </h3>
-                                <div class="site-footer__group-panel" id="footer-group-core-platform">
-                                    <div class="site-footer__group-panel-inner">
-                                        <ul class="site-footer__links">
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/automated-pod-rightsizing/" >
+</button>
+</h3>
+<div class="site-footer__group-panel" id="footer-group-core-platform">
+<div class="site-footer__group-panel-inner">
+<ul class="site-footer__links">
+<li>
+<a href="https://scaleops.com/product/automated-pod-rightsizing/">
                                                         Pod Rightsizing
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/node-optimization/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/node-optimization/">
                                                         Node Optimization
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/karpenter-optimization/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/karpenter-optimization/">
                                                         Karpenter Optimization
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/spot-optimization/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/spot-optimization/">
                                                         Spot Optimization
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/kubernetes-cost-monitoring/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/kubernetes-cost-monitoring/">
                                                         Cost Monitoring
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/cluster-and-workload-troubleshooting/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/cluster-and-workload-troubleshooting/">
                                                         Workload Troubleshooting
                                                                                                             </a>
-                                                </li>
-                                                                                    </ul>
-                                    </div>
-                                </div>
-                            </section>
-                                            </div>
-                                                            <span class="site-footer__rule" aria-hidden="true"></span>
-                                        <div class="site-footer__col">
-                                                                                <section class="site-footer__group " >
-                                <h3 class="site-footer__group-heading">
-                                    <button type="button" class="site-footer__group-toggle" aria-expanded="false" aria-controls="footer-group-gpu-platform">
-                                        <span>GPU Platform</span>
-                                        <svg class="site-footer__chevron" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.33" stroke-linecap="round"/></svg>
-                                    </button>
-                                </h3>
-                                <div class="site-footer__group-panel" id="footer-group-gpu-platform">
-                                    <div class="site-footer__group-panel-inner">
-                                        <ul class="site-footer__links">
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/automated-fractional-gpus/" >
+</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+<span aria-hidden="true" class="site-footer__rule"></span>
+<div class="site-footer__col">
+<section class="site-footer__group">
+<h3 class="site-footer__group-heading">
+<button aria-controls="footer-group-gpu-platform" aria-expanded="false" class="site-footer__group-toggle" type="button">
+<span>GPU Platform</span>
+
+</button>
+</h3>
+<div class="site-footer__group-panel" id="footer-group-gpu-platform">
+<div class="site-footer__group-panel-inner">
+<ul class="site-footer__links">
+<li>
+<a href="https://scaleops.com/product/automated-fractional-gpus/">
                                                         Automated Fractional GPUs
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/gpu-replicas-optimization/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/gpu-replicas-optimization/">
                                                         GPU Replicas Optimization
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/gpu-inference-observability/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/gpu-inference-observability/">
                                                         Inference Observability
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/batch-inference-optimization/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/batch-inference-optimization/">
                                                         Batch Inference
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/gpu-memory-optimization/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/gpu-memory-optimization/">
                                                         GPU Memory Optimization
                                                                                                             </a>
-                                                </li>
-                                                                                    </ul>
-                                    </div>
-                                </div>
-                            </section>
-                                                                                <section class="site-footer__group " >
-                                <h3 class="site-footer__group-heading">
-                                    <button type="button" class="site-footer__group-toggle" aria-expanded="false" aria-controls="footer-group-scaleops-ai">
-                                        <span>ScaleOps AI</span>
-                                        <svg class="site-footer__chevron" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.33" stroke-linecap="round"/></svg>
-                                    </button>
-                                </h3>
-                                <div class="site-footer__group-panel" id="footer-group-scaleops-ai">
-                                    <div class="site-footer__group-panel-inner">
-                                        <ul class="site-footer__links">
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/ai-sre-agent/" >
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="site-footer__group">
+<h3 class="site-footer__group-heading">
+<button aria-controls="footer-group-scaleops-ai" aria-expanded="false" class="site-footer__group-toggle" type="button">
+<span>ScaleOps AI</span>
+
+</button>
+</h3>
+<div class="site-footer__group-panel" id="footer-group-scaleops-ai">
+<div class="site-footer__group-panel-inner">
+<ul class="site-footer__links">
+<li>
+<a href="https://scaleops.com/product/ai-sre-agent/">
                                                         AI SRE Agent
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/scaleops-mcp/" >
+</li>
+<li>
+<a href="https://scaleops.com/scaleops-mcp/">
                                                         ScaleOps MCP
                                                                                                             </a>
-                                                </li>
-                                                                                    </ul>
-                                    </div>
-                                </div>
-                            </section>
-                                            </div>
-                                                            <span class="site-footer__rule" aria-hidden="true"></span>
-                                        <div class="site-footer__col">
-                                                                                <section class="site-footer__group " >
-                                <h3 class="site-footer__group-heading">
-                                    <button type="button" class="site-footer__group-toggle" aria-expanded="false" aria-controls="footer-group-resources">
-                                        <span>Resources</span>
-                                        <svg class="site-footer__chevron" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.33" stroke-linecap="round"/></svg>
-                                    </button>
-                                </h3>
-                                <div class="site-footer__group-panel" id="footer-group-resources">
-                                    <div class="site-footer__group-panel-inner">
-                                        <ul class="site-footer__links">
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/blog/" >
+</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+<span aria-hidden="true" class="site-footer__rule"></span>
+<div class="site-footer__col">
+<section class="site-footer__group">
+<h3 class="site-footer__group-heading">
+<button aria-controls="footer-group-resources" aria-expanded="false" class="site-footer__group-toggle" type="button">
+<span>Resources</span>
+
+</button>
+</h3>
+<div class="site-footer__group-panel" id="footer-group-resources">
+<div class="site-footer__group-panel-inner">
+<ul class="site-footer__links">
+<li>
+<a href="https://scaleops.com/blog/">
                                                         Blog
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/resources/case-studies/" >
+</li>
+<li>
+<a href="https://scaleops.com/resources/case-studies/">
                                                         Customers
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/resources/videos/" >
+</li>
+<li>
+<a href="https://scaleops.com/resources/videos/">
                                                         Videos
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/resources/events/" >
+</li>
+<li>
+<a href="https://scaleops.com/resources/events/">
                                                         Events
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/resources/news/" >
+</li>
+<li>
+<a href="https://scaleops.com/resources/news/">
                                                         News
                                                                                                             </a>
-                                                </li>
-                                                                                    </ul>
-                                    </div>
-                                </div>
-                            </section>
-                                            </div>
-                                                            <span class="site-footer__rule" aria-hidden="true"></span>
-                                        <div class="site-footer__col">
-                                                                                <section class="site-footer__group " >
-                                <h3 class="site-footer__group-heading">
-                                    <button type="button" class="site-footer__group-toggle" aria-expanded="false" aria-controls="footer-group-company">
-                                        <span>Company</span>
-                                        <svg class="site-footer__chevron" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.33" stroke-linecap="round"/></svg>
-                                    </button>
-                                </h3>
-                                <div class="site-footer__group-panel" id="footer-group-company">
-                                    <div class="site-footer__group-panel-inner">
-                                        <ul class="site-footer__links">
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/about-us/" >
+</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+<span aria-hidden="true" class="site-footer__rule"></span>
+<div class="site-footer__col">
+<section class="site-footer__group">
+<h3 class="site-footer__group-heading">
+<button aria-controls="footer-group-company" aria-expanded="false" class="site-footer__group-toggle" type="button">
+<span>Company</span>
+
+</button>
+</h3>
+<div class="site-footer__group-panel" id="footer-group-company">
+<div class="site-footer__group-panel-inner">
+<ul class="site-footer__links">
+<li>
+<a href="https://scaleops.com/about-us/">
                                                         About Us
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/pricing/" >
+</li>
+<li>
+<a href="https://scaleops.com/pricing/">
                                                         Pricing
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/careers/" >
+</li>
+<li>
+<a href="https://scaleops.com/careers/">
                                                         Careers
                                                                                                                     <span class="site-footer__hiring-chip">Hiring</span>
-                                                                                                            </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/contact-us/" >
+</a>
+</li>
+<li>
+<a href="https://scaleops.com/contact-us/">
                                                         Contact Us
                                                                                                             </a>
-                                                </li>
-                                                                                    </ul>
-                                    </div>
-                                </div>
-                            </section>
-                                                                                <section class="site-footer__group " >
-                                <h3 class="site-footer__group-heading">
-                                    <button type="button" class="site-footer__group-toggle" aria-expanded="false" aria-controls="footer-group-technologies">
-                                        <span>Technologies</span>
-                                        <svg class="site-footer__chevron" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6L9 12L15 6" stroke="currentColor" stroke-width="1.33" stroke-linecap="round"/></svg>
-                                    </button>
-                                </h3>
-                                <div class="site-footer__group-panel" id="footer-group-technologies">
-                                    <div class="site-footer__group-panel-inner">
-                                        <ul class="site-footer__links">
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/self-hosted/" >
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="site-footer__group">
+<h3 class="site-footer__group-heading">
+<button aria-controls="footer-group-technologies" aria-expanded="false" class="site-footer__group-toggle" type="button">
+<span>Technologies</span>
+
+</button>
+</h3>
+<div class="site-footer__group-panel" id="footer-group-technologies">
+<div class="site-footer__group-panel-inner">
+<ul class="site-footer__links">
+<li>
+<a href="https://scaleops.com/product/self-hosted/">
                                                         Self-Hosted
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/scaleops-cloud/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/scaleops-cloud/">
                                                         ScaleOps Cloud
                                                                                                             </a>
-                                                </li>
-                                                                                                                                            <li>
-                                                    <a href="https://scaleops.com/product/air-gapped/" >
+</li>
+<li>
+<a href="https://scaleops.com/product/air-gapped/">
                                                         Air-Gapped
                                                                                                             </a>
-                                                </li>
-                                                                                    </ul>
-                                    </div>
-                                </div>
-                            </section>
-                                            </div>
-                            </nav>
-                    </div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+</nav>
+</div>
+<div class="site-footer__meta">
+<div class="site-footer__badges">
+<ul class="site-footer__chips">
+<li class="site-footer__chip site-footer__chip--solid">SOC 2 Type II</li>
+<li class="site-footer__chip site-footer__chip--solid">CNCF Member</li>
+<li class="site-footer__chip site-footer__chip--solid">Linux Foundation</li>
+<li class="site-footer__chip site-footer__chip--solid">FinOps Certified</li>
+</ul>
+<span aria-hidden="true" class="site-footer__chip-rule"></span>
+<ul class="site-footer__chips">
+<li>
+<a class="site-footer__chip site-footer__chip--outline" href="https://aws.amazon.com/marketplace/pp/prodview-t6ctoxyyxp5zs" rel="noopener noreferrer" target="_blank">AWS Marketplace</a>
+</li>
+<li>
+<a class="site-footer__chip site-footer__chip--outline" href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/scaleopslabsltd1672654863049.scaleops_offering" rel="noopener noreferrer" target="_blank">Microsoft Azure</a>
+</li>
+<li>
+<a class="site-footer__chip site-footer__chip--outline" href="https://console.cloud.google.com/marketplace/product/scaleops-marketplace/scaleops" rel="noopener noreferrer" target="_blank">Google Cloud</a>
+</li>
+</ul>
+</div>
+<div class="site-footer__social">
+<a aria-label="Linkedin" class="site-footer__social-link" href="https://www.linkedin.com/company/scaleops-sh" rel="noopener noreferrer" target="_blank">
 
-        
-        <div class="site-footer__meta">
-                        <div class="site-footer__badges">
-                                    <ul class="site-footer__chips">
-                                                    <li class="site-footer__chip site-footer__chip--solid">SOC 2 Type II</li>
-                                                    <li class="site-footer__chip site-footer__chip--solid">CNCF Member</li>
-                                                    <li class="site-footer__chip site-footer__chip--solid">Linux Foundation</li>
-                                                    <li class="site-footer__chip site-footer__chip--solid">FinOps Certified</li>
-                                            </ul>
-                                                    <span class="site-footer__chip-rule" aria-hidden="true"></span>
-                                                    <ul class="site-footer__chips">
-                                                    <li>
-                                                                    <a href="https://aws.amazon.com/marketplace/pp/prodview-t6ctoxyyxp5zs"  target="_blank" rel="noopener noreferrer"  class="site-footer__chip site-footer__chip--outline">AWS Marketplace</a>
-                                                            </li>
-                                                    <li>
-                                                                    <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/scaleopslabsltd1672654863049.scaleops_offering"  target="_blank" rel="noopener noreferrer"  class="site-footer__chip site-footer__chip--outline">Microsoft Azure</a>
-                                                            </li>
-                                                    <li>
-                                                                    <a href="https://console.cloud.google.com/marketplace/product/scaleops-marketplace/scaleops"  target="_blank" rel="noopener noreferrer"  class="site-footer__chip site-footer__chip--outline">Google Cloud</a>
-                                                            </li>
-                                            </ul>
-                            </div>
-            
-                            <div class="site-footer__social">
-                                            <a
-                            href="https://www.linkedin.com/company/scaleops-sh"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Linkedin"
-                            class="site-footer__social-link"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                                            <a
-                            href="https://x.com/scaleops_ai"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X"
-                            class="site-footer__social-link"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        </a>
-                                            <a
-                            href="https://www.instagram.com/scaleops.official/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram"
-                            class="site-footer__social-link"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </a>
-                                    </div>
-                    </div>
+</a>
+<a aria-label="X" class="site-footer__social-link" href="https://x.com/scaleops_ai" rel="noopener noreferrer" target="_blank">
 
-        
-        <div class="site-footer__legal">
-            <div class="site-footer__copyright">
+</a>
+<a aria-label="Instagram" class="site-footer__social-link" href="https://www.instagram.com/scaleops.official/" rel="noopener noreferrer" target="_blank">
+
+</a>
+</div>
+</div>
+<div class="site-footer__legal">
+<div class="site-footer__copyright">
                 © 2026 ScaleOps Inc. Absolute sovereign control over cluster allocation.
             </div>
-                            <ul class="site-footer__legal-links">
-                                                                    <li>
-                            <a href="https://scaleops.com/legal/privacy-policy/" >
+<ul class="site-footer__legal-links">
+<li>
+<a href="https://scaleops.com/legal/privacy-policy/">
                                 Privacy Policy
                             </a>
-                        </li>
-                                                                    <li>
-                            <a href="https://scaleops.com/legal/terms-of-use/" >
+</li>
+<li>
+<a href="https://scaleops.com/legal/terms-of-use/">
                                 Terms of Use
                             </a>
-                        </li>
-                                    </ul>
-                    </div>
-    </div>
+</li>
+</ul>
+</div>
+</div>
 </footer>
-        </div>
-
-                <script type="speculationrules">
-{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp/wp-*.php","/wp/wp-admin/*","/content/uploads/*","/content/*","/content/plugins/*","/content/themes/scaleops/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
-</script>
-<dialog class="modal" id="kubecon-eu-2026">
-    <button class="modal__close" type="button" aria-label="Close modal">
-        <svg width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="7" y2="25"/>
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="25" y2="7"/>
-        </svg>
-    </button>
-    <div class="modal__container">
-        <div class="modal__content">
-            <div class="afc-form-hubspot__head"><h2 class="afc-form-hubspot__title">Book a Demo</h2></div><div class="afc-form-hubspot">
-    <div class="afc-form-hubspot__form" id="hubspot-form-hf-6aba4702a59d7"
-        data-portal-id="22373983"
-        data-form-id="82ee757b-4afe-45a9-a12f-4d5e353ba266"
-    ></div>
 </div>
 
-        </div>
-    </div>
+<dialog class="modal" id="kubecon-eu-2026">
+<button aria-label="Close modal" class="modal__close" type="button">
+
+</button>
+<div class="modal__container">
+<div class="modal__content">
+<div class="afc-form-hubspot__head"><h2 class="afc-form-hubspot__title">Book a Demo</h2></div><div class="afc-form-hubspot">
+<div class="afc-form-hubspot__form" data-form-id="82ee757b-4afe-45a9-a12f-4d5e353ba266" data-portal-id="22373983" id="hubspot-form-hf-6aba4702a59d7"></div>
+</div>
+</div>
+</div>
 </dialog>
 <dialog class="modal" id="AWS-Reinvent-Las-Vegas-2025">
-    <button class="modal__close" type="button" aria-label="Close modal">
-        <svg width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="7" y2="25"/>
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="25" y2="7"/>
-        </svg>
-    </button>
-    <div class="modal__container">
-        <div class="modal__content">
-            <div class="modal-form-header"><h2 class="modal-form-header__title">Schedule your demo</h2><p class="modal-form-header__description">Submit the form and schedule your 1:1 demo with a ScaleOps platform expert.</p></div><div class="afc-form-hubspot">
-    <div class="afc-form-hubspot__form" id="hubspot-form-hf-6aba4702a5ce0"
-        data-portal-id="22373983"
-        data-form-id="ea06dc0f-a905-40d1-823f-1ea43aa9b0fd"
-    ></div>
-</div>
+<button aria-label="Close modal" class="modal__close" type="button">
 
-        </div>
-    </div>
+</button>
+<div class="modal__container">
+<div class="modal__content">
+<div class="modal-form-header"><h2 class="modal-form-header__title">Schedule your demo</h2><p class="modal-form-header__description">Submit the form and schedule your 1:1 demo with a ScaleOps platform expert.</p></div><div class="afc-form-hubspot">
+<div class="afc-form-hubspot__form" data-form-id="ea06dc0f-a905-40d1-823f-1ea43aa9b0fd" data-portal-id="22373983" id="hubspot-form-hf-6aba4702a5ce0"></div>
+</div>
+</div>
+</div>
 </dialog>
 <dialog class="modal" id="demo-modal-kubecon-atlanta-2025">
-    <button class="modal__close" type="button" aria-label="Close modal">
-        <svg width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="7" y2="25"/>
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="25" y2="7"/>
-        </svg>
-    </button>
-    <div class="modal__container">
-        <div class="modal__content">
-            <div class="modal-form-header"><h2 class="modal-form-header__title">Schedule your demo</h2><p class="modal-form-header__description">Submit the form and schedule your 1:1 demo with a ScaleOps platform expert.</p></div><div class="afc-form-hubspot">
-    <div class="afc-form-hubspot__form" id="hubspot-form-hf-6aba4702a5e45"
-        data-portal-id="22373983"
-        data-form-id="264ef34b-3fcc-4707-9876-8cd4c84d8b10"
-    ></div>
-</div>
+<button aria-label="Close modal" class="modal__close" type="button">
 
-        </div>
-    </div>
+</button>
+<div class="modal__container">
+<div class="modal__content">
+<div class="modal-form-header"><h2 class="modal-form-header__title">Schedule your demo</h2><p class="modal-form-header__description">Submit the form and schedule your 1:1 demo with a ScaleOps platform expert.</p></div><div class="afc-form-hubspot">
+<div class="afc-form-hubspot__form" data-form-id="264ef34b-3fcc-4707-9876-8cd4c84d8b10" data-portal-id="22373983" id="hubspot-form-hf-6aba4702a5e45"></div>
+</div>
+</div>
+</div>
 </dialog>
 <dialog class="modal" id="demo-booth-kubecon-us-025">
-    <button class="modal__close" type="button" aria-label="Close modal">
-        <svg width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="7" y2="25"/>
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="25" y2="7"/>
-        </svg>
-    </button>
-    <div class="modal__container">
-        <div class="modal__content">
-            <div class="modal-form-header"><h2 class="modal-form-header__title">Meet ScaleOps at Booth #900</h2><p class="modal-form-header__description">Schedule your 1:1 demo with a ScaleOps platform expert.</p></div><div class="afc-form-hubspot">
-    <div class="afc-form-hubspot__form" id="hubspot-form-hf-6aba4702a5fa3"
-        data-portal-id="22373983"
-        data-form-id="466de194-c9b7-411d-a0dd-412d4ac09230"
-    ></div>
-</div>
+<button aria-label="Close modal" class="modal__close" type="button">
 
-        </div>
-    </div>
+</button>
+<div class="modal__container">
+<div class="modal__content">
+<div class="modal-form-header"><h2 class="modal-form-header__title">Meet ScaleOps at Booth #900</h2><p class="modal-form-header__description">Schedule your 1:1 demo with a ScaleOps platform expert.</p></div><div class="afc-form-hubspot">
+<div class="afc-form-hubspot__form" data-form-id="466de194-c9b7-411d-a0dd-412d4ac09230" data-portal-id="22373983" id="hubspot-form-hf-6aba4702a5fa3"></div>
+</div>
+</div>
+</div>
 </dialog>
 <dialog class="modal" id="book-demo-demand-generation">
-    <button class="modal__close" type="button" aria-label="Close modal">
-        <svg width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="7" y2="25"/>
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="25" y2="7"/>
-        </svg>
-    </button>
-    <div class="modal__container">
-        <div class="modal__content">
-            <div class="modal-form-header"><h2 class="modal-form-header__title">&lt;strong&gt;Start Optimizing K8s Resources in Minutes!&lt;/strong&gt;</h2><p class="modal-form-header__description">Schedule your 1:1 demo with a ScaleOps expert and start your free trial today.</p></div><div class="afc-form-hubspot">
-    <div class="afc-form-hubspot__form" id="hubspot-form-hf-6aba4702a60f6"
-        data-portal-id="22373983"
-        data-form-id="8179574e-830e-4586-8d5a-0fcb9a138e33"
-    ></div>
-</div>
+<button aria-label="Close modal" class="modal__close" type="button">
 
-        </div>
-    </div>
+</button>
+<div class="modal__container">
+<div class="modal__content">
+<div class="modal-form-header"><h2 class="modal-form-header__title">&lt;strong&gt;Start Optimizing K8s Resources in Minutes!&lt;/strong&gt;</h2><p class="modal-form-header__description">Schedule your 1:1 demo with a ScaleOps expert and start your free trial today.</p></div><div class="afc-form-hubspot">
+<div class="afc-form-hubspot__form" data-form-id="8179574e-830e-4586-8d5a-0fcb9a138e33" data-portal-id="22373983" id="hubspot-form-hf-6aba4702a60f6"></div>
+</div>
+</div>
+</div>
 </dialog>
 <dialog class="modal" id="book-a-demo-test">
-    <button class="modal__close" type="button" aria-label="Close modal">
-        <svg width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="7" y2="25"/>
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="25" y2="7"/>
-        </svg>
-    </button>
-    <div class="modal__container">
-        <div class="modal__content">
-            <div class="modal-form-header"><h2 class="modal-form-header__title">Schedule your demo</h2><p class="modal-form-header__description">Submit the form and schedule your 1:1 demo with a ScaleOps platform expert.</p></div><div class="afc-form-hubspot">
-    <div class="afc-form-hubspot__form" id="hubspot-form-hf-6aba4702a6230"
-        data-portal-id="22373983"
-        data-form-id="1493e870-66c2-423c-9931-7848c4ca4763"
-    ></div>
-</div>
+<button aria-label="Close modal" class="modal__close" type="button">
 
-        </div>
-    </div>
+</button>
+<div class="modal__container">
+<div class="modal__content">
+<div class="modal-form-header"><h2 class="modal-form-header__title">Schedule your demo</h2><p class="modal-form-header__description">Submit the form and schedule your 1:1 demo with a ScaleOps platform expert.</p></div><div class="afc-form-hubspot">
+<div class="afc-form-hubspot__form" data-form-id="1493e870-66c2-423c-9931-7848c4ca4763" data-portal-id="22373983" id="hubspot-form-hf-6aba4702a6230"></div>
+</div>
+</div>
+</div>
 </dialog>
 <dialog class="modal" id="book-a-demo">
-    <button class="modal__close" type="button" aria-label="Close modal">
-        <svg width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="7" y2="25"/>
-            <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="7" x2="25" y1="25" y2="7"/>
-        </svg>
-    </button>
-    <div class="modal__container">
-        <div class="modal__content">
-            <div class="modal-form-header"><h2 class="modal-form-header__title">Schedule your demo</h2><p class="modal-form-header__description">Submit the form and schedule your 1:1 demo with a ScaleOps platform expert.</p></div><div class="afc-form-hubspot">
-    <div class="afc-form-hubspot__form" id="hubspot-form-hf-6aba4702a63a8"
-        data-portal-id="22373983"
-        data-form-id="b9133aa3-2ea0-49d6-9d7a-c91fffcadb13"
-    ></div>
-</div>
+<button aria-label="Close modal" class="modal__close" type="button">
 
-        </div>
-    </div>
+</button>
+<div class="modal__container">
+<div class="modal__content">
+<div class="modal-form-header"><h2 class="modal-form-header__title">Schedule your demo</h2><p class="modal-form-header__description">Submit the form and schedule your 1:1 demo with a ScaleOps platform expert.</p></div><div class="afc-form-hubspot">
+<div class="afc-form-hubspot__form" data-form-id="b9133aa3-2ea0-49d6-9d7a-c91fffcadb13" data-portal-id="22373983" id="hubspot-form-hf-6aba4702a63a8"></div>
+</div>
+</div>
+</div>
 </dialog>
-<script src="https://scaleops.com/content/plugins/instant-page/instantpage.js?ver=5.7.0"></script><script id="leadin-script-loader-js-js-extra">
-var leadin_wordpress = {"userRole":"visitor","pageType":"page","leadinPluginVersion":"11.3.69"};
-//# sourceURL=leadin-script-loader-js-js-extra
-</script>
-<script async defer src="https://js.hs-scripts.com/22373983.js?integration=WordPress&amp;ver=11.3.69"></script><script>
-(function() {
-  var links = document.querySelectorAll('a'); 
-  for (var linkIndex = 0; linkIndex < links.length; linkIndex++) {
-    if(links[linkIndex].href.indexOf('https://try.scaleops.com/login') > -1) {
-        continue;
-    }
-    if(links[linkIndex].href.indexOf('https://try.scaleops.com/playground') > -1) {
-        links[linkIndex].id = "lets-play";
-        continue;
-    }
-    if(links[linkIndex].href.indexOf('https://try.scaleops.com/') > -1) {
-        links[linkIndex].id = "get-started";
-        continue;
-    }
-    if(links[linkIndex].href.indexOf('#book-a-demo') > -1) {
-        links[linkIndex].name = "book-a-demo";
-        continue;
-    }
-  }
-})();
-</script><script>
-(function() {
-  var domainsToDecorate = [
-          'scaleops.com', 
-      ],
-      queryParams = [
-         'utm_medium',
-          'utm_source',
-          'utm_adname',
-          'utm_campaign',
-          'utm_content',
-          'utm_campaignid',
-          'utm_adgroup',
-          'utm_term',
-          'utm_adgroupid',
-          'utm_keyword',
-          'utm_kwid',
-          'gclid',
-          'fbclid',
-          'li_fat_id',
-      ];
-
-  var links = document.querySelectorAll('a'); 
-
-  for (var linkIndex = 0; linkIndex < links.length; linkIndex++) {
-      for (var domainIndex = 0; domainIndex < domainsToDecorate.length; domainIndex++) { 
-          if (links[linkIndex].href.indexOf(domainsToDecorate[domainIndex]) > -1 && links[linkIndex].href.indexOf("#") === -1) {
-              links[linkIndex].href = decorateUrl(links[linkIndex].href);
-          }
-      }
-  }
-
-  function decorateUrl(urlToDecorate) {
-      var collectedQueryParams = [];
-      for (var queryIndex = 0; queryIndex < queryParams.length; queryIndex++) {
-          var paramValue = getQueryParam(queryParams[queryIndex]);
-          if (paramValue) {
-              collectedQueryParams.push(queryParams[queryIndex] + '=' + paramValue);
-          }
-      }
-      
-      if (collectedQueryParams.length > 0) {
-          var queryString = collectedQueryParams.join('&');
-          urlToDecorate += (urlToDecorate.indexOf('?') === -1) ? '?' : '&';
-          urlToDecorate += queryString;
-      }
-      
-      return urlToDecorate;
-  }
-
-  function getQueryParam(name) {
-      var match = RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)').exec(window.location.search);
-      return match && decodeURIComponent(match[1]);
-  }
-
-})();
-</script><script>
-    // Function to close the open modal
-    function closeOpenModal() {
-        var openModal = document.querySelector('dialog.afp-modal[open]');
-        if (openModal) {
-            var closeButton = openModal.querySelector('.afp-modal-close-button');
-            if (closeButton) {
-                closeButton.click();
-            }
-        }
-    }
-
-    // Continuously check if the HubSpot form modal is open
-    var interval = setInterval(function() {
-        // Check if there's an open modal
-        var openModal = document.querySelector('dialog.afp-modal[open]');
-        
-        if (openModal) {
-            // Add the event listener to close the modal after the form submission
-            window.addEventListener("message", function (event) {
-                if (event.data.type === "hsFormCallback" && event.data.eventName === "onFormSubmitted" && event.data.id === "b9133aa3-2ea0-49d6-9d7a-c91fffcadb13", "1493e870-66c2-423c-9931-7848c4ca4763", "8179574e-830e-4586-8d5a-0fcb9a138e33") {
-                    // Check if the ChiliPiper frame exists
-                    var chiliPiperFrame = document.querySelector('.chilipiper-frame');
-                    if (chiliPiperFrame) {
-                        // If ChiliPiper frame exists, close the open modal
-                        closeOpenModal();
-                    }
-                }
-            });
-
-            // Once we detect the open modal and add the listener, stop the interval
-            clearInterval(interval);
-        }
-    }, 500); // Check every 500ms if there's an open modal
-</script>            </body>
+
+ </body>
 </html>

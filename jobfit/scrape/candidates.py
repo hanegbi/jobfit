@@ -38,6 +38,24 @@ def _has_job_url_hint(path: str, absolute: str) -> bool:
     return bool(re.search(r"\d{3,}", query))
 
 
+NON_CONTENT_TAGS = ("script", "style", "noscript", "svg")
+
+
+def strip_non_content(html: str) -> str:
+    """The page with the tags no link can live in removed. Saved listing
+    snapshots are only ever read back through CandidateExtractor, which
+    decomposes these before doing anything else - so dropping them at write
+    time changes nothing the extractor sees and cuts the committed fixtures
+    by about three quarters (one page was 16MB of mostly inlined JSON)."""
+    try:
+        soup = BeautifulSoup(html or "", "html.parser")
+    except Exception:  # noqa: BLE001 - malformed markup is stored as-is
+        return html or ""
+    for tag in soup(NON_CONTENT_TAGS):
+        tag.decompose()
+    return str(soup)
+
+
 def _clean(text: str) -> str:
     return " ".join((text or "").split())
 
@@ -98,7 +116,7 @@ class CandidateExtractor:
             soup = BeautifulSoup(page.html, "html.parser")
         except Exception:  # noqa: BLE001 - malformed markup yields no candidates, not a crash
             return []
-        for tag in soup(["script", "style", "noscript", "svg"]):
+        for tag in soup(NON_CONTENT_TAGS):
             tag.decompose()
         for el in list(soup.find_all(ats_fetchers._is_cookie_widget)):
             if el.parent is not None:
