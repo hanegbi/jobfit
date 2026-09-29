@@ -2,92 +2,28 @@
   "company_id": "nuvei",
   "schema_version": 1,
   "career_url": "https://www.nuvei.com/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:55:12.186944Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:21:30.589455Z",
+  "verified_at": "2026-09-29T05:21:30.589455Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "workable",
+    "board": "nuvei",
+    "board_url": "https://apply.workable.com/nuvei/"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 42,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 45,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 101,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 103,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 104,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 105,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 110,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 112,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 121,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 123,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "da5bfccd51d2e5bf82b4fb82e5c53792d6c2e240",
-    "candidate_count": 146
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 10
   },
-  "rediscover_after": "2026-10-05T10:55:12.186944Z",
-  "notes": []
+  "rediscover_after": null,
+  "notes": [
+    "board confirmed live by hand on 2026-09-29 (dossier pass)"
+  ]
 }

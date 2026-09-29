@@ -799,6 +799,47 @@ def fetch_workday(session: requests.Session, board: str, search_text: str = "Isr
     return jobs
 
 
+def fetch_eightfold(session: requests.Session, board: str, location: str = "Israel") -> Optional[list[dict]]:
+    """board = "<host>|<domain>" (e.g. "www.careers.teva|tevapharm.com",
+    "netapp.eightfold.ai|netapp.com"). Eightfold career sites expose their
+    listing at /api/apply/v2/jobs?domain=...; paged by start/num. Global
+    boards, so the query is narrowed to Israel."""
+    host, _, domain = board.partition("|")
+    if not host or not domain:
+        return None
+    jobs, start, total = [], 0, None
+    while total is None or start < min(total, 1000):
+        payload = _json_or_none(_request(session, "GET", f"https://{host}/api/apply/v2/jobs",
+                                         params={"domain": domain, "location": location, "start": start, "num": 100}))
+        if not isinstance(payload, dict) or not isinstance(payload.get("positions"), list):
+            return None if not jobs else jobs
+        total = int(payload.get("count") or 0)
+        for item in payload["positions"]:
+            title = _clean(item.get("name") or item.get("posting_name"))
+            if not title or item.get("isPrivate") is True:
+                continue
+            created = item.get("t_create")
+            posted = None
+            if created:
+                try:
+                    posted = datetime.fromtimestamp(int(created), tz=timezone.utc).strftime("%Y-%m-%d")
+                except (ValueError, OSError, OverflowError):
+                    posted = None
+            jobs.append({
+                "title": title,
+                "location": _clean(item.get("location")) or None,
+                "url": item.get("canonicalPositionUrl") or f"https://{host}/careers/job/{item.get('id')}",
+                "description": strip_html(item.get("job_description") or ""),
+                "department": _clean(item.get("department")) or None,
+                "employment_type": None,
+                "posted_at": posted,
+            })
+        if not payload["positions"]:
+            break
+        start += 100
+    return jobs
+
+
 def fetch_elbit_sigmabit_jobs(session: requests.Session) -> list[dict]:
     """Elbit Systems Sigmabit's careers site (elbitsystemscareer.com) renders
     every one of its ~578 job cards entirely client-side with no real <a

@@ -171,22 +171,20 @@ class ScrapePlanner:
     def _embedded_ats(self, page: Page, company_id: str | None = None, career_url: str | None = None) -> AtsApiStrategy | None:
         """An ATS mounted in the page by script/iframe/inline config (no
         job links in the DOM) - resolved through the registry, generically."""
-        from jobfit.scrape.ats.embedded import company_hint_for, find_embedded_ats
+        from jobfit.scrape.ats.embedded import company_hint_for, find_embedded_ats_candidates
 
-        found = find_embedded_ats(page.html, self.registry, company_hint_for(company_id, career_url))
-        if found is None:
-            return None
-        client, board = found
-        if getattr(client, "session", None) is not None:
-            # A page can carry a stale widget config (Biolojic's /careers had a
-            # dead Comeet token; its /job-opportunities hop had the live one).
-            # One real call decides; an empty or failing board is not a plan.
-            try:
-                if not client.fetch_board(board):
-                    return None
-            except FetchFailed:
-                return None
-        return AtsApiStrategy(provider=client.provider, board=board, board_url=client.board_url(board))
+        for client, board in find_embedded_ats_candidates(page.html, self.registry, company_hint_for(company_id, career_url)):
+            if getattr(client, "session", None) is not None:
+                # A page can carry a stale config (Biolojic's dead Comeet token;
+                # HoneyBook's old Greenhouse next to its live Ashby board). One
+                # real call per candidate decides; empty or failing = next.
+                try:
+                    if not client.fetch_board(board):
+                        continue
+                except FetchFailed:
+                    continue
+            return AtsApiStrategy(provider=client.provider, board=board, board_url=client.board_url(board))
+        return None
 
     def _jsonld_urls(self, page: Page) -> set[str]:
         soup = BeautifulSoup(page.html, "html.parser")
@@ -252,12 +250,12 @@ class ScrapePlanner:
         # page, a "join our talent network" link); the hop must beat it.
         hop_url = self._listing_hop(candidates, career_url)
         if hop_url:
+            hop_page = None
             try:
                 hop_page = self.fetchers.build("http").fetch(hop_url)
             except FetchFailed as error:
                 notes.append(f"listing hop {hop_url} failed: {error}")
-                return plan, page
-            if hop_page.status < 400:
+            if hop_page is not None and hop_page.status < 400:
                 embedded = self._embedded_ats(hop_page, company_id, career_url)
                 if embedded:
                     notes.append(f"listing hop {hop_url} embeds an ATS")
@@ -272,6 +270,31 @@ class ScrapePlanner:
                     if hop_plan.strategy.kind != "html_listing" or (hop_plan.health.baseline_yield or 0) > landing_yield:
                         notes.append(f"listing found one hop away at {hop_url}")
                         return hop_plan.model_copy(update={"notes": list(notes)}), hop_page
+
+        # Still nothing and we only looked at the plain-HTTP page: render it.
+        # Tufin's Comeet widget, Apono's ?job_uid links and Nuvei's 58 Workable
+        # links only exist in the rendered DOM; the shell heuristic misses
+        # pages whose static text is long enough to look complete.
+        if renderer == "http":
+            rendered = None
+            try:
+                rendered = self.fetchers.build("playwright").fetch(career_url)
+            except FetchFailed as error:
+                notes.append(f"render failed: {error}")
+            if rendered is not None and rendered.status < 400 and rendered.html != page.html:
+                embedded = self._embedded_ats(rendered, company_id, career_url)
+                if embedded:
+                    notes.append("ATS found only in the rendered page")
+                    return self._probe_plan(company_id, career_url, embedded), rendered
+                r_candidates = self.extractor.extract(rendered, career_url, cap=200)
+                if r_candidates:
+                    r_plan, rendered, _ = self._html_plan(company_id, career_url, rendered, "playwright", r_candidates, notes)
+                    if r_plan.strategy.kind != "html_listing" or (r_plan.health.baseline_yield or 0) > landing_yield:
+                        notes.append("listing found only in the rendered page")
+                        return r_plan.model_copy(update={"notes": list(notes)}), rendered
+                inline_plan = self._inline_json_plan(company_id, career_url, rendered, "playwright", notes, landing_yield)
+                if inline_plan is not None:
+                    return inline_plan, rendered
         return plan, page
 
     def _inline_json_plan(self, company_id: str, career_url: str, page: Page, renderer: Renderer, notes: list[str],

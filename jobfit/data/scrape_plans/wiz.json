@@ -2,33 +2,28 @@
   "company_id": "wiz",
   "schema_version": 1,
   "career_url": "https://www.wiz.io/careers",
-  "derived_by": "rules",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T08:11:57.759862Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:21:30.589455Z",
+  "verified_at": "2026-09-29T05:21:30.589455Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "greenhouse",
+    "board": "wizinc",
+    "board_url": "https://boards.greenhouse.io/wizinc"
   },
   "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
-    "last_ok_run": "2026-09-28T08:12:28.891334Z",
-    "last_run": "2026-09-28T08:12:28.891334Z",
-    "last_yield": 50,
-    "baseline_yield": 0
+    "last_ok_run": null,
+    "last_run": null,
+    "last_yield": 0,
+    "baseline_yield": 133
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board confirmed live by hand on 2026-09-29 (dossier pass)"
+  ]
 }

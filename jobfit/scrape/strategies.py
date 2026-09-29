@@ -117,18 +117,21 @@ class EmbeddedAtsScrape(ScrapeStrategy):
         self.fetcher, self.registry = fetcher, registry
 
     def fetch(self, company: str, career_url: str | None) -> list[JobPosting]:
-        from jobfit.scrape.ats.embedded import company_hint_for, find_embedded_ats
+        from jobfit.scrape.ats.embedded import company_hint_for, find_embedded_ats_candidates
 
         if not career_url:
             return []
         page = self.fetcher.fetch(career_url)
         if page.status >= 400:
             raise FetchFailed(f"{career_url}: http {page.status}")
-        found = find_embedded_ats(page.html, self.registry, company_hint_for(company, career_url))
-        if found is None:
-            return []
-        client, board = found
-        return AtsApiScrape(client, board, known_url=career_url).fetch(company, career_url)
+        for client, board in find_embedded_ats_candidates(page.html, self.registry, company_hint_for(company, career_url)):
+            try:
+                postings = AtsApiScrape(client, board, known_url=career_url).fetch(company, career_url)
+            except FetchFailed:
+                continue
+            if postings:
+                return postings
+        return []
 
 
 class SpecialCaseScrape(ScrapeStrategy):

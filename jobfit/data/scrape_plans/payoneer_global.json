@@ -2,52 +2,28 @@
   "company_id": "payoneer_global",
   "schema_version": 1,
   "career_url": "https://careers.payoneer.com/jobs",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:03:59.399297Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:21:30.589455Z",
+  "verified_at": "2026-09-29T05:21:30.589455Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "greenhouse",
+    "board": "payoneer",
+    "board_url": "https://boards.greenhouse.io/payoneer"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 8,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 21,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "6381efcb982a8bc2e837bfe21714c9f7d8436095",
-    "candidate_count": 23
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 108
   },
-  "rediscover_after": "2026-10-05T11:03:59.399297Z",
-  "notes": []
+  "rediscover_after": null,
+  "notes": [
+    "board confirmed live by hand on 2026-09-29 (dossier pass)"
+  ]
 }

@@ -28,6 +28,9 @@ from jobfit.scrape.ats.clients import ComeetClient, GreenhouseClient
     ("https://jobs.smartrecruiters.com/Acme/743999", "smartrecruiters", "Acme"),
     ("https://acme.jobs.personio.de/job/123", "personio", "acme"),
     ("https://motorolasolutions.wd5.myworkdayjobs.com/en-US/Careers/job/Tel-Aviv/Engineer_R123", "workday", "motorolasolutions.wd5/Careers"),
+    ("https://www.careers.teva/api/apply/v2/jobs?domain=tevapharm.com&start=0", "eightfold", "www.careers.teva|tevapharm.com"),
+    ("https://netapp.eightfold.ai/careers/join?domain=netapp.com", "eightfold", "netapp.eightfold.ai|netapp.com"),
+    ("https://www.careers.teva/careers?query=engineer&domain=tevapharm.com", "eightfold", "www.careers.teva|tevapharm.com"),
 ])
 def test_registry_resolves_known_board_urls(url, provider, board):
     client, token = default_registry(session=None).resolve(url)
@@ -39,6 +42,8 @@ def test_embed_script_hosts_do_not_resolve_to_bogus_boards():
     assert registry.resolve("https://jobs.ashbyhq.com/ashby-job-board-embed.js") is None
     assert registry.resolve("https://boards.greenhouse.io/embed/job_board/js") is None
     assert registry.resolve("https://acme.wd5.myworkdayjobs.com/wday/cxs/acme/Careers/jobs") is None
+    assert registry.resolve("https://apply.workable.com/j/ABC123DEF/") is None  # short job link, no board slug
+    assert registry.resolve("https://www.workable.com/") is None
 
 
 def test_comeet_widget_board_fetches_the_widget_api(monkeypatch):
@@ -64,7 +69,7 @@ def test_registry_client_lookup_and_unknown_provider():
     assert registry.client("lever").provider == "lever"
     assert registry.providers() == [
         "greenhouse", "lever", "ashby", "workable", "comeet",
-        "recruitee", "bamboohr", "breezy", "smartrecruiters", "personio", "workday",
+        "recruitee", "bamboohr", "breezy", "smartrecruiters", "personio", "workday", "eightfold",
     ]
     with pytest.raises(errors.PlanInvalid):
         registry.client("taleo")

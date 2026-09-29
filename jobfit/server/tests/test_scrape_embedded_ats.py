@@ -77,6 +77,58 @@ def test_a_partners_board_linked_from_the_page_is_not_the_companys_board():
     assert find_embedded_ats(COMEET_WIDGET_PAGE, registry, company_hint="unrelated_co example.com") is not None
 
 
+def test_embedded_candidates_are_ordered_and_a_dead_first_board_does_not_hide_the_live_one(monkeypatch):
+    """HoneyBook: an old Greenhouse embed still in the page next to the live
+    Ashby board. Candidates come back in order; the scrape tries each."""
+    from jobfit.scrape.ats.embedded import find_embedded_ats_candidates
+
+    html = ('<script src="https://boards.greenhouse.io/embed/job_board/js?for=honeybook"></script>'
+            '<a href="https://jobs.ashbyhq.com/honeybook/1">Backend</a><a href="https://jobs.ashbyhq.com/honeybook/2">QA</a>')
+    registry = default_registry(session=None)
+    cands = find_embedded_ats_candidates(html, registry, "honeybook www.honeybook.com")
+    assert [(c.provider, b) for c, b in cands] == [("ashby", "honeybook"), ("greenhouse", "honeybook")]  # by frequency
+
+    class _Fetcher(PageFetcher):
+        def fetch(self, url):
+            return make_page(url, url, 200, html, "http")
+
+    monkeypatch.setattr(ats_fetchers, "fetch_ashby", lambda session, token: None)  # dead now
+    monkeypatch.setattr(ats_fetchers, "fetch_greenhouse", lambda session, token: [{"title": "Designer", "url": "https://x/1"}])
+    postings = EmbeddedAtsScrape(_Fetcher(), registry).fetch("HoneyBook", "https://www.honeybook.com/careers")
+    assert [p.title for p in postings] == ["Designer"]
+
+
+def test_fetch_eightfold_maps_positions_and_pages():
+    def api(url, kwargs):
+        start = kwargs["params"]["start"]
+        assert kwargs["params"]["domain"] == "tevapharm.com" and kwargs["params"]["location"] == "Israel"
+        return _Response({"count": 120, "positions": [
+            {"id": str(start + i), "name": f"Role {start + i}", "location": "Shoham, Israel", "department": "Marketing", "t_create": "1788852625",
+             "canonicalPositionUrl": f"https://www.careers.teva/careers/job/{start + i}", "job_description": "<p>Lead <b>things</b></p>"}
+            for i in range(100 if start == 0 else 20)
+        ]})
+
+    session = _Session({"https://www.careers.teva/api/apply/v2/jobs": api})
+    jobs = ats_fetchers.fetch_eightfold(session, "www.careers.teva|tevapharm.com")
+    assert len(jobs) == 120 and jobs[0]["url"] == "https://www.careers.teva/careers/job/0"
+    assert jobs[0]["location"] == "Shoham, Israel" and jobs[0]["department"] == "Marketing" and jobs[0]["posted_at"] == "2026-09-08"
+    assert jobs[0]["description"] == "Lead things"
+
+
+def test_planner_renders_a_zero_yield_http_page_and_takes_what_the_rendered_page_shows():
+    from jobfit.server.tests.test_scrape_planner import _planner
+
+    static = '<html><body><p>Join us. We are a great place to work with many benefits and offices worldwide. ' + 'Lorem ipsum ' * 60 + '</p><a href="/about">About Us Page</a></body></html>'
+    rendered = """<html><body><ul>
+     <li><a href="/careers/backend-engineer-1">Backend Engineer</a></li>
+     <li><a href="/careers/frontend-engineer-2">Frontend Engineer</a></li>
+     <li><a href="/careers/devops-engineer-3">DevOps Engineer</a></li></ul></body></html>"""
+    planner, _ = _planner({("http", "https://acme.com/careers/"): (200, static, None), ("playwright", "https://acme.com/careers/"): (200, rendered, None)})
+    plan, page = planner.discover("acme", "https://acme.com/careers/")
+    assert plan.strategy.kind == "html_listing" and plan.strategy.renderer == "playwright" and plan.health.baseline_yield == 3
+    assert page.renderer == "playwright" and any("rendered page" in n for n in plan.notes)
+
+
 def test_find_embedded_ats_is_none_for_a_plain_page():
     assert find_embedded_ats(PLAIN_PAGE, default_registry(session=None)) is None
     assert find_embedded_ats("", default_registry(session=None)) is None

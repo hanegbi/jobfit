@@ -49,7 +49,8 @@ class AshbyClient(AtsClient):
 class WorkableClient(AtsClient):
     provider = "workable"
     patterns = (
-        re.compile(r"apply\.workable\.com/(?!api\b|jobs\b)([A-Za-z0-9_-]+)", re.I),
+        # apply.workable.com/j/<code> is a short job link with no slug - never a board.
+        re.compile(r"apply\.workable\.com/(?!api\b|jobs\b|j\b)([A-Za-z0-9_-]+)", re.I),
         re.compile(r"https?://(?!www\.|apply\.|jobs\.|careers-page\.|help\.|resources\.)([A-Za-z0-9_-]+)\.workable\.com", re.I),
     )
 
@@ -153,6 +154,34 @@ class PersonioClient(AtsClient):
 
     def _fetch_raw(self, board, known_url):
         return ats_fetchers.fetch_personio(self.session, board)
+
+
+class EightfoldClient(AtsClient):
+    """board = "<host>|<domain>": Eightfold sites live on <x>.eightfold.ai or a
+    company host (www.careers.teva) and identify the tenant by ?domain=."""
+
+    provider = "eightfold"
+    patterns = (
+        re.compile(r"https?://([a-z0-9.-]+)/api/apply/v2/jobs\?[^\s\"']*?domain=([a-z0-9.-]+)", re.I),
+        re.compile(r"https?://([a-z0-9.-]+\.eightfold\.ai)/careers[^\s\"'?]*\?[^\s\"']*?domain=([a-z0-9.-]+)", re.I),
+        re.compile(r"https?://([a-z0-9.-]+)/careers[^\s\"'?]*\?[^\s\"']*?domain=([a-z0-9.-]+\.[a-z]{2,})", re.I),
+    )
+
+    def match(self, url):
+        if not url:
+            return None
+        for pattern in self.patterns:
+            m = pattern.search(url)
+            if m:
+                return f"{m.group(1).lower()}|{m.group(2).lower()}"
+        return None
+
+    def board_url(self, board: str) -> str:
+        host, _, domain = board.partition("|")
+        return f"https://{host}/careers?domain={domain}"
+
+    def _fetch_raw(self, board, known_url):
+        return ats_fetchers.fetch_eightfold(self.session, board)
 
 
 class WorkdayClient(AtsClient):

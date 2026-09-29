@@ -39,19 +39,21 @@ def board_belongs_to(board: str, company_hint: str | None) -> bool:
     return any(b in h or h in b for b in board_tokens for h in hint_tokens if len(b) >= 4 and len(h) >= 4)
 
 
-def find_embedded_ats(html: str | None, registry: AtsRegistry, company_hint: str | None = None) -> tuple[AtsClient, str] | None:
-    """(client, board) for the ATS this page embeds, or None. Widget
-    credentials found in the page's own config are trusted as-is; a board
-    referenced only through links must pass board_belongs_to(). The most
-    frequently referenced board wins when a page mentions several.
+def find_embedded_ats_candidates(html: str | None, registry: AtsRegistry, company_hint: str | None = None) -> list[tuple[AtsClient, str]]:
+    """Every ATS board this page embeds, most plausible first: Comeet widget
+    credentials from the page's own config, then link/script-referenced
+    boards by frequency. A board referenced only through links must pass
+    board_belongs_to(). Callers verify in order - a page can carry a dead
+    Greenhouse config next to the live Ashby board it moved to (HoneyBook).
     company_hint: company id and/or career URL host, space-separated."""
     if not html:
-        return None
+        return []
     text = html.replace("\\/", "/")  # JSON-escaped URLs inside inline scripts
+    out: list[tuple[AtsClient, str]] = []
     widget = ats_fetchers.find_comeet_widget(text)
     if widget:
         uid, token = widget
-        return registry.client("comeet"), f"{uid}:{token}"
+        out.append((registry.client("comeet"), f"{uid}:{token}"))
     counts: Counter[tuple[str, str]] = Counter()
     for m in _URLISH.finditer(text):
         url = m.group(0)
@@ -62,9 +64,15 @@ def find_embedded_ats(html: str | None, registry: AtsRegistry, company_hint: str
             client, board = resolved
             counts[(client.provider, board)] += 1
     for (provider, board), _ in counts.most_common():
-        if provider == "workday" or board_belongs_to(board, company_hint):
-            return registry.client(provider), board
-    return None
+        if provider in ("workday", "eightfold") or board_belongs_to(board, company_hint):
+            out.append((registry.client(provider), board))
+    return out
+
+
+def find_embedded_ats(html: str | None, registry: AtsRegistry, company_hint: str | None = None) -> tuple[AtsClient, str] | None:
+    """The most plausible embedded board, or None (see find_embedded_ats_candidates)."""
+    candidates = find_embedded_ats_candidates(html, registry, company_hint)
+    return candidates[0] if candidates else None
 
 
 def company_hint_for(company_id: str | None, career_url: str | None) -> str:
