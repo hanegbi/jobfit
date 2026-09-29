@@ -4,12 +4,14 @@
   "career_url": "https://www.firebolt.io/careers",
   "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:43:12.968309Z",
-  "verified_at": "2026-09-28T13:43:12.968309Z",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
   "status": "verified",
   "strategy": {
-    "kind": "external_board",
-    "board_url": "https://www.comeet.com/jobs/firebolt/26.004/senior-software-engineer--query-processing-munich/05.865"
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "firebolt/26.004",
+    "board_url": "https://www.comeet.com/jobs/firebolt/26.004"
   },
   "labels": null,
   "page_fingerprint": null,
@@ -18,8 +20,10 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 3
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board derived from 2 stored job url(s)"
+  ]
 }

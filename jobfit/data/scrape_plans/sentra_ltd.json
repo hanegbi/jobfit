@@ -2,59 +2,28 @@
   "company_id": "sentra_ltd",
   "schema_version": 1,
   "career_url": "https://www.sentra.io/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T14:52:30.848947Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "sentra/87.00B",
+    "board_url": "https://www.comeet.com/jobs/sentra/87.00B"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 8,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 27,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 39,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 45,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 11
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board derived from 1 stored job url(s)"
+  ]
 }

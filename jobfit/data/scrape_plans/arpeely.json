@@ -4,11 +4,13 @@
   "career_url": "https://www.arpeely.com/joinus",
   "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:01:24.373000Z",
-  "verified_at": "2026-09-28T10:01:24.373000Z",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
   "status": "verified",
   "strategy": {
-    "kind": "external_board",
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "arpeely/57.001",
     "board_url": "https://www.comeet.com/jobs/arpeely/57.001"
   },
   "labels": null,
@@ -18,8 +20,10 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 12
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board derived from 11 stored job url(s)"
+  ]
 }

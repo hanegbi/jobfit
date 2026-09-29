@@ -4,12 +4,14 @@
   "career_url": "https://native.security/careers",
   "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T14:45:42.320682Z",
-  "verified_at": "2026-09-28T14:45:42.320682Z",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
   "status": "verified",
   "strategy": {
-    "kind": "external_board",
-    "board_url": "https://www.comeet.com/jobs/native/5A.00A/ai-expert/86.468"
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "native/5A.00A",
+    "board_url": "https://www.comeet.com/jobs/native/5A.00A"
   },
   "labels": null,
   "page_fingerprint": null,
@@ -18,8 +20,10 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 13
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board derived from 11 stored job url(s)"
+  ]
 }

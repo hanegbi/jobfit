@@ -2,89 +2,28 @@
   "company_id": "walkme",
   "schema_version": 1,
   "career_url": "https://www.walkme.com/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:30:32.829189Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "lever",
+    "board": "walkme",
+    "board_url": "https://jobs.lever.co/walkme"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 0,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 1,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 2,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 69,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 70,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 71,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 72,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 73,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 74,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 75,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 22
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board derived from 2 stored job url(s)"
+  ]
 }

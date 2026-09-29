@@ -4,12 +4,14 @@
   "career_url": "https://www.okoora.com/careers",
   "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:55:20.561350Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
+  "status": "verified",
   "strategy": {
-    "kind": "techmap_only",
-    "reason": "no anchors on page"
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "okoora/85.00C",
+    "board_url": "https://www.comeet.com/jobs/okoora/85.00C"
   },
   "labels": null,
   "page_fingerprint": null,
@@ -18,8 +20,10 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 11
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board derived from 6 stored job url(s)"
+  ]
 }

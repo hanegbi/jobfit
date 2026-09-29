@@ -2,57 +2,28 @@
   "company_id": "scylladb",
   "schema_version": 1,
   "career_url": "https://www.scylladb.com/company/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:16:18.522994Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "scylladb/E4.006",
+    "board_url": "https://www.comeet.com/jobs/scylladb/E4.006"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 45,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 58,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 64,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "c20925534e9cc8c919c769fc40b5e05e6f29038e",
-    "candidate_count": 70
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 8
   },
-  "rediscover_after": "2026-10-05T11:16:18.522994Z",
-  "notes": []
+  "rediscover_after": null,
+  "notes": [
+    "board derived from 3 stored job url(s)"
+  ]
 }

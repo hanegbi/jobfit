@@ -2,149 +2,28 @@
   "company_id": "viber",
   "schema_version": 1,
   "career_url": "https://www.viber.com/en/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:30:32.829189Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "viber/04.002",
+    "board_url": "https://www.comeet.com/jobs/viber/04.002"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 9,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 10,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 11,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 12,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 13,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 14,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 15,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 19,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 25,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 27,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 28,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 29,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 30,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 31,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 32,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 33,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 34,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 35,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 36,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 37,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 38,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 39,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 33
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board derived from 10 stored job url(s)"
+  ]
 }

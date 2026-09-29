@@ -2,52 +2,28 @@
   "company_id": "d_fend_solutions",
   "schema_version": 1,
   "career_url": "https://d-fendsolutions.com/about-us/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:17:22.433846Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "lever",
+    "board": "d-fendsolutions",
+    "board_url": "https://jobs.lever.co/d-fendsolutions"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 3,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 80,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "91484cc7807156d84fa0ac00293b0aba63fa7529",
-    "candidate_count": 94
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 21
   },
-  "rediscover_after": "2026-10-05T10:17:22.433846Z",
-  "notes": []
+  "rediscover_after": null,
+  "notes": [
+    "board derived from 2 stored job url(s)"
+  ]
 }

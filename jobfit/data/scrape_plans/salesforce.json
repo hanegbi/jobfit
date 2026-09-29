@@ -2,152 +2,28 @@
   "company_id": "salesforce",
   "schema_version": 1,
   "career_url": "https://careers.salesforce.com/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:16:03.593699Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "workday",
+    "board": "salesforce.wd12/External_Career_Site",
+    "board_url": "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 0,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 1,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 2,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 3,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 4,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 5,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 11,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 12,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 13,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 14,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 15,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 16,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 17,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 21,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 22,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 23,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 25,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 26,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 30,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 31,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 32,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 33,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "4f09e9ea8ea709b0a1be80a1a566b855ca4641e1",
-    "candidate_count": 39
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 12
   },
-  "rediscover_after": "2026-10-05T11:16:03.593699Z",
-  "notes": []
+  "rediscover_after": null,
+  "notes": [
+    "board derived from 2 stored job url(s)"
+  ]
 }

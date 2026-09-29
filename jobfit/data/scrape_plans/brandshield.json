@@ -2,57 +2,28 @@
   "company_id": "brandshield",
   "schema_version": 1,
   "career_url": "https://www.brandshield.com/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:08:57.695111Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "brandshield/13.002",
+    "board_url": "https://www.comeet.com/jobs/brandshield/13.002"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 35,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 50,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 60,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "d08a7f2945a4025237310d3f10a15edafa40253a",
-    "candidate_count": 70
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 2
   },
-  "rediscover_after": "2026-10-05T10:08:57.695111Z",
-  "notes": []
+  "rediscover_after": null,
+  "notes": [
+    "board derived from 2 stored job url(s)"
+  ]
 }

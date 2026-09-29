@@ -2,87 +2,28 @@
   "company_id": "ceva",
   "schema_version": 1,
   "career_url": "https://www.ceva-ip.com/career/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:09:14.859954Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "ceva/76.005",
+    "board_url": "https://www.comeet.com/jobs/ceva/76.005"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 24,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 44,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 47,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 48,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 49,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 50,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 51,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 52,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 55,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "eeedff599f65671819a9d717dae9d6c5f2946fd6",
-    "candidate_count": 62
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 24
   },
-  "rediscover_after": "2026-10-05T10:09:14.859954Z",
-  "notes": []
+  "rediscover_after": null,
+  "notes": [
+    "board derived from 3 stored job url(s)"
+  ]
 }

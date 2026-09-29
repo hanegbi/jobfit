@@ -5,8 +5,9 @@ constructs a classifier, let alone a model client."""
 from __future__ import annotations
 
 import logging
+from collections import Counter
 from datetime import datetime, timezone
-from typing import Callable
+from typing import Callable, Sequence
 
 from jobfit.scrape.ats import AtsRegistry
 from jobfit.scrape.enrich import NoopEnricher
@@ -49,7 +50,7 @@ class CompanyScrapeService:
         return ScrapePlan(company_id=company_id, career_url=career_url, derived_by="rules", derived_at=now, status="unverified",
                           strategy=HtmlListingStrategy(renderer="http", fallbacks=["playwright", "techmap"]))
 
-    def _plan_for(self, company_id: str, career_url: str | None) -> ScrapePlan:
+    def _plan_for(self, company_id: str, career_url: str | None, known_job_urls: Sequence[str] = ()) -> ScrapePlan:
         plan = self.store.get(company_id)
         if plan is None:
             plan = self.synthesize_plan(company_id, career_url)
@@ -58,11 +59,36 @@ class CompanyScrapeService:
             fresh = self.synthesize_plan(company_id, career_url)
             plan = fresh.model_copy(update={"notes": [f"career url changed from {plan.career_url!r}; plan re-synthesised"]})
             self.store.put(plan)
+        if known_job_urls and plan.strategy.kind in ("html_listing", "techmap_only") and not (plan.health.baseline_yield or 0):
+            derived = self.plan_from_job_urls(company_id, career_url, known_job_urls)
+            if derived is not None:
+                plan = derived
+                self.store.put(plan)
         return plan
 
-    def scrape(self, company: str, career_url: str | None) -> ScrapeResult:
+    def plan_from_job_urls(self, company_id: str, career_url: str | None, job_urls: Sequence[str]) -> ScrapePlan | None:
+        """The company's own stored job URLs often point straight at its ATS
+        board (comeet.com/jobs/<slug>/<uid>/..., boards.greenhouse.io/<slug>/
+        jobs/<id>, ...) even when its careers page shows nothing scrapeable.
+        The most-referenced board wins; None when no URL resolves."""
+        counts: Counter[tuple[str, str]] = Counter()
+        for url in job_urls:
+            resolved = self.registry.resolve(url)
+            if resolved is not None:
+                client, board = resolved
+                counts[(client.provider, board)] += 1
+        if not counts:
+            return None
+        (provider, board), n = counts.most_common(1)[0]
+        client = self.registry.client(provider)
+        now = self.now()
+        return ScrapePlan(company_id=company_id, career_url=career_url, derived_by="probe", derived_at=now, verified_at=now, status="verified",
+                          strategy=AtsApiStrategy(provider=provider, board=board, board_url=client.board_url(board)),
+                          notes=[f"board derived from {n} stored job url(s)"])
+
+    def scrape(self, company: str, career_url: str | None, known_job_urls: Sequence[str] = ()) -> ScrapeResult:
         company_id = plan_id_for(company)
-        plan = self._plan_for(company_id, career_url)
+        plan = self._plan_for(company_id, career_url, known_job_urls)
         try:
             strategy = self.factory.build(plan)
         except PlanInvalid as error:

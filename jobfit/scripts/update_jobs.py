@@ -178,18 +178,46 @@ def load_techmap_index() -> dict[str, list[dict]]:
     return index
 
 
-def fetch_company_jobs(company: str, url: str | None, service) -> list[dict]:
+TRUSTED_FETCH_SOURCES = ("ats_api", "external_board", "special_case")
+
+
+def fetch_company_result(company: str, url: str | None, service, known_job_urls: list[str] | None = None) -> tuple[list[dict], object]:
     """Run the company's stored (or synthesised) ScrapePlan through
-    CompanyScrapeService and convert each JobPosting to the dict shape
-    diff_and_update stores. Pure Python; no model call on this path."""
-    result = service.scrape(company, url)
+    CompanyScrapeService. Returns (jobs in diff_and_update's dict shape,
+    the ScrapeResult). Pure Python; no model call on this path.
+    known_job_urls: the company's already-stored job URLs - the service
+    derives an ATS board from them when the plan itself finds nothing."""
+    try:
+        result = service.scrape(company, url, known_job_urls or [])
+    except TypeError:  # a stub service with the old 2-arg signature (tests)
+        result = service.scrape(company, url)
     jobs = []
     for posting in result.postings:
         job = posting.model_dump(mode="json")
         job["job_evidence"] = job.pop("evidence", None)
         job["scrape_source"] = job.pop("source", None)
         jobs.append(job)
-    return jobs
+    return jobs, result
+
+
+def fetch_company_jobs(company: str, url: str | None, service) -> list[dict]:
+    return fetch_company_result(company, url, service)[0]
+
+
+def fetch_may_close(fetched: list[dict], result) -> bool:
+    """May an update close the jobs this fetch didn't return? Yes when it
+    returned anything, or came from a trusted source (an ATS API says what
+    it says), or from a listing plan that has produced jobs before. No for
+    an EMPTY result from an unverified listing plan: that page never
+    yielded a job, so its silence says nothing about jobs stored from
+    another source (LinkedIn matches, referrals, an earlier board fetch)."""
+    if fetched:
+        return True
+    used = getattr(result, "strategy_used", None)
+    if used in TRUSTED_FETCH_SOURCES:
+        return True
+    plan = getattr(result, "plan", None)
+    return bool(plan is not None and (plan.health.baseline_yield or 0) > 0)
 
 
 async def fetch_company_jobs_async(company: str, url: str | None, session, profiles: dict, techmap_index: dict, service=None) -> list[dict]:
@@ -199,7 +227,7 @@ async def fetch_company_jobs_async(company: str, url: str | None, session, profi
     return fetch_company_jobs(company, url, service)
 
 
-def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict) -> tuple[dict, int, int]:
+def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict, may_close: bool = True) -> tuple[dict, int, int]:
     """Returns (updated_company_record, new_count, closed_count).
 
     Only newly-seen jobs get scored here (so they have a sane score
@@ -207,6 +235,9 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
     is the single place that rescands and rescores every stored job, on
     every trigger that could change a score (a new CV, a removed profile,
     or just periodically), not just when the CV hash changes.
+
+    may_close=False (see fetch_may_close) records the check but leaves
+    every job's status alone.
     """
     record = load_company_file(company)
     existing_by_id = {j["id"]: j for j in record["jobs"]}
@@ -262,10 +293,11 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
             new_count += 1
 
     closed_count = 0
-    for job_id, existing in existing_by_id.items():
-        if job_id not in fetched_ids and existing.get("status") != "closed":
-            existing["status"] = "closed"
-            closed_count += 1
+    if may_close:
+        for job_id, existing in existing_by_id.items():
+            if job_id not in fetched_ids and existing.get("status") != "closed":
+                existing["status"] = "closed"
+                closed_count += 1
 
     record["name"] = company
     record["career_url"] = career_url
@@ -307,10 +339,14 @@ def _process_company(company, url, session, profiles, techmap_index, force, serv
         return company, 0, 0, True, None
     try:
         service = service or scrape_bootstrap.build_scrape_service(session, techmap_index)
-        fetched = fetch_company_jobs(company, url, service)
+        known_job_urls = [j["url"] for j in record.get("jobs", []) if j.get("url")]
+        fetched, result = fetch_company_result(company, url, service, known_job_urls)
         for job in fetched:
             translation.translate_job_if_needed(job)
-        updated, new_count, closed_count = diff_and_update(company, url, fetched, profiles)
+        may_close = fetch_may_close(fetched, result)
+        if not may_close:
+            logger.info("%s: empty result from an unverified plan - existing jobs left open", company)
+        updated, new_count, closed_count = diff_and_update(company, url, fetched, profiles, may_close=may_close)
         save_company_file(company, updated)
         return company, new_count, closed_count, False, None
     except Exception as error:  # noqa: BLE001 - one bad company must never abort the run

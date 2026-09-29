@@ -2,57 +2,28 @@
   "company_id": "solaredge_technologies",
   "schema_version": 1,
   "career_url": "https://corporate.solaredge.com/en/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:17:04.810411Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T03:51:17.370734Z",
+  "verified_at": "2026-09-29T03:51:17.370734Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "SolarEdge/71.00A",
+    "board_url": "https://www.comeet.com/jobs/SolarEdge/71.00A"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 23,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 45,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 69,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "78929c1911461ede18f41aeb5e2b80c4345b5d15",
-    "candidate_count": 75
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 111
   },
-  "rediscover_after": "2026-10-05T11:17:04.810411Z",
-  "notes": []
+  "rediscover_after": null,
+  "notes": [
+    "board derived from 41 stored job url(s)"
+  ]
 }
