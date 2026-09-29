@@ -34,3 +34,8 @@ CLAUDE.local.md
 # Transient run logs from a manual update.
 jobfit/cache/*.log
 jobfit/cache/*.log.out
+
+# SQLite store - the source of truth for job data, rebuilt by a scrape.
+jobfit/data/jobfit.db
+jobfit/data/jobfit.db-wal
+jobfit/data/jobfit.db-shm
