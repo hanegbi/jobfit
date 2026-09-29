@@ -4,21 +4,43 @@
   "career_url": "https://www.vizrt.com/careers/",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T15:17:11.183817Z",
+  "derived_at": "2026-09-29T05:54:29.583462Z",
   "verified_at": null,
   "status": "unverified",
   "strategy": {
     "kind": "html_listing",
-    "renderer": "http",
+    "renderer": "playwright",
     "container_selector": null,
     "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
+    "exclude_url": [
+      "^https?://(www\\.)?vizrt\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?vizrt\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?vizrt\\.com/products/[^/?#]+/?$",
+      "^https?://(www\\.)?flowics\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?vizrt\\.com/products/tricaster/[^/?#]+/?$",
+      "^https?://(www\\.)?vizrt\\.com/products/viz\\-libero/[^/?#]+/?$",
+      "^https?://(www\\.)?vizrt\\.com/campaign/[^/?#]+/?$",
+      "^https?://(www\\.)?vizrt\\.com/products/3play/[^/?#]+/?$",
+      "^https?://(www\\.)?vizrt\\.com/products/viz\\-connect/[^/?#]+/?$",
+      "^https?://(www\\.)?flowics\\.com/[^/?#]+/?$"
+    ],
+    "url_shape": "apply.workable.com|j|2",
+    "explicit_accept": [
+      "https://apply.workable.com/j/0F2F9617A4",
+      "https://apply.workable.com/j/82F6460650",
+      "https://apply.workable.com/j/8CF894F109",
+      "https://apply.workable.com/j/BC14343CA7",
+      "https://apply.workable.com/j/B7CB5978E7",
+      "https://apply.workable.com/j/8B18260218",
+      "https://apply.workable.com/j/4C765D2AC9",
+      "https://apply.workable.com/j/CB592AC19E",
+      "https://apply.workable.com/j/AE4AA631FE",
+      "https://apply.workable.com/j/A82CFBCF87"
+    ],
     "fallbacks": [
-      "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
@@ -26,7 +48,412 @@
     "container_selector": null,
     "candidates": [
       {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 20,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 22,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 24,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 30,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 31,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 32,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 33,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 34,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 35,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 39,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 40,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 41,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 42,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 43,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 44,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 45,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 46,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 47,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 48,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 49,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 50,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 51,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 52,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 53,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 54,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 55,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 56,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 57,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 58,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 59,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 60,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 61,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 62,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 63,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 64,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 65,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 66,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 67,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 68,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 69,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 70,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 71,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 72,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 73,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 74,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 75,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 76,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 77,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 78,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 79,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 80,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 81,
         "is_job": false,
         "reason": "not a job"
       },
@@ -36,22 +463,132 @@
         "reason": "not a job"
       },
       {
+        "index": 83,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 84,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 85,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 86,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 87,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 88,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 89,
         "is_job": false,
         "reason": "not a job"
       },
       {
-        "index": 91,
+        "index": 90,
         "is_job": false,
         "reason": "not a job"
+      },
+      {
+        "index": 91,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 92,
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 93,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 94,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 95,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 96,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 97,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 98,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 99,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 100,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 101,
         "is_job": false,
         "reason": "not a job"
       },
       {
-        "index": 96,
+        "index": 102,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 103,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 104,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 105,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 106,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 107,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 108,
         "is_job": false,
         "reason": "not a job"
       }
@@ -63,7 +600,7 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 10
   },
   "rediscover_after": null,
   "notes": []

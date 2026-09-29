@@ -2,53 +2,25 @@
   "company_id": "controlup_technologies_ltd_formerly_smart_x",
   "schema_version": 1,
   "career_url": "https://www.controlup.com/company/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:25:13.432628Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:46:09.834344Z",
+  "verified_at": "2026-09-29T05:46:09.834344Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "lever",
+    "board": "controlup",
+    "board_url": "https://jobs.lever.co/controlup"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 1,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 21,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 66,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 10
   },
   "rediscover_after": null,
   "notes": []

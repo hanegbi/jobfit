@@ -2,53 +2,25 @@
   "company_id": "port_io_ltd_port_formerly_tantorio_alltra_io",
   "schema_version": 1,
   "career_url": "https://www.getport.io/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T14:37:36.447180Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:48:58.298258Z",
+  "verified_at": "2026-09-29T05:48:58.298258Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "port/59.004",
+    "board_url": "https://www.comeet.com/jobs/port/59.004"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 4,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 5,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 38,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 31
   },
   "rediscover_after": null,
   "notes": []

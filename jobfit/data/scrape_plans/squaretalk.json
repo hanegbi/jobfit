@@ -4,21 +4,45 @@
   "career_url": "https://squaretalk.com/career/",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T11:17:17.196903Z",
+  "derived_at": "2026-09-29T05:54:29.583462Z",
   "verified_at": null,
   "status": "unverified",
   "strategy": {
     "kind": "html_listing",
-    "renderer": "http",
+    "renderer": "playwright",
     "container_selector": null,
     "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
+    "exclude_url": [
+      "^https?://(www\\.)?squaretalk\\.com/products/[^/?#]+/?$",
+      "^https?://(www\\.)?squaretalk\\.com/solutions/[^/?#]+/?$",
+      "^https?://(www\\.)?squaretalk\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?portal\\.squaretalk\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?squaretalk\\.com/products/virtual\\-phone\\-numbers/united\\-states/[^/?#]+/?$",
+      "^https?://(www\\.)?squaretalk\\.com/products/contact\\-center\\-platform/[^/?#]+/?$",
+      "^https?://(www\\.)?squaretalk\\.com/company/[^/?#]+/?$"
+    ],
+    "url_shape": "careers.squaretalk.com|jobs/Careers/523400000011162087|4",
+    "explicit_accept": [
+      "https://careers.squaretalk.com/jobs/Careers/523400000011162087/Senior-Engineering-Team-Lead?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000012005106/Backoffice-and-Client-Support-Specialist?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011043246/VoIP-DevOps-Engineer-SIP-Focus?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011043208/VoIP-DevOps-Engineer-SIP-Focus?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000010209323/Junior-Business-Systems-Administrator?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011043194/Financial-Controller?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011639160/QA-Engineer-Manual-Automation?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011144033/Legal-Counsel?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011500039/Technical-Support-Specialist-with-Hebrew?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011430194/Technical-Support-Specialist-with-Hebrew?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011639145/Sales-Executive-Account-Executive?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011639090/QA-Engineer-Manual-Automation?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011620158/Senior-SMS-Partnerships-Manager?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011430141/Customer-Success-Manager-SME?source=CareerSite",
+      "https://careers.squaretalk.com/jobs/Careers/523400000011393004/Noon-Shift-Technical-Support-Specialist?source=CareerSite"
+    ],
     "fallbacks": [
-      "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
@@ -26,63 +50,400 @@
     "container_selector": null,
     "candidates": [
       {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 14,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 20,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 22,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 23,
         "is_job": false,
         "reason": "not a job"
       },
       {
-        "index": 30,
+        "index": 24,
         "is_job": false,
         "reason": "not a job"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 27,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 28,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 29,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 31,
-        "is_job": false,
-        "reason": "not a job"
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 32,
-        "is_job": false,
-        "reason": "not a job"
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 33,
-        "is_job": false,
-        "reason": "not a job"
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 34,
-        "is_job": false,
-        "reason": "not a job"
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 35,
-        "is_job": false,
-        "reason": "not a job"
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 36,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 37,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 38,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 39,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 40,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 41,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 42,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 43,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 44,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 45,
         "is_job": false,
         "reason": "not a job"
       },
       {
-        "index": 37,
+        "index": 46,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 47,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 48,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 49,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 50,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 51,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 52,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 53,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 54,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 55,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 56,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 57,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 58,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 59,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 60,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 61,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 62,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 63,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 64,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 65,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 66,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 67,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 68,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 69,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 70,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 71,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 72,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 73,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 74,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 75,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 76,
         "is_job": false,
         "reason": "not a job"
       }
     ]
   },
-  "page_fingerprint": {
-    "href_shape_set_hash": "695f58e73d9e0a2696bcb916f411940ea29434ca",
-    "candidate_count": 63
-  },
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 15
   },
-  "rediscover_after": "2026-10-05T11:17:17.196903Z",
+  "rediscover_after": null,
   "notes": []
 }

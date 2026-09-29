@@ -4,21 +4,28 @@
   "career_url": "https://www.venice.io/careers",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T15:17:11.183817Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:54:29.583462Z",
+  "verified_at": "2026-09-29T05:54:29.583462Z",
+  "status": "verified",
   "strategy": {
     "kind": "html_listing",
-    "renderer": "http",
+    "renderer": "playwright",
     "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
+    "include_url": "^https?://(www\\.)?venice\\.io/careers\\-job\\-application\\?.*\\bid=",
+    "exclude_url": [
+      "^https?://(www\\.)?venice\\.io/[^/?#]+/?$",
+      "^https?://(www\\.)?venice\\.io/solutions/[^/?#]+/?$",
+      "^https?://(www\\.)?venice\\.io/[^/?#]+/?$",
+      "^https?://(www\\.)?linkedin\\.com/company/[^/?#]+/?$",
+      "^https?://(www\\.)?trust\\.venice\\.io/[^/?#]+/?$",
+      "^https?://(www\\.)?cookiepedia\\.co\\.uk/[^/?#]+/?$"
+    ],
+    "url_shape": "venice.io|?id",
     "explicit_accept": [],
     "fallbacks": [
-      "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
@@ -26,7 +33,142 @@
     "container_selector": null,
     "candidates": [
       {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 17,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 18,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 19,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 20,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 21,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 22,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 23,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 24,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 25,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 26,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 27,
         "is_job": false,
         "reason": "not a job"
       }
@@ -38,7 +180,7 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 8
   },
   "rediscover_after": null,
   "notes": []

@@ -2,44 +2,28 @@
   "company_id": "at_bay_technologies_ltd_formerly_zentree_cyberjack",
   "schema_version": 1,
   "career_url": "https://www.at-bay.com/about/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T12:44:02.493646Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:54:33.543874Z",
+  "verified_at": "2026-09-29T05:54:33.543874Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "greenhouse",
+    "board": "atbayjobs",
+    "board_url": "https://boards.greenhouse.io/atbayjobs"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 27,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 36
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board confirmed live by hand on 2026-09-29 (round-four review)"
+  ]
 }

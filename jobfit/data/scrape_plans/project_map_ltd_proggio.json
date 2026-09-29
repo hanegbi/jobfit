@@ -2,11 +2,11 @@
   "company_id": "project_map_ltd_proggio",
   "schema_version": 1,
   "career_url": "https://www.proggio.com/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T14:37:36.447180Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:48:57.538902Z",
+  "verified_at": "2026-09-29T05:48:57.538902Z",
+  "status": "verified",
   "strategy": {
     "kind": "html_listing",
     "renderer": "http",
@@ -16,30 +16,21 @@
     "url_shape": null,
     "explicit_accept": [],
     "fallbacks": [
-      "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 44,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 15
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "15 jobs inlined as page JSON (read by the inline-json fallback)"
+  ]
 }

@@ -4,21 +4,24 @@
   "career_url": "https://www.quanthealth.ai/careers",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T11:04:49.911704Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:54:29.583462Z",
+  "verified_at": "2026-09-29T05:54:29.583462Z",
+  "status": "verified",
   "strategy": {
     "kind": "html_listing",
-    "renderer": "http",
+    "renderer": "playwright",
     "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
+    "include_url": "^https?://(www\\.)?quanthealth\\.ai/jobs/[^/?#]+/?$",
+    "exclude_url": [
+      "^https?://(www\\.)?quanthealth\\.ai/[^/?#]+/?$",
+      "^https?://(www\\.)?trust\\.quanthealth\\.ai/[^/?#]+/?$"
+    ],
+    "url_shape": "quanthealth.ai|jobs|2",
     "explicit_accept": [],
     "fallbacks": [
-      "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
@@ -26,7 +29,42 @@
     "container_selector": null,
     "candidates": [
       {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
         "is_job": false,
         "reason": "not a job"
       },
@@ -34,20 +72,72 @@
         "index": 8,
         "is_job": false,
         "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 13,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 14,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 15,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 16,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
       }
     ]
   },
-  "page_fingerprint": {
-    "href_shape_set_hash": "786380a9f0496ab700c1802469c3cf1d3536767f",
-    "candidate_count": 14
-  },
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 5
   },
-  "rediscover_after": "2026-10-05T11:04:49.911704Z",
+  "rediscover_after": null,
   "notes": []
 }

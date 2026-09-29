@@ -4,21 +4,45 @@
   "career_url": "https://gett.com/careers/",
   "derived_by": "llm",
   "model": null,
-  "derived_at": "2026-09-28T10:26:39.275623Z",
+  "derived_at": "2026-09-29T05:54:29.583462Z",
   "verified_at": null,
   "status": "unverified",
   "strategy": {
     "kind": "html_listing",
-    "renderer": "http",
+    "renderer": "playwright",
     "container_selector": null,
     "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
+    "exclude_url": [
+      "^https?://(www\\.)?gett\\.com/uk/[^/?#]+/?$",
+      "^https?://(www\\.)?gett\\.com/uk/business/[^/?#]+/?$",
+      "^https?://(www\\.)?gett\\.com/uk/riders/[^/?#]+/?$",
+      "^https?://(www\\.)?gett\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?business\\.gett\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?facebook\\.com/[^/?#]+/?$",
+      "^https?://(www\\.)?linkedin\\.com/company/[^/?#]+/?$",
+      "^https?://(www\\.)?glassdoor\\.com/Overview/[^/?#]+/?$",
+      "^https?://(www\\.)?gett\\.onelink\\.me/dxLT/[^/?#]+/?$",
+      "^https?://(www\\.)?gett\\.com/legal/[^/?#]+/?$"
+    ],
+    "url_shape": "gett.com|careers|2",
+    "explicit_accept": [
+      "https://gett.com/careers/45.F6B/",
+      "https://gett.com/careers/63.E60/",
+      "https://gett.com/careers/C4.F65/",
+      "https://gett.com/careers/D4.F61/",
+      "https://gett.com/careers/5C.D69/",
+      "https://gett.com/careers/03.F64/",
+      "https://gett.com/careers/C8.E6A/",
+      "https://gett.com/careers/ED.F6D/",
+      "https://gett.com/careers/30.37C/",
+      "https://gett.com/careers/46.A6A/",
+      "https://gett.com/careers/5D.173/",
+      "https://gett.com/careers/4B.D69/"
+    ],
     "fallbacks": [
-      "playwright",
       "techmap"
-    ]
+    ],
+    "listing_url": null
   },
   "labels": {
     "page_verdict": "careers_page",
@@ -26,38 +50,210 @@
     "container_selector": null,
     "candidates": [
       {
+        "index": 0,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 1,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 2,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 3,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 4,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 5,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 6,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 7,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 8,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 9,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 10,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 11,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 12,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
         "index": 13,
         "is_job": false,
         "reason": "not a job"
       },
       {
-        "index": 20,
+        "index": 14,
         "is_job": false,
         "reason": "not a job"
+      },
+      {
+        "index": 15,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 16,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 17,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 18,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 19,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 20,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 21,
+        "is_job": true,
+        "reason": "real job posting"
       },
       {
         "index": 22,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 23,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 24,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 25,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 26,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 27,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 28,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 29,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 30,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 31,
+        "is_job": true,
+        "reason": "real job posting"
+      },
+      {
+        "index": 32,
         "is_job": false,
         "reason": "not a job"
       },
       {
-        "index": 23,
+        "index": 33,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 34,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 35,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 36,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 37,
+        "is_job": false,
+        "reason": "not a job"
+      },
+      {
+        "index": 38,
         "is_job": false,
         "reason": "not a job"
       }
     ]
   },
-  "page_fingerprint": {
-    "href_shape_set_hash": "5e0f8296175aff72e649b70b5f8fa4f14dd9d802",
-    "candidate_count": 27
-  },
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 12
   },
-  "rediscover_after": "2026-10-05T10:26:39.275623Z",
+  "rediscover_after": null,
   "notes": []
 }
