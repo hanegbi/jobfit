@@ -25,6 +25,7 @@ from jobfit.scrape.ats.clients import ComeetClient, GreenhouseClient
     ("https://acme.recruitee.com/o/backend-engineer", "recruitee", "acme"),
     ("https://acme.bamboohr.com/careers/42", "bamboohr", "acme"),
     ("https://acme.breezy.hr/p/abc-backend", "breezy", "acme"),
+    ("https://qslabshr.careers.hibob.com/jobs/bfae4918-f855/apply", "hibob", "qslabshr"),
     ("https://jobs.smartrecruiters.com/Acme/743999", "smartrecruiters", "Acme"),
     ("https://acme.jobs.personio.de/job/123", "personio", "acme"),
     ("https://motorolasolutions.wd5.myworkdayjobs.com/en-US/Careers/job/Tel-Aviv/Engineer_R123", "workday", "motorolasolutions.wd5/Careers"),
@@ -69,7 +70,7 @@ def test_registry_client_lookup_and_unknown_provider():
     assert registry.client("lever").provider == "lever"
     assert registry.providers() == [
         "greenhouse", "lever", "ashby", "workable", "comeet",
-        "recruitee", "bamboohr", "breezy", "smartrecruiters", "personio", "workday", "eightfold",
+        "recruitee", "bamboohr", "breezy", "smartrecruiters", "personio", "workday", "eightfold", "hibob",
     ]
     with pytest.raises(errors.PlanInvalid):
         registry.client("taleo")

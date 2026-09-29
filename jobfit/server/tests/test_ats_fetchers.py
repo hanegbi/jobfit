@@ -282,3 +282,29 @@ def test_fetch_listing_links_prioritizes_same_host_links_over_a_mega_menu(monkey
     links = ats_fetchers.fetch_listing_links(session=None, url=url, max_links=1)
 
     assert links == [("Administrative Assistant", "https://careers.checkpoint.com/index.php?a=show&jid=1")]
+
+
+def test_fetch_hibob_maps_the_public_job_ad_feed(monkeypatch):
+    """qs-labs.com renders its jobs through a script; the underlying HiBob
+    feed is <slug>.careers.hibob.com/api/job-ad with the slug as a header."""
+    payload = {"filterGroups": [], "jobAdDetails": [
+        {"id": "bfae4918", "title": "Program Manager", "department": "R&D", "site": "Rehovot", "country": "Israel",
+         "employmentType": "Permanent", "description": "Lead <b>projects</b>", "requirements": "<ul><li>B.Sc</li></ul>"},
+        {"id": "", "title": "No id"},
+    ]}
+    seen = {}
+    monkeypatch.setattr(ats_fetchers, "_request", lambda session, method, url, **kw: seen.update(url=url, **kw) or _FakeResponse(payload))
+
+    jobs = ats_fetchers.fetch_hibob(session=None, slug="qslabshr")
+
+    assert seen["url"] == "https://qslabshr.careers.hibob.com/api/job-ad"
+    assert seen["headers"] == {"companyIdentifier": "qslabshr"}
+    assert len(jobs) == 1
+    assert jobs[0]["url"] == "https://qslabshr.careers.hibob.com/jobs/bfae4918/apply"
+    assert jobs[0]["location"] == "Rehovot, Israel" and jobs[0]["department"] == "R&D"
+    assert jobs[0]["description"] == "Lead projects B.Sc"
+
+
+def test_fetch_hibob_returns_none_when_the_board_is_missing(monkeypatch):
+    monkeypatch.setattr(ats_fetchers, "_request", lambda *a, **kw: None)
+    assert ats_fetchers.fetch_hibob(session=None, slug="nope") is None

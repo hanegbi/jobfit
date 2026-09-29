@@ -136,6 +136,17 @@ class BreezyClient(AtsClient):
         return ats_fetchers.fetch_breezy(self.session, board)
 
 
+class HibobClient(AtsClient):
+    provider = "hibob"
+    patterns = (re.compile(r"https?://([a-z0-9-]+)\.careers\.hibob\.com", re.I),)
+
+    def board_url(self, board: str) -> str:
+        return f"https://{board}.careers.hibob.com/"
+
+    def _fetch_raw(self, board, known_url):
+        return ats_fetchers.fetch_hibob(self.session, board)
+
+
 class SmartRecruitersClient(AtsClient):
     provider = "smartrecruiters"
     patterns = (

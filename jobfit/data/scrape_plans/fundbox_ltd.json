@@ -2,95 +2,28 @@
   "company_id": "fundbox_ltd",
   "schema_version": 1,
   "career_url": "https://fundbox.com/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:53:02.408625Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T11:14:40.736908Z",
+  "verified_at": "2026-09-29T11:14:40.736908Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [
-      "^https?://(www\\.)?fundbox\\.com/[^/?#]+/?$",
-      "^https?://(www\\.)?cnbc\\.com/[^/?#]+/?$",
-      "^https?://(www\\.)?inc\\.com/power\\-partner\\-awards/[^/?#]+/?$",
-      "^https?://(www\\.)?google\\.com/maps/search/[^/?#]+/?$",
-      "^https?://(www\\.)?bbb\\.org/us/ca/san\\-francisco/profile/financial\\-services/[^/?#]+/?$"
-    ],
-    "url_shape": "fundbox.careers.hibob.com|jobs/68537899-fea7-4a0b-ad4d-7a49afb367a2|3",
-    "explicit_accept": [
-      "https://fundbox.careers.hibob.com/jobs/68537899-fea7-4a0b-ad4d-7a49afb367a2/apply",
-      "https://fundbox.careers.hibob.com/jobs/ded5ed69-debe-4821-8098-fdd6f1bce653/apply",
-      "https://fundbox.careers.hibob.com/jobs/3bd99eb8-2faa-4c18-a5a0-771ed630bcf8/apply",
-      "https://fundbox.careers.hibob.com/jobs/13a5ac83-9a83-4dc4-8d7b-84c8e26b85bb/apply"
-    ],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "hibob",
+    "board": "fundbox",
+    "board_url": "https://fundbox.careers.hibob.com/"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 6,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 9,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 10,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 11,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 12,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 13,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 14,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 15,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 16,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
-    "last_ok_run": null,
-    "last_run": null,
-    "last_yield": 0,
-    "baseline_yield": 4
+    "last_ok_run": "2026-09-29T11:15:05.596983Z",
+    "last_run": "2026-09-29T11:15:05.596983Z",
+    "last_yield": 3,
+    "baseline_yield": 3
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "HiBob board fundbox: 3 jobs via the public job-ad feed (career page loads them through a script)"
+  ]
 }

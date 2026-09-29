@@ -2,56 +2,28 @@
   "company_id": "bold_analytics_ltd",
   "schema_version": 1,
   "career_url": "https://www.boldintel.com/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:14:52.945781Z",
-  "verified_at": "2026-09-28T13:14:52.945781Z",
+  "derived_at": "2026-09-29T12:32:42.212325Z",
+  "verified_at": "2026-09-29T12:32:42.212325Z",
   "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": "^https?://(www\\.)?boldintel\\.com/careers/[^/?#]+/?$",
-    "exclude_url": [
-      "^https?://(www\\.)?boldintel\\.com/[^/?#]+/?$"
-    ],
-    "url_shape": "boldintel.com|careers|2",
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "hibob",
+    "board": "boldintel",
+    "board_url": "https://boldintel.careers.hibob.com/"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 2,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 4,
-        "is_job": true,
-        "reason": "real job posting"
-      },
-      {
-        "index": 5,
-        "is_job": true,
-        "reason": "real job posting"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
-    "last_ok_run": null,
-    "last_run": null,
+    "last_ok_run": "2026-09-29T12:32:42.212325Z",
+    "last_run": "2026-09-29T12:32:54.226718Z",
     "last_yield": 0,
-    "baseline_yield": 2
+    "baseline_yield": 0
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "HiBob board boldintel: 0 jobs via the public job-ad feed"
+  ]
 }

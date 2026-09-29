@@ -70,7 +70,7 @@ class AtsApiStrategy(BaseModel):
     kind: Literal["ats_api"] = "ats_api"
     provider: Literal[
         "greenhouse", "lever", "ashby", "workable", "comeet",
-        "recruitee", "bamboohr", "breezy", "smartrecruiters", "personio", "workday", "eightfold",
+        "recruitee", "bamboohr", "breezy", "smartrecruiters", "personio", "workday", "eightfold", "hibob",
     ]
     board: str
     board_url: str

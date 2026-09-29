@@ -695,6 +695,30 @@ def fetch_breezy(session: requests.Session, slug: str) -> Optional[list[dict]]:
     return jobs
 
 
+def fetch_hibob(session: requests.Session, slug: str) -> Optional[list[dict]]:
+    """HiBob career sites (<slug>.careers.hibob.com): the public job-ad feed
+    the site itself renders from; the company id goes in a header."""
+    payload = _json_or_none(_request(session, "GET", f"https://{slug}.careers.hibob.com/api/job-ad", headers={"companyIdentifier": slug}))
+    ads = payload.get("jobAdDetails") if isinstance(payload, dict) else None
+    if not isinstance(ads, list):
+        return None
+    jobs = []
+    for item in ads:
+        title = _clean(item.get("title"))
+        if not title or not item.get("id"):
+            continue
+        where = ", ".join(part for part in (item.get("site"), item.get("country")) if part)
+        jobs.append({
+            "title": title, "location": where or None,
+            "url": f"https://{slug}.careers.hibob.com/jobs/{item['id']}/apply",
+            "description": strip_html(f"{item.get('description') or ''} {item.get('requirements') or ''}")[:6000],
+            "department": _clean(item.get("department")) or None,
+            "employment_type": item.get("employmentType"),
+            "posted_at": _posted_date(item.get("publishDate") or item.get("publishedAt")),
+        })
+    return jobs
+
+
 def fetch_smartrecruiters(session: requests.Session, slug: str) -> Optional[list[dict]]:
     jobs, offset, total = [], 0, None
     while total is None or offset < min(total, 1000):
