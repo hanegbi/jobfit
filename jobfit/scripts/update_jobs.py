@@ -689,6 +689,14 @@ def load_company_address_cities() -> dict[str, str]:
     return out
 
 
+# Stored per job, read by no one once the page is built: bookkeeping for the
+# score cache and the scrape health policy, and the two extraction lists the
+# page has no UI for. Together they were 16MB of jobs_v2.json. The company
+# file keeps all of it - this only trims what gets embedded in the page.
+PAGE_IRRELEVANT_FIELDS = ("_score_cache_keys", "job_evidence", "requirements_default",
+                          "requirements_infra", "description_original")
+
+
 def _flatten_company(record: dict, company: str, contacts: list, industry, size, techmap_location_hint,
                      company_city: str | None = None) -> list[dict]:
     from jobfit import pipeline as _pipeline  # reuse its already-debugged location-inference logic, not a copy
@@ -712,6 +720,15 @@ def _flatten_company(record: dict, company: str, contacts: list, industry, size,
         out["connections"] = contacts
         out["has_connection"] = bool(contacts)
         out["has_description"] = bool(job.get("description"))
+        # A closed job's description is dead weight on the page: the listing
+        # is gone, the page hides closed jobs by default, and their text was
+        # 62MB of a 155MB file - over GitHub's 100MB per-file limit, so the
+        # page could no longer be published at all. The company file keeps
+        # the full text; scoring reads it from there, never from here.
+        if job.get("status") == "closed":
+            out["description"] = ""
+        for field in PAGE_IRRELEVANT_FIELDS:
+            out.pop(field, None)
         if "years_required" in job:
             years_required = job["years_required"]
         else:

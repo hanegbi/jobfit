@@ -152,3 +152,35 @@ def test_context_hash_changes_when_the_row_building_code_changes(monkeypatch):
     before = update_jobs._context_sha1()
     monkeypatch.setattr(update_jobs, "_row_engine_fingerprint", lambda: "a-different-engine")
     assert update_jobs._context_sha1() != before
+
+
+def test_a_closed_jobs_description_is_dropped_from_the_page_data():
+    """The page hides closed jobs by default and their text was more than a
+    third of the output - enough to push it past GitHub's 100MB file limit."""
+    record = {"jobs": [
+        {"id": "a", "title": "Open Role", "status": "seen", "description": "Requirements: Python"},
+        {"id": "b", "title": "Gone Role", "status": "closed", "description": "Requirements: Python"},
+    ]}
+    rows = {r["id"]: r for r in update_jobs._flatten_company(record, "Acme", [], None, None, None)}
+    assert rows["a"]["description"] == "Requirements: Python"
+    assert rows["b"]["description"] == ""
+    # The flag still reports that a description exists in the company file.
+    assert rows["b"]["has_description"] is True
+
+
+def test_internal_bookkeeping_fields_stay_out_of_the_page_data():
+    """Score-cache keys, scrape evidence and the requirement lists have no
+    reader once the page is built, and cost 16MB of an output that has to
+    stay under GitHub's 100MB file limit."""
+    record = {"jobs": [{
+        "id": "a", "title": "Open Role", "status": "seen", "description": "Requirements: Python",
+        "_score_cache_keys": {"default": "abc"}, "job_evidence": {"jsonld_jobposting": True},
+        "requirements_default": ["python"], "requirements_infra": ["python"],
+        "description_original": "דרישות", "matched_default": ["python"],
+    }]}
+    row = update_jobs._flatten_company(record, "Acme", [], None, None, None)[0]
+    for field in update_jobs.PAGE_IRRELEVANT_FIELDS:
+        assert field not in row
+    # What the page does read survives.
+    assert row["matched_default"] == ["python"]
+    assert row["description"] == "Requirements: Python"
