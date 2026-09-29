@@ -2,52 +2,26 @@
   "company_id": "overwolf",
   "schema_version": 1,
   "career_url": "https://careers.overwolf.com/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T10:55:32.870631Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:27:45.815704Z",
+  "verified_at": "2026-09-29T05:27:45.815704Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "B1.001:1B16C4BD7005131B1A26F391B1",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/B1.001/positions?token=1B16C4BD7005131B1A26F391B1"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 6,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 7,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "e368424302cc5eeca6b331ed598eb07532947856",
-    "candidate_count": 32
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 11
   },
-  "rediscover_after": "2026-10-05T10:55:32.870631Z",
+  "rediscover_after": null,
   "notes": []
 }

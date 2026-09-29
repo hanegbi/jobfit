@@ -2,47 +2,26 @@
   "company_id": "planck",
   "schema_version": 1,
   "career_url": "https://planckdata.com/careers/",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:04:27.124186Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:27:52.909344Z",
+  "verified_at": "2026-09-29T05:27:52.909344Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "28.00E:82E311428E63114105C28E6188A82E105C3114",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/28.00E/positions?token=82E311428E63114105C28E6188A82E105C3114"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 7,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "2ce0d23d869ad236afc182e10fefca62be6ad845",
-    "candidate_count": 10
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 3
   },
-  "rediscover_after": "2026-10-05T11:04:27.124186Z",
+  "rediscover_after": null,
   "notes": []
 }

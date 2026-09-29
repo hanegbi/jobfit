@@ -2,57 +2,26 @@
   "company_id": "port",
   "schema_version": 1,
   "career_url": "https://www.port.io/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:04:36.596536Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-09-29T05:28:05.686567Z",
+  "verified_at": "2026-09-29T05:28:05.686567Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ]
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "port/59.004",
+    "board_url": "https://www.comeet.com/jobs/port/59.004"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 4,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 5,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 38,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
-  "page_fingerprint": {
-    "href_shape_set_hash": "0b891e1c9b6ab1ff7e29b0e5cca992f438c6b197",
-    "candidate_count": 48
-  },
+  "labels": null,
+  "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 31
   },
-  "rediscover_after": "2026-10-05T11:04:36.596536Z",
+  "rediscover_after": null,
   "notes": []
 }

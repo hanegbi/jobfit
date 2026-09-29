@@ -1,15 +1,17 @@
 {
   "company_id": "seeking_alpha",
   "schema_version": 1,
-  "career_url": "https://seekingalpha.com/page/careers",
+  "career_url": "https://www.jobs.seekingalpha.com/",
   "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T11:16:27.010866Z",
-  "verified_at": "2026-09-28T11:16:27.010866Z",
+  "derived_at": "2026-09-29T05:28:09.761013Z",
+  "verified_at": "2026-09-29T05:28:09.761013Z",
   "status": "verified",
   "strategy": {
-    "kind": "broken_url",
-    "reason": "redirects to homepage"
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "46.006:64625A4646C8C38761918323012D2C8C1F5E",
+    "board_url": "https://www.comeet.co/careers-api/2.0/company/46.006/positions?token=64625A4646C8C38761918323012D2C8C1F5E"
   },
   "labels": null,
   "page_fingerprint": null,
@@ -18,7 +20,7 @@
     "last_ok_run": null,
     "last_run": null,
     "last_yield": 0,
-    "baseline_yield": 0
+    "baseline_yield": 12
   },
   "rediscover_after": null,
   "notes": []
