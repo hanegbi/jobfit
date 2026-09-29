@@ -17,8 +17,8 @@ from jobfit.scrape.filters import (
 from jobfit.scrape.health import HealthPolicy
 from jobfit.scrape.models import HtmlListingStrategy, ScrapePlan
 from jobfit.scrape.strategies import (
-    AtsApiScrape, EmbeddedAtsScrape, ExternalBoardScrape, FallbackScrape, HtmlListingScrape, NoScrape, ScrapeStrategy,
-    SpecialCaseScrape, TechmapScrape,
+    AtsApiScrape, EmbeddedAtsScrape, ExternalBoardScrape, FallbackScrape, HtmlListingScrape, InlineJsonScrape, NoScrape,
+    ScrapeStrategy, SpecialCaseScrape, TechmapScrape,
 )
 
 
@@ -66,6 +66,9 @@ class StrategyFactory:
                 fallbacks.append(TechmapScrape(self.techmap_index))
         if not any(isinstance(f, EmbeddedAtsScrape) for f in fallbacks):
             fallbacks.append(EmbeddedAtsScrape(self.fetchers.build("http"), self.registry))
+        # Jobs inlined as page JSON (Next.js/Nuxt) come right after the link scrape itself.
+        first_non_listing = next((i for i, f in enumerate(fallbacks) if not isinstance(f, HtmlListingScrape)), len(fallbacks))
+        fallbacks.insert(first_non_listing, InlineJsonScrape(self.fetchers.build("http")))
         return FallbackScrape(primary, fallbacks, self.health.is_healthy)
 
     def _special_case(self, plan: ScrapePlan) -> ScrapeStrategy:

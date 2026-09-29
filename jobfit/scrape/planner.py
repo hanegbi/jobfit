@@ -22,6 +22,7 @@ from jobfit.scrape.classifiers import LISTING_LINK_PATH, LISTING_LINK_TEXT, Plan
 from jobfit.scrape.errors import ClassifierFailed, FetchFailed
 from jobfit.scrape.fetchers import PageFetcherFactory
 from jobfit.scrape.filters import FilterChain
+from jobfit.scrape.inline_json import find_inline_jobs
 from jobfit.scrape.models import (
     AtsApiStrategy, BrokenUrlStrategy, Candidate, ExternalBoardStrategy, HtmlListingStrategy, Labels, Page,
     Renderer, ScrapePlan, SpecialCaseStrategy, Strategy, TechmapOnlyStrategy,
@@ -231,12 +232,19 @@ class ScrapePlanner:
         notes: list[str] = []
         candidates = self.extractor.extract(page, career_url, cap=200)
         if not candidates:
+            inline_plan = self._inline_json_plan(company_id, career_url, page, renderer, notes, 0)
+            if inline_plan is not None:
+                return inline_plan, page
             return self._probe_plan(company_id, career_url, TechmapOnlyStrategy(reason="no anchors on page"), status="unverified"), page
 
         plan, page, candidates = self._html_plan(company_id, career_url, page, renderer, candidates, notes)
         landing_yield = plan.health.baseline_yield or 0
         if plan.strategy.kind != "html_listing" or landing_yield > 2:
             return plan, page
+
+        inline_plan = self._inline_json_plan(company_id, career_url, page, renderer, notes, landing_yield)
+        if inline_plan is not None:
+            return inline_plan, page
 
         # (Almost) nothing on the registered page - is it a landing page with
         # the real listing one hop away ("See open roles" -> /careers/jobs)?
@@ -265,6 +273,22 @@ class ScrapePlanner:
                         notes.append(f"listing found one hop away at {hop_url}")
                         return hop_plan.model_copy(update={"notes": list(notes)}), hop_page
         return plan, page
+
+    def _inline_json_plan(self, company_id: str, career_url: str, page: Page, renderer: Renderer, notes: list[str],
+                          beat: int) -> ScrapePlan | None:
+        """Jobs inlined as page JSON (Next.js/Nuxt SPAs render them as rows
+        with no links): the runtime's InlineJsonScrape fallback reads them;
+        the plan just records that this page yields that way. None unless
+        the inlined list beats `beat` (what link scraping found)."""
+        inline = find_inline_jobs(page.html, career_url)
+        if len(inline) <= beat:
+            return None
+        now = self.now()
+        plan = ScrapePlan(company_id=company_id, career_url=career_url, derived_by="probe", derived_at=now, verified_at=now, status="verified",
+                          strategy=HtmlListingStrategy(renderer=renderer, fallbacks=["techmap"]),
+                          notes=notes + [f"{len(inline)} jobs inlined as page JSON (read by the inline-json fallback)"])
+        plan.health.baseline_yield = len(inline)
+        return plan
 
     _HOP_TEXT = LISTING_LINK_TEXT
     _HOP_PATH = LISTING_LINK_PATH

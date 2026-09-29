@@ -86,6 +86,26 @@ class HtmlListingScrape(ScrapeStrategy):
         ]
 
 
+class InlineJsonScrape(ScrapeStrategy):
+    """Runtime fallback for html_listing plans: jobs shipped as JSON inside
+    the page (Next.js/Nuxt page data) rendered without links - see
+    jobfit.scrape.inline_json. [] when the page inlines no job list."""
+    kind = "html_listing"
+
+    def __init__(self, fetcher: PageFetcher):
+        self.fetcher = fetcher
+
+    def fetch(self, company: str, career_url: str | None) -> list[JobPosting]:
+        from jobfit.scrape.inline_json import find_inline_jobs
+
+        if not career_url:
+            return []
+        page = self.fetcher.fetch(career_url)
+        if page.status >= 400:
+            raise FetchFailed(f"{career_url}: http {page.status}")
+        return [p for p in (to_posting(item, "html_listing") for item in find_inline_jobs(page.html, career_url)) if p is not None]
+
+
 class EmbeddedAtsScrape(ScrapeStrategy):
     """Runtime self-healing for html_listing plans: when the listing page
     yields nothing, look for an ATS embedded in the page's raw HTML
