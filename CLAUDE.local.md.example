@@ -1,0 +1,24 @@
+# CLAUDE.local.md.example
+
+Copy to `CLAUDE.local.md` for personal, machine-specific notes. That file is gitignored and is read in
+addition to `CLAUDE.md`, so keep it to overrides and local facts — not a second copy of the shared guidance.
+
+Do not put API keys, tokens or passwords here. `--discover` reads `ANTHROPIC_API_KEY` from the environment;
+set it in your shell, not in this file.
+
+Examples of what belongs here:
+
+```markdown
+## Local setup
+- Repo lives at <path>; run everything through `uv run` from the repo root with PYTHONPATH=.
+- Personal inputs (CVs, connections CSV, referral export) are registered in jobfit/config.py — mine live at
+  <paths on this machine>.
+
+## Preferences for this machine
+- Don't start long update runs without asking; a full pass takes ~40 minutes here.
+- Default to the fast test subset; run the full suite only before a commit.
+
+## Scratch
+- Current focus: <what you're in the middle of>
+- Companies to re-check by hand: <names>
+```

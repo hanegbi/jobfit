@@ -27,3 +27,10 @@ jobfit/cache/aggregate/
 jobfit/data/.pipeline.lock
 # Playwright MCP session snapshots/logs.
 .playwright-mcp/
+
+# Personal Claude Code overrides (see CLAUDE.local.md.example).
+CLAUDE.local.md
+
+# Transient run logs from a manual update.
+jobfit/cache/*.log
+jobfit/cache/*.log.out
