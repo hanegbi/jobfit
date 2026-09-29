@@ -16,6 +16,7 @@ import argparse
 import json
 import logging
 import random
+import re
 import sys
 import time
 from pathlib import Path
@@ -30,12 +31,24 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 TIMEOUT = 15
 CLOSED_PHRASE = "no longer accepting applications"
 OUTPUT_PATH = config.ROOT / "cache" / "linkedin_closed_check.json"
+_JOB_ID_RE = re.compile(r"(\d{8,})")
+# LinkedIn's public guest endpoint for one posting: ~45 KB, no login, ~1.4 s,
+# versus ~4 s for the full page. Same closed banner. Measured 2026-09-29: four
+# parallel requests earn 429s within seconds and the throttle then lingers
+# over sequential requests too - hence sequential + exponential back-off.
+GUEST_POSTING_URL = "https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/{job_id}"
+BACKOFF_STEPS_S = (30, 60, 120, 300)
+
+
+def _guest_url(url: str) -> str:
+    m = _JOB_ID_RE.search(url)
+    return GUEST_POSTING_URL.format(job_id=m.group(1)) if m else url
 
 
 def _fetch_once(session, url: str) -> str:
     """Return "closed", "open", "blocked", or "error" for a single request."""
     try:
-        resp = session.get(url, timeout=TIMEOUT)
+        resp = session.get(_guest_url(url), timeout=TIMEOUT)
     except Exception as error:  # noqa: BLE001
         logger.debug("request failed for %s: %s", url, error)
         return "error"
@@ -43,7 +56,8 @@ def _fetch_once(session, url: str) -> str:
         return "blocked"
     if resp.status_code >= 400:
         return "error"
-    return "closed" if CLOSED_PHRASE in resp.text.lower() else "open"
+    text = resp.text
+    return "closed" if (CLOSED_PHRASE in text.lower() or 'class="closed-job"' in text) else "open"
 
 
 def check_one(session, url: str) -> str:
@@ -69,11 +83,16 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--delay", type=float, default=1.2, help="base seconds between requests")
     parser.add_argument("--dry-run", action="store_true", help="report only; don't close jobs or re-aggregate")
+    parser.add_argument("--min-score", type=int, default=0, help="only verify jobs whose best_score is at least this (0 = all)")
     args = parser.parse_args()
 
     data = json.loads(config.JOBS_OUTPUT_JSON.read_text(encoding="utf-8"))
-    linkedin_urls = sorted({r["url"] for r in data if r.get("url") and "linkedin.com" in r["url"].lower() and r.get("status") != "closed"})
-    logger.info("open LinkedIn job URLs to verify: %d", len(linkedin_urls))
+    candidates = [r for r in data if r.get("url") and "linkedin.com" in r["url"].lower() and r.get("status") != "closed"
+                  and (r.get("best_score") or 0) >= args.min_score]
+    # Best-scoring first: if the run is cut short, the jobs Dan would act on were verified.
+    candidates.sort(key=lambda r: -(r.get("best_score") or 0))
+    linkedin_urls = list(dict.fromkeys(r["url"] for r in candidates))
+    logger.info("open LinkedIn job URLs to verify: %d (min score %d)", len(linkedin_urls), args.min_score)
 
     already = {}
     if OUTPUT_PATH.exists():
@@ -89,10 +108,24 @@ def main() -> None:
 
     session = ats_fetchers.make_session(pool_size=4)
     counts = {"closed": 0, "open": 0, "blocked": 0, "error": 0}
+    blocked_streak = 0
     for i, url in enumerate(todo, 1):
         status = check_one(session, url)
+        if status == "blocked":
+            # Throttled: back off (30s, 60s, 120s, 300s...) and retry this one
+            # URL once per step rather than burning the rest of the list.
+            for pause in BACKOFF_STEPS_S:
+                logger.info("429 from LinkedIn - pausing %ds", pause)
+                time.sleep(pause)
+                status = check_one(session, url)
+                if status != "blocked":
+                    break
+        blocked_streak = blocked_streak + 1 if status == "blocked" else 0
         already[url] = status
         counts[status] += 1
+        if blocked_streak >= 3:
+            logger.warning("still throttled after back-off on 3 consecutive URLs - stopping; re-run later, results so far are saved")
+            break
         if i % 25 == 0 or i == len(todo):
             logger.info("checked %d/%d - closed:%d open:%d blocked:%d error:%d",
                         i, len(todo), counts["closed"], counts["open"], counts["blocked"], counts["error"])
