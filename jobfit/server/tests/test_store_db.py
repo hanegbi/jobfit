@@ -10,17 +10,20 @@ from jobfit.store import db
 
 def test_migrate_creates_the_schema_and_records_its_version():
     conn = db.connect(":memory:")
-    assert db.migrate(conn) == 1
+    version = db.migrate(conn)
     tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
-    assert {"companies", "jobs", "job_scores", "jobs_fts"} <= tables
-    assert conn.execute("PRAGMA user_version").fetchone()[0] == 1
+    assert {"companies", "jobs", "job_scores", "jobs_fts", "job_state"} <= tables
+    # The version reached is whatever the newest schema file says, so adding
+    # one does not mean editing this test.
+    assert conn.execute("PRAGMA user_version").fetchone()[0] == version
+    assert version >= 2
 
 
 def test_migrate_is_idempotent():
     conn = db.connect(":memory:")
-    db.migrate(conn)
+    version = db.migrate(conn)
     conn.execute("INSERT INTO companies (id, display_name) VALUES ('acme', 'Acme')")
-    assert db.migrate(conn) == 1
+    assert db.migrate(conn) == version
     assert conn.execute("SELECT count(*) FROM companies").fetchone()[0] == 1
 
 
