@@ -11,8 +11,12 @@ The real paths are captured at import time, before any monkeypatching.
 
 import pytest
 
+from fastapi.testclient import TestClient
+
 from jobfit import config
 from jobfit.scripts import update_jobs
+from jobfit.server import app as app_module
+from jobfit.server import runner
 
 _REAL_OUTPUTS = (
     config.DB_PATH,  # the store: a test that forgets store_conn would scribble on real job data
@@ -58,3 +62,39 @@ def store_conn(tmp_path, monkeypatch):
     db.migrate(conn)
     monkeypatch.setattr(db, "_shared", conn)
     return conn
+
+
+@pytest.fixture
+def client(tmp_path, monkeypatch, store_conn):
+    # store_conn: the panel queries the store, so every app test needs its own
+    # database rather than the real one.
+    monkeypatch.setattr(config, "ROOT", tmp_path)
+    monkeypatch.setattr(config, "JOBS_OUTPUT_JSON", tmp_path / "jobs_v2.json")
+    monkeypatch.setattr(config, "CV_PROFILES_DIR", tmp_path / "cvs")
+    monkeypatch.setattr(config, "CV_PROFILES_REGISTRY", tmp_path / "profiles.json")
+    monkeypatch.setattr(config, "CONNECTIONS_CSV", tmp_path / "connections.csv")
+    monkeypatch.setattr(config, "REFERRAL_UPLOADS_DIR", tmp_path / "referrals")
+    monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
+    monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
+    monkeypatch.setattr(config, "OUTPUT_HTML", tmp_path / "jobfit.html")
+    monkeypatch.setattr(config, "COMPANIES_CAREER_PAGES_PATH", tmp_path / "companies_career_pages.json")
+    monkeypatch.setattr(config, "COMPANY_REVIEW_PATH", tmp_path / "data" / "company_review.json")
+    # Module-level constants computed at import time from config.ROOT - patching
+    # config.ROOT alone doesn't reach these (see update_jobs.py:42-43).
+    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path / "companies")
+    monkeypatch.setattr(update_jobs, "META_PATH", tmp_path / "companies" / "_meta.json")
+    monkeypatch.setattr(app_module, "LOCK_PATH", tmp_path / ".server.lock")
+    # merge_referral_jobs() checks techmap availability for any newly-seen
+    # company - stub it out so referral-upload tests never hit the real
+    # techmap cache/network.
+    monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
+
+    (tmp_path / "companies").mkdir()
+    (tmp_path / "companies_career_pages.json").write_text("{}", encoding="utf-8")
+
+    # Ensure no state leaks in from a previous test via the module-level singleton.
+    with runner._lock:
+        runner._state.update(running=False, run_id=None, started_at=None, queue=None)
+
+    with TestClient(app_module.app) as test_client:
+        yield test_client

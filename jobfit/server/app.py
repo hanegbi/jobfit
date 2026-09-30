@@ -11,6 +11,9 @@ from fastapi.responses import FileResponse, StreamingResponse
 from jobfit import company_review, config, cv, pipeline_lock
 from jobfit.scripts import update_jobs
 from jobfit.server import dashboard, runner
+from jobfit.store import db, facets, search
+from jobfit.store import jobs as store_jobs
+from jobfit.store import state as store_state
 
 STATIC_DIR = Path(__file__).parent / "static"
 LOCK_PATH = config.ROOT / "data" / ".server.lock"
@@ -154,6 +157,65 @@ def api_set_company_career_url(company: str, payload: dict) -> dict:
     except KeyError:
         raise HTTPException(404, f"unknown company {company!r}")
     return {"company": company, "url": url}
+
+
+# --- the jobs API: what a front end reads ---------------------------------
+
+@app.get("/api/jobs")
+def api_jobs(
+    q: str | None = None, company: str | None = None, city: str | None = None,
+    status: str | None = None, remote: bool | None = None, min_score: float | None = None,
+    profile: str = "best", liked: bool | None = None, hidden: bool | None = None,
+    sent: bool | None = None, sort: str = "score", page: int = 1, size: int = 50,
+) -> dict:
+    """One page of matching jobs plus the full total. List rows carry no
+    description, and size is capped: an unbounded page would let one request
+    pull the whole dataset, which is what this API exists to avoid."""
+    return search.search_jobs(
+        db.shared(), q=q, company_id=company, city=city, status=status, is_remote=remote,
+        min_score=min_score, profile=profile, liked=liked, hidden=hidden, sent=sent,
+        sort=sort, page=page, size=min(max(1, size), 500),
+    )
+
+
+@app.get("/api/jobs/{job_id}")
+def api_job_detail(job_id: str) -> dict:
+    job = store_jobs.detail(db.shared(), job_id)
+    if job is None:
+        raise HTTPException(404, f"unknown job {job_id!r}")
+    return job
+
+
+@app.patch("/api/jobs/{job_id}/state")
+def api_set_job_state(job_id: str, payload: dict) -> dict:
+    """Record what the user thinks of a job: liked, hidden, sent, reached out.
+    Returns the whole new state, so a client never has to guess."""
+    try:
+        return store_state.set_state(db.shared(), job_id, **payload)
+    except KeyError:
+        raise HTTPException(404, f"unknown job {job_id!r}")
+    except ValueError as error:
+        raise HTTPException(400, str(error))
+
+
+@app.get("/api/facets")
+def api_facets(
+    q: str | None = None, company: str | None = None, city: str | None = None,
+    status: str | None = None, remote: bool | None = None, min_score: float | None = None,
+    profile: str = "best", liked: bool | None = None, hidden: bool | None = None,
+    sent: bool | None = None,
+) -> dict:
+    """Counts per company, city and status for the current filter - built from
+    the same WHERE clause as /api/jobs, so they cannot disagree."""
+    return facets.counts(
+        db.shared(), q=q, company_id=company, city=city, status=status, is_remote=remote,
+        min_score=min_score, profile=profile, liked=liked, hidden=hidden, sent=sent,
+    )
+
+
+@app.get("/api/companies")
+def api_companies() -> list[dict]:
+    return facets.companies(db.shared())
 
 
 @app.post("/api/run")
