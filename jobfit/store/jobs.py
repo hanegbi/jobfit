@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 import sqlite3
 
-from jobfit.departments import canonical_department
+from jobfit.departments import department_for
 from jobfit.scrape import titles
 from jobfit.scrape.ids import normalize_job_url
 
@@ -95,7 +95,7 @@ def _insert(conn: sqlite3.Connection, company_id: str, job: dict, now: str) -> N
         id=job["id"],
         company_id=company_id,
         status="new",
-        department=canonical_department(job.get("department")),
+        department=department_for(job.get("title"), job.get("department")),
         description=job.get("description") or "",
         is_remote=int(bool(job.get("is_remote"))),
         is_referral=int(bool(job.get("is_referral"))),
@@ -128,7 +128,7 @@ def _update_seen(conn: sqlite3.Connection, existing: sqlite3.Row, job: dict, now
     for field in _FILL_IF_EMPTY:
         if not job.get(field) or (existing[field] or "").strip():
             continue
-        value = canonical_department(job[field]) if field == "department" else job[field]
+        value = department_for(job.get("title"), job[field]) if field == "department" else job[field]
         if value:
             updates[field] = value
     if job.get("job_evidence") is not None:

@@ -13,37 +13,62 @@ already English is skipped without a network call.
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 
-from jobfit import translation
+from jobfit import config, translation
 from jobfit.atomic_io import write_json_atomic
-from jobfit.departments import canonical_department
+from jobfit.departments import department_for
 from jobfit.store import db
 
 logger = logging.getLogger("jobfit.normalize")
 
 
+def raw_departments() -> dict[str, str]:
+    """{job id: the department string the ATS actually returned}, read from
+    the pre-migration company files.
+
+    Folding rewrites the column in place, so the raw value is gone from the
+    database the first time this runs. Re-deriving a different taxonomy needs
+    the original, and these files are the only place it still exists - which
+    is the reason they are kept (see CLAUDE.md, "Do not delete the legacy
+    company JSON files"). Job ids are base64url of the URL and did not change
+    in the migration, so they still match.
+    """
+    raw: dict[str, str] = {}
+    for path in sorted(config.ROOT.glob("companies/*.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        for job in data.get("jobs") or []:
+            if job.get("id") and job.get("department"):
+                raw[job["id"]] = job["department"]
+    return raw
+
+
 def fold_departments(conn) -> dict:
-    """Rewrite every job's department to its canonical name (or NULL)."""
-    rows = conn.execute(
-        "SELECT DISTINCT department FROM jobs WHERE department IS NOT NULL AND department != ''"
-    ).fetchall()
-    changed = cleared = 0
+    """Set every job's department from the raw ATS string where one survives,
+    and from the job's own title where it does not."""
+    raw = raw_departments()
+    changed = 0
+    rows = conn.execute("SELECT id, title, department FROM jobs").fetchall()
     with conn:
         for row in rows:
-            raw = row["department"]
-            canonical = canonical_department(raw)
-            if canonical == raw:
+            # Prefer the raw ATS value; fall back to whatever is stored, which
+            # for an already-folded row is a canonical name (idempotent).
+            source = raw.get(row["id"], row["department"])
+            wanted = department_for(row["title"], source)
+            if wanted == row["department"]:
                 continue
-            conn.execute("UPDATE jobs SET department = ? WHERE department = ?", (canonical, raw))
-            if canonical is None:
-                cleared += 1
-            else:
-                changed += 1
-    remaining = conn.execute(
-        "SELECT count(DISTINCT department) FROM jobs WHERE department IS NOT NULL"
-    ).fetchone()[0]
-    return {"raw_values": len(rows), "folded": changed, "cleared": cleared, "departments": remaining}
+            conn.execute("UPDATE jobs SET department = ? WHERE id = ?", (wanted, row["id"]))
+            changed += 1
+    counts = conn.execute(
+        "SELECT count(DISTINCT department) AS kinds, "
+        "sum(CASE WHEN department IS NOT NULL THEN 1 ELSE 0 END) AS placed FROM jobs"
+    ).fetchone()
+    return {"raw_values_recovered": len(raw), "rows_changed": changed,
+            "jobs_with_a_department": counts["placed"], "departments": counts["kinds"]}
 
 
 def drop_poisoned_translations() -> int:

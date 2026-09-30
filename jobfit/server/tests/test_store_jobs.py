@@ -90,23 +90,31 @@ def test_an_empty_stored_field_is_filled_but_a_populated_one_is_kept():
 
 def test_a_department_is_canonicalized_on_the_way_in():
     """The ATS's own spelling never reaches storage, so the facet is a fixed
-    English vocabulary rather than 378 variants of eight ideas."""
+    English vocabulary rather than 378 variants of a dozen ideas."""
     conn = _conn()
     jobs.upsert_scraped(conn, "acme", [
         _job("https://acme.com/jobs/1", department="R&D "),
         _job("https://acme.com/jobs/2", department="הנדסה ופיתוח"),
-        _job("https://acme.com/jobs/3", department="348-RAT"),
+        _job("https://acme.com/jobs/3", title="Office Manager", department="348-RAT"),
     ], NOW)
-    assert jobs.get_job(conn, "1")["department"] == "Engineering"
-    assert jobs.get_job(conn, "2")["department"] == "Engineering"
+    assert jobs.get_job(conn, "1")["department"] == "Software Engineering"
+    assert jobs.get_job(conn, "2")["department"] == "Software Engineering"
     assert jobs.get_job(conn, "3")["department"] is None
+
+
+def test_a_department_is_inferred_from_the_title_when_the_ats_gave_none():
+    """Almost no ATS states a department, so the column would be empty for
+    91% of jobs if the title were not allowed to answer."""
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1", title="QA Automation Engineer")], NOW)
+    assert jobs.get_job(conn, "1")["department"] == "QA & Automation"
 
 
 def test_filling_an_empty_department_canonicalizes_it_too():
     conn = _conn()
     jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1")], NOW)
     jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1", department="RnD")], LATER)
-    assert jobs.get_job(conn, "1")["department"] == "Engineering"
+    assert jobs.get_job(conn, "1")["department"] == "Software Engineering"
 
 
 def test_close_by_url_closes_open_jobs_and_records_the_reason():

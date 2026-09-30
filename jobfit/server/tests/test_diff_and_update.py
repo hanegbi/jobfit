@@ -153,7 +153,9 @@ def test_new_job_captures_department_and_employment_type(store_conn):
     }]
     update_jobs.diff_and_update("Acme", CAREER_URL, fetched, {})
     job = _stored(store_conn)[0]
-    assert job["department"] == "Engineering" and job["employment_type"] == "Full-time"
+    # "Engineering" is stored as the canonical "Software Engineering"; the
+    # ATS's own spelling never reaches the column (see jobfit/departments.py).
+    assert job["department"] == "Software Engineering" and job["employment_type"] == "Full-time"
 
 
 def test_new_job_prefers_the_source_posted_at_over_now(store_conn):
