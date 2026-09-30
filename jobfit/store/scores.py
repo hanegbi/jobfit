@@ -54,3 +54,27 @@ def drop_scores_for_missing_profiles(conn: sqlite3.Connection, profile_ids: set[
         f"DELETE FROM job_scores WHERE profile_id NOT IN ({placeholders})",
         tuple(sorted(profile_ids)),
     ).rowcount
+
+
+def all_by_job(conn: sqlite3.Connection) -> dict[str, dict[str, dict]]:
+    """Every score, grouped by job then profile - one query instead of one
+    per job when building a whole page."""
+    out: dict[str, dict[str, dict]] = {}
+    for row in conn.execute("SELECT * FROM job_scores"):
+        entry = dict(row)
+        entry["matched"] = json.loads(entry["matched"]) if entry["matched"] else []
+        out.setdefault(row["job_id"], {})[row["profile_id"]] = entry
+    return out
+
+
+def distribution(conn: sqlite3.Connection, profile_id: str, open_only: bool = True) -> dict[int, int]:
+    """How many jobs fall in each ten-point score band, for one profile."""
+    clause = "AND j.status != 'closed'" if open_only else ""
+    rows = conn.execute(
+        f"SELECT CAST(s.score / 10 AS INTEGER) * 10 AS bucket, count(*) AS n "
+        f"FROM job_scores s JOIN jobs j ON j.id = s.job_id "
+        f"WHERE s.profile_id = ? AND s.score IS NOT NULL {clause} "
+        f"GROUP BY bucket ORDER BY bucket",
+        (profile_id,),
+    ).fetchall()
+    return {row["bucket"]: row["n"] for row in rows}

@@ -57,10 +57,8 @@ def main() -> None:
     args = parser.parse_args()
 
     conn = db.shared()
-    total = conn.execute("SELECT count(*) FROM jobs").fetchone()[0]
-    jobs_with_url = [dict(row) for row in conn.execute(
-        "SELECT id, url, title, company_id FROM jobs WHERE url IS NOT NULL AND status != 'closed'")]
-    print(f"total jobs: {total}, open with a URL: {len(jobs_with_url)}", flush=True)
+    jobs_with_url = store_jobs.open_with_url(conn)
+    print(f"total jobs: {store_jobs.counts(conn)['total']}, open with a URL: {len(jobs_with_url)}", flush=True)
 
     # Resumable: a run over ~25k URLs takes hours, so verdicts are saved as we
     # go and a re-run skips anything checked recently.

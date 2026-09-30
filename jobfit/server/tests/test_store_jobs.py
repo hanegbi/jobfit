@@ -119,3 +119,37 @@ def test_jobs_for_company_returns_only_that_companys_jobs():
     jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1")], NOW)
     jobs.upsert_scraped(conn, "beta", [_job("https://beta.com/jobs/2")], NOW)
     assert [r["id"] for r in jobs.jobs_for_company(conn, "acme")] == ["1"]
+
+
+def test_a_job_read_back_carries_its_evidence_as_a_dict():
+    """job_evidence is stored as JSON text, and scoring reads it with .get().
+    Handing back the raw string crashed an entire recompute run."""
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [
+        _job("https://acme.com/jobs/1", job_evidence={"jsonld_jobposting": True}),
+    ], NOW)
+    from_iter = next(iter(jobs.iter_all(conn)))
+    assert from_iter["job_evidence"] == {"jsonld_jobposting": True}
+    assert jobs.all_with_company(conn)[0]["job_evidence"] == {"jsonld_jobposting": True}
+
+
+def test_a_job_with_no_evidence_reads_back_as_none():
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1")], NOW)
+    assert next(iter(jobs.iter_all(conn)))["job_evidence"] is None
+
+
+def test_every_stored_job_can_be_scored(store_conn):
+    """The end-to-end shape check: whatever the store hands back must be
+    acceptable to the scorer, which is where the evidence bug surfaced."""
+    from jobfit import scoring
+    from jobfit.store import companies as store_companies
+
+    store_companies.upsert_company(store_conn, "acme", "Acme")
+    jobs.upsert_scraped(store_conn, "acme", [
+        {"id": "j1", "title": "Backend Engineer", "url": "u1", "description": "Requirements: Python",
+         "job_evidence": {"jsonld_jobposting": True, "apply_cta": True}},
+    ], NOW)
+    job = next(iter(jobs.iter_all(store_conn)))
+    scored = scoring.score_job_both(job, {"default": {"text": "python developer"}})
+    assert scored["score_default"] is not None

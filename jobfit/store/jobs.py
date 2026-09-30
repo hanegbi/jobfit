@@ -31,6 +31,63 @@ def jobs_for_company(conn: sqlite3.Connection, company_id: str) -> list[sqlite3.
     return conn.execute("SELECT * FROM jobs WHERE company_id = ? ORDER BY id", (company_id,)).fetchall()
 
 
+def row_to_job(row: sqlite3.Row) -> dict:
+    """A row as the rest of jobfit expects a job: job_evidence decoded back
+    into a dict. It is stored as JSON text, and scoring reads it with .get() -
+    handing out the raw string crashed a whole recompute run."""
+    job = dict(row)
+    evidence = job.get("job_evidence")
+    if isinstance(evidence, str):
+        try:
+            job["job_evidence"] = json.loads(evidence)
+        except ValueError:
+            job["job_evidence"] = None
+    return job
+
+
+def iter_all(conn: sqlite3.Connection):
+    """Every job, in id order, as a decoded dict. Streams rather than
+    materializing 29,000 rows at once."""
+    for row in conn.execute("SELECT * FROM jobs ORDER BY id"):
+        yield row_to_job(row)
+
+
+def all_with_company(conn: sqlite3.Connection) -> list[dict]:
+    """Every job with its company's display name, industry and size - what
+    the page needs on each row."""
+    rows = conn.execute(
+        "SELECT j.*, c.display_name AS company, c.industry, c.size AS company_size "
+        "FROM jobs j JOIN companies c ON c.id = j.company_id ORDER BY j.id"
+    ).fetchall()
+    return [row_to_job(row) for row in rows]
+
+
+def open_with_url(conn: sqlite3.Connection) -> list[dict]:
+    """Open jobs that have a URL - the URL audit's worklist."""
+    return [dict(row) for row in conn.execute(
+        "SELECT id, url, title, company_id FROM jobs "
+        "WHERE url IS NOT NULL AND status != 'closed' ORDER BY id"
+    )]
+
+
+def open_linkedin_ranked(conn: sqlite3.Connection, min_score: float = 0) -> list[dict]:
+    """Open LinkedIn-hosted jobs, best-scoring first: if a slow check is cut
+    short, the jobs worth acting on are the ones already verified."""
+    return [dict(row) for row in conn.execute(
+        "SELECT j.id, j.url, (SELECT max(score) FROM job_scores s WHERE s.job_id = j.id) AS best_score "
+        "FROM jobs j WHERE j.url IS NOT NULL AND lower(j.url) LIKE '%linkedin.com%' AND j.status != 'closed' "
+        "AND COALESCE((SELECT max(score) FROM job_scores s WHERE s.job_id = j.id), 0) >= ? "
+        "ORDER BY best_score DESC, j.id", (min_score,)
+    )]
+
+
+def counts(conn: sqlite3.Connection) -> dict:
+    row = conn.execute(
+        "SELECT count(*) AS total, sum(CASE WHEN status != 'closed' THEN 1 ELSE 0 END) AS open FROM jobs"
+    ).fetchone()
+    return {"total": row["total"], "open": row["open"] or 0}
+
+
 def _insert(conn: sqlite3.Connection, company_id: str, job: dict, now: str) -> None:
     values = {field: job.get(field) for field in _INSERT_FIELDS}
     values.update(
@@ -133,3 +190,18 @@ def close_by_url(conn: sqlite3.Connection, closed_urls: dict[str, str], now: str
         touched.add(row["company_id"])
     stats["companies_touched"] = len(touched)
     return stats
+
+
+def set_years_required(conn: sqlite3.Connection, job_id: str, years: int | None) -> None:
+    conn.execute("UPDATE jobs SET years_required = ? WHERE id = ?", (years, job_id))
+
+
+def mark_referral(conn: sqlite3.Connection, job_id: str, contact: str | None, now: str) -> None:
+    """Tag an existing job as referral-sourced. A referral is evidence the job
+    is live, so a closed one reopens."""
+    conn.execute(
+        "UPDATE jobs SET is_referral = 1, referral_contact = ?, last_seen = ?, "
+        "status = CASE WHEN status IN ('new', 'closed') THEN 'seen' ELSE status END, "
+        "closed_at = NULL, closed_reason = NULL WHERE id = ?",
+        (contact, now, job_id),
+    )

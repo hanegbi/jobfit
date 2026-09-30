@@ -1194,21 +1194,17 @@ def dataset_from_store() -> list[dict]:
     """
     from jobfit import connections
     from jobfit.store import db
+    from jobfit.store import jobs as store_jobs
+    from jobfit.store import scores as store_scores
 
     conn = db.shared()
     contacts_index = connections.load_connections_index()
     contacts_by_company: dict[str, list] = {}
-    rows = conn.execute(
-        "SELECT j.*, c.display_name AS company, c.industry, c.size AS company_size "
-        "FROM jobs j JOIN companies c ON c.id = j.company_id ORDER BY j.id"
-    ).fetchall()
-    scores_by_job: dict[str, dict] = {}
-    for row in conn.execute("SELECT * FROM job_scores"):
-        scores_by_job.setdefault(row["job_id"], {})[row["profile_id"]] = row
+    rows = store_jobs.all_with_company(conn)
+    scores_by_job = store_scores.all_by_job(conn)
 
     dataset = []
-    for row in rows:
-        job = dict(row)
+    for job in rows:
         job.pop("job_evidence", None)
         job.pop("description_original", None)
         job["has_description"] = bool(job.get("description"))
@@ -1226,7 +1222,7 @@ def dataset_from_store() -> list[dict]:
             job[f"score_{profile_id}"] = score_row["score"]
             job[f"coverage_{profile_id}"] = score_row["coverage"]
             job[f"confidence_{profile_id}"] = score_row["confidence"]
-            job[f"matched_{profile_id}"] = json.loads(score_row["matched"]) if score_row["matched"] else []
+            job[f"matched_{profile_id}"] = score_row["matched"]
             if score_row["score"] is not None and (best_score is None or score_row["score"] > best_score):
                 best_id, best_score = profile_id, score_row["score"]
         job["best_cv"] = best_id

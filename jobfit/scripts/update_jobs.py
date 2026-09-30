@@ -386,8 +386,7 @@ def recompute_stage(force: bool = False) -> None:
         pending: list[dict] = []
         wanted_keys: dict[str, dict[str, str]] = {}
         total = 0
-        for row in conn.execute("SELECT * FROM jobs ORDER BY id"):
-            job = dict(row)
+        for job in store_jobs.iter_all(conn):
             total += 1
             keys = {name: scoring.score_cache_key(job, profile) for name, profile in profiles.items()}
             stored = store_scores.scores_for_job(conn, job["id"])
@@ -408,7 +407,7 @@ def recompute_stage(force: bool = False) -> None:
                 store_scores.write_scores(conn, job["id"], rows)
                 years = scoring.required_years(job_text(job))
                 if years != job.get("years_required"):
-                    conn.execute("UPDATE jobs SET years_required = ? WHERE id = ?", (years, job["id"]))
+                    store_jobs.set_years_required(conn, job["id"], years)
             logger.info("recompute progress: %d/%d jobs (%.0fs elapsed)",
                         min(index + 1000, len(pending)), len(pending), time.time() - start)
 
@@ -510,12 +509,7 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
                     None,
                 )
                 if match is not None:
-                    conn.execute(
-                        "UPDATE jobs SET is_referral = 1, referral_contact = ?, last_seen = ?, "
-                        "status = CASE WHEN status IN ('new', 'closed') THEN 'seen' ELSE status END, "
-                        "closed_at = NULL, closed_reason = NULL WHERE id = ?",
-                        (referral_job["referral_contact"], now, match["id"]),
-                    )
+                    store_jobs.mark_referral(conn, match["id"], referral_job["referral_contact"], now)
                     stats["merged_into_existing_job"] += 1
                 else:
                     new_job = {

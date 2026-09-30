@@ -10,7 +10,7 @@ A local, searchable job-fit tool: scrapes real job postings from company career 
 uv run python -m jobfit.scripts.update_jobs
 ```
 
-Fetches every company in `jobfit/companies_career_pages.json`, diffs the result against what's already saved in `jobfit/companies/<company>.json`, and regenerates `jobfit.html`. Safe to run anytime:
+Fetches every company it knows about, diffs the result against what's already stored in a local SQLite database (`jobfit/data/jobfit.db`), and regenerates `jobfit.html`. Safe to run anytime:
 
 - A company checked within the last 12 hours is skipped unless you pass `--force`. Jobs are rescored whenever the scoring engine, your CVs, or the job itself changed - the cache notices on its own, so there is nothing to remember to invalidate.
 - A job missing from a company's page on this run is marked `"closed"` (kept, never deleted) rather than silently disappearing.
@@ -38,7 +38,7 @@ Then open `http://127.0.0.1:8787/` - a local admin page for managing CV profiles
 
 ## Adding a company
 
-Add it to `jobfit/companies_career_pages.json` as `"Company Name": "https://.../careers"`, then run `--company "Company Name"`. The first run derives a scrape plan for it. Setting the URL to `null` stops it being scraped without losing its saved jobs.
+Set its career URL in the control panel, then run `--company "Company Name"`. The first run derives a scrape plan for it. Clearing the URL stops it being scraped without losing its saved jobs.
 
 ## Scraping a company you've just added
 
@@ -51,5 +51,7 @@ PYTHONPATH=. uv run python -m pytest jobfit/server/tests -q
 ```
 
 ~1,350 tests, about three minutes. Most of the runtime is `test_scrape_plans_replay.py`, which replays every stored scrape plan against a saved copy of that company's careers page - it tells you, by company name, when a site changed shape or a heuristic regressed. While developing, `--ignore` that one file for a ten-second run.
+
+Job data lives in SQLite now, and the static page is generated from it. The page is on its way out: a proper front end and API replace it, per `docs/superpowers/specs/2026-09-30-jobfit-app-sqlite-api-react-design.md`.
 
 Working on this repo with Claude Code? `CLAUDE.md` has the architecture map and conventions.
