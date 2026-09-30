@@ -44,3 +44,13 @@ jobfit/data/jobfit.db-shm
 # jobfit/server/static/app/ is committed, so the server needs no Node.
 frontend/node_modules/
 frontend/dist/
+
+# Superseded by the SQLite store (jobfit/data/jobfit.db). Untracked rather than
+# deleted: they are the rollback path the migration already needed once, and
+# they stay recoverable from git history either way.
+jobfit/companies/
+jobfit/companies_career_pages.json
+jobfit/data/company_review.json
+jobfit/data/company_registry.json
+jobfit/data/jobs_v2.json
+jobfit/data/jobs_v2.meta.json
