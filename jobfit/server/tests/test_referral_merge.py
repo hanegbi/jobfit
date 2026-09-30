@@ -191,7 +191,7 @@ def test_merge_referral_jobs_reports_techmap_approved_companies_as_scrapable(tmp
     assert stats["scrapable_companies"] == ["Acme"]
 
 
-def test_merge_referral_jobs_reports_no_techmap_companies_as_not_scrapable(tmp_path, monkeypatch):
+def test_merge_referral_jobs_reports_no_techmap_companies_as_not_scrapable(tmp_path, monkeypatch, store_conn):
     companies_dir = tmp_path / "companies"
     monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
 

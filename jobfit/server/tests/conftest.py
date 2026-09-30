@@ -15,6 +15,7 @@ from jobfit import config
 from jobfit.scripts import update_jobs
 
 _REAL_OUTPUTS = (
+    config.DB_PATH,  # the store: a test that forgets store_conn would scribble on real job data
     config.OUTPUT_HTML,
     config.JOBS_OUTPUT_JSON,
     config.JOBS_OUTPUT_META_JSON,
@@ -35,3 +36,22 @@ def _real_pipeline_outputs_untouched():
     after = _stamp()
     changed = [str(p) for p, a, b in zip(_REAL_OUTPUTS, before, after) if a != b]
     assert not changed, f"test wrote to real pipeline output(s) - patch the path(s) in the test: {changed}"
+
+
+@pytest.fixture
+def store_conn(tmp_path, monkeypatch):
+    """A migrated, throwaway database wired in as the process-wide store.
+
+    Any test that exercises a pipeline stage needs this: the stages persist
+    through jobfit.store.db.shared(), and without the swap they would write
+    the real jobfit.db that the guard above protects.
+    """
+    from jobfit import config
+    from jobfit.store import db
+
+    path = tmp_path / "jobfit.db"
+    monkeypatch.setattr(config, "DB_PATH", path)
+    conn = db.connect(path)
+    db.migrate(conn)
+    monkeypatch.setattr(db, "_shared", conn)
+    return conn

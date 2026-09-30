@@ -6,9 +6,10 @@ import pytest
 
 from jobfit import config, pipeline_lock
 from jobfit.server import runner
+from jobfit.store import companies as store_companies
 
 
-def test_start_run_marks_running_then_finishes(tmp_path, monkeypatch):
+def test_start_run_marks_running_then_finishes(tmp_path, monkeypatch, store_conn):
     monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
     monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
     monkeypatch.setattr(runner, "_LOGGER_NAMES", [])
@@ -26,9 +27,7 @@ def test_start_run_marks_running_then_finishes(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "ROOT", tmp_path)
     monkeypatch.setattr(config, "COMPANIES_CAREER_PAGES_PATH", tmp_path / "companies_career_pages.json")
     monkeypatch.setattr(config, "COMPANY_REVIEW_PATH", tmp_path / "data" / "company_review.json")
-    (tmp_path / "companies_career_pages.json").write_text(
-        json.dumps({"Acme": "https://acme.com/careers"}), encoding="utf-8"
-    )
+    store_companies.upsert_company(store_conn, "acme", "Acme", career_url="https://acme.com/careers")
 
     run_id = runner.start_run(force=False)
     assert runner.status()["running"] is True
@@ -47,7 +46,7 @@ def test_start_run_marks_running_then_finishes(tmp_path, monkeypatch):
     assert seen_companies == {"Acme": "https://acme.com/careers"}
 
 
-def test_start_run_scopes_scrape_to_the_given_companies(tmp_path, monkeypatch):
+def test_start_run_scopes_scrape_to_the_given_companies(tmp_path, monkeypatch, store_conn):
     monkeypatch.setattr(config, "RUN_HISTORY_PATH", tmp_path / "run_history.json")
     monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
     monkeypatch.setattr(runner, "_LOGGER_NAMES", [])
@@ -65,10 +64,8 @@ def test_start_run_scopes_scrape_to_the_given_companies(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "ROOT", tmp_path)
     monkeypatch.setattr(config, "COMPANIES_CAREER_PAGES_PATH", tmp_path / "companies_career_pages.json")
     monkeypatch.setattr(config, "COMPANY_REVIEW_PATH", tmp_path / "data" / "company_review.json")
-    (tmp_path / "companies_career_pages.json").write_text(json.dumps({
-        "Acme": "https://acme.com/careers",
-        "Beta": "https://beta.com/careers",
-    }), encoding="utf-8")
+    store_companies.upsert_company(store_conn, "acme", "Acme", career_url="https://acme.com/careers")
+    store_companies.upsert_company(store_conn, "beta", "Beta", career_url="https://beta.com/careers")
 
     run_id = runner.start_run(force=False, companies=["Beta"])
 

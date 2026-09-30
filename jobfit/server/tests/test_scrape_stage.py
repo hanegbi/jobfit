@@ -4,8 +4,10 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 
-from jobfit import company_review, config
+from jobfit import config
 from jobfit.scripts import update_jobs
+from jobfit.store import companies as store_companies
+from jobfit.store import jobs as store_jobs
 
 
 def _iso(dt):
@@ -33,34 +35,26 @@ def test_never_checked_company_is_not_skipped():
 
 
 # --- load_companies_to_scrape ---------------------------------------------
+# The rule is unchanged; its source moved from two JSON files to one row per
+# company, so these read the store instead of writing fixture files.
 
-@pytest.fixture
-def _isolated_review_paths(tmp_path, monkeypatch):
-    monkeypatch.setattr(config, "COMPANIES_CAREER_PAGES_PATH", tmp_path / "companies_career_pages.json")
-    monkeypatch.setattr(config, "COMPANY_REVIEW_PATH", tmp_path / "data" / "company_review.json")
-
-
-def test_load_companies_to_scrape_includes_real_url_companies(_isolated_review_paths):
-    config.COMPANIES_CAREER_PAGES_PATH.write_text(
-        json.dumps({"Acme": "https://acme.com/careers"}), encoding="utf-8"
-    )
+def test_load_companies_to_scrape_includes_real_url_companies(store_conn):
+    store_companies.upsert_company(store_conn, "acme", "Acme", career_url="https://acme.com/careers")
     assert update_jobs.load_companies_to_scrape() == {"Acme": "https://acme.com/careers"}
 
 
-def test_load_companies_to_scrape_excludes_unreviewed_null_url_companies(_isolated_review_paths):
-    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Beta": None}), encoding="utf-8")
+def test_load_companies_to_scrape_excludes_unreviewed_null_url_companies(store_conn):
+    store_companies.upsert_company(store_conn, "beta", "Beta")
     assert update_jobs.load_companies_to_scrape() == {}
 
 
-def test_load_companies_to_scrape_excludes_skipped_companies(_isolated_review_paths):
-    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Beta": None}), encoding="utf-8")
-    company_review.set_decision("Beta", "skip")
+def test_load_companies_to_scrape_excludes_skipped_companies(store_conn):
+    store_companies.upsert_company(store_conn, "beta", "Beta", review_decision="skip")
     assert update_jobs.load_companies_to_scrape() == {}
 
 
-def test_load_companies_to_scrape_includes_techmap_approved_companies_as_none(_isolated_review_paths):
-    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Beta": None}), encoding="utf-8")
-    company_review.set_decision("Beta", "techmap")
+def test_load_companies_to_scrape_includes_techmap_approved_companies_as_none(store_conn):
+    store_companies.upsert_company(store_conn, "beta", "Beta", review_decision="techmap")
     assert update_jobs.load_companies_to_scrape() == {"Beta": None}
 
 
@@ -129,14 +123,14 @@ def test_fetch_company_jobs_maps_postings_to_job_dicts_with_evidence_and_source(
     assert "evidence" not in jobs[0] and "source" not in jobs[0]
 
 
-def test_diff_and_update_stores_job_evidence_on_new_jobs(tmp_path, monkeypatch):
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
+def test_diff_and_update_stores_job_evidence_on_new_jobs(store_conn):
     fetched = [{"title": "Backend Engineer", "url": "https://acme.com/careers/1", "location": "Tel Aviv", "description": "Requirements: Python",
                 "job_evidence": {"jsonld_jobposting": True}, "scrape_source": "html_listing"}]
-    record, new_count, _ = update_jobs.diff_and_update("Acme", "https://acme.com/careers", fetched, profiles={})
+    new_count, _ = update_jobs.diff_and_update("Acme", "https://acme.com/careers", fetched, profiles={})
     assert new_count == 1
-    assert record["jobs"][0]["job_evidence"] == {"jsonld_jobposting": True}
-    assert record["jobs"][0]["scrape_source"] == "html_listing"
+    stored = store_jobs.jobs_for_company(store_conn, "acme")[0]
+    assert json.loads(stored["job_evidence"]) == {"jsonld_jobposting": True}
+    assert stored["scrape_source"] == "html_listing"
 
 
 def test_process_company_records_a_failure_and_saves_nothing_on_fetch_failed(tmp_path, monkeypatch):

@@ -76,15 +76,20 @@ def test_fetch_may_close_rules():
     assert update_jobs.fetch_may_close([], _Result("techmap", 0)) is False
 
 
-def test_diff_and_update_leaves_statuses_alone_when_it_may_not_close(tmp_path, monkeypatch):
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
-    (tmp_path / "acme.json").write_text(json.dumps({"name": "Acme", "career_url": None, "last_checked": None, "jobs": [
-        {"id": "j1", "title": "Backend Engineer", "url": "https://www.linkedin.com/jobs/view/1", "status": "seen", "first_seen": "x", "last_seen": "x"},
-    ]}), encoding="utf-8")
-    record, new, closed = update_jobs.diff_and_update("Acme", "https://acme.com/careers", [], {}, may_close=False)
-    assert (new, closed) == (0, 0) and record["jobs"][0]["status"] == "seen" and record["last_checked"]
-    record, new, closed = update_jobs.diff_and_update("Acme", "https://acme.com/careers", [], {}, may_close=True)
-    assert closed == 1 and record["jobs"][0]["status"] == "closed"
+def test_diff_and_update_leaves_statuses_alone_when_it_may_not_close(store_conn):
+    from jobfit.store import jobs as store_jobs
+
+    stored = [{"title": "Backend Engineer", "url": "https://www.linkedin.com/jobs/view/1"}]
+    update_jobs.diff_and_update("Acme", "https://acme.com/careers", stored, {})
+    update_jobs.diff_and_update("Acme", "https://acme.com/careers", stored, {})  # -> seen
+
+    new, closed = update_jobs.diff_and_update("Acme", "https://acme.com/careers", [], {}, may_close=False)
+    assert (new, closed) == (0, 0)
+    assert store_jobs.jobs_for_company(store_conn, "acme")[0]["status"] == "seen"
+
+    new, closed = update_jobs.diff_and_update("Acme", "https://acme.com/careers", [], {}, may_close=True)
+    assert closed == 1
+    assert store_jobs.jobs_for_company(store_conn, "acme")[0]["status"] == "closed"
 
 
 LISTING = """<html><body><ul>

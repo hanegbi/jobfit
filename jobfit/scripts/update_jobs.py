@@ -39,6 +39,10 @@ from jobfit.atomic_io import write_json_atomic  # noqa: E402
 from jobfit.scrape import bootstrap as scrape_bootstrap  # noqa: E402
 from jobfit.scrape import candidates, titles  # noqa: E402
 from jobfit.scrape.ids import normalize_job_url  # noqa: E402,F401 - re-exported: the job-id rule lives with the scrape package
+from jobfit.store import companies as store_companies  # noqa: E402
+from jobfit.store import db  # noqa: E402
+from jobfit.store import jobs as store_jobs  # noqa: E402
+from jobfit.store import scores as store_scores  # noqa: E402
 
 logger = logging.getLogger("jobfit.update_jobs")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -104,18 +108,11 @@ def save_meta(meta: dict) -> None:
 
 def load_companies_to_scrape() -> dict[str, str | None]:
     """Every company scrape_stage() should touch: companies with a real
-    career URL, plus companies with no URL that were explicitly approved
-    for the techmap fallback via company_review.py. A None value here means
-    "use techmap only" (see fetch_company_result)."""
-    pages = company_review.load_career_pages()
-    review = company_review.load_review()
-    companies: dict[str, str | None] = {}
-    for name, url in pages.items():
-        if url:
-            companies[name] = url
-        elif review.get(name, {}).get("decision") == "techmap":
-            companies[name] = None
-    return companies
+    career URL, plus companies with no URL that were explicitly approved for
+    the techmap fallback. A None value here means "use techmap only" (see
+    fetch_company_result). The rule now lives in the store, which holds both
+    the URL and the review decision on one row."""
+    return store_companies.companies_to_scrape(db.shared())
 
 
 def load_techmap_index() -> dict[str, list[dict]]:
@@ -168,91 +165,64 @@ def fetch_may_close(fetched: list[dict], result) -> bool:
     return bool(plan is not None and (plan.health.baseline_yield or 0) > 0)
 
 
-def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict, may_close: bool = True) -> tuple[dict, int, int]:
-    """Returns (updated_company_record, new_count, closed_count).
+def _score_rows(scored: dict, job: dict, profiles: dict) -> dict[str, dict]:
+    """scoring.score_job_both returns one flat dict (score_default,
+    matched_infra, ...); the store wants a row per profile."""
+    return {
+        profile_id: {
+            "score": scored.get(f"score_{profile_id}"),
+            "coverage": scored.get(f"coverage_{profile_id}"),
+            "confidence": scored.get(f"confidence_{profile_id}"),
+            "matched": scored.get(f"matched_{profile_id}") or [],
+            "cache_key": scoring.score_cache_key(job, profile),
+        }
+        for profile_id, profile in profiles.items()
+    }
 
-    Only newly-seen jobs get scored here (so they have a sane score
-    immediately). Existing jobs' scores are left alone - recompute_stage()
-    is the single place that rescands and rescores every stored job, on
-    every trigger that could change a score (a new CV, a removed profile,
-    or just periodically), not just when the CV hash changes.
 
-    may_close=False (see fetch_may_close) records the check but leaves
-    every job's status alone.
+def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict,
+                    may_close: bool = True, techmap_index: dict | None = None) -> tuple[int, int]:
+    """Apply one company's scrape to the store. Returns (new, closed).
+
+    Only newly-seen jobs are scored here, so they have a sane score
+    immediately; recompute_stage is the single place that rescores
+    everything else, on every trigger that could change a score.
+
+    may_close=False (see fetch_may_close) records the check but leaves every
+    job's status alone.
     """
-    record = load_company_file(company)
-    existing_by_id = {j["id"]: j for j in record["jobs"]}
-    fetched_ids: set[str] = set()
+    conn = db.shared()
+    company_id = _snake_case(company)
     now = _now_iso()
-    new_count = 0
+    store_companies.upsert_company(conn, company_id, company, career_url=career_url, last_checked=now)
+    company_row = store_companies.get_company(conn, company_id)
+    address_cities = {connections.normalize_company(company): company_row["address_city"]}
 
+    relevant = []
     for job in fetched:
         title = (job.get("title") or "").strip()
-        if not scoring.is_relevant_location(job.get("location")):
-            continue  # non-Israel, non-remote office (e.g. "Texas", "Mexico") - not what this job search targets
         if not title:
             continue
-        job_id = compute_job_id(company, title, job.get("location"), job.get("url"))
-        fetched_ids.add(job_id)
+        # A non-Israel, non-remote office ("Texas", "Mexico") is not what this
+        # job search targets, and storing it would only add noise to search.
+        if not scoring.is_relevant_location(job.get("location")):
+            continue
+        prepared = dict(job)
+        prepared["title"] = title
+        prepared["id"] = compute_job_id(company, title, job.get("location"), job.get("url"))
+        prepared["description"] = ats_fetchers.strip_html(job.get("description"))
+        prepared["years_required"] = scoring.required_years(f"{title}\n{prepared['description'] or ''}")
+        prepared.update(location_fields_for(prepared, company, techmap_index or {}, address_cities))
+        relevant.append(prepared)
 
-        if job_id in existing_by_id:
-            existing = existing_by_id[job_id]
-            existing["last_seen"] = now
-            # Self-healing for titles stored before the card parser knew how
-            # to split them: adopt the freshly parsed title only when it is
-            # the stored one with metadata trimmed off, never a replacement.
-            trimmed = titles.authoritative_title([title], existing.get("title") or "")
-            if trimmed:
-                existing["title"] = trimmed
-            if job.get("location") and not (existing.get("location") or "").strip():
-                existing["location"] = job["location"]
-            if job.get("job_evidence") is not None:
-                existing["job_evidence"] = job["job_evidence"]
-            if existing.get("status") in ("new", "closed"):
-                existing["status"] = "seen"  # a job that was "new" last run has now been seen again
-        else:
-            scores = scoring.score_job_both(job, profiles)
-            new_job = {
-                "id": job_id,
-                "title": title,
-                "location": job.get("location"),
-                "url": job.get("url"),
-                "description": ats_fetchers.strip_html(job.get("description")),
-                "department": job.get("department"),
-                "employment_type": job.get("employment_type"),
-                # Set only when translation.translate_job_if_needed() found
-                # non-English (currently: Hebrew) content and translated it -
-                # the UI shows a badge and can fall back to the original.
-                "title_original": job.get("title_original"),
-                "description_original": job.get("description_original"),
-                "source_language": job.get("source_language"),
-                # An ATS API tells us the job's real posting date - prefer that
-                # over "now" (when *we* happened to first check) so a company
-                # scraped for the first time doesn't make every one of its
-                # existing postings look brand new.
-                "first_seen": job.get("posted_at") or now,
-                "last_seen": now,
-                "status": "new",
-                "job_evidence": job.get("job_evidence"),
-                "scrape_source": job.get("scrape_source"),
-            }
-            new_job.update(scores)
-            new_job["years_required"] = scoring.required_years(f"{title}\n{new_job['description'] or ''}")
-            existing_by_id[job_id] = new_job
-            new_count += 1
+    new_count, closed_count = store_jobs.upsert_scraped(conn, company_id, relevant, now, may_close=may_close)
 
-    closed_count = 0
-    if may_close:
-        for job_id, existing in existing_by_id.items():
-            if job_id not in fetched_ids and existing.get("status") != "closed":
-                existing["status"] = "closed"
-                closed_count += 1
-
-    record["name"] = company
-    record["career_url"] = career_url
-    record["last_checked"] = now
-    record["jobs"] = list(existing_by_id.values())
-    return record, new_count, closed_count
+    if profiles:
+        for job in relevant:
+            if store_scores.scores_for_job(conn, job["id"]):
+                continue  # already scored; recompute_stage owns rescoring
+            store_scores.write_scores(conn, job["id"], _score_rows(scoring.score_job_both(job, profiles), job, profiles))
+    return new_count, closed_count
 
 
 WORKERS = 8
@@ -283,20 +253,22 @@ def _should_skip_company(record: dict, force: bool) -> bool:
 
 def _process_company(company, url, session, profiles, techmap_index, force, service=None):
     """Runs in a worker thread. Returns (company, new_count, closed_count, skipped, error)."""
-    record = load_company_file(company)
-    if _should_skip_company(record, force):
+    conn = db.shared()
+    company_id = _snake_case(company)
+    stored = store_companies.get_company(conn, company_id)
+    if _should_skip_company(dict(stored) if stored else {}, force):
         return company, 0, 0, True, None
     try:
         service = service or scrape_bootstrap.build_scrape_service(session, techmap_index)
-        known_job_urls = [j["url"] for j in record.get("jobs", []) if j.get("url")]
+        known_job_urls = [row["url"] for row in store_jobs.jobs_for_company(conn, company_id) if row["url"]]
         fetched, result = fetch_company_result(company, url, service, known_job_urls)
         for job in fetched:
             translation.translate_job_if_needed(job)
         may_close = fetch_may_close(fetched, result)
         if not may_close:
             logger.info("%s: empty result from an unverified plan - existing jobs left open", company)
-        updated, new_count, closed_count = diff_and_update(company, url, fetched, profiles, may_close=may_close)
-        save_company_file(company, updated)
+        new_count, closed_count = diff_and_update(company, url, fetched, profiles, may_close=may_close,
+                                                  techmap_index=techmap_index)
         return company, new_count, closed_count, False, None
     except Exception as error:  # noqa: BLE001 - one bad company must never abort the run
         return company, 0, 0, False, error

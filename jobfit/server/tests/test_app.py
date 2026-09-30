@@ -362,7 +362,9 @@ def test_start_run_returns_a_run_id_and_marks_running(client, monkeypatch):
     assert history[0]["finished_at"] is not None
 
 
-def test_start_run_with_companies_scopes_the_scrape(client, monkeypatch):
+def test_start_run_with_companies_scopes_the_scrape(client, monkeypatch, store_conn):
+    from jobfit.store import companies as store_companies
+
     seen = {}
 
     def _fake_scrape_stage(companies, profiles, force=False, cancel_event=None):
@@ -371,9 +373,8 @@ def test_start_run_with_companies_scopes_the_scrape(client, monkeypatch):
     monkeypatch.setattr(update_jobs, "scrape_stage", _fake_scrape_stage)
     monkeypatch.setattr(update_jobs, "recompute_stage", lambda: None)
     monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {})
-    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({
-        "Acme": "https://acme.com/careers", "Beta": "https://beta.com/careers",
-    }), encoding="utf-8")
+    store_companies.upsert_company(store_conn, "acme", "Acme", career_url="https://acme.com/careers")
+    store_companies.upsert_company(store_conn, "beta", "Beta", career_url="https://beta.com/careers")
 
     res = client.post("/api/run", json={"force": False, "companies": ["Beta"]})
     assert res.status_code == 200
