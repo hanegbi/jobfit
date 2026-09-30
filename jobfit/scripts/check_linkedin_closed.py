@@ -86,11 +86,14 @@ def main() -> None:
     parser.add_argument("--min-score", type=int, default=0, help="only verify jobs whose best_score is at least this (0 = all)")
     args = parser.parse_args()
 
-    data = json.loads(config.JOBS_OUTPUT_JSON.read_text(encoding="utf-8"))
-    candidates = [r for r in data if r.get("url") and "linkedin.com" in r["url"].lower() and r.get("status") != "closed"
-                  and (r.get("best_score") or 0) >= args.min_score]
-    # Best-scoring first: if the run is cut short, the jobs Dan would act on were verified.
-    candidates.sort(key=lambda r: -(r.get("best_score") or 0))
+    # Best-scoring first: if the run is cut short, the jobs worth acting on
+    # were the ones verified. The database does that ordering.
+    candidates = [dict(row) for row in db.shared().execute(
+        "SELECT j.id, j.url, (SELECT max(score) FROM job_scores s WHERE s.job_id = j.id) AS best_score "
+        "FROM jobs j WHERE j.url IS NOT NULL AND lower(j.url) LIKE '%linkedin.com%' "
+        "  AND j.status != 'closed' "
+        "GROUP BY j.id HAVING COALESCE(best_score, 0) >= ? "
+        "ORDER BY best_score DESC", (args.min_score,))]
     linkedin_urls = list(dict.fromkeys(r["url"] for r in candidates))
     logger.info("open LinkedIn job URLs to verify: %d (min score %d)", len(linkedin_urls), args.min_score)
 

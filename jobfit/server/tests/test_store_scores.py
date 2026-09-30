@@ -56,8 +56,11 @@ def test_scores_for_removed_profiles_are_dropped():
     assert set(scores.scores_for_job(conn, "j1")) == {"default"}
 
 
-def test_dropping_with_no_profiles_left_clears_every_score():
+def test_dropping_with_an_empty_profile_set_does_nothing():
+    """An empty set is what a failed or not-yet-loaded CV registry looks
+    like. Reading it as "delete every score" cost the real database all
+    60,294 of its score rows once."""
     conn = _conn()
     scores.write_scores(conn, "j1", {"default": {"score": 1, "cache_key": "k1"}})
-    assert scores.drop_scores_for_missing_profiles(conn, set()) == 1
-    assert scores.scores_for_job(conn, "j1") == {}
+    assert scores.drop_scores_for_missing_profiles(conn, set()) == 0
+    assert scores.scores_for_job(conn, "j1")["default"]["score"] == 1

@@ -51,6 +51,9 @@ def store_conn(tmp_path, monkeypatch):
 
     path = tmp_path / "jobfit.db"
     monkeypatch.setattr(config, "DB_PATH", path)
+    # recompute_stage also records the scoring engine for the page footer;
+    # without this a stage test would write the real companies/_meta.json.
+    monkeypatch.setattr(update_jobs, "META_PATH", tmp_path / "_meta.json")
     conn = db.connect(path)
     db.migrate(conn)
     monkeypatch.setattr(db, "_shared", conn)

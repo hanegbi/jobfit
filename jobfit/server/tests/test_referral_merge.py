@@ -4,27 +4,27 @@ import pytest
 
 from jobfit import config
 from jobfit.scripts import update_jobs
+from jobfit.store import companies as store_companies
+from jobfit.store import jobs as store_jobs
 
 
 @pytest.fixture(autouse=True)
-def _isolated_career_pages(tmp_path, monkeypatch):
-    monkeypatch.setattr(config, "COMPANIES_CAREER_PAGES_PATH", tmp_path / "companies_career_pages.json")
-    monkeypatch.setattr(config, "COMPANY_REVIEW_PATH", tmp_path / "data" / "company_review.json")
+def _no_techmap(monkeypatch):
     monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
 
 
-def _write_company(companies_dir, name, jobs):
-    companies_dir.mkdir(parents=True, exist_ok=True)
-    (companies_dir / f"{name}.json").write_text(
-        json.dumps({"name": name.title(), "career_url": None, "last_checked": None, "jobs": jobs}),
-        encoding="utf-8",
-    )
+def _company(conn, company_id, display_name, jobs=(), career_url=None):
+    store_companies.upsert_company(conn, company_id, display_name, career_url=career_url)
+    if jobs:
+        store_jobs.upsert_scraped(conn, company_id, list(jobs), "2026-09-30T10:00:00Z")
 
 
-def test_merge_referral_jobs_reads_from_an_explicit_path_not_the_global_default(tmp_path, monkeypatch):
-    companies_dir = tmp_path / "companies"
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
-    _write_company(companies_dir, "acme", jobs=[])
+def _jobs(conn, company_id):
+    return [dict(row) for row in store_jobs.jobs_for_company(conn, company_id)]
+
+
+def test_merge_referral_jobs_reads_from_an_explicit_path_not_the_global_default(tmp_path, store_conn):
+    _company(store_conn, "acme", "Acme")
 
     upload_path = tmp_path / "my_referral_upload.json"
     upload_path.write_text(json.dumps({
@@ -37,19 +37,16 @@ def test_merge_referral_jobs_reads_from_an_explicit_path_not_the_global_default(
     stats = update_jobs.merge_referral_jobs(profiles={"default": {"must_have_keywords": []}}, path=upload_path)
 
     assert stats["added_new_job"] == 1
-    saved = json.loads((companies_dir / "acme.json").read_text(encoding="utf-8"))
-    assert saved["jobs"][0]["title"] == "Backend Engineer"
-    assert saved["jobs"][0]["is_referral"] is True
+    stored = _jobs(store_conn, "acme")
+    assert stored[0]["title"] == "Backend Engineer" and stored[0]["is_referral"] == 1
 
 
-def test_merge_referral_jobs_is_idempotent_for_hebrew_titles(tmp_path, monkeypatch):
+def test_merge_referral_jobs_is_idempotent_for_hebrew_titles(tmp_path, store_conn):
     """A Hebrew-titled referral job merged twice must exist once. The title
     normalizer used to strip every non-ASCII character, so a Hebrew title
     normalized to '' and never matched itself - every full run appended a
     fresh copy of every Hebrew referral job."""
-    companies_dir = tmp_path / "companies"
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
-    _write_company(companies_dir, "iai", jobs=[])
+    _company(store_conn, "iai", "IAI")
 
     upload_path = tmp_path / "referral.json"
     upload_path.write_text(json.dumps({
@@ -65,17 +62,11 @@ def test_merge_referral_jobs_is_idempotent_for_hebrew_titles(tmp_path, monkeypat
     assert first["added_new_job"] == 1
     assert second["added_new_job"] == 0
     assert second["merged_into_existing_job"] == 1
-    saved = json.loads((companies_dir / "iai.json").read_text(encoding="utf-8"))
-    assert len(saved["jobs"]) == 1
+    assert len(_jobs(store_conn, "iai")) == 1
 
 
-def test_merge_referral_jobs_dedupes_against_an_existing_similar_title(tmp_path, monkeypatch):
-    companies_dir = tmp_path / "companies"
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
-    _write_company(companies_dir, "acme", jobs=[{
-        "id": "existing1", "title": "Backend Engineer", "status": "seen",
-        "first_seen": "x", "last_seen": "x",
-    }])
+def test_merge_referral_jobs_dedupes_against_an_existing_similar_title(tmp_path, store_conn):
+    _company(store_conn, "acme", "Acme", jobs=[{"id": "existing1", "title": "Backend Engineer"}])
 
     upload_path = tmp_path / "my_referral_upload.json"
     upload_path.write_text(json.dumps({
@@ -89,10 +80,9 @@ def test_merge_referral_jobs_dedupes_against_an_existing_similar_title(tmp_path,
 
     assert stats["merged_into_existing_job"] == 1
     assert stats["added_new_job"] == 0
-    saved = json.loads((companies_dir / "acme.json").read_text(encoding="utf-8"))
-    assert len(saved["jobs"]) == 1
-    assert saved["jobs"][0]["is_referral"] is True
-    assert saved["jobs"][0]["referral_contact"] == "Jane Doe"
+    stored = _jobs(store_conn, "acme")
+    assert len(stored) == 1
+    assert stored[0]["is_referral"] == 1 and stored[0]["referral_contact"] == "Jane Doe"
 
 
 def test_merge_referral_jobs_returns_empty_stats_when_the_file_is_missing(tmp_path):
@@ -106,9 +96,7 @@ def test_merge_referral_jobs_returns_empty_stats_when_the_file_is_missing(tmp_pa
 
 # --- career-pages bank backfill -------------------------------------------
 
-def test_merge_referral_jobs_adds_a_brand_new_company_to_the_career_pages_bank(tmp_path, monkeypatch):
-    companies_dir = tmp_path / "companies"
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
+def test_merge_referral_jobs_adds_a_brand_new_company_to_the_store(tmp_path, store_conn):
 
     upload_path = tmp_path / "referral.json"
     upload_path.write_text(json.dumps({
@@ -118,13 +106,11 @@ def test_merge_referral_jobs_adds_a_brand_new_company_to_the_career_pages_bank(t
     stats = update_jobs.merge_referral_jobs(profiles={}, path=upload_path)
 
     assert stats["added_to_career_pages"] == 1
-    pages = json.loads(config.COMPANIES_CAREER_PAGES_PATH.read_text(encoding="utf-8"))
-    assert pages == {"Acme": None}
+    row = store_companies.get_company(store_conn, "acme")
+    assert row["display_name"] == "Acme" and row["career_url"] is None
 
 
-def test_merge_referral_jobs_pre_approves_techmap_when_techmap_has_data(tmp_path, monkeypatch):
-    companies_dir = tmp_path / "companies"
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
+def test_merge_referral_jobs_pre_approves_techmap_when_techmap_has_data(tmp_path, store_conn, monkeypatch):
     monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {
         "acme": [{"title": "Backend Engineer", "location": None, "url": "https://x", "company": "Acme"}],
     })
@@ -136,13 +122,10 @@ def test_merge_referral_jobs_pre_approves_techmap_when_techmap_has_data(tmp_path
 
     update_jobs.merge_referral_jobs(profiles={}, path=upload_path)
 
-    review = json.loads(config.COMPANY_REVIEW_PATH.read_text(encoding="utf-8"))
-    assert review["Acme"]["decision"] == "techmap"
+    assert store_companies.get_company(store_conn, "acme")["review_decision"] == "techmap"
 
 
-def test_merge_referral_jobs_leaves_no_techmap_company_pending(tmp_path, monkeypatch):
-    companies_dir = tmp_path / "companies"
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
+def test_merge_referral_jobs_leaves_no_techmap_company_pending(tmp_path, store_conn):
 
     upload_path = tmp_path / "referral.json"
     upload_path.write_text(json.dumps({
@@ -151,16 +134,11 @@ def test_merge_referral_jobs_leaves_no_techmap_company_pending(tmp_path, monkeyp
 
     update_jobs.merge_referral_jobs(profiles={}, path=upload_path)
 
-    assert config.COMPANY_REVIEW_PATH.exists() is False or json.loads(
-        config.COMPANY_REVIEW_PATH.read_text(encoding="utf-8")
-    ) == {}
+    assert store_companies.get_company(store_conn, "acme")["review_decision"] is None
 
 
-def test_merge_referral_jobs_does_not_re_add_a_company_already_in_the_bank(tmp_path, monkeypatch):
-    companies_dir = tmp_path / "companies"
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
-    config.COMPANIES_CAREER_PAGES_PATH.parent.mkdir(parents=True, exist_ok=True)
-    config.COMPANIES_CAREER_PAGES_PATH.write_text(json.dumps({"Acme": "https://acme.com/careers"}), encoding="utf-8")
+def test_merge_referral_jobs_does_not_re_add_a_company_already_in_the_bank(tmp_path, store_conn):
+    _company(store_conn, "acme", "Acme", career_url="https://acme.com/careers")
 
     upload_path = tmp_path / "referral.json"
     upload_path.write_text(json.dumps({
@@ -170,13 +148,10 @@ def test_merge_referral_jobs_does_not_re_add_a_company_already_in_the_bank(tmp_p
     stats = update_jobs.merge_referral_jobs(profiles={}, path=upload_path)
 
     assert stats["added_to_career_pages"] == 0
-    pages = json.loads(config.COMPANIES_CAREER_PAGES_PATH.read_text(encoding="utf-8"))
-    assert pages == {"Acme": "https://acme.com/careers"}
+    assert store_companies.get_company(store_conn, "acme")["career_url"] == "https://acme.com/careers"
 
 
-def test_merge_referral_jobs_reports_techmap_approved_companies_as_scrapable(tmp_path, monkeypatch):
-    companies_dir = tmp_path / "companies"
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
+def test_merge_referral_jobs_reports_techmap_approved_companies_as_scrapable(tmp_path, store_conn, monkeypatch):
     monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {
         "acme": [{"title": "Backend Engineer", "location": None, "url": "https://x", "company": "Acme"}],
     })
@@ -191,9 +166,7 @@ def test_merge_referral_jobs_reports_techmap_approved_companies_as_scrapable(tmp
     assert stats["scrapable_companies"] == ["Acme"]
 
 
-def test_merge_referral_jobs_reports_no_techmap_companies_as_not_scrapable(tmp_path, monkeypatch, store_conn):
-    companies_dir = tmp_path / "companies"
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
+def test_merge_referral_jobs_reports_no_techmap_companies_as_not_scrapable(tmp_path, store_conn):
 
     upload_path = tmp_path / "referral.json"
     upload_path.write_text(json.dumps({
@@ -205,16 +178,11 @@ def test_merge_referral_jobs_reports_no_techmap_companies_as_not_scrapable(tmp_p
     assert stats["scrapable_companies"] == []
 
 
-def test_merge_referral_jobs_backfills_a_company_already_tracked_but_missing_from_the_bank(tmp_path, monkeypatch):
-    """The 502-company backlog this was written for: companies/*.json already
-    has a file for them (from an earlier referral, before this feature
-    existed), but they were never added to companies_career_pages.json."""
-    companies_dir = tmp_path / "companies"
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
-    _write_company(companies_dir, "acme", jobs=[{
-        "id": "existing1", "title": "Backend Engineer", "status": "seen",
-        "first_seen": "x", "last_seen": "x",
-    }])
+def test_merge_referral_jobs_backfills_a_company_that_is_tracked_but_not_scrapable(tmp_path, store_conn):
+    """The 502-company backlog this was written for: the company is already
+    known (from an earlier referral, before this feature existed) but has no
+    career URL, so no scrape run would ever touch it again."""
+    _company(store_conn, "acme", "Acme", jobs=[{"id": "existing1", "title": "Backend Engineer"}])
 
     upload_path = tmp_path / "referral.json"
     upload_path.write_text(json.dumps({
@@ -224,5 +192,5 @@ def test_merge_referral_jobs_backfills_a_company_already_tracked_but_missing_fro
     stats = update_jobs.merge_referral_jobs(profiles={}, path=upload_path)
 
     assert stats["added_to_career_pages"] == 1
-    pages = json.loads(config.COMPANIES_CAREER_PAGES_PATH.read_text(encoding="utf-8"))
-    assert pages == {"Acme": None}
+    row = store_companies.get_company(store_conn, "acme")
+    assert row["display_name"] == "Acme" and row["career_url"] is None

@@ -325,117 +325,101 @@ def scrape_stage(
 RECOMPUTE_WORKERS = 8
 
 
-def _recompute_one_company(
-    path_str: str, profiles: dict, profile_ids: set, stale_prefixes: tuple, force: bool = False,
-) -> tuple[int, int]:
-    """Runs in a worker process (see recompute_stage): rescore one
-    company's stored jobs against the given profiles and save it back.
-    Module-level (not a closure) and taking only picklable arguments,
-    since ProcessPoolExecutor sends this function and its arguments to a
-    separate process.
+def job_text(job: dict) -> str:
+    """Title and description as one blob - what the requirement extractor and
+    the years parser both read."""
+    return "\n".join([job.get("title") or "", job.get("description") or ""])
 
-    Each job stores a `_score_cache_keys` dict (one hash per profile, from
-    scoring.score_cache_key - the job's description + that profile's CV
-    text). A job whose stored keys still match the profiles' current keys
-    is skipped entirely rather than rescored - a rerun only does real work
-    for jobs whose description changed (a rescrape) or whose CV changed (a
-    re-upload); a profile being added/removed also naturally falls out of
-    this (the key sets no longer match) without special-casing it.
 
-    The cache key is a hash of the *inputs* (description + CV text) only,
-    not of jobfit.scoring's own logic - a scoring-formula change (e.g. a
-    gate fix) doesn't change any job's inputs, so it can't invalidate the
-    cache on its own. `force=True` bypasses the cache check entirely so a
-    formula change actually takes effect on already-scored jobs, at the
-    cost of rescoring everything regardless of whether it's needed.
+def _score_one(args: tuple) -> dict:
+    """Runs in a worker process: picklable in, picklable out. A sqlite
+    connection cannot cross a process boundary, so workers compute and the
+    parent writes."""
+    job, profiles = args
+    return scoring.score_job_both(job, profiles)
 
-    Returns (jobs_rescored, jobs_skipped_unchanged).
+
+def _score_many(jobs: list[dict], profiles: dict) -> list[dict]:
+    """Scoring is CPU-bound (regex requirement extraction and matching, not
+    I/O), so it goes to processes rather than threads, which would serialize
+    on the GIL. Below a few hundred jobs the process startup costs more than
+    the work."""
+    if len(jobs) < 200:
+        return [scoring.score_job_both(job, profiles) for job in jobs]
+    with ProcessPoolExecutor(max_workers=RECOMPUTE_WORKERS) as pool:
+        return list(pool.map(_score_one, [(job, profiles) for job in jobs], chunksize=50))
+
+
+def _rebuild_page() -> None:
+    """Temporary scaffolding: the static page still exists until the app
+    replaces it (phase 3), and it reads from the store."""
+    from jobfit import build_html
+
+    build_html.build()
+
+
+def recompute_stage(force: bool = False) -> None:
+    """Rescore every stored job against the *current* profile registry and
+    rebuild the page. Safe to call after any admin edit, not just a scrape.
+
+    A job carries one cache key per profile (scoring.score_cache_key: its own
+    text, that profile's CV text, and the scoring engine's fingerprint), so a
+    rerun does real work only for jobs whose text changed, whose CV changed,
+    or when the scoring code itself changed. force=True ignores the keys.
     """
-    path = Path(path_str)
-    record = json.loads(path.read_text(encoding="utf-8"))
-    rescored = 0
-    skipped = 0
-    for job in record["jobs"]:
-        current_keys = {name: scoring.score_cache_key(job, profile) for name, profile in profiles.items()}
-        if not force and job.get("_score_cache_keys") == current_keys:
-            skipped += 1
-            continue
-        job.update(scoring.score_job_both(job, profiles))
-        job["years_required"] = scoring.required_years(f"{job.get('title') or ''}\n{job.get('description') or ''}")
-        job["_score_cache_keys"] = current_keys
-        rescored += 1
-        for key in list(job):
-            for prefix in stale_prefixes:
-                if key.startswith(prefix) and key[len(prefix):] not in profile_ids:
-                    del job[key]
-    save_company_file(record["name"], record)
-    return rescored, skipped
-
-
-def recompute_stage(force: bool = False, force_aggregate: bool = False) -> None:
-    """The local-only half of an update: rescore every stored job against the
-    *current* profile registry, drop any score fields for profiles that no
-    longer exist, reaggregate, and rebuild jobfit.html. Safe to call after
-    any admin edit, not just after a scrape.
-
-    Rescoring is CPU-bound (regex-based requirement extraction and
-    matching per job, not I/O), so it's parallelized across
-    RECOMPUTE_WORKERS separate processes rather than threads - Python
-    threads mostly serialize on the GIL for this kind of work, the same
-    reason the scrape side's plain-HTTP calls don't benefit from asyncio.
-    Each company is independent (its own file, no shared state), so
-    process-per-company parallelizes cleanly with no coordination needed
-    beyond collecting each worker's per-company job count for the
-    progress log.
-
-    force=True bypasses the per-job score cache (see _recompute_one_company)
-    - needed after a jobfit.scoring/ats_scorer *logic* change, since the
-    cache key only tracks input (description/CV text) changes.
-    """
-    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="recompute", scope="all" if not force else "all (forced)"):
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="recompute",
+                                   scope="all (forced)" if force else "all"):
+        conn = db.shared()
         profiles = cv.load_profiles()
-        profile_ids = set(profiles)
-        stale_prefixes = ("score_", "matched_", "coverage_", "confidence_", "requirements_")
+        # Bail out BEFORE touching scores. An empty registry means the CVs
+        # aren't loaded, not that every score is garbage - dropping them here
+        # once wiped all 60,294 score rows from the real database.
+        if not profiles:
+            logger.warning("recompute: no CV profiles registered - leaving stored scores alone")
+            _rebuild_page()
+            return
+        dropped = store_scores.drop_scores_for_missing_profiles(conn, set(profiles))
+        if dropped:
+            logger.info("recompute: dropped %d score row(s) for profiles that no longer exist", dropped)
 
-        company_paths = [p for p in sorted(COMPANIES_DIR.glob("*.json")) if p.name != "_meta.json"]
-        total_companies = len(company_paths)
-        jobs_rescored = 0
-        jobs_skipped = 0
-        log_every = 50
         start = time.time()
-        logger.info(
-            "recompute: rescoring %d companies against %d profile(s) using %d worker processes%s...",
-            total_companies, len(profiles), RECOMPUTE_WORKERS, " (forced, ignoring cache)" if force else "",
-        )
+        pending: list[dict] = []
+        wanted_keys: dict[str, dict[str, str]] = {}
+        total = 0
+        for row in conn.execute("SELECT * FROM jobs ORDER BY id"):
+            job = dict(row)
+            total += 1
+            keys = {name: scoring.score_cache_key(job, profile) for name, profile in profiles.items()}
+            stored = store_scores.scores_for_job(conn, job["id"])
+            if not force and all(stored.get(name, {}).get("cache_key") == key for name, key in keys.items()):
+                continue
+            wanted_keys[job["id"]] = keys
+            pending.append(job)
 
-        with ProcessPoolExecutor(max_workers=RECOMPUTE_WORKERS) as pool:
-            futures = [
-                pool.submit(_recompute_one_company, str(path), profiles, profile_ids, stale_prefixes, force)
-                for path in company_paths
-            ]
-            for i, future in enumerate(as_completed(futures), start=1):
-                rescored, skipped = future.result()
-                jobs_rescored += rescored
-                jobs_skipped += skipped
-                if i % log_every == 0 or i == total_companies:
-                    elapsed = time.time() - start
-                    rate = jobs_rescored / elapsed if elapsed > 0 else 0
-                    logger.info(
-                        "recompute progress: %d/%d companies, %d jobs rescored, %d unchanged (skipped) "
-                        "(%.0f jobs/s, %.0fs elapsed)",
-                        i, total_companies, jobs_rescored, jobs_skipped, rate, elapsed,
-                    )
+        logger.info("recompute: %d of %d job(s) need scoring against %d profile(s)%s",
+                    len(pending), total, len(profiles), " (forced, ignoring cache)" if force else "")
 
-        count = aggregate_to_jobs_v2(force=force_aggregate)
+        for index in range(0, len(pending), 1000):
+            chunk = pending[index:index + 1000]
+            for job, scored in zip(chunk, _score_many(chunk, profiles)):
+                rows = _score_rows(scored, job, profiles)
+                for name in rows:
+                    rows[name]["cache_key"] = wanted_keys[job["id"]][name]
+                store_scores.write_scores(conn, job["id"], rows)
+                years = scoring.required_years(job_text(job))
+                if years != job.get("years_required"):
+                    conn.execute("UPDATE jobs SET years_required = ? WHERE id = ?", (years, job["id"]))
+            logger.info("recompute progress: %d/%d jobs (%.0fs elapsed)",
+                        min(index + 1000, len(pending)), len(pending), time.time() - start)
+
+        # The page's footer shows which scoring engine produced the numbers,
+        # and reads it from here.
         meta = load_meta()
         meta["scoring_engine"] = scoring.SCORING_ENGINE_FINGERPRINT
         save_meta(meta)
-        logger.info(
-            "recompute: rescored %d jobs (%d unchanged, skipped) against %d profile(s), aggregated %d jobs, engine %s",
-            jobs_rescored, jobs_skipped, len(profiles), count, scoring.SCORING_ENGINE_FINGERPRINT,
-        )
-        from jobfit import build_html
-        build_html.build()
+        logger.info("recompute: scored %d job(s), %d unchanged, engine %s",
+                    len(pending), total - len(pending), scoring.SCORING_ENGINE_FINGERPRINT)
+        _rebuild_page()
 
 
 def close_jobs_by_url(closed_urls: dict[str, str]) -> dict[str, int]:
@@ -445,33 +429,9 @@ def close_jobs_by_url(closed_urls: dict[str, str]) -> dict[str, int]:
     check_linkedin_closed feeds LinkedIn's "no longer accepting
     applications" banner in here, check_urls feeds confirmed 404/410s.
     Nothing is deleted; a closed job keeps its record, like the scrape path."""
-    wanted = {normalize_job_url(u): reason for u, reason in closed_urls.items() if normalize_job_url(u)}
-    stats = {"jobs_closed": 0, "companies_touched": 0, "already_closed": 0}
-    if not wanted:
-        return stats
-    now = _now_iso()
-    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="close-stale", scope=f"{len(wanted)} urls"):
-        for path in sorted(COMPANIES_DIR.glob("*.json")):
-            if path.name == "_meta.json":
-                continue
-            record = json.loads(path.read_text(encoding="utf-8"))
-            touched = False
-            for job in record.get("jobs", []):
-                reason = wanted.get(normalize_job_url(job.get("url")))
-                if reason is None:
-                    continue
-                if job.get("status") == "closed":
-                    stats["already_closed"] += 1
-                    continue
-                job["status"] = "closed"
-                job["closed_reason"] = reason
-                job["closed_at"] = now
-                stats["jobs_closed"] += 1
-                touched = True
-            if touched:
-                atomic_write_json(path, record)
-                stats["companies_touched"] += 1
-    return stats
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="close-stale",
+                                   scope=f"{len(closed_urls)} urls"):
+        return store_jobs.close_by_url(db.shared(), closed_urls, _now_iso())
 
 
 def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str, int]:
@@ -504,14 +464,10 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
         # - that's what actually gates scrape_stage(). Fold it in here so a company
         # first seen via referral gets picked up by future scrape runs too, instead
         # of only ever being refreshed by another referral touching it.
-        career_pages = company_review.load_career_pages()
-        review = company_review.load_review()
         techmap_index = None
 
-        existing_names = [
-            json.loads(p.read_text(encoding="utf-8"))["name"]
-            for p in COMPANIES_DIR.glob("*.json") if p.name != "_meta.json"
-        ]
+        conn = db.shared()
+        existing_names = [row["display_name"] for row in store_companies.list_companies(conn)]
         canonical_by_key = {connections.normalize_company(c): c for c in existing_names if connections.normalize_company(c)}
         now = _now_iso()
         touched_companies: set[str] = set()
@@ -536,7 +492,9 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
                 stats["new_company"] += 1
 
             touched_companies.add(canonical)
-            record = load_company_file(canonical)
+            company_id = _snake_case(canonical)
+            store_companies.upsert_company(conn, company_id, canonical)
+            stored_jobs = [dict(row) for row in store_jobs.jobs_for_company(conn, company_id)]
             for raw_job in company_entry.get("jobs") or []:
                 title = (raw_job.get("title") or "").strip()
                 if not title:
@@ -545,54 +503,47 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
                 ref_url = (referral_job.get("url") or "").strip().rstrip("/")
                 match = next(
                     (
-                        j for j in record["jobs"]
+                        j for j in stored_jobs
                         if (ref_url and (j.get("url") or "").strip().rstrip("/") == ref_url)
                         or referral_source._is_duplicate_title(j.get("title") or "", title)
                     ),
                     None,
                 )
                 if match is not None:
-                    match["is_referral"] = True
-                    match["referral_contact"] = referral_job["referral_contact"]
-                    match["last_seen"] = now
-                    if match.get("status") in ("new", "closed"):
-                        match["status"] = "seen"
+                    conn.execute(
+                        "UPDATE jobs SET is_referral = 1, referral_contact = ?, last_seen = ?, "
+                        "status = CASE WHEN status IN ('new', 'closed') THEN 'seen' ELSE status END, "
+                        "closed_at = NULL, closed_reason = NULL WHERE id = ?",
+                        (referral_job["referral_contact"], now, match["id"]),
+                    )
                     stats["merged_into_existing_job"] += 1
                 else:
-                    job_id = compute_job_id(canonical, title, referral_job.get("location"), referral_job.get("url"))
-                    scores = scoring.score_job_both(referral_job, profiles)
                     new_job = {
-                        "id": job_id,
+                        "id": compute_job_id(canonical, title, referral_job.get("location"), referral_job.get("url")),
                         "title": title,
                         "location": referral_job.get("location"),
                         "url": referral_job.get("url"),
                         "description": ats_fetchers.strip_html(referral_job.get("description")),
-                        "first_seen": now,
-                        "last_seen": now,
-                        "status": "new",
                         "is_referral": True,
                         "referral_contact": referral_job.get("referral_contact"),
                     }
-                    new_job.update(scores)
-                    record["jobs"].append(new_job)
+                    # may_close=False: a referral export says nothing about
+                    # whether this company's other jobs are still open.
+                    store_jobs.upsert_scraped(conn, company_id, [new_job], now, may_close=False)
+                    store_scores.write_scores(
+                        conn, new_job["id"],
+                        _score_rows(scoring.score_job_both(referral_job, profiles), new_job, profiles),
+                    )
                     stats["added_new_job"] += 1
 
-            record["name"] = canonical
-            record.setdefault("career_url", None)
-            save_company_file(canonical, record)
-
-            if canonical not in career_pages:
+            # A company first seen via referral must become scrapable too, or
+            # it would only ever be refreshed by another referral touching it.
+            if store_companies.get_company(conn, company_id)["career_url"] is None:
                 if techmap_index is None:
                     techmap_index = load_techmap_index()
-                has_techmap = bool(techmap_index.get(connections.normalize_company(canonical)))
-                career_pages[canonical] = None
-                if has_techmap:
-                    review[canonical] = {"decision": "techmap", "decided_at": _now_iso()}
+                if techmap_index.get(connections.normalize_company(canonical)):
+                    store_companies.upsert_company(conn, company_id, canonical, review_decision="techmap")
                 stats["added_to_career_pages"] += 1
-
-        if stats["added_to_career_pages"]:
-            company_review.save_career_pages(career_pages)
-            company_review.save_review(review)
 
         # Which of this upload's companies are actually eligible for a scoped
         # scrape right now (a real URL, or techmap-approved) - a company left
@@ -604,41 +555,6 @@ def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str,
 
 
 COMPANY_ADDRESSES_PATH = config.ROOT / "data" / "company_addresses.json"
-
-
-def _row_engine_fingerprint() -> str:
-    """sha1 over every module that turns a stored job into a flattened row:
-    this one (it holds the row builder), location inference, title parsing,
-    the location/remote vocabulary readers in scoring, company-name matching
-    and the config they read. Without it a fix to that logic left every
-    cached row untouched and the page unchanged (caught live: foreign jobs
-    kept the company's city after _infer_location_fields was fixed), the same
-    trap the scoring engine's fingerprint already closes for scores."""
-    from jobfit import pipeline
-
-    hasher = hashlib.sha1()
-    for module in (sys.modules[__name__], pipeline, titles, scoring, connections, config):
-        hasher.update(Path(module.__file__).read_bytes())
-    return hasher.hexdigest()
-
-
-def _context_sha1() -> str:
-    """Covers every input that a flattened row embeds besides the company
-    file's own bytes: LinkedIn connections (contacts_for_company), techmap
-    (industry/size/location hint) and the company address book (city
-    fallback) all feed into every row, so a change to any must invalidate
-    every company's cache entry, not just the one company file that
-    happened to change - as does a change to the code that shapes a row."""
-    hasher = hashlib.sha1(_row_engine_fingerprint().encode("utf-8"))
-    if config.CONNECTIONS_CSV.exists():
-        hasher.update(config.CONNECTIONS_CSV.read_bytes())
-    if config.TECHMAP_CACHE_DIR.exists():
-        for path in sorted(config.TECHMAP_CACHE_DIR.glob("*")):
-            if path.is_file():
-                hasher.update(path.read_bytes())
-    if COMPANY_ADDRESSES_PATH.exists():
-        hasher.update(COMPANY_ADDRESSES_PATH.read_bytes())
-    return hasher.hexdigest()
 
 
 def load_company_address_cities() -> dict[str, str]:
@@ -676,130 +592,6 @@ def location_fields_for(job: dict, company: str, techmap_index: dict, address_ci
         job, rows[0]["location"] if rows else None, address_cities.get(key)
     )
     return {"location": location, "city": city, "is_remote": is_remote}
-
-
-# Stored per job, read by no one once the page is built: bookkeeping for the
-# score cache and the scrape health policy, and the two extraction lists the
-# page has no UI for. Together they were 16MB of jobs_v2.json. The company
-# file keeps all of it - this only trims what gets embedded in the page.
-PAGE_IRRELEVANT_FIELDS = ("_score_cache_keys", "job_evidence", "requirements_default",
-                          "requirements_infra", "description_original")
-
-
-def _flatten_company(record: dict, company: str, contacts: list, industry, size, techmap_location_hint,
-                     company_city: str | None = None) -> list[dict]:
-    from jobfit import pipeline as _pipeline  # reuse its already-debugged location-inference logic, not a copy
-
-    rows = []
-    for job in record["jobs"]:
-        loc, city, is_remote = _pipeline._infer_location_fields(job, techmap_location_hint, company_city)
-        out = dict(job)  # carries id/title/url/description/status/first_seen/last_seen/score_*/matched_*/coverage_*/confidence_*/requirements_*/best_*
-        out["company"] = company
-        out["industry"] = industry
-        out["company_size"] = size
-        out["location"] = loc
-        out["city"] = city
-        out["is_remote"] = is_remote
-        out["department"] = job.get("department")
-        out["employment_type"] = job.get("employment_type")
-        # first_seen (when jobfit first saw this listing), not last_seen
-        # (which bumps every time a re-check still finds the job open) -
-        # "posted" should read as roughly-stable, not reset on every run.
-        out["posted_at"] = job.get("first_seen")
-        out["connections"] = contacts
-        out["has_connection"] = bool(contacts)
-        out["has_description"] = bool(job.get("description"))
-        # A closed job's description is dead weight on the page: the listing
-        # is gone, the page hides closed jobs by default, and their text was
-        # 62MB of a 155MB file - over GitHub's 100MB per-file limit, so the
-        # page could no longer be published at all. The company file keeps
-        # the full text; scoring reads it from there, never from here.
-        if job.get("status") == "closed":
-            out["description"] = ""
-        for field in PAGE_IRRELEVANT_FIELDS:
-            out.pop(field, None)
-        if "years_required" in job:
-            years_required = job["years_required"]
-        else:
-            years_required = scoring.required_years(f"{job['title']}\n{job.get('description') or ''}")
-        out["years_required"] = years_required
-        out["is_referral"] = bool(job.get("is_referral"))
-        out["referral_contact"] = job.get("referral_contact")
-        rows.append(out)
-    return rows
-
-
-def aggregate_to_jobs_v2(force: bool = False) -> int:
-    """Flatten companies/*.json into the record shape build_html.py already
-    expects, and write it to config.JOBS_OUTPUT_JSON - so build_html needs no
-    changes at all, it just picks up whatever's there.
-
-    Each company's flattened rows are cached under config.AGGREGATE_CACHE_DIR,
-    keyed by the sha1 of its own companies/*.json bytes plus a shared
-    context_sha1 (connections + techmap, which also feed every row). A
-    company whose file and the shared context are both unchanged since its
-    last flatten is a cache hit - this is what makes a scoped `--company X`
-    run's aggregate step cost seconds instead of the ~6 minutes a full
-    re-flatten of ~1900 companies takes. force=True ignores the cache
-    entirely (e.g. after a bulk edit that touched context but you want to
-    be sure).
-    """
-    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="aggregate", scope="all"):
-        conn_index = connections.load_connections_index()
-        techmap_index = load_techmap_index()
-        address_cities = load_company_address_cities()
-        context_sha1 = _context_sha1()
-
-        cache_dir = config.AGGREGATE_CACHE_DIR
-        cache_dir.mkdir(parents=True, exist_ok=True)
-        live_stems: set[str] = set()
-
-        dataset = []
-        for path in sorted(COMPANIES_DIR.glob("*.json")):
-            if path.name == "_meta.json":
-                continue
-            stem = path.stem
-            live_stems.add(stem)
-            source_bytes = path.read_bytes()
-            source_sha1 = hashlib.sha1(source_bytes).hexdigest()
-            cache_path = cache_dir / f"{stem}.json"
-
-            rows = None
-            if not force and cache_path.exists():
-                try:
-                    cached = json.loads(cache_path.read_text(encoding="utf-8"))
-                except (json.JSONDecodeError, OSError):
-                    cached = None
-                if cached is not None and cached.get("source_sha1") == source_sha1 and cached.get("context_sha1") == context_sha1:
-                    rows = cached["rows"]
-
-            if rows is None:
-                record = json.loads(source_bytes.decode("utf-8"))
-                company = record["name"]
-                contacts = connections.contacts_for_company(conn_index, company)
-                techmap_rows = techmap_index.get(connections.normalize_company(company), [])
-                industry = techmap_rows[0]["industry"] if techmap_rows else None
-                size = techmap_rows[0]["size"] if techmap_rows else None
-                techmap_location_hint = techmap_rows[0]["location"] if techmap_rows else None
-                company_city = address_cities.get(connections.normalize_company(company))
-                rows = _flatten_company(record, company, contacts, industry, size, techmap_location_hint, company_city)
-                atomic_write_json(cache_path, {"source_sha1": source_sha1, "context_sha1": context_sha1, "rows": rows})
-
-            dataset.extend(rows)
-
-        for stale in cache_dir.glob("*.json"):
-            if stale.stem not in live_stems:
-                stale.unlink()
-
-        dataset.sort(key=lambda r: r.get("best_score") or 0, reverse=True)
-        atomic_write_json(config.JOBS_OUTPUT_JSON, dataset, indent=None)
-        atomic_write_json(config.JOBS_OUTPUT_META_JSON, {
-            "scoring_engine": scoring.SCORING_ENGINE_FINGERPRINT,
-            "aggregated_at": _now_iso(),
-            "job_count": len(dataset),
-            "company_count": len({r["company"] for r in dataset}),
-        })
-        return len(dataset)
 
 
 def print_plan_summary(store) -> None:
@@ -908,10 +700,9 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=None, help="only process the first N companies (testing)")
     parser.add_argument("--company", type=str, default=None, help="only process this one company (exact name match)")
     parser.add_argument("--force", action="store_true", help="re-check companies even if checked recently")
-    parser.add_argument("--skip-aggregate", action="store_true", help="don't rescore/rebuild after updating")
+    parser.add_argument("--skip-recompute", action="store_true", help="scrape only; don't rescore or rebuild the page")
     parser.add_argument("--wait", action="store_true", help="wait for another pipeline run to finish instead of exiting")
     parser.add_argument("--force-rescore", action="store_true", help="rescore every job regardless of the score cache")
-    parser.add_argument("--force-aggregate", action="store_true", help="ignore the per-company aggregate cache")
     parser.add_argument("--plans", action="store_true", help="print a summary of stored scrape plans and exit")
     parser.add_argument("--discover", action="store_true", help="derive scrape plans for companies that need one (missing/stale/rules-unverified) before scraping; the only mode that may call a model")
     parser.add_argument("--discover-max", type=int, default=config.DISCOVERY_MAX_PER_RUN, help="companies per --discover run (0 = unbounded)")
@@ -979,8 +770,8 @@ def main() -> None:
         meta["last_run"] = _now_iso()
         save_meta(meta)
 
-        if not args.skip_aggregate:
-            recompute_stage(force=args.force_rescore, force_aggregate=args.force_aggregate)
+        if not args.skip_recompute:
+            recompute_stage(force=args.force_rescore)
 
         logger.info("done in %.1fs", time.time() - started)
 

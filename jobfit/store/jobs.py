@@ -113,11 +113,12 @@ def upsert_scraped(conn: sqlite3.Connection, company_id: str, scraped: list[dict
 def close_by_url(conn: sqlite3.Connection, closed_urls: dict[str, str], now: str) -> dict[str, int]:
     """Close open jobs by URL, recording why - how jobs that no company
     scrape re-verifies (LinkedIn matches, referrals) age out."""
-    stats = {"jobs_closed": 0, "already_closed": 0}
+    stats = {"jobs_closed": 0, "already_closed": 0, "companies_touched": 0}
     wanted = {normalize_job_url(url): reason for url, reason in closed_urls.items() if normalize_job_url(url)}
     if not wanted:
         return stats
-    for row in conn.execute("SELECT id, url, status FROM jobs WHERE url IS NOT NULL").fetchall():
+    touched: set[str] = set()
+    for row in conn.execute("SELECT id, url, status, company_id FROM jobs WHERE url IS NOT NULL").fetchall():
         reason = wanted.get(normalize_job_url(row["url"]))
         if reason is None:
             continue
@@ -129,4 +130,6 @@ def close_by_url(conn: sqlite3.Connection, closed_urls: dict[str, str], now: str
             (now, reason, row["id"]),
         )
         stats["jobs_closed"] += 1
+        touched.add(row["company_id"])
+    stats["companies_touched"] = len(touched)
     return stats

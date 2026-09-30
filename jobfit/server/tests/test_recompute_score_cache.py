@@ -71,125 +71,140 @@ def test_score_cache_key_changes_when_job_evidence_is_present():
     assert scoring.score_cache_key(plain, profile) != scoring.score_cache_key(with_evidence, profile)
 
 
-def test_recompute_skips_a_job_whose_cache_key_is_already_current(tmp_path, monkeypatch):
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
-    profiles = {"default": {"text": "Backend engineer with Python experience"}}
-    job = {"id": "1", "title": "Backend Engineer", "description": "Python required"}
-    job["_score_cache_keys"] = {"default": scoring.score_cache_key(job, profiles["default"])}
-    job["score_default"] = 99  # a deliberately-wrong stored score, to prove it's left untouched
-    path = tmp_path / "acme.json"
-    path.write_text(json.dumps({"name": "Acme", "jobs": [job]}), encoding="utf-8")
+# --- recompute over the store ------------------------------------------------
 
-    rescored, skipped = update_jobs._recompute_one_company(
-        str(path), profiles, {"default"}, ("score_", "matched_", "coverage_", "confidence_", "requirements_"),
-    )
+def _seed(conn, description="Requirements: Python"):
+    from jobfit.store import companies as store_companies
+    from jobfit.store import jobs as store_jobs
 
-    assert (rescored, skipped) == (0, 1)
-    saved = json.loads(path.read_text(encoding="utf-8"))
-    assert saved["jobs"][0]["score_default"] == 99  # untouched, not recomputed
+    store_companies.upsert_company(conn, "acme", "Acme")
+    store_jobs.upsert_scraped(conn, "acme", [
+        {"id": "j1", "title": "Backend Engineer", "url": "https://acme.com/1", "description": description},
+        {"id": "j2", "title": "Data Scientist", "url": "https://acme.com/2", "description": "Requirements: pandas"},
+    ], "2026-09-30T10:00:00Z")
 
 
-def test_recompute_rescores_a_job_whose_description_changed_since_it_was_scored(tmp_path, monkeypatch):
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
-    profiles = {"default": {"text": "Backend engineer with Python experience"}}
-    job = {"id": "1", "title": "Backend Engineer", "description": "Java required"}
-    # cache key computed from a *different*, older description - simulates a rescrape changing the text
-    job["_score_cache_keys"] = {"default": scoring.score_cache_key({"description": "old text"}, profiles["default"])}
-    job["score_default"] = 0
-    path = tmp_path / "acme.json"
-    path.write_text(json.dumps({"name": "Acme", "jobs": [job]}), encoding="utf-8")
+def test_recompute_scores_every_job_then_skips_them_next_time(store_conn, monkeypatch):
+    from jobfit.store import scores as store_scores
 
-    rescored, skipped = update_jobs._recompute_one_company(
-        str(path), profiles, {"default"}, ("score_", "matched_", "coverage_", "confidence_", "requirements_"),
-    )
+    _seed(store_conn)
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {"default": {"text": "python developer"}})
+    monkeypatch.setattr(update_jobs, "_rebuild_page", lambda: None)
 
-    assert (rescored, skipped) == (1, 0)
-    saved = json.loads(path.read_text(encoding="utf-8"))
-    assert saved["jobs"][0]["_score_cache_keys"] == {"default": scoring.score_cache_key(job, profiles["default"])}
-
-
-def test_recompute_force_bypasses_a_matching_cache_key(tmp_path, monkeypatch):
-    """force=True exists for a scoring-*logic* change (e.g. a gate fix): the
-    cache key only tracks input (description/CV text) changes, so an
-    unchanged job would otherwise be skipped forever even though its score
-    should change under the new logic."""
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
-    profiles = {"default": {"text": "Backend engineer with Python experience"}}
-    job = {"id": "1", "title": "Backend Engineer", "description": "Python required"}
-    job["_score_cache_keys"] = {"default": scoring.score_cache_key(job, profiles["default"])}
-    job["score_default"] = 99  # deliberately-wrong stored score
-    path = tmp_path / "acme.json"
-    path.write_text(json.dumps({"name": "Acme", "jobs": [job]}), encoding="utf-8")
-
-    rescored, skipped = update_jobs._recompute_one_company(
-        str(path), profiles, {"default"}, ("score_", "matched_", "coverage_", "confidence_", "requirements_"),
-        force=True,
-    )
-
-    assert (rescored, skipped) == (1, 0)
-    saved = json.loads(path.read_text(encoding="utf-8"))
-    assert saved["jobs"][0]["score_default"] != 99
-
-
-def test_recompute_rescores_when_a_profile_is_added(tmp_path, monkeypatch):
-    """Real case: uploading a second CV profile - a job already scored
-    against "default" must also get scored against the new "infra"
-    profile, not skipped just because "default"'s own key is unchanged."""
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
-    old_profiles = {"default": {"text": "Backend engineer with Python experience"}}
-    job = {"id": "1", "title": "Backend Engineer", "description": "Python required"}
-    job["_score_cache_keys"] = {"default": scoring.score_cache_key(job, old_profiles["default"])}
-    path = tmp_path / "acme.json"
-    path.write_text(json.dumps({"name": "Acme", "jobs": [job]}), encoding="utf-8")
-
-    new_profiles = {
-        "default": {"text": "Backend engineer with Python experience"},
-        "infra": {"text": "Infra engineer with Kubernetes experience"},
-    }
-    rescored, skipped = update_jobs._recompute_one_company(
-        str(path), new_profiles, {"default", "infra"},
-        ("score_", "matched_", "coverage_", "confidence_", "requirements_"),
-    )
-
-    assert (rescored, skipped) == (1, 0)
-    saved = json.loads(path.read_text(encoding="utf-8"))
-    assert "score_infra" in saved["jobs"][0]
-
-
-def test_recompute_stores_years_required_when_a_job_is_rescored(tmp_path, monkeypatch):
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)
-    profiles = {"default": {"text": "Backend engineer with Python experience"}}
-    job = {
-        "id": "1", "title": "Backend Engineer",
-        "description": "Requirements: 5+ years of experience with Python",
-    }
-    path = tmp_path / "acme.json"
-    path.write_text(json.dumps({"name": "Acme", "jobs": [job]}), encoding="utf-8")
-
-    update_jobs._recompute_one_company(
-        str(path), profiles, {"default"}, ("score_", "matched_", "coverage_", "confidence_", "requirements_"),
-    )
-
-    saved = json.loads(path.read_text(encoding="utf-8"))
-    assert saved["jobs"][0]["years_required"] == 5
-
-
-def test_recompute_stage_writes_scoring_engine_to_meta(tmp_path, monkeypatch):
-    companies_dir = tmp_path / "companies"
-    companies_dir.mkdir()
-    monkeypatch.setattr(update_jobs, "COMPANIES_DIR", companies_dir)
-    monkeypatch.setattr(update_jobs, "META_PATH", companies_dir / "_meta.json")
-    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {})
-    monkeypatch.setattr(update_jobs, "RECOMPUTE_WORKERS", 1)
-    monkeypatch.setattr(config, "PIPELINE_LOCK_PATH", tmp_path / ".pipeline.lock")
-    monkeypatch.setattr(config, "JOBS_OUTPUT_JSON", tmp_path / "jobs_v2.json")
-    monkeypatch.setattr(config, "JOBS_OUTPUT_META_JSON", tmp_path / "jobs_v2.meta.json")
-    monkeypatch.setattr(config, "AGGREGATE_CACHE_DIR", tmp_path / "aggregate")
-    monkeypatch.setattr(config, "OUTPUT_HTML", tmp_path / "jobfit.html")
-    monkeypatch.setattr(config, "CONNECTIONS_CSV", tmp_path / "connections.csv")
-    monkeypatch.setattr(update_jobs, "load_techmap_index", lambda: {})
+    scored = []
+    original = update_jobs.scoring.score_job_both
+    monkeypatch.setattr(update_jobs.scoring, "score_job_both",
+                        lambda job, profiles: scored.append(job["id"]) or original(job, profiles))
 
     update_jobs.recompute_stage()
+    assert sorted(scored) == ["j1", "j2"]
+    assert store_scores.scores_for_job(store_conn, "j1")["default"]["cache_key"]
 
-    meta = json.loads((companies_dir / "_meta.json").read_text(encoding="utf-8"))
-    assert meta["scoring_engine"] == scoring.SCORING_ENGINE_FINGERPRINT
+    scored.clear()
+    update_jobs.recompute_stage()
+    assert scored == []   # nothing changed, so nothing was rescored
+
+
+def test_recompute_rescores_only_the_job_whose_text_changed(store_conn, monkeypatch):
+    from jobfit.store import scores as store_scores
+
+    _seed(store_conn)
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {"default": {"text": "python developer"}})
+    monkeypatch.setattr(update_jobs, "_rebuild_page", lambda: None)
+    update_jobs.recompute_stage()
+    before = store_scores.scores_for_job(store_conn, "j1")["default"]["cache_key"]
+
+    store_conn.execute("UPDATE jobs SET description = 'Requirements: Go' WHERE id = 'j1'")
+    scored = []
+    original = update_jobs.scoring.score_job_both
+    monkeypatch.setattr(update_jobs.scoring, "score_job_both",
+                        lambda job, profiles: scored.append(job["id"]) or original(job, profiles))
+    update_jobs.recompute_stage()
+
+    assert scored == ["j1"]
+    assert store_scores.scores_for_job(store_conn, "j1")["default"]["cache_key"] != before
+
+
+def test_recompute_drops_scores_for_a_removed_profile(store_conn, monkeypatch):
+    from jobfit.store import scores as store_scores
+
+    _seed(store_conn)
+    monkeypatch.setattr(update_jobs, "_rebuild_page", lambda: None)
+    monkeypatch.setattr(update_jobs.cv, "load_profiles",
+                        lambda: {"default": {"text": "python"}, "infra": {"text": "kubernetes"}})
+    update_jobs.recompute_stage()
+    assert set(store_scores.scores_for_job(store_conn, "j1")) == {"default", "infra"}
+
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {"default": {"text": "python"}})
+    update_jobs.recompute_stage()
+    assert set(store_scores.scores_for_job(store_conn, "j1")) == {"default"}
+
+
+def test_force_rescores_even_when_nothing_changed(store_conn, monkeypatch):
+    _seed(store_conn)
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {"default": {"text": "python developer"}})
+    monkeypatch.setattr(update_jobs, "_rebuild_page", lambda: None)
+    update_jobs.recompute_stage()
+
+    scored = []
+    original = update_jobs.scoring.score_job_both
+    monkeypatch.setattr(update_jobs.scoring, "score_job_both",
+                        lambda job, profiles: scored.append(job["id"]) or original(job, profiles))
+    update_jobs.recompute_stage(force=True)
+    assert sorted(scored) == ["j1", "j2"]
+
+
+def test_recompute_rescores_every_job_when_a_profile_is_added(store_conn, monkeypatch):
+    from jobfit.store import scores as store_scores
+
+    _seed(store_conn)
+    monkeypatch.setattr(update_jobs, "_rebuild_page", lambda: None)
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {"default": {"text": "python"}})
+    update_jobs.recompute_stage()
+
+    monkeypatch.setattr(update_jobs.cv, "load_profiles",
+                        lambda: {"default": {"text": "python"}, "infra": {"text": "kubernetes"}})
+    update_jobs.recompute_stage()
+    assert set(store_scores.scores_for_job(store_conn, "j1")) == {"default", "infra"}
+
+
+def test_recompute_updates_years_required_when_the_text_changed(store_conn, monkeypatch):
+    from jobfit.store import jobs as store_jobs
+
+    _seed(store_conn, description="Requirements: Python")
+    monkeypatch.setattr(update_jobs, "_rebuild_page", lambda: None)
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {"default": {"text": "python"}})
+    update_jobs.recompute_stage()
+    assert store_jobs.get_job(store_conn, "j1")["years_required"] is None
+
+    store_conn.execute("UPDATE jobs SET description = '5+ years experience' WHERE id = 'j1'")
+    update_jobs.recompute_stage()
+    assert store_jobs.get_job(store_conn, "j1")["years_required"] == 5
+
+
+def test_recompute_records_the_scoring_engine_for_the_pages_footer(store_conn, monkeypatch, tmp_path):
+    from jobfit import scoring
+
+    monkeypatch.setattr(update_jobs, "META_PATH", tmp_path / "_meta.json")
+    monkeypatch.setattr(update_jobs, "_rebuild_page", lambda: None)
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {"default": {"text": "python"}})
+    _seed(store_conn)
+    update_jobs.recompute_stage()
+    assert update_jobs.load_meta()["scoring_engine"] == scoring.SCORING_ENGINE_FINGERPRINT
+
+
+def test_recompute_with_no_profiles_leaves_stored_scores_alone(store_conn, monkeypatch):
+    """Regression: recompute used to drop scores for "missing" profiles
+    before checking whether any profile was registered at all, so one run
+    with an unloaded CV registry wiped every score in the database."""
+    from jobfit.store import scores as store_scores
+
+    _seed(store_conn)
+    monkeypatch.setattr(update_jobs, "_rebuild_page", lambda: None)
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {"default": {"text": "python"}})
+    update_jobs.recompute_stage()
+    assert store_scores.scores_for_job(store_conn, "j1")["default"]["score"] is not None
+
+    monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {})
+    update_jobs.recompute_stage()
+    assert store_scores.scores_for_job(store_conn, "j1")["default"]["score"] is not None

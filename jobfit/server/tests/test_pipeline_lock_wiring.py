@@ -28,7 +28,7 @@ def isolated(tmp_path, monkeypatch):
     return companies_dir
 
 
-def test_aggregate_to_jobs_v2_raises_busy_when_lock_already_held(isolated, monkeypatch):
+def test_recompute_stage_raises_busy_when_lock_already_held(isolated, monkeypatch, store_conn):
     monkeypatch.setattr(pipeline_lock, "_pid_alive", lambda pid: pid == 999999)
     config.PIPELINE_LOCK_PATH.write_text(json.dumps({
         "pid": 999999, "stage": "recompute", "scope": "all",
@@ -36,12 +36,12 @@ def test_aggregate_to_jobs_v2_raises_busy_when_lock_already_held(isolated, monke
     }), encoding="utf-8")
 
     with pytest.raises(pipeline_lock.PipelineBusy):
-        update_jobs.aggregate_to_jobs_v2()
+        update_jobs.recompute_stage()
 
 
-def test_recompute_stage_holds_the_lock_around_its_own_aggregate_call(isolated, monkeypatch):
-    """recompute_stage() calls aggregate_to_jobs_v2() internally - that
-    nested call must re-enter the SAME lock, not deadlock or double-acquire."""
+def test_recompute_stage_releases_the_lock_when_it_finishes(isolated, monkeypatch, store_conn):
+    """The page rebuild happens inside the lock; it must not deadlock or
+    leave the lock file behind."""
     monkeypatch.setattr(update_jobs.cv, "load_profiles", lambda: {})
     monkeypatch.setattr(update_jobs, "RECOMPUTE_WORKERS", 1)
 
@@ -71,6 +71,6 @@ def test_main_wait_flag_is_parsed(isolated, monkeypatch):
     })
     monkeypatch.setattr(update_jobs, "load_meta", lambda: {})
     monkeypatch.setattr(update_jobs, "save_meta", lambda meta: None)
-    monkeypatch.setattr("sys.argv", ["update_jobs", "--skip-aggregate", "--wait"])
+    monkeypatch.setattr("sys.argv", ["update_jobs", "--skip-recompute", "--wait"])
 
     update_jobs.main()  # must not raise (argparse must accept --wait)

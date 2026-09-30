@@ -2,25 +2,29 @@ import json
 
 from jobfit import config, cv
 from jobfit.server import dashboard
+from jobfit.store import companies as store_companies
+from jobfit.store import jobs as store_jobs
+from jobfit.store import scores as store_scores
 
 
-def test_dashboard_stats(tmp_path, monkeypatch):
+def test_dashboard_stats(tmp_path, monkeypatch, store_conn):
     monkeypatch.setattr(config, "ROOT", tmp_path)
-    monkeypatch.setattr(config, "JOBS_OUTPUT_JSON", tmp_path / "jobs_v2.json")
     monkeypatch.setattr(config, "CV_PROFILES_REGISTRY", tmp_path / "profiles.json")
     monkeypatch.setattr(config, "CONNECTIONS_CSV", tmp_path / "connections.csv")
     monkeypatch.setattr(config, "OUTPUT_HTML", tmp_path / "jobfit.html")
 
-    (tmp_path / "companies").mkdir()
-    (tmp_path / "companies" / "wiz.json").write_text("{}", encoding="utf-8")
-    (tmp_path / "companies" / "_meta.json").write_text("{}", encoding="utf-8")
-
     cv.save_registry({"default": {"name": "Default", "filename": "default.docx", "uploaded_at": "x"}})
-    config.JOBS_OUTPUT_JSON.write_text(json.dumps([
-        {"status": "seen", "score_default": 72},
-        {"status": "new", "score_default": 45},
-        {"status": "closed", "score_default": 90},
-    ]), encoding="utf-8")
+    store_companies.upsert_company(store_conn, "wiz", "Wiz")
+    store_jobs.upsert_scraped(store_conn, "wiz", [
+        {"id": "a", "title": "Open One", "url": "u1"},
+        {"id": "b", "title": "Open Two", "url": "u2"},
+        {"id": "c", "title": "Gone", "url": "u3"},
+    ], "2026-09-30T10:00:00Z")
+    store_conn.execute("UPDATE jobs SET status = 'closed' WHERE id = 'c'")
+    store_scores.write_scores(store_conn, "a", {"default": {"score": 72, "cache_key": "k"}})
+    store_scores.write_scores(store_conn, "b", {"default": {"score": 45, "cache_key": "k"}})
+    # A closed job's score must not appear in the distribution.
+    store_scores.write_scores(store_conn, "c", {"default": {"score": 90, "cache_key": "k"}})
 
     stats = dashboard.get_dashboard_stats()
 
@@ -34,9 +38,8 @@ def test_dashboard_stats(tmp_path, monkeypatch):
     assert stats["html_updated_at"] is None
 
 
-def test_dashboard_stats_with_no_data_yet(tmp_path, monkeypatch):
+def test_dashboard_stats_with_no_data_yet(tmp_path, monkeypatch, store_conn):
     monkeypatch.setattr(config, "ROOT", tmp_path)
-    monkeypatch.setattr(config, "JOBS_OUTPUT_JSON", tmp_path / "jobs_v2.json")
     monkeypatch.setattr(config, "CV_PROFILES_REGISTRY", tmp_path / "profiles.json")
     monkeypatch.setattr(config, "CONNECTIONS_CSV", tmp_path / "connections.csv")
     monkeypatch.setattr(config, "OUTPUT_HTML", tmp_path / "jobfit.html")
@@ -50,7 +53,7 @@ def test_dashboard_stats_with_no_data_yet(tmp_path, monkeypatch):
     }
 
 
-def test_connections_uploaded_at_reflects_the_file_mtime(tmp_path, monkeypatch):
+def test_connections_uploaded_at_reflects_the_file_mtime(tmp_path, monkeypatch, store_conn):
     monkeypatch.setattr(config, "ROOT", tmp_path)
     monkeypatch.setattr(config, "JOBS_OUTPUT_JSON", tmp_path / "jobs_v2.json")
     monkeypatch.setattr(config, "CV_PROFILES_REGISTRY", tmp_path / "profiles.json")

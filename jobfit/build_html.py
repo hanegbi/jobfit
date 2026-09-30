@@ -1180,9 +1180,65 @@ def render(dataset: list[dict], profiles: list[dict], scoring_engine: str | None
     )
 
 
+def dataset_from_store() -> list[dict]:
+    """Every job as one page row, read from the store.
+
+    Temporary scaffolding: this page is replaced by the application in
+    phase 3, and goes away with it. Until then it keeps working, which is
+    what lets the storage change ship on its own.
+
+    Two shapes are reassembled here rather than stored: scores go back to
+    the flat score_<profile>/matched_<profile> fields the page's JS reads,
+    and a closed job's description is dropped - it was 62MB of a 155MB
+    page, and closed jobs are hidden by default.
+    """
+    from jobfit import connections
+    from jobfit.store import db
+
+    conn = db.shared()
+    contacts_index = connections.load_connections_index()
+    contacts_by_company: dict[str, list] = {}
+    rows = conn.execute(
+        "SELECT j.*, c.display_name AS company, c.industry, c.size AS company_size "
+        "FROM jobs j JOIN companies c ON c.id = j.company_id ORDER BY j.id"
+    ).fetchall()
+    scores_by_job: dict[str, dict] = {}
+    for row in conn.execute("SELECT * FROM job_scores"):
+        scores_by_job.setdefault(row["job_id"], {})[row["profile_id"]] = row
+
+    dataset = []
+    for row in rows:
+        job = dict(row)
+        job.pop("job_evidence", None)
+        job.pop("description_original", None)
+        job["has_description"] = bool(job.get("description"))
+        if job.get("status") == "closed":
+            job["description"] = ""
+        if job["company"] not in contacts_by_company:
+            contacts_by_company[job["company"]] = connections.contacts_for_company(contacts_index, job["company"])
+        job["connections"] = contacts_by_company[job["company"]]
+        job["has_connection"] = bool(job["connections"])
+        job["is_remote"] = bool(job["is_remote"])
+        job["is_referral"] = bool(job["is_referral"])
+
+        best_id, best_score = None, None
+        for profile_id, score_row in (scores_by_job.get(job["id"]) or {}).items():
+            job[f"score_{profile_id}"] = score_row["score"]
+            job[f"coverage_{profile_id}"] = score_row["coverage"]
+            job[f"confidence_{profile_id}"] = score_row["confidence"]
+            job[f"matched_{profile_id}"] = json.loads(score_row["matched"]) if score_row["matched"] else []
+            if score_row["score"] is not None and (best_score is None or score_row["score"] > best_score):
+                best_id, best_score = profile_id, score_row["score"]
+        job["best_cv"] = best_id
+        job["best_score"] = best_score
+        job["best_confidence"] = job.get(f"confidence_{best_id}") if best_id else None
+        dataset.append(job)
+    return dataset
+
+
 def build(dataset: list[dict] | None = None) -> None:
     if dataset is None:
-        dataset = json.loads(config.JOBS_OUTPUT_JSON.read_text(encoding="utf-8"))
+        dataset = dataset_from_store()
     from jobfit import cv
     profiles = [{"id": pid, "name": entry["name"]} for pid, entry in cv.load_registry().items()]
     html = render(dataset, profiles, _load_scoring_engine_fingerprint())

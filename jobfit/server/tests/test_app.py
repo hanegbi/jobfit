@@ -60,7 +60,9 @@ def _make_pdf_bytes(text: str = "Python engineer with Kubernetes experience.") -
 
 
 @pytest.fixture
-def client(tmp_path, monkeypatch):
+def client(tmp_path, monkeypatch, store_conn):
+    # store_conn: the panel queries the store, so every app test needs its own
+    # database rather than the real one.
     monkeypatch.setattr(config, "ROOT", tmp_path)
     monkeypatch.setattr(config, "JOBS_OUTPUT_JSON", tmp_path / "jobs_v2.json")
     monkeypatch.setattr(config, "CV_PROFILES_DIR", tmp_path / "cvs")
@@ -227,7 +229,7 @@ def test_list_referrals_starts_empty(client):
     assert client.get("/api/referrals").json() == []
 
 
-def test_upload_referral_merges_and_archives_it_without_recomputing(client, recompute_spy):
+def test_upload_referral_merges_and_archives_it_without_recomputing(client, recompute_spy, store_conn):
     payload = {
         "companies": [{
             "company": "Acme",
@@ -243,8 +245,8 @@ def test_upload_referral_merges_and_archives_it_without_recomputing(client, reco
     assert body["added_new_job"] == 1
     assert recompute_spy["n"] == 0
 
-    saved = json.loads((update_jobs.COMPANIES_DIR / "acme.json").read_text(encoding="utf-8"))
-    assert saved["jobs"][0]["title"] == "Backend Engineer"
+    from jobfit.store import jobs as store_jobs
+    assert store_jobs.jobs_for_company(store_conn, "acme")[0]["title"] == "Backend Engineer"
 
     listed = client.get("/api/referrals").json()
     assert len(listed) == 1

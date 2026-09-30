@@ -56,9 +56,11 @@ def main() -> None:
     parser.add_argument("--max-age-hours", type=float, default=24, help="reuse a verdict from the progress file younger than this")
     args = parser.parse_args()
 
-    data = json.loads(config.JOBS_OUTPUT_JSON.read_text(encoding="utf-8"))
-    jobs_with_url = [r for r in data if r.get("url") and r.get("status") != "closed"]
-    print(f"total jobs: {len(data)}, open with a URL: {len(jobs_with_url)}", flush=True)
+    conn = db.shared()
+    total = conn.execute("SELECT count(*) FROM jobs").fetchone()[0]
+    jobs_with_url = [dict(row) for row in conn.execute(
+        "SELECT id, url, title, company_id FROM jobs WHERE url IS NOT NULL AND status != 'closed'")]
+    print(f"total jobs: {total}, open with a URL: {len(jobs_with_url)}", flush=True)
 
     # Resumable: a run over ~25k URLs takes hours, so verdicts are saved as we
     # go and a re-run skips anything checked recently.

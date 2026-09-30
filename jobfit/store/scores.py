@@ -42,9 +42,13 @@ def scores_for_job(conn: sqlite3.Connection, job_id: str) -> dict[str, dict]:
 
 def drop_scores_for_missing_profiles(conn: sqlite3.Connection, profile_ids: set[str]) -> int:
     """Scores for a profile that no longer exists are not just stale, they
-    are wrong - a deleted CV must stop influencing what ranks highest."""
+    are wrong - a deleted CV must stop influencing what ranks highest.
+
+    An empty set does nothing. "I know of no profiles" is what a failed or
+    not-yet-loaded CV registry looks like, and treating it as "delete every
+    score" cost a real database all 60,294 of its score rows."""
     if not profile_ids:
-        return conn.execute("DELETE FROM job_scores").rowcount
+        return 0
     placeholders = ", ".join("?" * len(profile_ids))
     return conn.execute(
         f"DELETE FROM job_scores WHERE profile_id NOT IN ({placeholders})",
