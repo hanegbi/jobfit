@@ -9,6 +9,12 @@ deterministically (no model call) against CV profiles, cross-references LinkedIn
 WhatsApp-referral leads, and renders one self-contained `jobfit.html` you open from disk. Everything runs
 on one machine; there is no deployment, no server in production, no multi-user story.
 
+## Answering
+
+Keep replies short. A few sentences, or a handful of bullets. State the result and what needs
+deciding; leave out the reasoning, the recap and the reassurance unless asked. Long explanations of
+finished work are noise - the commits and the tests say it better.
+
 ## Commands
 
 ```
