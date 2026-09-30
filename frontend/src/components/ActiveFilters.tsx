@@ -1,3 +1,5 @@
+import { X } from "@phosphor-icons/react";
+
 import { EMPTY_FILTERS, MULTI } from "../useFilters";
 import type { Facets, Filters } from "../types";
 
@@ -83,7 +85,7 @@ export function ActiveFilters({
       {chips.map((chip) => (
         <button key={chip.key} type="button" className="chip" onClick={() => update(chip.clear)} title="Remove">
           {chip.label}
-          <span aria-hidden="true">✕</span>
+          <X size={11} weight="bold" aria-hidden="true" />
         </button>
       ))}
       {chips.length > 1 && (

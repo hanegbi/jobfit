@@ -1,3 +1,4 @@
+import { ArrowUpRight, Heart, PaperPlaneTilt, Phone, EyeSlash } from "@phosphor-icons/react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { useMemo, useRef } from "react";
 
@@ -5,11 +6,13 @@ import type { Contact, JobRow } from "../types";
 import { useToggleJobState, type StateFlag } from "../useJobState";
 import { Highlight } from "./Highlight";
 
-const FLAGS: { flag: StateFlag; label: string; title: string }[] = [
-  { flag: "liked", label: "♥ Like", title: "Liked" },
-  { flag: "sent", label: "➤ Sent", title: "CV sent" },
-  { flag: "reached_out", label: "✆ Reached out", title: "Reached out" },
-  { flag: "hidden", label: "✕ Hide", title: "Hidden" },
+const ICON = { size: 15, weight: "bold" } as const;
+
+const FLAGS: { flag: StateFlag; label: string; title: string; Icon: typeof Heart }[] = [
+  { flag: "liked", label: "Like", title: "Liked", Icon: Heart },
+  { flag: "sent", label: "Sent", title: "CV sent", Icon: PaperPlaneTilt },
+  { flag: "reached_out", label: "Reached out", title: "Reached out", Icon: Phone },
+  { flag: "hidden", label: "Hide", title: "Hidden", Icon: EyeSlash },
 ];
 
 /** Names beyond this go behind a "+N more" whose tooltip lists them. Three
@@ -99,6 +102,7 @@ function Card({ job, query }: { job: JobRow; query: string }) {
           {job.url ? (
             <a className="card-title" href={job.url} target="_blank" rel="noopener noreferrer">
               <Highlight text={job.title} query={query} />
+              <ArrowUpRight size={13} weight="bold" className="out" aria-label="opens the posting" />
             </a>
           ) : (
             <span className="card-title">
@@ -125,14 +129,16 @@ function Card({ job, query }: { job: JobRow; query: string }) {
             action you have to read the whole card to reach is one you take
             less often. */}
         <span className="card-flags">
-          {FLAGS.map(({ flag, label, title }) => (
+          {FLAGS.map(({ flag, label, title, Icon }) => (
             <button
               key={flag}
               type="button"
               title={title}
+              aria-pressed={state[flag]}
               className={`flag${state[flag] ? " on" : ""}`}
               onClick={() => toggle.mutate({ jobId: job.id, flag, current: state })}
             >
+              <Icon {...ICON} weight={state[flag] ? "fill" : "bold"} />
               {label}
             </button>
           ))}
@@ -186,7 +192,17 @@ const HEADER_HEIGHT = 34;
 /** Virtualized: 29,000 matches must cost the same to render as 50. Cards are
  * measured after mount, because a card with no description is shorter than one
  * with three lines of it. */
-export function JobList({ jobs, group = false, query = "" }: { jobs: JobRow[]; group?: boolean; query?: string }) {
+export function JobList({
+  jobs,
+  group = false,
+  query = "",
+  onClearFilters,
+}: {
+  jobs: JobRow[];
+  group?: boolean;
+  query?: string;
+  onClearFilters?: () => void;
+}) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const items = useMemo(() => toItems(jobs, group), [jobs, group]);
   const virtualizer = useVirtualizer({
@@ -197,7 +213,23 @@ export function JobList({ jobs, group = false, query = "" }: { jobs: JobRow[]; g
   });
 
   if (jobs.length === 0) {
-    return <div className="list empty">No jobs match these filters.</div>;
+    // Composed, not a shrug: an empty result is nearly always one filter too
+    // many, so the way out is on screen next to the bad news.
+    return (
+      <div className="list empty">
+        <p className="empty-title">Nothing matches.</p>
+        <p className="empty-body">
+          {query
+            ? <>No job mentions <strong>{query}</strong> with the filters you have on.</>
+            : <>The filters you have on rule out every job.</>}
+        </p>
+        {onClearFilters && (
+          <button type="button" className="empty-action" onClick={onClearFilters}>
+            Clear all filters
+          </button>
+        )}
+      </div>
+    );
   }
 
   return (

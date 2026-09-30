@@ -1,3 +1,5 @@
+// Self-hosted, so the app still renders its own type with no network.
+import "@fontsource-variable/geist";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

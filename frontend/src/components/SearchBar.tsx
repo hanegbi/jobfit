@@ -1,3 +1,4 @@
+import { MagnifyingGlass, Minus, X } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 
 import type { Filters, Scope } from "../types";
@@ -54,7 +55,7 @@ export function SearchBar({ filters, total, loading, update }: Props) {
   return (
     <div className="searchbar">
       <div className="search-field">
-        <span className="search-icon" aria-hidden="true">⌕</span>
+        <MagnifyingGlass size={15} className="search-icon" aria-hidden="true" />
         <input
           ref={inputRef}
           className="search"
@@ -71,7 +72,7 @@ export function SearchBar({ filters, total, loading, update }: Props) {
         />
         {draft && (
           <button type="button" className="search-clear" title="Clear (Esc)" onClick={() => { setDraft(""); update({ q: "" }); }}>
-            ✕
+            <X size={13} weight="bold" />
           </button>
         )}
         {!draft && <kbd className="search-hint">/</kbd>}
@@ -102,7 +103,7 @@ export function SearchBar({ filters, total, loading, update }: Props) {
           setShowExclude(!showExclude);
         }}
       >
-        − exclude
+        <Minus size={13} weight="bold" /> exclude
       </button>
 
       {showExclude && (

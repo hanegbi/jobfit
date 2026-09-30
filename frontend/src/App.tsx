@@ -5,6 +5,7 @@ import { ActiveFilters } from "./components/ActiveFilters";
 import { FiltersPanel } from "./components/Filters";
 import { JobList } from "./components/JobList";
 import { SearchBar } from "./components/SearchBar";
+import { CardSkeleton } from "./components/Skeleton";
 import { useFilters } from "./useFilters";
 import { useLegacyFlags } from "./useLegacyFlags";
 
@@ -74,7 +75,7 @@ export function App() {
         <main>
           <ActiveFilters filters={filters} facets={facetsQuery.data} update={update} reset={reset} />
           {jobsQuery.isError && <p className="error">Could not reach the API. Is the server running?</p>}
-          {jobsQuery.isLoading && <p className="muted">Loading…</p>}
+          {jobsQuery.isLoading && <CardSkeleton />}
           {page && (
             <>
               <p className="stats">
@@ -87,7 +88,7 @@ export function App() {
                   </>
                 )}
               </p>
-              <JobList jobs={page.jobs} group={filters.group} query={filters.q} />
+              <JobList jobs={page.jobs} group={filters.group} query={filters.q} onClearFilters={reset} />
               {pageCount > 1 && (
                 <nav className="paging">
                   <button type="button" disabled={filters.page <= 1} onClick={() => update({ page: filters.page - 1 })}>
