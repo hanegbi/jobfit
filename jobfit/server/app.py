@@ -9,9 +9,10 @@ from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
-from jobfit import company_review, config, cv, pipeline_lock
+from jobfit import config, cv, pipeline_lock
 from jobfit.scripts import update_jobs
 from jobfit.server import dashboard, runner
+from jobfit.store import companies as store_companies
 from jobfit.store import db, facets, search
 from jobfit.store import jobs as store_jobs
 from jobfit.store import state as store_state
@@ -149,15 +150,14 @@ async def api_upload_referral(file: UploadFile = File(...)) -> dict:
 
 @app.get("/api/companies/needs-review")
 def api_companies_needs_review() -> list[dict]:
-    techmap_index = update_jobs.load_techmap_index()
-    return company_review.companies_needing_review(techmap_index)
+    return store_companies.needing_review(db.shared(), update_jobs.load_techmap_index())
 
 
 @app.post("/api/companies/{company}/decision")
 def api_set_company_decision(company: str, payload: dict) -> dict:
     decision = payload.get("decision", "")
     try:
-        company_review.set_decision(company, decision)
+        store_companies.set_decision(db.shared(), company, decision)
     except ValueError as error:
         raise HTTPException(400, str(error))
     except KeyError:
@@ -171,7 +171,7 @@ def api_set_company_career_url(company: str, payload: dict) -> dict:
     if not url:
         raise HTTPException(400, "url is required")
     try:
-        company_review.set_career_url(company, url)
+        store_companies.set_career_url(db.shared(), company, url)
     except KeyError:
         raise HTTPException(404, f"unknown company {company!r}")
     return {"company": company, "url": url}

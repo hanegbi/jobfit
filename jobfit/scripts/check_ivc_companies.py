@@ -23,7 +23,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit import ats_fetchers, company_review, config  # noqa: E402
+from jobfit import ats_fetchers, config  # noqa: E402
+from jobfit.store import companies as store_companies
+from jobfit.store import db
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
 from jobfit.scripts.check_urls import check_one  # noqa: E402
 
@@ -38,7 +40,7 @@ def main() -> None:
 
     raw_path = config.ROOT / "cache" / "ivc_companies_raw.json"
     raw = json.loads(raw_path.read_text(encoding="utf-8")) if raw_path.exists() else {}
-    career_pages = company_review.load_career_pages()
+    career_pages = {row['display_name']: row['career_url'] for row in store_companies.list_companies(db.shared())}
 
     checks: dict[str, str] = {}  # url -> company name (for reporting)
     for name, homepage in raw.items():

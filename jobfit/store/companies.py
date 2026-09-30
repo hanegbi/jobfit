@@ -74,3 +74,55 @@ def refresh_connection_counts(conn: sqlite3.Connection, contacts_by_key: dict[st
             conn.execute("UPDATE companies SET connection_count = ? WHERE id = ?", (count, row["id"]))
             touched += 1
     return touched
+
+
+DECISIONS = ("techmap", "skip")
+
+
+def _id_for(conn: sqlite3.Connection, display_name: str) -> str:
+    """The company id for a display name, raising KeyError when it is not
+    tracked - so a typo from the panel is a 404 rather than a new company."""
+    row = conn.execute("SELECT id FROM companies WHERE display_name = ?", (display_name,)).fetchone()
+    if row is None:
+        raise KeyError(display_name)
+    return row["id"]
+
+
+def set_decision(conn: sqlite3.Connection, display_name: str, decision: str) -> None:
+    """Approve techmap's own data as a fallback source, or mark the company
+    skipped."""
+    if decision not in DECISIONS:
+        raise ValueError(f"decision must be one of {DECISIONS!r}, got {decision!r}")
+    conn.execute("UPDATE companies SET review_decision = ? WHERE id = ?", (decision, _id_for(conn, display_name)))
+
+
+def set_career_url(conn: sqlite3.Connection, display_name: str, url: str) -> None:
+    """Give a company a real career URL. Any earlier review decision is
+    cleared: it then flows through the normal cascade like any other company,
+    so a decision made when it had no URL no longer applies."""
+    conn.execute(
+        "UPDATE companies SET career_url = ?, review_decision = NULL WHERE id = ?",
+        (url, _id_for(conn, display_name)),
+    )
+
+
+def needing_review(conn: sqlite3.Connection, techmap_index: dict[str, list[dict]]) -> list[dict]:
+    """Every company with no career URL, with techmap availability and the
+    current decision. Undecided companies that techmap can actually cover
+    come first - those are the ones where a click helps right now."""
+    from jobfit import connections as connections_module
+
+    results = []
+    for row in conn.execute(
+        "SELECT display_name, review_decision FROM companies WHERE career_url IS NULL"
+    ).fetchall():
+        rows = techmap_index.get(connections_module.normalize_company(row["display_name"]), [])
+        results.append({
+            "company": row["display_name"],
+            "decision": row["review_decision"] or "pending",
+            "has_techmap": bool(rows),
+            "techmap_job_count": len(rows),
+            "techmap_sample_title": rows[0]["title"] if rows else None,
+        })
+    results.sort(key=lambda r: (r["decision"] != "pending", not r["has_techmap"], r["company"].lower()))
+    return results

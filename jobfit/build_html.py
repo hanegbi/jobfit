@@ -288,6 +288,7 @@ PAGE_TEMPLATE = r"""<!doctype html>
     </div>
 
     <button class="btn" id="resetBtn">Reset filters</button>
+    <button class="btn" id="exportDataBtn" title="Save your liked/hidden/sent/reached flags to a file, to import into the app">Export my data</button>
     <button class="btn" id="clearDataBtn" title="If the view ever looks stuck or wrong, this wipes all saved filters/liked/hidden state and reloads">Clear saved data &amp; reload</button>
 
     <div>
@@ -1095,6 +1096,22 @@ document.getElementById("resetBtn").addEventListener("click", () => {
   visibleCount = PAGE_SIZE;
   render();
 });
+// This page is being replaced by the app at /app, where these flags live in
+// the database instead. They only exist in THIS browser, so they have to
+// leave through a file the import command can read.
+document.getElementById("exportDataBtn").addEventListener("click", () => {
+  const data = {};
+  for (const key of ["jobfit_liked", "jobfit_hidden", "jobfit_sent", "jobfit_reached", "jobfit_saved_filters"]) {
+    try { data[key] = JSON.parse(localStorage.getItem(key) || "null"); } catch (e) { data[key] = null; }
+  }
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "jobfit-my-data.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
+
 document.getElementById("clearDataBtn").addEventListener("click", () => {
   try { localStorage.clear(); } catch (e) { /* private mode / storage blocked */ }
   location.reload();

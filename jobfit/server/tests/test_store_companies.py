@@ -87,3 +87,44 @@ def test_a_removed_connections_file_clears_every_count():
     companies.refresh_connection_counts(conn, {"acme": ["Jane"]})
     companies.refresh_connection_counts(conn, {})
     assert companies.get_company(conn, "acme")["connection_count"] == 0
+
+
+# --- review decisions, ported from company_review.py ------------------------
+
+def test_set_decision_requires_a_known_company_and_a_known_decision():
+    import pytest
+
+    conn = _conn()
+    companies.upsert_company(conn, "acme", "Acme")
+    companies.set_decision(conn, "Acme", "techmap")
+    assert companies.get_company(conn, "acme")["review_decision"] == "techmap"
+
+    with pytest.raises(ValueError):
+        companies.set_decision(conn, "Acme", "maybe")
+    with pytest.raises(KeyError):
+        companies.set_decision(conn, "Nobody", "skip")
+
+
+def test_setting_a_career_url_clears_an_earlier_review_decision():
+    """A company with a real URL flows through the normal cascade, so a
+    decision made when it had none no longer applies."""
+    conn = _conn()
+    companies.upsert_company(conn, "acme", "Acme", review_decision="techmap")
+    companies.set_career_url(conn, "Acme", "https://acme.com/careers")
+    row = companies.get_company(conn, "acme")
+    assert row["career_url"] == "https://acme.com/careers" and row["review_decision"] is None
+
+
+def test_needing_review_lists_companies_with_no_url_undecided_first():
+    conn = _conn()
+    companies.upsert_company(conn, "acme", "Acme", career_url="https://acme.com/careers")
+    companies.upsert_company(conn, "beta", "Beta")
+    companies.upsert_company(conn, "gamma", "Gamma", review_decision="skip")
+    techmap = {"beta": [{"title": "Backend Engineer"}]}
+
+    result = companies.needing_review(conn, techmap)
+
+    assert [r["company"] for r in result] == ["Beta", "Gamma"]   # Acme has a URL
+    assert result[0]["decision"] == "pending" and result[0]["has_techmap"] is True
+    assert result[0]["techmap_job_count"] == 1
+    assert result[1]["decision"] == "skip"

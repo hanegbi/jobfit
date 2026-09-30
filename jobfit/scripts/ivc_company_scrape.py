@@ -48,7 +48,7 @@ from playwright.async_api import async_playwright
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from jobfit import ats_fetchers, company_review, config  # noqa: E402
+from jobfit import ats_fetchers, config  # noqa: E402
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
 
 logger = logging.getLogger("jobfit.ivc_company_scrape")
@@ -149,9 +149,19 @@ def _load_raw() -> dict[str, str]:
     return {}
 
 
+async def _save_career_pages(pages: dict[str, str | None]) -> None:
+    """Write the harvested map back as company rows. The curated JSON file
+    this used to update is gone; the store owns career URLs now."""
+    from jobfit.scripts.update_jobs import _snake_case
+
+    conn = db.shared()
+    for name, url in pages.items():
+        store_companies.upsert_company(conn, _snake_case(name), name, career_url=url)
+
+
 async def harvest(max_pages: int | None) -> dict[str, str]:
     raw = _load_raw()
-    known = set(company_review.load_career_pages())
+    known = {row['display_name'] for row in store_companies.list_companies(db.shared())}
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
@@ -306,7 +316,7 @@ async def run_phase2_playwright(
                     found_count += 1
                 done += 1
                 if done % DISCOVER_CHECKPOINT_EVERY == 0 or done == len(targets):
-                    company_review.save_career_pages(career_pages)
+                    _save_career_pages(career_pages)
                     logger.info("playwright fallback: %d/%d done (%d found)", done, len(targets), found_count)
 
             await asyncio.gather(*(_one(name, url) for name, url in targets.items()))
@@ -378,7 +388,7 @@ def run_phase3_ats_guess(names: list[str], workers: int = ATS_GUESS_WORKERS) -> 
 
 
 async def discover(raw: dict[str, str]) -> None:
-    career_pages = company_review.load_career_pages()
+    career_pages = {row['display_name']: row['career_url'] for row in store_companies.list_companies(db.shared())}
     targets = {name: url for name, url in raw.items() if name not in career_pages}
     if not targets:
         logger.info("nothing new to discover career pages for")
@@ -394,13 +404,13 @@ async def discover(raw: dict[str, str]) -> None:
             plain_found += 1
         else:
             needs_playwright[name] = targets[name]
-    company_review.save_career_pages(career_pages)
+    _save_career_pages(career_pages)
     logger.info("plain HTTP: %d/%d found a careers link", plain_found, len(targets))
 
     pw_found = await run_phase2_playwright(needs_playwright, career_pages)
     if needs_playwright:
         logger.info("playwright fallback: %d/%d found a careers link", pw_found, len(needs_playwright))
-    company_review.save_career_pages(career_pages)
+    _save_career_pages(career_pages)
 
     still_missing = [name for name in targets if not career_pages.get(name)]
     ats_results = run_phase3_ats_guess(still_missing) if still_missing else {}
@@ -409,7 +419,7 @@ async def discover(raw: dict[str, str]) -> None:
         if found:
             career_pages[name] = found
             ats_found += 1
-    company_review.save_career_pages(career_pages)
+    _save_career_pages(career_pages)
     if still_missing:
         logger.info("ATS guess: %d/%d found a real board", ats_found, len(still_missing))
 
@@ -425,7 +435,7 @@ def backfill_ats_guess_for_all_pending() -> None:
     currently null in companies_career_pages.json, not just ones from the
     most recent harvest - useful to retroactively improve companies added
     earlier (via referrals, manual review, or prior sessions)."""
-    career_pages = company_review.load_career_pages()
+    career_pages = {row['display_name']: row['career_url'] for row in store_companies.list_companies(db.shared())}
     pending = [name for name, url in career_pages.items() if not url]
     if not pending:
         logger.info("no pending companies to backfill")
@@ -437,7 +447,7 @@ def backfill_ats_guess_for_all_pending() -> None:
         if url:
             career_pages[name] = url
             found += 1
-    company_review.save_career_pages(career_pages)
+    _save_career_pages(career_pages)
     logger.info("backfill done: %d/%d found a real board", found, len(pending))
 
 

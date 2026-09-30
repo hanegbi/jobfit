@@ -19,7 +19,8 @@ uv run python -m jobfit.scripts.update_jobs --force-rescore   # ignore the score
 uv run python -m jobfit.scripts.migrate_to_db                 # (one-off) load the company JSON files into the store
 uv run python -m jobfit.scripts.update_jobs --plans           # print scrape-plan stats and exit (cheap, no network)
 uv run python -m jobfit.scripts.update_jobs --discover        # derive missing scrape plans; THE ONLY MODE THAT CALLS A MODEL
-uv run uvicorn jobfit.server.app:app --port 8787              # control panel at 127.0.0.1:8787
+uv run uvicorn jobfit.server.app:app --port 8787              # the app at /app, control panel at /
+cd frontend && npm run build                                  # rebuild the front end (its output is committed)
 ```
 
 Tests (there is no linter, formatter or type checker — `ruff` and `mypy` are not installed):
@@ -49,7 +50,7 @@ Where state lives:
 | `jobfit/data/scrape_plans/` | One plan per company: how to scrape it. Committed — see `jobfit/scrape/CLAUDE.md` |
 | `jobfit/cache/listing_snapshots/` | The HTML each plan was derived from: the replay suite's fixtures. Committed |
 | `jobfit/cache/` | Per-source caches with their own TTLs (see `config.py`) |
-| `jobfit/companies/*.json`, `companies_career_pages.json`, `data/company_registry.json`, `data/company_review.json` | **Legacy.** The pre-migration source, kept as a rollback path until phase 4. Nothing writes them any more; nothing should read them except `scripts/migrate_to_db.py` |
+| `jobfit/companies/*.json`, `companies_career_pages.json`, `data/company_registry.json`, `data/company_review.json`, `data/jobs_v2.json` | **Legacy, awaiting deletion.** The pre-migration source. Nothing reads or writes them except `scripts/migrate_to_db.py`; they exist as a rollback path and are in git history either way |
 
 `config.py` holds every path and tuning constant, including personal input paths (CVs, connections CSV,
 referral export). Those inputs are gitignored and uploaded through the control panel — read the paths from
@@ -59,9 +60,9 @@ Sub-packages with their own CLAUDE.md: `jobfit/store/` (SQLite; every SQL statem
 (plan-driven scraping), `jobfit/ats_scorer/` (the scoring engine), `jobfit/server/` (control panel —
 and the whole project's test suite).
 
-`jobfit.html` and `build_html.py` are scaffolding on the way out: the page is still generated from
-the store so the tool keeps working, and both go away when the React application replaces them
-(phase 3 of the spec above).
+The React application is at `/app`, built from `frontend/` (see its own CLAUDE.md). `jobfit.html`
+and `build_html.py` are the superseded static page, kept only until the browser-state export has
+been imported - see `scripts/import_browser_state.py`. Nothing new should depend on them.
 
 `jobfit/pipeline.py` is the superseded single-shot pipeline. It still exists because `update_jobs` imports
 its `_infer_location_fields`; don't fork that logic, and don't reach for `pipeline.py` as a CLI.

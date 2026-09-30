@@ -28,13 +28,19 @@ uv run python -m jobfit.scripts.update_jobs --plans          # what each company
 
 Then open `jobfit.html` - no server needed. New jobs are tagged "New"; closed listings are hidden by default (toggle "Show closed jobs" in the sidebar to review them).
 
-## Control panel
+## The app
 
 ```
 uv run uvicorn jobfit.server.app:app --port 8787
 ```
 
-Then open `http://127.0.0.1:8787/` - a local admin page for managing CV profiles, your connections CSV, and referral job ads (all with upload dates), plus an on-demand "Run update" button with a live log and run history. Uploads apply instantly (no scraping); the run button is the only thing that hits the network.
+Then open `http://127.0.0.1:8787/app` - search and filter every job, see the score against each CV,
+and mark what you liked, hid, applied to or reached out about. Those flags live in the database, so
+they survive a browser reload and are the same from any browser on this machine.
+
+## Control panel
+
+The same server serves `http://127.0.0.1:8787/` - a local admin page for managing CV profiles, your connections CSV, and referral job ads (all with upload dates), plus an on-demand "Run update" button with a live log and run history. Uploads apply instantly (no scraping); the run button is the only thing that hits the network.
 
 ## Adding a company
 
