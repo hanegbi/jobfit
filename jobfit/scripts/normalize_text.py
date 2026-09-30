@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+from pathlib import Path
 
 from jobfit import config, translation
 from jobfit.atomic_io import write_json_atomic
@@ -161,12 +162,49 @@ def close_nav_junk(conn) -> dict:
     return {"open_jobs": len(rows), "closed_as_navigation": len(junk)}
 
 
+def apply_title_translations(conn, path) -> dict:
+    """Apply a {hebrew title: english title} file to the store and the cache.
+
+    A repair hatch for titles the translation service will not do - it rate
+    limits, and 411 of these are Hebrew defence-industry job titles it
+    handles badly even when it answers. The translations go into the same
+    cache keyed the same way, so the scrape path finds them and never calls
+    out for those strings again.
+    """
+    mapping = json.loads(path.read_text(encoding="utf-8"))
+    hebrew = {
+        row["title"]
+        for row in conn.execute("SELECT DISTINCT title FROM jobs WHERE title GLOB '*[֐-׿]*'")
+    }
+    missing = sorted(hebrew - set(mapping))
+    unused = sorted(set(mapping) - hebrew)
+
+    cache = translation._load_cache()
+    updated = 0
+    with conn:
+        for source, english in mapping.items():
+            if not english or translation.contains_hebrew(english):
+                continue
+            cache[translation._cache_key(source)] = english
+            cursor = conn.execute(
+                "UPDATE jobs SET title = ?, title_original = COALESCE(title_original, ?), "
+                "source_language = 'he' WHERE title = ?",
+                (english, source, source))
+            updated += cursor.rowcount
+    write_json_atomic(translation.CACHE_PATH, cache)
+    translation._cache_memo = None
+    return {"in_file": len(mapping), "jobs_updated": updated,
+            "still_hebrew_not_in_file": len(missing), "unused_entries": len(unused),
+            "missing_sample": missing[:10]}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--departments", action="store_true", help="fold departments into the canonical set")
     parser.add_argument("--translate", action="store_true", help="retranslate Hebrew titles")
     parser.add_argument("--companies", action="store_true", help="drop the Hebrew half of company names")
     parser.add_argument("--nav-junk", action="store_true", help="close open jobs that are site navigation")
+    parser.add_argument("--apply-titles", type=Path, help="a {hebrew: english} JSON file of title translations")
     parser.add_argument("--limit", type=int, default=0, help="translate at most N titles")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -178,11 +216,13 @@ def main() -> None:
         print(clean_company_names(conn))
     if args.nav_junk:
         print(close_nav_junk(conn))
+    if args.apply_titles:
+        print(apply_title_translations(conn, args.apply_titles))
     if args.translate:
         dropped = drop_poisoned_translations()
         print(f"dropped {dropped} poisoned cache entries")
         print(retranslate(conn, args.limit))
-    if not (args.departments or args.translate or args.companies or args.nav_junk):
+    if not (args.departments or args.translate or args.companies or args.nav_junk or args.apply_titles):
         parser.error("pick --departments, --companies, --nav-junk, --translate, or a combination")
 
 
