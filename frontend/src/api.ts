@@ -10,14 +10,19 @@ async function get<T>(path: string): Promise<T> {
 }
 
 export function fetchJobs(filters: Filters, size = 50): Promise<JobPage> {
-  const query = filtersToQuery(filters);
-  return get<JobPage>(`/api/jobs${query ? `${query}&` : "?"}size=${size}`);
+  const query = filtersToQuery(filters, true);
+  const page = filters.page > 1 ? `&page=${filters.page}` : "";
+  return get<JobPage>(`/api/jobs${query ? `${query}&` : "?"}size=${size}${page}`);
 }
 
 export function fetchFacets(filters: Filters): Promise<Facets> {
-  // Facets ignore paging and sorting: they describe the whole filtered set.
+  // Facets describe the whole filtered set, so paging and sorting are dropped.
   const { page: _page, sort: _sort, ...rest } = filters;
-  return get<Facets>(`/api/facets${filtersToQuery(rest as Filters)}`);
+  return get<Facets>(`/api/facets${filtersToQuery(rest as Filters, true)}`);
+}
+
+export function fetchScoredProfiles(): Promise<string[]> {
+  return get<string[]>("/api/profiles/scored");
 }
 
 export function fetchJob(jobId: string): Promise<JobDetail> {

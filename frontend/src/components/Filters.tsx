@@ -1,16 +1,21 @@
-import type { Facets, Filters as FilterState, SortKey } from "../types";
+import { useState } from "react";
+
+import type { Facets, Filters as FilterState, Scope, SortKey } from "../types";
+import { isInSet, toggleInSet } from "../useFilters";
+import { SavedFilters } from "./SavedFilters";
 
 interface Props {
   filters: FilterState;
   facets?: Facets;
+  profiles: string[];
   total: number;
   update: (patch: Partial<FilterState>) => void;
   reset: () => void;
+  apply: (filters: FilterState) => void;
 }
 
-/** A tri-state control: unset / yes / no. The old page could only express
- * "on" and "off", which meant "show me jobs I have NOT hidden" was
- * unaskable. */
+/** unset / yes / no. The old page could only say "on" and "off", which left
+ * "show me jobs I have NOT hidden" unaskable. */
 function Tri({
   label,
   value,
@@ -43,11 +48,68 @@ function Tri({
   );
 }
 
-export function FiltersPanel({ filters, facets, total, update, reset }: Props) {
-  const cities = facets?.cities?.slice(0, 14) ?? [];
-  const companies = facets?.companies?.slice(0, 14) ?? [];
-  const statuses = facets?.statuses ?? {};
+/** A tickable list of values for one comma-separated filter. Collapsed to the
+ * top few until asked, because there are 3,496 companies. */
+function FacetGroup({
+  title,
+  options,
+  selected,
+  onToggle,
+  searchable = false,
+}: {
+  title: string;
+  options: { value: string; label: string; n: number }[];
+  selected: string | null;
+  onToggle: (value: string) => void;
+  searchable?: boolean;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const [query, setQuery] = useState("");
 
+  if (options.length === 0) return null;
+  const matching = query
+    ? options.filter((o) => o.label.toLowerCase().includes(query.toLowerCase()))
+    : options;
+  const shown = expanded ? matching.slice(0, 200) : matching.slice(0, 8);
+
+  return (
+    <div className="group">
+      <h3>{title}</h3>
+      {searchable && expanded && (
+        <input
+          className="facet-search"
+          type="search"
+          placeholder={`Filter ${title.toLowerCase()}…`}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      )}
+      {shown.map((option) => (
+        <button
+          key={option.value}
+          type="button"
+          className={`facet${isInSet(selected, option.value) ? " on" : ""}`}
+          onClick={() => onToggle(option.value)}
+        >
+          <span title={option.label}>{option.label}</span>
+          <span className="count">{option.n.toLocaleString()}</span>
+        </button>
+      ))}
+      {matching.length > shown.length && !expanded && (
+        <button type="button" className="link small" onClick={() => setExpanded(true)}>
+          show all {matching.length}
+        </button>
+      )}
+      {expanded && (
+        <button type="button" className="link small" onClick={() => setExpanded(false)}>
+          show fewer
+        </button>
+      )}
+    </div>
+  );
+}
+
+export function FiltersPanel({ filters, facets, profiles, total, update, reset, apply }: Props) {
   return (
     <aside className="filters">
       <div className="filters-head">
@@ -57,31 +119,108 @@ export function FiltersPanel({ filters, facets, total, update, reset }: Props) {
         </button>
       </div>
 
+      <SavedFilters filters={filters} apply={apply} />
+
+      <label className="field">
+        <span>Search in</span>
+        <select value={filters.scope} onChange={(e) => update({ scope: e.target.value as Scope })}>
+          <option value="all">Title and description</option>
+          <option value="title">Title only</option>
+        </select>
+      </label>
+
+      <label className="field">
+        <span>Exclude words</span>
+        <input
+          type="text"
+          placeholder="e.g. sales manager"
+          defaultValue={filters.exclude}
+          onBlur={(e) => e.target.value !== filters.exclude && update({ exclude: e.target.value })}
+          onKeyDown={(e) => e.key === "Enter" && update({ exclude: (e.target as HTMLInputElement).value })}
+        />
+      </label>
+
+      <label className="field">
+        <span>Score against</span>
+        <select value={filters.profile} onChange={(e) => update({ profile: e.target.value })}>
+          <option value="best">Best of my CVs</option>
+          {profiles.map((profile) => (
+            <option key={profile} value={profile}>
+              {profile}
+            </option>
+          ))}
+        </select>
+      </label>
+
       <label className="field">
         <span>Sort</span>
         <select value={filters.sort} onChange={(e) => update({ sort: e.target.value as SortKey })}>
           <option value="score">Best score</option>
           <option value="date">Newest</option>
           <option value="company">Company</option>
+          <option value="title">Title</option>
         </select>
       </label>
 
+      <div className="two-up">
+        <label className="field">
+          <span>Min score</span>
+          <input
+            type="number"
+            min={0}
+            max={100}
+            value={filters.minScore ?? ""}
+            placeholder="any"
+            onChange={(e) => update({ minScore: e.target.value === "" ? null : Number(e.target.value) })}
+          />
+        </label>
+        <label className="field">
+          <span>Max years</span>
+          <input
+            type="number"
+            min={0}
+            max={20}
+            value={filters.maxYears ?? ""}
+            placeholder="any"
+            onChange={(e) => update({ maxYears: e.target.value === "" ? null : Number(e.target.value) })}
+          />
+        </label>
+      </div>
+
       <label className="field">
-        <span>Minimum score</span>
-        <input
-          type="number"
-          min={0}
-          max={100}
-          value={filters.minScore ?? ""}
-          placeholder="any"
-          onChange={(e) => update({ minScore: e.target.value === "" ? null : Number(e.target.value) })}
-        />
+        <span>Posted since</span>
+        <select
+          value={filters.postedAfter ?? ""}
+          onChange={(e) => update({ postedAfter: e.target.value || null })}
+        >
+          <option value="">Any time</option>
+          {[
+            { days: 7, label: "Last week" },
+            { days: 30, label: "Last month" },
+            { days: 90, label: "Last 3 months" },
+          ].map(({ days, label }) => {
+            const since = new Date(Date.now() - days * 86_400_000).toISOString().slice(0, 10);
+            return (
+              <option key={days} value={since}>
+                {label}
+              </option>
+            );
+          })}
+        </select>
+      </label>
+
+      <label className="toggle-row">
+        <input type="checkbox" checked={filters.group} onChange={(e) => update({ group: e.target.checked })} />
+        <span>Group by company</span>
       </label>
 
       <Tri label="Remote" value={filters.remote} onChange={(remote) => update({ remote })} />
       <Tri label="I know someone" value={filters.hasConnection} onChange={(v) => update({ hasConnection: v })} />
+      <Tri label="Has description" value={filters.hasDescription} onChange={(v) => update({ hasDescription: v })} />
+      <Tri label="Referral" value={filters.referral} onChange={(referral) => update({ referral })} />
       <Tri label="Liked" value={filters.liked} onChange={(liked) => update({ liked })} />
       <Tri label="CV sent" value={filters.sent} onChange={(sent) => update({ sent })} />
+      <Tri label="Reached out" value={filters.reachedOut} onChange={(v) => update({ reachedOut: v })} />
       <Tri label="Hidden" value={filters.hidden} onChange={(hidden) => update({ hidden })} />
 
       <div className="group">
@@ -100,13 +239,12 @@ export function FiltersPanel({ filters, facets, total, update, reset }: Props) {
         >
           <span>everything</span>
         </button>
-        {Object.entries(statuses).length === 0 && <p className="muted">–</p>}
-        {Object.entries(statuses).map(([status, count]) => (
+        {Object.entries(facets?.statuses ?? {}).map(([status, count]) => (
           <button
             key={status}
             type="button"
             className={`facet${filters.status === status ? " on" : ""}`}
-            onClick={() => update({ status: filters.status === status ? null : status })}
+            onClick={() => update({ status: filters.status === status ? "open" : status })}
           >
             <span>{status}</span>
             <span className="count">{count.toLocaleString()}</span>
@@ -114,35 +252,44 @@ export function FiltersPanel({ filters, facets, total, update, reset }: Props) {
         ))}
       </div>
 
-      <div className="group">
-        <h3>City</h3>
-        {cities.map(({ city, n }) => (
-          <button
-            key={city}
-            type="button"
-            className={`facet${filters.city === city ? " on" : ""}`}
-            onClick={() => update({ city: filters.city === city ? null : city })}
-          >
-            <span>{city}</span>
-            <span className="count">{n.toLocaleString()}</span>
-          </button>
-        ))}
-      </div>
-
-      <div className="group">
-        <h3>Company</h3>
-        {companies.map(({ id, name, n }) => (
-          <button
-            key={id}
-            type="button"
-            className={`facet${filters.company === id ? " on" : ""}`}
-            onClick={() => update({ company: filters.company === id ? null : id })}
-          >
-            <span title={name}>{name}</span>
-            <span className="count">{n.toLocaleString()}</span>
-          </button>
-        ))}
-      </div>
+      <FacetGroup
+        title="City"
+        options={(facets?.cities ?? []).map((c) => ({ value: c.city, label: c.city, n: c.n }))}
+        selected={filters.city}
+        onToggle={(value) => update({ city: toggleInSet(filters.city, value) })}
+        searchable
+      />
+      <FacetGroup
+        title="Company"
+        options={(facets?.companies ?? []).map((c) => ({ value: c.id, label: c.name, n: c.n }))}
+        selected={filters.company}
+        onToggle={(value) => update({ company: toggleInSet(filters.company, value) })}
+        searchable
+      />
+      <FacetGroup
+        title="Department"
+        options={(facets?.departments ?? []).map((d) => ({ value: d.department, label: d.department, n: d.n }))}
+        selected={filters.department}
+        onToggle={(value) => update({ department: toggleInSet(filters.department, value) })}
+        searchable
+      />
+      <FacetGroup
+        title="Industry"
+        options={(facets?.industries ?? []).map((i) => ({ value: i.industry, label: i.industry, n: i.n }))}
+        selected={filters.industry}
+        onToggle={(value) => update({ industry: toggleInSet(filters.industry, value) })}
+        searchable
+      />
+      <FacetGroup
+        title="Language"
+        options={(facets?.languages ?? []).map((l) => ({
+          value: l.language,
+          label: l.language === "he" ? "Hebrew" : l.language === "en" ? "English" : l.language,
+          n: l.n,
+        }))}
+        selected={filters.language}
+        onToggle={(value) => update({ language: toggleInSet(filters.language, value) })}
+      />
     </aside>
   );
 }

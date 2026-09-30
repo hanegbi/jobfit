@@ -13,7 +13,8 @@ import sqlite3
 _LIST_COLUMNS = (
     "j.id, j.company_id, j.title, j.url, j.location, j.city, j.is_remote, j.department, "
     "j.employment_type, j.status, j.first_seen, j.last_seen, j.posted_at, j.years_required, "
-    "j.is_referral, j.referral_contact, c.display_name AS company, c.connection_count, "
+    "j.is_referral, j.referral_contact, j.source_language, "
+    "c.display_name AS company, c.connection_count, c.industry, "
     "COALESCE(st.liked, 0) AS liked, COALESCE(st.hidden, 0) AS hidden, "
     "COALESCE(st.sent, 0) AS sent, COALESCE(st.reached_out, 0) AS reached_out"
 )
@@ -25,8 +26,10 @@ _SORTS = {
     "score": "best_score DESC NULLS LAST, j.id",
     "date": "COALESCE(j.posted_at, j.first_seen) DESC, j.id",
     "company": "c.display_name COLLATE NOCASE, j.id",
+    "title": "j.title COLLATE NOCASE",
 }
 _BOOL_FIELDS = ("liked", "hidden", "sent", "reached_out", "is_remote", "is_referral")
+_STATE_FILTERS = ("liked", "hidden", "sent", "reached_out")
 # Word characters plus the ones that carry meaning in this domain: C++, C#,
 # .NET, node.js, and Hebrew.
 _TERM_RE = re.compile(r"[0-9A-Za-z֐-׿#+.]+")
@@ -36,12 +39,14 @@ _TERM_RE = re.compile(r"[0-9A-Za-z֐-׿#+.]+")
 NO_MATCH = object()
 
 
-def _fts_query(raw: str) -> str:
+def _fts_query(raw: str, scope: str = "all") -> str:
     """FTS5 has its own query syntax, where a bare quote or a lone AND is a
     syntax error rather than a search. Every run of term characters becomes
     one quoted term and the terms are ANDed, so whatever the user types is
-    data, not syntax."""
-    return " AND ".join(f'"{term}"' for term in _TERM_RE.findall(raw or ""))
+    data, not syntax. scope="title" restricts matching to the title column."""
+    terms = _TERM_RE.findall(raw or "")
+    prefix = "title:" if scope == "title" else ""
+    return " AND ".join(f'{prefix}"{term}"' for term in terms)
 
 
 def score_sql(profile: str = "best") -> str:
@@ -50,10 +55,20 @@ def score_sql(profile: str = "best") -> str:
     return "(SELECT score FROM job_scores s WHERE s.job_id = j.id AND s.profile_id = :profile)"
 
 
-def build_filter(*, q: str | None = None, company_id: str | None = None, city: str | None = None,
-                 status: str | None = None, is_remote: bool | None = None, min_score: float | None = None,
-                 profile: str = "best", liked: bool | None = None, hidden: bool | None = None,
-                 sent: bool | None = None, has_connection: bool | None = None):
+def _csv(value: str) -> list[str]:
+    """"a,b" -> ["a", "b"]. The old page let you tick a set of companies or
+    cities, not just one."""
+    return [part.strip() for part in value.split(",") if part.strip()]
+
+
+def build_filter(*, q: str | None = None, scope: str = "all", exclude: str | None = None,
+                 company_id: str | None = None, city: str | None = None, status: str | None = None,
+                 is_remote: bool | None = None, min_score: float | None = None, profile: str = "best",
+                 liked: bool | None = None, hidden: bool | None = None, sent: bool | None = None,
+                 reached_out: bool | None = None, has_connection: bool | None = None,
+                 department: str | None = None, industry: str | None = None, language: str | None = None,
+                 max_years: int | None = None, posted_after: str | None = None,
+                 is_referral: bool | None = None, has_description: bool | None = None):
     """(where clause, params) for every filter the API exposes, or NO_MATCH
     when the text query contained no searchable terms.
 
@@ -64,17 +79,31 @@ def build_filter(*, q: str | None = None, company_id: str | None = None, city: s
     params: dict[str, object] = {}
 
     if q:
-        match = _fts_query(q)
+        match = _fts_query(q, scope)
         if not match:
             return NO_MATCH, {}
         where.append("j.rowid IN (SELECT rowid FROM jobs_fts WHERE jobs_fts MATCH :match)")
         params["match"] = match
-    if company_id:
-        where.append("j.company_id = :company_id")
-        params["company_id"] = company_id
-    if city:
-        where.append("j.city = :city")
-        params["city"] = city
+    if exclude:
+        excluded = _fts_query(exclude, scope="all").replace(" AND ", " OR ")
+        if excluded:
+            where.append("j.rowid NOT IN (SELECT rowid FROM jobs_fts WHERE jobs_fts MATCH :excluded)")
+            params["excluded"] = excluded
+
+    for field, value, column in (
+        ("company_id", company_id, "j.company_id"),
+        ("city", city, "j.city"),
+        ("department", department, "j.department"),
+        ("industry", industry, "c.industry"),
+        ("language", language, "j.source_language"),
+    ):
+        if not value:
+            continue
+        wanted = _csv(value)
+        keys = [f":{field}{index}" for index in range(len(wanted))]
+        where.append(f"{column} IN ({', '.join(keys)})")
+        params.update({key[1:]: item for key, item in zip(keys, wanted)})
+
     if status == "open":
         # One value for "anything still listed", rather than making every
         # caller enumerate new + seen and get it wrong when a third appears.
@@ -85,7 +114,21 @@ def build_filter(*, q: str | None = None, company_id: str | None = None, city: s
     if is_remote is not None:
         where.append("j.is_remote = :is_remote")
         params["is_remote"] = int(is_remote)
-    for field, wanted in (("liked", liked), ("hidden", hidden), ("sent", sent)):
+    if is_referral is not None:
+        where.append("j.is_referral = :is_referral")
+        params["is_referral"] = int(is_referral)
+    if has_description is not None:
+        where.append("j.description != ''" if has_description else "j.description = ''")
+    if max_years is not None:
+        # A job that never stated its years is not evidence of wanting more
+        # than you have, so it stays in.
+        where.append("(j.years_required IS NULL OR j.years_required <= :max_years)")
+        params["max_years"] = max_years
+    if posted_after:
+        where.append("COALESCE(j.posted_at, j.first_seen) >= :posted_after")
+        params["posted_after"] = posted_after
+
+    for field, wanted in (("liked", liked), ("hidden", hidden), ("sent", sent), ("reached_out", reached_out)):
         if wanted is not None:
             where.append(f"COALESCE(st.{field}, 0) = :{field}")
             params[field] = int(wanted)

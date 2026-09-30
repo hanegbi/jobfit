@@ -12,7 +12,7 @@ import sqlite3
 
 from jobfit.store.search import JOINS, NO_MATCH, build_filter
 
-_EMPTY = {"companies": [], "cities": [], "statuses": {}}
+_EMPTY = {"companies": [], "cities": [], "statuses": {}, "departments": [], "industries": [], "languages": [], "years": []}
 
 
 def counts(conn: sqlite3.Connection, **filters) -> dict:
@@ -30,10 +30,23 @@ def counts(conn: sqlite3.Connection, **filters) -> dict:
     status_rows = conn.execute(
         f"SELECT j.status, count(*) AS n {JOINS} {clause} GROUP BY j.status", params).fetchall()
 
+    def _by(column: str, alias: str) -> list[dict]:
+        """One dimension of the sidebar. NULLs are omitted: "no department"
+        is not a department you can usefully filter to."""
+        extra = f"{clause} AND {column} IS NOT NULL" if clause else f"WHERE {column} IS NOT NULL"
+        rows = conn.execute(
+            f"SELECT {column} AS {alias}, count(*) AS n {JOINS} {extra} "
+            f"GROUP BY {column} ORDER BY n DESC, {alias} COLLATE NOCASE", params).fetchall()
+        return [dict(row) for row in rows]
+
     return {
         "companies": [dict(row) for row in companies_rows],
         "cities": [dict(row) for row in cities_rows],
         "statuses": {row["status"]: row["n"] for row in status_rows},
+        "departments": _by("j.department", "department"),
+        "industries": _by("c.industry", "industry"),
+        "languages": _by("j.source_language", "language"),
+        "years": _by("j.years_required", "years"),
     }
 
 
@@ -49,3 +62,9 @@ def companies(conn: sqlite3.Connection) -> list[dict]:
         "GROUP BY c.id ORDER BY open_jobs DESC, name COLLATE NOCASE"
     ).fetchall()
     return [{**dict(row), "open_jobs": row["open_jobs"] or 0} for row in rows]
+
+
+def scored_profiles(conn: sqlite3.Connection) -> list[str]:
+    """Profile ids that have at least one score."""
+    return [row["profile_id"] for row in conn.execute(
+        "SELECT DISTINCT profile_id FROM job_scores ORDER BY profile_id")]

@@ -127,3 +127,24 @@ def test_jobs_can_be_filtered_by_connection(client, seeded):
     body = client.get("/api/jobs?has_connection=true").json()
     assert {j["id"] for j in body["jobs"]} == {"j1", "j2"}
     assert body["jobs"][0]["connection_count"] == 1
+
+
+def test_every_old_page_filter_is_reachable_over_http(client, seeded):
+    """The static page had these; losing them in the port would be a
+    regression the user notices before any test does."""
+    for query in ("scope=title&q=engineer", "exclude=scientist", "department=R%26D",
+                  "industry=Software", "language=he", "max_years=5", "posted_after=2026-01-01",
+                  "referral=false", "has_description=true", "reached_out=false",
+                  "company=acme,beta", "city=Tel+Aviv,Haifa", "sort=title"):
+        res = client.get(f"/api/jobs?{query}")
+        assert res.status_code == 200, query
+
+
+def test_facets_cover_every_sidebar_dimension(client, seeded):
+    body = client.get("/api/facets").json()
+    assert set(body) == {"companies", "cities", "statuses", "departments", "industries",
+                         "languages", "years"}
+
+
+def test_scored_profiles_lists_what_can_be_ranked_by(client, seeded):
+    assert client.get("/api/profiles/scored").json() == ["default"]

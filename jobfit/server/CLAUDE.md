@@ -15,14 +15,16 @@ because two tests once silently emptied the real page and duplicated thousands o
 
 ## The jobs API
 
-Five routes a front end reads, each a thin adapter over a `jobfit/store/` function:
+The routes a front end reads, each a thin adapter over a `jobfit/store/` function:
 
 ```
 GET   /api/jobs             filter/sort/paginate -> {total, page, size, jobs}
 GET   /api/jobs/{id}        description, scores per profile, the user's flags
 PATCH /api/jobs/{id}/state  {liked?, hidden?, sent?, reached_out?} -> the whole new state
-GET   /api/facets           counts per company / city / status for the current filter
+GET   /api/facets           counts per company / city / status / department / industry / language
 GET   /api/companies        every tracked company with open/total job counts
+GET   /api/profiles/scored  the profile ids that have scores, for the "score against" selector
+POST  /api/state/import     adopt liked/hidden/sent flags out of a browser's localStorage
 ```
 
 Two rules they enforce rather than assume: **list rows never carry a `description`** (that single

@@ -36,6 +36,12 @@ Run FastAPI alongside `npm run dev`: `uv run uvicorn jobfit.server.app:app --por
   through. Port bugs hide here, which is why it is the part with unit tests.
 - `api.ts` — every request, so a failure is one message rather than an undefined field in a component.
 - `components/JobList.tsx` — the virtualized list. `compact` drops the location column and the
-  per-row toggles when the detail panel is open; without it the titles rendered as "S…".
-- `components/Filters.tsx` — facet counts beside each option, straight from `/api/facets`.
+  per-row toggles when the detail panel is open; without it the titles rendered as "S…". `toItems`
+  interleaves company headings in the order the *sort* produced, not alphabetically — grouping by
+  company while sorted by score still leads with the company holding the best job.
+- `components/Filters.tsx` — facet counts beside each option, straight from `/api/facets`. Every
+  yes/no filter is tri-state (`any` / `yes` / `no`), because "jobs I have NOT hidden" has to be
+  askable; a plain checkbox can only say "hidden".
+- `components/SavedFilters.tsx` — the old page's saved searches, stored as query strings in
+  `localStorage`. A string, not an object, so a set saved before a filter existed still loads.
 - `components/JobDetail.tsx` — one job: description, per-profile scores, the four toggles.

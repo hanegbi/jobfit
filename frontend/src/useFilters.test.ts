@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { filtersToQuery, queryToFilters } from "./useFilters";
+import { filtersToQuery, isInSet, queryToFilters, toggleInSet } from "./useFilters";
 
 describe("filter state in the URL", () => {
   it("round-trips every filter", () => {
@@ -32,5 +32,35 @@ describe("filter state in the URL", () => {
     const filters = queryToFilters("?page=abc&sort=sideways");
     expect(filters.page).toBe(1);
     expect(filters.sort).toBe("score");
+  });
+});
+
+describe("multi-value filters", () => {
+  it("adds and removes values from a set", () => {
+    expect(toggleInSet(null, "acme")).toBe("acme");
+    expect(toggleInSet("acme", "beta")).toBe("acme,beta");
+    expect(toggleInSet("acme,beta", "acme")).toBe("beta");
+    expect(toggleInSet("acme", "acme")).toBe(null);
+  });
+
+  it("knows what is in the set", () => {
+    expect(isInSet("acme,beta", "beta")).toBe(true);
+    expect(isInSet("acme,beta", "gamma")).toBe(false);
+    expect(isInSet(null, "acme")).toBe(false);
+  });
+
+  it("round-trips a set through the URL", () => {
+    expect(queryToFilters(filtersToQuery({ company: "acme,beta" })).company).toBe("acme,beta");
+  });
+});
+
+describe("what the request sends", () => {
+  it("drops grouping, which is a UI concern the server has no opinion about", () => {
+    expect(filtersToQuery({ group: true, q: "x" }, true)).toBe("?q=x");
+    expect(filtersToQuery({ group: true, q: "x" })).toContain("group=true");
+  });
+
+  it("keeps status=open, which is a real filter and not a default to drop", () => {
+    expect(filtersToQuery({ status: "open" }, true)).toBe("?status=open");
   });
 });

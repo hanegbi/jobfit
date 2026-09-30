@@ -147,3 +147,76 @@ def test_status_open_means_anything_not_closed():
     jobs.upsert_scraped(conn, "acme", [{"id": "j1", "title": "Senior Backend Engineer", "url": "u1"}], LATER)
     assert {j["id"] for j in search.search_jobs(conn, status="open")["jobs"]} == {"j1", "j3"}
     assert {j["id"] for j in search.search_jobs(conn, status="closed")["jobs"]} == {"j2"}
+
+
+# --- the filters the old page had ------------------------------------------
+
+def _rich():
+    """Its own jobs, varied enough to tell the new filters apart."""
+    conn = db.connect(":memory:")
+    db.migrate(conn)
+    companies.upsert_company(conn, "acme", "Acme", industry="Software")
+    companies.upsert_company(conn, "beta", "Beta", industry="Security")
+    jobs.upsert_scraped(conn, "acme", [
+        {"id": "a1", "title": "Senior Backend Engineer", "url": "a1", "department": "R&D",
+         "description": "Requirements: 5+ years experience with Python", "years_required": 5,
+         "posted_at": "2026-09-28", "source_language": "he"},
+        {"id": "a2", "title": "Recruiter", "url": "a2", "department": "HR", "description": "",
+         "posted_at": "2026-01-01"},
+    ], NOW)
+    jobs.upsert_scraped(conn, "beta", [
+        {"id": "b1", "title": "Security Researcher", "url": "b1", "department": "R&D",
+         "description": "Requirements: reverse engineering", "years_required": 2,
+         "is_referral": True, "referral_contact": "Jane", "posted_at": "2026-09-29"},
+    ], NOW)
+    return conn
+
+
+def test_search_can_be_limited_to_titles():
+    conn = _rich()
+    assert {j["id"] for j in search.search_jobs(conn, q="python")["jobs"]} == {"a1"}
+    assert search.search_jobs(conn, q="python", scope="title")["total"] == 0
+    assert {j["id"] for j in search.search_jobs(conn, q="engineer", scope="title")["jobs"]} == {"a1"}
+
+
+def test_terms_can_be_excluded():
+    conn = _rich()
+    assert {j["id"] for j in search.search_jobs(conn, exclude="recruiter")["jobs"]} == {"a1", "b1"}
+    assert {j["id"] for j in search.search_jobs(conn, q="engineer", exclude="senior")["jobs"]} == set()
+
+
+def test_filtering_by_department_industry_and_language():
+    conn = _rich()
+    assert {j["id"] for j in search.search_jobs(conn, department="R&D")["jobs"]} == {"a1", "b1"}
+    assert {j["id"] for j in search.search_jobs(conn, industry="Security")["jobs"]} == {"b1"}
+    assert {j["id"] for j in search.search_jobs(conn, language="he")["jobs"]} == {"a1"}
+
+
+def test_filtering_by_years_required_and_posted_date():
+    """A job that never stated its years stays in: silence is not evidence
+    that it wants more experience than you have."""
+    conn = _rich()
+    assert {j["id"] for j in search.search_jobs(conn, max_years=3)["jobs"]} == {"a2", "b1"}
+    assert {j["id"] for j in search.search_jobs(conn, posted_after="2026-09-01")["jobs"]} == {"a1", "b1"}
+
+
+def test_filtering_by_referral_and_by_having_a_description():
+    conn = _rich()
+    assert {j["id"] for j in search.search_jobs(conn, is_referral=True)["jobs"]} == {"b1"}
+    assert {j["id"] for j in search.search_jobs(conn, has_description=True)["jobs"]} == {"a1", "b1"}
+    assert {j["id"] for j in search.search_jobs(conn, has_description=False)["jobs"]} == {"a2"}
+
+
+def test_several_companies_or_cities_at_once():
+    """The old page let you tick a set of companies, not just one."""
+    conn = _conn()
+    assert {j["id"] for j in search.search_jobs(conn, company_id="acme,beta")["jobs"]} == {"j1", "j2", "j3"}
+    assert {j["id"] for j in search.search_jobs(conn, city="Tel Aviv,Haifa")["jobs"]} == {"j1", "j2", "j3"}
+
+
+def test_filtering_by_reached_out():
+    from jobfit.store import state
+
+    conn = _conn()
+    state.set_state(conn, "j1", reached_out=True)
+    assert {j["id"] for j in search.search_jobs(conn, reached_out=True)["jobs"]} == {"j1"}

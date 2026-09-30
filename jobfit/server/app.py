@@ -181,19 +181,27 @@ def api_set_company_career_url(company: str, payload: dict) -> dict:
 
 @app.get("/api/jobs")
 def api_jobs(
-    q: str | None = None, company: str | None = None, city: str | None = None,
-    status: str | None = None, remote: bool | None = None, min_score: float | None = None,
-    profile: str = "best", liked: bool | None = None, hidden: bool | None = None,
-    sent: bool | None = None, has_connection: bool | None = None,
+    q: str | None = None, scope: str = "all", exclude: str | None = None,
+    company: str | None = None, city: str | None = None, status: str | None = None,
+    remote: bool | None = None, min_score: float | None = None, profile: str = "best",
+    liked: bool | None = None, hidden: bool | None = None, sent: bool | None = None,
+    reached_out: bool | None = None, has_connection: bool | None = None,
+    department: str | None = None, industry: str | None = None, language: str | None = None,
+    max_years: int | None = None, posted_after: str | None = None,
+    referral: bool | None = None, has_description: bool | None = None,
     sort: str = "score", page: int = 1, size: int = 50,
 ) -> dict:
     """One page of matching jobs plus the full total. List rows carry no
     description, and size is capped: an unbounded page would let one request
     pull the whole dataset, which is what this API exists to avoid."""
     return search.search_jobs(
-        db.shared(), q=q, company_id=company, city=city, status=status, is_remote=remote,
-        min_score=min_score, profile=profile, liked=liked, hidden=hidden, sent=sent,
-        has_connection=has_connection, sort=sort, page=page, size=min(max(1, size), 500),
+        db.shared(), q=q, scope=scope, exclude=exclude, company_id=company, city=city,
+        status=status, is_remote=remote, min_score=min_score, profile=profile,
+        liked=liked, hidden=hidden, sent=sent, reached_out=reached_out,
+        has_connection=has_connection, department=department, industry=industry,
+        language=language, max_years=max_years, posted_after=posted_after,
+        is_referral=referral, has_description=has_description,
+        sort=sort, page=page, size=min(max(1, size), 500),
     )
 
 
@@ -232,18 +240,33 @@ def api_import_browser_state(payload: dict) -> dict:
 
 @app.get("/api/facets")
 def api_facets(
-    q: str | None = None, company: str | None = None, city: str | None = None,
-    status: str | None = None, remote: bool | None = None, min_score: float | None = None,
-    profile: str = "best", liked: bool | None = None, hidden: bool | None = None,
-    sent: bool | None = None, has_connection: bool | None = None,
+    q: str | None = None, scope: str = "all", exclude: str | None = None,
+    company: str | None = None, city: str | None = None, status: str | None = None,
+    remote: bool | None = None, min_score: float | None = None, profile: str = "best",
+    liked: bool | None = None, hidden: bool | None = None, sent: bool | None = None,
+    reached_out: bool | None = None, has_connection: bool | None = None,
+    department: str | None = None, industry: str | None = None, language: str | None = None,
+    max_years: int | None = None, posted_after: str | None = None,
+    referral: bool | None = None, has_description: bool | None = None,
 ) -> dict:
     """Counts per company, city and status for the current filter - built from
     the same WHERE clause as /api/jobs, so they cannot disagree."""
     return facets.counts(
-        db.shared(), q=q, company_id=company, city=city, status=status, is_remote=remote,
-        min_score=min_score, profile=profile, liked=liked, hidden=hidden, sent=sent,
-        has_connection=has_connection,
+        db.shared(), q=q, scope=scope, exclude=exclude, company_id=company, city=city,
+        status=status, is_remote=remote, min_score=min_score, profile=profile,
+        liked=liked, hidden=hidden, sent=sent, reached_out=reached_out,
+        has_connection=has_connection, department=department, industry=industry,
+        language=language, max_years=max_years, posted_after=posted_after,
+        is_referral=referral, has_description=has_description,
     )
+
+
+@app.get("/api/profiles/scored")
+def api_scored_profiles() -> list[str]:
+    """The profile ids that actually have scores, for the "score against"
+    selector. Reads the scores rather than the CV registry: a CV uploaded
+    but never used in a recompute cannot rank anything yet."""
+    return facets.scored_profiles(db.shared())
 
 
 @app.get("/api/companies")

@@ -44,6 +44,7 @@ jobfit/data/jobfit.db-shm
 # jobfit/server/static/app/ is committed, so the server needs no Node.
 frontend/node_modules/
 frontend/dist/
+frontend/tsconfig.tsbuildinfo
 
 # Superseded by the SQLite store (jobfit/data/jobfit.db). Untracked rather than
 # deleted: they are the rollback path the migration already needed once, and

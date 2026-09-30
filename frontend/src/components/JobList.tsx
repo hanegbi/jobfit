@@ -1,5 +1,5 @@
 import { useVirtualizer } from "@tanstack/react-virtual";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 
 import type { JobRow } from "../types";
 import { useToggleJobState, type StateFlag } from "../useJobState";
@@ -73,12 +73,39 @@ function Row({
   );
 }
 
+type Item = { kind: "header"; key: string; company: string; n: number } | { kind: "job"; key: string; job: JobRow };
+
+/** Company headings interleaved into the row list, in the order the sort
+ * already put the companies in - so grouping by company while sorted by score
+ * still leads with the company holding the best job, as the old page did. */
+export function toItems(jobs: JobRow[], group: boolean): Item[] {
+  if (!group) return jobs.map((job) => ({ kind: "job", key: job.id, job }));
+  const order: string[] = [];
+  const byCompany = new Map<string, JobRow[]>();
+  for (const job of jobs) {
+    const existing = byCompany.get(job.company_id);
+    if (existing) existing.push(job);
+    else {
+      order.push(job.company_id);
+      byCompany.set(job.company_id, [job]);
+    }
+  }
+  const items: Item[] = [];
+  for (const companyId of order) {
+    const rows = byCompany.get(companyId)!;
+    items.push({ kind: "header", key: `h:${companyId}`, company: rows[0].company, n: rows.length });
+    for (const job of rows) items.push({ kind: "job", key: job.id, job });
+  }
+  return items;
+}
+
 /** Virtualized: 29,000 matches must cost the same to render as 50. */
 export function JobList({
   jobs,
   selectedId,
   onSelect,
   compact = false,
+  group = false,
 }: {
   jobs: JobRow[];
   selectedId: string | null;
@@ -86,12 +113,14 @@ export function JobList({
   /** With the detail panel open the list is narrow; the location column and
    * the per-row toggles go, because the panel shows both. */
   compact?: boolean;
+  group?: boolean;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const items = useMemo(() => toItems(jobs, group), [jobs, group]);
   const virtualizer = useVirtualizer({
-    count: jobs.length,
+    count: items.length,
     getScrollElement: () => scrollRef.current,
-    estimateSize: () => 44,
+    estimateSize: (index) => (items[index].kind === "header" ? 30 : 44),
     overscan: 12,
   });
 
@@ -102,26 +131,36 @@ export function JobList({
   return (
     <div className={`list${compact ? " compact" : ""}`} ref={scrollRef}>
       <div style={{ height: virtualizer.getTotalSize(), position: "relative" }}>
-        {virtualizer.getVirtualItems().map((item) => (
-          <div
-            key={jobs[item.index].id}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: item.size,
-              transform: `translateY(${item.start}px)`,
-            }}
-          >
-            <Row
-              job={jobs[item.index]}
-              selected={jobs[item.index].id === selectedId}
-              onSelect={onSelect}
-              compact={compact}
-            />
-          </div>
-        ))}
+        {virtualizer.getVirtualItems().map((virtual) => {
+          const item = items[virtual.index];
+          return (
+            <div
+              key={item.key}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: virtual.size,
+                transform: `translateY(${virtual.start}px)`,
+              }}
+            >
+              {item.kind === "header" ? (
+                <div className="group-head">
+                  <span>{item.company}</span>
+                  <span className="count">{item.n}</span>
+                </div>
+              ) : (
+                <Row
+                  job={item.job}
+                  selected={item.job.id === selectedId}
+                  onSelect={onSelect}
+                  compact={compact}
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
