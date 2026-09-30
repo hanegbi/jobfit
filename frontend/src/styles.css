@@ -50,7 +50,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.app { display: flex; flex-direction: column; height: 100vh; }
+.app { display: flex; flex-direction: column; height: 100dvh; }
 
 .top {
   display: flex;
@@ -270,8 +270,21 @@ button.primary.small {
 .tri-buttons button:last-child { border-radius: 0 5px 5px 0; }
 .tri-buttons button.on { background: var(--accent); border-color: var(--accent); color: #06121f; font-weight: 600; }
 
-.group { margin-top: 14px; }
-.group h3 { margin: 0 0 5px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.group { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+/* A rule needs something above it to divide. */
+.filters > .group:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.group h3 {
+  position: sticky;
+  top: -12px;
+  z-index: 1;
+  margin: 0 0 6px;
+  padding: 2px 0 4px;
+  background: var(--panel);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
 .facet {
   display: flex;
   width: 100%;
@@ -404,7 +417,9 @@ a.card-title:hover { color: var(--accent); text-decoration: underline; }
   color: var(--muted);
   font-size: 12px;
 }
-.card-meta .company { color: var(--text); }
+.card-meta .company { color: var(--text); font-weight: 550; }
+/* Everything after the company is context, not a heading. */
+.card-meta > span:not(.company):not(.tag) { color: var(--muted); }
 
 .card-snippet {
   margin: 0;
@@ -487,17 +502,23 @@ a.contact:hover { background: #1d3550; text-decoration: underline; }
   line-height: 1.4;
 }
 .flag { display: inline-flex; align-items: center; gap: 5px; transition: background var(--ease), color var(--ease), border-color var(--ease), transform var(--ease); }
-.flag:hover { color: var(--text); border-color: #3a4757; }
+.flag { color: var(--weak); border-color: transparent; background: transparent; }
+.card:hover .flag { border-color: var(--border); }
+.flag:hover { color: var(--text); border-color: #3a4757; background: var(--panel2); }
 .flag:active { transform: translateY(1px); }
 .flag.on { background: var(--accent); border-color: var(--accent); color: #06121f; font-weight: 600; }
 
 .score {
   flex: none;
-  width: 34px;
+  width: 38px;
+  padding-top: 1px;
   text-align: right;
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
-  font-size: 15px;
+  font-feature-settings: "ss01";
+  font-weight: 650;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 .score.strong { color: var(--strong); }
 .score.fair { color: var(--fair); }
@@ -511,7 +532,7 @@ a.contact:hover { background: #1d3550; text-decoration: underline; }
 }
 .tag.new { background: #16321f; color: var(--strong); }
 .tag.closed { background: #33211f; color: var(--warn); }
-.tag.referral { background: #2b2438; color: #b79bff; }
+.tag.referral { background: #20303f; color: #8fc3ff; }
 .tag.translated { background: #2a2a1c; color: var(--fair); }
 
 .paging {
@@ -557,3 +578,28 @@ a.contact:hover { background: #1d3550; text-decoration: underline; }
   font-size: 12px;
 }
 .banner button.primary { background: var(--accent); border-color: var(--accent); color: #06121f; font-weight: 600; }
+
+
+/* --- narrow windows -------------------------------------------------------
+   A 272px rail plus a readable card does not fit under ~900px, so below that
+   the filters become a band above the results instead of squeezing them. */
+@media (max-width: 900px) {
+  .body { flex-direction: column; }
+  .filters {
+    width: 100%;
+    max-height: 42vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .searchbar { gap: 6px; }
+  .search-field { min-width: 180px; }
+  .card-head { flex-wrap: wrap; }
+  .card-flags { width: 100%; justify-content: flex-start; }
+}
+
+@media (max-width: 560px) {
+  .top { flex-wrap: wrap; gap: 8px; }
+  .panel-link { margin-left: 0; }
+  .search-scope, .search-more { flex: none; }
+  .flag span { display: none; }
+}

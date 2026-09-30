@@ -83,7 +83,7 @@ export function App() {
                 {total > page.jobs.length && (
                   <>
                     {" "}
-                    · showing {((filters.page - 1) * PAGE_SIZE + 1).toLocaleString()}–
+                    · showing {((filters.page - 1) * PAGE_SIZE + 1).toLocaleString()} to{" "}
                     {((filters.page - 1) * PAGE_SIZE + page.jobs.length).toLocaleString()}
                   </>
                 )}

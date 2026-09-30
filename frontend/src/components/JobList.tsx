@@ -28,7 +28,7 @@ function scoreClass(score: number | null): string {
 }
 
 function describe(contact: Contact): string {
-  return contact.position ? `${contact.name} — ${contact.position}` : contact.name;
+  return contact.position ? `${contact.name}, ${contact.position}` : contact.name;
 }
 
 function Contacts({ contacts, count }: { contacts: Contact[]; count: number }) {
@@ -95,7 +95,7 @@ function Card({ job, query }: { job: JobRow; query: string }) {
   return (
     <article className={`card${job.hidden ? " is-hidden" : ""}${job.liked ? " is-liked" : ""}`}>
       <div className="card-head">
-        <span className={scoreClass(job.best_score)}>{job.best_score ?? "–"}</span>
+        <span className={scoreClass(job.best_score)}>{job.best_score ?? "--"}</span>
         <div className="card-heading">
           {/* The title is the link out. There is no in-app detail view: the
               posting itself is the thing you actually want to read. */}
@@ -139,7 +139,7 @@ function Card({ job, query }: { job: JobRow; query: string }) {
               onClick={() => toggle.mutate({ jobId: job.id, flag, current: state })}
             >
               <Icon {...ICON} weight={state[flag] ? "fill" : "bold"} />
-              {label}
+              <span>{label}</span>
             </button>
           ))}
         </span>
