@@ -217,6 +217,19 @@ def api_set_job_state(job_id: str, payload: dict) -> dict:
         raise HTTPException(400, str(error))
 
 
+@app.post("/api/state/import")
+def api_import_browser_state(payload: dict) -> dict:
+    """Adopt liked/hidden/sent/reached flags out of a browser's localStorage.
+
+    The old static page kept them there, where they could not be queried,
+    backed up or seen from another device. The front end offers this once, on
+    the origin that page was served from - flags from a page opened off disk
+    are in a different origin and need the import script instead."""
+    from jobfit.scripts.import_browser_state import import_state
+
+    return import_state(db.shared(), payload)
+
+
 @app.get("/api/facets")
 def api_facets(
     q: str | None = None, company: str | None = None, city: str | None = None,

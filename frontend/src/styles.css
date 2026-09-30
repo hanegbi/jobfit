@@ -249,3 +249,25 @@ main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 
 .muted { color: var(--muted); }
 .error { color: var(--warn); padding: 16px; }
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 16px;
+  border-bottom: 1px solid var(--border);
+  background: #1b2a3d;
+  color: var(--text);
+  font-size: 12.5px;
+}
+.banner.ok { background: #16321f; }
+.banner button {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel2);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 12px;
+}
+.banner button.primary { background: var(--accent); border-color: var(--accent); color: #06121f; font-weight: 600; }

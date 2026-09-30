@@ -6,12 +6,14 @@ import { FiltersPanel } from "./components/Filters";
 import { JobDetail } from "./components/JobDetail";
 import { JobList } from "./components/JobList";
 import { useFilters } from "./useFilters";
+import { useLegacyFlags } from "./useLegacyFlags";
 
 const PAGE_SIZE = 200;
 
 export function App() {
   const { filters, update, reset } = useFilters();
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const legacy = useLegacyFlags();
 
   const jobsQuery = useQuery({
     queryKey: ["jobs", filters],
@@ -46,6 +48,27 @@ export function App() {
           control panel
         </a>
       </header>
+
+      {legacy.found && (
+        <div className="banner">
+          <span>
+            This browser still holds <strong>{legacy.found.count}</strong> liked/hidden/sent flags from the
+            old page. They only exist here until you move them into the database.
+          </span>
+          <button type="button" className="primary" onClick={legacy.importThem}>
+            Import them
+          </button>
+          <button type="button" onClick={legacy.dismiss}>
+            Not now
+          </button>
+        </div>
+      )}
+      {legacy.imported !== null && (
+        <div className="banner ok">
+          Imported {legacy.imported} flag{legacy.imported === 1 ? "" : "s"} from this browser. They live in
+          the database now, so they survive a reload and are the same from any browser here.
+        </div>
+      )}
 
       <div className="body">
         <FiltersPanel
