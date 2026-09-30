@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { Facets, Filters as FilterState, Scope, SortKey } from "../types";
+import type { Facets, Filters as FilterState, SortKey } from "../types";
 import { isInSet, toggleInSet } from "../useFilters";
 import { SavedFilters } from "./SavedFilters";
 
@@ -8,9 +8,7 @@ interface Props {
   filters: FilterState;
   facets?: Facets;
   profiles: string[];
-  total: number;
   update: (patch: Partial<FilterState>) => void;
-  reset: () => void;
   apply: (filters: FilterState) => void;
 }
 
@@ -109,36 +107,12 @@ function FacetGroup({
   );
 }
 
-export function FiltersPanel({ filters, facets, profiles, total, update, reset, apply }: Props) {
+export function FiltersPanel({ filters, facets, profiles, update, apply }: Props) {
   return (
     <aside className="filters">
-      <div className="filters-head">
-        <strong>{total.toLocaleString()}</strong> jobs
-        <button type="button" className="link" onClick={reset}>
-          clear all
-        </button>
-      </div>
-
+      {/* Search scope and excluded words are not filters - they modify the
+          query, and live beside the search box where that query is typed. */}
       <SavedFilters filters={filters} apply={apply} />
-
-      <label className="field">
-        <span>Search in</span>
-        <select value={filters.scope} onChange={(e) => update({ scope: e.target.value as Scope })}>
-          <option value="all">Title and description</option>
-          <option value="title">Title only</option>
-        </select>
-      </label>
-
-      <label className="field">
-        <span>Exclude words</span>
-        <input
-          type="text"
-          placeholder="e.g. sales manager"
-          defaultValue={filters.exclude}
-          onBlur={(e) => e.target.value !== filters.exclude && update({ exclude: e.target.value })}
-          onKeyDown={(e) => e.key === "Enter" && update({ exclude: (e.target as HTMLInputElement).value })}
-        />
-      </label>
 
       <label className="field">
         <span>Score against</span>

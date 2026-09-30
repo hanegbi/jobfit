@@ -44,6 +44,14 @@ Run FastAPI alongside `npm run dev`: `uv run uvicorn jobfit.server.app:app --por
   score still leads with the company holding the best job. The contacts popover raises its whole
   virtual item: each card is an absolutely-positioned sibling, so a later one paints over an earlier
   one's popover.
+- `components/SearchBar.tsx` — the query and the two things that modify it (scope, excluded words).
+  Those are not filters and deliberately do not live in the sidebar: they change what *this* query
+  means and are only reached for while typing one. Typing is debounced; `/` focuses, Esc clears.
+- `components/ActiveFilters.tsx` — every active filter as a chip you can take off. With 25 controls
+  down a scrolling sidebar, an unexplained "0 jobs match" is nearly always a filter set three screens
+  ago; this is the answer to "why am I seeing this?".
+- `components/Highlight.tsx` — marks the matched terms, split the same way `search.py` splits them,
+  so what lights up is what actually matched rather than a substring of the raw query.
 - `components/Filters.tsx` — facet counts beside each option, straight from `/api/facets`. Every
   yes/no filter is tri-state (`any` / `yes` / `no`), because "jobs I have NOT hidden" has to be
   askable; a plain checkbox can only say "hidden".

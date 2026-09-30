@@ -3,6 +3,7 @@ import { useMemo, useRef } from "react";
 
 import type { Contact, JobRow } from "../types";
 import { useToggleJobState, type StateFlag } from "../useJobState";
+import { Highlight } from "./Highlight";
 
 const FLAGS: { flag: StateFlag; label: string; title: string }[] = [
   { flag: "liked", label: "♥ Like", title: "Liked" },
@@ -83,7 +84,7 @@ function Contacts({ contacts, count }: { contacts: Contact[]; count: number }) {
   );
 }
 
-function Card({ job }: { job: JobRow }) {
+function Card({ job, query }: { job: JobRow; query: string }) {
   const toggle = useToggleJobState();
   const state = { liked: job.liked, hidden: job.hidden, sent: job.sent, reached_out: job.reached_out };
   const where = job.is_remote ? "Remote" : (job.city ?? job.location ?? null);
@@ -97,10 +98,12 @@ function Card({ job }: { job: JobRow }) {
               posting itself is the thing you actually want to read. */}
           {job.url ? (
             <a className="card-title" href={job.url} target="_blank" rel="noopener noreferrer">
-              {job.title}
+              <Highlight text={job.title} query={query} />
             </a>
           ) : (
-            <span className="card-title">{job.title}</span>
+            <span className="card-title">
+              <Highlight text={job.title} query={query} />
+            </span>
           )}
           <p className="card-meta">
             <span className="company">{job.company}</span>
@@ -108,24 +111,19 @@ function Card({ job }: { job: JobRow }) {
             {job.department && <span>{job.department}</span>}
             {job.employment_type && <span>{job.employment_type}</span>}
             {job.years_required != null && <span>{job.years_required}+ yrs</span>}
+            {job.status === "new" && <span className="tag new">new</span>}
+            {job.status === "closed" && <span className="tag closed">closed</span>}
+            {job.is_referral && <span className="tag referral">referral</span>}
+            {job.source_language === "he" && (
+              <span className="tag translated" title="Machine-translated from Hebrew">
+                translated
+              </span>
+            )}
           </p>
         </div>
-        <span className="card-tags">
-          {job.status === "new" && <span className="tag new">new</span>}
-          {job.status === "closed" && <span className="tag closed">closed</span>}
-          {job.is_referral && <span className="tag referral">referral</span>}
-          {job.source_language === "he" && (
-            <span className="tag translated" title="Machine-translated from Hebrew">
-              translated
-            </span>
-          )}
-        </span>
-      </div>
-
-      {job.snippet && <p className="card-snippet">{job.snippet.trim()}</p>}
-
-      <div className="card-foot">
-        <Contacts contacts={job.contacts} count={job.connection_count} />
+        {/* Top right, level with the title: these are the actions, and an
+            action you have to read the whole card to reach is one you take
+            less often. */}
         <span className="card-flags">
           {FLAGS.map(({ flag, label, title }) => (
             <button
@@ -139,6 +137,16 @@ function Card({ job }: { job: JobRow }) {
             </button>
           ))}
         </span>
+      </div>
+
+      {job.snippet && (
+        <p className="card-snippet">
+          <Highlight text={job.snippet.trim()} query={query} />
+        </p>
+      )}
+
+      <div className="card-foot">
+        <Contacts contacts={job.contacts} count={job.connection_count} />
       </div>
     </article>
   );
@@ -178,7 +186,7 @@ const HEADER_HEIGHT = 34;
 /** Virtualized: 29,000 matches must cost the same to render as 50. Cards are
  * measured after mount, because a card with no description is shorter than one
  * with three lines of it. */
-export function JobList({ jobs, group = false }: { jobs: JobRow[]; group?: boolean }) {
+export function JobList({ jobs, group = false, query = "" }: { jobs: JobRow[]; group?: boolean; query?: string }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const items = useMemo(() => toItems(jobs, group), [jobs, group]);
   const virtualizer = useVirtualizer({
@@ -217,7 +225,7 @@ export function JobList({ jobs, group = false }: { jobs: JobRow[]; group?: boole
                   <span className="count">{item.n}</span>
                 </div>
               ) : (
-                <Card job={item.job} />
+                <Card job={item.job} query={query} />
               )}
             </div>
           );

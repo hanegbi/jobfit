@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { fetchFacets, fetchJobs, fetchScoredProfiles } from "./api";
+import { ActiveFilters } from "./components/ActiveFilters";
 import { FiltersPanel } from "./components/Filters";
 import { JobList } from "./components/JobList";
+import { SearchBar } from "./components/SearchBar";
 import { useFilters } from "./useFilters";
 import { useLegacyFlags } from "./useLegacyFlags";
 
@@ -33,18 +35,7 @@ export function App() {
     <div className="app">
       <header className="top">
         <h1>jobfit</h1>
-        <input
-          className="search"
-          type="search"
-          placeholder="Search titles and descriptions…"
-          defaultValue={filters.q}
-          onKeyDown={(event) => {
-            if (event.key === "Enter") update({ q: (event.target as HTMLInputElement).value });
-          }}
-          onBlur={(event) => {
-            if (event.target.value !== filters.q) update({ q: event.target.value });
-          }}
-        />
+        <SearchBar filters={filters} total={total} loading={jobsQuery.isFetching} update={update} />
         <a className="panel-link" href="/">
           control panel
         </a>
@@ -76,20 +67,18 @@ export function App() {
           filters={filters}
           facets={facetsQuery.data}
           profiles={profilesQuery.data ?? []}
-          total={total}
           update={update}
-          reset={reset}
           apply={apply}
         />
 
         <main>
+          <ActiveFilters filters={filters} facets={facetsQuery.data} update={update} reset={reset} />
           {jobsQuery.isError && <p className="error">Could not reach the API. Is the server running?</p>}
           {jobsQuery.isLoading && <p className="muted">Loading…</p>}
           {page && (
             <>
               <p className="stats">
-                <strong>{total.toLocaleString()}</strong> jobs match ·{" "}
-                <strong>{companiesShown.toLocaleString()}</strong> companies
+                across <strong>{companiesShown.toLocaleString()}</strong> companies
                 {total > page.jobs.length && (
                   <>
                     {" "}
@@ -98,7 +87,7 @@ export function App() {
                   </>
                 )}
               </p>
-              <JobList jobs={page.jobs} group={filters.group} />
+              <JobList jobs={page.jobs} group={filters.group} query={filters.q} />
               {pageCount > 1 && (
                 <nav className="paging">
                   <button type="button" disabled={filters.page <= 1} onClick={() => update({ page: filters.page - 1 })}>
