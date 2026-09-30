@@ -7,6 +7,11 @@ NOW = "2026-09-30T10:00:00Z"
 LATER = "2026-10-01T10:00:00Z"
 
 
+def _contact(name, position="Engineer"):
+    """One entry of connections.load_connections_index's output."""
+    return {"name": name, "position": position, "url": f"https://linkedin.com/in/{name.lower()}"}
+
+
 def _conn():
     conn = db.connect(":memory:")
     db.migrate(conn)
@@ -39,6 +44,17 @@ def test_list_rows_never_carry_the_description():
     view must not reintroduce that."""
     result = search.search_jobs(_conn())
     assert "description" not in result["jobs"][0]
+
+
+def test_a_row_carries_a_bounded_snippet_not_the_description():
+    """A card shows a few lines. The cap is what keeps that from becoming
+    the whole description again by another name."""
+    conn = _conn()
+    long_text = "Kubernetes. " * 500
+    jobs.upsert_scraped(conn, "acme", [{"id": "j9", "title": "SRE", "url": "u9", "description": long_text}], NOW)
+    row = next(j for j in search.search_jobs(conn, company_id="acme")["jobs"] if j["id"] == "j9")
+    assert len(row["snippet"]) == search.SNIPPET_CHARS
+    assert row["description_length"] == len(long_text)
 
 
 def test_every_row_carries_its_company_name():
@@ -126,18 +142,22 @@ def test_filtering_by_whether_anyone_i_know_works_there():
     from jobfit.store import companies as store_companies
 
     conn = _conn()
-    store_companies.refresh_connection_counts(conn, {"acme": ["Jane"]})
+    store_companies.refresh_connection_counts(conn, {"acme": [_contact("Jane")]})
     assert {j["id"] for j in search.search_jobs(conn, has_connection=True)["jobs"]} == {"j1", "j2"}
     assert {j["id"] for j in search.search_jobs(conn, has_connection=False)["jobs"]} == {"j3"}
 
 
-def test_rows_report_their_connection_count():
+def test_rows_report_their_connection_count_and_who_those_contacts_are():
+    """A job card names the people, not just how many: knowing someone is
+    only useful once you know which someone."""
     from jobfit.store import companies as store_companies
 
     conn = _conn()
-    store_companies.refresh_connection_counts(conn, {"acme": ["Jane", "Bob"]})
+    store_companies.refresh_connection_counts(conn, {"acme": [_contact("Jane"), _contact("Bob")]})
     rows = {j["id"]: j for j in search.search_jobs(conn)["jobs"]}
     assert rows["j1"]["connection_count"] == 2 and rows["j3"]["connection_count"] == 0
+    assert [c["name"] for c in rows["j1"]["contacts"]] == ["Bob", "Jane"]
+    assert rows["j3"]["contacts"] == []
 
 
 def test_status_open_means_anything_not_closed():

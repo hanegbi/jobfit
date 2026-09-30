@@ -29,9 +29,19 @@ export interface Filters {
   page: number;
 }
 
+export interface Contact {
+  name: string;
+  position: string | null;
+  url: string | null;
+}
+
 export interface JobRow {
   id: string;
   title: string;
+  /** The first ~320 characters of the description, never the whole thing. */
+  snippet: string | null;
+  description_length: number;
+  contacts: Contact[];
   company: string;
   company_id: string;
   url: string | null;

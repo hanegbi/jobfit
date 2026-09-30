@@ -10,10 +10,16 @@ from __future__ import annotations
 import re
 import sqlite3
 
+# SNIPPET_CHARS of description, not the description: a card shows a few lines,
+# and the full text across 29,000 jobs is what the static page shipped and this
+# API exists not to. The detail read is still the only way to the whole thing.
+SNIPPET_CHARS = 320
 _LIST_COLUMNS = (
     "j.id, j.company_id, j.title, j.url, j.location, j.city, j.is_remote, j.department, "
     "j.employment_type, j.status, j.first_seen, j.last_seen, j.posted_at, j.years_required, "
     "j.is_referral, j.referral_contact, j.source_language, "
+    f"substr(j.description, 1, {SNIPPET_CHARS}) AS snippet, "
+    "length(j.description) AS description_length, "
     "c.display_name AS company, c.connection_count, c.industry, "
     "COALESCE(st.liked, 0) AS liked, COALESCE(st.hidden, 0) AS hidden, "
     "COALESCE(st.sent, 0) AS sent, COALESCE(st.reached_out, 0) AS reached_out"
@@ -157,10 +163,17 @@ def search_jobs(conn: sqlite3.Connection, *, sort: str = "score", page: int = 1,
         params,
     ).fetchall()
 
+    from jobfit.store import companies as companies_store
+
     jobs = []
     for row in rows:
         job = dict(row)
         for field in _BOOL_FIELDS:
             job[field] = bool(job[field])
         jobs.append(job)
+
+    # One query for the whole page's companies, not one per job.
+    contacts = companies_store.contacts_for(conn, sorted({job["company_id"] for job in jobs}))
+    for job in jobs:
+        job["contacts"] = contacts.get(job["company_id"], [])
     return {"total": total, "page": page, "size": size, "jobs": jobs}

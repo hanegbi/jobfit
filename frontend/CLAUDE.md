@@ -25,8 +25,11 @@ Run FastAPI alongside `npm run dev`: `uv run uvicorn jobfit.server.app:app --por
   construction.
 - **The list stays virtualized.** "Show all matching jobs" has to cost the same at 29,000 rows as at
   50. Rendering them all would reintroduce exactly the problem the API exists to solve.
-- **List rows never fetch descriptions.** The detail panel fetches one job on demand; that split is
-  why a page of results is tens of kilobytes rather than tens of megabytes.
+- **List rows carry a bounded snippet, never the description.** `search.SNIPPET_CHARS` of it, so a
+  card can show a few lines; the whole text is only ever the detail read. That cap is what keeps a
+  page of results tens of kilobytes rather than tens of megabytes.
+- **A job opens on its own site.** Clicking the title follows the posting's URL; there is no in-app
+  detail view, because the posting is the thing you actually want to read.
 - Toggling a job's flag is optimistic and rolls back on failure. A like that silently fails is worse
   than one that visibly does.
 
@@ -35,13 +38,14 @@ Run FastAPI alongside `npm run dev`: `uv run uvicorn jobfit.server.app:app --por
 - `useFilters.ts` — filter state, and the pure `filtersToQuery` / `queryToFilters` pair it is tested
   through. Port bugs hide here, which is why it is the part with unit tests.
 - `api.ts` — every request, so a failure is one message rather than an undefined field in a component.
-- `components/JobList.tsx` — the virtualized list. `compact` drops the location column and the
-  per-row toggles when the detail panel is open; without it the titles rendered as "S…". `toItems`
-  interleaves company headings in the order the *sort* produced, not alphabetically — grouping by
-  company while sorted by score still leads with the company holding the best job.
+- `components/JobList.tsx` — the virtualized list of cards. Cards are measured after mount, because
+  one with no description is shorter than one with three lines of it. `toItems` interleaves company
+  headings in the order the *sort* produced, not alphabetically — grouping by company while sorted by
+  score still leads with the company holding the best job. The contacts popover raises its whole
+  virtual item: each card is an absolutely-positioned sibling, so a later one paints over an earlier
+  one's popover.
 - `components/Filters.tsx` — facet counts beside each option, straight from `/api/facets`. Every
   yes/no filter is tri-state (`any` / `yes` / `no`), because "jobs I have NOT hidden" has to be
   askable; a plain checkbox can only say "hidden".
 - `components/SavedFilters.tsx` — the old page's saved searches, stored as query strings in
   `localStorage`. A string, not an object, so a set saved before a filter existed still loads.
-- `components/JobDetail.tsx` — one job: description, per-profile scores, the four toggles.

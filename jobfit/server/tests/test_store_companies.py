@@ -62,12 +62,18 @@ def test_list_companies_is_ordered_by_name_case_insensitively():
     assert [r["display_name"] for r in companies.list_companies(conn)] == ["Acme", "beta", "zeta"]
 
 
+def _contact(name, position="Engineer"):
+    """One entry of connections.load_connections_index's output."""
+    return {"name": name, "position": position, "url": f"https://linkedin.com/in/{name.lower()}"}
+
+
 def test_connection_counts_are_refreshed_from_the_contacts_index():
     conn = _conn()
     companies.upsert_company(conn, "acme", "Acme Ltd.")
     companies.upsert_company(conn, "beta", "Beta")
-    # Keys are connections.normalize_company output, which strips "Ltd."
-    assert companies.refresh_connection_counts(conn, {"acme": ["Jane", "Bob"]}) == 1
+    # Keys are connections.normalize_company output, which strips "Ltd.";
+    # values are the index's own shape, one dict per contact.
+    assert companies.refresh_connection_counts(conn, {"acme": [_contact("Jane"), _contact("Bob")]}) == 1
     assert companies.get_company(conn, "acme")["connection_count"] == 2
     assert companies.get_company(conn, "beta")["connection_count"] == 0
 
@@ -75,8 +81,8 @@ def test_connection_counts_are_refreshed_from_the_contacts_index():
 def test_refreshing_again_replaces_rather_than_adds():
     conn = _conn()
     companies.upsert_company(conn, "acme", "Acme Ltd.")
-    companies.refresh_connection_counts(conn, {"acme": ["Jane", "Bob"]})
-    companies.refresh_connection_counts(conn, {"acme": ["Jane"]})
+    companies.refresh_connection_counts(conn, {"acme": [_contact("Jane"), _contact("Bob")]})
+    companies.refresh_connection_counts(conn, {"acme": [_contact("Jane")]})
     assert companies.get_company(conn, "acme")["connection_count"] == 1
 
 
@@ -84,9 +90,35 @@ def test_a_removed_connections_file_clears_every_count():
     """Deleting the CSV must mean "I know nobody", not "keep the old numbers"."""
     conn = _conn()
     companies.upsert_company(conn, "acme", "Acme Ltd.")
-    companies.refresh_connection_counts(conn, {"acme": ["Jane"]})
+    companies.refresh_connection_counts(conn, {"acme": [_contact("Jane")]})
     companies.refresh_connection_counts(conn, {})
     assert companies.get_company(conn, "acme")["connection_count"] == 0
+    assert companies.contacts_for(conn, ["acme"]) == {}
+
+
+def test_contacts_are_stored_with_the_count_so_the_two_cannot_disagree():
+    """A card saying "3 contacts" must never be able to list two."""
+    conn = _conn()
+    companies.upsert_company(conn, "acme", "Acme Ltd.")
+    companies.refresh_connection_counts(conn, {"acme": [_contact("Jane"), _contact("Bob", "Recruiter")]})
+
+    stored = companies.contacts_for(conn, ["acme"])["acme"]
+    assert [c["name"] for c in stored] == ["Bob", "Jane"]  # ordered by name
+    assert stored[0]["position"] == "Recruiter"
+    assert companies.get_company(conn, "acme")["connection_count"] == len(stored)
+
+
+def test_contacts_for_takes_a_page_of_companies_at_once():
+    conn = _conn()
+    companies.upsert_company(conn, "acme", "Acme")
+    companies.upsert_company(conn, "beta", "Beta")
+    companies.refresh_connection_counts(
+        conn, {"acme": [_contact("Jane")], "beta": [_contact("Ann"), _contact("Zed")]})
+
+    found = companies.contacts_for(conn, ["acme", "beta", "missing"])
+    assert set(found) == {"acme", "beta"}
+    assert len(found["beta"]) == 2
+    assert companies.contacts_for(conn, []) == {}
 
 
 # --- review decisions, ported from company_review.py ------------------------

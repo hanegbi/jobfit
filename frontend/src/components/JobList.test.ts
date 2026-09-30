@@ -10,6 +10,7 @@ function job(id: string, companyId: string, company: string): JobRow {
     status: "new", first_seen: "2026-09-01", last_seen: "2026-09-01", posted_at: null,
     years_required: null, is_referral: false, referral_contact: null, source_language: null,
     connection_count: 0, industry: null, best_score: 50,
+    snippet: null, description_length: 0, contacts: [],
     liked: false, hidden: false, sent: false, reached_out: false,
   };
 }

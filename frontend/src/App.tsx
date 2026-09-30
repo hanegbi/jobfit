@@ -1,9 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 
 import { fetchFacets, fetchJobs, fetchScoredProfiles } from "./api";
 import { FiltersPanel } from "./components/Filters";
-import { JobDetail } from "./components/JobDetail";
 import { JobList } from "./components/JobList";
 import { useFilters } from "./useFilters";
 import { useLegacyFlags } from "./useLegacyFlags";
@@ -12,7 +10,6 @@ const PAGE_SIZE = 200;
 
 export function App() {
   const { filters, update, reset, apply } = useFilters();
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const legacy = useLegacyFlags();
 
   const jobsQuery = useQuery({
@@ -101,13 +98,7 @@ export function App() {
                   </>
                 )}
               </p>
-              <JobList
-                jobs={page.jobs}
-                selectedId={selectedId}
-                onSelect={setSelectedId}
-                compact={selectedId !== null}
-                group={filters.group}
-              />
+              <JobList jobs={page.jobs} group={filters.group} />
               {pageCount > 1 && (
                 <nav className="paging">
                   <button type="button" disabled={filters.page <= 1} onClick={() => update({ page: filters.page - 1 })}>
@@ -128,8 +119,6 @@ export function App() {
             </>
           )}
         </main>
-
-        {selectedId && <JobDetail jobId={selectedId} onClose={() => setSelectedId(null)} />}
       </div>
     </div>
   );

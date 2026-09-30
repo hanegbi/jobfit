@@ -59,21 +59,49 @@ def mark_checked(conn: sqlite3.Connection, company_id: str, when: str) -> None:
 
 
 def refresh_connection_counts(conn: sqlite3.Connection, contacts_by_key: dict[str, list]) -> int:
-    """Set every company's contact count from the connections index.
+    """Set every company's contacts, and their count, from the connections index.
 
-    Clears counts absent from it, so deleting the CSV really does mean "I know
-    nobody" rather than leaving stale numbers behind. Returns how many
-    companies ended up with at least one contact."""
+    Clears both for companies absent from it, so deleting the CSV really does
+    mean "I know nobody" rather than leaving stale numbers behind. The count
+    and the names are written together and from the same source, so a card
+    saying "3 contacts" can never list two. Returns how many companies ended
+    up with at least one contact."""
     from jobfit import connections as connections_module
 
     conn.execute("UPDATE companies SET connection_count = 0 WHERE connection_count != 0")
+    conn.execute("DELETE FROM company_contacts")
     touched = 0
     for row in conn.execute("SELECT id, display_name FROM companies").fetchall():
-        count = len(contacts_by_key.get(connections_module.normalize_company(row["display_name"])) or [])
-        if count:
-            conn.execute("UPDATE companies SET connection_count = ? WHERE id = ?", (count, row["id"]))
-            touched += 1
+        contacts = contacts_by_key.get(connections_module.normalize_company(row["display_name"])) or []
+        if not contacts:
+            continue
+        conn.execute("UPDATE companies SET connection_count = ? WHERE id = ?", (len(contacts), row["id"]))
+        conn.executemany(
+            "INSERT OR IGNORE INTO company_contacts (company_id, name, position, url) VALUES (?, ?, ?, ?)",
+            [(row["id"], c.get("name") or "", c.get("position"), c.get("url")) for c in contacts if c.get("name")],
+        )
+        touched += 1
     return touched
+
+
+def contacts_for(conn: sqlite3.Connection, company_ids: list[str]) -> dict[str, list[dict]]:
+    """{company id: [{name, position, url}, ...]} for the companies given.
+
+    One query for a whole page of results rather than a join onto jobs, which
+    would multiply every job row by its company's contact count."""
+    if not company_ids:
+        return {}
+    placeholders = ", ".join("?" * len(company_ids))
+    rows = conn.execute(
+        f"SELECT company_id, name, position, url FROM company_contacts "
+        f"WHERE company_id IN ({placeholders}) ORDER BY company_id, name COLLATE NOCASE",
+        company_ids,
+    ).fetchall()
+    by_company: dict[str, list[dict]] = {}
+    for row in rows:
+        by_company.setdefault(row["company_id"], []).append(
+            {"name": row["name"], "position": row["position"], "url": row["url"]})
+    return by_company
 
 
 DECISIONS = ("techmap", "skip")

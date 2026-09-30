@@ -27,14 +27,17 @@ until phase 4 as a rollback path. Design: @docs/superpowers/specs/2026-09-30-job
 ## What is where
 
 - `db.py` — connect, migrate, the shared connection.
-- `companies.py` — company rows, and `companies_to_scrape` (the rule that used to read
-  `companies_career_pages.json` plus `company_review.json`).
+- `companies.py` — company rows, `companies_to_scrape` (the rule that used to read
+  `companies_career_pages.json` plus `company_review.json`), and the user's LinkedIn contacts.
+  `refresh_connection_counts` writes the names and the count together from one source, so a card
+  saying "3 contacts" can never list two.
 - `jobs.py` — `upsert_scraped` is the scrape diff: new/seen/closed, titles trimmed but never
   renamed, `may_close=False` for a fetch too weak to prove absence.
 - `scores.py` — one row per (job, profile). An empty profile set means "I know of no profiles", not
   "delete every score": reading it the other way once destroyed all 60,294 rows.
-- `search.py` — the read the application is built on. List rows carry no description on purpose, and
-  a user's query is treated as data, not FTS5 syntax. `build_filter` is the shared WHERE clause, and
+- `search.py` — the read the application is built on. List rows carry `SNIPPET_CHARS` of the
+  description and never the whole of it, and a user's query is treated as data, not FTS5 syntax.
+  `build_filter` is the shared WHERE clause, and
   the only place a filter is defined. Two rules that look like bugs and are not: `status="open"`
   means `!= 'closed'` rather than an enumeration of new+seen, and `max_years` keeps jobs with no
   stated years — a job that never said is not evidence of wanting more experience than you have.
