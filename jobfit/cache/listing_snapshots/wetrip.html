@@ -18,26 +18,20 @@
 <meta content="index" name="robots"/>
 <meta content="Spark Hire Recruit Jobs" itemprop="name" name="application-name"/>
 <title>Spark Hire Recruit Jobs | Spark Hire Recruit - Collaborative Recruiting</title>
-<!-- Bootstrap Core CSS -->
-<!-- <link href="/common/css/bootstrap.min.css" rel="stylesheet" /> -->
-<!-- Latest compiled and minified CSS -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
 
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="/common/css/career.css?rc-311-10" rel="stylesheet" type="text/css"/>
 
 
-<!--<link rel="stylesheet" type="text/css" href="/common/less/career.css" />-->
-<!-- Custom CSS -->
-<!-- Custom Fonts -->
+
 <link href="/common/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link href="/common/css/fonts.css" rel="stylesheet" type="text/css"/>
 <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css" rel="stylesheet"/>
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+
+
 <link href="/common/assets/jobs-assets/images/favicon/apple-touch-icon-precomposed.png?v2" rel="apple-touch-icon-precomposed"/>
 <link href="/common/assets/jobs-assets/images/favicon/apple-touch-icon.png?v2" rel="apple-touch-icon"/>
 <link href="/common/assets/jobs-assets/images/favicon/apple-touch-icon-57x57.png?v2" rel="apple-touch-icon" sizes="57x57"/>
@@ -60,25 +54,15 @@
 <meta content="/common/assets/jobs-assets/images/favicon/browserconfig.xml" name="msapplication-config"/>
 <meta content="#03086C" name="theme-color"/>
 
-
-
-
-
-
-
-<!-- Facebook -->
-
-
-
 </head>
 <body class="ng-cloak" id="page-top" ng-class="{iframe: CareersState.current.iframeStyle, android: state.isAndroid}" ng-controller="StateCtrl">
 <div class="wrapper parentUniqComeetWrapper">
 <div ng-controller="BaseCareerCtrl">
 <div class="loadingPage" ng-if="state.isLoading &amp;&amp; showLoading"><i class="fa fa-spinner loadingIcon centerAbsolute"></i></div>
 <div ng-controller="CareerCompanyCtrl">
-<!-- Big header element -->
+
 <header class="careerHeroHeader" ng-class="{headerContainsLogo: company.logos.medium.url}" ng-if="company &amp;&amp; !state.isIframe &amp;&amp; !legacyDesign" ng-style="{backgroundColor: company.brandColor || '#278fe6'}">
-<!--<div class="careerHeroBackdrop" ng-style="{backgroundImage: 'url(' + something + ')'}'"></div>-->
+
 <a aria-label="Navigate to the job list" class="careerLogo" ng-href="{{company.urlComeetHostedPage}}" ng-show="company.logos.medium.url" ng-style="{backgroundImage: 'url(' + company.logos.medium.url + ')'}" target="_blank"></a>
 <h1 aria-label="Careers"><span ng-hide="company.logos.medium.url">{{company.name}} - </span>Careers</h1>
 <p class="careerHeader" style="line-height: normal;">{{getCareerHeaderText}}</p>
@@ -89,7 +73,7 @@
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 career-error" ng-if="!company">
                             An error occured. Please try again
                     </div>
-<!-- Legacy header element -->
+
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 company-header careerCard text-center" ng-if="company &amp;&amp; legacyDesign">
 <div>
 <a aria-label="Navigate to the job list" ng-href="{{company.urlComeetHostedPage}}" ng-show="company.logos.medium.url" target="_self">
@@ -176,7 +160,6 @@
 </div>
 </ul>
 </div>
-
 </div>
 </div>
 <div class="row positionsGroup careerCard" ng-if="filteredCompanyPositions.length &gt; 0" ng-repeat="positions in groupsA | orderBy:'sortingKey' | filter: positions.length">
@@ -187,7 +170,7 @@
                                 </h2>
 </div>
 <div class="col-sm-12 rowFix positionsGroupContent" ng-class="{ legacyDesign: legacyDesign }">
-<!-- BEGIN: Inner ngRepeat. -->
+
 <ul ng-class="{ 'two-column-grid': legacyDesign }">
 <li ng-repeat="position in positions | orderBy:'+name'">
 <a class="positionItem" ng-href="{{position.urlComeetHostedPage + getURLParams()}}" target="_self">
@@ -205,7 +188,7 @@
 </a>
 </li>
 </ul>
-<!-- END: Inner ngRepeat. -->
+
 </div>
 </div>
 <div class="noResultsWrapper" ng-if="filteredCompanyPositions.length === 0">
@@ -217,7 +200,6 @@
 </div>
 <div class="row mainRow" id="shareWrapper" ng-if="company">
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 careerCard">
-
 </div>
 </div>
 </main>
@@ -242,24 +224,6 @@
 </div>
 <div class="push" ng-show="!(state.isLoading || !CareersState.current.showFooter)"></div>
 </div>
-
-<!-- Latest compiled and minified JavaScript -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Google tag (gtag.js) — cookieless by default -->
-
 
 
 </body>

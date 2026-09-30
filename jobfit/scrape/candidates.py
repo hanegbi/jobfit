@@ -9,7 +9,7 @@ from __future__ import annotations
 import re
 from urllib.parse import parse_qs, urljoin, urlsplit
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment
 
 from jobfit import ats_fetchers
 from jobfit.ats_scorer.taxonomy import load_role_families
@@ -46,13 +46,20 @@ def strip_non_content(html: str) -> str:
     snapshots are only ever read back through CandidateExtractor, which
     decomposes these before doing anything else - so dropping them at write
     time changes nothing the extractor sees and cuts the committed fixtures
-    by about three quarters (one page was 16MB of mostly inlined JSON)."""
+    by about three quarters (one page was 16MB of mostly inlined JSON).
+
+    Comments go too. A comment's contents are a Comment node, never markup
+    the extractor walks, and pages routinely park a whole disabled <script>
+    in one - Ongage's carried a live Rollbar access token that a secret
+    scanner flagged once these snapshots were pushed publicly."""
     try:
         soup = BeautifulSoup(html or "", "html.parser")
     except Exception:  # noqa: BLE001 - malformed markup is stored as-is
         return html or ""
     for tag in soup(NON_CONTENT_TAGS):
         tag.decompose()
+    for comment in soup.find_all(string=lambda node: isinstance(node, Comment)):
+        comment.extract()
     return str(soup)
 
 

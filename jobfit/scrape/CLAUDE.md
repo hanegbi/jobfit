@@ -35,5 +35,9 @@ strategy from it → the strategy fetches → `health.HealthPolicy` records yiel
 - Plans and their listing snapshots (`cache/listing_snapshots/`) are committed: deriving one may have cost an
   API call, and hand-written plans are legal. `test_scrape_plans_replay.py` replays every verified plan
   against its snapshot and fails by company name — that file is the regression net for any heuristic change.
+- **A snapshot is someone else's page, published under our name.** `candidates.strip_non_content` drops
+  scripts, styles, svg *and comments* before writing one — a page had a whole disabled `<script>` with a live
+  Rollbar token in a comment, which GitHub's secret scanner then flagged on us. Anything added to that strip
+  list needs a test proving the extracted candidates are unchanged, and the existing snapshots re-stripped.
 - `FetchFailed` means "nothing was fetched" and must propagate, so the caller leaves stored jobs alone. An
   empty list means "page reachable, no jobs" and may close them. Don't blur the two.

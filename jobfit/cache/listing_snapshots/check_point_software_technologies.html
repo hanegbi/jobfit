@@ -1,10 +1,4 @@
-﻿<!--
-- cp_search_results.tpl
-- Created by Michelle Barzilai
-- Date:      November 2020
-- Purpose:   Search results for all open jobs and programs.
-- Page Data: Solr.
--->
+﻿
 <!DOCTYPE html>
 
 <html class="no-js" lang="en">
@@ -24,51 +18,33 @@
 <meta content="You deserve the best career. Explore the job opportunities at Check Point Careers to make the world a safer place" name="description"/>
 <meta content="jobs, careers, employment, Check Point Software job opportunities" name="keywords"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!-- Default Stylesheet(s) -->
 
 <link href="css/bootstrap-3.3.7.min.css" rel="stylesheet"/>
-
-
 <link href="css/redmond/jquery-ui-1.8.16.custom.css?v=907" rel="Stylesheet" type="text/css"/>
 <link href="css/www/main.css" media="all" rel="stylesheet" type="text/css"/>
 <link href="css/font-awesome.min.css" id="font-awesome-css" media="all" rel="stylesheet" type="text/css"/>
-<!-- Default Javascript(s) -->
-
-<!-- Additional Javascript(s)-->
-
 
 
 <link href="https://sc1.checkpoint.com/uc-stg/rebranding15/css/cp_mainstyle.css" rel="stylesheet"/>
 
-<!--  Additional Hire point CSS and JS -->
 <link href="main.css" media="all" rel="stylesheet" type="text/css"/>
 <link href="js/table/table.css" media="all" rel="stylesheet" type="text/css"/>
 <link href="https://sc1.checkpoint.com/uc/inc/wrappers/uc/css/wrapper.css" rel="stylesheet" type="text/css"/>
 <link href="css/cp_nav.css" rel="stylesheet"/>
 
-<!-- XXXXXXXX START Unified Header/Footer HEAD XXXXXXXX -->
 <link href="http://gmpg.org/xfn/11" rel="profile"/>
 <link href="https://www.checkpoint.com/wp-content/themes/checkpoint-theme-v2/images/fav/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="https://www.checkpoint.com/wp-content/themes/checkpoint-theme-v2/images/fav/favicon-32x32.png" rel="icon" type="image/png"/>
 <link href="https://www.checkpoint.com/favicon.ico" rel="shortcut icon"/>
 <meta class="swiftype" content="2" data-type="integer" name="popularity"/>
 
-<!-- Google Tag Manager -->
 
-<!-- End Google Tag Manager -->
 <link href="https://www.checkpoint.com/wp-content/themes/checkpoint-theme-v2/css/page-font-awesome-Base64.css" id="font-awesome-base64" media="all" rel="stylesheet" type="text/css"/>
 <link href="https://www.checkpoint.com/wp-content/themes/checkpoint-theme-v2/css/page-font-DIN-Base64.css" id="font-din-base64" media="all" rel="stylesheet" type="text/css"/>
 <link href="https://sc1.checkpoint.com/sc1/css/page-cp-unified-v4.css?v=1.2" id="cp-unified-css" media="all" rel="stylesheet" type="text/css"/>
-<!--<link rel='stylesheet' id='cp-unified-css'  href='https://www-stg.checkpoint.com/wp-content/themes/checkpoint-theme-v2/css/page-cp-unified-v4.css?v=1.6' type='text/css' media='all' />-->
 
 
 
-<!--[if lt IE 9]>
-<link rel='stylesheet' id='ie-only-css-css'  href='https://www.checkpoint.com/wp-content/themes/checkpoint-theme-v2/css/ie-only.css' type='text/css' media='all' />
-<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-<!-- XXXXXXXX END Unified Header/Footer HEAD XXXXXXXX -->
 <head>
 <meta charset="utf-8"/>
 <title>Header/footer test page</title>
@@ -426,34 +402,19 @@
 </a>
 </header>
 
-
-<!--  OWL carousel -->
 <link href="https://sc1.checkpoint.com/uc/javascript/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet"/>
 <link href="https://sc1.checkpoint.com/uc/javascript/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet"/>
-
-
 <link href="css/results.css?v=907?v=907" rel="stylesheet" type="text/css"/>
-
-
 <link href="https://sc1.checkpoint.com/uc/rebranding15/css/jquery.qtip.min.css?v=1" rel="stylesheet" type="text/css"/>
 <link href="https://sc1.checkpoint.com/uc/rebranding15/css/cp_mainstyle.css" rel="stylesheet" type="text/css"/>
+<link href="https://sc1.checkpoint.com/uc/css/font-awesome.min.css?v=2" media="all" rel="stylesheet"/>
+</body></head><body>
 
-<link href="https://sc1.checkpoint.com/uc/css/font-awesome.min.css?v=2" media="all" rel="stylesheet"/><!-- End of standard header -->
-</body></head><body><!-- Mobile header start -->
-<!-- Mobile header end -->
-<!-- Select2 CSS and JS -->
+
 <link href="css/select2.min.css" rel="stylesheet"/>
-
-
 <div>
 <form action="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=search" id="solrSearch" method="get">
-<!--
-- searchHeader.tpl
-- Created by Rami Ben David
-- Date:      November 2020
-- Purpose:   SOLR autocomplete search header
-- Used in:   cp_search_results.tpl
--->
+
 <link href="css/searchHeader.css?v=907" rel="Stylesheet" type="text/css"/>
 <div id="searchHeader">
 <div id="headlineText">
@@ -463,16 +424,8 @@
 <a href="https://www.checkpoint.com/careers/" id="back-link">Back to Careers Homepage</a>
 </div>
 <h3>Find a Job That Fits Your Ambition</h3>
-<!--
-- autocompleteInput.tpl
-- Created by Rami Ben David
-- Date:      November 2020
-- Purpose:   SOLR autocomplete search
-- Used in:   cp_search_results.tpl
--->
+
 <link href="css/autocompleteInput.css?v=907" rel="Stylesheet" type="text/css"/>
-
-
 <div id="search">
 <input class="searchInput" id="term" name="q" placeholder="  Explore by Location, Role, or Department" type="text" value=""/>
 <button id="searchByTerm">SEARCH JOBS</button>
@@ -775,35 +728,7 @@
 </label>
 </div>
 </div>
-<!--                    <div class="filter filterBorder">
-                        <div id="fifth_filter" class="filterName" data-id="seniority">
-                            <i class="arrow fa fa-arrow-left"></i>Experience Level
-                            <span class="mobileSummary">></span><i class="angle fa fa-angle-down"></i>
-                        </div>
-                        <div id="seniority" class="filterCategory">
-                                                        <label class="filterRow pinkCheckbox">
-                                <input type="checkbox" name="fa[]" value="seniority_s:Entry%20Level" data-id="seniority"
-                                       data-name="Entry Level">
-                                Entry Level (7)                                <span class="checkmark"></span>
-                            </label>
-                                                        <label class="filterRow pinkCheckbox">
-                                <input type="checkbox" name="fa[]" value="seniority_s:Mid-Senior%20Level%20and%20Team%20Leaders" data-id="seniority"
-                                       data-name="Mid-Senior Level and Team Leaders">
-                                Mid-Senior Level and Team Leaders (85)                                <span class="checkmark"></span>
-                            </label>
-                                                        <label class="filterRow pinkCheckbox">
-                                <input type="checkbox" name="fa[]" value="seniority_s:Senior%20Managerial" data-id="seniority"
-                                       data-name="Senior Managerial">
-                                Senior Managerial (2)                                <span class="checkmark"></span>
-                            </label>
-                                                        <label class="filterRow pinkCheckbox">
-                                <input type="checkbox" name="fa[]" value="seniority_s:Student/Part%20time" data-id="seniority"
-                                       data-name="Student/Part time">
-                                Student/Part time (12)                                <span class="checkmark"></span>
-                            </label>
-                                                    </div>
-                    </div>
-                    -->
+
 <hr/>
 <div id="filter_desktop" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
 <a href="https://www.checkpoint.com/press-releases/check-point-software-debuts-on-worlds-best-companies-of-2024-list-by-time-and-statista/" target="_blank">
@@ -883,7 +808,6 @@
 <a href="#" onclick="copyToClipboard(event, 'https://careers.checkpoint.com//index.php?m=cpcareers&amp;a=show&amp;joborderid=0962319')">
 <img src="https://sc1.checkpoint.com/careers/images/copylink_new.svg"/> Copy Link
                                             </a>
-
 <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fcareers.checkpoint.com%2Findex.php%3Fm%3Dcpcareers%26a%3Dshow%26joborderid%3D0962319" target="_blank">
 <img src="https://sc1.checkpoint.com/careers/images/whatsapp_new.svg"/> WhatsApp
                                         </a>
@@ -904,8 +828,7 @@
 <img alt="Save Job" src="https://sc1.checkpoint.com/careers/images/Save_job.svg"/>
 </button>
 </span>
-<!--                                <span class="seniority seniorityMi">Mid-Senior Level and Team Leaders</span>
-                                -->
+
 </div>
 <a href="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=show&amp;joborderid=0962319">
                                 Agentic AI Solutions Engineer                            </a>
@@ -931,7 +854,6 @@
 <a href="#" onclick="copyToClipboard(event, 'https://careers.checkpoint.com//index.php?m=cpcareers&amp;a=show&amp;joborderid=0063829')">
 <img src="https://sc1.checkpoint.com/careers/images/copylink_new.svg"/> Copy Link
                                             </a>
-
 <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fcareers.checkpoint.com%2Findex.php%3Fm%3Dcpcareers%26a%3Dshow%26joborderid%3D0063829" target="_blank">
 <img src="https://sc1.checkpoint.com/careers/images/whatsapp_new.svg"/> WhatsApp
                                         </a>
@@ -952,8 +874,7 @@
 <img alt="Save Job" src="https://sc1.checkpoint.com/careers/images/Save_job.svg"/>
 </button>
 </span>
-<!--                                <span class="seniority seniorityMi">Mid-Senior Level and Team Leaders</span>
-                                -->
+
 </div>
 <a href="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=show&amp;joborderid=0063829">
                                 AI Cybersecurity Researcher                            </a>
@@ -979,7 +900,6 @@
 <a href="#" onclick="copyToClipboard(event, 'https://careers.checkpoint.com//index.php?m=cpcareers&amp;a=show&amp;joborderid=2024919')">
 <img src="https://sc1.checkpoint.com/careers/images/copylink_new.svg"/> Copy Link
                                             </a>
-
 <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fcareers.checkpoint.com%2Findex.php%3Fm%3Dcpcareers%26a%3Dshow%26joborderid%3D2024919" target="_blank">
 <img src="https://sc1.checkpoint.com/careers/images/whatsapp_new.svg"/> WhatsApp
                                         </a>
@@ -1000,8 +920,7 @@
 <img alt="Save Job" src="https://sc1.checkpoint.com/careers/images/Save_job.svg"/>
 </button>
 </span>
-<!--                                <span class="seniority seniorityMi">Mid-Senior Level and Team Leaders</span>
-                                -->
+
 </div>
 <a href="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=show&amp;joborderid=2024919">
                                 AI Engineer – Next-Generation Cyber Security                            </a>
@@ -1027,7 +946,6 @@
 <a href="#" onclick="copyToClipboard(event, 'https://careers.checkpoint.com//index.php?m=cpcareers&amp;a=show&amp;joborderid=8073389')">
 <img src="https://sc1.checkpoint.com/careers/images/copylink_new.svg"/> Copy Link
                                             </a>
-
 <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fcareers.checkpoint.com%2Findex.php%3Fm%3Dcpcareers%26a%3Dshow%26joborderid%3D8073389" target="_blank">
 <img src="https://sc1.checkpoint.com/careers/images/whatsapp_new.svg"/> WhatsApp
                                         </a>
@@ -1048,8 +966,7 @@
 <img alt="Save Job" src="https://sc1.checkpoint.com/careers/images/Save_job.svg"/>
 </button>
 </span>
-<!--                                <span class="seniority seniorityMi">Mid-Senior Level and Team Leaders</span>
-                                -->
+
 </div>
 <a href="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=show&amp;joborderid=8073389">
                                 AI Transformation Architect                            </a>
@@ -1075,7 +992,6 @@
 <a href="#" onclick="copyToClipboard(event, 'https://careers.checkpoint.com//index.php?m=cpcareers&amp;a=show&amp;joborderid=0195334')">
 <img src="https://sc1.checkpoint.com/careers/images/copylink_new.svg"/> Copy Link
                                             </a>
-
 <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fcareers.checkpoint.com%2Findex.php%3Fm%3Dcpcareers%26a%3Dshow%26joborderid%3D0195334" target="_blank">
 <img src="https://sc1.checkpoint.com/careers/images/whatsapp_new.svg"/> WhatsApp
                                         </a>
@@ -1096,8 +1012,7 @@
 <img alt="Save Job" src="https://sc1.checkpoint.com/careers/images/Save_job.svg"/>
 </button>
 </span>
-<!--                                <span class="seniority seniorityMi">Mid-Senior Level and Team Leaders</span>
-                                -->
+
 </div>
 <a href="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=show&amp;joborderid=0195334">
                                 Assistant Controller                            </a>
@@ -1123,7 +1038,6 @@
 <a href="#" onclick="copyToClipboard(event, 'https://careers.checkpoint.com//index.php?m=cpcareers&amp;a=show&amp;joborderid=0048579')">
 <img src="https://sc1.checkpoint.com/careers/images/copylink_new.svg"/> Copy Link
                                             </a>
-
 <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fcareers.checkpoint.com%2Findex.php%3Fm%3Dcpcareers%26a%3Dshow%26joborderid%3D0048579" target="_blank">
 <img src="https://sc1.checkpoint.com/careers/images/whatsapp_new.svg"/> WhatsApp
                                         </a>
@@ -1144,8 +1058,7 @@
 <img alt="Save Job" src="https://sc1.checkpoint.com/careers/images/Save_job.svg"/>
 </button>
 </span>
-<!--                                <span class="seniority seniorityMi">Mid-Senior Level and Team Leaders</span>
-                                -->
+
 </div>
 <a href="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=show&amp;joborderid=0048579">
                                 Backend developer                            </a>
@@ -1171,7 +1084,6 @@
 <a href="#" onclick="copyToClipboard(event, 'https://careers.checkpoint.com//index.php?m=cpcareers&amp;a=show&amp;joborderid=1005509')">
 <img src="https://sc1.checkpoint.com/careers/images/copylink_new.svg"/> Copy Link
                                             </a>
-
 <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fcareers.checkpoint.com%2Findex.php%3Fm%3Dcpcareers%26a%3Dshow%26joborderid%3D1005509" target="_blank">
 <img src="https://sc1.checkpoint.com/careers/images/whatsapp_new.svg"/> WhatsApp
                                         </a>
@@ -1192,8 +1104,7 @@
 <img alt="Save Job" src="https://sc1.checkpoint.com/careers/images/Save_job.svg"/>
 </button>
 </span>
-<!--                                <span class="seniority seniorityMi">Mid-Senior Level and Team Leaders</span>
-                                -->
+
 </div>
 <a href="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=show&amp;joborderid=1005509">
                                 Backend Developer                            </a>
@@ -1219,7 +1130,6 @@
 <a href="#" onclick="copyToClipboard(event, 'https://careers.checkpoint.com//index.php?m=cpcareers&amp;a=show&amp;joborderid=8032809')">
 <img src="https://sc1.checkpoint.com/careers/images/copylink_new.svg"/> Copy Link
                                             </a>
-
 <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fcareers.checkpoint.com%2Findex.php%3Fm%3Dcpcareers%26a%3Dshow%26joborderid%3D8032809" target="_blank">
 <img src="https://sc1.checkpoint.com/careers/images/whatsapp_new.svg"/> WhatsApp
                                         </a>
@@ -1240,8 +1150,7 @@
 <img alt="Save Job" src="https://sc1.checkpoint.com/careers/images/Save_job.svg"/>
 </button>
 </span>
-<!--                                <span class="seniority seniorityMi">Mid-Senior Level and Team Leaders</span>
-                                -->
+
 </div>
 <a href="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=show&amp;joborderid=8032809">
                                 Backend Engineer                            </a>
@@ -1267,7 +1176,6 @@
 <a href="#" onclick="copyToClipboard(event, 'https://careers.checkpoint.com//index.php?m=cpcareers&amp;a=show&amp;joborderid=8040369')">
 <img src="https://sc1.checkpoint.com/careers/images/copylink_new.svg"/> Copy Link
                                             </a>
-
 <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fcareers.checkpoint.com%2Findex.php%3Fm%3Dcpcareers%26a%3Dshow%26joborderid%3D8040369" target="_blank">
 <img src="https://sc1.checkpoint.com/careers/images/whatsapp_new.svg"/> WhatsApp
                                         </a>
@@ -1288,8 +1196,7 @@
 <img alt="Save Job" src="https://sc1.checkpoint.com/careers/images/Save_job.svg"/>
 </button>
 </span>
-<!--                                <span class="seniority seniorityMi">Mid-Senior Level and Team Leaders</span>
-                                -->
+
 </div>
 <a href="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=show&amp;joborderid=8040369">
                                 Backend Team Lead                            </a>
@@ -1315,7 +1222,6 @@
 <a href="#" onclick="copyToClipboard(event, 'https://careers.checkpoint.com//index.php?m=cpcareers&amp;a=show&amp;joborderid=8411149')">
 <img src="https://sc1.checkpoint.com/careers/images/copylink_new.svg"/> Copy Link
                                             </a>
-
 <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fcareers.checkpoint.com%2Findex.php%3Fm%3Dcpcareers%26a%3Dshow%26joborderid%3D8411149" target="_blank">
 <img src="https://sc1.checkpoint.com/careers/images/whatsapp_new.svg"/> WhatsApp
                                         </a>
@@ -1336,8 +1242,7 @@
 <img alt="Save Job" src="https://sc1.checkpoint.com/careers/images/Save_job.svg"/>
 </button>
 </span>
-<!--                                <span class="seniority seniorityMi">Mid-Senior Level and Team Leaders</span>
-                                -->
+
 </div>
 <a href="https://careers.checkpoint.com/index.php?m=cpcareers&amp;a=show&amp;joborderid=8411149">
                                 Backend Team Leader-Data Platform                            </a>
@@ -1369,15 +1274,8 @@
 </div>
 </div></form>
 </div>
-<!--
-- footer.tpl
-- Created by Michelle Barzilai
-- Date:      November 2020
-- Purpose:   Careers portal footer links
-- Used in:   Every page.
--->
-<link href="css/footer.css?v=907" rel="Stylesheet" type="text/css"/>
 
+<link href="css/footer.css?v=907" rel="Stylesheet" type="text/css"/>
 <div id="footerMenu">
 <div class="statement" id="statement" style="background-color:#ffffff; background-image: url(https://www.checkpoint.com/wp-content/uploads/careers-footer-bg-2.png);">
 <div class="container">
@@ -1388,11 +1286,8 @@
 </div>
 </div>
 </div>
-<!-- Start of LinkedIn Insight Tag -->
 
 
-<!-- End of LinkedIn Insight Tag -->
-<!-- XXXXXXXX START Unified Header/Footer FOOTER XXXXXXXX -->
 
 <div class="CP-Unified">
 <footer class="cp__footer no-print" data-swiftype-index="false" id="cp__footer" itemscope="itemscope" itemtype="//schema.org/WPFooter">
@@ -1532,5 +1427,4 @@
 </div>
 </div>
 </footer>
-
 </div></body></html>

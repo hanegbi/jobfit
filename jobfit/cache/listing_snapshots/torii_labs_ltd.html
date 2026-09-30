@@ -4,46 +4,28 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<!-- Shared bot / automation filter — SINGLE SOURCE OF TRUTH for "is this a real
-     visitor?". Consumed by:
-       tags/ab-h1-test.html       (A/B variant enrolment)
-     It used to also gate tags/modal-analytics.html (Modal pageview analytics),
-     which was removed on 15 Sep 2026. The list stays centralised here so any
-     future consumer cannot drift from the A/B enrolment gate, which is what
-     happened when the two kept separate hand-maintained lists.
 
-     ⚠ Changing the enrolment gate mid-experiment shifts the measured
-     population, so prefer to land changes at an EXP rollover
-     (see the new-test checklist in CLAUDE.md).
 
-     Must load in <head>, before its consumer, which falls back to a minimal
-     inline regex if this include is ever missing, so a new layout that forgets
-     it degrades rather than treating every crawler as a visitor. -->
 
-<!-- Google Tag Manager -->
-<!-- End Google Tag Manager -->
-<!-- In-lined CSS: global tokens/chrome + marketing sections -->
 
-<!-- LCP is the .mkt-hero--grid CSS background image; a CSS background can't take an
-       HTML fetchpriority attribute, so preload it here to satisfy the
-       "fetchpriority=high should be applied" LCP audit. Opt in with preload_hero_bg: true. -->
-<!-- Favicons -->
-<!-- For Modern Browsers -->
+
+
+
 <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
-<!-- For older browsers -->
+
 <link href="/favicon.ico" rel="icon" sizes="16x16 32x32" type="image/x-icon"/>
-<!-- For Android & Chrome fallback -->
+
 <link href="/favicon-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
-<!-- For iOS Touch Screens-->
+
 <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
-<!-- For Windows Start Screen -->
+
 <meta content="/mstile-144x144.png" name="msapplication-TileImage" sizes="144x144" type="image/png"/>
 <meta content="#0b2436" name="msapplication-TileColor"/>
-<!-- Metatags -->
+
 <title>Careers at Torii | Torii</title>
 <meta content="Join us as we build the SaaS Management Platform designed for IT. We're growing and looking for talented individuals help us lead the way!" name="description"/>
 <link href="https://www.toriihq.com/careers" rel="canonical"/>
-<!--- OpenGraph -->
+
 <meta content="Careers at Torii | Torii" property="og:title"/>
 <meta content="Join us as we build the SaaS Management Platform designed for IT. We're growing and looking for talented individuals help us lead the way!" property="og:description"/>
 <meta content="https://www.toriihq.com/careers" property="og:url"/>
@@ -51,34 +33,29 @@
 <meta content="Careers at Torii | Torii" property="og:image:alt"/>
 <meta content="Torii" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
-<!-- Twitter -->
+
 <meta content="@torii_hq" name="twitter:site"/>
 <meta content="Careers at Torii | Torii" name="twitter:title"/>
 <meta content="Join us as we build the SaaS Management Platform designed for IT. We're growing and looking for talented individuals help us lead the way!" name="twitter:description"/>
 <meta content="https://www.toriihq.com/assets/images/important/torii-cover.webp" name="twitter:image"/>
 <meta content="Careers at Torii | Torii" name="twitter:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<!--- Blog Meta -->
+
 <meta content="website" property="og:type"/>
-<!--- Robots -->
+
 <meta content="index, follow, max-image-preview:large" name="robots"/>
-<!--- Alternate -->
-<!--- Markdown for LLMs -->
-<!-- <link rel="alternate" type="text/plain" href="https://www.toriihq.com/articles/.md" /> -->
-<!--- Schemas -->
-<!-- Organization Schema -->
 
-<!-- WebSite Schema -->
 
-<!--- BlogPosting Schema --->
-<!--- ImageObject --->
+
+
+
+
 
 
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
 
-<!-- End Google Tag Manager (noscript) -->
+
 <div class="announcement-bar">
 <div class="container">
 <a href="/reports/gartner-magic-quadrant-for-saas-management-platforms">NEW: Torii was named a Leader in the 2026 Gartner® Magic Quadrant™ for SaaS Management Platforms</a>
@@ -253,9 +230,8 @@
 </div>
 </header>
 <main id="main" role="main">
-
 <div class="careers-page">
-<!-- HERO -->
+
 <section class="careers-hero">
 <div class="careers-hero__inner">
 <div class="careers-hero__text">
@@ -268,12 +244,11 @@
 </div>
 </div>
 </section>
-<!-- JOBS (Greenhouse) -->
+
 <div class="careers-jobs" id="jobs">
 <div id="grnhse_app"></div>
 </div>
 
-<!-- BENEFITS -->
 <section class="careers-benefits">
 <span class="careers-eyebrow">Our benefits</span>
 <h2 class="careers-h2">See what you can get from working with us</h2>
@@ -295,7 +270,7 @@
 </div>
 </div>
 </section>
-<!-- CORE VALUES -->
+
 <section class="careers-values">
 <h2 class="careers-h2">Core Values</h2>
 <div class="careers-cards">
@@ -408,20 +383,10 @@
       | <a href="/terms">Terms of use</a> | <a href="/privacy-notice">Privacy</a> | <a href="/cookies">Cookies</a> | <a href="/ai-instructions">AI Instructions</a> | <a href="#your-privacy-choices">Your Privacy Choices</a>
 </p>
 </div>
-
 </footer>
 
 
-<!-- HubSpot (lazy-loaded on first user interaction) -->
 
-<!-- Push HubSpot form submissions into the dataLayer for GTM/analytics -->
-
-<!-- Wistia (lazy: player.js + per-media embed load only when a player nears the viewport) -->
-
-<!-- Homepage H1 A/B test — conversion ping on /pricing, /request-a-demo, /book-demo.
-     Included in the layouts that serve those pages (landing, canvas); inert
-     everywhere else via the pathname check. Only fires for visitors who were
-     assigned a variant on the homepage (tags/ab-h1-test.html — EXP must match). -->
 
 </body>
 </html>

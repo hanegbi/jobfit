@@ -162,3 +162,27 @@ def test_strip_non_content_leaves_the_links_the_extractor_reads():
     after = [(c.text, c.href) for c in extractor.extract(_page(stripped), CAREER_URL)]
     assert before == after
     assert [href for _, href in after] == [f"{CAREER_URL}backend-1", f"{CAREER_URL}devops-2"]
+
+
+def test_strip_non_content_drops_comments_so_snapshots_carry_no_commented_out_scripts():
+    """A real snapshot (Ongage) held a whole Rollbar <script> inside an HTML
+    comment, access token and all, which GitHub's secret scanner then flagged
+    on a public push. The extractor never sees a link inside a comment, so
+    dropping comments costs nothing and closes that whole class of leak."""
+    from jobfit.scrape.candidates import strip_non_content
+
+    # A stand-in token, not the real one: a test asserting on the live value
+    # would re-arm the very scanner this change exists to quiet.
+    html = """<html><body>
+    <!-- script roll bar <script>var cfg = {accessToken: "NOT_A_REAL_TOKEN_0000"};</script>
+    <a href="/careers/commented-out">Ghost Job</a> -->
+    <a href="/careers/real-1">Platform Engineer</a></body></html>"""
+    stripped = strip_non_content(html)
+    assert "NOT_A_REAL_TOKEN_0000" not in stripped
+    assert "commented-out" not in stripped
+
+    extractor = CandidateExtractor()
+    before = [(c.text, c.href) for c in extractor.extract(_page(html), CAREER_URL)]
+    after = [(c.text, c.href) for c in extractor.extract(_page(stripped), CAREER_URL)]
+    assert before == after
+    assert [href for _, href in after] == [f"{CAREER_URL}real-1"]
