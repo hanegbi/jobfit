@@ -30,6 +30,9 @@ HEBREW_RE = re.compile(r"[֐-׿]")
 _LETTER_RE = re.compile(r"[A-Za-z֐-׿]")
 _CHUNK_MAX_CHARS = 480
 _REQUEST_DELAY_S = 0.35
+# Retry a rate-limited chunk rather than abandoning it: 1s, 2s, 4s, 8s.
+_MAX_ATTEMPTS = 5
+_RETRY_BASE_DELAY_S = 1.0
 # A page that's overwhelmingly English but happens to include one Hebrew
 # word (e.g. an "EN | עברית" language-switcher link) must not trigger a
 # full translate - real case caught live: a company's English job
@@ -111,6 +114,28 @@ def _split_into_chunks(text: str, max_chars: int = _CHUNK_MAX_CHARS) -> list[str
     return chunks
 
 
+def _translate_chunk(translator, chunk: str) -> str | None:
+    """One chunk translated, or None when the service would not do it.
+
+    MyMemory rate-limits per second, and a flat delay between calls only
+    postpones the problem: a batch run hit the limit after 300 titles and
+    then failed the remaining 544 in a row, because nothing ever backed off.
+    Each retry waits longer, so a burst recovers instead of burning the rest
+    of the run.
+    """
+    delay = _RETRY_BASE_DELAY_S
+    for attempt in range(_MAX_ATTEMPTS):
+        try:
+            return translator.translate(chunk)
+        except Exception as error:  # noqa: BLE001 - any failure is retried the same way
+            if attempt == _MAX_ATTEMPTS - 1:
+                logger.debug("translation chunk failed after %d attempts: %s", _MAX_ATTEMPTS, error)
+                return None
+            time.sleep(delay)
+            delay *= 2
+    return None
+
+
 def translate_to_english(text: str) -> str:
     """Translate Hebrew text to English. Returns the original text unchanged
     if it has no Hebrew, or if translation fails/hits a quota - a scrape run
@@ -138,12 +163,9 @@ def translate_to_english(text: str) -> str:
     translated_chunks = []
     failed = False
     for chunk in _split_into_chunks(text):
-        try:
-            translated_chunks.append(translator.translate(chunk))
-        except Exception as error:  # noqa: BLE001
-            logger.debug("translation chunk failed, keeping original: %s", error)
-            translated_chunks.append(chunk)
-            failed = True
+        translated = _translate_chunk(translator, chunk)
+        translated_chunks.append(translated if translated is not None else chunk)
+        failed = failed or translated is None
         time.sleep(_REQUEST_DELAY_S)
 
     result = " ".join(translated_chunks)

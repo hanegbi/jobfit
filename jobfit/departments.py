@@ -85,11 +85,13 @@ _RULES: tuple[tuple[str, str], ...] = (
     (r"marketing|brand|demand gen|advertis|communications|growth", MARKETING),
     (r"customer|client|\bcx\b|\bcs\b|support|success|member care"
      r"|professional services|onboarding", CUSTOMER),
-    # Drug/clinical validation is laboratory work, not software QA - the word
-    # is shared, the job is not.
-    (r"(drug|clinical|pharma|\bbio)", DATA_AI),
-    (r"quality assurance|\bqa\b|\bsqa\b|\bautomation\b|validation|verification"
-     r"|\bv ?& ?v\b|\bsdet\b", QA),
+    # "Validation" is laboratory work in a lab and software QA in software -
+    # the word is shared, the job is not. Guarding the QA rule rather than
+    # routing lab work somewhere of its own: 'Drug Discovery and Validation'
+    # then matches nothing and gets no department, which is the honest answer.
+    (r"^(?!.*\b(drug|clinical|pharma|bio\w*)\b).*"
+     r"(quality assurance|\bqa\b|\bsqa\b|\bautomation\b|validation|verification"
+     r"|\bv ?& ?v\b|\bsdet\b)", QA),
     (r"devops|\bsre\b|site reliability|infrastructure|\binfra\b|cloud ?ops"
      r"|platform ops|production engineering|\bnoc\b", DEVOPS),
     (r"hardware|embedded|firmware|mechanical|electrical|electronics|silicon"
@@ -105,12 +107,11 @@ _RULES: tuple[tuple[str, str], ...] = (
     (r"finance|account(ing|s)?\b|payroll|treasury|\brisk\b|\btax\b|billing"
      r"|reconciliation", FINANCE),
     (r"people|human resource|\bhr\b|recruit|talent|culture", HR),
-    (r"manufactur|production|supply chain|logistics|warehouse"
-     r"|operational excellence|quality", MANUFACTURING),
+    (r"manufactur|production|supply chain|logistics|warehouse|quality", MANUFACTURING),
     (r"engineering|\br ?& ?d\b|\brnd\b|software|\bdev\b|development|platform"
      r"|technolog|\btech\b|architecture|\bcto\b|solutions?\b|programming", SOFTWARE),
     (r"operations?|\bops\b|delivery|project management|program management"
-     r"|business operations", OPERATIONS),
+     r"|business operations|operational excellence", OPERATIONS),
 )
 _COMPILED = tuple((re.compile(pattern, re.IGNORECASE), canonical) for pattern, canonical in _RULES)
 
@@ -150,20 +151,25 @@ _FAMILY_TO_DEPARTMENT = {
 
 
 def department_for(title: str | None, raw: str | None = None) -> str | None:
-    """A job's department: what the ATS said, or what its title says when the
-    ATS said nothing usable.
+    """A job's department: what its title says it does, falling back to what
+    the ATS said.
 
-    Only 2,659 of 29,444 jobs carry a department at all, and almost none
-    carry an accurate one - 127 open QA roles were spread across five
-    departments, exactly one of them QA. The stated value still wins when it
-    names a function; the title only fills the silence.
+    The title wins, which is not the obvious way round. A stated department
+    is the company's org chart - whose budget the role sits in - while the
+    title describes the work. Where the two disagree (302 open jobs), the
+    title is right almost every time: "Senior DevOps Engineer" and "Senior
+    Data Engineer" both filed under Software Engineering, "Product Security
+    Engineer" and "Senior Product Designer" both under Product, "Customer
+    Success" under Sales. Someone searching for work filters on the work.
+
+    The stated value still fills the silence: only 2,338 open jobs are
+    classified by title alone, and 1,377 only by what the company said.
     """
-    stated = canonical_department(raw)
-    if stated is not None:
-        return stated
-    if not title:
-        return None
-    from jobfit.ats_scorer.taxonomy import load_role_families
+    if title:
+        from jobfit.ats_scorer.taxonomy import load_role_families
 
-    family = load_role_families().classify(title)
-    return _FAMILY_TO_DEPARTMENT.get(family or "")
+        family = load_role_families().classify(title)
+        by_title = _FAMILY_TO_DEPARTMENT.get(family or "")
+        if by_title is not None:
+            return by_title
+    return canonical_department(raw)

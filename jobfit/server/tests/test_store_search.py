@@ -186,11 +186,12 @@ def test_terms_can_be_excluded():
 
 
 def test_filtering_by_department_industry_and_language():
-    """The fixture writes department="R&D"; the store folds it to the
-    canonical "Software Engineering" on the way in, so that is what you
-    filter by."""
+    """Both fixtures say department="R&D", and the store does not store that.
+    "Senior Backend Engineer" becomes Software Engineering; "Security
+    Researcher" becomes Security, because the title beats the org chart."""
     conn = _rich()
-    assert {j["id"] for j in search.search_jobs(conn, department="Software Engineering")["jobs"]} == {"a1", "b1"}
+    assert {j["id"] for j in search.search_jobs(conn, department="Software Engineering")["jobs"]} == {"a1"}
+    assert {j["id"] for j in search.search_jobs(conn, department="Security")["jobs"]} == {"b1"}
     assert search.search_jobs(conn, department="R&D")["total"] == 0
     assert {j["id"] for j in search.search_jobs(conn, industry="Security")["jobs"]} == {"b1"}
     assert {j["id"] for j in search.search_jobs(conn, language="he")["jobs"]} == {"a1"}

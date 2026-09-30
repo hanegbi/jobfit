@@ -17,7 +17,12 @@ from pydantic import BaseModel
 from jobfit.scrape.models import Candidate
 
 NAV_DENYLIST = re.compile(
-    r"^(home|about|contact( us)?|privacy( policy)?|terms( of (use|service))?|cookies?( policy)?|sign ?in|log ?in|"
+    # Anchored: a whole anchor text that is exactly one of these is site
+    # furniture, never a posting. Each addition here was found in the store
+    # as an open "job" - 118 x "About Us", 47 x "Terms", 21 x "Careers".
+    r"^(home|about( us)?|contact( us)?|privacy( policy)?|"
+    r"terms( (of (use|service)|and conditions|& conditions))?|cookies?( policy)?|"
+    r"sign ?(in|up)|log ?(in|out)|careers?|jobs?|open (roles|positions)|join us|work with us|"
     r"register|blog|news|press|resources?|white papers?|case stud(y|ies)|"
     r"investors?|sustainability|diversity|benefits?|life at|culture|our (team|story|values)|"
     r"locations?|offices?|leadership|board|help|faq|support|search( jobs?)?|filter|sort by|share|"

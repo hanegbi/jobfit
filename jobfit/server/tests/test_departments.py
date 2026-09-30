@@ -126,9 +126,17 @@ def test_automation_and_validation_are_qa(raw, expected):
 
 
 def test_drug_validation_is_laboratory_work_not_software_qa():
-    """The word is shared; the job is not. 'Drug Discovery and Validation'
-    is a real value from the store and read as QA before this rule."""
-    assert canon("Drug Discovery and Validation") == departments.DATA_AI
+    """The word is shared; the job is not. 'Drug Discovery and Validation' is
+    a real value from the store, read as QA before this guard. It now names
+    no department this vocabulary has, which is the honest answer."""
+    assert canon("Drug Discovery and Validation") is None
+
+
+def test_operational_excellence_is_a_business_function_not_a_factory():
+    """Real regression: it sat under Manufacturing, which put
+    'Sr. Collections Strategy Manager' on a production line."""
+    assert canon("Operational Excellence") == departments.OPERATIONS
+    assert canon("Quality & Operational Excellence") == departments.MANUFACTURING
 
 
 # --- department_for: the title fills the ATS's silence ------------------------
@@ -152,10 +160,27 @@ def test_a_title_gives_a_department_when_the_ats_gave_none(title, expected):
     assert departments.department_for(title) == expected
 
 
-def test_what_the_company_actually_said_beats_the_title():
-    """A stated department is evidence; an inferred one is a guess. The guess
-    only fills silence."""
-    assert departments.department_for("QA Automation Engineer", "Sales") == departments.SALES
+@pytest.mark.parametrize("title,stated,expected", [
+    ("Senior DevOps Engineer", "R&D", departments.DEVOPS),
+    ("Senior Data Engineer", "Engineering", departments.DATA_AI),
+    ("Product Security Engineer", "Product", departments.SECURITY),
+    ("Senior Product Designer", "Product", departments.DESIGN),
+    ("Customer Success", "Sales", departments.CUSTOMER),
+    ("Junior Embedded Software Engineer", "Engineering", departments.HARDWARE),
+])
+def test_the_title_beats_the_stated_department(title, stated, expected):
+    """Not the obvious way round, and decided by looking: across the 302 open
+    jobs where the two disagree, the title is right almost every time. A
+    stated department is the org chart - whose budget the role sits in - and
+    the title is the work. Someone searching for work filters on the work.
+    Every pair here is real."""
+    assert departments.department_for(title, stated) == expected
+
+
+def test_the_stated_department_fills_the_silence():
+    """The title only wins when it says something. It usually does not."""
+    assert departments.department_for("Shift Supervisor", "Manufacturing") == departments.MANUFACTURING
+    assert departments.department_for("Shift Supervisor", "348-RAT") is None
 
 
 def test_a_title_naming_only_a_level_gives_no_department():

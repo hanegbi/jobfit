@@ -138,11 +138,35 @@ def clean_company_names(conn) -> dict:
     return {"hebrew_names": len(rows), "renamed": renamed}
 
 
+def close_nav_junk(conn) -> dict:
+    """Close open "jobs" whose title is site furniture - "About Us", "Terms &
+    Conditions", "Careers". They were never postings; the denylist that
+    should have rejected them had gaps (it matched 'about' but not 'about
+    us', 'terms of service' but not 'terms and conditions').
+
+    Closed rather than deleted, like every other job: the row is still
+    evidence of what that career page served, and deleting it would just let
+    the next scrape create it again.
+    """
+    from jobfit.scrape.filters import NAV_DENYLIST
+
+    rows = conn.execute("SELECT id, title FROM jobs WHERE status != 'closed'").fetchall()
+    junk = [row["id"] for row in rows if NAV_DENYLIST.match((row["title"] or "").strip())]
+    if junk:
+        with conn:
+            conn.executemany(
+                "UPDATE jobs SET status = 'closed', closed_at = datetime('now'), "
+                "closed_reason = 'not a job: site navigation' WHERE id = ?",
+                [(job_id,) for job_id in junk])
+    return {"open_jobs": len(rows), "closed_as_navigation": len(junk)}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--departments", action="store_true", help="fold departments into the canonical set")
     parser.add_argument("--translate", action="store_true", help="retranslate Hebrew titles")
     parser.add_argument("--companies", action="store_true", help="drop the Hebrew half of company names")
+    parser.add_argument("--nav-junk", action="store_true", help="close open jobs that are site navigation")
     parser.add_argument("--limit", type=int, default=0, help="translate at most N titles")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -152,12 +176,14 @@ def main() -> None:
         print(fold_departments(conn))
     if args.companies:
         print(clean_company_names(conn))
+    if args.nav_junk:
+        print(close_nav_junk(conn))
     if args.translate:
         dropped = drop_poisoned_translations()
         print(f"dropped {dropped} poisoned cache entries")
         print(retranslate(conn, args.limit))
-    if not (args.departments or args.translate or args.companies):
-        parser.error("pick --departments, --companies, --translate, or a combination")
+    if not (args.departments or args.translate or args.companies or args.nav_junk):
+        parser.error("pick --departments, --companies, --nav-junk, --translate, or a combination")
 
 
 if __name__ == "__main__":

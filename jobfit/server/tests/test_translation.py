@@ -157,6 +157,52 @@ def test_english_name_leaves_a_name_with_no_latin_half_alone():
     assert translation.english_name("שני נוי - ייעוץ תעסוקתי") == "שני נוי - ייעוץ תעסוקתי"
 
 
+def test_a_rate_limited_chunk_is_retried_before_being_given_up_on(monkeypatch, tmp_path):
+    """A flat delay only postpones a per-second limit: a batch run hit it
+    after 300 titles and then failed the next 544 in a row, because nothing
+    backed off."""
+    monkeypatch.setattr(translation, "CACHE_PATH", tmp_path / "translations.json")
+    monkeypatch.setattr(translation.time, "sleep", lambda *_: None)
+    attempts = []
+
+    class _FlakyTranslator:
+        def __init__(self, *a, **kw):
+            pass
+
+        def translate(self, text):
+            attempts.append(text)
+            if len(attempts) < 3:
+                raise RuntimeError("too many requests")
+            return "Software Engineer"
+
+    import deep_translator
+    monkeypatch.setattr(deep_translator, "MyMemoryTranslator", _FlakyTranslator)
+
+    assert translation.translate_to_english("מהנדס תוכנה") == "Software Engineer"
+    assert len(attempts) == 3
+
+
+def test_a_chunk_that_never_succeeds_gives_up_and_is_not_cached(monkeypatch, tmp_path):
+    monkeypatch.setattr(translation, "CACHE_PATH", tmp_path / "translations.json")
+    monkeypatch.setattr(translation.time, "sleep", lambda *_: None)
+    attempts = []
+
+    class _DeadTranslator:
+        def __init__(self, *a, **kw):
+            pass
+
+        def translate(self, text):
+            attempts.append(text)
+            raise RuntimeError("too many requests")
+
+    import deep_translator
+    monkeypatch.setattr(deep_translator, "MyMemoryTranslator", _DeadTranslator)
+
+    assert translation.translate_to_english("מהנדס תוכנה") == "מהנדס תוכנה"
+    assert len(attempts) == translation._MAX_ATTEMPTS
+    assert not (tmp_path / "translations.json").exists()
+
+
 def test_poisoned_cache_keys_finds_entries_that_are_still_hebrew():
     cache = {
         "a": "Software Engineer",
