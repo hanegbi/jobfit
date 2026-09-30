@@ -118,3 +118,12 @@ def test_the_control_panel_routes_still_work(client, seeded):
     assert client.get("/api/dashboard").status_code == 200
     assert client.get("/api/profiles").status_code == 200
     assert client.get("/api/run/status").status_code == 200
+
+
+def test_jobs_can_be_filtered_by_connection(client, seeded):
+    from jobfit.store import companies as store_companies
+
+    store_companies.refresh_connection_counts(seeded, {"acme": ["Jane"]})
+    body = client.get("/api/jobs?has_connection=true").json()
+    assert {j["id"] for j in body["jobs"]} == {"j1", "j2"}
+    assert body["jobs"][0]["connection_count"] == 1

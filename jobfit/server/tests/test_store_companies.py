@@ -60,3 +60,30 @@ def test_list_companies_is_ordered_by_name_case_insensitively():
     for company_id, name in (("zeta", "zeta"), ("acme", "Acme"), ("beta", "beta")):
         companies.upsert_company(conn, company_id, name)
     assert [r["display_name"] for r in companies.list_companies(conn)] == ["Acme", "beta", "zeta"]
+
+
+def test_connection_counts_are_refreshed_from_the_contacts_index():
+    conn = _conn()
+    companies.upsert_company(conn, "acme", "Acme Ltd.")
+    companies.upsert_company(conn, "beta", "Beta")
+    # Keys are connections.normalize_company output, which strips "Ltd."
+    assert companies.refresh_connection_counts(conn, {"acme": ["Jane", "Bob"]}) == 1
+    assert companies.get_company(conn, "acme")["connection_count"] == 2
+    assert companies.get_company(conn, "beta")["connection_count"] == 0
+
+
+def test_refreshing_again_replaces_rather_than_adds():
+    conn = _conn()
+    companies.upsert_company(conn, "acme", "Acme Ltd.")
+    companies.refresh_connection_counts(conn, {"acme": ["Jane", "Bob"]})
+    companies.refresh_connection_counts(conn, {"acme": ["Jane"]})
+    assert companies.get_company(conn, "acme")["connection_count"] == 1
+
+
+def test_a_removed_connections_file_clears_every_count():
+    """Deleting the CSV must mean "I know nobody", not "keep the old numbers"."""
+    conn = _conn()
+    companies.upsert_company(conn, "acme", "Acme Ltd.")
+    companies.refresh_connection_counts(conn, {"acme": ["Jane"]})
+    companies.refresh_connection_counts(conn, {})
+    assert companies.get_company(conn, "acme")["connection_count"] == 0

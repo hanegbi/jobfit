@@ -120,3 +120,21 @@ def test_filtering_by_liked_and_hidden():
 def test_a_job_with_no_state_row_is_still_returned():
     """Most jobs have no state row; an inner join would hide all of them."""
     assert search.search_jobs(_conn())["total"] == 3
+
+
+def test_filtering_by_whether_anyone_i_know_works_there():
+    from jobfit.store import companies as store_companies
+
+    conn = _conn()
+    store_companies.refresh_connection_counts(conn, {"acme": ["Jane"]})
+    assert {j["id"] for j in search.search_jobs(conn, has_connection=True)["jobs"]} == {"j1", "j2"}
+    assert {j["id"] for j in search.search_jobs(conn, has_connection=False)["jobs"]} == {"j3"}
+
+
+def test_rows_report_their_connection_count():
+    from jobfit.store import companies as store_companies
+
+    conn = _conn()
+    store_companies.refresh_connection_counts(conn, {"acme": ["Jane", "Bob"]})
+    rows = {j["id"]: j for j in search.search_jobs(conn)["jobs"]}
+    assert rows["j1"]["connection_count"] == 2 and rows["j3"]["connection_count"] == 0

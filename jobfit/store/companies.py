@@ -11,7 +11,7 @@ from __future__ import annotations
 import sqlite3
 
 _FIELDS = ("display_name", "career_url", "review_decision", "host", "industry",
-           "size", "address_city", "last_checked")
+           "size", "address_city", "last_checked", "connection_count")
 
 
 def upsert_company(conn: sqlite3.Connection, company_id: str, display_name: str, **fields) -> None:
@@ -56,3 +56,21 @@ def companies_to_scrape(conn: sqlite3.Connection) -> dict[str, str | None]:
 
 def mark_checked(conn: sqlite3.Connection, company_id: str, when: str) -> None:
     conn.execute("UPDATE companies SET last_checked = ? WHERE id = ?", (when, company_id))
+
+
+def refresh_connection_counts(conn: sqlite3.Connection, contacts_by_key: dict[str, list]) -> int:
+    """Set every company's contact count from the connections index.
+
+    Clears counts absent from it, so deleting the CSV really does mean "I know
+    nobody" rather than leaving stale numbers behind. Returns how many
+    companies ended up with at least one contact."""
+    from jobfit import connections as connections_module
+
+    conn.execute("UPDATE companies SET connection_count = 0 WHERE connection_count != 0")
+    touched = 0
+    for row in conn.execute("SELECT id, display_name FROM companies").fetchall():
+        count = len(contacts_by_key.get(connections_module.normalize_company(row["display_name"])) or [])
+        if count:
+            conn.execute("UPDATE companies SET connection_count = ? WHERE id = ?", (count, row["id"]))
+            touched += 1
+    return touched

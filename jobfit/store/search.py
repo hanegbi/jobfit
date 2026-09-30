@@ -13,7 +13,7 @@ import sqlite3
 _LIST_COLUMNS = (
     "j.id, j.company_id, j.title, j.url, j.location, j.city, j.is_remote, j.department, "
     "j.employment_type, j.status, j.first_seen, j.last_seen, j.posted_at, j.years_required, "
-    "j.is_referral, j.referral_contact, c.display_name AS company, "
+    "j.is_referral, j.referral_contact, c.display_name AS company, c.connection_count, "
     "COALESCE(st.liked, 0) AS liked, COALESCE(st.hidden, 0) AS hidden, "
     "COALESCE(st.sent, 0) AS sent, COALESCE(st.reached_out, 0) AS reached_out"
 )
@@ -53,7 +53,7 @@ def score_sql(profile: str = "best") -> str:
 def build_filter(*, q: str | None = None, company_id: str | None = None, city: str | None = None,
                  status: str | None = None, is_remote: bool | None = None, min_score: float | None = None,
                  profile: str = "best", liked: bool | None = None, hidden: bool | None = None,
-                 sent: bool | None = None):
+                 sent: bool | None = None, has_connection: bool | None = None):
     """(where clause, params) for every filter the API exposes, or NO_MATCH
     when the text query contained no searchable terms.
 
@@ -85,6 +85,8 @@ def build_filter(*, q: str | None = None, company_id: str | None = None, city: s
         if wanted is not None:
             where.append(f"COALESCE(st.{field}, 0) = :{field}")
             params[field] = int(wanted)
+    if has_connection is not None:
+        where.append("c.connection_count > 0" if has_connection else "c.connection_count = 0")
     if min_score is not None:
         where.append(f"{score_sql(profile)} >= :min_score")
         params["min_score"] = min_score

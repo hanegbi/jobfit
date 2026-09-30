@@ -166,7 +166,8 @@ def api_jobs(
     q: str | None = None, company: str | None = None, city: str | None = None,
     status: str | None = None, remote: bool | None = None, min_score: float | None = None,
     profile: str = "best", liked: bool | None = None, hidden: bool | None = None,
-    sent: bool | None = None, sort: str = "score", page: int = 1, size: int = 50,
+    sent: bool | None = None, has_connection: bool | None = None,
+    sort: str = "score", page: int = 1, size: int = 50,
 ) -> dict:
     """One page of matching jobs plus the full total. List rows carry no
     description, and size is capped: an unbounded page would let one request
@@ -174,7 +175,7 @@ def api_jobs(
     return search.search_jobs(
         db.shared(), q=q, company_id=company, city=city, status=status, is_remote=remote,
         min_score=min_score, profile=profile, liked=liked, hidden=hidden, sent=sent,
-        sort=sort, page=page, size=min(max(1, size), 500),
+        has_connection=has_connection, sort=sort, page=page, size=min(max(1, size), 500),
     )
 
 
@@ -203,13 +204,14 @@ def api_facets(
     q: str | None = None, company: str | None = None, city: str | None = None,
     status: str | None = None, remote: bool | None = None, min_score: float | None = None,
     profile: str = "best", liked: bool | None = None, hidden: bool | None = None,
-    sent: bool | None = None,
+    sent: bool | None = None, has_connection: bool | None = None,
 ) -> dict:
     """Counts per company, city and status for the current filter - built from
     the same WHERE clause as /api/jobs, so they cannot disagree."""
     return facets.counts(
         db.shared(), q=q, company_id=company, city=city, status=status, is_remote=remote,
         min_score=min_score, profile=profile, liked=liked, hidden=hidden, sent=sent,
+        has_connection=has_connection,
     )
 
 

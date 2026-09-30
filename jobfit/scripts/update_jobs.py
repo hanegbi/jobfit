@@ -378,6 +378,8 @@ def recompute_stage(force: bool = False) -> None:
             logger.warning("recompute: no CV profiles registered - leaving stored scores alone")
             _rebuild_page()
             return
+        counted = store_companies.refresh_connection_counts(conn, connections.load_connections_index())
+        logger.info("recompute: %d company(ies) have someone you know", counted)
         dropped = store_scores.drop_scores_for_missing_profiles(conn, set(profiles))
         if dropped:
             logger.info("recompute: dropped %d score row(s) for profiles that no longer exist", dropped)
