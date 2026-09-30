@@ -75,7 +75,11 @@ def build_filter(*, q: str | None = None, company_id: str | None = None, city: s
     if city:
         where.append("j.city = :city")
         params["city"] = city
-    if status:
+    if status == "open":
+        # One value for "anything still listed", rather than making every
+        # caller enumerate new + seen and get it wrong when a third appears.
+        where.append("j.status != 'closed'")
+    elif status:
         where.append("j.status = :status")
         params["status"] = status
     if is_remote is not None:

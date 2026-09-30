@@ -39,3 +39,8 @@ jobfit/cache/*.log.out
 jobfit/data/jobfit.db
 jobfit/data/jobfit.db-wal
 jobfit/data/jobfit.db-shm
+
+# Front end: dependencies and the intermediate build. The BUILT app under
+# jobfit/server/static/app/ is committed, so the server needs no Node.
+frontend/node_modules/
+frontend/dist/

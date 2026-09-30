@@ -7,6 +7,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
 
 from jobfit import company_review, config, cv, pipeline_lock
 from jobfit.scripts import update_jobs
@@ -39,6 +40,23 @@ app = FastAPI(title="jobfit control panel", lifespan=_lifespan)
 @app.get("/")
 def index() -> FileResponse:
     return FileResponse(STATIC_DIR / "panel.html")
+
+
+APP_DIR = STATIC_DIR / "app"
+
+# The built front end is committed, so a fresh clone serves the app without
+# Node installed. Mounted rather than routed one-file-at-a-time because Vite
+# emits hashed asset names.
+if (APP_DIR / "assets").exists():
+    app.mount("/app/assets", StaticFiles(directory=APP_DIR / "assets"), name="app-assets")
+
+
+@app.get("/app")
+def spa_index() -> FileResponse:
+    index = APP_DIR / "index.html"
+    if not index.exists():
+        raise HTTPException(404, "the front end is not built - run `npm run build` in frontend/")
+    return FileResponse(index)
 
 
 @app.get("/api/dashboard")

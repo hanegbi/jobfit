@@ -138,3 +138,12 @@ def test_rows_report_their_connection_count():
     store_companies.refresh_connection_counts(conn, {"acme": ["Jane", "Bob"]})
     rows = {j["id"]: j for j in search.search_jobs(conn)["jobs"]}
     assert rows["j1"]["connection_count"] == 2 and rows["j3"]["connection_count"] == 0
+
+
+def test_status_open_means_anything_not_closed():
+    """The old page hid closed jobs behind a toggle. "open" is one filter
+    value rather than asking callers to enumerate new + seen."""
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [{"id": "j1", "title": "Senior Backend Engineer", "url": "u1"}], LATER)
+    assert {j["id"] for j in search.search_jobs(conn, status="open")["jobs"]} == {"j1", "j3"}
+    assert {j["id"] for j in search.search_jobs(conn, status="closed")["jobs"]} == {"j2"}
