@@ -33,5 +33,9 @@ until phase 4 as a rollback path. Design: @docs/superpowers/specs/2026-09-30-job
   renamed, `may_close=False` for a fetch too weak to prove absence.
 - `scores.py` — one row per (job, profile). An empty profile set means "I know of no profiles", not
   "delete every score": reading it the other way once destroyed all 60,294 rows.
-- `search.py` — the read the application is built on. List rows carry no description on purpose,
-  and a user's query is treated as data, not FTS5 syntax.
+- `search.py` — the read the application is built on. List rows carry no description on purpose, and
+  a user's query is treated as data, not FTS5 syntax. `build_filter` is the shared WHERE clause.
+- `state.py` — the user's own flags (liked, hidden, sent, reached out). The only table a scrape never
+  writes, and the one whose rows must survive a re-scrape and a job closing.
+- `facets.py` — counts per company, city and status, built from `search.build_filter` so a count can
+  never disagree with the list it annotates.

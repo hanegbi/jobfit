@@ -84,10 +84,16 @@ class PipelineLock:
         self._owns = False
 
     def _read(self) -> dict | None:
+        """The holder recorded in the lock file, or None when there isn't a
+        usable one. Anything that isn't a JSON object counts as "no holder":
+        a truncated write, or a file left by an older version of this code
+        that stored a bare pid. One of those made the server unstartable with
+        an AttributeError deep in __enter__ instead of simply being ignored."""
         try:
-            return json.loads(self.path.read_text(encoding="utf-8"))
+            holder = json.loads(self.path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             return None
+        return holder if isinstance(holder, dict) else None
 
     def _write(self) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)

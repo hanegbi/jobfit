@@ -107,3 +107,15 @@ def test_exit_does_not_release_a_lock_owned_by_a_different_process(tmp_path):
     path.write_text(json.dumps({"pid": 999999, "stage": "x", "scope": "x", "started_at": "x", "argv": []}), encoding="utf-8")
     lock.__exit__(None, None, None)
     assert path.exists()  # not ours anymore - must not delete it
+
+
+def test_a_lock_file_that_is_not_an_object_is_ignored(tmp_path):
+    """A truncated write, or a file from an older version of this code that
+    stored a bare pid, must read as "no holder". One of those made the
+    control panel unstartable with an AttributeError."""
+    path = tmp_path / ".server.lock"
+    for content in ("46688", '"a string"', "[1, 2]", "null", "not json at all"):
+        path.write_text(content, encoding="utf-8")
+        with pipeline_lock.PipelineLock(path, stage="server", scope="instance"):
+            holder = json.loads(path.read_text(encoding="utf-8"))
+            assert holder["pid"] == os.getpid()

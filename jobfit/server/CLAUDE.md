@@ -13,6 +13,24 @@ historical. Put new tests here regardless of what they cover.
 (`monkeypatch.setattr(update_jobs, "COMPANIES_DIR", tmp_path)`) rather than weakening the guard: it exists
 because two tests once silently emptied the real page and duplicated thousands of referral jobs.
 
+## The jobs API
+
+Five routes a front end reads, each a thin adapter over a `jobfit/store/` function:
+
+```
+GET   /api/jobs             filter/sort/paginate -> {total, page, size, jobs}
+GET   /api/jobs/{id}        description, scores per profile, the user's flags
+PATCH /api/jobs/{id}/state  {liked?, hidden?, sent?, reached_out?} -> the whole new state
+GET   /api/facets           counts per company / city / status for the current filter
+GET   /api/companies        every tracked company with open/total job counts
+```
+
+Two rules they enforce rather than assume: **list rows never carry a `description`** (that single
+field was most of the 77MB the static page shipped), and **`size` is clamped to 500** server-side,
+because an unbounded page would let one request pull the dataset the API exists to avoid sending.
+`/api/facets` takes the same query parameters as `/api/jobs` and shares its WHERE clause, so a count
+can never disagree with the list it annotates.
+
 ## Layout
 
 - `app.py` — routes only; uploads apply instantly, the run button is the sole thing that hits the network.
