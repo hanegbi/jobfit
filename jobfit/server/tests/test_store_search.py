@@ -94,3 +94,29 @@ def test_search_finds_a_hebrew_title():
     conn = _conn()
     jobs.upsert_scraped(conn, "acme", [{"id": "j4", "title": "מהנדס תוכנה", "url": "u4"}], NOW)
     assert {j["id"] for j in search.search_jobs(conn, q="מהנדס")["jobs"]} == {"j4"}
+
+
+def test_rows_carry_the_users_own_flags():
+    from jobfit.store import state
+
+    conn = _conn()
+    state.set_state(conn, "j1", liked=True)
+    rows = {j["id"]: j for j in search.search_jobs(conn)["jobs"]}
+    assert rows["j1"]["liked"] is True and rows["j1"]["hidden"] is False
+    assert rows["j2"]["liked"] is False
+
+
+def test_filtering_by_liked_and_hidden():
+    from jobfit.store import state
+
+    conn = _conn()
+    state.set_state(conn, "j1", liked=True)
+    state.set_state(conn, "j3", hidden=True)
+    assert {j["id"] for j in search.search_jobs(conn, liked=True)["jobs"]} == {"j1"}
+    assert {j["id"] for j in search.search_jobs(conn, hidden=False)["jobs"]} == {"j1", "j2"}
+    assert search.search_jobs(conn, liked=True, hidden=True)["total"] == 0
+
+
+def test_a_job_with_no_state_row_is_still_returned():
+    """Most jobs have no state row; an inner join would hide all of them."""
+    assert search.search_jobs(_conn())["total"] == 3

@@ -205,3 +205,25 @@ def mark_referral(conn: sqlite3.Connection, job_id: str, contact: str | None, no
         "closed_at = NULL, closed_reason = NULL WHERE id = ?",
         (contact, now, job_id),
     )
+
+
+def detail(conn: sqlite3.Connection, job_id: str) -> dict | None:
+    """One job in full: its description, its score per profile, its company's
+    fields and the user's own flags. The list view deliberately carries none
+    of this, which is what keeps a page of results small."""
+    from jobfit.store import scores as scores_store
+    from jobfit.store import state as state_store
+
+    row = conn.execute(
+        "SELECT j.*, c.display_name AS company, c.industry, c.size AS company_size, c.career_url "
+        "FROM jobs j JOIN companies c ON c.id = j.company_id WHERE j.id = ?",
+        (job_id,),
+    ).fetchone()
+    if row is None:
+        return None
+    job = row_to_job(row)
+    job["is_remote"] = bool(job["is_remote"])
+    job["is_referral"] = bool(job["is_referral"])
+    job["scores"] = scores_store.scores_for_job(conn, job_id)
+    job["state"] = state_store.get_state(conn, job_id)
+    return job

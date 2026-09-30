@@ -153,3 +153,23 @@ def test_every_stored_job_can_be_scored(store_conn):
     job = next(iter(jobs.iter_all(store_conn)))
     scored = scoring.score_job_both(job, {"default": {"text": "python developer"}})
     assert scored["score_default"] is not None
+
+
+def test_detail_carries_the_description_scores_and_company():
+    from jobfit.store import scores as store_scores
+
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [
+        _job("https://acme.com/jobs/1", description="Requirements: Python"),
+    ], NOW)
+    store_scores.write_scores(conn, "1", {"default": {"score": 80, "matched": ["python"], "cache_key": "k"}})
+    detail = jobs.detail(conn, "1")
+    assert detail["description"] == "Requirements: Python"
+    assert detail["company"] == "Acme"
+    assert detail["scores"]["default"]["score"] == 80
+    assert detail["scores"]["default"]["matched"] == ["python"]
+    assert detail["state"] == {"liked": False, "hidden": False, "sent": False, "reached_out": False}
+
+
+def test_detail_of_an_unknown_job_is_none():
+    assert jobs.detail(_conn(), "nope") is None
