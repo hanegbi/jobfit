@@ -80,6 +80,8 @@ export interface ScoreDetail {
 
 export interface JobDetail extends JobRow {
   description: string;
+  /** The pre-translation title, when the listing was not in English. */
+  title_original: string | null;
   career_url: string | null;
   industry: string | null;
   company_size: string | null;

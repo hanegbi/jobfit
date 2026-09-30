@@ -23,6 +23,7 @@ uv run python -m jobfit.scripts.update_jobs --limit 5         # first 5 companie
 uv run python -m jobfit.scripts.update_jobs --company Wiz     # one company, exact name match
 uv run python -m jobfit.scripts.update_jobs --force-rescore   # ignore the score cache
 uv run python -m jobfit.scripts.migrate_to_db                 # (one-off) load the company JSON files into the store
+uv run python -m jobfit.scripts.normalize_text --departments --companies --translate   # repair stored text
 uv run python -m jobfit.scripts.update_jobs --plans           # print scrape-plan stats and exit (cheap, no network)
 uv run python -m jobfit.scripts.update_jobs --discover        # derive missing scrape plans; THE ONLY MODE THAT CALLS A MODEL
 uv run uvicorn jobfit.server.app:app --port 8787              # the app at /app, control panel at /
@@ -88,6 +89,14 @@ its `_infer_location_fields`; don't fork that logic, and don't reach for `pipeli
   fixtures). `jobfit.db` is rebuilt by a scrape, or from the legacy files via `migrate_to_db`.
 - **A job listing only "Israel" gets a city** from its own text, then the company's registered address
   (`pipeline._infer_location_fields`). A job that states a foreign country keeps it and gets no city.
+- **The app is English.** A Hebrew listing is translated at scrape time (`translation.py`, MyMemory —
+  a free API, not a model), keeping the original under `title_original` and setting
+  `source_language='he'` so the UI can badge it. A **failed translation is never cached**: caching the
+  Hebrew original as the answer makes a transient rate-limit permanent, which is how 2,039 of 2,080
+  cache entries came to be untranslated. Company names keep their Latin half (`translation.english_name`).
+- **A department is canonicalized on write** (`departments.canonical_department`): the ATS's own
+  spelling never reaches storage, so the facet is 16 English values rather than 378 variants. A value
+  that names no real function — an internal code like `348-RAT` — becomes NULL rather than a department.
 - Company names are matched by a normalized key (`connections.normalize_company`), shared by connection
   lookup, referral merging and duplicate detection.
 - The repo root holds ~15 pre-`jobfit` scrapers (`scrape_*.py`) and their JSON output. They are inactive;

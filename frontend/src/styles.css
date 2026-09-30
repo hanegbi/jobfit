@@ -232,6 +232,7 @@ main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .tag.closed { background: #33211f; color: var(--warn); }
 .tag.referral { background: #2b2438; color: #b79bff; }
 .tag.connection { background: #16283a; color: var(--accent); }
+.tag.translated { background: #2a2a1c; color: var(--fair); }
 
 .flags { flex: none; display: flex; gap: 3px; }
 .flag {
@@ -279,6 +280,7 @@ main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .detail header { display: flex; gap: 10px; align-items: flex-start; }
 .detail h2 { margin: 0 0 3px; font-size: 15.5px; }
 .detail .sub { margin: 0; color: var(--muted); font-size: 12.5px; }
+.detail .original { margin: 3px 0 0; color: var(--fair); font-size: 12px; }
 .close { margin-left: auto; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 14px; }
 
 .scores { display: flex; gap: 8px; margin: 12px 0; }

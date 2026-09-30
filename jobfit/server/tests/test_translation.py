@@ -2,6 +2,10 @@
 so scoring's coverage check (which runs against an English CV vocabulary)
 doesn't silently zero out every job from a Hebrew-only career site."""
 
+import json
+
+import pytest
+
 from jobfit import translation
 
 
@@ -89,6 +93,77 @@ def test_translate_to_english_falls_back_to_the_original_chunk_when_the_backend_
     result = translation.translate_to_english("מהנדס תוכנה")
 
     assert result == "מהנדס תוכנה"  # kept the original since translation failed
+    # And did NOT remember the failure: caching it would make a transient
+    # rate-limit permanent, which is how 2,039 of 2,080 cached entries came
+    # to be the Hebrew original rather than a translation.
+    assert not (tmp_path / "translations.json").exists()
+
+
+def test_translate_to_english_does_not_cache_a_result_that_is_still_hebrew(monkeypatch, tmp_path):
+    """MyMemory answers with the input itself under load. That is a failure
+    wearing a success's clothes, and caching it is just as permanent."""
+    monkeypatch.setattr(translation, "CACHE_PATH", tmp_path / "translations.json")
+
+    class _EchoTranslator:
+        def __init__(self, *a, **kw):
+            pass
+
+        def translate(self, text):
+            return text
+
+    import deep_translator
+    monkeypatch.setattr(deep_translator, "MyMemoryTranslator", _EchoTranslator)
+    monkeypatch.setattr(translation.time, "sleep", lambda *_: None)
+
+    assert translation.translate_to_english("מהנדס תוכנה") == "מהנדס תוכנה"
+    assert not (tmp_path / "translations.json").exists()
+
+
+def test_translate_to_english_caches_a_real_translation(monkeypatch, tmp_path):
+    cache_path = tmp_path / "translations.json"
+    monkeypatch.setattr(translation, "CACHE_PATH", cache_path)
+
+    class _GoodTranslator:
+        def __init__(self, *a, **kw):
+            pass
+
+        def translate(self, text):
+            return "Software Engineer"
+
+    import deep_translator
+    monkeypatch.setattr(deep_translator, "MyMemoryTranslator", _GoodTranslator)
+    monkeypatch.setattr(translation.time, "sleep", lambda *_: None)
+
+    assert translation.translate_to_english("מהנדס תוכנה") == "Software Engineer"
+    assert translation._cache_key("מהנדס תוכנה") in json.loads(cache_path.read_text(encoding="utf-8"))
+
+
+@pytest.mark.parametrize("raw,expected", [
+    ("Discount Bank בנק דיסקונט", "Discount Bank"),
+    ("Ness Technologies | נס טכנולוגיות", "Ness Technologies"),
+    ("מרטנס | Mertens - מקבוצת מלם תים", "Mertens"),
+    ("FIBI - הבנק הבינלאומי", "FIBI"),
+    ("max מקס", "max"),
+    ("Wiz", "Wiz"),
+    ("", ""),
+])
+def test_english_name_keeps_the_latin_half_of_a_bilingual_company(raw, expected):
+    assert translation.english_name(raw) == expected
+
+
+def test_english_name_leaves_a_name_with_no_latin_half_alone():
+    """Nothing to choose between, and translating a proper noun would invent
+    a company that does not exist. These few are handled by translation."""
+    assert translation.english_name("שני נוי - ייעוץ תעסוקתי") == "שני נוי - ייעוץ תעסוקתי"
+
+
+def test_poisoned_cache_keys_finds_entries_that_are_still_hebrew():
+    cache = {
+        "a": "Software Engineer",
+        "b": "מהנדס תוכנה",
+        "c": "",
+    }
+    assert translation.poisoned_cache_keys(cache) == ["b"]
 
 
 # --- translate_job_if_needed --------------------------------------------------

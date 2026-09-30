@@ -43,6 +43,11 @@ function Row({
         {job.status === "new" && <span className="tag new">new</span>}
         {job.status === "closed" && <span className="tag closed">closed</span>}
         {job.is_referral && <span className="tag referral">referral</span>}
+        {job.source_language === "he" && (
+          <span className="tag translated" title="Machine-translated from Hebrew">
+            translated
+          </span>
+        )}
       </span>
       <span className="company" title={job.company}>
         {job.company}

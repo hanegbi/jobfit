@@ -40,6 +40,13 @@ export function JobDetail({ jobId, onClose }: { jobId: string; onClose: () => vo
             {job.employment_type && ` · ${job.employment_type}`}
             {job.status === "closed" && <span className="tag closed">closed</span>}
           </p>
+          {/* The original is shown, not hidden: a machine translation is worth
+              checking against the source before you act on the job. */}
+          {job.title_original && (
+            <p className="original" dir="rtl" title="The original title, before translation">
+              {job.title_original}
+            </p>
+          )}
         </div>
         <button type="button" className="close" onClick={onClose} title="Close">
           ✕

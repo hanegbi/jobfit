@@ -114,7 +114,14 @@ def _split_into_chunks(text: str, max_chars: int = _CHUNK_MAX_CHARS) -> list[str
 def translate_to_english(text: str) -> str:
     """Translate Hebrew text to English. Returns the original text unchanged
     if it has no Hebrew, or if translation fails/hits a quota - a scrape run
-    must never abort over a translation-service outage."""
+    must never abort over a translation-service outage.
+
+    A failure is never cached. MyMemory rate-limits, and caching the Hebrew
+    original as though it were the translation makes the failure permanent:
+    the entry is a cache hit forever after, so the job stays in Hebrew
+    through every later run. 2,039 of 2,080 cached entries were poisoned
+    this way before this guard existed.
+    """
     if not contains_hebrew(text):
         return text
 
@@ -129,20 +136,57 @@ def translate_to_english(text: str) -> str:
 
     translator = MyMemoryTranslator(source="he-IL", target="en-GB")
     translated_chunks = []
+    failed = False
     for chunk in _split_into_chunks(text):
         try:
             translated_chunks.append(translator.translate(chunk))
         except Exception as error:  # noqa: BLE001
             logger.debug("translation chunk failed, keeping original: %s", error)
             translated_chunks.append(chunk)
+            failed = True
         time.sleep(_REQUEST_DELAY_S)
 
     result = " ".join(translated_chunks)
+    # Still Hebrew means the service answered with the input (it does that
+    # under load) - indistinguishable from a failure, and just as wrong to keep.
+    if failed or contains_hebrew(result):
+        logger.debug("translation incomplete, not caching: %r", text[:60])
+        return result
     with _cache_lock:
         cache = _load_cache()
         cache[key] = result
         write_json_atomic(CACHE_PATH, cache)
     return result
+
+
+_LATIN_RE = re.compile(r"[A-Za-z]")
+
+
+def english_name(name: str) -> str:
+    """A company's name with its Hebrew half dropped.
+
+    Israeli companies routinely register bilingually - "Discount Bank בנק
+    דיסקונט", "Ness Technologies | נס טכנולוגיות" - where the two halves are
+    the same name twice, not two facts. Dropping the Hebrew words loses
+    nothing and keeps the app English. A name with no Latin word at all is
+    returned unchanged: there is nothing there to choose between, and
+    translating a proper noun invents a company that does not exist.
+    """
+    text = " ".join((name or "").split())
+    if not text or not HEBREW_RE.search(text):
+        return text
+    kept = [word for word in text.split() if _LATIN_RE.search(word) and not HEBREW_RE.search(word)]
+    if not kept:
+        return text
+    # Separators that survived only because the word beside them went.
+    return " ".join(kept).strip(" |-,/")
+
+
+def poisoned_cache_keys(cache: dict) -> list[str]:
+    """Cache entries whose "translation" is still Hebrew - failures written
+    before translate_to_english refused to cache them. Dropping one makes
+    that text eligible for translation again on the next run."""
+    return [key for key, value in cache.items() if contains_hebrew(value or "")]
 
 
 def translate_job_if_needed(job: dict) -> dict:
