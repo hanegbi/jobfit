@@ -27,14 +27,22 @@ def connect(path: Path | str) -> sqlite3.Connection:
     # raising SQLITE_BUSY at the caller.
     conn.execute("PRAGMA busy_timeout = 10000")
     if str(path) != ":memory:":
-        # SQLite's default page cache is 2MB against a 206MB database, so a
-        # search that touches 13,000 rows evicts its own pages as it goes. The
-        # whole database fits in 256MB, and that one line took a filtered page
-        # from 0.26s to 0.06s and its count from 0.19s to 0.02s. This is a
-        # single-user tool on a desktop; the memory is there to be used.
-        conn.execute("PRAGMA cache_size = -262144")  # negative = KiB, so 256MB
-        # Read pages straight out of the OS page cache instead of copying them.
-        conn.execute("PRAGMA mmap_size = 268435456")
+        # Map the database instead of reading it through a private page cache.
+        # A search touching 13,000 rows costs 0.24s/0.17s (page/count) on the
+        # 2MB default and 0.06s/0.02s mapped.
+        #
+        # Deliberately NOT paired with a big cache_size. Raising cache_size to
+        # 256MB gets only halfway there (0.12s/0.05s) and adds nothing on top
+        # of mmap, and the sizes in between are worse than the default -
+        # 64MB measured 0.62s/0.47s, thrashing. Mapped pages are the OS page
+        # cache: one copy shared by the server and any scrape running beside
+        # it, reclaimed by the OS under memory pressure. A cache_size is per
+        # connection and is neither.
+        #
+        # 512MB is address space, not resident memory; pages fault in on
+        # demand. It is set above the current ~206MB so the database can grow
+        # without silently falling back to ordinary reads past the mapped part.
+        conn.execute("PRAGMA mmap_size = 536870912")
     return conn
 
 

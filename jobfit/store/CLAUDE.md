@@ -26,9 +26,12 @@ until phase 4 as a rollback path. Design: @docs/superpowers/specs/2026-09-30-job
 
 ## What is where
 
-- `db.py` — connect, migrate, the shared connection. The 256MB `cache_size` is
-  load-bearing, not a guess: SQLite's 2MB default against a 206MB database made
-  a filtered page cost 0.26s and its count 0.19s, versus 0.06s and 0.02s cached.
+- `db.py` — connect, migrate, the shared connection. **`mmap_size`, not `cache_size`**: a filtered
+  page costs 0.24s on the 2MB default and 0.06s mapped, while a 256MB `cache_size` gets only halfway
+  (0.12s) and adds nothing on top of mmap. Sizes in between are *worse* than the default (64MB
+  measured 0.62s, thrashing). Mapped pages are the OS page cache, so one copy is shared by the
+  server and any scrape beside it and the OS can reclaim it; a `cache_size` is per connection and is
+  neither. Don't "tune" this by raising `cache_size`.
 - `companies.py` — company rows, `companies_to_scrape` (the rule that used to read
   `companies_career_pages.json` plus `company_review.json`), and the user's LinkedIn contacts.
   `refresh_connection_counts` writes the names and the count together from one source, so a card
