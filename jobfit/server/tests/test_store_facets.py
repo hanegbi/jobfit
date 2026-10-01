@@ -85,3 +85,33 @@ def test_companies_with_no_jobs_still_appear():
     companies.upsert_company(conn, "dormant", "Dormant")
     listing = {c["id"]: c for c in facets.companies(conn)}
     assert listing["dormant"]["total_jobs"] == 0 and listing["dormant"]["open_jobs"] == 0
+
+
+# --- the shape that keeps it fast -------------------------------------------
+
+def test_every_dimension_comes_from_one_pass_over_the_rows():
+    """Seven separate GROUP BYs over the same filtered set cost seven scans
+    (measured: 1.09s on 13,448 rows, against 0.23s for one materialized
+    pass). If this ever becomes several statements again, the search gets
+    slow in a way no functional test would notice."""
+    assert facets._FACET_SQL.count("SELECT") == 8  # the CTE plus seven dimensions
+    assert "MATERIALIZED" in facets._FACET_SQL, "without this SQLite re-runs the CTE per branch"
+    assert facets._FACET_SQL.count(";") == 0, "one statement, one scan"
+
+
+def test_a_dimension_is_capped_so_the_response_stays_small():
+    """1,492 companies was 85KB of a 104KB response, for a list that shows
+    eight. The cut falls on the smallest counts, which is why it is ordered."""
+    conn = _conn()
+    for index in range(facets.MAX_PER_DIMENSION + 20):
+        company_id = f"c{index:04d}"
+        companies.upsert_company(conn, company_id, f"Company {index:04d}")
+        # Earlier companies get more jobs, so the biggest must survive the cut.
+        for job in range(2 if index < 5 else 1):
+            jobs.upsert_scraped(conn, company_id, [
+                {"id": f"{company_id}-{job}", "title": "Engineer", "url": f"https://x/{company_id}/{job}"},
+            ], NOW)
+
+    result = facets.counts(conn)
+    assert len(result["companies"]) == facets.MAX_PER_DIMENSION
+    assert result["companies"][0]["n"] == 2, "the biggest counts are the ones kept"

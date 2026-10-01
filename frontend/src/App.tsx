@@ -1,4 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 import { fetchFacets, fetchJobs, fetchScoredProfiles } from "./api";
 import { ActiveFilters } from "./components/ActiveFilters";
@@ -9,19 +10,30 @@ import { CardSkeleton } from "./components/Skeleton";
 import { useFilters } from "./useFilters";
 import { useLegacyFlags } from "./useLegacyFlags";
 
-const PAGE_SIZE = 200;
+// 50, not 200. The list is virtualized so a bigger page renders no faster,
+// and 200 rows is four screens nobody scrolls before changing the filter -
+// it only makes every keystroke build and ship four times the JSON.
+const PAGE_SIZE = 50;
 
 export function App() {
   const { filters, update, reset, apply } = useFilters();
   const legacy = useLegacyFlags();
 
+  const client = useQueryClient();
+
+  // placeholderData is what makes typing feel immediate: the previous results
+  // stay on screen, dimmed, while the next ones load. Without it every
+  // keystroke unmounts the list and flashes skeletons, which reads as slower
+  // than it is even when the request takes 200ms.
   const jobsQuery = useQuery({
     queryKey: ["jobs", filters],
     queryFn: () => fetchJobs(filters, PAGE_SIZE),
+    placeholderData: keepPreviousData,
   });
   const facetsQuery = useQuery({
     queryKey: ["facets", { ...filters, page: 1 }],
     queryFn: () => fetchFacets(filters),
+    placeholderData: keepPreviousData,
   });
   // The CV list changes only when a profile is added or rescored, so it is
   // fetched once rather than on every filter change.
@@ -31,6 +43,13 @@ export function App() {
   const total = page?.total ?? 0;
   const pageCount = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const companiesShown = facetsQuery.data?.companies.length ?? 0;
+
+  // Fetch the next page while the user reads this one, so "next" is instant.
+  useEffect(() => {
+    if (filters.page >= pageCount) return;
+    const next = { ...filters, page: filters.page + 1 };
+    client.prefetchQuery({ queryKey: ["jobs", next], queryFn: () => fetchJobs(next, PAGE_SIZE) });
+  }, [client, filters, pageCount]);
 
   return (
     <div className="app">
@@ -75,9 +94,9 @@ export function App() {
         <main>
           <ActiveFilters filters={filters} facets={facetsQuery.data} update={update} reset={reset} />
           {jobsQuery.isError && <p className="error">Could not reach the API. Is the server running?</p>}
-          {jobsQuery.isLoading && <CardSkeleton />}
+          {jobsQuery.isPending && <CardSkeleton />}
           {page && (
-            <>
+            <div className={`results${jobsQuery.isPlaceholderData ? " stale" : ""}`}>
               <p className="stats">
                 across <strong>{companiesShown.toLocaleString()}</strong> companies
                 {total > page.jobs.length && (
@@ -106,7 +125,7 @@ export function App() {
                   </button>
                 </nav>
               )}
-            </>
+            </div>
           )}
         </main>
       </div>

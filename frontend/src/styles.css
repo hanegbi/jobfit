@@ -307,6 +307,11 @@ button.primary.small {
 
 /* --- list of cards --- */
 main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.results { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+/* Results for the query you just left, while the new ones load. Dimmed so it
+   is clear they are one keystroke behind, visible so the page never blanks. */
+.results.stale { opacity: 0.55; transition: opacity var(--ease); }
+.results.stale .list { pointer-events: none; }
 .list { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 10px 14px; }
 /* Cards stop widening past a readable measure. Without this a 1600px monitor
    gives the description 200+ characters a line, which nobody reads. */

@@ -14,39 +14,63 @@ from jobfit.store.search import JOINS, NO_MATCH, build_filter
 
 _EMPTY = {"companies": [], "cities": [], "statuses": {}, "departments": [], "industries": [], "languages": [], "years": []}
 
+# The sidebar shows eight of a list and expands to a few hundred. Shipping
+# every one of 1,492 companies cost 85KB of the 104KB response and bought
+# nothing, so the tail is cut here rather than in the browser. The counts are
+# ordered by size, so what is cut is always the smallest.
+MAX_PER_DIMENSION = 250
+
+# One row per (dimension, value). Every dimension groups the same filtered
+# set, so the set is built ONCE: without MATERIALIZED, SQLite re-runs the CTE
+# for each branch of the UNION and the whole thing costs the same as the seven
+# separate queries this replaced (measured: 1.09s -> 0.23s on 13,448 rows).
+_FACET_SQL = """
+WITH m AS MATERIALIZED (
+    SELECT j.company_id, c.display_name, j.city, j.status, j.department,
+           c.industry, j.source_language, j.years_required
+    {joins} {clause}
+)
+SELECT 'company' AS dim, company_id AS value, display_name AS label, count(*) AS n
+  FROM m GROUP BY company_id
+UNION ALL SELECT 'city', city, NULL, count(*) FROM m WHERE city IS NOT NULL GROUP BY city
+UNION ALL SELECT 'status', status, NULL, count(*) FROM m GROUP BY status
+UNION ALL SELECT 'department', department, NULL, count(*) FROM m
+  WHERE department IS NOT NULL GROUP BY department
+UNION ALL SELECT 'industry', industry, NULL, count(*) FROM m
+  WHERE industry IS NOT NULL GROUP BY industry
+UNION ALL SELECT 'language', source_language, NULL, count(*) FROM m
+  WHERE source_language IS NOT NULL GROUP BY source_language
+UNION ALL SELECT 'years', years_required, NULL, count(*) FROM m
+  WHERE years_required IS NOT NULL GROUP BY years_required
+"""
+
 
 def counts(conn: sqlite3.Connection, **filters) -> dict:
     clause, params = build_filter(**filters)
     if clause is NO_MATCH:
         return {**_EMPTY}
 
-    companies_rows = conn.execute(
-        f"SELECT j.company_id AS id, c.display_name AS name, count(*) AS n {JOINS} {clause} "
-        f"GROUP BY j.company_id ORDER BY n DESC, name COLLATE NOCASE", params).fetchall()
-    city_clause = f"{clause} AND j.city IS NOT NULL" if clause else "WHERE j.city IS NOT NULL"
-    cities_rows = conn.execute(
-        f"SELECT j.city, count(*) AS n {JOINS} {city_clause} "
-        f"GROUP BY j.city ORDER BY n DESC, j.city COLLATE NOCASE", params).fetchall()
-    status_rows = conn.execute(
-        f"SELECT j.status, count(*) AS n {JOINS} {clause} GROUP BY j.status", params).fetchall()
+    rows = conn.execute(_FACET_SQL.format(joins=JOINS, clause=clause), params).fetchall()
 
-    def _by(column: str, alias: str) -> list[dict]:
-        """One dimension of the sidebar. NULLs are omitted: "no department"
-        is not a department you can usefully filter to."""
-        extra = f"{clause} AND {column} IS NOT NULL" if clause else f"WHERE {column} IS NOT NULL"
-        rows = conn.execute(
-            f"SELECT {column} AS {alias}, count(*) AS n {JOINS} {extra} "
-            f"GROUP BY {column} ORDER BY n DESC, {alias} COLLATE NOCASE", params).fetchall()
-        return [dict(row) for row in rows]
+    grouped: dict[str, list[sqlite3.Row]] = {}
+    for row in rows:
+        grouped.setdefault(row["dim"], []).append(row)
+
+    def ranked(dim: str) -> list[sqlite3.Row]:
+        """Biggest first, then by name, so a tie is stable and the tail that
+        MAX_PER_DIMENSION drops is always the least useful."""
+        entries = grouped.get(dim, [])
+        entries.sort(key=lambda r: (-r["n"], str(r["label"] or r["value"]).lower()))
+        return entries[:MAX_PER_DIMENSION]
 
     return {
-        "companies": [dict(row) for row in companies_rows],
-        "cities": [dict(row) for row in cities_rows],
-        "statuses": {row["status"]: row["n"] for row in status_rows},
-        "departments": _by("j.department", "department"),
-        "industries": _by("c.industry", "industry"),
-        "languages": _by("j.source_language", "language"),
-        "years": _by("j.years_required", "years"),
+        "companies": [{"id": r["value"], "name": r["label"], "n": r["n"]} for r in ranked("company")],
+        "cities": [{"city": r["value"], "n": r["n"]} for r in ranked("city")],
+        "statuses": {r["value"]: r["n"] for r in grouped.get("status", [])},
+        "departments": [{"department": r["value"], "n": r["n"]} for r in ranked("department")],
+        "industries": [{"industry": r["value"], "n": r["n"]} for r in ranked("industry")],
+        "languages": [{"language": r["value"], "n": r["n"]} for r in ranked("language")],
+        "years": [{"years": r["value"], "n": r["n"]} for r in ranked("years")],
     }
 
 

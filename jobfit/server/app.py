@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import FileResponse, ORJSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
 from jobfit import config, cv, pipeline_lock
@@ -179,7 +179,7 @@ def api_set_company_career_url(company: str, payload: dict) -> dict:
 
 # --- the jobs API: what a front end reads ---------------------------------
 
-@app.get("/api/jobs")
+@app.get("/api/jobs", response_class=ORJSONResponse)
 def api_jobs(
     q: str | None = None, scope: str = "all", exclude: str | None = None,
     company: str | None = None, city: str | None = None, status: str | None = None,
@@ -205,7 +205,7 @@ def api_jobs(
     )
 
 
-@app.get("/api/jobs/{job_id}")
+@app.get("/api/jobs/{job_id}", response_class=ORJSONResponse)
 def api_job_detail(job_id: str) -> dict:
     job = store_jobs.detail(db.shared(), job_id)
     if job is None:
@@ -238,7 +238,7 @@ def api_import_browser_state(payload: dict) -> dict:
     return import_state(db.shared(), payload)
 
 
-@app.get("/api/facets")
+@app.get("/api/facets", response_class=ORJSONResponse)
 def api_facets(
     q: str | None = None, scope: str = "all", exclude: str | None = None,
     company: str | None = None, city: str | None = None, status: str | None = None,

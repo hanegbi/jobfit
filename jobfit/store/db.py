@@ -26,6 +26,15 @@ def connect(path: Path | str) -> sqlite3.Connection:
     # A scrape run and the server can collide on a write; wait rather than
     # raising SQLITE_BUSY at the caller.
     conn.execute("PRAGMA busy_timeout = 10000")
+    if str(path) != ":memory:":
+        # SQLite's default page cache is 2MB against a 206MB database, so a
+        # search that touches 13,000 rows evicts its own pages as it goes. The
+        # whole database fits in 256MB, and that one line took a filtered page
+        # from 0.26s to 0.06s and its count from 0.19s to 0.02s. This is a
+        # single-user tool on a desktop; the memory is there to be used.
+        conn.execute("PRAGMA cache_size = -262144")  # negative = KiB, so 256MB
+        # Read pages straight out of the OS page cache instead of copying them.
+        conn.execute("PRAGMA mmap_size = 268435456")
     return conn
 
 

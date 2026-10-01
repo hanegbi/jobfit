@@ -26,7 +26,9 @@ until phase 4 as a rollback path. Design: @docs/superpowers/specs/2026-09-30-job
 
 ## What is where
 
-- `db.py` — connect, migrate, the shared connection.
+- `db.py` — connect, migrate, the shared connection. The 256MB `cache_size` is
+  load-bearing, not a guess: SQLite's 2MB default against a 206MB database made
+  a filtered page cost 0.26s and its count 0.19s, versus 0.06s and 0.02s cached.
 - `companies.py` — company rows, `companies_to_scrape` (the rule that used to read
   `companies_career_pages.json` plus `company_review.json`), and the user's LinkedIn contacts.
   `refresh_connection_counts` writes the names and the count together from one source, so a card
@@ -43,5 +45,9 @@ until phase 4 as a rollback path. Design: @docs/superpowers/specs/2026-09-30-job
   stated years — a job that never said is not evidence of wanting more experience than you have.
 - `state.py` — the user's own flags (liked, hidden, sent, reached out). The only table a scrape never
   writes, and the one whose rows must survive a re-scrape and a job closing.
-- `facets.py` — counts per company, city and status, built from `search.build_filter` so a count can
-  never disagree with the list it annotates.
+- `facets.py` — counts per dimension, built from `search.build_filter` so a count can never disagree
+  with the list it annotates. **One `MATERIALIZED` CTE, not seven queries**: every dimension groups
+  the same filtered set, and without `MATERIALIZED` SQLite re-runs the CTE per branch and the single
+  statement costs exactly what the seven did (1.09s against 0.23s on 13,448 rows). Each dimension is
+  capped at `MAX_PER_DIMENSION`, because shipping all 1,492 companies to a list that shows eight was
+  85KB of a 104KB response.
