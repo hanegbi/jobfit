@@ -115,3 +115,29 @@ def test_a_dimension_is_capped_so_the_response_stays_small():
     result = facets.counts(conn)
     assert len(result["companies"]) == facets.MAX_PER_DIMENSION
     assert result["companies"][0]["n"] == 2, "the biggest counts are the ones kept"
+
+
+def test_a_capped_dimension_still_reports_its_true_total():
+    """The cap is for payload size, not for arithmetic. Reporting the capped
+    length as the count made the page say "across 250 companies" when the
+    answer was 1,492."""
+    conn = _conn()
+    wanted = facets.MAX_PER_DIMENSION + 30
+    for index in range(wanted):
+        company_id = f"c{index:04d}"
+        companies.upsert_company(conn, company_id, f"Company {index:04d}")
+        jobs.upsert_scraped(conn, company_id, [
+            {"id": f"{company_id}-1", "title": "Engineer", "url": f"https://x/{company_id}"},
+        ], NOW)
+
+    result = facets.counts(conn)
+    assert len(result["companies"]) == facets.MAX_PER_DIMENSION
+    # _conn() seeds its own companies, so the total is at least what we added.
+    assert result["totals"]["companies"] >= wanted
+    assert result["totals"]["companies"] > len(result["companies"])
+
+
+def test_totals_are_present_even_when_nothing_matches():
+    """The front end reads totals.companies unconditionally."""
+    result = facets.counts(_conn(), q="nothingmatchesthisquery")
+    assert result["totals"] == {} or result["totals"]["companies"] == 0

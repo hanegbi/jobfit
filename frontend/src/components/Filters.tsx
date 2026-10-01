@@ -51,12 +51,15 @@ function Tri({
 function FacetGroup({
   title,
   options,
+  total,
   selected,
   onToggle,
   searchable = false,
 }: {
   title: string;
   options: { value: string; label: string; n: number }[];
+  /** Distinct values that exist, which can exceed what the server sent. */
+  total?: number;
   selected: string | null;
   onToggle: (value: string) => void;
   searchable?: boolean;
@@ -95,13 +98,25 @@ function FacetGroup({
       ))}
       {matching.length > shown.length && !expanded && (
         <button type="button" className="link small" onClick={() => setExpanded(true)}>
-          show all {matching.length}
+          {/* "show all 250" would be a lie when the server capped 1,492 down
+              to its 250 biggest. Say both numbers, or neither. */}
+          {total != null && total > options.length
+            ? `show ${matching.length} of ${total.toLocaleString()}`
+            : `show all ${matching.length}`}
         </button>
       )}
       {expanded && (
         <button type="button" className="link small" onClick={() => setExpanded(false)}>
           show fewer
         </button>
+      )}
+      {total != null && total > options.length && (
+        // Saying "show all 250" when 1,492 exist would be a lie; saying
+        // nothing would make the missing ones look like they do not exist.
+        <p className="facet-note">
+          Showing the {options.length} biggest of {total.toLocaleString()}. Narrow the search to
+          reach the rest.
+        </p>
       )}
     </div>
   );
@@ -228,6 +243,7 @@ export function FiltersPanel({ filters, facets, profiles, update, apply }: Props
 
       <FacetGroup
         title="City"
+        total={facets?.totals.cities}
         options={(facets?.cities ?? []).map((c) => ({ value: c.city, label: c.city, n: c.n }))}
         selected={filters.city}
         onToggle={(value) => update({ city: toggleInSet(filters.city, value) })}
@@ -235,6 +251,7 @@ export function FiltersPanel({ filters, facets, profiles, update, apply }: Props
       />
       <FacetGroup
         title="Company"
+        total={facets?.totals.companies}
         options={(facets?.companies ?? []).map((c) => ({ value: c.id, label: c.name, n: c.n }))}
         selected={filters.company}
         onToggle={(value) => update({ company: toggleInSet(filters.company, value) })}
@@ -242,6 +259,7 @@ export function FiltersPanel({ filters, facets, profiles, update, apply }: Props
       />
       <FacetGroup
         title="Department"
+        total={facets?.totals.departments}
         options={(facets?.departments ?? []).map((d) => ({ value: d.department, label: d.department, n: d.n }))}
         selected={filters.department}
         onToggle={(value) => update({ department: toggleInSet(filters.department, value) })}
@@ -249,6 +267,7 @@ export function FiltersPanel({ filters, facets, profiles, update, apply }: Props
       />
       <FacetGroup
         title="Industry"
+        total={facets?.totals.industries}
         options={(facets?.industries ?? []).map((i) => ({ value: i.industry, label: i.industry, n: i.n }))}
         selected={filters.industry}
         onToggle={(value) => update({ industry: toggleInSet(filters.industry, value) })}
@@ -256,6 +275,7 @@ export function FiltersPanel({ filters, facets, profiles, update, apply }: Props
       />
       <FacetGroup
         title="Language"
+        total={facets?.totals.languages}
         options={(facets?.languages ?? []).map((l) => ({
           value: l.language,
           label: l.language === "he" ? "Hebrew" : l.language === "en" ? "English" : l.language,

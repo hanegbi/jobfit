@@ -12,7 +12,8 @@ import sqlite3
 
 from jobfit.store.search import JOINS, NO_MATCH, build_filter
 
-_EMPTY = {"companies": [], "cities": [], "statuses": {}, "departments": [], "industries": [], "languages": [], "years": []}
+_EMPTY = {"companies": [], "cities": [], "statuses": {}, "departments": [], "industries": [],
+          "languages": [], "years": [], "totals": {}}
 
 # The sidebar shows eight of a list and expands to a few hundred. Shipping
 # every one of 1,492 companies cost 85KB of the 104KB response and bought
@@ -63,7 +64,20 @@ def counts(conn: sqlite3.Connection, **filters) -> dict:
         entries.sort(key=lambda r: (-r["n"], str(r["label"] or r["value"]).lower()))
         return entries[:MAX_PER_DIMENSION]
 
+    # How many distinct values each dimension really has, before the cap. The
+    # list is for picking from; this is for counting by. Capping without it
+    # made the page report "across 250 companies" when the answer was 1,492.
+    totals = {dim: len(rows) for dim, rows in grouped.items()}
+
     return {
+        "totals": {
+            "companies": totals.get("company", 0),
+            "cities": totals.get("city", 0),
+            "departments": totals.get("department", 0),
+            "industries": totals.get("industry", 0),
+            "languages": totals.get("language", 0),
+            "years": totals.get("years", 0),
+        },
         "companies": [{"id": r["value"], "name": r["label"], "n": r["n"]} for r in ranked("company")],
         "cities": [{"city": r["value"], "n": r["n"]} for r in ranked("city")],
         "statuses": {r["value"]: r["n"] for r in grouped.get("status", [])},

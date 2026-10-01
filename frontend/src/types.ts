@@ -100,6 +100,16 @@ export interface JobDetail extends JobRow {
 }
 
 export interface Facets {
+  /** How many distinct values each dimension really has. The lists below are
+   * capped server-side for size, so their length is not this number. */
+  totals: {
+    companies: number;
+    cities: number;
+    departments: number;
+    industries: number;
+    languages: number;
+    years: number;
+  };
   companies: { id: string; name: string; n: number }[];
   cities: { city: string; n: number }[];
   statuses: Record<string, number>;

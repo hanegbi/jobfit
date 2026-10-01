@@ -42,7 +42,8 @@ export function App() {
   const page = jobsQuery.data;
   const total = page?.total ?? 0;
   const pageCount = Math.max(1, Math.ceil(total / PAGE_SIZE));
-  const companiesShown = facetsQuery.data?.companies.length ?? 0;
+  // The real count, not the length of the capped list the sidebar picks from.
+  const companyCount = facetsQuery.data?.totals.companies ?? 0;
 
   // Fetch the next page while the user reads this one, so "next" is instant.
   useEffect(() => {
@@ -98,7 +99,7 @@ export function App() {
           {page && (
             <div className={`results${jobsQuery.isPlaceholderData ? " stale" : ""}`}>
               <p className="stats">
-                across <strong>{companiesShown.toLocaleString()}</strong> companies
+                across <strong>{companyCount.toLocaleString()}</strong> companies
                 {total > page.jobs.length && (
                   <>
                     {" "}

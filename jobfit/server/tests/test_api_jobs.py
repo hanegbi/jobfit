@@ -144,7 +144,7 @@ def test_every_old_page_filter_is_reachable_over_http(client, seeded):
 def test_facets_cover_every_sidebar_dimension(client, seeded):
     body = client.get("/api/facets").json()
     assert set(body) == {"companies", "cities", "statuses", "departments", "industries",
-                         "languages", "years"}
+                         "languages", "years", "totals"}
 
 
 def test_scored_profiles_lists_what_can_be_ranked_by(client, seeded):

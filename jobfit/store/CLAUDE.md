@@ -53,4 +53,5 @@ until phase 4 as a rollback path. Design: @docs/superpowers/specs/2026-09-30-job
   the same filtered set, and without `MATERIALIZED` SQLite re-runs the CTE per branch and the single
   statement costs exactly what the seven did (1.09s against 0.23s on 13,448 rows). Each dimension is
   capped at `MAX_PER_DIMENSION`, because shipping all 1,492 companies to a list that shows eight was
-  85KB of a 104KB response.
+  85KB of a 104KB response. The cap is for payload, never for arithmetic: `totals` carries the real
+  number of distinct values, and anything counting companies must read that, not the list's length.
