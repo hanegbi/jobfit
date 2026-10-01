@@ -41,6 +41,7 @@ jobfit_agent/
     nodes/                one file per node
     tools/                jobfit_store.py, web_search.py, fetch_page.py, referrals.py
     cache.py              per-company research cache (JSON files, TTL)
+    report/               render.py (report.json -> HTML), template + assets, inlined at build
   cli.py                  python -m jobfit_agent.cli --top 5 [--profile X] [--resume THREAD]
   tests/
 ```
@@ -63,7 +64,7 @@ select_jobs ─► fan out one run per job (Send)
    │                        brief (per job)                             │
    └────────────────────────────────────────────────────────────────────┘
         ▼
-   aggregate ─► interrupt() for approval ─► write report (markdown + json)
+   aggregate (group briefs by company) ─► interrupt() for approval ─► render report.html (+ report.json)
 ```
 
 - **select_jobs**: deterministic. Top N open jobs by `best_score` via `search_jobs`. No LLM.
@@ -85,6 +86,26 @@ select_jobs ─► fan out one run per job (Send)
   claims?). If weak, returns feedback and the graph loops to `cv_planner`, max 2 iterations.
 - **aggregate / interrupt**: collects briefs, pauses for the user to approve or drop jobs before
   the report is written (`interrupt()` plus checkpointer, so `--resume THREAD` continues).
+
+### Report (`report.html`)
+
+One self-contained HTML file (inline CSS and JS, no network, opens from disk like `jobfit.html`),
+written to `jobfit_agent/out/<timestamp>/report.html` next to `report.json`, the same data the page
+renders.
+
+- **One tab per company**, ordered by best fit score; the tab label shows company name, job count
+  and best score. A summary tab first lists all companies and jobs in one table with filters.
+- **Inside a company tab:** a company panel (size, location, funding and stage, exit outlook with
+  evidence, review pros/cons, salary range, contacts and referrals), then **one card per job** at
+  that company, since a company can have several. Each job card holds the deterministic score next
+  to the LLM verdict, strengths and gaps, the CV edit plan with the critic's verdict, and the
+  per-stage interview questions, with a collapsible JD.
+- **Provenance everywhere:** each external fact shows its source link and date; missing data shows
+  as "no data" rather than blank. A footer per tab shows the models used, tokens and seconds per
+  node.
+- Keyboard-navigable tabs, a `#company-slug` URL hash so a tab can be linked, light and dark theme,
+  print-friendly. Visual design is done at implementation time with the frontend design skills;
+  the data contract is `report.json`, so the page can be restyled without touching the graph.
 
 ### State
 
@@ -126,6 +147,8 @@ companies ask?") over a large corpus; that is out of scope and can be revisited.
 - Unit tests use a fake chat model returning canned structured output, so graph wiring, the critic
   loop bound (max 2), fan-out, interrupt/resume and cache TTL are tested with no model and no
   network.
+- Report tests render a fixture `report.json` with two companies (one with two jobs, one with a
+  missing-data field) and assert the tabs, job cards and "no data" markers.
 - Tool tests use recorded HTML/search fixtures, like the repo's scrape tests.
 - The isolation guard test (above), plus a test that `jobfit_agent` opens the store read-only.
 - One manual benchmark script times a single job on `qwen3:4b` and `qwen3:8b` so the time estimates
@@ -137,10 +160,11 @@ companies ask?") over a large corpus; that is out of scope and can be revisited.
 2. `fit_analysis` → `cv_planner` → `critic` loop on one job, with fake-model tests.
 3. `company_research`: `facts`, `salary`, cache.
 4. `reviews`, `interview_questions`, then `funding_exit`.
-5. Fan-out over N jobs, `aggregate`, `interrupt`, report writer, cost line.
+5. Fan-out over N jobs, `aggregate`, `interrupt`, `report.json`, cost line.
+5b. HTML report: company tabs, job cards, summary tab, provenance and cost footer.
 6. Optional: BM25 retrieve-then-extract; Claude overrides.
 
 ## Non-goals
 
-No UI, no vector DB, no auto-applying, no writing to the jobfit store, no scraping behind logins,
+No live UI or server (the report is a static file), no vector DB, no auto-applying, no writing to the jobfit store, no scraping behind logins,
 no LinkedIn data beyond what jobfit already holds.
