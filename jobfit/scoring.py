@@ -17,10 +17,11 @@ from functools import lru_cache
 from pathlib import Path
 
 from jobfit import config
-from jobfit.ats_scorer import cv_extractor, jd_extractor, matcher
+from jobfit.ats_scorer import jd_extractor, matcher
 from jobfit.ats_scorer import scorer as ats_scorer_engine
 from jobfit.ats_scorer.config import DEFAULT_CONFIG
 from jobfit.ats_scorer.models import JobRequirements, MatchStrength
+from jobfit.ats_scorer.profile import build_profile
 
 # Same threshold concept as update_jobs.MIN_DESCRIPTION_LEN - below this,
 # there's not enough job text for the match to mean much, so the UI is told
@@ -131,8 +132,14 @@ def title_is_relevant(title: str | None) -> bool:
 def _cached_candidate_profile(cv_text: str):
     """CV extraction is real regex/date-range parsing work, and the same
     CV gets scored against every job in a run (thousands of times) - cache
-    per CV text so it's only actually parsed once per process."""
-    return cv_extractor.extract_candidate_profile(cv_text)
+    per CV text so it's only actually parsed once per process.
+
+    build_profile(), not cv_extractor.extract_candidate_profile() directly:
+    the latter leaves family_affinity/signature_skills empty, which makes
+    every job's family_fit 0.0 and every score 0 - a real bug caught live
+    by test_scoring_shared_weights.py once scorer.score() started
+    multiplying by family_fit."""
+    return build_profile(cv_text)
 
 
 def _looks_unparseable(job_req: JobRequirements, evidence: dict | None = None) -> bool:
@@ -222,6 +229,7 @@ def score_cache_key(job: dict, profile: dict) -> str:
         job.get("department") or "",
         job.get("location") or "",
         job.get("employment_type") or "",
+        job.get("family") or "",
         cv_text,
     ]
     evidence = job.get("job_evidence")
@@ -250,7 +258,9 @@ def score_job(job: dict, cv_text: str = "", context: JobRequirements | None = No
     """
     title = job.get("title") or ""
     description = job.get("description") or ""
-    job_req = context if context is not None else jd_extractor.extract_job_requirements(description, title=title)
+    job_req = context if context is not None else jd_extractor.extract_job_requirements(
+        description, title=title, role_family=job.get("family"),
+    )
 
     if _looks_unparseable(job_req, job.get("job_evidence")):
         return {
@@ -293,7 +303,7 @@ def score_job_both(job: dict, profiles: dict[str, dict]) -> dict:
         return {"best_cv": None, "best_score": 0, "best_confidence": None}
     title = job.get("title") or ""
     description = job.get("description") or ""
-    job_req = jd_extractor.extract_job_requirements(description, title=title)
+    job_req = jd_extractor.extract_job_requirements(description, title=title, role_family=job.get("family"))
     result = {}
     for name, profile in profiles.items():
         outcome = score_job(job, cv_text=_cv_text_for_profile(profile), context=job_req)

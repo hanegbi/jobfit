@@ -1,7 +1,12 @@
 """Dedicated hard-gate tests: gates exist so a CV cannot reach a "strong
 match" band by piling up nice-to-haves while missing the basics, and each
 gate's cap is exercised directly against the scorer module (not just
-indirectly through the golden set)."""
+indirectly through the golden set).
+
+role_family_mismatch_cap is gone from this module - family_fit (see
+test_ats_scorer_family_fit.py) replaced it with a continuous,
+adjacency-aware multiplier applied to the whole score, not a flat cap on
+job_fit alone."""
 
 import datetime
 
@@ -50,10 +55,8 @@ def test_apply_gates_unmet_hard_requirement_caps_regardless_of_weighted_score():
         ),
     ]
     match_result = MatchResult(must_have_matches=must_have_matches, role_family_match=True, seniority_gap=0)
-    profile = CandidateProfile(roles=[Role(title="Backend Engineer", family="backend")], seniority=Seniority.MID)
-    job = JobRequirements(title="Backend Engineer", seniority=Seniority.MID, role_family="backend")
 
-    score, gates = _apply_gates(95, must_have_matches, match_result, profile, job, DEFAULT_CONFIG)
+    score, gates = _apply_gates(95, must_have_matches, match_result, DEFAULT_CONFIG)
 
     assert score <= DEFAULT_CONFIG.gates.unmet_hard_requirement_cap
     assert "unmet_hard_requirement" in gates
@@ -65,59 +68,33 @@ def test_apply_gates_missing_skills_requires_at_least_two_none_matches():
         MatchedRequirement(requirement=Requirement(kind=RequirementKind.SKILL, text="Python", canonical="Python"), strength=MatchStrength.STRONG),
     ]
     match_result = MatchResult(must_have_matches=one_missing, role_family_match=True, seniority_gap=0)
-    profile = CandidateProfile(roles=[Role(title="Backend Engineer", family="backend")], seniority=Seniority.MID)
-    job = JobRequirements(title="Backend Engineer", seniority=Seniority.MID, role_family="backend")
 
-    score, gates = _apply_gates(90, one_missing, match_result, profile, job, DEFAULT_CONFIG)
+    score, gates = _apply_gates(90, one_missing, match_result, DEFAULT_CONFIG)
     assert "missing_skills" not in gates
 
     two_missing = one_missing + [
         MatchedRequirement(requirement=Requirement(kind=RequirementKind.SKILL, text="Rust", canonical="Rust"), strength=MatchStrength.NONE),
     ]
     match_result2 = MatchResult(must_have_matches=two_missing, role_family_match=True, seniority_gap=0)
-    score2, gates2 = _apply_gates(90, two_missing, match_result2, profile, job, DEFAULT_CONFIG)
+    score2, gates2 = _apply_gates(90, two_missing, match_result2, DEFAULT_CONFIG)
     assert "missing_skills" in gates2
     assert score2 <= DEFAULT_CONFIG.gates.missing_skills_cap
 
 
 def test_apply_gates_seniority_gap_requires_at_least_two_levels():
-    profile = CandidateProfile(roles=[Role(title="Senior Engineer", family="backend")], seniority=Seniority.SENIOR)
-    job_one_level = JobRequirements(title="Staff Engineer", seniority=Seniority.STAFF, role_family="backend")
     match_result = MatchResult(must_have_matches=[], role_family_match=True, seniority_gap=-1)
-    score, gates = _apply_gates(90, [], match_result, profile, job_one_level, DEFAULT_CONFIG)
+    score, gates = _apply_gates(90, [], match_result, DEFAULT_CONFIG)
     assert "seniority_gap" not in gates
 
     match_result2 = MatchResult(must_have_matches=[], role_family_match=True, seniority_gap=-2)
-    job_two_levels = JobRequirements(title="Principal Engineer", seniority=Seniority.PRINCIPAL, role_family="backend")
-    score2, gates2 = _apply_gates(90, [], match_result2, profile, job_two_levels, DEFAULT_CONFIG)
+    score2, gates2 = _apply_gates(90, [], match_result2, DEFAULT_CONFIG)
     assert "seniority_gap" in gates2
     assert score2 <= DEFAULT_CONFIG.gates.seniority_gap_cap
 
 
-def test_apply_gates_role_family_mismatch_only_when_no_recent_role_shares_the_family():
-    job = JobRequirements(title="Backend Engineer", seniority=Seniority.MID, role_family="backend")
-    match_result = MatchResult(must_have_matches=[], role_family_match=False, seniority_gap=0)
-
-    mismatched_profile = CandidateProfile(
-        roles=[Role(title="Marketing Manager", family="marketing"), Role(title="Marketing Coordinator", family="marketing")],
-        seniority=Seniority.MID,
-    )
-    score, gates = _apply_gates(90, [], match_result, mismatched_profile, job, DEFAULT_CONFIG)
-    assert "role_family_mismatch" in gates
-    assert score <= DEFAULT_CONFIG.gates.role_family_mismatch_cap
-
-    matching_profile = CandidateProfile(
-        roles=[Role(title="Backend Engineer", family="backend"), Role(title="QA Engineer", family="qa")],
-        seniority=Seniority.MID,
-    )
-    match_result2 = MatchResult(must_have_matches=[], role_family_match=True, seniority_gap=0)
-    score2, gates2 = _apply_gates(90, [], match_result2, matching_profile, job, DEFAULT_CONFIG)
-    assert "role_family_mismatch" not in gates2
-
-
 def test_gates_take_the_minimum_when_multiple_are_triggered():
-    """All four gates at once - the final score must respect the tightest
-    (lowest) cap among them."""
+    """All three job_fit gates at once - the final score must respect the
+    tightest (lowest) cap among them."""
     must_have_matches = [
         MatchedRequirement(
             requirement=Requirement(kind=RequirementKind.DEGREE, text="PhD required"), strength=MatchStrength.NONE,
@@ -130,15 +107,12 @@ def test_gates_take_the_minimum_when_multiple_are_triggered():
         ),
     ]
     match_result = MatchResult(must_have_matches=must_have_matches, role_family_match=False, seniority_gap=3)
-    profile = CandidateProfile(roles=[Role(title="Marketing Manager", family="marketing")], seniority=Seniority.MID)
-    job = JobRequirements(title="Principal Backend Engineer", seniority=Seniority.PRINCIPAL, role_family="backend")
 
-    score, gates = _apply_gates(95, must_have_matches, match_result, profile, job, DEFAULT_CONFIG)
+    score, gates = _apply_gates(95, must_have_matches, match_result, DEFAULT_CONFIG)
 
-    assert set(gates) == {"unmet_hard_requirement", "missing_skills", "seniority_gap", "role_family_mismatch"}
+    assert set(gates) == {"unmet_hard_requirement", "missing_skills", "seniority_gap"}
     assert score <= min(
         DEFAULT_CONFIG.gates.unmet_hard_requirement_cap,
         DEFAULT_CONFIG.gates.missing_skills_cap,
         DEFAULT_CONFIG.gates.seniority_gap_cap,
-        DEFAULT_CONFIG.gates.role_family_mismatch_cap,
     )

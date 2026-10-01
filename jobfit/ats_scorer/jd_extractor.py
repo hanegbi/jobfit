@@ -261,13 +261,21 @@ def _extract_required_years_total(sections: dict[str, list[str]]) -> int | None:
     return max(found) if found else None
 
 
-def extract_job_requirements(text: str, title: str | None = None) -> JobRequirements:
+def extract_job_requirements(
+    text: str, title: str | None = None, role_family: str | None = None,
+) -> JobRequirements:
     """Extract structured JobRequirements from raw job description text.
 
     Args:
         text: The full job description body text.
         title: The job's title, if known separately from the body; falls
             back to the first non-empty line of text when omitted.
+        role_family: The job's family, when it's already known - pass the
+            value classify_job() wrote to the store at scrape time (Phase 1)
+            rather than letting this function re-derive it from text, per
+            the "classification happens once, at scrape time" rule. Only
+            the standalone CLI/pipeline path (no stored job, just raw CV/JD
+            text) should leave this None and let title+body re-derive it.
 
     Returns:
         A JobRequirements built entirely from patterns found in the text -
@@ -300,9 +308,8 @@ def extract_job_requirements(text: str, title: str | None = None) -> JobRequirem
     required_years_total = _extract_required_years_total(sections)
     seniority = _infer_seniority(resolved_title, required_years_total)
 
-    role_families = load_role_families()
     responsibility_text = " ".join(sections["responsibility"] + sections["other"])
-    role_family = role_families.classify(resolved_title, responsibility_text)
+    resolved_family = role_family if role_family is not None else load_role_families().classify(resolved_title, responsibility_text)
 
     taxonomy = load_skills_taxonomy()
     domain_terms = taxonomy.find_in_text(responsibility_text)
@@ -315,5 +322,5 @@ def extract_job_requirements(text: str, title: str | None = None) -> JobRequirem
         nice_to_have=nice_to_have,
         required_years_total=required_years_total,
         domain=domain,
-        role_family=role_family,
+        role_family=resolved_family,
     )

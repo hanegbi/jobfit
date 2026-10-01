@@ -12,6 +12,13 @@ SKILLS_TAXONOMY_PATH = DATA_DIR / "skills_taxonomy.json"
 ROLE_FAMILIES_PATH = DATA_DIR / "role_families.json"
 CANONICAL_TITLES_PATH = DATA_DIR / "canonical_titles.json"
 SKILL_IDF_PATH = DATA_DIR / "skill_idf.json"
+FAMILY_ADJACENCY_PATH = DATA_DIR / "family_adjacency.json"
+# Two families with almost no shared vocabulary still get this much credit,
+# rather than rounding to 0 - see docs/superpowers/specs/2026-10-01-scoring
+# -redesign-design.md section 1 ("Adjacency"). Applied once, when
+# compute-adjacency writes family_adjacency.json, and again defensively in
+# family_fit.py for any pair the file doesn't have an entry for at all.
+AFFINITY_FLOOR = 0.1
 
 
 class SkillsTaxonomy:
@@ -129,3 +136,16 @@ def load_skill_idf() -> dict[str, float]:
     if not SKILL_IDF_PATH.exists():
         return {}
     return json.loads(SKILL_IDF_PATH.read_text(encoding="utf-8"))["weights"]
+
+
+@lru_cache(maxsize=1)
+def load_family_adjacency() -> dict[str, dict[str, float]]:
+    """{family_a: {family_b: affinity}}, symmetric, from the file
+    `ats_scorer.cli compute-adjacency` writes - see ats_scorer/adjacency.py.
+    Every pair already has the floor/overrides baked in by that command;
+    this is a straight read. Empty when the command has never been run, so
+    family_fit() degrades to "every non-identical family at the floor"
+    rather than crashing."""
+    if not FAMILY_ADJACENCY_PATH.exists():
+        return {}
+    return json.loads(FAMILY_ADJACENCY_PATH.read_text(encoding="utf-8"))["matrix"]

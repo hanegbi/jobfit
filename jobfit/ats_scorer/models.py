@@ -228,25 +228,36 @@ class ScoreResult(BaseModel):
     """The final scoring output.
 
     Attributes:
-        score: The final integer score, 0 to 100.
+        score: The final integer score, 0 to 100 - family_fit x job_fit,
+            gated.
         band: The fixed-meaning band name the score falls into.
-        sub_scores: Every named sub-score that fed the weighted sum.
-        gates_applied: Names of hard gates that capped the score, if any.
+        family_fit: The family_fit factor itself, 0 to 1 - see
+            ats_scorer/family_fit.py. Exposed separately from the score so
+            a reviewer (or fit-weights) can tell "wrong family" apart from
+            "right family, weak requirement match" at a glance.
+        sub_scores: Every named job_fit sub-score that fed its weighted sum.
+        gates_applied: Names of hard gates that capped the score, if any -
+            "family_fit_low" is one of them, applied after the multiply.
         matched_must_haves: Must-have requirements with strength other
             than NONE, each as {requirement, evidence, strength}.
         missing_must_haves: Must-have requirement texts with strength NONE.
         matched_nice_to_haves: Nice-to-have requirements with strength
             other than NONE, in the same shape as matched_must_haves.
+        score_adjustments: Human-readable notes for the signature bonus and
+            negative-evidence penalty, when either applied - additive/
+            subtractive on job_fit, not part of sub_scores' weighted sum.
         top_gaps: Up to three gap descriptions, ordered by impact on score.
         summary: A two-sentence, plain-language summary.
     """
 
     score: int
     band: str
+    family_fit: float = 0.0
     sub_scores: dict[str, SubScore]
     gates_applied: list[str] = Field(default_factory=list)
     matched_must_haves: list[dict] = Field(default_factory=list)
     missing_must_haves: list[str] = Field(default_factory=list)
     matched_nice_to_haves: list[dict] = Field(default_factory=list)
+    score_adjustments: list[str] = Field(default_factory=list)
     top_gaps: list[str] = Field(default_factory=list)
     summary: str = ""

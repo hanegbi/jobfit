@@ -75,6 +75,22 @@ def open_with_url(conn: sqlite3.Connection) -> list[dict]:
     )]
 
 
+def corpus_texts_by_family(conn: sqlite3.Connection, min_description_len: int = 50) -> dict[str, list[str]]:
+    """{family: ["title. description", ...]} over active jobs with a real
+    description and a known family - the adjacency corpus (see
+    ats_scorer/adjacency.py). Same min_description_len default as
+    corpus_texts(), for the same reason."""
+    rows = conn.execute(
+        "SELECT family, title, description FROM jobs "
+        "WHERE status != 'closed' AND family IS NOT NULL AND length(description) >= ?",
+        (min_description_len,),
+    ).fetchall()
+    by_family: dict[str, list[str]] = {}
+    for row in rows:
+        by_family.setdefault(row["family"], []).append(f"{row['title'] or ''}. {row['description'] or ''}")
+    return by_family
+
+
 def corpus_texts(conn: sqlite3.Connection, min_description_len: int = 50) -> list[str]:
     """"title. description" for every active job with a real description -
     the IDF corpus (see ats_scorer/idf.py). min_description_len's default

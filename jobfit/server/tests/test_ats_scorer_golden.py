@@ -220,18 +220,23 @@ Education: BSc Computer Science
     assert result.score <= 50
 
 
-# --- Gate: role_family_mismatch (cap 40) -------------------------------------
+# --- Gate: family_fit_low (cap 35) -------------------------------------------
 
-def test_gate_role_family_mismatch_caps_at_40_even_with_skill_overlap():
-    cv = """Yossi Barak
+def test_gate_family_fit_low_caps_at_35_even_with_skill_overlap():
+    """family_fit replaced role_family_mismatch: a continuous, adjacency-
+    aware multiplier rather than a flat cap. Marketing and backend compute
+    to a real affinity around 0.17 (see family_adjacency.json) - well under
+    the 0.3 gate threshold - even though this CV happens to mention Python
+    and AWS in passing."""
+    cv = """Morgan Lee
 Tel Aviv, Israel
 
-QA Automation Engineer
+Marketing Manager
 Acme Corp | 2020 - Present
-- Wrote test automation suites in Python using Selenium
-- Used AWS and Kubernetes to run test infrastructure
+- Ran content marketing and SEO campaigns using Python scripts for reporting
+- Managed social media marketing and brand strategy, also used AWS for hosting dashboards
 
-Education: BSc Computer Science
+Education: BSc Marketing
 """
     jd = """Requirements:
 - Experience with Python required
@@ -240,8 +245,9 @@ Education: BSc Computer Science
 - BSc degree required
 """
     result = _score(cv, jd, title="Backend Engineer")
-    assert "role_family_mismatch" in result.gates_applied
-    assert result.score <= 40
+    assert "family_fit_low" in result.gates_applied
+    assert result.family_fit < 0.3
+    assert result.score <= 35
 
 
 # --- Golden set self-check: every band and every gate is actually covered ---
