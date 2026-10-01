@@ -97,8 +97,49 @@ def _looks_like_bullet_or_blank(line: str) -> bool:
     return not stripped or stripped.startswith(("-", "*", "•", "●", "‣", "⁃"))
 
 
+# A lightweight "does this text name a job, not a company" signal, used only
+# to disambiguate the two layouts _infer_title_for_role otherwise can't tell
+# apart (see its docstring). Deliberately local to this module rather than
+# imported from jobfit.scrape.filters' similar _ROLE_WORD_RE - this package
+# stays independent of the rest of jobfit (see this package's CLAUDE.md).
+_JOB_TITLE_WORD_RE = re.compile(
+    r"\b(engineer|engineering|developer|programmer|architect|scientist|researcher|analyst|"
+    r"manager|director|head|lead|chief|officer|president|executive|"
+    r"designer|writer|editor|marketer|recruiter|accountant|controller|"
+    r"counsel|attorney|advisor|consultant|coach|trainer|instructor|"
+    r"specialist|coordinator|administrator|technician|operator|"
+    r"representative|associate|intern|apprentice|founder|owner|"
+    r"sdet|devops|sre|\bqa\b|vp|cto|cfo|ceo|coo|ciso)\b",
+    re.IGNORECASE,
+)
+
+
+def _looks_like_job_title(text: str) -> bool:
+    return bool(text) and bool(_JOB_TITLE_WORD_RE.search(text))
+
+
 def _infer_title_for_role(lines: list[str], date_line_idx: int, remainder: str) -> tuple[str, str | None, int]:
     """Infer (title, company, anchor_idx) for the role anchored at date_line_idx.
+
+    Two layouts share the same shape here - a date-adjacent line with no
+    comma/pipe separator, and a plausible non-blank line right above it -
+    and are NOT distinguishable from structure alone:
+      - "Title\\nCompany    Dates": prev_line is the title, remainder (the
+        text sharing the date's own line) is the company.
+      - "Company\\nTitle    Dates": prev_line is the company, remainder is
+        the title - the reverse assignment.
+    Real bug caught live: this function always assumed the first layout, so
+    every role in a CV using the second ("Hailo" / "Software Engineer
+    04/2022 - 07/2026") got its title and company swapped - the company
+    name stored as the role's title, which then matches no role-family
+    keyword, which silently empties every family-dependent signal
+    downstream for that candidate.
+    _looks_like_job_title breaks the tie the only way available without
+    guessing: if remainder reads like a job title and prev_line does not,
+    it's the second layout. Anything else (including "neither/both look
+    like a title", which is genuinely ambiguous) keeps the original
+    first-layout assumption, so the already-correct common case regresses
+    for no fixture this function is tested against.
 
     Args:
         lines: All CV lines.
@@ -119,6 +160,8 @@ def _infer_title_for_role(lines: list[str], date_line_idx: int, remainder: str) 
             return parts[0].strip(), parts[1].strip(), date_line_idx
         prev_line = lines[date_line_idx - 1].strip() if date_line_idx > 0 else ""
         if prev_line and not _looks_like_bullet_or_blank(prev_line) and not DATE_RANGE_RE.search(prev_line):
+            if _looks_like_job_title(remainder) and not _looks_like_job_title(prev_line):
+                return remainder, prev_line, date_line_idx - 1
             return prev_line, remainder, date_line_idx - 1
         return remainder, None, date_line_idx
 
@@ -128,12 +171,58 @@ def _infer_title_for_role(lines: list[str], date_line_idx: int, remainder: str) 
     return "", None, date_line_idx
 
 
+_EXPERIENCE_SECTION_WORDS = frozenset({"experience", "work experience", "employment"})
+# Everything else _ALL_SECTION_HEADER_WORDS recognizes: a date range found
+# after one of these (and before the next Experience header) is never a
+# role's own dates.
+_NON_EXPERIENCE_SECTION_WORDS = frozenset(_SKILLS_HEADER_WORDS) | frozenset({
+    "education", "certifications", "languages", "summary", "about",
+})
+_ALL_TRACKED_SECTION_WORDS = sorted(
+    _EXPERIENCE_SECTION_WORDS | _NON_EXPERIENCE_SECTION_WORDS, key=len, reverse=True,
+)
+
+
+def _section_at_each_line(lines: list[str]) -> list[str]:
+    """Which section ('experience' or 'other') each line falls under.
+
+    Real bug caught live: an Education entry with its own date range
+    ("B.Sc. Computer Science ... 2018 - 2021") was being parsed as a work
+    role, because _find_date_ranges has no concept of section at all - any
+    date range anywhere in the document became a role anchor. Whether that
+    corrupts anything depends on luck: it only matters if the spurious
+    "role" is recent enough to land in roles[:2], which drives seniority
+    and recent_role_family - true for a new grad, not for a long work
+    history where real roles already fill that window.
+
+    Defaults to 'experience' before any header is seen, so a CV (and every
+    existing test fixture) with no section headers at all still works -
+    the guard only excludes text that is POSITIVELY inside a recognized
+    non-experience section, never text whose section is merely unknown.
+    """
+    sections = []
+    current = "experience"
+    for line in lines:
+        lowered = line.strip().lower()
+        matched = next(
+            (w for w in _ALL_TRACKED_SECTION_WORDS if lowered == w or lowered.startswith(w + ":") or lowered.startswith(w + " ")),
+            None,
+        )
+        if matched in _EXPERIENCE_SECTION_WORDS:
+            current = "experience"
+        elif matched in _NON_EXPERIENCE_SECTION_WORDS:
+            current = "other"
+        sections.append(current)
+    return sections
+
+
 def _parse_roles(lines: list[str]) -> list[Role]:
     """Parse employment roles from CV lines using date-range anchors, per
     the format: a title line, then a company+date-range line (or a
     combined "Title | Company | Dates" line), then bullets until the next
     role's title/date-range line."""
-    date_lines = _find_date_ranges(lines)
+    sections = _section_at_each_line(lines)
+    date_lines = [(idx, s, e) for idx, s, e in _find_date_ranges(lines) if sections[idx] == "experience"]
     parsed = []
     for line_idx, start_raw, end_raw in date_lines:
         line = lines[line_idx]

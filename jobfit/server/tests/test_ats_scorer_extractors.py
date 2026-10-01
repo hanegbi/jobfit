@@ -245,3 +245,125 @@ OldCo | 2015 - 2018
     profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
     family = cv_extractor.recent_role_family(profile)
     assert family == "marketing"
+
+
+# --- the "Company on its own line, Title+Dates below it" layout -----------
+# Real bug caught live: _infer_title_for_role assumed the OTHER common
+# layout ("Title\nCompany Dates") and swapped title/company for this one,
+# which is Dan Hanegbi's own CV's layout - every role came back with the
+# company name as its title ("Hailo", "McAfee"), which matches no role
+# family keyword and silently empties every family-dependent score
+# (title_and_seniority_fit, experience_relevance, the role_family_mismatch
+# gate) for the whole scoring run.
+
+def test_company_line_then_title_and_dates_is_not_swapped():
+    cv = """Dan Hanegbi
+
+EXPERIENCE
+
+Hailo
+Software Engineer 04/2022 - 07/2026
+- Built a Python framework for AI embedded systems
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    assert len(profile.roles) == 1
+    assert profile.roles[0].title == "Software Engineer"
+    assert profile.roles[0].company == "Hailo"
+
+
+def test_two_titles_under_one_company_both_come_out_right():
+    """The exact shape that makes this layout genuinely different from
+    "Title\nCompany": one company, two stacked title+date blocks, no
+    repeated company line for the second one."""
+    cv = """Cyber Security Company
+Automation Developer 08/2020 - 03/2022
+- Built a Python automation framework
+
+Software Quality Engineer 10/2018 - 08/2020
+- Developed and executed test plans
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    assert len(profile.roles) == 2
+    assert profile.roles[0].title == "Automation Developer"
+    assert profile.roles[0].company == "Cyber Security Company"
+    assert profile.roles[1].title == "Software Quality Engineer"
+
+
+def test_the_original_title_then_company_layout_still_works():
+    """The fix must not flip the OTHER common layout, which every existing
+    fixture in this file already uses and which was already correct."""
+    cv = """Senior Backend Engineer
+Acme Corp 2020 - Present
+- Owned backend systems in production
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    assert profile.roles[0].title == "Senior Backend Engineer"
+    assert profile.roles[0].company == "Acme Corp"
+
+
+def test_an_ambiguous_pair_with_no_title_word_either_side_keeps_old_behavior():
+    """Neither line names a job - genuinely ambiguous, and the fix must not
+    invent confidence it doesn't have. Falls back to the original
+    first-layout assumption rather than guessing differently."""
+    cv = """Acme Holdings
+Project Falcon 2020 - 2022
+- Shipped the thing
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    assert profile.roles[0].title == "Acme Holdings"
+    assert profile.roles[0].company == "Project Falcon"
+
+
+# --- a dated Education entry must never become a work role -----------------
+# Real bug caught live: Dan's CV has "B.Sc. Computer Science ... 2018-2021"
+# under an EDUCATION header, and _find_date_ranges has no concept of
+# section - it became a 6th "role". Harmless by luck for a 10-year work
+# history (the real roles already fill roles[:2]); not harmless for a new
+# grad, where the degree IS the only thing in that window.
+
+def test_a_dated_education_entry_is_not_parsed_as_a_role():
+    cv = """Jane Doe
+
+EXPERIENCE
+
+Senior Engineer
+Acme | 2020 - Present
+- Built systems
+
+EDUCATION
+
+B.Sc. Computer Science, State University     2014 - 2018
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    assert len(profile.roles) == 1
+    assert profile.roles[0].title == "Senior Engineer"
+
+
+def test_education_before_experience_is_still_excluded():
+    """Section order must not matter - only which section a date falls in."""
+    cv = """Jane Doe
+
+EDUCATION
+
+B.Sc. Computer Science, State University     2014 - 2018
+
+EXPERIENCE
+
+Senior Engineer
+Acme | 2020 - Present
+- Built systems
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    assert len(profile.roles) == 1
+    assert profile.roles[0].title == "Senior Engineer"
+
+
+def test_a_cv_with_no_section_headers_at_all_still_parses():
+    """The 'experience' default before any header is seen must not regress
+    every existing fixture, none of which have section headers."""
+    cv = """Senior Backend Engineer
+Acme Corp | 2020 - Present
+- Owned backend systems
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    assert len(profile.roles) == 1

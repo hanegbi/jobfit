@@ -25,6 +25,18 @@ USER_AGENT = (
 )
 TIMEOUT = 15
 
+# A description is cut to this many characters wherever it's stored. Used to
+# be 6000, hardcoded at 8 separate call sites. Real cost: the requirements
+# section is disproportionately near the END of a JD (after the About Us /
+# Responsibilities narrative), so a tight cap preferentially cuts the part
+# jd_extractor needs most - 22% of described jobs were landing exactly on
+# the old limit, and real untruncated JDs commonly run 4000-6000 chars on
+# their own even for a well-structured posting (p95 of genuinely-complete
+# descriptions was 5,996 chars - the distribution was being compressed up
+# against the cap, not naturally ending there). 20000 clears that with
+# comfortable headroom while still bounding a pathological scrape.
+MAX_DESCRIPTION_CHARS = 20000
+
 TOKEN_PATTERNS: list[tuple[str, re.Pattern]] = [
     ("greenhouse", re.compile(r"greenhouse\.io/embed/job_board\?for=([A-Za-z0-9_-]+)", re.I)),
     ("greenhouse", re.compile(r"boards(?:-api)?\.greenhouse\.io/(?:v1/boards/)?([A-Za-z0-9_-]+)", re.I)),
@@ -130,7 +142,7 @@ def fetch_greenhouse(session: requests.Session, token: str) -> Optional[list[dic
             "title": _clean(item.get("title")),
             "location": location or None,
             "url": item.get("absolute_url"),
-            "description": _clean(item.get("content"))[:6000],
+            "description": _clean(item.get("content"))[:MAX_DESCRIPTION_CHARS],
             "department": departments[0].get("name") if departments else None,
             "employment_type": None,
             "posted_at": _posted_date(item.get("updated_at") or item.get("first_published")),
@@ -150,7 +162,7 @@ def fetch_lever(session: requests.Session, token: str) -> Optional[list[dict]]:
             "title": _clean(item.get("text")),
             "location": categories.get("location"),
             "url": item.get("hostedUrl"),
-            "description": _clean(item.get("descriptionPlain"))[:6000],
+            "description": _clean(item.get("descriptionPlain"))[:MAX_DESCRIPTION_CHARS],
             "department": categories.get("team") or categories.get("department"),
             "employment_type": categories.get("commitment"),
             "posted_at": _posted_date(item.get("createdAt")),
@@ -172,7 +184,7 @@ def fetch_ashby(session: requests.Session, token: str) -> Optional[list[dict]]:
             "title": _clean(item.get("title")),
             "location": item.get("location"),
             "url": item.get("jobUrl") or item.get("applyUrl"),
-            "description": _clean(item.get("descriptionPlain"))[:6000],
+            "description": _clean(item.get("descriptionPlain"))[:MAX_DESCRIPTION_CHARS],
             "department": item.get("department") or item.get("team"),
             "employment_type": item.get("employmentType"),
             "posted_at": _posted_date(item.get("publishedAt") or item.get("updatedAt")),
@@ -296,7 +308,7 @@ def _comeet_items_to_jobs(payload: list[dict]) -> list[dict]:
             "title": _clean(item.get("name")),
             "location": where or None,
             "url": item.get("url_comeet_hosted_page") or item.get("url_active_page"),
-            "description": desc[:6000],
+            "description": desc[:MAX_DESCRIPTION_CHARS],
             "department": item.get("department"),
             "employment_type": item.get("employment_type"),
             "posted_at": _posted_date(item.get("time_updated") or item.get("updated_at")),
@@ -502,7 +514,7 @@ def fetch_generic_description(session: requests.Session, url: str) -> str:
     text = _clean(soup.get_text(" "))
     if looks_like_boilerplate(text):
         return ""
-    return text[:6000]
+    return text[:MAX_DESCRIPTION_CHARS]
 
 
 def _jsonld_job_postings(soup: BeautifulSoup) -> list[dict]:
@@ -585,13 +597,13 @@ def parse_job_details_html(html: str) -> dict:
     description = ""
     if posting and posting.get("description"):
         try:
-            description = _clean(BeautifulSoup(str(posting["description"]), "html.parser").get_text(" "))[:6000]
+            description = _clean(BeautifulSoup(str(posting["description"]), "html.parser").get_text(" "))[:MAX_DESCRIPTION_CHARS]
         except Exception:  # noqa: BLE001
             description = ""
     if not description:
         _strip_boilerplate(soup)
         text = _clean(soup.get_text(" "))
-        description = "" if looks_like_boilerplate(text) else text[:6000]
+        description = "" if looks_like_boilerplate(text) else text[:MAX_DESCRIPTION_CHARS]
 
     if not posting:
         return {**_EMPTY_DETAILS, "description": description}
@@ -711,7 +723,7 @@ def fetch_hibob(session: requests.Session, slug: str) -> Optional[list[dict]]:
         jobs.append({
             "title": title, "location": where or None,
             "url": f"https://{slug}.careers.hibob.com/jobs/{item['id']}/apply",
-            "description": strip_html(f"{item.get('description') or ''} {item.get('requirements') or ''}")[:6000],
+            "description": strip_html(f"{item.get('description') or ''} {item.get('requirements') or ''}")[:MAX_DESCRIPTION_CHARS],
             "department": _clean(item.get("department")) or None,
             "employment_type": item.get("employmentType"),
             "posted_at": _posted_date(item.get("publishDate") or item.get("publishedAt")),

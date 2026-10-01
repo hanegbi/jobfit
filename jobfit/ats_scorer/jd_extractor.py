@@ -15,9 +15,21 @@ _NICE_TO_HAVE_HEADER_WORDS = frozenset({
 })
 _RESPONSIBILITY_HEADER_WORDS = frozenset({
     "responsibilities", "what you'll do", "what youll do", "what you will do",
+    "what you'll be doing", "what youll be doing", "what you will be doing",
     "about the role", "the role", "role overview", "your role",
 })
 # Everything else recognized below (requirements/qualifications/...) is must_have.
+#
+# "what you'll bring" / "you bring" / "who you are" / "about you" / "must
+# have(s)" are additions, not in the original list. Real case caught live: a
+# well-structured, genuine JD (ScaleOps "Sales Engineer, Lead") headed its two
+# sections "What You'll Be Doing" and "What You'll Bring" - neither matched
+# anything here, so a posting with a clearly labeled requirements section
+# ("5+ years of hands-on experience with... Kubernetes (required)") yielded
+# zero extracted must-haves. Measured on a random sample of real, untruncated
+# (1000-5999 char), real-description jobs: 62% yielded no requirements at
+# all, and this header-vocabulary gap - not JD length or truncation - was the
+# dominant cause.
 
 # Matched against the *raw, un-split* text - real scraped job descriptions
 # have no line breaks at all (ats_fetchers.strip_html collapses everything
@@ -40,11 +52,15 @@ _RESPONSIBILITY_HEADER_WORDS = frozenset({
 # use ("the job requirements before applying") doesn't get misread as a
 # heading, since it's followed by a lowercase word instead.
 _HEADER_RE = re.compile(
-    r"\b(requirements|qualifications|what you'?ll need|what you need|"
+    r"\b(requirements|qualifications|what you'?ll need|what you need|you'?ll need|"
     r"what we're looking for|minimum qualifications|nice to have|nice-to-have|"
     r"advantages?|bonus(?: points)?|preferred qualifications|preferred|"
-    r"responsibilities|what you'?ll do|what you will do|about the role|"
-    r"the role|role overview|your role)"
+    r"responsibilities|what you'?ll do|what you will do|"
+    r"what you'?ll be doing|what you will be doing|"
+    r"what you'?ll bring|what you bring|you'?ll bring|you bring|"
+    r"who you are|about you|must[\s-]haves?|required skills(?: and experience)?|"
+    r"key (?:requirements|qualifications)|your experience|"
+    r"about the role|the role|role overview|your role)"
     r"(?:\s*:\s*|\s*(?=(?-i:[A-Z0-9•●‣⁃])))",
     re.IGNORECASE,
 )
