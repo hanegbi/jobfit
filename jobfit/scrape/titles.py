@@ -56,6 +56,35 @@ _COUNTRIES = (
 # absent on purpose - it is Israel's own code, and ATS boards emit it as a
 # suffix on Israeli towns ("Tirat Carmel, IL").
 _COUNTRY_CODES = r"USA?|U\.S\.A?\.?|UK|UAE"
+
+# config.CITY_ALIASES is Israeli cities only, so a title reading "Senior
+# Account Manager, London" or "Customer Success Manager Dallas HQ" looked like
+# a job with no location at all and inherited the company's Tel Aviv address.
+# Only unambiguous names: no "Reading", "Nice" or "Mobile", which are ordinary
+# words before they are cities.
+_FOREIGN_CITIES = (
+    r"new york|nyc|brooklyn|san francisco|bay area|silicon valley|palo alto|mountain view|"
+    r"sunnyvale|santa clara|san jose|los angeles|san diego|seattle|bellevue|portland|denver|"
+    r"boulder|austin|dallas|houston|atlanta|miami|orlando|chicago|detroit|minneapolis|"
+    r"boston|philadelphia|washington,? d\.?c\.?|raleigh|charlotte|"
+    r"toronto|vancouver|montreal|ottawa|mexico city|sao paulo|buenos aires|"
+    r"london|manchester|edinburgh|glasgow|bristol|oxford|dublin|belfast|"
+    r"paris|lyon|berlin|munich|hamburg|frankfurt|cologne|stuttgart|dusseldorf|"
+    r"amsterdam|rotterdam|brussels|luxembourg|zurich|geneva|vienna|copenhagen|"
+    r"stockholm|oslo|helsinki|madrid|barcelona|lisbon|porto|milan|milano|rome|roma|"
+    r"warsaw|krakow|prague|budapest|bucharest|sofia|belgrade|zagreb|athens|"
+    r"istanbul|kyiv|kiev|bangalore|bengaluru|hyderabad|pune|mumbai|delhi|gurgaon|noida|"
+    r"chennai|singapore|hong kong|shanghai|beijing|shenzhen|taipei|seoul|tokyo|osaka|"
+    r"sydney|melbourne|brisbane|auckland|dubai|abu dhabi|riyadh|doha|cairo|nairobi|"
+    r"johannesburg|cape town"
+)
+# A US state code counts only after a comma ("Austin, TX"). Bare, half of
+# them are ordinary words in a job title: OR, IN, OK, ME, HI, DE, LA, MA.
+_US_STATE_SUFFIX = (
+    r",\s*(?:AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|ID|IL|IN|IA|KS|KY|LA|MD|MA|MI|MN|MS|MO|MT|NE|"
+    r"NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY)\b"
+)
+_FOREIGN_CITY_RE = re.compile(rf"\b(?:{_FOREIGN_CITIES})\b|{_US_STATE_SUFFIX}", re.I)
 _ISRAEL_RE = re.compile(r"(?i:israel|ישראל)|\bIL\b")
 
 # "Office" only counts as a label when it carries a colon, so "Head of Office
@@ -95,6 +124,13 @@ _BRACKETED_TAIL_RE = re.compile(r"[(\[][^()\[\]]*[)\]]$")
 # pattern matches its own leading separator so the strip leaves no debris.
 _TRAILING_PATTERNS = (
     ("location", _TRAILING_CITY_RE),
+    # Foreign places too, and the office-suffix a US listing tacks on:
+    # "Senior DevOps Engineer Dallas HQ", "Enterprise Account Executive
+    # Dallas, TX". Only at the end, so a role genuinely named after a place
+    # ("Head of London Sales") keeps its words.
+    ("location", re.compile(
+        rf"[\s,·|-]*\b(?:{_FOREIGN_CITIES})\b(?:{_US_STATE_SUFFIX})?"
+        rf"(?:\s+(?:HQ|office|hub))?$", re.I)),
     ("cta", re.compile(rf"[\s,·|-]*\b({_CTA})\s*[→>»]?$", re.I)),
     ("employment_type", re.compile(rf"[\s,·|-]*\b({_EMPLOYMENT})$", re.I)),
     ("work_mode", re.compile(rf"[\s,·|-]*\b({_MODE})$", re.I)),
@@ -203,6 +239,32 @@ def names_foreign_country(text: str | None) -> bool:
         return False
     return bool(re.search(rf"\b({_COUNTRIES})\b", cleaned, re.I) or re.search(rf"\b({_COUNTRY_CODES})\b", cleaned))
 
+
+def names_foreign_place(text: str | None) -> bool:
+    """True when the text names somewhere that is not Israel, by country OR by
+    city.
+
+    names_foreign_country only reads a job's location field, which is empty on
+    most career-page listings. The place is then often in the title instead
+    ("Senior Account Manager, London"), and without this the job inherited its
+    company's Israeli address and showed up as a Tel Aviv role.
+    """
+    cleaned = _clean(text or "")
+    if not cleaned or _ISRAEL_RE.search(cleaned) or _ANY_CITY_RE.search(cleaned):
+        return False
+    return bool(_FOREIGN_CITY_RE.search(cleaned)) or names_foreign_country(cleaned)
+
+
+def trailing_place(text: str | None) -> str | None:
+    """The foreign place a title ends with, so a job can say where it is
+    instead of just where it is not. "Enterprise Account Executive Dallas,
+    TX" -> "Dallas, TX"."""
+    cleaned = _clean(text or "")
+    matches = list(_FOREIGN_CITY_RE.finditer(cleaned))
+    if not matches:
+        return None
+    tail = _clean(cleaned[matches[0].start():])
+    return tail or None
 
 def detail_title_candidates(html: str) -> list[str]:
     """Every title a job's own page states: schema.org JobPosting, <h1>s,

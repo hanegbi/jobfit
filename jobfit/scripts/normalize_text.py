@@ -162,6 +162,54 @@ def close_nav_junk(conn) -> dict:
     return {"open_jobs": len(rows), "closed_as_navigation": len(junk)}
 
 
+def resplit_titles(conn) -> dict:
+    """Re-peel card metadata off stored titles.
+
+    split_card_text only trims what it recognises, so running it again is
+    safe: it can shorten a title, never rename one. Needed whenever the strip
+    learns a new kind of metadata - here, foreign places, which left "Senior
+    DevOps Engineer Dallas HQ" in the store."""
+    from jobfit.scrape import titles as titles_mod
+
+    rows = conn.execute("SELECT id, title FROM jobs WHERE title IS NOT NULL AND title != ''").fetchall()
+    changed = 0
+    with conn:
+        for row in rows:
+            trimmed = titles_mod.split_card_text(row["title"]).title
+            if not trimmed or trimmed == row["title"]:
+                continue
+            conn.execute("UPDATE jobs SET title = ? WHERE id = ?", (trimmed, row["id"]))
+            changed += 1
+    return {"titles_examined": len(rows), "titles_trimmed": changed}
+
+
+def fix_locations(conn) -> dict:
+    """Re-derive location/city for the rows the old rules got wrong.
+
+    Two defects, both fixed in pipeline._infer_location_fields: the literal
+    string "NaN" stood for "this job never said where", and a foreign place in
+    the TITLE (rather than the location field) fell through to the company's
+    Israeli address, so US and UK roles were served as Tel Aviv jobs.
+    """
+    from jobfit import pipeline
+    from jobfit.scrape import titles as titles_mod
+
+    cleared = relocated = 0
+    with conn:
+        cursor = conn.execute("UPDATE jobs SET location = NULL WHERE location IN ('NaN', 'nan')")
+        cleared = cursor.rowcount
+
+        rows = conn.execute(
+            "SELECT id, title, location, city FROM jobs WHERE city IS NOT NULL").fetchall()
+        for row in rows:
+            if not titles_mod.names_foreign_place(row["title"] or ""):
+                continue
+            where = titles_mod.trailing_place(row["title"]) or "Outside Israel"
+            conn.execute("UPDATE jobs SET location = ?, city = NULL WHERE id = ?", (where, row["id"]))
+            relocated += 1
+    return {"nan_locations_cleared": cleared, "foreign_jobs_un_israeled": relocated}
+
+
 def apply_title_translations(conn, path) -> dict:
     """Apply a {hebrew title: english title} file to the store and the cache.
 
@@ -204,6 +252,8 @@ def main() -> None:
     parser.add_argument("--translate", action="store_true", help="retranslate Hebrew titles")
     parser.add_argument("--companies", action="store_true", help="drop the Hebrew half of company names")
     parser.add_argument("--nav-junk", action="store_true", help="close open jobs that are site navigation")
+    parser.add_argument("--locations", action="store_true", help="re-derive locations the old rules got wrong")
+    parser.add_argument("--titles", action="store_true", help="re-peel card metadata off stored titles")
     parser.add_argument("--apply-titles", type=Path, help="a {hebrew: english} JSON file of title translations")
     parser.add_argument("--limit", type=int, default=0, help="translate at most N titles")
     args = parser.parse_args()
@@ -216,13 +266,18 @@ def main() -> None:
         print(clean_company_names(conn))
     if args.nav_junk:
         print(close_nav_junk(conn))
+    if args.titles:
+        print(resplit_titles(conn))
+    if args.locations:
+        print(fix_locations(conn))
     if args.apply_titles:
         print(apply_title_translations(conn, args.apply_titles))
     if args.translate:
         dropped = drop_poisoned_translations()
         print(f"dropped {dropped} poisoned cache entries")
         print(retranslate(conn, args.limit))
-    if not (args.departments or args.translate or args.companies or args.nav_junk or args.apply_titles):
+    if not (args.departments or args.translate or args.companies or args.nav_junk
+            or args.apply_titles or args.locations or args.titles):
         parser.error("pick --departments, --companies, --nav-junk, --translate, or a combination")
 
 

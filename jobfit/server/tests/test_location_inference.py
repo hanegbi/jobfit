@@ -39,8 +39,11 @@ def test_remote_israel_keeps_the_remote_flag_and_takes_the_company_city():
     assert (loc, city, remote) == ("Tel Aviv", "Tel Aviv", True)
 
 
-def test_empty_location_behaves_as_before():
-    assert pipeline._infer_location_fields({"title": "Engineer"}, None, None) == ("NaN", None, False)
+def test_a_job_that_never_said_where_has_no_location():
+    """It used to answer the literal string "NaN", a pandas artifact that
+    reached the page and read as a broken field. NULL says the same thing and
+    every reader already handles it."""
+    assert pipeline._infer_location_fields({"title": "Engineer"}, None, None) == (None, None, False)
     assert pipeline._infer_location_fields({"title": "Remote Engineer"}, None, None) == ("Remote", None, True)
 
 
@@ -70,3 +73,30 @@ def test_an_israeli_location_is_never_read_as_foreign():
 def test_remote_abroad_stays_remote():
     loc, city, remote = pipeline._infer_location_fields({"location": "Remote, US", "title": "SRE"}, None, "Tel Aviv")
     assert (city, remote) == (None, True)
+
+
+# --- a foreign place in the title beats the company's address ---------------
+
+def test_a_title_naming_a_foreign_city_does_not_inherit_the_company_address():
+    """The guard existed for the location field, which career-page listings
+    leave empty, so the place sat in the title instead and 49 US and UK jobs
+    were served as Tel Aviv roles."""
+    for title in ("Senior Account Manager, London",
+                  "Customer Success Manager Dallas HQ",
+                  "Enterprise Account Executive Dallas, TX"):
+        location, city, _ = pipeline._infer_location_fields({"title": title}, None, "Tel Aviv")
+        assert city is None, title
+        assert "Tel Aviv" not in (location or ""), title
+
+
+def test_the_foreign_place_is_named_rather_than_just_denied():
+    location, city, _ = pipeline._infer_location_fields(
+        {"title": "Enterprise Account Executive Dallas, TX"}, None, "Ramat Gan")
+    assert location == "Dallas, TX" and city is None
+
+
+def test_an_israeli_job_still_inherits_the_company_city():
+    """The guard must not fire on an ordinary title, or every job loses its
+    city."""
+    location, city, _ = pipeline._infer_location_fields({"title": "Senior DevOps Engineer"}, None, "Tel Aviv")
+    assert (location, city) == ("Tel Aviv", "Tel Aviv")

@@ -109,6 +109,14 @@ def _infer_location_fields(job: dict, company_location_hint: str | None = None,
     if city:
         return city, city, is_remote
 
+    # The same guard as the foreign-country check above, applied to the title,
+    # which is where a career-page listing usually puts the place when the
+    # location field is empty. Without it "Senior Account Manager, London" and
+    # "Customer Success Manager Dallas HQ" fell through to the company's
+    # registered address and were served as Tel Aviv roles.
+    if titles.names_foreign_place(title):
+        return titles.trailing_place(title) or "Outside Israel", None, is_remote
+
     if company_city:
         fallback_city = scoring.canonical_city(company_city) or company_city.strip()
         if fallback_city:
@@ -124,7 +132,11 @@ def _infer_location_fields(job: dict, company_location_hint: str | None = None,
         return scoring.to_english_location(raw), None, is_remote
     if is_remote:
         return "Remote", None, True
-    return "NaN", None, False
+    # No location rather than the string "NaN". That marker was a pandas
+    # artifact that reached the page and read as a broken field; "this job
+    # never said where" is already expressible as NULL, and NULL is what every
+    # reader of the column already handles.
+    return None, None, False
 
 
 def _fallback_jobs_from_rows(rows: list[dict]) -> list[dict]:

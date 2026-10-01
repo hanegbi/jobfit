@@ -2,11 +2,14 @@
 location, employment type, seniority, an "Apply" CTA - so the title has to
 be split back out of it. Cases here are real card texts caught live."""
 
+import pytest
+
 from jobfit.scrape.titles import (
     CardText,
     authoritative_title,
     detail_title_candidates,
     names_foreign_country,
+    names_foreign_place,
     split_card_text,
 )
 
@@ -140,3 +143,49 @@ def test_authoritative_title_never_drops_a_leading_word_that_is_not_metadata():
     assert authoritative_title(
         ["Senior Low-level Software Engineer"], "Tel Aviv, Israel Senior Low-level Software Engineer Full-time"
     ) == "Senior Low-level Software Engineer"
+
+
+# --- foreign places, not only Israeli ones ----------------------------------
+
+@pytest.mark.parametrize("card,expected", [
+    ("Senior DevOps Engineer Dallas HQ", "Senior DevOps Engineer"),
+    ("Enterprise Account Executive Dallas, TX", "Enterprise Account Executive"),
+    ("Senior Account Manager, London", "Senior Account Manager"),
+    ("Solutions Engineer (Pre-Sales) Dallas, TX", "Solutions Engineer (Pre-Sales)"),
+    ("Senior Software Engineer- Dallas Dallas HQ", "Senior Software Engineer"),
+])
+def test_a_trailing_foreign_place_is_card_metadata(card, expected):
+    """Real cards from the store. The strip knew Israeli cities only, so a US
+    listing kept its office in the title and a title-only search matched it."""
+    assert split_card_text(card).title == expected
+
+
+@pytest.mark.parametrize("card", [
+    "Head of London Sales",
+    "Dallas Account Lead",
+    "Berlin Operations Manager",
+    "Head of Delivery",
+    "Director, Operations",
+])
+def test_a_place_inside_a_title_is_left_alone(card):
+    """Only a TRAILING place is metadata; a role named after a region keeps
+    its own words."""
+    assert split_card_text(card).title == card
+
+
+@pytest.mark.parametrize("text,foreign", [
+    ("Senior Account Manager, London", True),
+    ("Customer Success Manager Dallas HQ", True),
+    ("QA Engineer, Bengaluru", True),
+    ("Sales Director, Austin, TX", True),
+    ("Senior DevOps Engineer", False),
+    ("Senior Backend Engineer Tel Aviv", False),
+    ("Engineer, Israel", False),
+    ("Head of Mobile", False),
+    ("Reading Comprehension Analyst", False),
+    ("Senior Engineer, IL", False),
+])
+def test_names_foreign_place_reads_cities_as_well_as_countries(text, foreign):
+    """names_foreign_country only reads a location field. Career-page listings
+    leave that empty and put the place in the title."""
+    assert names_foreign_place(text) is foreign
