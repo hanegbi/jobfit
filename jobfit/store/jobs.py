@@ -75,6 +75,20 @@ def open_with_url(conn: sqlite3.Connection) -> list[dict]:
     )]
 
 
+def corpus_texts(conn: sqlite3.Connection, min_description_len: int = 50) -> list[str]:
+    """"title. description" for every active job with a real description -
+    the IDF corpus (see ats_scorer/idf.py). min_description_len's default
+    matches scoring.MIN_DESCRIPTION_LEN_FOR_FULL_CONFIDENCE: below it a
+    description is noise, not signal, the same line the scorer itself
+    draws between "full" and "title_only" confidence."""
+    rows = conn.execute(
+        "SELECT title, description FROM jobs "
+        "WHERE status != 'closed' AND length(description) >= ?",
+        (min_description_len,),
+    ).fetchall()
+    return [f"{row['title'] or ''}. {row['description'] or ''}" for row in rows]
+
+
 def open_linkedin_ranked(conn: sqlite3.Connection, min_score: float = 0) -> list[dict]:
     """Open LinkedIn-hosted jobs, best-scoring first: if a slow check is cut
     short, the jobs worth acting on are the ones already verified."""

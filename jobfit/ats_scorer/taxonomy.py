@@ -11,6 +11,7 @@ DATA_DIR = Path(__file__).parent / "data"
 SKILLS_TAXONOMY_PATH = DATA_DIR / "skills_taxonomy.json"
 ROLE_FAMILIES_PATH = DATA_DIR / "role_families.json"
 CANONICAL_TITLES_PATH = DATA_DIR / "canonical_titles.json"
+SKILL_IDF_PATH = DATA_DIR / "skill_idf.json"
 
 
 class SkillsTaxonomy:
@@ -117,3 +118,14 @@ def load_role_families() -> RoleFamilies:
     """
     families = json.loads(ROLE_FAMILIES_PATH.read_text(encoding="utf-8"))
     return RoleFamilies(families)
+
+
+@lru_cache(maxsize=1)
+def load_skill_idf() -> dict[str, float]:
+    """{canonical skill: idf}, from the file `ats_scorer.cli compute-idf`
+    writes - see ats_scorer/idf.py. Empty (not an error) when the command
+    has never been run, so a fresh checkout degrades to "every skill
+    weighted the same" rather than crashing."""
+    if not SKILL_IDF_PATH.exists():
+        return {}
+    return json.loads(SKILL_IDF_PATH.read_text(encoding="utf-8"))["weights"]
