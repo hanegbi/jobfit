@@ -39,5 +39,10 @@ strategy from it → the strategy fetches → `health.HealthPolicy` records yiel
   scripts, styles, svg *and comments* before writing one — a page had a whole disabled `<script>` with a live
   Rollbar token in a comment, which GitHub's secret scanner then flagged on us. Anything added to that strip
   list needs a test proving the extracted candidates are unchanged, and the existing snapshots re-stripped.
+- **A company's scrape may not claim another company's board.** Team8's portfolio page serves jobs for
+  FlowRx, Briya and C8 Health; BlueSpine's scrape wandered onto it and filed 52 of them under BlueSpine.
+  `update_jobs` drops any fetched job whose URL host is the career host of a *different* company, using
+  `store.companies.exclusive_career_hosts` - which lists only hosts owned by exactly one company, so it
+  never fires on boards.greenhouse.io or jobs.lever.co.
 - `FetchFailed` means "nothing was fetched" and must propagate, so the caller leaves stored jobs alone. An
   empty list means "page reachable, no jobs" and may close them. Don't blur the two.

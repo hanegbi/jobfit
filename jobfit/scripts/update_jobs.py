@@ -180,6 +180,17 @@ def _score_rows(scored: dict, job: dict, profiles: dict) -> dict[str, dict]:
     }
 
 
+
+def _url_host(url: str | None) -> str:
+    """A URL's host, lowercased and without "www.", or "" when there isn't one."""
+    from urllib.parse import urlsplit
+
+    try:
+        return urlsplit(url or "").netloc.lower().removeprefix("www.")
+    except ValueError:
+        return ""
+
+
 def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict,
                     may_close: bool = True, techmap_index: dict | None = None) -> tuple[int, int]:
     """Apply one company's scrape to the store. Returns (new, closed).
@@ -198,10 +209,21 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
     company_row = store_companies.get_company(conn, company_id)
     address_cities = {connections.normalize_company(company): company_row["address_city"]}
 
+    # A host that belongs to exactly one OTHER company is that company's board,
+    # not this one's. Team8's portfolio page is why: BlueSpine's scrape wandered
+    # onto it and filed 52 jobs for FlowRx, Briya and C8 Health under BlueSpine.
+    # Shared ATS hosts are excluded by exclusive_career_hosts, so this never
+    # fires on boards.greenhouse.io or jobs.lever.co.
+    owned_hosts = store_companies.exclusive_career_hosts(conn)
+
     relevant = []
     for job in fetched:
         title = (job.get("title") or "").strip()
         if not title:
+            continue
+        owner = owned_hosts.get(_url_host(job.get("url")))
+        if owner is not None and owner != company_id:
+            logger.debug("%s: %r is served from %s's board, not ours", company, title, owner)
             continue
         # A non-Israel, non-remote office ("Texas", "Mexico") is not what this
         # job search targets, and storing it would only add noise to search.

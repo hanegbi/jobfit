@@ -154,3 +154,25 @@ def needing_review(conn: sqlite3.Connection, techmap_index: dict[str, list[dict]
         })
     results.sort(key=lambda r: (r["decision"] != "pending", not r["has_techmap"], r["company"].lower()))
     return results
+
+
+def exclusive_career_hosts(conn: sqlite3.Connection) -> dict[str, str]:
+    """{host: company_id} for hosts that belong to exactly ONE company.
+
+    A scrape of company A should not claim jobs served from company B's
+    career host. Team8's portfolio board is the case that forced this: its
+    52 jobs for FlowRx, Briya and C8 Health were all filed under BlueSpine,
+    whose own scrape had wandered onto it.
+
+    Shared ATS hosts are deliberately excluded by the "exactly one" rule -
+    boards.greenhouse.io and jobs.lever.co host hundreds of companies, and
+    there the host says nothing about whose job it is.
+    """
+    from urllib.parse import urlsplit
+
+    owners: dict[str, set[str]] = {}
+    for row in conn.execute("SELECT id, career_url FROM companies WHERE career_url IS NOT NULL AND career_url != ''"):
+        host = urlsplit(row["career_url"]).netloc.lower().removeprefix("www.")
+        if host:
+            owners.setdefault(host, set()).add(row["id"])
+    return {host: next(iter(ids)) for host, ids in owners.items() if len(ids) == 1}

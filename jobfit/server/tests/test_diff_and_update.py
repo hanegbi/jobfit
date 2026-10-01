@@ -260,3 +260,39 @@ def test_compute_job_id_is_stable_across_reruns_with_identical_inputs():
     id1 = update_jobs.compute_job_id("Acme", "Backend Engineer", "Tel Aviv", "https://acme.com/x")
     id2 = update_jobs.compute_job_id("Acme", "Backend Engineer", "Tel Aviv", "https://acme.com/x")
     assert id1 == id2
+
+
+# --- a company's scrape may not claim another company's board ---------------
+
+def test_a_job_from_another_companys_exclusive_host_is_dropped(store_conn):
+    """Team8's portfolio page served jobs for FlowRx, Briya and C8 Health, and
+    BlueSpine's scrape wandered onto it and filed all 52 under BlueSpine."""
+    from jobfit.store import companies as store_companies
+
+    store_companies.upsert_company(store_conn, "team8", "Team8", career_url="https://team8.vc/careers/")
+
+    fetched = [
+        {"title": "Backend Engineer", "url": "https://acme.com/jobs/1", "description": "", "location": "Tel Aviv"},
+        {"title": "Briya- Backend Engineer", "url": "https://team8.vc/career/briya/backend",
+         "description": "", "location": "Tel Aviv"},
+    ]
+    update_jobs.diff_and_update("Acme", CAREER_URL, fetched, {})
+
+    kept = [j["title"] for j in _stored(store_conn)]
+    assert kept == ["Backend Engineer"], "Team8's job must not land under Acme"
+
+
+def test_a_shared_ats_host_is_not_treated_as_owned(store_conn):
+    """boards.greenhouse.io hosts hundreds of companies, so the host says
+    nothing about whose job it is. Only a host belonging to exactly one
+    company is evidence of ownership."""
+    from jobfit.store import companies as store_companies
+
+    store_companies.upsert_company(store_conn, "wiz", "Wiz", career_url="https://boards.greenhouse.io/wiz")
+    store_companies.upsert_company(store_conn, "snyk", "Snyk", career_url="https://boards.greenhouse.io/snyk")
+
+    fetched = [{"title": "Backend Engineer", "url": "https://boards.greenhouse.io/acme/jobs/9",
+                "description": "", "location": "Tel Aviv"}]
+    update_jobs.diff_and_update("Acme", CAREER_URL, fetched, {})
+
+    assert [j["title"] for j in _stored(store_conn)] == ["Backend Engineer"]
