@@ -129,17 +129,32 @@ def title_is_relevant(title: str | None) -> bool:
 
 
 @lru_cache(maxsize=16)
-def _cached_candidate_profile(cv_text: str):
+def _cached_candidate_profile(cv_text: str, profile_id: str | None = None):
     """CV extraction is real regex/date-range parsing work, and the same
     CV gets scored against every job in a run (thousands of times) - cache
-    per CV text so it's only actually parsed once per process.
+    per (cv_text, profile_id) so it's only actually parsed once per process.
 
     build_profile(), not cv_extractor.extract_candidate_profile() directly:
     the latter leaves family_affinity/signature_skills empty, which makes
     every job's family_fit 0.0 and every score 0 - a real bug caught live
     by test_scoring_shared_weights.py once scorer.score() started
-    multiplying by family_fit."""
-    return build_profile(cv_text)
+    multiplying by family_fit.
+
+    profile_id, when given, applies that profile's manual family overrides
+    (jobfit/data/profile_overrides/<profile_id>.json) as the last step -
+    without one, family_fit falls back entirely on the automatic
+    family_affinity vector, which is empty for any CV whose bullets
+    describe work rather than restate role identity (see
+    ats_scorer/profile.py's own docstring)."""
+    from jobfit import cv as cv_module
+    from jobfit.ats_scorer.profile import apply_family_overrides
+
+    profile = build_profile(cv_text)
+    if profile_id:
+        overrides = cv_module.load_family_overrides(profile_id)
+        if overrides:
+            profile = apply_family_overrides(profile, overrides)
+    return profile
 
 
 def _looks_unparseable(job_req: JobRequirements, evidence: dict | None = None) -> bool:
@@ -207,20 +222,22 @@ def _cv_text_for_profile(profile: dict) -> str:
     return f"Skills: {', '.join(keywords)}" if keywords else ""
 
 
-def score_cache_key(job: dict, profile: dict) -> str:
+def score_cache_key(job: dict, profile: dict, profile_id: str | None = None) -> str:
     """Deterministic (stable across processes and runs - unlike Python's
     built-in hash(), which is randomized per-process) short hash of
     everything a job's score against one profile is actually computed
     from: the current scoring engine's own fingerprint (so a scoring-code
     or taxonomy-data change invalidates every cached score automatically,
     with no force=True needed), the job's title/description/department/
-    location/employment_type (everything score_job's extraction and
-    matching actually reads), and that profile's CV text.
+    location/employment_type/family (everything score_job's extraction and
+    matching actually reads), that profile's CV text, and that profile's
+    family overrides (editing jobfit/data/profile_overrides/<profile_id>
+    .json must invalidate the cache the same way a CV re-upload does).
     update_jobs.recompute_stage stores this per job/profile pair and
     skips rescoring when it's unchanged, so a rerun only does real work
     for jobs whose description changed (a rescrape), whose CV changed (a
-    re-upload), or whose scoring logic changed (a code fix) - not every
-    job every time."""
+    re-upload), whose overrides changed, or whose scoring logic changed (a
+    code fix) - not every job every time."""
     cv_text = _cv_text_for_profile(profile)
     parts = [
         SCORING_ENGINE_FINGERPRINT,
@@ -232,6 +249,11 @@ def score_cache_key(job: dict, profile: dict) -> str:
         job.get("family") or "",
         cv_text,
     ]
+    if profile_id:
+        from jobfit import cv as cv_module
+        overrides = cv_module.load_family_overrides(profile_id)
+        if overrides:
+            parts.append(json.dumps(overrides, sort_keys=True))
     evidence = job.get("job_evidence")
     if evidence:
         parts.append(json.dumps(evidence, sort_keys=True))
@@ -239,14 +261,15 @@ def score_cache_key(job: dict, profile: dict) -> str:
     return hashlib.sha256(combined).hexdigest()[:16]
 
 
-def score_job(job: dict, cv_text: str = "", context: JobRequirements | None = None) -> dict:
+def score_job(job: dict, cv_text: str = "", context: JobRequirements | None = None, profile_id: str | None = None) -> dict:
     """Score one job 0-100 against one CV's text.
 
     job needs: title, description, department, location, employment_type.
     `context` is the profile-independent JobRequirements extraction - pass
     it in when scoring the same job against multiple profiles
     (score_job_both does) so the job text is only parsed once, not once
-    per profile.
+    per profile. `profile_id` applies that profile's manual family
+    overrides, when any exist - see _cached_candidate_profile().
 
     Returns {score, confidence, matched, requirements, coverage_pct, notes}:
       - confidence "full" when the job has a real description to compare
@@ -269,7 +292,7 @@ def score_job(job: dict, cv_text: str = "", context: JobRequirements | None = No
             "notes": ["job text yielded no structured requirements to score against"],
         }
 
-    profile = _cached_candidate_profile(cv_text)
+    profile = _cached_candidate_profile(cv_text, profile_id)
     match_result = matcher.match(profile, job_req)
     result = ats_scorer_engine.score(profile, job_req, match_result)
 
@@ -306,7 +329,7 @@ def score_job_both(job: dict, profiles: dict[str, dict]) -> dict:
     job_req = jd_extractor.extract_job_requirements(description, title=title, role_family=job.get("family"))
     result = {}
     for name, profile in profiles.items():
-        outcome = score_job(job, cv_text=_cv_text_for_profile(profile), context=job_req)
+        outcome = score_job(job, cv_text=_cv_text_for_profile(profile), context=job_req, profile_id=name)
         result[f"score_{name}"] = outcome["score"]
         result[f"matched_{name}"] = outcome["matched"]
         result[f"coverage_{name}"] = outcome["coverage_pct"]

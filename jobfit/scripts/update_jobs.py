@@ -175,7 +175,7 @@ def _score_rows(scored: dict, job: dict, profiles: dict) -> dict[str, dict]:
             "coverage": scored.get(f"coverage_{profile_id}"),
             "confidence": scored.get(f"confidence_{profile_id}"),
             "matched": scored.get(f"matched_{profile_id}") or [],
-            "cache_key": scoring.score_cache_key(job, profile),
+            "cache_key": scoring.score_cache_key(job, profile, profile_id=profile_id),
         }
         for profile_id, profile in profiles.items()
     }
@@ -418,7 +418,7 @@ def recompute_stage(force: bool = False) -> None:
         total = 0
         for job in store_jobs.iter_all(conn):
             total += 1
-            keys = {name: scoring.score_cache_key(job, profile) for name, profile in profiles.items()}
+            keys = {name: scoring.score_cache_key(job, profile, profile_id=name) for name, profile in profiles.items()}
             stored = store_scores.scores_for_job(conn, job["id"])
             if not force and all(stored.get(name, {}).get("cache_key") == key for name, key in keys.items()):
                 continue

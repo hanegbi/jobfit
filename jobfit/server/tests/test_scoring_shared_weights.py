@@ -161,8 +161,8 @@ def test_empty_scrape_evidence_zero_scores_even_a_parseable_looking_body():
 def test_score_job_an_unrelated_job_scores_lower_than_a_relevant_one():
     """No exclude-keyword list needed: a sales job with a real requirements
     section naturally scores lower against a backend-engineering CV
-    because the text just doesn't overlap - the engine's own hard gates
-    (role-family mismatch) do this work now, not a hardcoded exclude list."""
+    because the text just doesn't overlap - the engine's own family_fit
+    multiplier does this work now, not a hardcoded exclude list."""
     cv_text = (
         "Senior Backend Engineer\nAcme Corp | 2018 - Present\n"
         "- Built and owned distributed systems in Python and Kubernetes on our cloud infrastructure"
@@ -184,3 +184,39 @@ def test_score_job_an_unrelated_job_scores_lower_than_a_relevant_one():
     unrelated_result = scoring.score_job_both(unrelated_job, profiles)
 
     assert relevant_result["score_default"] > unrelated_result["score_default"]
+
+
+def test_score_job_both_applies_that_profiles_family_overrides(monkeypatch, tmp_path):
+    """Real bug this locks in: score_job_both iterates profiles by name but
+    never passed that name through as a profile_id, so
+    jobfit/data/profile_overrides/<profile_id>.json was silently never
+    applied on the real scoring path - every override-dependent CV (one
+    whose bullets describe work rather than restate a family's own title
+    words, see ats_scorer/profile.py) scored identically with or without
+    one on file."""
+    from jobfit import config
+
+    monkeypatch.setattr(config, "PROFILE_OVERRIDES_DIR", tmp_path)
+
+    job = {
+        "title": "Backend Engineer",
+        "description": "Requirements:\n- Python required\n- Kubernetes required",
+        "department": None, "employment_type": None,
+    }
+    # No family-identity word anywhere - family_affinity is empty without
+    # an override (see test_ats_scorer_profile.py's equivalent CV-side case).
+    cv_text = (
+        "Software Engineer\nAcme Corp | 2018 - Present\n"
+        "- Shipped production services in Python and Kubernetes, improving reliability for millions of users"
+    )
+    profiles = {"default": {"must_have_keywords": [], "text": cv_text}}
+
+    scoring._cached_candidate_profile.cache_clear()
+    before = scoring.score_job_both(job, profiles)["score_default"]
+
+    from jobfit import cv as cv_module
+    cv_module.save_family_overrides("default", {"backend": "boost"})
+    scoring._cached_candidate_profile.cache_clear()
+    after = scoring.score_job_both(job, profiles)["score_default"]
+
+    assert after > before
