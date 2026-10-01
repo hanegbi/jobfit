@@ -40,7 +40,14 @@ def test_resolve_ats_returns_none_for_no_url():
 # --- strip_html --------------------------------------------------------
 
 def test_strip_html_removes_tags():
-    assert ats_fetchers.strip_html("<p>Hello <b>world</b></p>") == "Hello world"
+    # <p> and <b> are both block/inline text nodes BeautifulSoup joins with
+    # the given separator; a block boundary becomes a real line break so a
+    # bulleted requirements list doesn't collapse into one run-on sentence.
+    assert ats_fetchers.strip_html("<p>Hello <b>world</b></p>") == "Hello\nworld"
+
+
+def test_strip_html_keeps_bullet_boundaries_as_lines():
+    assert ats_fetchers.strip_html("<ul><li>Python</li><li>Kubernetes</li></ul>") == "Python\nKubernetes"
 
 
 def test_strip_html_unescapes_entities_before_stripping():
@@ -52,8 +59,8 @@ def test_strip_html_returns_empty_for_none_or_empty():
     assert ats_fetchers.strip_html("") == ""
 
 
-def test_strip_html_collapses_whitespace_in_plain_text():
-    assert ats_fetchers.strip_html("Hello   world\n\ntab\there") == "Hello world tab here"
+def test_strip_html_collapses_horizontal_whitespace_but_keeps_line_breaks():
+    assert ats_fetchers.strip_html("Hello   world\n\ntab\there") == "Hello world\ntab here"
 
 
 # --- looks_like_boilerplate ----------------------------------------------
@@ -302,7 +309,7 @@ def test_fetch_hibob_maps_the_public_job_ad_feed(monkeypatch):
     assert len(jobs) == 1
     assert jobs[0]["url"] == "https://qslabshr.careers.hibob.com/jobs/bfae4918/apply"
     assert jobs[0]["location"] == "Rehovot, Israel" and jobs[0]["department"] == "R&D"
-    assert jobs[0]["description"] == "Lead projects B.Sc"
+    assert jobs[0]["description"] == "Lead\nprojects\nB.Sc"
 
 
 def test_fetch_hibob_returns_none_when_the_board_is_missing(monkeypatch):

@@ -89,9 +89,18 @@ def _json_or_none(response):
 
 
 def _clean(text: Optional[str]) -> str:
+    """Collapse horizontal whitespace runs within each line, drop blank
+    lines, but keep one line break per line - the only boundary a bulleted
+    requirements list has once it's plain text. Collapsing those to spaces
+    (the old behavior) ran every bullet into the next with nothing between
+    them, which is why requirement extraction found nothing in the majority
+    of real JDs: a line like "5+ years in ML roles... Advanced degree..."
+    reads as one sentence, not two requirements, with no header, period or
+    bullet character between them for the extractor to split on."""
     if not text:
         return ""
-    return " ".join(text.split())
+    lines = (" ".join(line.split()) for line in text.splitlines())
+    return "\n".join(line for line in lines if line)
 
 
 def strip_html(text: Optional[str]) -> str:
@@ -109,7 +118,7 @@ def strip_html(text: Optional[str]) -> str:
     if "<" not in unescaped:
         return _clean(unescaped)
     try:
-        return _clean(BeautifulSoup(unescaped, "html.parser").get_text(" "))
+        return _clean(BeautifulSoup(unescaped, "html.parser").get_text("\n"))
     except Exception:  # noqa: BLE001 - malformed markup must not break the pipeline
         return _clean(unescaped)
 
@@ -511,7 +520,7 @@ def fetch_generic_description(session: requests.Session, url: str) -> str:
     except Exception:  # noqa: BLE001 - malformed HTML must not break the pipeline
         return ""
     _strip_boilerplate(soup)
-    text = _clean(soup.get_text(" "))
+    text = _clean(soup.get_text("\n"))
     if looks_like_boilerplate(text):
         return ""
     return text[:MAX_DESCRIPTION_CHARS]
@@ -597,12 +606,12 @@ def parse_job_details_html(html: str) -> dict:
     description = ""
     if posting and posting.get("description"):
         try:
-            description = _clean(BeautifulSoup(str(posting["description"]), "html.parser").get_text(" "))[:MAX_DESCRIPTION_CHARS]
+            description = _clean(BeautifulSoup(str(posting["description"]), "html.parser").get_text("\n"))[:MAX_DESCRIPTION_CHARS]
         except Exception:  # noqa: BLE001
             description = ""
     if not description:
         _strip_boilerplate(soup)
-        text = _clean(soup.get_text(" "))
+        text = _clean(soup.get_text("\n"))
         description = "" if looks_like_boilerplate(text) else text[:MAX_DESCRIPTION_CHARS]
 
     if not posting:

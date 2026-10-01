@@ -112,7 +112,7 @@ def test_fetch_eightfold_maps_positions_and_pages():
     jobs = ats_fetchers.fetch_eightfold(session, "www.careers.teva|tevapharm.com")
     assert len(jobs) == 120 and jobs[0]["url"] == "https://www.careers.teva/careers/job/0"
     assert jobs[0]["location"] == "Shoham, Israel" and jobs[0]["department"] == "Marketing" and jobs[0]["posted_at"] == "2026-09-08"
-    assert jobs[0]["description"] == "Lead things"
+    assert jobs[0]["description"] == "Lead\nthings"
 
 
 def test_planner_renders_a_zero_yield_http_page_and_takes_what_the_rendered_page_shows():
@@ -156,7 +156,7 @@ def test_fetch_comeet_widget_maps_positions_and_tags_israel():
     assert len(jobs) == 1
     job = jobs[0]
     assert job["title"] == "Backend Tech Lead" and job["location"] == "Tel Aviv, Israel" and job["department"] == "R&D"
-    assert "Build APIs" in job["description"] and ".NET" in job["description"]
+    assert "Build\nAPIs" in job["description"] and ".NET" in job["description"]
     assert job["url"].endswith("jobid=B5.652") and job["posted_at"] == "2026-09-06"
     assert "details=true" in session.calls[0][1]
 
@@ -175,7 +175,7 @@ def test_fetch_recruitee_breezy_bamboohr_map_their_shapes():
         ]}),
     })
     r = ats_fetchers.fetch_recruitee(session, "acme")[0]
-    assert (r["title"], r["location"], r["description"]) == ("Data Engineer", "Tel Aviv, Israel", "x y")
+    assert (r["title"], r["location"], r["description"]) == ("Data Engineer", "Tel Aviv, Israel", "x\ny")
     b = ats_fetchers.fetch_breezy(session, "acme")[0]
     assert (b["title"], b["location"], b["employment_type"]) == ("QA Engineer", "Haifa, Israel", "Full-Time")
     h = ats_fetchers.fetch_bamboohr(session, "acme")[0]
@@ -211,7 +211,7 @@ def test_fetch_personio_parses_the_xml_feed():
     session = _Session({"https://acme.jobs.personio.de/xml": _Response(content=xml)})
     job = ats_fetchers.fetch_personio(session, "acme")[0]
     assert (job["title"], job["location"], job["url"]) == ("Platform Engineer", "Tel Aviv", "https://acme.jobs.personio.de/job/11")
-    assert "Run the platform" in job["description"]
+    assert "Run the\nplatform" in job["description"]
 
 
 LANDING_PAGE = """<html><body>
