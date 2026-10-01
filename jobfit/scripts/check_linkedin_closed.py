@@ -1,7 +1,13 @@
 """Check each open LinkedIn-sourced job for the "No longer accepting
-applications" banner and CLOSE it in companies/*.json when found (then
-re-aggregate). LinkedIn jobs come from matches/referrals that no company
-scrape re-verifies, so this is how they age out.
+applications" banner and close it in the store when found. LinkedIn jobs come
+from matches/referrals that no company scrape re-verifies, so this is how they
+age out.
+
+The verdicts are cached in cache/linkedin_closed_check.json, and closing is a
+SEPARATE step at the end of a run. A run that is interrupted, throttled out,
+or passed --dry-run therefore leaves known-closed jobs open in the store: 650
+were known closed while 379 of them were still being served. If that happens
+again, re-running applies the cache without re-fetching anything.
 
 Deliberately slow and sequential (not concurrent) - LinkedIn rate-limited even
 lightweight HEAD requests hard during the earlier URL-validity check (429 on
