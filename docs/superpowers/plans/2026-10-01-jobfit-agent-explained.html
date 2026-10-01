@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jobfit agent, explained</title>
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#16181d;--muted:#667085;--line:#e4e7ec;--accent:#3b5bdb;--accent-bg:#e7ecff;
+--ai:#7048e8;--ai-bg:#efe9ff;--plain:#0b7285;--plain-bg:#dff5f8;--you:#c2410c;--you-bg:#ffead9;--radius:12px}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1116;--panel:#171b22;--ink:#e8eaee;--muted:#9aa3b2;--line:#262c36;
+--accent:#7c93ff;--accent-bg:#1c2442;--ai:#b197fc;--ai-bg:#2a2147;--plain:#66d9e8;--plain-bg:#10343a;--you:#ffa94d;--you-bg:#3b2410}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:860px;margin:0 auto;padding:40px 20px 80px}
+h1{font-size:30px;letter-spacing:-.02em;margin:0 0 6px}
+h2{font-size:20px;margin:44px 0 12px}
+p{margin:8px 0}
+.lead{color:var(--muted);font-size:17px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:18px 0 0}
+.tag{display:inline-block;border-radius:999px;padding:1px 10px;font-size:12px;font-weight:600}
+.tag.ai{background:var(--ai-bg);color:var(--ai)}.tag.plain{background:var(--plain-bg);color:var(--plain)}.tag.you{background:var(--you-bg);color:var(--you)}
+.flow{display:flex;flex-direction:column;align-items:stretch;gap:0;margin-top:18px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+.step h3{margin:0 0 4px;font-size:17px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.num{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700}
+.arrow{align-self:center;color:var(--muted);font-size:22px;line-height:1;padding:6px 0}
+.row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:12px}
+.mini{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px}
+.mini b{display:block;margin-bottom:2px}
+.loop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;font-size:14px}
+.loop .mini{padding:8px 12px}
+.back{color:var(--muted);font-size:13px;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:15px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+ul{padding-left:20px;margin:8px 0}li{margin:4px 0}
+code{background:var(--line);border-radius:5px;padding:1px 6px;font-size:.9em}
+.callout{background:var(--accent-bg);border-radius:var(--radius);padding:14px 18px;margin-top:14px}
+.two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px}
+.card h3{margin:0 0 6px;font-size:16px}
+</style>
+</head>
+<body>
+<main>
+
+<h1>jobfit agent, explained</h1>
+<p class="lead">jobfit already finds jobs and gives each one a score. The agent adds a thinking layer on top: for your best jobs it explains <em>why</em> they fit, researches the company, and tells you what to change in your CV.</p>
+
+<div class="legend">
+  <span><span class="tag plain">no AI</span> normal code</span>
+  <span><span class="tag ai">AI</span> a language model thinks</span>
+  <span><span class="tag you">you</span> a human decision</span>
+</div>
+
+<h2>The flow</h2>
+<p>You run one command, for example <code>--top 5</code>. Then this happens:</p>
+
+<div class="flow">
+  <div class="step">
+    <h3><span class="num">1</span> Pick the jobs <span class="tag plain">no AI</span></h3>
+    <p>Read the database and take the top 5 jobs by score. Hidden and closed jobs are skipped.</p>
+  </div>
+  <div class="arrow">↓</div>
+
+  <div class="step">
+    <h3><span class="num">2</span> Research each company <span class="tag ai">AI</span> <span class="tag plain">web</span></h3>
+    <p>Once per company, even if it has several jobs. Five helpers work at the same time:</p>
+    <div class="row">
+      <div class="mini"><b>Facts</b>size, place, funding stage</div>
+      <div class="mini"><b>Funding &amp; exit</b>IPO or sale? only from evidence</div>
+      <div class="mini"><b>Reviews</b>what people like and dislike</div>
+      <div class="mini"><b>Salary</b>range from the web and from the company's own job posts</div>
+      <div class="mini"><b>Interviews</b>questions for each stage</div>
+    </div>
+    <p class="back">Each helper: search the web → read the pages → the AI pulls out the facts. If it cannot point to a page it really read, the answer is <b>"no data"</b>. No guessing.</p>
+  </div>
+  <div class="arrow">↓</div>
+
+  <div class="step">
+    <h3><span class="num">3</span> Work on each job <span class="tag ai">AI</span></h3>
+    <p>All jobs run at the same time. Each one goes through this small loop:</p>
+    <div class="loop">
+      <div class="mini"><b>Judge fit</b>strengths, gaps, do I agree with the score?</div>→
+      <div class="mini"><b>Plan CV edits</b>real lines only</div>→
+      <div class="mini"><b>Critic</b>is the plan honest?</div>
+    </div>
+    <p class="back">↺ If the critic says "not good enough", the plan goes back for another try with the critic's notes. At most 3 tries, then it stops. Your contacts and referrals at the company are added to the job.</p>
+  </div>
+  <div class="arrow">↓</div>
+
+  <div class="step">
+    <h3><span class="num">4</span> You decide <span class="tag you">you</span></h3>
+    <p>The agent stops and shows the list. Press Enter to keep everything, or drop jobs you do not want. The run is saved, so you can close the terminal and continue later.</p>
+  </div>
+  <div class="arrow">↓</div>
+
+  <div class="step">
+    <h3><span class="num">5</span> Write the report <span class="tag plain">no AI</span></h3>
+    <p>One <code>report.html</code> file you open from disk. <b>One tab per company</b>. Inside a tab: the company info, then <b>one card per job</b> (a company can have several). Every fact has a link and a date. At the bottom: which models ran and how long they took.</p>
+  </div>
+</div>
+
+<h2>A small example</h2>
+<div class="callout">
+  Top 3 jobs: two at Acme, one at Beta. The agent researches <b>2 companies</b> (not 3 jobs), works on <b>3 jobs</b>, and the report has <b>2 tabs</b>: Acme with 2 cards, Beta with 1 card. Next week the research is reused from the cache, so only the job work runs again.
+</div>
+
+<h2>Where the AI runs</h2>
+<div class="two">
+  <div class="card"><h3>Free, on your PC</h3><p>Small local models through Ollama: a 4B model for reading web pages, an 8B model for fit, CV plan and critic. No cost. Slow, because there is no graphics card, so expect about 1 hour for 5 to 10 jobs. That is fine as a background run.</p></div>
+  <div class="card"><h3>Paid, only if you want</h3><p>Any step can be switched to a Claude model with one line in the config. Cheap if you do it only for the last steps.</p></div>
+</div>
+
+<h2>Safety rules built in</h2>
+<ul>
+  <li><b>Separate project.</b> The scraper never imports the agent, so "no AI at scrape time" stays true.</li>
+  <li><b>Read-only.</b> The agent can read the job database but cannot change it.</li>
+  <li><b>No made-up facts.</b> No source page means "no data". Exit and IPO are described with evidence, never a made-up percent.</li>
+  <li><b>Honest CV advice.</b> Each edit quotes a real line of your CV, or is marked <code>only if true</code>.</li>
+  <li><b>Web text is untrusted.</b> It is treated as data, never as instructions, and the report never runs it as code.</li>
+</ul>
+
+<h2>The LangGraph ideas it shows (for the interview)</h2>
+<table>
+  <tr><th>Idea</th><th>Where you see it</th></tr>
+  <tr><td><b>State</b></td><td>Each graph passes one shared object (job, CV, fit, plan, costs) from step to step.</td></tr>
+  <tr><td><b>Parallel fan-out</b> (<code>Send</code>)</td><td>One research run per company and one job run per job, at the same time.</td></tr>
+  <tr><td><b>Subgraphs</b></td><td>The company graph and the job graph are small graphs used inside the main graph.</td></tr>
+  <tr><td><b>Tools</b></td><td>Database lookup, web search, page fetch.</td></tr>
+  <tr><td><b>Reflection loop</b></td><td>Plan ↔ critic, with a hard limit of 3 tries.</td></tr>
+  <tr><td><b>Human in the loop</b> (<code>interrupt</code>)</td><td>The approval step in the middle.</td></tr>
+  <tr><td><b>Checkpointing</b></td><td>Progress is saved, so a stopped run can resume.</td></tr>
+  <tr><td><b>Model-agnostic</b></td><td>One function call for every model, so local or Claude is a config choice. This also makes tests easy with a fake model.</td></tr>
+</table>
+<p>A good one-line answer: <i>"The scorer is deterministic on purpose. The agent is the reasoning layer on top, and the LLM explains and challenges the number instead of replacing it."</i></p>
+
+<h2>Do we use RAG?</h2>
+<p>Not a vector database. The CV is short, and research results are small records. Later we can add a light version: split each web page into pieces, rank them by keyword (BM25), and send only the best few to the model. That makes prompts smaller, which matters on a CPU.</p>
+
+<h2>How it gets built</h2>
+<ul>
+  <li><b>Phase 1:</b> project setup and read-only database access.</li>
+  <li><b>Phase 2:</b> the job loop: fit, CV plan, critic.</li>
+  <li><b>Phase 3:</b> web search and the five company research helpers, with cache.</li>
+  <li><b>Phase 4:</b> the main graph (parallel runs, approval) and the HTML report.</li>
+  <li><b>Phase 5:</b> command line, optional speed-up, and a timing test on your real machine.</li>
+</ul>
+<p>Every step is built test-first with a fake model, so the tests need no internet and no Ollama.</p>
+
+</main>
+</body>
+</html>
