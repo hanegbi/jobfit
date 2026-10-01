@@ -3,6 +3,18 @@
 **Status:** proposed, awaiting approval. No code changed yet.
 **Analyzed against:** `jobfit/data/jobfit.db` as of 2026-10-01, 12,823 active jobs, 10,574 with a real (>100 char) description, 29,444 jobs ever recorded.
 
+## Operating principle: every decision is a command's output, not mine
+
+Revised per feedback. Categorization, IDF, profile-building and scoring are Python modules, run from the CLI, same output on any machine — I do not classify a job, weigh a skill, or score anything by reading the data myself. Every "report X" below names the exact command whose printed output *is* X. The **only** manual step anywhere in this design is Dan labeling the evaluation set (§6) — that labeling is the ground truth the tuning script optimizes against, not a judgment I make.
+
+This applies retroactively to three places the first draft was looser than that:
+
+- **Family adjacency** (§1) is no longer "a table I propose" — it's computed by a CLI command from the corpus (cosine similarity of each family's IDF-weighted skill-presence vector), with a small, explicit, versioned override block for cases the computed value gets wrong on sparse data. The override block is authored like any other data-file edit (reviewed, committed) — it is not me re-deciding a score.
+- **Formula weight tuning** (§5) is no longer "I'll propose a first pass and iterate by eye" — it's a search script that fits the weights against Dan's labeled set under the stated hard constraints and prints the winning configuration. I pick the search space and the objective; the script picks the numbers.
+- **The Phase 0 before/after checkpoint** (§7) is no longer "I'll show you" — it's a comparison command that scores the same jobs under the old and new formula and prints the diff.
+
+One thing stays as it was and should: §0 below is a *diagnostic investigation* I already did to find out why the current scorer behaves as it does (reading sampled scores, sub-scores and CV output to trace two specific code bugs to their exact lines). That already happened, it's how the two bugs got found, and it's not part of the ongoing pipeline — it doesn't recur, and nothing downstream depends on my having "judged" those jobs. Everything from §1 onward is the operational design, and that part is 100% the commands described in this revision.
+
 ## 0. Root cause (read this first — it changes the plan)
 
 Before designing the family/IDF layer, I traced *why* the current scorer produces what it produces. The user's diagnosis ("keyword overlap drowns out rare skills") is a correct description of the symptom, but the actual mechanism is narrower and more severe: **for most job/CV pairs, 4 of the 5 sub-scores collapse to near-identical constants**, driven by two independent extraction bugs — one on the CV side, one on the JD side. The family/IDF redesign is still the right direction, but it will not produce correct scores until these two bugs are fixed, because the new design's inputs (the candidate's role-family vector, and which skills a JD actually asks for) come from the same two extraction paths.
@@ -186,7 +198,7 @@ Side finding, flagged but out of scope here: the normalized top-100 surfaces a s
 
 ## 1. Proposed two-level taxonomy
 
-Built from the **existing** `jobfit/ats_scorer/data/role_families.json` (23 families, already used elsewhere in this codebase, already has real keyword lists) rather than invented from scratch, plus two splits the real title data supports:
+`role_families.json` (23 families, already in this codebase) is itself a precedent for how this taxonomy is meant to be authored: it's a curated keyword-list data file, not a computed artifact, and it's edited like code — committed, reviewed, versioned. The new 25-family version follows the same process, made reproducible rather than eyeballed: a script (`uv run python -m jobfit.scripts.title_frequency`, same normalization logic as §0.6) prints the normalized-title frequency table a human edits into keyword rules, so every proposed family and split below is backed by a number that script printed, not by my reading the job list. The two splits below are what that table's real counts support:
 
 **Security** (150 jobs, currently one family) → split into `security_engineering` and `security_research`. Evidence: 74 titles contain "security researcher", 56 contain "security engineer", 18 "application security", 11 "product security", 14 "vulnerability research" — two genuinely distinct, high-volume buckets, and the exact pair the user's bad-example #2 falls into.
 
@@ -223,13 +235,13 @@ Built from the **existing** `jobfit/ats_scorer/data/role_families.json` (23 fami
 | `legal` | 22 | Legal Counsel |
 | `operations` | 224 | Project Manager, Marketing Operations Manager |
 
-† ml_infra, devops_sre/infrastructure_platform, security_engineering/security_research counts are estimated by splitting the current merged `ml_infra`/`devops`/`security` buckets along the keyword evidence in §1 — exact counts will come from running the real classifier once it's written, which I'll report in the Step 3 backfill (per your ask).
+† ml_infra, devops_sre/infrastructure_platform, security_engineering/security_research counts are estimated by splitting the current merged `ml_infra`/`devops`/`security` buckets along the keyword evidence in §1. Exact counts are not something I'll report — they're the printed output of `uv run python -m jobfit.scripts.normalize_text --families --report` (§2), run once the classifier exists and again after backfill.
 
 **Not real roles — stays `unknown`:** the nav-junk titles in §0.6 (Book a Demo, View Role, Solutions, Webinars, Glossary, ...). They have no title-rule match and (being marketing CTAs) will usually have no technical JD content either, so they land in the review bucket by construction rather than by a special-case rule.
 
 ### Level 2 (canonical title within a family)
 
-Per your spec: e.g. `backend` → {Backend Engineer, Software Engineer (backend-leaning, JD-confirmed), Server Engineer, API Engineer}. I'll build this as a second lookup keyed by family, reusing the same alias-list shape `skills_taxonomy.json` already uses (`{"canonical": ..., "aliases": [...]}`) so it's one more data file in the same pattern, not a new mechanism.
+Per your spec: e.g. `backend` → {Backend Engineer, Software Engineer (backend-leaning, JD-confirmed), Server Engineer, API Engineer}. Same authoring process as Level 1: a second lookup keyed by family, same alias-list shape `skills_taxonomy.json` already uses, populated from the same frequency-table script's output grouped by family rather than typed from memory.
 
 ### Mapping rules
 
@@ -238,25 +250,16 @@ Per your spec: e.g. `backend` → {Backend Engineer, Software Engineer (backend-
 3. **Confidence**: `"title"` when a title rule matched directly, `"jd_fallback"` when only the JD fallback matched, `"unknown"` when neither did.
 4. **`unknown` is terminal, never silently defaulted into a technical family** — exactly as you specified. An `unknown` job is excluded from family-fit gating (treated as affinity 0.5 — neither helped nor hurt) rather than guessed at, and shows up in the review-bucket report for a human to look at (or feed back into the taxonomy as new keywords).
 
-### Adjacency (partial affinity)
+### Adjacency (partial affinity) — computed, not authored
 
-A same-file table of `(family_a, family_b) → affinity [0,1]`, symmetric. Seeded from the structural relationships the data already shows:
+A `(family_a, family_b) → affinity [0,1]` table, symmetric, but not hand-typed by me: `uv run python -m jobfit.ats_scorer.cli compute-adjacency` computes it from the corpus and writes `family_adjacency.json`. Method: once every job has a stored `family` (§2), build each family's skill-presence vector (which of the 226+ taxonomy skills appear in that family's JDs, weighted by `skill_idf.json` from §4 — so a skill common to everyone, like Python, barely moves the similarity, and a skill only two adjacent families share moves it a lot), then `affinity(A, B) = cosine_similarity(vector_A, vector_B)`. Same family is defined as 1.0, not computed. This is deterministic and rerunnable — the command prints the full matrix, and running it twice on the same DB gives the same numbers.
 
-| pair | affinity | why |
-|---|---:|---|
-| `backend` ↔ `ml_infra` | 0.7 | your own case — backend systems work overlaps infra for ML serving |
-| `infrastructure_platform` ↔ `devops_sre` | 0.75 | title boundary is genuinely fuzzy in the data (§1) |
-| `backend` ↔ `data_engineering` | 0.6 | both build backend services around data |
-| `ml_engineering` ↔ `ml_infra` | 0.7 | adjacent halves of the same ML-systems work |
-| `ml_engineering` ↔ `data_science` | 0.4 | shares tooling, different job (build vs. research) |
-| `backend` ↔ `fullstack` | 0.6 | fullstack is backend + frontend, half-overlap |
-| `qa_automation` ↔ `backend` | 0.3 | adjacent only when the automation is engineering-heavy |
-| `security_engineering` ↔ `backend` | 0.4 | security engineering is still systems engineering |
-| `security_research` ↔ `security_engineering` | 0.5 | same domain, different discipline (research vs. build) |
-| everything else (unlisted) | 0.1 | default floor, not zero — total unfamiliarity still isn't impossible |
-| same family | 1.0 | — |
+Two things that still need a human, scoped narrowly and done as an authored data-file edit (not a live judgment call):
 
-I'll propose the full matrix for your review once the family list is confirmed — this table above is representative, not exhaustive.
+- **A floor**, so two families with almost no shared vocabulary don't round to 0 (the spec calls for a floor, not for "total unfamiliarity is impossible" to be my opinion) — I'd set this as one named constant in the script, e.g. `AFFINITY_FLOOR = 0.1`, applied uniformly to every computed pair, not chosen per-pair.
+- **A small override block** in the same `family_adjacency.json`, for a pair the computed value gets visibly wrong because one family is sparse (today's real `ml_infra`, at 11 title-matched jobs, won't have a reliable skill-presence vector until backfill fills it out). Overrides are listed explicitly, each with a one-line reason, and are a data-file edit like any other taxonomy change — reviewed and committed, not applied silently and not re-decided per score.
+
+I'll run this command and show you the real computed matrix once family classification exists (§2) — not a table I write up front.
 
 ---
 
@@ -275,9 +278,31 @@ taxonomy_version  TEXT      -- e.g. "1.0.0", so a taxonomy edit can find stale r
 
 This repo stores jobs in SQLite (`jobfit/data/jobfit.db`), not `jobs_cache.json` — I'll add these as four columns via a numbered migration (`jobfit/store/schema/005_job_family.sql`), following the existing migration convention (`PRAGMA user_version`-gated, never edit an applied one).
 
-### Where classification runs
+### Where classification runs — not in the fetcher
 
-Inside `update_jobs.py`'s per-company scrape path, right after a job's title/description are extracted and before it's handed to `store.jobs.upsert_scraped` — same place `translation.translate_job_if_needed` and `departments.department_for` already run this session (title → derived field, once, at write time). The classifier becomes a third function in that same spot, same pattern you already have in this codebase (I'd literally build it next to `departments.py`, since it's solving an adjacent problem — "what kind of work is this" — with a near-identical "title rule, then title-derived-from-JD fallback, else unknown" shape `departments.department_for` already uses).
+Corrected per your note; I'd placed this one stage too late in the first draft. The real pipeline, verified against the code:
+
+```
+strategy.fetch(company, career_url)   # raw page -> list[JobPosting] (title/url/location/description/department/...)
+     |
+     v
+DetailEnricher.enrich(posting)        # EXISTING stage, jobfit/scrape/enrich.py: GenericHtmlEnricher fetches
+     |                                # the job's own page for a fuller description + builds Evidence
+     v
+classify(title, description)          # NEW, pure function, runs once per posting, here
+     |                                # -> (family, canonical_title, confidence, taxonomy_version)
+     v
+CompanyScrapeService.scrape() returns ScrapeResult(postings=[...])
+     |
+     v
+update_jobs.fetch_company_result / diff_and_update -> store.jobs.upsert_scraped   # persist
+```
+
+`classify()` is a standalone function in `jobfit/ats_scorer/taxonomy.py` (or a new sibling module, not inside `enrich.py`) — it takes only `(title, description)` and returns the 4-tuple, no network, no DB, no dependency on which `DetailEnricher` produced the description. `CompanyScrapeService.scrape()` calls it once per posting, right after the existing `postings = [p if p.evidence is not None else self._noop.enrich(p) for p in postings]` line, before returning — so every posting is classified exactly once regardless of which fetch/enrich path produced it. The 4 fields get added to `JobPosting` (`jobfit/scrape/models.py`) the same flat way `title`/`url`/`location` already sit on it.
+
+**The fetcher never imports the taxonomy**: `strategy.fetch()` (`jobfit/scrape/strategies.py`) only ever returns raw postings — it has no family/taxonomy dependency, now or after this change. `classify()` is wired in at the `CompanyScrapeService` level, one layer above any individual fetch strategy.
+
+**Backfill is the exact same function, no network**: `jobfit/scripts/normalize_text.py --families` reads `(id, title, description)` for every stored job, calls `classify()` directly (the identical function, not a reimplementation), and writes the 4 fields back. Nothing in `classify()` knows or cares whether its input came from a live fetch or a stored row.
 
 ### Scorer reads, never reclassifies
 
@@ -292,7 +317,7 @@ uv run python -m jobfit.scripts.normalize_text --families --force  # re-run ever
 
 Follows the exact pattern already established this session for `--departments`, `--titles`, `--locations`, `--remote`, `--nav-junk` in `jobfit/scripts/normalize_text.py` — I'd add `--families` as one more flag in the same file rather than a new script, since it's the same kind of one-off-plus-rerunnable repair this script already exists for.
 
-**After backfill, I'll report** (as you asked): jobs per family (open + total), % unknown, and 20 random samples per family for you to sanity-check before anything scores against it.
+`--families --report` prints what you asked for: jobs per family (open + total), % unknown, and 20 random samples per family — read from the DB at run time, so it's identical on any machine and reflects whatever's actually stored, not a snapshot I observed once.
 
 ---
 
@@ -308,13 +333,13 @@ Computed fresh from whatever CV text is passed in, never from a name-keyed table
 6. **Manual override file**: `jobfit/data/profile_overrides/<cv_file_hash>.json` (or alongside wherever `jobfit/cv.py` already keys a profile — I'll check its existing per-profile storage and match it rather than inventing a second location), holding `{family: boost|block}` pairs applied as the last step, strictly on top of the computed vector.
 7. **API**: `build_profile(cv_text) -> CandidateProfile`, `score(profile, job) -> ScoreResult`, `rank(profile, jobs) -> list[ScoreResult]`. No module-level candidate state — matches the existing `ats_scorer` package's own stated rule ("takes strings... independent of the rest of jobfit").
 
-**What I'll actually compute and show you for both CVs before building further:** Dan's affinity vector and signature skill list, plus the same for one synthetic frontend-React CV, so you can confirm the mechanism generalizes before I build the full formula around it.
+**Before building the formula around it:** `uv run python -m jobfit.ats_scorer.cli profile --cv <path>` prints a CandidateProfile's full affinity vector and signature skill list. I'll run it for your CV and for one synthetic frontend-React CV and paste both outputs for you to check the mechanism generalizes — the command is the thing that computes them, not me.
 
 ---
 
 ## 4. IDF skill weights
 
-- Computed once, from the job corpus only (never the CV), exactly as specified. Methodology and real top/bottom-30 numbers are in §0.5 above — that computation is already done and the result is what I'd ship as `jobfit/ats_scorer/data/skill_idf.json`, versioned with `{corpus_size, computed_at, skill: idf}`.
+- Computed once, from the job corpus only (never the CV), exactly as specified, by a command: `uv run python -m jobfit.ats_scorer.cli compute-idf`, writing `jobfit/ats_scorer/data/skill_idf.json` versioned with `{corpus_size, computed_at, skill: idf}`. Methodology and the real top/bottom-30 numbers in §0.5 are that computation's own output from the exploratory run already done — the production version is the same logic shipped as a committed command, not a number I transcribed.
 - **Before computing the production version**, I need your go-ahead to expand `skills_taxonomy.json` with the signature vocabulary that's currently missing (§0.5): Model Inference, Model Serving, LLM Evaluation/Benchmarking, Distributed Inference, ONNX, Triton, Observability, GenAI (as its own alias distinct from "Large Language Models"). Without these as taxonomy entries, IDF has nothing to compute for them and Step 3's signature detection finds nothing.
 - Recompute command: `uv run python -m jobfit.ats_scorer.cli recompute-idf` (or folded into the existing `normalize_text.py` pattern — your call), writing a fresh `skill_idf.json` with an updated `corpus_size`/`computed_at`; the scoring-engine fingerprint (`SCORING_ENGINE_FINGERPRINT`) already hashes every data file this package depends on, so a new IDF file auto-invalidates cached scores with no extra wiring.
 
@@ -328,11 +353,20 @@ score = family_fit(candidate_vector, job.family) × job_fit(profile, job, idf)
 
 - **`family_fit`**: read `candidate_vector[job.family]` (0 if `job.family` is `unknown`'s affinity-0.5 placeholder — see §1 mapping rules). Adjacent families get their value from the Step 1 affinity table rather than 0. **Gate**: `family_fit < 0.3` caps the final score at 35, exactly as specified, applied *after* the multiply (so a low-affinity job can't be rescued by a huge job_fit).
 - **`job_fit`**: keeps the existing must-have/seniority/evidence sub-score structure (§0, the parts that already work: `evidence_depth`, hard gates for unmet hard requirements, seniority gap), but `must_have_coverage`/`nice_to_have_coverage` now weight each matched requirement by its IDF (`skill_idf.json`) instead of counting every match equally — a shared "Python" contributes a small fraction of what a shared "Model Quantization" or "Triton" does.
-- **Signature bonus**: `+N` (I'll tune `N` against the labeled set in Step 6, starting around +8–12) when the job's extracted requirements include 2+ of the candidate's signature skills (§3.5) — this is on top of `job_fit`, not folded into coverage, since it's a distinct "this is specifically you" signal rather than generic requirement coverage.
+- **Signature bonus**: `+N` when the job's extracted requirements include 2+ of the candidate's signature skills (§3.5) — on top of `job_fit`, not folded into coverage, since it's a distinct "this is specifically you" signal rather than generic requirement coverage.
 - **Negative evidence**: a must-have belonging to a *different* family than the job's own stated family (e.g. "A/B testing" and "statistics" as must-haves on a job classified `backend` but written with `data_science`-flavored requirements) subtracts rather than being ignored — implemented as: for each matched must-have, if `skill_family(requirement) not in {job.family, *adjacent(job.family)}`, apply a penalty proportional to its match strength.
-- **Recalibration target, stated explicitly as requested**: a Senior Backend/ML-Infra role whose must-haves are covered by Dan's last two roles must land ≥85. I will treat this as the actual acceptance test for the formula, not an aspiration — if real target-family jobs with real requirement coverage don't clear 85 once §0.1/§0.2 are fixed and IDF weighting is in, the weights are wrong and I'll iterate them against the labeled set before calling this done, per your instruction that the formula is wrong, not the jobs.
+- **Recalibration target, stated explicitly as requested**: a Senior Backend/ML-Infra role whose must-haves are covered by Dan's last two roles must land ≥85.
 
-I'm not proposing exact final weight numbers in this document — they need to be fit against your labeled set (Step 6 below), not guessed. I'll propose a first-pass set, show you the resulting top-50 and the 4 known-bad examples' new scores, and iterate from there, same as the existing `ats_scorer` test suite already requires (`test_ats_scorer_golden.py` asserts *bands*, never exact scores, for exactly this reason).
+### Weight tuning is a search script, not me
+
+Every number above with a free coefficient — the signature bonus `N`, the negative-evidence penalty magnitude, the `family_fit < 0.3` gate's exact threshold, the five existing sub-score weights in `WeightConfig` — is fit by a script, not proposed by me and adjusted by eye. `uv run python -m jobfit.ats_scorer.cli fit-weights --labels <path to your labeled set>`:
+
+1. Takes a bounded search space for each free coefficient (I define the bounds and what's held fixed vs. free; the script does the search — e.g. `N ∈ [0, 20]`, sub-score weights constrained to sum to 1.0).
+2. Runs a grid or random search, scoring each candidate weight configuration by precision@20 + precision@50 on your labeled set.
+3. **Hard-rejects** any configuration that violates a stated constraint regardless of its precision score — the ≥85-for-a-true-fit target from above, and the two regression constraints from §6 (a Data Scientist/Security Researcher job must never exceed 40 for your profile; a backend job must never exceed 40 for the frontend CV) are implemented as assertions the search filters on, not hopes.
+4. Prints the winning configuration and its precision@20/@50, writes it to `jobfit/ats_scorer/config.py`'s data, and that printed output is what I'd show you — not a number I chose.
+
+If no configuration in the search space satisfies the hard constraints, that's the script telling us the formula's *shape* is wrong (not just its weights), and I'd come back to you with that finding rather than relaxing a constraint to make something pass.
 
 ---
 
@@ -348,7 +382,7 @@ I'm not proposing exact final weight numbers in this document — they need to b
 
 ## 7. Migration path
 
-1. **Phase 0** (prerequisite, small, mechanical): fix the CV title/company swap (§0.1) and widen the JD header vocabulary + reconsider the 6000-char truncation (§0.2). Each gets its own test built from the real failing cases found here. This alone restores the *existing* `role_family_mismatch_cap` gate to working order and should visibly fix most of the 35 not-fit jobs in the current top-100, before any new code exists — I'd verify and show you that intermediate result before building further, since it's a cheap, early checkpoint on whether the rest of the plan is even still necessary at the scale you're seeing.
+1. **Phase 0** (prerequisite, small, mechanical): fix the CV title/company swap (§0.1) and widen the JD header vocabulary + reconsider the 6000-char truncation (§0.2). Each gets its own test built from the real failing cases found here. This alone restores the *existing* `role_family_mismatch_cap` gate to working order and should visibly fix most of the 35 not-fit jobs in the current top-100, before any new code exists. The checkpoint is a command, not my narration: `uv run python -m jobfit.ats_scorer.cli compare --cv <path> --jobs <ids or --all>` scores the same jobs under the pre-Phase-0 and post-Phase-0 code and prints a diff table (score deltas, which family-mismatches got capped, old vs. new top-20 overlap) — that printed table is the checkpoint, and it's what I'd paste for you, not a summary of what I looked at.
 2. **Phase 1**: taxonomy data file (25 families + adjacency + level-2 canonical titles), versioned, with the JD-fallback classifier. Backfill + report (§2).
 3. **Phase 2**: `skills_taxonomy.json` expansion for signature vocabulary + `skill_idf.json` computation (§4).
 4. **Phase 3**: `build_profile` rewrite (family vector, signature, overrides) (§3).
@@ -364,6 +398,6 @@ Each phase is independently testable and independently committable, in the spiri
 1. **Security split** — OK to split `security` into `security_engineering`/`security_research`, and `devops` into `devops_sre`/`infrastructure_platform`? (Real-title evidence supports both; happy to keep either merged if you'd rather.)
 2. **6000-char truncation** — can I raise/remove it for stored description text? (It's hitting 22% of described jobs and disproportionately cuts the requirements section.) Would increase `jobfit.db` size somewhat.
 3. **Non-technical families** (sales/marketing/support/finance/hr/legal/operations) — keep them granular (as `role_families.json` already has them) or collapse to one `non_technical` bucket? Zero cost either way; just affects how fine the affinity table needs to be.
-4. **Phase 0 checkpoint** — want me to do Phase 0 (the two bugfixes) first and show you the before/after on the real top-100, before committing to building Phases 1-5? I think this is the right order (cheap, fast, tells us how much of the problem the family/IDF layer actually needs to solve versus how much was extraction bugs) but it's your call.
+4. **Phase 0 checkpoint** — want me to do Phase 0 (the two bugfixes) first and run the `compare` command on the real top-100, before committing to building Phases 1-5? I think this is the right order (cheap, fast, tells us how much of the problem the family/IDF layer actually needs to solve versus how much was extraction bugs) but it's your call.
 
 Waiting for your go-ahead (or adjustments) before writing any code.
