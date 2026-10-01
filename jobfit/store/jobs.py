@@ -18,10 +18,14 @@ _INSERT_FIELDS = (
     "title", "url", "description", "location", "city", "is_remote", "department", "employment_type",
     "posted_at", "years_required", "is_referral", "referral_contact", "source_language",
     "title_original", "description_original", "scrape_source",
+    "family", "canonical_title", "family_confidence", "taxonomy_version",
 )
 # Filled from a re-scrape only when the stored value is empty: a later scrape
 # is not better evidence than the first one, it is just more recent.
 _FILL_IF_EMPTY = ("location", "city", "description", "department", "employment_type", "url")
+# Classification is re-derived every scrape, not just once - a taxonomy edit
+# should reclassify a seen-again job without waiting for a dedicated backfill.
+_ALWAYS_REFRESH = ("family", "canonical_title", "family_confidence", "taxonomy_version")
 
 
 def get_job(conn: sqlite3.Connection, job_id: str) -> sqlite3.Row | None:
@@ -131,6 +135,9 @@ def _update_seen(conn: sqlite3.Connection, existing: sqlite3.Row, job: dict, now
         value = department_for(job.get("title"), job[field]) if field == "department" else job[field]
         if value:
             updates[field] = value
+    for field in _ALWAYS_REFRESH:
+        if job.get(field) is not None:
+            updates[field] = job[field]
     if job.get("job_evidence") is not None:
         updates["job_evidence"] = json.dumps(job["job_evidence"])
     conn.execute(

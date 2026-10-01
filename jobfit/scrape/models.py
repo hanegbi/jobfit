@@ -69,6 +69,14 @@ class JobPosting(BaseModel):
     posted_at: str | None = None
     evidence: Evidence | None = None
     source: PostingSource
+    # Written by job_classifier.classify_job() right after enrichment, below -
+    # the one place in the scrape path allowed to touch the role-family
+    # taxonomy. Scoring reads these columns back from the store; it never
+    # calls classify_job() itself.
+    family: str | None = None
+    canonical_title: str | None = None
+    family_confidence: str | None = None  # "title" | "jd_fallback" | "unknown"
+    taxonomy_version: str | None = None
 
 
 class AtsApiStrategy(BaseModel):

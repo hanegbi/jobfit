@@ -10,6 +10,7 @@ from pathlib import Path
 DATA_DIR = Path(__file__).parent / "data"
 SKILLS_TAXONOMY_PATH = DATA_DIR / "skills_taxonomy.json"
 ROLE_FAMILIES_PATH = DATA_DIR / "role_families.json"
+CANONICAL_TITLES_PATH = DATA_DIR / "canonical_titles.json"
 
 
 class SkillsTaxonomy:

@@ -9,6 +9,7 @@ from collections import Counter
 from datetime import datetime, timezone
 from typing import Callable, Sequence
 
+from jobfit.ats_scorer.job_classifier import classify_job
 from jobfit.scrape.ats import AtsRegistry
 from jobfit.scrape.enrich import NoopEnricher
 from jobfit.scrape.errors import PlanInvalid
@@ -16,11 +17,22 @@ from jobfit.scrape.factory import StrategyFactory
 from jobfit.scrape.health import HealthPolicy
 from jobfit.scrape.ids import plan_id_for
 from jobfit.scrape.models import (
-    AtsApiStrategy, HtmlListingStrategy, ScrapePlan, ScrapeResult, SpecialCaseStrategy, TechmapOnlyStrategy,
+    AtsApiStrategy, HtmlListingStrategy, JobPosting, ScrapePlan, ScrapeResult, SpecialCaseStrategy,
+    TechmapOnlyStrategy,
 )
 from jobfit.scrape.plan_store import PlanStore
 
 logger = logging.getLogger("jobfit.scrape")
+
+
+def _classify_posting(posting: JobPosting) -> JobPosting:
+    classification = classify_job(posting.title, posting.description)
+    return posting.model_copy(update={
+        "family": classification.family,
+        "canonical_title": classification.canonical_title,
+        "family_confidence": classification.confidence,
+        "taxonomy_version": classification.taxonomy_version,
+    })
 
 
 class CompanyScrapeService:
@@ -98,6 +110,7 @@ class CompanyScrapeService:
             strategy = self.factory.build(plan, known_job_urls)
         postings = strategy.fetch(company, career_url)  # FetchFailed propagates: nothing below runs, plan untouched
         postings = [p if p.evidence is not None else self._noop.enrich(p) for p in postings]
+        postings = [_classify_posting(p) for p in postings]
         plan = self.health.update(plan, postings, self.now(), fingerprint=strategy.last_fingerprint)
         self.store.put(plan)
         used = getattr(strategy, "strategy_used", strategy.kind)

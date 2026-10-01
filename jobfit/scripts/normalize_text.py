@@ -8,6 +8,8 @@ already English is skipped without a network call.
 
     uv run python -m jobfit.scripts.normalize_text --departments
     uv run python -m jobfit.scripts.normalize_text --translate [--limit N]
+    uv run python -m jobfit.scripts.normalize_text --families --report   # preview, no writes
+    uv run python -m jobfit.scripts.normalize_text --families            # backfill stale/missing rows
 """
 
 from __future__ import annotations
@@ -239,6 +241,54 @@ def fix_locations(conn) -> dict:
     return {"nan_locations_cleared": cleared, "foreign_jobs_un_israeled": relocated}
 
 
+def classify_families(conn, report: bool = False) -> dict:
+    """Run classify_job() over every row whose family is missing or was
+    written by an older taxonomy, with no network at all - the same pure
+    function the live scrape path calls, just replayed over what is already
+    stored. Safe to re-run: a row already on the current taxonomy_version is
+    skipped.
+
+    report=True does no writes - it prints what the current taxonomy would
+    produce (jobs per family, % unknown, a few samples per family) without
+    touching the store, for checking a taxonomy edit before it ships."""
+    from jobfit.ats_scorer.job_classifier import classify_job, taxonomy_version
+
+    current = taxonomy_version()
+    rows = conn.execute(
+        "SELECT id, title, description, family, canonical_title, family_confidence FROM jobs "
+        "WHERE taxonomy_version IS NOT ? OR taxonomy_version IS NULL", (current,)
+    ).fetchall()
+
+    by_family: dict[str, list[str]] = {}
+    unknown = 0
+    updated = 0
+    for row in rows:
+        c = classify_job(row["title"], row["description"])
+        by_family.setdefault(c.family or "(unknown)", []).append(row["title"] or "")
+        if c.family is None:
+            unknown += 1
+        if report:
+            continue
+        conn.execute(
+            "UPDATE jobs SET family = ?, canonical_title = ?, family_confidence = ?, "
+            "taxonomy_version = ? WHERE id = ?",
+            (c.family, c.canonical_title, c.confidence, c.taxonomy_version, row["id"]),
+        )
+        updated += 1
+    if not report:
+        conn.commit()
+
+    result = {
+        "taxonomy_version": current, "rows_examined": len(rows),
+        "rows_updated": updated, "unknown": unknown,
+        "unknown_pct": round(100 * unknown / len(rows), 1) if rows else 0.0,
+    }
+    if report:
+        result["jobs_per_family"] = {k: len(v) for k, v in sorted(by_family.items(), key=lambda kv: -len(kv[1]))}
+        result["samples"] = {k: v[:20] for k, v in by_family.items()}
+    return result
+
+
 def apply_title_translations(conn, path) -> dict:
     """Apply a {hebrew title: english title} file to the store and the cache.
 
@@ -284,6 +334,8 @@ def main() -> None:
     parser.add_argument("--locations", action="store_true", help="re-derive locations the old rules got wrong")
     parser.add_argument("--titles", action="store_true", help="re-peel card metadata off stored titles")
     parser.add_argument("--remote", action="store_true", help="re-derive the remote flag")
+    parser.add_argument("--families", action="store_true", help="classify jobs whose taxonomy_version is stale")
+    parser.add_argument("--report", action="store_true", help="with --families, print without writing")
     parser.add_argument("--apply-titles", type=Path, help="a {hebrew: english} JSON file of title translations")
     parser.add_argument("--limit", type=int, default=0, help="translate at most N titles")
     args = parser.parse_args()
@@ -302,6 +354,8 @@ def main() -> None:
         print(fix_locations(conn))
     if args.remote:
         print(fix_remote_flags(conn))
+    if args.families:
+        print(classify_families(conn, report=args.report))
     if args.apply_titles:
         print(apply_title_translations(conn, args.apply_titles))
     if args.translate:
@@ -309,8 +363,8 @@ def main() -> None:
         print(f"dropped {dropped} poisoned cache entries")
         print(retranslate(conn, args.limit))
     if not (args.departments or args.translate or args.companies or args.nav_junk
-            or args.apply_titles or args.locations or args.titles or args.remote):
-        parser.error("pick --departments, --companies, --nav-junk, --translate, or a combination")
+            or args.apply_titles or args.locations or args.titles or args.remote or args.families):
+        parser.error("pick --departments, --companies, --nav-junk, --translate, --families, or a combination")
 
 
 if __name__ == "__main__":
