@@ -11,6 +11,7 @@ from pathlib import Path
 from jobfit.ats_scorer import cv_extractor
 from jobfit.ats_scorer.idf import compute_idf
 from jobfit.ats_scorer.pipeline import score_cv_against_job
+from jobfit.ats_scorer.profile import apply_family_overrides, build_profile
 from jobfit.ats_scorer.taxonomy import SKILL_IDF_PATH
 
 
@@ -44,6 +45,13 @@ def main(argv: list[str] | None = None) -> int:
     idf_parser.add_argument("--min-description-len", type=int, default=50,
                              help="Skip jobs with a shorter description (default: 50, matches scoring's own full/title_only cutoff).")
 
+    profile_parser = subparsers.add_parser(
+        "profile", help="Print a CV's full family-affinity vector and signature skill list."
+    )
+    profile_parser.add_argument("--cv", required=True, help="Path to the CV file (.txt, .pdf, or .docx).")
+    profile_parser.add_argument("--overrides", default=None,
+                                 help="Path to a {family: \"boost\"|\"block\"} JSON file, applied as the last step.")
+
     args = parser.parse_args(argv)
 
     if args.command == "score":
@@ -70,6 +78,20 @@ def main(argv: list[str] | None = None) -> int:
         }
         SKILL_IDF_PATH.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
         print(f"wrote {SKILL_IDF_PATH} - corpus_size={payload['corpus_size']}, {len(weights)} skills")
+        return 0
+    if args.command == "profile":
+        cv_text = cv_extractor.extract_text(args.cv)
+        profile = build_profile(cv_text)
+        if args.overrides:
+            overrides = json.loads(Path(args.overrides).read_text(encoding="utf-8"))
+            profile = apply_family_overrides(profile, overrides)
+        print(json.dumps({
+            "roles": [{"title": r.title, "company": r.company, "start": r.start, "end": r.end, "family": r.family}
+                      for r in profile.roles],
+            "family_affinity": {k: v for k, v in sorted(profile.family_affinity.items(), key=lambda kv: -kv[1]) if v},
+            "signature_skills": profile.signature_skills,
+            "seniority": profile.seniority.value,
+        }, indent=2))
         return 0
     return 1
 

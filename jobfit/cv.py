@@ -111,3 +111,25 @@ def load_profiles() -> dict[str, dict]:
         profile_id: build_profile(config.CV_PROFILES_DIR / entry["filename"])
         for profile_id, entry in load_registry().items()
     }
+
+
+def load_family_overrides(profile_id: str) -> dict[str, str]:
+    """{family: "boost"|"block"} for one profile, keyed the same as the
+    registry - {} when the profile has no override file. Applied via
+    ats_scorer.profile.apply_family_overrides(), strictly on top of a
+    computed family_affinity vector."""
+    path = config.PROFILE_OVERRIDES_DIR / f"{profile_id}.json"
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def save_family_overrides(profile_id: str, overrides: dict[str, str]) -> None:
+    """Write {family: "boost"|"block"} for one profile. An empty dict
+    removes the file rather than writing an empty one."""
+    config.PROFILE_OVERRIDES_DIR.mkdir(parents=True, exist_ok=True)
+    path = config.PROFILE_OVERRIDES_DIR / f"{profile_id}.json"
+    if not overrides:
+        path.unlink(missing_ok=True)
+        return
+    write_json_atomic(path, overrides)

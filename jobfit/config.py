@@ -29,6 +29,11 @@ OUTPUT_HTML = ROOT.parent / "jobfit.html"
 CONNECTIONS_CSV = ROOT / "data" / "connections.csv"
 CV_PROFILES_DIR = ROOT / "data" / "cvs"
 CV_PROFILES_REGISTRY = ROOT / "data" / "profiles.json"
+# {family: "boost"|"block"} per profile, keyed the same way CV_PROFILES_REGISTRY
+# keys a profile (its profile_id) - applied on top of a computed
+# family_affinity vector, never a substitute for it. See
+# ats_scorer.profile.apply_family_overrides().
+PROFILE_OVERRIDES_DIR = ROOT / "data" / "profile_overrides"
 REFERRAL_UPLOADS_DIR = ROOT / "data" / "referrals"
 
 COMPANY_JOBS_TTL_HOURS = 24

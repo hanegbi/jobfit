@@ -129,8 +129,8 @@ looks like dozens of real failures and is not.
 - Do not write SQL outside `jobfit/store/`, and do not hand-edit `jobfit.db` or `jobfit.html`. Scrape
   plans are hand-editable; company career URLs and review decisions are edited through the control
   panel or the store, not the legacy JSON files.
-- Do not commit anything under `jobfit/data/cvs/`, `data/connections.csv`, `data/profiles.json` or
-  `data/referrals/` — personal data, gitignored.
+- Do not commit anything under `jobfit/data/cvs/`, `data/connections.csv`, `data/profiles.json`,
+  `data/profile_overrides/` or `data/referrals/` — personal data, gitignored.
 - Do not introduce per-company special cases in the scrapers. Behavior belongs in a generic strategy plus
   that company's plan.
 - Do not run `update_jobs` without a limit just to test something; use `--limit`, `--company`, or `--plans`.

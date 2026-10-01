@@ -7,9 +7,10 @@ import re
 from datetime import date
 from pathlib import Path
 
+from jobfit.ats_scorer.job_classifier import classify_job
 from jobfit.ats_scorer.models import CandidateProfile, Role, Seniority, SkillEvidence
 from jobfit.ats_scorer.patterns import CERTIFICATION_RE, DATE_RANGE_RE, DEGREE_RE, LANGUAGE_RE, LOCATION_RE
-from jobfit.ats_scorer.taxonomy import load_role_families, load_skills_taxonomy
+from jobfit.ats_scorer.taxonomy import load_skills_taxonomy
 
 _SENIORITY_TITLE_PATTERNS: list[tuple[Seniority, re.Pattern]] = [
     (Seniority.HEAD, re.compile(r"\bhead of\b", re.IGNORECASE)),
@@ -237,7 +238,6 @@ def _parse_roles(lines: list[str]) -> list[Role]:
         )
         parsed.append({"line_idx": line_idx, "anchor_idx": anchor_idx, "title": title, "company": company, "start": start, "end": end})
 
-    role_families = load_role_families()
     roles: list[Role] = []
     for idx, entry in enumerate(parsed):
         next_anchor_idx = parsed[idx + 1]["anchor_idx"] if idx + 1 < len(parsed) else len(lines)
@@ -251,7 +251,12 @@ def _parse_roles(lines: list[str]) -> list[Role]:
             if cleaned and cleaned != entry["company"]:
                 bullets.append(cleaned)
 
-        family = role_families.classify(entry["title"], " ".join(bullets))
+        # The same classifier the job side uses: title rule first, bullets
+        # as a JD-fallback only when the title itself is too generic to
+        # say anything ("Software Engineer") - not a flat title+bullets
+        # keyword blend, which would let a role's bullets outvote a title
+        # that already names the family correctly.
+        family = classify_job(entry["title"], " ".join(bullets)).family
         roles.append(Role(
             title=entry["title"], company=entry["company"], start=entry["start"], end=entry["end"],
             bullets=bullets, family=family,
@@ -364,7 +369,6 @@ def extract_candidate_profile(text: str, reference_date: date | None = None) -> 
     skills_section_text = _extract_skills_section_text(lines)
     skills = _extract_skills(roles, skills_section_text, now)
 
-    role_families = load_role_families()
     domains = sorted({r.family for r in roles[:2] if r.family})
 
     full_text = text or ""

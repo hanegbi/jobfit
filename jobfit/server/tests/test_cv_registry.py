@@ -11,6 +11,7 @@ from jobfit import config, cv
 def _isolated_registry(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "CV_PROFILES_DIR", tmp_path / "cvs")
     monkeypatch.setattr(config, "CV_PROFILES_REGISTRY", tmp_path / "profiles.json")
+    monkeypatch.setattr(config, "PROFILE_OVERRIDES_DIR", tmp_path / "profile_overrides")
     yield tmp_path
 
 
@@ -130,3 +131,25 @@ def test_register_and_load_profile_works_for_a_pdf_cv(tmp_path):
 
     assert (config.CV_PROFILES_DIR / f"{profile_id}.pdf").exists()
     assert "kubernetes" in profiles[profile_id]["must_have_keywords"]
+
+
+# --- family overrides -----------------------------------------------------
+
+def test_load_family_overrides_is_empty_for_a_profile_with_no_file():
+    assert cv.load_family_overrides("dan") == {}
+
+
+def test_save_then_load_family_overrides_round_trips():
+    cv.save_family_overrides("dan", {"backend": "boost", "sales": "block"})
+    assert cv.load_family_overrides("dan") == {"backend": "boost", "sales": "block"}
+
+
+def test_save_family_overrides_with_an_empty_dict_removes_the_file():
+    cv.save_family_overrides("dan", {"backend": "boost"})
+    path = config.PROFILE_OVERRIDES_DIR / "dan.json"
+    assert path.exists()
+
+    cv.save_family_overrides("dan", {})
+
+    assert not path.exists()
+    assert cv.load_family_overrides("dan") == {}

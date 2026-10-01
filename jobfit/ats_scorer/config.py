@@ -140,6 +140,28 @@ class ExperienceRelevanceConfig(BaseModel):
     adjacent_domain_credit: float = 0.5
 
 
+class ProfileConfig(BaseModel):
+    """Tuning for build_profile()'s family-affinity vector and signature
+    skills (see ats_scorer/profile.py).
+
+    Attributes:
+        recency_decay_years: A role's weight in the family-affinity vector
+            decays linearly to 0 over this many years since it ended; a
+            current role (0 years ago) carries full weight.
+        signature_idf_threshold: A CV skill counts as "signature" only when
+            backed by role-bullet evidence (not just listed) AND its IDF is
+            at or above this. 6.0 sits at roughly the 80th percentile of
+            the real skill_idf.json distribution and is at or below every
+            one of the rare skills the user named as their own signature
+            (Model Inference 6.71, GPU Programming 6.23, Model Quantization
+            6.63, ONNX/LLM Evaluation 7.08, Distributed Inference 7.89,
+            Triton 8.58) while excluding common/moderate skills.
+    """
+
+    recency_decay_years: float = 6.0
+    signature_idf_threshold: float = 6.0
+
+
 class ScoringConfig(BaseModel):
     """Top-level configuration bundle passed through the scorer.
 
@@ -159,6 +181,7 @@ class ScoringConfig(BaseModel):
     bands: BandConfig = Field(default_factory=BandConfig)
     match_strength_weights: MatchStrengthWeights = Field(default_factory=MatchStrengthWeights)
     experience: ExperienceRelevanceConfig = Field(default_factory=ExperienceRelevanceConfig)
+    profile: ProfileConfig = Field(default_factory=ProfileConfig)
     stale_skill_years: int = 3
 
     def model_post_init(self, __context) -> None:

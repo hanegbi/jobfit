@@ -2,9 +2,10 @@
 
 from datetime import date
 
-from jobfit.ats_scorer import cv_extractor, jd_extractor, matcher, scorer
+from jobfit.ats_scorer import jd_extractor, matcher, scorer
 from jobfit.ats_scorer.config import DEFAULT_CONFIG, ScoringConfig
 from jobfit.ats_scorer.models import ScoreResult
+from jobfit.ats_scorer.profile import build_profile
 
 
 def score_cv_against_job(
@@ -25,6 +26,6 @@ def score_cv_against_job(
     """
     now = now or date.today()
     job = jd_extractor.extract_job_requirements(jd_text, title=job_title)
-    profile = cv_extractor.extract_candidate_profile(cv_text, reference_date=now)
+    profile = build_profile(cv_text, config=config, reference_date=now)
     match_result = matcher.match(profile, job, config=config, now=now)
     return scorer.score(profile, job, match_result, config=config)

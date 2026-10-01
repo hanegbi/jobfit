@@ -147,6 +147,15 @@ class CandidateProfile(BaseModel):
         languages: Spoken/written languages found in the CV.
         location: The candidate's stated location, or None.
         seniority: The candidate's inferred overall seniority level.
+        family_affinity: Recency/duration-weighted fraction of the
+            candidate's work history in each role family, over every
+            known family (0.0 where none), summing to 1.0 across families
+            with any weighted experience - see ats_scorer/profile.py.
+            Empty until build_profile() fills it in;
+            extract_candidate_profile() alone leaves it empty.
+        signature_skills: Canonical skill names backed by real role-bullet
+            evidence whose IDF clears the signature bar - see
+            ats_scorer/profile.py. Same empty-until-build_profile() note.
     """
 
     roles: list[Role] = Field(default_factory=list)
@@ -157,6 +166,8 @@ class CandidateProfile(BaseModel):
     languages: list[str] = Field(default_factory=list)
     location: str | None = None
     seniority: Seniority = Seniority.MID
+    family_affinity: dict[str, float] = Field(default_factory=dict)
+    signature_skills: list[str] = Field(default_factory=list)
 
 
 class MatchedRequirement(BaseModel):
