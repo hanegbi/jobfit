@@ -149,10 +149,11 @@ def close_nav_junk(conn) -> dict:
     evidence of what that career page served, and deleting it would just let
     the next scrape create it again.
     """
-    from jobfit.scrape.filters import NAV_DENYLIST
+    from jobfit.scrape.filters import NAV_DENYLIST, looks_like_site_furniture
 
     rows = conn.execute("SELECT id, title FROM jobs WHERE status != 'closed'").fetchall()
-    junk = [row["id"] for row in rows if NAV_DENYLIST.match((row["title"] or "").strip())]
+    junk = [row["id"] for row in rows
+            if NAV_DENYLIST.match((row["title"] or "").strip()) or looks_like_site_furniture(row["title"])]
     if junk:
         with conn:
             conn.executemany(
@@ -181,6 +182,34 @@ def resplit_titles(conn) -> dict:
             conn.execute("UPDATE jobs SET title = ? WHERE id = ?", (trimmed, row["id"]))
             changed += 1
     return {"titles_examined": len(rows), "titles_trimmed": changed}
+
+
+def fix_remote_flags(conn) -> dict:
+    """Re-derive is_remote for jobs that only looked remote because their
+    description mentions distributed systems.
+
+    "distributed" was in REMOTE_TERMS for "distributed team"; in an
+    engineering description it means distributed computing, and it flagged
+    172 office jobs - some of which say "this is a hybrid position" - as
+    remote, so their card showed "Remote" instead of their real city.
+    """
+    from jobfit import scoring
+
+    rows = conn.execute(
+        "SELECT id, title, location, description FROM jobs WHERE is_remote = 1").fetchall()
+    cleared = 0
+    with conn:
+        for row in rows:
+            still_remote = (
+                scoring.is_remote_location(row["location"])
+                or scoring.is_remote_location(row["title"])
+                or scoring.is_remote_location(row["description"] or "")
+            )
+            if still_remote:
+                continue
+            conn.execute("UPDATE jobs SET is_remote = 0 WHERE id = ?", (row["id"],))
+            cleared += 1
+    return {"was_remote": len(rows), "no_longer_remote": cleared}
 
 
 def fix_locations(conn) -> dict:
@@ -254,6 +283,7 @@ def main() -> None:
     parser.add_argument("--nav-junk", action="store_true", help="close open jobs that are site navigation")
     parser.add_argument("--locations", action="store_true", help="re-derive locations the old rules got wrong")
     parser.add_argument("--titles", action="store_true", help="re-peel card metadata off stored titles")
+    parser.add_argument("--remote", action="store_true", help="re-derive the remote flag")
     parser.add_argument("--apply-titles", type=Path, help="a {hebrew: english} JSON file of title translations")
     parser.add_argument("--limit", type=int, default=0, help="translate at most N titles")
     args = parser.parse_args()
@@ -270,6 +300,8 @@ def main() -> None:
         print(resplit_titles(conn))
     if args.locations:
         print(fix_locations(conn))
+    if args.remote:
+        print(fix_remote_flags(conn))
     if args.apply_titles:
         print(apply_title_translations(conn, args.apply_titles))
     if args.translate:
@@ -277,7 +309,7 @@ def main() -> None:
         print(f"dropped {dropped} poisoned cache entries")
         print(retranslate(conn, args.limit))
     if not (args.departments or args.translate or args.companies or args.nav_junk
-            or args.apply_titles or args.locations or args.titles):
+            or args.apply_titles or args.locations or args.titles or args.remote):
         parser.error("pick --departments, --companies, --nav-junk, --translate, or a combination")
 
 

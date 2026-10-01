@@ -32,6 +32,53 @@ NAV_DENYLIST = re.compile(
     r"linkedin|facebook|twitter|instagram|youtube)$",
     re.I,
 )
+# A nav link whose label carries the page's tagline: "Careers Join the team
+# building the operating system for working dogs.", "About Us Discover the
+# DogBase story", "Career Opportunities". NAV_DENYLIST is anchored and so only
+# catches the bare label, which left ~220 of these stored as jobs.
+#
+# A bare prefix match would eat real roles that start the same way - "Support
+# Engineer", "Press Officer", "News Editor", "Careers Advisor" - so the prefix
+# alone is not enough: the title must ALSO contain no word that names a job.
+_NAV_PREFIX_RE = re.compile(
+    r"^(about( us| the position)?|careers?|blog|news|press|resources?|terms|privacy|cookies?|"
+    r"contact( us)?|sign ?(in|up)|log ?(in|out)|learn more|read more|view all|see all|"
+    r"home( page)?|our (story|team|values|mission)|who we are|join us)\b",
+    re.I,
+)
+# Words that make a string a job rather than a section of a website. Kept
+# deliberately narrow: these name a PERSON who does something.
+_ROLE_WORD_RE = re.compile(
+    r"\b(engineer|engineering|developer|programmer|architect|scientist|researcher|analyst|"
+    r"manager|director|head|lead|leader|chief|officer|president|partner|executive|"
+    r"designer|writer|editor|copywriter|marketer|recruiter|accountant|bookkeeper|controller|"
+    r"counsel|attorney|lawyer|paralegal|advisor|adviser|consultant|coach|trainer|instructor|"
+    r"specialist|coordinator|administrator|technician|operator|mechanic|electrician|"
+    r"representative|agent|associate|assistant|intern|student|apprentice|"
+    r"sdet|devops|sre|qa|pmm?|cto|cfo|ceo|coo|ciso|vp)\b",
+    re.I,
+)
+
+
+def looks_like_site_furniture(text: str | None) -> bool:
+    """True for a nav link whose label ran into the page's tagline.
+
+    The whole-label case is NAV_DENYLIST's job; this is the one that carries
+    extra words. Both conditions are required, because the prefixes are also
+    how several real titles begin.
+
+    Applied to a job's FINAL title, never to a candidate link's anchor text.
+    Several sites label every job link with a CTA - speedata's say "About the
+    position", citrusx's "Learn More & Apply" - and the real title is
+    recovered from the job's own page afterwards. Judging the anchor text
+    rejected those companies' entire listings; the replay suite caught it.
+    """
+    cleaned = " ".join((text or "").split())
+    if not cleaned or not _NAV_PREFIX_RE.match(cleaned):
+        return False
+    return not _ROLE_WORD_RE.search(cleaned)
+
+
 _FORM_TOKEN_RE = re.compile(r"^\[#|#\]$")
 _EMAIL_RE = re.compile(r"^[\w.+-]+@[\w-]+\.[\w.-]+\??$")
 _URL_TEXT_RE = re.compile(r"^(https?://|www\.)", re.I)

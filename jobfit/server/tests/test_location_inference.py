@@ -100,3 +100,32 @@ def test_an_israeli_job_still_inherits_the_company_city():
     city."""
     location, city, _ = pipeline._infer_location_fields({"title": "Senior DevOps Engineer"}, None, "Tel Aviv")
     assert (location, city) == ("Tel Aviv", "Tel Aviv")
+
+
+# --- "distributed" is a system, not a workplace -----------------------------
+
+def test_distributed_systems_in_a_description_is_not_a_remote_job():
+    """Real case: a Tel Aviv job whose description says "Work with advanced
+    algorithms, data structures & distributed computing" and "this is a hybrid
+    position" was served as Remote, hiding its real city. 172 open office jobs
+    were flagged this way."""
+    location, city, is_remote = pipeline._infer_location_fields({
+        "title": "Senior Backend Engineer",
+        "location": "Tel Aviv",
+        "description": "Experience with Microservices, distributed processing & messaging. "
+                       "This is a hybrid position.",
+    }, None, None)
+    assert (location, city, is_remote) == ("Tel Aviv", "Tel Aviv", False)
+
+
+def test_a_distributed_team_is_still_a_remote_signal():
+    """The phrase the term was added for still works; only the bare word went."""
+    from jobfit import scoring
+
+    assert scoring.is_remote_location("We are a fully distributed team") is True
+    assert scoring.is_remote_location("experience with distributed systems") is False
+
+
+def test_a_job_whose_location_says_remote_is_still_remote():
+    assert pipeline._infer_location_fields({"title": "Backend Engineer", "location": "Remote"}, None, None) \
+        == ("Remote", None, True)

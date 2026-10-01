@@ -2,6 +2,8 @@
 ones test_listing_heuristics.py used to pin (that file is deleted in
 Task 5) plus the new evidence/shape filters."""
 
+import pytest
+
 from jobfit.scrape import filters
 from jobfit.scrape.models import Candidate
 
@@ -151,3 +153,50 @@ def test_chain_accepts_when_a_filter_accepts_and_preserves_order():
     accepted, rejected = chain.run([b, a])
     assert [c.index for c in accepted] == [1, 0]
     assert rejected == []
+
+
+# --- a nav link that ran into the page's tagline ----------------------------
+
+@pytest.mark.parametrize("text", [
+    "About Our story, mission, and the methodology behind Team8.",
+    "Careers Join the team building the operating system for working dogs.",
+    "About Us Discover the DogBase story and meet our team.",
+    "Careers We're hiring",
+    "Career Opportunities",
+    "Contact Sales",
+    "About the position",
+    "Blog Posts",
+    "About us Who we are and what we do",
+    "Home Page",
+])
+def test_site_furniture_with_a_tagline_is_rejected(text):
+    """NAV_DENYLIST is anchored, so it only caught the bare label and ~220 of
+    these were stored as open jobs."""
+    assert filters.looks_like_site_furniture(text) is True
+
+
+def test_site_furniture_is_judged_on_a_title_not_on_a_link():
+    """speedata labels every job link "About the position" and recovers the
+    real title from the job's own page; citrusx uses "Learn More & Apply".
+    Judging the anchor text rejected both companies' entire listings, which
+    the replay suite caught - so the link filter must NOT use this rule."""
+    assert filters.DenylistFilter.text_ok("About the position") is True
+    assert filters.DenylistFilter.text_ok("Learn More & Apply") is True
+
+
+@pytest.mark.parametrize("text", [
+    "Support Engineer",
+    "Press Officer",
+    "News Editor",
+    "Careers Advisor",
+    "About You Coordinator",
+    "Home Automation Engineer",
+    "Contact Center Team Lead",
+    "Blog Content Manager",
+    "Career Coach",
+    "Resources Manager",
+])
+def test_a_real_role_starting_with_a_nav_word_survives(text):
+    """The prefix alone cannot decide: these all begin like a nav link and are
+    jobs. The rule needs the title to name nobody before it rejects."""
+    assert filters.looks_like_site_furniture(text) is False

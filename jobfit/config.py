@@ -85,7 +85,16 @@ TECHMAP_CATEGORIES = [
 # titles for one specific person. A different CV drives a genuinely
 # different match.
 
-REMOTE_TERMS: list[str] = ["remote", "anywhere", "work from home", "wfh", "distributed"]
+# Bare "distributed" is deliberately absent. It was here for "distributed
+# team", but these descriptions are engineering ones, where it means
+# distributed systems: "distributed computing", "Microservices, distributed
+# processing & messaging". It alone flagged 172 open office jobs as remote,
+# including Tel Aviv roles whose own description says "this is a hybrid
+# position" - and the card then showed "Remote" instead of the real city.
+REMOTE_TERMS: list[str] = [
+    "remote", "anywhere", "work from home", "wfh",
+    "fully distributed", "distributed team", "distributed company", "distributed workforce",
+]
 
 PINNED_COMPANIES: list[str] = ["Zscaler"]
 

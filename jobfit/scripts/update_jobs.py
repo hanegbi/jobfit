@@ -38,6 +38,7 @@ from jobfit import ats_fetchers, company_registry, config, connections, cv, pipe
 from jobfit.atomic_io import write_json_atomic  # noqa: E402
 from jobfit.scrape import bootstrap as scrape_bootstrap  # noqa: E402
 from jobfit.scrape import candidates, titles  # noqa: E402
+from jobfit.scrape import filters as scrape_filters  # noqa: E402
 from jobfit.scrape.ids import normalize_job_url  # noqa: E402,F401 - re-exported: the job-id rule lives with the scrape package
 from jobfit.store import companies as store_companies  # noqa: E402
 from jobfit.store import db  # noqa: E402
@@ -224,6 +225,11 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
         owner = owned_hosts.get(_url_host(job.get("url")))
         if owner is not None and owner != company_id:
             logger.debug("%s: %r is served from %s's board, not ours", company, title, owner)
+            continue
+        # Judged on the recovered title, not on the link's anchor text - see
+        # filters.looks_like_site_furniture.
+        if scrape_filters.looks_like_site_furniture(title):
+            logger.debug("%s: %r is site furniture, not a job", company, title)
             continue
         # A non-Israel, non-remote office ("Texas", "Mexico") is not what this
         # job search targets, and storing it would only add noise to search.
