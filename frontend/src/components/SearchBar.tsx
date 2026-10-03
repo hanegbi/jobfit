@@ -121,7 +121,10 @@ export function SearchBar({ filters, total, loading, update }: Props) {
         />
       )}
 
-      <span className={`search-count${loading ? " loading" : ""}`}>
+      {/* Sighted users see this count update as they type; without a live
+          region a screen reader user gets no indication the result set
+          changed at all. */}
+      <span className={`search-count${loading ? " loading" : ""}`} aria-live="polite" aria-atomic="true">
         {loading ? "searching…" : `${total.toLocaleString()} jobs`}
       </span>
     </div>

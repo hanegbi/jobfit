@@ -35,6 +35,7 @@ function Tri({
           <button
             key={option.key}
             type="button"
+            aria-pressed={value === option.v}
             className={value === option.v ? "on" : ""}
             onClick={() => onChange(option.v)}
           >
@@ -85,17 +86,20 @@ function FacetGroup({
           onChange={(e) => setQuery(e.target.value)}
         />
       )}
-      {shown.map((option) => (
-        <button
-          key={option.value}
-          type="button"
-          className={`facet${isInSet(selected, option.value) ? " on" : ""}`}
-          onClick={() => onToggle(option.value)}
-        >
-          <span title={option.label}>{option.label}</span>
-          <span className="count">{option.n.toLocaleString()}</span>
-        </button>
-      ))}
+      <div className="facet-pills">
+        {shown.map((option) => (
+          <button
+            key={option.value}
+            type="button"
+            aria-pressed={isInSet(selected, option.value)}
+            className={`facet${isInSet(selected, option.value) ? " on" : ""}`}
+            onClick={() => onToggle(option.value)}
+          >
+            <span title={option.label}>{option.label}</span>
+            <span className="count">{option.n.toLocaleString()}</span>
+          </button>
+        ))}
+      </div>
       {matching.length > shown.length && !expanded && (
         <button type="button" className="link small" onClick={() => setExpanded(true)}>
           {/* "show all 250" would be a lie when the server capped 1,492 down
@@ -214,31 +218,36 @@ export function FiltersPanel({ filters, facets, profiles, update, apply }: Props
 
       <div className="group">
         <h3>Status</h3>
-        <button
-          type="button"
-          className={`facet${filters.status === "open" ? " on" : ""}`}
-          onClick={() => update({ status: "open" })}
-        >
-          <span>open only</span>
-        </button>
-        <button
-          type="button"
-          className={`facet${filters.status === null ? " on" : ""}`}
-          onClick={() => update({ status: null })}
-        >
-          <span>everything</span>
-        </button>
-        {Object.entries(facets?.statuses ?? {}).map(([status, count]) => (
+        <div className="facet-pills">
           <button
-            key={status}
             type="button"
-            className={`facet${filters.status === status ? " on" : ""}`}
-            onClick={() => update({ status: filters.status === status ? "open" : status })}
+            aria-pressed={filters.status === "open"}
+            className={`facet${filters.status === "open" ? " on" : ""}`}
+            onClick={() => update({ status: "open" })}
           >
-            <span>{status}</span>
-            <span className="count">{count.toLocaleString()}</span>
+            <span>open only</span>
           </button>
-        ))}
+          <button
+            type="button"
+            aria-pressed={filters.status === null}
+            className={`facet${filters.status === null ? " on" : ""}`}
+            onClick={() => update({ status: null })}
+          >
+            <span>everything</span>
+          </button>
+          {Object.entries(facets?.statuses ?? {}).map(([status, count]) => (
+            <button
+              key={status}
+              type="button"
+              aria-pressed={filters.status === status}
+              className={`facet${filters.status === status ? " on" : ""}`}
+              onClick={() => update({ status: filters.status === status ? "open" : status })}
+            >
+              <span>{status}</span>
+              <span className="count">{count.toLocaleString()}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
       <FacetGroup

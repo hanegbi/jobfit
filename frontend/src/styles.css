@@ -286,25 +286,29 @@ button.primary.small {
   letter-spacing: 0.06em;
   color: var(--muted);
 }
+/* Pills, not a list: "Tel Aviv 114" reads as one scannable unit, and
+   wrapping fills the rail's width instead of one value per line. */
+.facet-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
 .facet {
-  display: flex;
-  width: 100%;
-  gap: 8px;
-  padding: 3px 6px;
-  margin-bottom: 1px;
-  border: none;
-  border-radius: 5px;
-  background: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  background: var(--panel2);
   color: var(--text);
   cursor: pointer;
-  font-size: 12.5px;
+  font-size: 12px;
   text-align: left;
 }
-.facet { transition: background var(--ease), color var(--ease); }
-.facet:hover { background: var(--panel2); }
-.facet.on { background: var(--panel2); color: var(--accent); }
-.facet span:first-child { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.facet { transition: background var(--ease), color var(--ease), border-color var(--ease); }
+.facet:hover { border-color: #3a4757; }
+.facet.on { background: var(--accent); border-color: var(--accent); color: #06121f; font-weight: 600; }
+.facet span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 160px; }
 .facet .count { color: var(--muted); font-variant-numeric: tabular-nums; }
+.facet.on .count { color: #06121f; opacity: 0.7; }
 
 /* --- list of cards --- */
 main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
@@ -459,7 +463,17 @@ a.contact:hover { background: #1d3550; text-decoration: underline; }
 .virtual-item:has(.contact.more:hover),
 .virtual-item:has(.contact.more:focus-within) { z-index: 30; }
 
-.contact.more { position: relative; background: none; color: var(--muted); cursor: help; }
+/* A <button> now (see JobList.tsx), so it needs its own reset: no border,
+   inherited font, cursor back to pointer now that it is a real disclosure
+   trigger rather than a hover-only label. */
+.contact.more {
+  position: relative;
+  border: none;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
 .contact.more:hover, .contact.more:focus-visible { color: var(--accent); }
 
 .contact-popover {

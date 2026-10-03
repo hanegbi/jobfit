@@ -66,9 +66,13 @@ function Contacts({ contacts, count }: { contacts: Contact[]; count: number }) {
         // A real popover rather than a title attribute: 34 names in a native
         // tooltip is an unreadable wall that takes a second to appear and
         // cannot be clicked through to anyone's profile.
-        <span className="contact more" tabIndex={0}>
+        // A <button>, not role="tooltip": ARIA forbids interactive content
+        // (these are real links out to LinkedIn) inside a tooltip, and
+        // screen readers won't let a user navigate into one. This is a
+        // disclosure panel that happens to open on hover as well as focus.
+        <button type="button" className="contact more" aria-haspopup="true">
           +{rest.length} more
-          <span className="contact-popover" role="tooltip">
+          <span className="contact-popover">
             {rest.map((contact) => (
               <a
                 key={contact.name}
@@ -81,7 +85,7 @@ function Contacts({ contacts, count }: { contacts: Contact[]; count: number }) {
               </a>
             ))}
           </span>
-        </span>
+        </button>
       )}
     </span>
   );
@@ -134,6 +138,11 @@ function Card({ job, query }: { job: JobRow; query: string }) {
               key={flag}
               type="button"
               title={title}
+              // The visible label collapses to icon-only at narrow widths
+              // (.flag span { display: none }) - title alone isn't reliable
+              // for screen readers or touch, so the accessible name doesn't
+              // depend on the label staying visible.
+              aria-label={label}
               aria-pressed={state[flag]}
               className={`flag${state[flag] ? " on" : ""}`}
               onClick={() => toggle.mutate({ jobId: job.id, flag, current: state })}
