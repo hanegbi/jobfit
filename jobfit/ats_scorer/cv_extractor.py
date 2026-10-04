@@ -38,6 +38,15 @@ _SECTION_HEADER_RE = re.compile(
     r"^\s*(?:" + "|".join(_ALL_SECTION_HEADER_WORDS) + r")\s*:?\s*(.*)$", re.IGNORECASE,
 )
 
+# A leading bullet glyph is what starts a new bullet; a line without one is
+# the previous bullet, wrapped. U+FFFD is in the class because CV text
+# reaches us with its bullet glyph already lost to the replacement
+# character - the same CV reads "04/2022 � 07/2026", so U+FFFD stands
+# in for more than one original character, but at the start of a line it is
+# always the bullet. The trailing \s+ keeps it from eating a hyphenated
+# first word.
+_BULLET_MARK_RE = re.compile("^\\s*[-*•●‣⁃�]\\s+")
+
 _CITY_LOCATION_RE = re.compile(
     r"\b(tel aviv|jerusalem|haifa|herzliya|ramat gan|petah tikva|netanya|beer sheva|"
     r"new york|san francisco|london|berlin|austin|seattle|boston|remote)\b",
@@ -242,13 +251,33 @@ def _parse_roles(lines: list[str]) -> list[Role]:
     for idx, entry in enumerate(parsed):
         next_anchor_idx = parsed[idx + 1]["anchor_idx"] if idx + 1 < len(parsed) else len(lines)
         bullet_start = entry["line_idx"] + 1
-        bullets = []
-        for ln in lines[bullet_start:next_anchor_idx]:
+        # The last role's span runs to the end of the file, so without the
+        # section check the SKILLS, EDUCATION and LANGUAGES lines all became
+        # its bullets - "Hebrew - Native | English - Fluent" counted as work
+        # evidence, and five dead entries diluted every bullet-fraction
+        # measured off this list (scorer._evidence_depth_score).
+        body = [(i, lines[i]) for i in range(bullet_start, min(next_anchor_idx, len(lines)))
+                if sections[i] == "experience"]
+        # A CV's bullets arrive one physical line at a time, so a wrapped
+        # bullet looked like two - the leading verb landing in the first
+        # half and the second half scoring as a bullet with no evidence in
+        # it at all. Only a line that carries a bullet glyph starts a new
+        # bullet; the rest is the previous one, continued. Guarded on the
+        # role actually using glyphs, so a CV written without them keeps the
+        # old line-per-bullet reading instead of collapsing into one.
+        marked = any(_BULLET_MARK_RE.match(line) for _, line in body)
+        bullets: list[str] = []
+        for _, ln in body:
             stripped = ln.strip()
             if not stripped or _SECTION_HEADER_RE.match(stripped) or DATE_RANGE_RE.search(stripped):
                 continue
-            cleaned = re.sub(r"^\s*[-*•●‣⁃]\s*", "", stripped).strip()
-            if cleaned and cleaned != entry["company"]:
+            starts_bullet = bool(_BULLET_MARK_RE.match(ln))
+            cleaned = _BULLET_MARK_RE.sub("", stripped).strip()
+            if not cleaned or cleaned == entry["company"]:
+                continue
+            if marked and not starts_bullet and bullets:
+                bullets[-1] = f"{bullets[-1]} {cleaned}"
+            else:
                 bullets.append(cleaned)
 
         # The same classifier the job side uses: title rule first, bullets

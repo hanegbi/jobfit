@@ -159,6 +159,68 @@ Foo Inc | 2017 - 2020
     assert len(profile.roles[0].bullets) == 2
 
 
+def test_a_wrapped_bullet_is_one_bullet_not_two():
+    """Real bug: a CV arrives one physical line at a time, so every wrapped
+    bullet counted twice - the leading verb in the first half, and a second
+    half that scored as a bullet with no evidence in it. That halved the
+    bullet fraction scorer._evidence_depth_score measures, which is a flat
+    deduction on every job the CV is ever scored against."""
+    cv = """Jane Doe
+
+Senior Backend Engineer
+Acme Corp | 2020 - Present
+- Designed and owned distributed systems in production, refactoring legacy
+components to cut the error budget in half
+- Built REST APIs in Python
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    bullets = profile.roles[0].bullets
+    assert len(bullets) == 2
+    assert bullets[0].endswith("cut the error budget in half")
+
+
+def test_a_cv_without_bullet_glyphs_still_reads_a_line_at_a_time():
+    """The guard on the wrapped-bullet join: joining keys off a bullet
+    glyph, so a CV that never uses one must keep the old line-per-bullet
+    reading rather than collapsing its whole role into a single bullet."""
+    cv = """Jane Doe
+
+Senior Backend Engineer
+Acme Corp | 2020 - Present
+Designed and owned distributed systems in production
+Built REST APIs in Python
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    assert len(profile.roles[0].bullets) == 2
+
+
+def test_the_sections_after_experience_are_not_the_last_roles_bullets():
+    """Real bug: the last role's span runs to the end of the file, so SKILLS,
+    EDUCATION and LANGUAGES all became its bullets - "Hebrew - Native" read
+    as work evidence, and the dead entries diluted the bullet fraction."""
+    cv = """Jane Doe
+
+EXPERIENCE
+
+Senior Backend Engineer
+Acme Corp | 2020 - Present
+- Designed and owned distributed systems in production
+
+SKILLS
+
+Programming Languages: Python, Go, Bash
+Frameworks: Flask, FastAPI
+
+LANGUAGES
+
+Hebrew - Native | English - Fluent
+"""
+    profile = cv_extractor.extract_candidate_profile(cv, reference_date=_NOW)
+    bullets = profile.roles[0].bullets
+    assert len(bullets) == 1
+    assert not any("Hebrew" in b or "Programming Languages" in b for b in bullets)
+
+
 def test_cv_extractor_parses_roles_with_numeric_mm_yyyy_dates():
     """Real bug caught live in production: DATE_RANGE_RE only recognized a
     month NAME (Jan/January/...) or a bare year before the separator, never
