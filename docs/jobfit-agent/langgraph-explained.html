@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LangGraph, explained</title>
+<style>
+:root{
+  --ink:#f4f5f7; --ink-2:#a9b0bd; --ink-3:#6c7482;
+  --void:#050505; --shell:rgba(255,255,255,.035); --core:#0d0f13;
+  --hair:rgba(255,255,255,.085); --hair-2:rgba(255,255,255,.14);
+  --inset:inset 0 1px 0 rgba(255,255,255,.07);
+  --mint:#5de4b4; --amber:#f2c572; --rose:#ff8f84; --iris:#a99cff; --sky:#7cc4ff;
+  --mint-bg:rgba(93,228,180,.10); --amber-bg:rgba(242,197,114,.10);
+  --rose-bg:rgba(255,143,132,.10); --iris-bg:rgba(169,156,255,.12); --sky-bg:rgba(124,196,255,.10);
+  --r-out:2rem; --r-in:calc(2rem - .4rem);
+  --ease:cubic-bezier(.32,.72,0,1);
+  --font:"Geist","Segoe UI Variable Display","SF Pro Display",system-ui,sans-serif;
+  --mono:"Geist Mono","Cascadia Code",ui-monospace,monospace;
+}
+:root[data-theme=light]{
+  --ink:#14161a; --ink-2:#555e6d; --ink-3:#8b93a1; --void:#f7f5f1;
+  --shell:rgba(16,18,24,.035); --core:#fffefb; --hair:rgba(16,18,24,.07); --hair-2:rgba(16,18,24,.12);
+  --inset:inset 0 1px 0 rgba(255,255,255,.9);
+  --mint:#0f7a55; --amber:#8a6412; --rose:#b4382c; --iris:#5546c4; --sky:#1f6fb2;
+}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:var(--void);color:var(--ink);
+  font-family:var(--font);font-size:15px;line-height:1.62;letter-spacing:-.002em;-webkit-font-smoothing:antialiased}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(44rem 30rem at 8% -8%,rgba(124,110,255,.18),transparent 64%),
+             radial-gradient(38rem 28rem at 96% 4%,rgba(32,201,151,.12),transparent 62%),
+             radial-gradient(34rem 26rem at 52% 106%,rgba(255,138,76,.09),transparent 60%)}
+.wrap{position:relative;z-index:2;max-width:1020px;margin:0 auto;padding:0 26px}
+.shell{background:var(--shell);border:1px solid var(--hair);border-radius:var(--r-out);padding:.4rem}
+.core{background:var(--core);border-radius:var(--r-in);box-shadow:var(--inset);padding:26px 28px}
+header{padding:74px 0 20px}
+h1{margin:0;font-size:clamp(2.3rem,5.2vw,3.7rem);line-height:1;letter-spacing:-.035em;font-weight:600}
+h2{font-size:1.45rem;letter-spacing:-.022em;margin:0 0 4px;font-weight:600}
+h3{font-size:.76rem;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-3);margin:0 0 10px;font-weight:600}
+p{margin:0 0 .7em}p:last-child{margin-bottom:0}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--hair);border-radius:999px;
+  padding:5px 13px;font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--ink-2);font-weight:500}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint)}
+.lede{color:var(--ink-2);font-size:1.05rem;max-width:64ch}
+.muted{color:var(--ink-3)}
+section{margin:44px 0}
+.stack{display:flex;flex-direction:column;gap:16px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+pre{margin:0;font-family:var(--mono);font-size:12.5px;line-height:1.8;color:var(--ink-2);
+  white-space:pre;overflow-x:auto;padding:2px}
+pre b{color:var(--ink);font-weight:600}
+pre .kw{color:var(--iris)}
+pre .fn{color:var(--sky)}
+pre .cm{color:var(--ink-3);font-style:italic}
+pre .st{color:var(--mint)}
+pre .hl{color:var(--amber)}
+code{font-family:var(--mono);font-size:.88em;background:var(--shell);border:1px solid var(--hair);
+  border-radius:5px;padding:1px 6px}
+.num{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--shell);
+  border:1px solid var(--hair);font-size:.82rem;font-weight:600;color:var(--ink-2);flex:none}
+.head{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:11px;font-weight:600}
+.pill.ai{background:var(--iris-bg);color:var(--iris)}
+.pill.plain{background:var(--sky-bg);color:var(--sky)}
+.pill.ok{background:var(--mint-bg);color:var(--mint)}
+.pill.warn{background:var(--amber-bg);color:var(--amber)}
+ul{margin:.3em 0 0;padding-left:18px}li{margin:.35em 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-3);
+  font-weight:600;padding:0 14px 10px 0}
+td{padding:11px 14px 11px 0;border-top:1px solid var(--hair);vertical-align:top}
+/* the little graph diagram */
+.diagram{display:flex;flex-direction:column;align-items:center;gap:0;font-family:var(--mono);font-size:12px}
+.box{border:1px solid var(--hair);border-radius:12px;padding:9px 16px;background:var(--shell);color:var(--ink)}
+.box.ai{border-color:rgba(169,156,255,.4);box-shadow:0 0 22px rgba(124,110,255,.12)}
+.edge{color:var(--ink-3);line-height:1.1;padding:5px 0;font-size:16px}
+.loopwrap{display:flex;align-items:center;gap:12px}
+.looptag{color:var(--amber);font-size:11px;font-family:var(--font);letter-spacing:.02em}
+.fan{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+footer{padding:48px 0 80px;color:var(--ink-3);font-size:12px;font-family:var(--mono)}
+button.theme{position:fixed;top:20px;right:20px;z-index:40;appearance:none;cursor:pointer;font:inherit;
+  font-size:.78rem;color:var(--ink-2);background:rgba(13,15,19,.6);border:1px solid var(--hair);
+  border-radius:999px;padding:8px 15px;backdrop-filter:blur(20px);transition:transform .5s var(--ease),color .5s var(--ease)}
+button.theme:hover{color:var(--ink)}button.theme:active{transform:scale(.97)}
+.rise{opacity:0;transform:translate3d(0,34px,0);filter:blur(6px);
+  transition:opacity .85s var(--ease),transform .85s var(--ease),filter .85s var(--ease)}
+.rise.in{opacity:1;transform:none;filter:blur(0)}
+@media(prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;filter:none}}
+@media(max-width:720px){.wrap{padding:0 15px}header{padding:42px 0 14px}.core{padding:20px 17px}pre{font-size:11.5px}}
+@media print{.aurora,button.theme{display:none}.rise{opacity:1;transform:none;filter:none}
+  body{background:#fff;color:#000}.core{background:#fff;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<button class="theme" id="theme" type="button">Light / dark</button>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow"><i class="dot"></i>four ideas · then your code</span>
+  <h1 style="margin-top:16px">LangGraph,<br>explained</h1>
+  <p class="lede" style="margin-top:18px">It is a <b>state machine for LLM work</b>. There are four ideas —
+  state, node, edge, reducer — and one design decision that matters more than all of them:
+  <b>the graph drives, the model only fills in blanks.</b></p>
+</header>
+
+<!-- ─────────── 1 STATE ─────────── -->
+<section class="rise">
+  <div class="shell"><div class="core">
+    <div class="head"><span class="num">1</span><div><h2>State</h2>
+      <p class="muted" style="margin:0">the shared folder that travels through the run</p></div></div>
+    <p>One dictionary passes through every step. Steps don't call each other and don't pass arguments —
+    they all read and write this one object. You declare its shape up front:</p>
+<pre><span class="kw">class</span> <b>JobState</b>(TypedDict, total=<span class="kw">False</span>):
+    job: dict          <span class="cm"># filled by load_job</span>
+    fit: dict          <span class="cm"># filled by fit_analysis</span>
+    plan: dict         <span class="cm"># filled by cv_planner</span>
+    critique: dict     <span class="cm"># filled by critic</span>
+    iterations: int    <span class="cm"># how many times round the loop</span></pre>
+  </div></div>
+</section>
+
+<!-- ─────────── 2 NODE ─────────── -->
+<section class="rise">
+  <div class="shell"><div class="core">
+    <div class="head"><span class="num">2</span><div><h2>Node</h2>
+      <p class="muted" style="margin:0">one step — just a function</p></div></div>
+    <p>A node takes the state and returns <b>only the keys it changed</b>. LangGraph merges them in.
+    There is nothing special about a node: it can call a model, read a database, or fetch a page.</p>
+<pre><span class="kw">def</span> <span class="fn">critic</span>(state) -> dict:
+    data = <span class="fn">ask_the_model</span>(...)
+    <span class="kw">return</span> {<span class="st">"critique"</span>: data}   <span class="cm"># only this key. job and fit are untouched.</span></pre>
+    <p style="margin-top:14px">In your agent <code>load_job</code> is a node and it never touches a model —
+    it is a SQLite read. <span class="pill plain">no AI</span></p>
+  </div></div>
+</section>
+
+<!-- ─────────── 3 EDGE ─────────── -->
+<section class="rise">
+  <div class="shell"><div class="core">
+    <div class="head"><span class="num">3</span><div><h2>Edge</h2>
+      <p class="muted" style="margin:0">what runs next — and the one thing a pipeline cannot do</p></div></div>
+    <p>A plain edge is fixed wiring:</p>
+<pre>graph.<span class="fn">add_edge</span>(<span class="st">"fit_analysis"</span>, <span class="st">"cv_planner"</span>)      <span class="cm"># always go here</span></pre>
+    <p style="margin-top:14px">A <b>conditional edge</b> hands the decision to a function — and that function
+    may point <b>backwards</b>:</p>
+<pre><span class="kw">def</span> <span class="fn">route_after_critic</span>(state) -> str:
+    <span class="kw">if</span> state[<span class="st">"critique"</span>][<span class="st">"ok"</span>] <span class="kw">or</span> state[<span class="st">"iterations"</span>] &gt;= <span class="hl">3</span>:
+        <span class="kw">return</span> <span class="st">"finish"</span>
+    <span class="kw">return</span> <span class="st">"cv_planner"</span>        <span class="cm">← backwards. this is the loop.</span>
+
+graph.<span class="fn">add_conditional_edges</span>(<span class="st">"critic"</span>, route_after_critic,
+                            {<span class="st">"cv_planner"</span>: <span class="st">"cv_planner"</span>, <span class="st">"finish"</span>: <span class="st">"finish"</span>})</pre>
+    <div style="margin:22px 0 6px" class="diagram">
+      <div class="box">load_job</div><div class="edge">↓</div>
+      <div class="box ai">fit_analysis</div><div class="edge">↓</div>
+      <div class="loopwrap">
+        <span class="looptag">↻ max 3</span>
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="box ai">cv_planner</div><div class="edge">↓</div><div class="box ai">critic</div>
+        </div>
+        <span class="looptag">not&nbsp;ok&nbsp;→&nbsp;back</span>
+      </div>
+      <div class="edge">↓ ok, or out of passes</div>
+      <div class="box">finish</div>
+    </div>
+    <p style="margin-top:16px"><b>This backwards edge is the whole reason to use LangGraph.</b>
+    A normal pipeline runs A→B→C once. Here the plan goes back for revision — and the exit is a counter
+    you control, not the model deciding it is finished.</p>
+  </div></div>
+</section>
+
+<!-- ─────────── 4 REDUCER ─────────── -->
+<section class="rise">
+  <div class="shell"><div class="core">
+    <div class="head"><span class="num">4</span><div><h2>Reducer</h2>
+      <p class="muted" style="margin:0">who wins when two nodes write the same key at once</p></div></div>
+    <p>Sequential nodes just overwrite. But your five research topics run <b>at the same time</b>, and all five
+    write <code>topics</code>. LangGraph refuses to guess which wins — so you say how to combine them:</p>
+<pre><span class="kw">class</span> <b>CompanyState</b>(TypedDict, total=<span class="kw">False</span>):
+    topics: <span class="hl">Annotated</span>[dict, merge_dicts]      <span class="cm"># merge both</span>
+    costs:  <span class="hl">Annotated</span>[list, operator.add]    <span class="cm"># append, never replace</span></pre>
+    <div style="margin:20px 0 6px" class="diagram">
+      <div class="box">START</div><div class="edge">↓ all five at once</div>
+      <div class="fan">
+        <div class="box ai">facts</div><div class="box ai">salary</div><div class="box ai">reviews</div>
+        <div class="box ai">exit</div><div class="box ai">interviews</div>
+      </div>
+      <div class="edge">↓ merged by the reducer</div>
+      <div class="box">one research result</div>
+    </div>
+    <p style="margin-top:14px"><code>operator.add</code> on <code>costs</code> is how the cost line at the bottom
+    of your report accumulates 12 calls from branches that never met.</p>
+    <p class="muted" style="margin-top:10px"><b>These nodes really do run on different threads</b> — which is
+    exactly where two of the bugs in this project came from: a SQLite connection and an HTTP session shared
+    across them.</p>
+  </div></div>
+</section>
+
+<!-- ─────────── THE BIG IDEA ─────────── -->
+<section class="rise">
+  <h2 style="font-size:1.6rem;margin-bottom:6px">So where is the LLM?</h2>
+  <p class="lede" style="margin-bottom:18px">This is the design decision worth defending in an interview.</p>
+  <div class="grid g2">
+    <div class="shell"><div class="core">
+      <h3>The common way — model drives</h3>
+      <p class="muted" style="font-size:.9rem">“ReAct agent”. You hand the model tools and it decides:
+      <i>I'll search… now fetch… now I'm done.</i></p>
+      <ul style="font-size:.92rem">
+        <li>Flexible, can improvise</li>
+        <li>Can loop forever</li>
+        <li>Can skip steps or call the wrong tool</li>
+        <li>Hard to unit-test — behaviour is the model's mood</li>
+      </ul>
+    </div></div>
+    <div class="shell"><div class="core">
+      <h3>Yours — graph drives <span class="pill ok">chosen</span></h3>
+      <p class="muted" style="font-size:.9rem">The model never chooses the next step. It is called
+      <i>inside</i> a node, fills one schema, and hands control straight back.</p>
+      <ul style="font-size:.92rem">
+        <li>Flow is ordinary Python — testable</li>
+        <li>Loops bounded by a counter</li>
+        <li>Exactly 5 research topics, never a sixth</li>
+        <li>Every node testable with a fake model</li>
+      </ul>
+    </div></div>
+  </div>
+  <div class="shell" style="margin-top:16px"><div class="core">
+<pre><span class="cm">The whole model call, inside a node:</span>
+
+fit, usage = models.<span class="fn">get_llm</span>(<span class="st">"fit_analysis"</span>).<span class="fn">run</span>(<b>FitAnalysis</b>, system, user)
+             <span class="cm">│                                 │</span>
+             <span class="cm">│                                 └─ a schema it is CONSTRAINED to</span>
+             <span class="cm">└─ ollama:qwen3:4b  or  anthropic:claude-haiku-4-5  (one config line)</span>
+
+<span class="cm">It returns a FitAnalysis object. It does NOT decide where to go next —</span>
+<span class="cm">route_after_critic() does, and that is a function with a unit test.</span></pre>
+  </div></div>
+</section>
+
+<!-- ─────────── WHAT IT BOUGHT ─────────── -->
+<section class="rise">
+  <div class="shell"><div class="core">
+    <h2>What that bought, in the real run</h2>
+    <table style="margin-top:14px">
+      <tr><th>Because the graph decides…</th><th>What actually happened</th></tr>
+      <tr><td>the loop has a counter</td><td>stopped after 3 passes — the model never approved, and that was fine</td></tr>
+      <tr><td>topics are nodes, not choices</td><td>exactly 5 ran; the model could not invent a sixth</td></tr>
+      <tr><td>the model sits behind one seam</td><td>72 tests in 5 s with a fake model — no Ollama, no network</td></tr>
+      <tr><td>a node failure is local</td><td>a schema the model could not fill cost that section, not the run</td></tr>
+      <tr><td>state is checkpointed</td><td>a stopped run resumes mid-graph with <code>--resume</code></td></tr>
+    </table>
+    <p style="margin-top:18px"><b>The honest trade-off:</b> this agent cannot improvise. If a company needed a
+    different kind of research, it would not invent one — you would add a node. For a job-fit tool that is the
+    right call. For open-ended research it would not be.</p>
+  </div></div>
+</section>
+
+<!-- ─────────── GLOSSARY ─────────── -->
+<section class="rise">
+  <div class="shell"><div class="core">
+    <h2>Everything used, in one table</h2>
+    <table style="margin-top:14px">
+      <tr><th>Thing</th><th>What it means</th><th>Where in your code</th></tr>
+      <tr><td><code>StateGraph</code></td><td>the graph being built, typed by its state</td><td>all three graphs</td></tr>
+      <tr><td><code>add_node</code></td><td>register a function as a step</td><td><code>add_node("critic", critic)</code></td></tr>
+      <tr><td><code>add_edge</code></td><td>fixed “then go here”</td><td>fit_analysis → cv_planner</td></tr>
+      <tr><td><code>add_conditional_edges</code></td><td>a function picks the next step — branches and loops</td><td>the critic loop</td></tr>
+      <tr><td><code>Annotated[x, fn]</code></td><td>reducer: how parallel writes combine</td><td><code>costs</code>, <code>topics</code></td></tr>
+      <tr><td><code>Send</code></td><td>fan out to N copies, each with its own payload</td><td>one per company, one per job</td></tr>
+      <tr><td><code>interrupt</code></td><td>stop and wait for a human</td><td>the approval step (<code>--ask</code>)</td></tr>
+      <tr><td><code>Command(resume=…)</code></td><td>continue from where it stopped</td><td><code>runner.run_agent</code></td></tr>
+      <tr><td><code>SqliteSaver</code></td><td>checkpointer — persists state so resume works</td><td><code>compile(checkpointer=…)</code></td></tr>
+      <tr><td><code>compile()</code></td><td>turns the graph into something you <code>.invoke()</code></td><td>end of each builder</td></tr>
+    </table>
+    <p class="muted" style="margin-top:16px">No prebuilt agent, no <code>ToolNode</code>, no ReAct helper.
+    That absence is the point.</p>
+  </div></div>
+</section>
+
+<footer>jobfit_agent · LangGraph + Ollama qwen3:4b · the graph decides, the model fills in blanks</footer>
+</div>
+
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin: "0px 0px 12% 0px"});
+document.querySelectorAll(".rise").forEach((el, i) => { el.style.transitionDelay = Math.min(i, 6) * 50 + "ms"; io.observe(el); });
+setTimeout(() => document.querySelectorAll(".rise").forEach(el => el.classList.add("in")), 2200);
+addEventListener("beforeprint", () => document.querySelectorAll(".rise").forEach(el => el.classList.add("in")));
+document.getElementById("theme").addEventListener("click", () => {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "light" ? "dark" : "light";
+});
+</script>
+</body>
+</html>

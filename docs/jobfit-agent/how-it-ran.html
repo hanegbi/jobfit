@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How the agent ran</title>
+<style>
+:root{
+  --ink:#f4f5f7; --ink-2:#a9b0bd; --ink-3:#6c7482;
+  --void:#050505; --shell:rgba(255,255,255,.035); --core:#0d0f13;
+  --hair:rgba(255,255,255,.085); --hair-2:rgba(255,255,255,.14);
+  --inset:inset 0 1px 0 rgba(255,255,255,.07);
+  --mint:#5de4b4; --amber:#f2c572; --rose:#ff8f84; --iris:#a99cff; --sky:#7cc4ff;
+  --mint-bg:rgba(93,228,180,.10); --amber-bg:rgba(242,197,114,.10);
+  --rose-bg:rgba(255,143,132,.10); --iris-bg:rgba(169,156,255,.12); --sky-bg:rgba(124,196,255,.10);
+  --r-out:2rem; --r-in:calc(2rem - .4rem);
+  --ease:cubic-bezier(.32,.72,0,1);
+  --font:"Geist","Segoe UI Variable Display","SF Pro Display",system-ui,sans-serif;
+  --mono:"Geist Mono","Cascadia Code",ui-monospace,monospace;
+}
+:root[data-theme=light]{
+  --ink:#14161a; --ink-2:#555e6d; --ink-3:#8b93a1; --void:#f7f5f1;
+  --shell:rgba(16,18,24,.035); --core:#fffefb; --hair:rgba(16,18,24,.07); --hair-2:rgba(16,18,24,.12);
+  --inset:inset 0 1px 0 rgba(255,255,255,.9);
+  --mint:#0f7a55; --amber:#8a6412; --rose:#b4382c; --iris:#5546c4; --sky:#1f6fb2;
+}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:var(--void);color:var(--ink);
+  font-family:var(--font);font-size:15px;line-height:1.62;letter-spacing:-.002em;-webkit-font-smoothing:antialiased}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(44rem 30rem at 10% -8%,rgba(124,110,255,.18),transparent 64%),
+             radial-gradient(38rem 28rem at 95% 6%,rgba(32,201,151,.12),transparent 62%),
+             radial-gradient(34rem 26rem at 50% 106%,rgba(255,138,76,.09),transparent 60%)}
+.wrap{position:relative;z-index:2;max-width:1060px;margin:0 auto;padding:0 26px}
+.shell{background:var(--shell);border:1px solid var(--hair);border-radius:var(--r-out);padding:.4rem}
+.core{background:var(--core);border-radius:var(--r-in);box-shadow:var(--inset);padding:26px 28px}
+header{padding:76px 0 26px}
+h1{margin:0;font-size:clamp(2.3rem,5.2vw,3.7rem);line-height:1;letter-spacing:-.035em;font-weight:600}
+h2{font-size:1.35rem;letter-spacing:-.02em;margin:0 0 6px;font-weight:600}
+h3{font-size:.76rem;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-3);margin:0 0 10px;font-weight:600}
+p{margin:0 0 .7em}p:last-child{margin-bottom:0}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--hair);border-radius:999px;
+  padding:5px 13px;font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--ink-2);font-weight:500}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint)}
+.lede{color:var(--ink-2);font-size:1.05rem;max-width:62ch}
+.muted{color:var(--ink-3)}
+section{margin:46px 0}
+.stack{display:flex;flex-direction:column;gap:16px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+pre{margin:0;font-family:var(--mono);font-size:12.5px;line-height:1.75;color:var(--ink-2);
+  white-space:pre;overflow-x:auto;padding:4px 2px}
+pre b{color:var(--ink);font-weight:600}
+pre .kw{color:var(--iris)}
+pre .fn{color:var(--sky)}
+pre .cm{color:var(--ink-3);font-style:italic}
+pre .st{color:var(--mint)}
+.io{display:grid;gap:12px;grid-template-columns:auto 1fr;align-items:start;font-size:.92rem}
+.io dt{color:var(--ink-3);white-space:nowrap}
+.io dd{margin:0}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:11px;font-weight:600}
+.pill.ok{background:var(--mint-bg);color:var(--mint)}
+.pill.warn{background:var(--amber-bg);color:var(--amber)}
+.pill.bad{background:var(--rose-bg);color:var(--rose)}
+.pill.ai{background:var(--iris-bg);color:var(--iris)}
+.pill.plain{background:var(--sky-bg);color:var(--sky)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-3);
+  font-weight:600;padding:0 12px 10px 0}
+td{padding:10px 12px 10px 0;border-top:1px solid var(--hair);vertical-align:top}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.bar{height:6px;border-radius:999px;background:var(--hair);overflow:hidden;min-width:60px}
+.bar i{display:block;height:100%;background:var(--iris);border-radius:999px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+.num{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--shell);
+  border:1px solid var(--hair);font-size:.8rem;font-weight:600;color:var(--ink-2)}
+.arrow{color:var(--ink-3);text-align:center;font-size:20px;line-height:1;padding:2px 0}
+ul{margin:.3em 0 0;padding-left:18px}li{margin:.3em 0}
+.big{font-size:2rem;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+footer{padding:50px 0 80px;color:var(--ink-3);font-size:12px;font-family:var(--mono)}
+button.theme{position:fixed;top:20px;right:20px;z-index:40;appearance:none;cursor:pointer;font:inherit;
+  font-size:.78rem;color:var(--ink-2);background:rgba(13,15,19,.6);border:1px solid var(--hair);
+  border-radius:999px;padding:8px 15px;backdrop-filter:blur(20px);
+  transition:transform .5s var(--ease),color .5s var(--ease)}
+button.theme:hover{color:var(--ink)}button.theme:active{transform:scale(.97)}
+.rise{opacity:0;transform:translate3d(0,34px,0);filter:blur(6px);
+  transition:opacity .85s var(--ease),transform .85s var(--ease),filter .85s var(--ease)}
+.rise.in{opacity:1;transform:none;filter:blur(0)}
+@media(prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;filter:none}}
+@media(max-width:720px){.wrap{padding:0 16px}header{padding:44px 0 18px}.core{padding:20px 18px}
+  pre{font-size:11.5px}.io{grid-template-columns:1fr}}
+@media print{.aurora,button.theme{display:none}.rise{opacity:1;transform:none;filter:none}
+  body{background:#fff;color:#000}.core{background:#fff;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<button class="theme" id="theme" type="button">Light / dark</button>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow"><i class="dot"></i>one real run · 4 Oct 2026</span>
+  <h1 style="margin-top:16px">How the agent<br>actually ran</h1>
+  <p class="lede" style="margin-top:18px">One command, one job URL, one local 4B model, no API key.
+  Below is what went in, what each step did, and what came out — with the measured numbers from that run.</p>
+</header>
+
+<!-- ───────────────── the command ───────────────── -->
+<section class="rise">
+  <div class="shell"><div class="core">
+    <h3>The command</h3>
+<pre><span class="cm"># one job, by its posting url</span>
+python -m jobfit_agent.cli <span class="kw">--url</span> <span class="st">"https://job-boards.eu.greenhouse.io/conifersaicareers/jobs/4793505101"</span>
+
+<span class="cm"># or the top N jobs jobfit already scored</span>
+python -m jobfit_agent.cli <span class="kw">--top</span> 5 <span class="kw">--profile</span> default</pre>
+  </div></div>
+</section>
+
+<!-- ───────────────── input / output ───────────────── -->
+<section class="rise">
+  <div class="grid g2">
+    <div class="shell"><div class="core">
+      <h3>Input</h3>
+      <dl class="io">
+        <dt>job url</dt><dd>one Greenhouse posting</dd>
+        <dt>from jobfit db</dt><dd>the stored job: title, 2,653 chars of description, location, ATS score <b>20</b>, your LinkedIn contacts there</dd>
+        <dt>your CV</dt><dd>3,108 chars, profile <code>default</code></dd>
+        <dt>the web</dt><dd>DuckDuckGo results + the pages behind them</dd>
+        <dt>the model</dt><dd><code>qwen3:4b</code> on Ollama, CPU only, thinking off</dd>
+      </dl>
+    </div></div>
+    <div class="shell"><div class="core">
+      <h3>Output</h3>
+      <dl class="io">
+        <dt>report.html</dt><dd>43 KB, self-contained, one tab per company, one card per job</dd>
+        <dt>report.json</dt><dd>16 KB — the same data, so the page can be restyled without re-running</dd>
+        <dt>cache</dt><dd>the company research, reusable for 14 days</dd>
+        <dt>checkpoints</dt><dd>every step saved, so a stopped run resumes</dd>
+      </dl>
+    </div></div>
+  </div>
+</section>
+
+<!-- ───────────────── pseudocode ───────────────── -->
+<section class="rise">
+  <h2>The whole flow, as pseudocode</h2>
+  <p class="lede" style="margin-bottom:18px">Five nodes do the thinking. Everything else is ordinary code.</p>
+  <div class="shell"><div class="core">
+<pre><span class="kw">run</span>(url):
+
+  <span class="cm">① SELECT — no model, just a database read</span>
+  job  = <span class="fn">store.by_url</span>(url)          <span class="cm"># id = base64url(url), so a url is a key</span>
+  <span class="kw">if</span> <span class="kw">not</span> job: <span class="fn">write_empty_report</span>(); <span class="kw">return</span>
+
+  <span class="cm">② RESEARCH — once per company, 5 topics in parallel, cached 14 days</span>
+  <span class="kw">if</span> <span class="fn">cache.fresh</span>(company): research = <span class="fn">cache.load</span>(company)
+  <span class="kw">else</span>:
+    <span class="kw">parallel for</span> topic <span class="kw">in</span> [facts, funding_exit, reviews, salary, interview_questions]:
+        pages = {}
+        <span class="kw">for</span> q <span class="kw">in</span> topic.<span class="fn">queries</span>(<span class="st">"conifers.ai"</span>):   <span class="cm"># domain first — it names ONE company</span>
+            <span class="kw">for</span> hit <span class="kw">in</span> <span class="fn">search</span>(q)[:2]:
+                pages[hit.url] = <span class="fn">fetch</span>(hit.url) <span class="kw">or</span> hit.snippet
+        <span class="kw">if</span> <span class="kw">not</span> pages: pages = <span class="fn">retry_with</span>(<span class="st">"Conifers Ltd."</span>)   <span class="cm"># loose beats none</span>
+        <span class="kw">if</span> <span class="kw">not</span> pages: <span class="kw">return</span> <span class="st">"no data"</span>
+
+        out = <span class="fn">LLM</span>(topic.schema, pages)      <span class="cm"># ← AI · strict schema, 600-token cap</span>
+
+        <span class="kw">if</span> out.<span class="fn">fills_no_key_field</span>(): <span class="kw">return</span> <span class="st">"no data"</span>   <span class="cm"># a shell is not a finding</span>
+        sources = out.cited ∩ pages_we_fetched  <span class="kw">or</span>  pages_we_fetched
+        <span class="kw">return</span> {data: out, sources, attribution: cited|consulted}
+    <span class="fn">cache.save</span>(company, research)
+
+  <span class="cm">③ THE JOB — fit, then plan ⇄ critic</span>
+  cv  = <span class="fn">load_cv</span>(profile)
+  fit = <span class="fn">LLM</span>(FitAnalysis, job.description, cv, ats_score)   <span class="cm"># ← AI</span>
+
+  <span class="kw">for</span> pass <span class="kw">in</span> 1..3:                                <span class="cm"># bounded. always.</span>
+      plan     = <span class="fn">LLM</span>(CvPlan, fit.gaps, cv, critic_feedback)  <span class="cm"># ← AI</span>
+      critique = <span class="fn">LLM</span>(Critique, plan, cv)                      <span class="cm"># ← AI</span>
+      <span class="kw">if</span> critique.grounded <span class="kw">and</span> (critique.addresses_gaps <span class="kw">or</span> <span class="kw">not</span> fit.gaps):
+          <span class="kw">break</span>                                 <span class="cm"># no gaps = nothing to fail at</span>
+
+  <span class="cm">④ DECIDE — you, after reading. --ask moves it before.</span>
+  <span class="cm">⑤ RENDER — no model: group by company, write json, fill the template</span>
+  <span class="fn">write</span>(report.json); <span class="fn">write</span>(report.html)</pre>
+  </div></div>
+</section>
+
+<!-- ───────────────── what happened, step by step ───────────────── -->
+<section class="rise">
+  <h2>What happened, step by step</h2>
+  <div class="stack" style="margin-top:18px">
+
+    <div class="shell"><div class="core"><div class="step">
+      <span class="num">1</span>
+      <div>
+        <h2 style="font-size:1.1rem">Found the job <span class="pill plain">no AI</span></h2>
+        <p class="muted">The URL became the job id directly, so no search was needed.</p>
+        <p><b>Out:</b> “Senior AI Engineer – Agentic Systems”, Conifers Ltd., Tel Aviv, ATS score 20, 0 contacts.</p>
+      </div>
+    </div></div></div>
+    <div class="arrow">↓</div>
+
+    <div class="shell"><div class="core"><div class="step">
+      <span class="num">2</span>
+      <div>
+        <h2 style="font-size:1.1rem">Researched the company <span class="pill ai">AI ×5</span></h2>
+        <p class="muted">Five topics ran at once: 10 searches, pages fetched, each extracted into a strict schema.</p>
+        <table style="margin-top:12px">
+          <tr><th>Topic</th><th>Result</th><th>Sources</th><th class="num">Time</th></tr>
+          <tr><td>reviews</td><td><span class="pill ok">data</span></td><td>4 pages</td><td class="num">193 s</td></tr>
+          <tr><td>interview questions</td><td><span class="pill ok">data</span></td><td>1 page</td><td class="num">121 s</td></tr>
+          <tr><td>facts</td><td><span class="pill warn">no data</span></td><td>—</td><td class="num">42 s</td></tr>
+          <tr><td>funding / exit</td><td><span class="pill warn">no data</span></td><td>—</td><td class="num">73 s</td></tr>
+          <tr><td>salary</td><td><span class="pill warn">no data</span></td><td>—</td><td class="num">205 s</td></tr>
+        </table>
+        <p style="margin-top:12px"><b>“No data” is a real answer.</b> The pages existed but stated nothing
+        usable, so the report says so rather than inventing a number.</p>
+      </div>
+    </div></div></div>
+    <div class="arrow">↓</div>
+
+    <div class="shell"><div class="core"><div class="step">
+      <span class="num">3</span>
+      <div>
+        <h2 style="font-size:1.1rem">Judged the fit <span class="pill ai">AI</span></h2>
+        <p class="muted">29 s · 1,252 tokens in, 192 out.</p>
+        <p><b>Verdict: strong — and it disagreed with the score.</b> It said the ATS 20/100 was too low and
+        explained why: the CV shows production AI/LLM work and agentic workflows, which the keyword scorer
+        missed because it was reading for security roles.</p>
+        <p class="muted">This is the point of the whole thing: the scorer stays deterministic, and the model
+        argues with it instead of replacing it.</p>
+      </div>
+    </div></div></div>
+    <div class="arrow">↓</div>
+
+    <div class="shell"><div class="core"><div class="step">
+      <span class="num">4</span>
+      <div>
+        <h2 style="font-size:1.1rem">Planned CV edits, and reviewed them <span class="pill ai">AI ×6</span></h2>
+        <p class="muted">3 plans, 3 reviews, 346 s + 36 s.</p>
+        <p>Three concrete edits: rewrite the summary around production AI systems, tag the Hailo role as
+        AI/ML, retitle it “Software Engineer (AI/ML Systems)” — each marked
+        <span class="pill warn">verify first</span> because it is a new claim.</p>
+        <p>The reviewer <b>never approved</b>, so the loop stopped at its limit of 3 and the report says
+        <span class="pill warn">reviewer unsatisfied</span> rather than pretending otherwise.</p>
+      </div>
+    </div></div></div>
+    <div class="arrow">↓</div>
+
+    <div class="shell"><div class="core"><div class="step">
+      <span class="num">5</span>
+      <div>
+        <h2 style="font-size:1.1rem">Wrote the report <span class="pill plain">no AI</span></h2>
+        <p>One tab per company, one card per job, every external fact with its link and date, and a footer
+        listing which model ran each node and what it cost.</p>
+      </div>
+    </div></div></div>
+
+  </div>
+</section>
+
+<!-- ───────────────── the numbers ───────────────── -->
+<section class="rise">
+  <h2>The numbers from that run</h2>
+  <div class="grid g3" style="margin:18px 0">
+    <div class="shell"><div class="core"><h3>Wall clock</h3><div class="big">17.4 min</div>
+      <p class="muted" style="font-size:.85rem">~5 min once research is cached</p></div></div>
+    <div class="shell"><div class="core"><h3>Model calls</h3><div class="big">12</div>
+      <p class="muted" style="font-size:.85rem">5 research · 1 fit · 3 plans · 3 reviews</p></div></div>
+    <div class="shell"><div class="core"><h3>Cost</h3><div class="big">$0.00</div>
+      <p class="muted" style="font-size:.85rem">local model, no API key</p></div></div>
+  </div>
+  <div class="shell"><div class="core">
+    <table>
+      <tr><th>Node</th><th>Calls</th><th></th><th class="num">Seconds</th><th class="num">Tokens in / out</th></tr>
+      <tr><td>salary</td><td>1</td><td><span class="bar"><i style="width:100%"></i></span></td><td class="num">204.9</td><td class="num">256 / 78</td></tr>
+      <tr><td>reviews</td><td>1</td><td><span class="bar"><i style="width:94%"></i></span></td><td class="num">193.2</td><td class="num">1,242 / 357</td></tr>
+      <tr><td>cv_planner</td><td>3</td><td><span class="bar"><i style="width:56%"></i></span></td><td class="num">346.3</td><td class="num">3,741 / 1,800</td></tr>
+      <tr><td>interview_questions</td><td>1</td><td><span class="bar"><i style="width:59%"></i></span></td><td class="num">121.1</td><td class="num">1,428 / 132</td></tr>
+      <tr><td>funding_exit</td><td>1</td><td><span class="bar"><i style="width:36%"></i></span></td><td class="num">72.9</td><td class="num">1,207 / 97</td></tr>
+      <tr><td>facts</td><td>1</td><td><span class="bar"><i style="width:20%"></i></span></td><td class="num">41.7</td><td class="num">1,626 / 44</td></tr>
+      <tr><td>critic</td><td>3</td><td><span class="bar"><i style="width:6%"></i></span></td><td class="num">36.1</td><td class="num">4,044 / 87</td></tr>
+      <tr><td>fit_analysis</td><td>1</td><td><span class="bar"><i style="width:14%"></i></span></td><td class="num">29.3</td><td class="num">1,252 / 192</td></tr>
+      <tr><td><b>Total</b></td><td><b>12</b></td><td></td><td class="num"><b>1,045.5</b></td><td class="num"><b>14,796 / 2,787</b></td></tr>
+    </table>
+    <p class="muted" style="margin-top:14px;font-size:.85rem">Bar = seconds per call. The slow nodes are slow
+    because of how much page text they read, not how much they wrote: on a CPU, reading the prompt costs as
+    much as generating the answer.</p>
+  </div></div>
+</section>
+
+<!-- ───────────────── what broke ───────────────── -->
+<section class="rise">
+  <h2>What broke on the way</h2>
+  <p class="lede" style="margin-bottom:18px">Five bugs that only a real run could find. Worth knowing —
+  they are the interesting part of building an agent.</p>
+  <div class="grid g2">
+    <div class="shell"><div class="core">
+      <h3><span class="pill bad">hang</span> Shared connection</h3>
+      <p>The fan-out runs nodes on several threads, and they shared one SQLite connection.
+      <code>bad parameter or other API misuse</code>. Fixed with a lock.</p>
+    </div></div>
+    <div class="shell"><div class="core">
+      <h3><span class="pill bad">hang</span> Shared HTTP session</h3>
+      <p>Same bug one layer up: one <code>requests.Session</code> across five threads.
+      <b>A run hung 12 minutes</b> with the model idle. Fetching is now serialised and bodies are capped.</p>
+    </div></div>
+    <div class="shell"><div class="core">
+      <h3><span class="pill bad">20 min</span> Runaway generation</h3>
+      <p>No output cap, so an unbounded list of edits let the model write <b>3,000+ tokens at 2.5 tok/s</b>.
+      Capped at 600 tokens and every list bounded in the schema.</p>
+    </div></div>
+    <div class="shell"><div class="core">
+      <h3><span class="pill warn">wrong</span> The wrong company</h3>
+      <p>“Conifers Ltd.” matched <b>Conifer Health Solutions</b> and <b>Conifer Realty</b>. The search now leads
+      with the company's own domain, which names exactly one company.</p>
+    </div></div>
+    <div class="shell"><div class="core">
+      <h3><span class="pill warn">waste</span> Looping over nothing</h3>
+      <p>With no gaps found, the reviewer answered “doesn't address the gaps” — so a fine plan went round
+      three times. No gaps is nothing to fail at.</p>
+    </div></div>
+    <div class="shell"><div class="core">
+      <h3><span class="pill warn">empty</span> A shell as a finding</h3>
+      <p>A salary record with every number <code>null</code> counted as data, because it differed from the
+      schema defaults. Each topic now names the fields that carry its answer.</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- ───────────────── rules ───────────────── -->
+<section class="rise">
+  <h2>Rules the agent cannot break</h2>
+  <div class="shell"><div class="core">
+    <ul style="padding-left:20px">
+      <li><b>No invented facts.</b> No page it actually fetched → “no data”. A source it never read is never shown.</li>
+      <li><b>No invented experience.</b> Every CV edit quotes a real line, or is flagged <span class="pill warn">verify first</span>.</li>
+      <li><b>No silent approval.</b> A review that failed to run is never an approval.</li>
+      <li><b>No writes.</b> The jobfit database is opened read-only.</li>
+      <li><b>No trusting the web.</b> Fetched text is fenced as data in the prompt, and the page builds itself
+      from text nodes — a hostile page cannot run anything.</li>
+      <li><b>No model in the scraper.</b> jobfit never imports the agent, and a test enforces it.</li>
+    </ul>
+  </div></div>
+</section>
+
+<footer>jobfit_agent · LangGraph + Ollama qwen3:4b · 69 tests, no network and no model needed to run them</footer>
+</div>
+
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {rootMargin: "0px 0px 12% 0px"});
+document.querySelectorAll(".rise").forEach((el, i) => { el.style.transitionDelay = Math.min(i, 6) * 50 + "ms"; io.observe(el); });
+setTimeout(() => document.querySelectorAll(".rise").forEach(el => el.classList.add("in")), 2200);
+addEventListener("beforeprint", () => document.querySelectorAll(".rise").forEach(el => el.classList.add("in")));
+document.getElementById("theme").addEventListener("click", () => {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "light" ? "dark" : "light";
+});
+</script>
+</body>
+</html>
