@@ -22,6 +22,9 @@ jobfit/data/.server.lock
 jobfit/cache/pages/
 # URL-audit progress (resumable check_urls run) - transient.
 jobfit/cache/url_check_progress.json
+jobfit/cache/url_check_report.json
+jobfit/cache/url_reopen_progress.json
+jobfit/cache/url_reopen_report.json
 # Per-company flatten cache for aggregate_to_jobs_v2 - regeneratable.
 jobfit/cache/aggregate/
 # Cross-process pipeline lock - exists only while a stage is running.
