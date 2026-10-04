@@ -27,14 +27,13 @@ MAX_PER_DIMENSION = 250
 # separate queries this replaced (measured: 1.09s -> 0.23s on 13,448 rows).
 _FACET_SQL = """
 WITH m AS MATERIALIZED (
-    SELECT j.company_id, c.display_name, j.city, j.status, j.department,
+    SELECT j.company_id, c.display_name, j.city, j.department,
            c.industry, j.source_language, j.years_required
     {joins} {clause}
 )
 SELECT 'company' AS dim, company_id AS value, display_name AS label, count(*) AS n
   FROM m GROUP BY company_id
 UNION ALL SELECT 'city', city, NULL, count(*) FROM m WHERE city IS NOT NULL GROUP BY city
-UNION ALL SELECT 'status', status, NULL, count(*) FROM m GROUP BY status
 UNION ALL SELECT 'department', department, NULL, count(*) FROM m
   WHERE department IS NOT NULL GROUP BY department
 UNION ALL SELECT 'industry', industry, NULL, count(*) FROM m
@@ -46,12 +45,25 @@ UNION ALL SELECT 'years', years_required, NULL, count(*) FROM m
 """
 
 
+def _status_counts(conn: sqlite3.Connection, filters: dict) -> dict[str, int]:
+    """Status is multi-select (see search.build_filter), so its own counts
+    must come from a filter set with status excluded - otherwise picking
+    "new" would make "seen" disappear from the sidebar before you could add
+    it too. Every OTHER filter (q, city, liked, ...) still narrows this."""
+    clause, params = build_filter(**{**filters, "status": None})
+    if clause is NO_MATCH:
+        return {}
+    rows = conn.execute(f"SELECT j.status AS value, count(*) AS n {JOINS} {clause} GROUP BY j.status", params).fetchall()
+    return {row["value"]: row["n"] for row in rows}
+
+
 def counts(conn: sqlite3.Connection, **filters) -> dict:
     clause, params = build_filter(**filters)
     if clause is NO_MATCH:
         return {**_EMPTY}
 
     rows = conn.execute(_FACET_SQL.format(joins=JOINS, clause=clause), params).fetchall()
+    status_counts = _status_counts(conn, filters)
 
     grouped: dict[str, list[sqlite3.Row]] = {}
     for row in rows:
@@ -80,7 +92,7 @@ def counts(conn: sqlite3.Connection, **filters) -> dict:
         },
         "companies": [{"id": r["value"], "name": r["label"], "n": r["n"]} for r in ranked("company")],
         "cities": [{"city": r["value"], "n": r["n"]} for r in ranked("city")],
-        "statuses": {r["value"]: r["n"] for r in grouped.get("status", [])},
+        "statuses": status_counts,
         "departments": [{"department": r["value"], "n": r["n"]} for r in ranked("department")],
         "industries": [{"industry": r["value"], "n": r["n"]} for r in ranked("industry")],
         "languages": [{"language": r["value"], "n": r["n"]} for r in ranked("language")],

@@ -68,7 +68,8 @@ def _csv(value: str) -> list[str]:
 
 
 def build_filter(*, q: str | None = None, scope: str = "all", exclude: str | None = None,
-                 company_id: str | None = None, city: str | None = None, status: str | None = None,
+                 company_id: str | None = None, exclude_company_id: str | None = None,
+                 city: str | None = None, status: str | None = None,
                  is_remote: bool | None = None, min_score: float | None = None, profile: str = "best",
                  liked: bool | None = None, hidden: bool | None = None, sent: bool | None = None,
                  reached_out: bool | None = None, has_connection: bool | None = None,
@@ -110,13 +111,23 @@ def build_filter(*, q: str | None = None, scope: str = "all", exclude: str | Non
         where.append(f"{column} IN ({', '.join(keys)})")
         params.update({key[1:]: item for key, item in zip(keys, wanted)})
 
+    if exclude_company_id:
+        excluded_companies = _csv(exclude_company_id)
+        keys = [f":exclude_company{index}" for index in range(len(excluded_companies))]
+        where.append(f"j.company_id NOT IN ({', '.join(keys)})")
+        params.update({key[1:]: item for key, item in zip(keys, excluded_companies)})
+
     if status == "open":
         # One value for "anything still listed", rather than making every
         # caller enumerate new + seen and get it wrong when a third appears.
         where.append("j.status != 'closed'")
     elif status:
-        where.append("j.status = :status")
-        params["status"] = status
+        # Comma-separated like company/city: "new,seen" picks either, same
+        # IN-clause shape as every other multi-select filter.
+        wanted = _csv(status)
+        keys = [f":status{index}" for index in range(len(wanted))]
+        where.append(f"j.status IN ({', '.join(keys)})")
+        params.update({key[1:]: item for key, item in zip(keys, wanted)})
     if is_remote is not None:
         where.append("j.is_remote = :is_remote")
         params["is_remote"] = int(is_remote)

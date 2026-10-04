@@ -6,6 +6,7 @@ export interface Filters {
   scope: Scope;
   exclude: string;
   company: string | null;
+  excludeCompany: string | null;
   city: string | null;
   department: string | null;
   industry: string | null;

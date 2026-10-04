@@ -90,11 +90,15 @@ def test_companies_with_no_jobs_still_appear():
 # --- the shape that keeps it fast -------------------------------------------
 
 def test_every_dimension_comes_from_one_pass_over_the_rows():
-    """Seven separate GROUP BYs over the same filtered set cost seven scans
+    """Six separate GROUP BYs over the same filtered set cost six scans
     (measured: 1.09s on 13,448 rows, against 0.23s for one materialized
     pass). If this ever becomes several statements again, the search gets
-    slow in a way no functional test would notice."""
-    assert facets._FACET_SQL.count("SELECT") == 8  # the CTE plus seven dimensions
+    slow in a way no functional test would notice.
+
+    Status is not one of the six: it is multi-select, so it needs its own
+    filter set with status excluded (see _status_counts) and cannot share
+    this CTE's clause - that is its own, separate, cheap query."""
+    assert facets._FACET_SQL.count("SELECT") == 7  # the CTE plus six dimensions
     assert "MATERIALIZED" in facets._FACET_SQL, "without this SQLite re-runs the CTE per branch"
     assert facets._FACET_SQL.count(";") == 0, "one statement, one scan"
 
@@ -135,6 +139,24 @@ def test_a_capped_dimension_still_reports_its_true_total():
     # _conn() seeds its own companies, so the total is at least what we added.
     assert result["totals"]["companies"] >= wanted
     assert result["totals"]["companies"] > len(result["companies"])
+
+
+def test_status_counts_survive_selecting_one_status():
+    """Multi-select: picking "new" must not make "seen" vanish from the
+    sidebar, or there would be no way to add it - the facet has to show
+    every status regardless of which one is currently selected."""
+    from jobfit.store import search
+
+    conn = _conn()
+    jobs.upsert_scraped(conn, "beta", [{"id": "j3", "title": "Platform Engineer", "url": "u3"}], NOW)  # now "seen"
+    assert facets.counts(conn, status="new")["statuses"] == {"new": 2, "seen": 1}
+    # And the list itself (not the facet) is narrowed, same as any other filter.
+    assert {j["id"] for j in search.search_jobs(conn, status="new")["jobs"]} == {"j1", "j2"}
+
+
+def test_status_counts_still_respect_every_other_filter():
+    conn = _conn()
+    assert facets.counts(conn, city="Tel Aviv")["statuses"] == {"new": 2}
 
 
 def test_totals_are_present_even_when_nothing_matches():

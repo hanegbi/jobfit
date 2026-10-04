@@ -1,4 +1,4 @@
-import { ArrowUpRight, Heart, PaperPlaneTilt, Phone, EyeSlash } from "@phosphor-icons/react";
+import { ArrowUpRight, Heart, PaperPlaneTilt, Phone, EyeSlash, Prohibit } from "@phosphor-icons/react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { useMemo, useRef } from "react";
 
@@ -91,7 +91,13 @@ function Contacts({ contacts, count }: { contacts: Contact[]; count: number }) {
   );
 }
 
-function Card({ job, query }: { job: JobRow; query: string }) {
+function Card({
+  job, query, onExcludeCompany,
+}: {
+  job: JobRow;
+  query: string;
+  onExcludeCompany?: (companyId: string, companyName: string) => void;
+}) {
   const toggle = useToggleJobState();
   const state = { liked: job.liked, hidden: job.hidden, sent: job.sent, reached_out: job.reached_out };
   const where = job.is_remote ? "Remote" : (job.city ?? job.location ?? null);
@@ -115,6 +121,25 @@ function Card({ job, query }: { job: JobRow; query: string }) {
           )}
           <p className="card-meta">
             <span className="company">{job.company}</span>
+            {onExcludeCompany && (
+              // Only ever shown as the "not excluded yet" state: once a
+              // company is excluded, every one of its jobs - this one
+              // included - drops out of the list on the next fetch, so
+              // there is nothing to toggle back from here. Undo happens
+              // through the "Excluding: ..." chip instead.
+              <button
+                type="button"
+                className="company-exclude"
+                title={`Hide jobs from ${job.company}`}
+                aria-label={`Hide jobs from ${job.company}`}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  onExcludeCompany(job.company_id, job.company);
+                }}
+              >
+                <Prohibit size={12} weight="bold" />
+              </button>
+            )}
             {where && <span>{where}</span>}
             {job.department && <span>{job.department}</span>}
             {job.employment_type && <span>{job.employment_type}</span>}
@@ -206,11 +231,13 @@ export function JobList({
   group = false,
   query = "",
   onClearFilters,
+  onExcludeCompany,
 }: {
   jobs: JobRow[];
   group?: boolean;
   query?: string;
   onClearFilters?: () => void;
+  onExcludeCompany?: (companyId: string, companyName: string) => void;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const items = useMemo(() => toItems(jobs, group), [jobs, group]);
@@ -266,7 +293,7 @@ export function JobList({
                   <span className="count">{item.n}</span>
                 </div>
               ) : (
-                <Card job={item.job} query={query} />
+                <Card job={item.job} query={query} onExcludeCompany={onExcludeCompany} />
               )}
             </div>
           );

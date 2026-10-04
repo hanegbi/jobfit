@@ -1,7 +1,7 @@
 import { X } from "@phosphor-icons/react";
 
 import { EMPTY_FILTERS, MULTI } from "../useFilters";
-import type { Facets, Filters } from "../types";
+import type { Filters } from "../types";
 
 interface Chip {
   key: string;
@@ -12,6 +12,7 @@ interface Chip {
 const LABELS: Partial<Record<keyof Filters, string>> = {
   city: "City",
   company: "Company",
+  excludeCompany: "Excluding",
   department: "Dept",
   industry: "Industry",
   language: "Language",
@@ -38,16 +39,21 @@ const LABELS: Partial<Record<keyof Filters, string>> = {
  * always one of those. This is the answer to "why am I seeing this?". */
 export function ActiveFilters({
   filters,
-  facets,
+  companyNames,
   update,
   reset,
 }: {
   filters: Filters;
-  facets?: Facets;
+  /** id -> display name, accumulated across every facets response this
+   * session has seen (App.tsx owns it) rather than read fresh from
+   * `facets` here - an excluded company drops out of the current facets
+   * response (it has 0 matching jobs by construction), which would
+   * otherwise make its own "Excluding: ..." chip regress to showing the
+   * raw id the moment it is excluded. */
+  companyNames: Map<string, string>;
   update: (patch: Partial<Filters>) => void;
   reset: () => void;
 }) {
-  const companyNames = new Map((facets?.companies ?? []).map((c) => [c.id, c.name]));
   const chips: Chip[] = [];
 
   for (const [key, label] of Object.entries(LABELS) as [keyof Filters, string][]) {
@@ -57,13 +63,17 @@ export function ActiveFilters({
 
     if (MULTI.includes(key)) {
       // One chip per ticked value, so removing a city does not drop the rest.
+      // status falls back to "open only" when its last value is removed,
+      // not "everything" - unchecking your last specific status shouldn't
+      // suddenly bring closed jobs back (see Filters.tsx's own toggle).
+      const emptyValue = key === "status" ? "open" : null;
       for (const item of String(value).split(",").filter(Boolean)) {
-        const shown = key === "company" ? (companyNames.get(item) ?? item) : item;
+        const shown = key === "company" || key === "excludeCompany" ? (companyNames.get(item) ?? item) : item;
         chips.push({
           key: `${key}:${item}`,
           label: `${label}: ${shown}`,
           clear: {
-            [key]: String(value).split(",").filter((v) => v && v !== item).join(",") || null,
+            [key]: String(value).split(",").filter((v) => v && v !== item).join(",") || emptyValue,
           } as Partial<Filters>,
         });
       }

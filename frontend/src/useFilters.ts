@@ -7,6 +7,7 @@ export const EMPTY_FILTERS: Filters = {
   scope: "all",
   exclude: "",
   company: null,
+  excludeCompany: null,
   city: null,
   department: null,
   industry: null,
@@ -36,6 +37,7 @@ const PARAMS: Record<string, keyof Filters> = {
   scope: "scope",
   exclude: "exclude",
   company: "company",
+  exclude_company: "excludeCompany",
   city: "city",
   department: "department",
   industry: "industry",
@@ -62,7 +64,9 @@ const BOOLEANS: (keyof Filters)[] = [
 ];
 const NUMBERS: (keyof Filters)[] = ["minScore", "maxYears", "page"];
 // Filters the API takes as a comma-separated set.
-export const MULTI: (keyof Filters)[] = ["company", "city", "department", "industry", "language"];
+export const MULTI: (keyof Filters)[] = [
+  "company", "excludeCompany", "city", "department", "industry", "language", "status",
+];
 
 /** The filters as a query string, omitting anything at its default so the URL
  * stays short enough to read and to share. `group` is UI-only and is dropped

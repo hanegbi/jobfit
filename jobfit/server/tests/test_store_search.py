@@ -239,6 +239,31 @@ def test_several_companies_or_cities_at_once():
     assert {j["id"] for j in search.search_jobs(conn, city="Tel Aviv,Haifa")["jobs"]} == {"j1", "j2", "j3"}
 
 
+def test_several_statuses_at_once():
+    """Status is multi-select the same way company/city are: "new,seen"
+    picks either, not a replacement of the single-value behavior."""
+    conn = _conn()
+    # Re-scraping acme with both its jobs present (not just one) moves them
+    # to "seen" without closing the other - a re-scrape that omits a job is
+    # what closes it (see test_closed_jobs_are_still_findable_by_status).
+    jobs.upsert_scraped(conn, "acme", [
+        {"id": "j1", "title": "Senior Backend Engineer", "url": "u1"},
+        {"id": "j2", "title": "Data Scientist", "url": "u2"},
+    ], LATER)
+    # j1 and j2 are now "seen"; j3 (beta, untouched) is still "new".
+    assert {j["id"] for j in search.search_jobs(conn, status="new,seen")["jobs"]} == {"j1", "j2", "j3"}
+    assert {j["id"] for j in search.search_jobs(conn, status="seen")["jobs"]} == {"j1", "j2"}
+
+
+def test_excluding_a_company():
+    """The complement of company_id: narrow TO a set vs. narrow AWAY FROM one."""
+    conn = _conn()
+    assert {j["id"] for j in search.search_jobs(conn, exclude_company_id="beta")["jobs"]} == {"j1", "j2"}
+    assert {j["id"] for j in search.search_jobs(conn, exclude_company_id="acme,beta")["jobs"]} == set()
+    # Combines with an ordinary include filter rather than fighting it.
+    assert search.search_jobs(conn, company_id="acme,beta", exclude_company_id="beta")["total"] == 2
+
+
 def test_filtering_by_reached_out():
     from jobfit.store import state
 

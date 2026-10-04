@@ -52,6 +52,14 @@ describe("multi-value filters", () => {
   it("round-trips a set through the URL", () => {
     expect(queryToFilters(filtersToQuery({ company: "acme,beta" })).company).toBe("acme,beta");
   });
+
+  it("round-trips excluded companies through the URL", () => {
+    expect(queryToFilters(filtersToQuery({ excludeCompany: "acme,beta" })).excludeCompany).toBe("acme,beta");
+  });
+
+  it("round-trips a multi-value status through the URL", () => {
+    expect(queryToFilters(filtersToQuery({ status: "new,seen" })).status).toBe("new,seen");
+  });
 });
 
 describe("what the request sends", () => {

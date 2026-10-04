@@ -1,5 +1,5 @@
 import { keepPreviousData, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import { fetchFacets, fetchJobs, fetchScoredProfiles } from "./api";
 import { ActiveFilters } from "./components/ActiveFilters";
@@ -7,7 +7,7 @@ import { FiltersPanel } from "./components/Filters";
 import { JobList } from "./components/JobList";
 import { SearchBar } from "./components/SearchBar";
 import { CardSkeleton } from "./components/Skeleton";
-import { useFilters } from "./useFilters";
+import { toggleInSet, useFilters } from "./useFilters";
 import { useLegacyFlags } from "./useLegacyFlags";
 
 // 50, not 200. The list is virtualized so a bigger page renders no faster,
@@ -44,6 +44,16 @@ export function App() {
   const pageCount = Math.max(1, Math.ceil(total / PAGE_SIZE));
   // The real count, not the length of the capped list the sidebar picks from.
   const companyCount = facetsQuery.data?.totals.companies ?? 0;
+
+  // Every company id -> name this session has ever seen, not just this
+  // query's own facets response - an excluded company has 0 matching jobs
+  // by construction, so it drops out of the very next facets response,
+  // which would otherwise make its own "Excluding: ..." chip regress to
+  // showing the raw id the moment it takes effect.
+  const companyNamesRef = useRef(new Map<string, string>());
+  if (facetsQuery.data) {
+    for (const company of facetsQuery.data.companies) companyNamesRef.current.set(company.id, company.name);
+  }
 
   // Fetch the next page while the user reads this one, so "next" is instant.
   useEffect(() => {
@@ -93,7 +103,7 @@ export function App() {
         />
 
         <main>
-          <ActiveFilters filters={filters} facets={facetsQuery.data} update={update} reset={reset} />
+          <ActiveFilters filters={filters} companyNames={companyNamesRef.current} update={update} reset={reset} />
           {jobsQuery.isError && <p className="error">Could not reach the API. Is the server running?</p>}
           {jobsQuery.isPending && <CardSkeleton />}
           {page && (
@@ -108,7 +118,16 @@ export function App() {
                   </>
                 )}
               </p>
-              <JobList jobs={page.jobs} group={filters.group} query={filters.q} onClearFilters={reset} />
+              <JobList
+                jobs={page.jobs}
+                group={filters.group}
+                query={filters.q}
+                onClearFilters={reset}
+                onExcludeCompany={(companyId, companyName) => {
+                  companyNamesRef.current.set(companyId, companyName);
+                  update({ excludeCompany: toggleInSet(filters.excludeCompany, companyId) });
+                }}
+              />
               {pageCount > 1 && (
                 <nav className="paging">
                   <button type="button" disabled={filters.page <= 1} onClick={() => update({ page: filters.page - 1 })}>

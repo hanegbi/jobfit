@@ -136,9 +136,20 @@ def test_every_old_page_filter_is_reachable_over_http(client, seeded):
     for query in ("scope=title&q=engineer", "exclude=scientist", "department=R%26D",
                   "industry=Software", "language=he", "max_years=5", "posted_after=2026-01-01",
                   "referral=false", "has_description=true", "reached_out=false",
-                  "company=acme,beta", "city=Tel+Aviv,Haifa", "sort=title"):
+                  "company=acme,beta", "city=Tel+Aviv,Haifa", "sort=title",
+                  "exclude_company=acme", "status=new,seen"):
         res = client.get(f"/api/jobs?{query}")
         assert res.status_code == 200, query
+
+
+def test_jobs_can_exclude_a_company(client, seeded):
+    body = client.get("/api/jobs?exclude_company=beta").json()
+    assert {j["id"] for j in body["jobs"]} == {"j1", "j2"}
+
+
+def test_facets_also_take_exclude_company(client, seeded):
+    body = client.get("/api/facets?exclude_company=beta").json()
+    assert {c["name"]: c["n"] for c in body["companies"]} == {"Acme": 2}
 
 
 def test_facets_cover_every_sidebar_dimension(client, seeded):
