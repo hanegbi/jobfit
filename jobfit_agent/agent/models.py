@@ -69,7 +69,8 @@ def get_llm(node: str) -> LLM:
         from langchain_ollama import ChatOllama
         # num_ctx: Ollama defaults to 4096 and silently drops the rest of the prompt,
         # which on a long job description is the whole requirements section.
-        return ChatLLM(ChatOllama(model=name, temperature=0, num_ctx=config.NUM_CTX), spec)
+        return ChatLLM(ChatOllama(model=name, temperature=0, num_ctx=config.NUM_CTX,
+                                  reasoning=config.REASONING), spec)
     if provider == "anthropic":
         from langchain_anthropic import ChatAnthropic
         return ChatLLM(ChatAnthropic(model=name, temperature=0, max_tokens=4096), spec)

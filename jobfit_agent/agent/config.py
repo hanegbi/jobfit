@@ -15,6 +15,10 @@ FETCHES_PER_QUERY = 2
 MIN_DOMAIN_DELAY_S = 1.5   # be polite: one request per domain per 1.5s
 USE_RETRIEVAL = False      # BM25 chunk selection, switched on in Task 10
 NUM_CTX = 8192             # Ollama's default window (4096) would silently cut the CV and job text
+# qwen3 thinks before answering, which on a CPU costs ~4x the wall time for these
+# short, schema-bound tasks (76s vs 20s measured on one fit call). Off by default;
+# turn it on when you care more about the judgement than the wait.
+REASONING = False
 
 # node -> "provider:model". ollama = local and free; anthropic = paid, needs ANTHROPIC_API_KEY.
 # One small model everywhere: this machine has no GPU.
