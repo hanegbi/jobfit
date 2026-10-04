@@ -21,35 +21,46 @@ _EMPTY = {"companies": [], "cities": [], "statuses": {}, "departments": [], "ind
 # ordered by size, so what is cut is always the smallest.
 MAX_PER_DIMENSION = 250
 
-# One row per (dimension, value). Every dimension groups the same filtered
-# set, so the set is built ONCE: without MATERIALIZED, SQLite re-runs the CTE
-# for each branch of the UNION and the whole thing costs the same as the seven
-# separate queries this replaced (measured: 1.09s -> 0.23s on 13,448 rows).
-_FACET_SQL = """
-WITH m AS MATERIALIZED (
-    SELECT j.company_id, c.display_name, j.city, j.department,
-           c.industry, j.source_language, j.years_required
-    {joins} {clause}
-)
-SELECT 'company' AS dim, company_id AS value, display_name AS label, count(*) AS n
-  FROM m GROUP BY company_id
-UNION ALL SELECT 'city', city, NULL, count(*) FROM m WHERE city IS NOT NULL GROUP BY city
-UNION ALL SELECT 'department', department, NULL, count(*) FROM m
-  WHERE department IS NOT NULL GROUP BY department
-UNION ALL SELECT 'industry', industry, NULL, count(*) FROM m
-  WHERE industry IS NOT NULL GROUP BY industry
-UNION ALL SELECT 'language', source_language, NULL, count(*) FROM m
-  WHERE source_language IS NOT NULL GROUP BY source_language
-UNION ALL SELECT 'years', years_required, NULL, count(*) FROM m
-  WHERE years_required IS NOT NULL GROUP BY years_required
-"""
+
+def _ranked(rows: list[sqlite3.Row]) -> list[sqlite3.Row]:
+    """Biggest first, then by name, so a tie is stable and the tail that
+    MAX_PER_DIMENSION drops is always the least useful."""
+    return sorted(rows, key=lambda r: (-r["n"], str(r["label"] or r["value"]).lower()))[:MAX_PER_DIMENSION]
+
+
+def _dimension_counts(
+    conn: sqlite3.Connection, filters: dict, *, filter_key: str, column: str, label_column: str | None = None,
+) -> list[sqlite3.Row]:
+    """Counts for one multi-select sidebar dimension, with THAT dimension's
+    own filter excluded from the query that counts it.
+
+    Without this, picking "Tel Aviv" would filter the row set down to
+    city='Tel Aviv' BEFORE counting cities, so every other city vanishes
+    from the sidebar and there is no way to add a second one - multi-select
+    in the UI with no way to select more than one value underneath it. Every
+    OTHER filter (q, status, liked, a different dimension's own selection,
+    ...) still narrows the count, same as search_jobs itself.
+
+    This is the same fix _status_counts already applied to status,
+    generalized to every dimension that is actually a multi-select picker in
+    the sidebar (company, city, department, industry, language) - "years" is
+    not one (it is a single number input, not a tickable list) and stays out
+    of this.
+    """
+    clause, params = build_filter(**{**filters, filter_key: None})
+    if clause is NO_MATCH:
+        return []
+    not_null = f"{column} IS NOT NULL"
+    clause = f"{clause} AND {not_null}" if clause else f"WHERE {not_null}"
+    label_sql = f"{label_column} AS label" if label_column else f"{column} AS label"
+    return conn.execute(
+        f"SELECT {column} AS value, {label_sql}, count(*) AS n {JOINS} {clause} GROUP BY {column}", params,
+    ).fetchall()
 
 
 def _status_counts(conn: sqlite3.Connection, filters: dict) -> dict[str, int]:
-    """Status is multi-select (see search.build_filter), so its own counts
-    must come from a filter set with status excluded - otherwise picking
-    "new" would make "seen" disappear from the sidebar before you could add
-    it too. Every OTHER filter (q, city, liked, ...) still narrows this."""
+    """Status is multi-select too (see search.build_filter), but it has no
+    label/cap/rank to carry - a flat {value: n} is all it ever needed."""
     clause, params = build_filter(**{**filters, "status": None})
     if clause is NO_MATCH:
         return {}
@@ -58,45 +69,44 @@ def _status_counts(conn: sqlite3.Connection, filters: dict) -> dict[str, int]:
 
 
 def counts(conn: sqlite3.Connection, **filters) -> dict:
-    clause, params = build_filter(**filters)
-    if clause is NO_MATCH:
+    # years has no picker of its own (Max years is a number input, not a
+    # tickable list), so it stays computed from the full, unmodified filter
+    # set - there is nothing to self-exclude. Also doubles as the NO_MATCH
+    # short-circuit every dimension needs, before six dimension-specific passes.
+    full_clause, full_params = build_filter(**filters)
+    if full_clause is NO_MATCH:
         return {**_EMPTY}
 
-    rows = conn.execute(_FACET_SQL.format(joins=JOINS, clause=clause), params).fetchall()
+    company_rows = _dimension_counts(conn, filters, filter_key="company_id", column="j.company_id", label_column="c.display_name")
+    city_rows = _dimension_counts(conn, filters, filter_key="city", column="j.city")
+    department_rows = _dimension_counts(conn, filters, filter_key="department", column="j.department")
+    industry_rows = _dimension_counts(conn, filters, filter_key="industry", column="c.industry")
+    language_rows = _dimension_counts(conn, filters, filter_key="language", column="j.source_language")
     status_counts = _status_counts(conn, filters)
 
-    grouped: dict[str, list[sqlite3.Row]] = {}
-    for row in rows:
-        grouped.setdefault(row["dim"], []).append(row)
-
-    def ranked(dim: str) -> list[sqlite3.Row]:
-        """Biggest first, then by name, so a tie is stable and the tail that
-        MAX_PER_DIMENSION drops is always the least useful."""
-        entries = grouped.get(dim, [])
-        entries.sort(key=lambda r: (-r["n"], str(r["label"] or r["value"]).lower()))
-        return entries[:MAX_PER_DIMENSION]
+    years_clause = f"{full_clause} AND j.years_required IS NOT NULL" if full_clause else "WHERE j.years_required IS NOT NULL"
+    years_rows = conn.execute(
+        f"SELECT j.years_required AS value, j.years_required AS label, count(*) AS n {JOINS} {years_clause} "
+        f"GROUP BY j.years_required",
+        full_params,
+    ).fetchall()
 
     # How many distinct values each dimension really has, before the cap. The
     # list is for picking from; this is for counting by. Capping without it
     # made the page report "across 250 companies" when the answer was 1,492.
-    totals = {dim: len(rows) for dim, rows in grouped.items()}
-
     return {
         "totals": {
-            "companies": totals.get("company", 0),
-            "cities": totals.get("city", 0),
-            "departments": totals.get("department", 0),
-            "industries": totals.get("industry", 0),
-            "languages": totals.get("language", 0),
-            "years": totals.get("years", 0),
+            "companies": len(company_rows), "cities": len(city_rows),
+            "departments": len(department_rows), "industries": len(industry_rows),
+            "languages": len(language_rows), "years": len(years_rows),
         },
-        "companies": [{"id": r["value"], "name": r["label"], "n": r["n"]} for r in ranked("company")],
-        "cities": [{"city": r["value"], "n": r["n"]} for r in ranked("city")],
+        "companies": [{"id": r["value"], "name": r["label"], "n": r["n"]} for r in _ranked(company_rows)],
+        "cities": [{"city": r["value"], "n": r["n"]} for r in _ranked(city_rows)],
         "statuses": status_counts,
-        "departments": [{"department": r["value"], "n": r["n"]} for r in ranked("department")],
-        "industries": [{"industry": r["value"], "n": r["n"]} for r in ranked("industry")],
-        "languages": [{"language": r["value"], "n": r["n"]} for r in ranked("language")],
-        "years": [{"years": r["value"], "n": r["n"]} for r in ranked("years")],
+        "departments": [{"department": r["value"], "n": r["n"]} for r in _ranked(department_rows)],
+        "industries": [{"industry": r["value"], "n": r["n"]} for r in _ranked(industry_rows)],
+        "languages": [{"language": r["value"], "n": r["n"]} for r in _ranked(language_rows)],
+        "years": [{"years": r["value"], "n": r["n"]} for r in _ranked(years_rows)],
     }
 
 

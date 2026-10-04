@@ -28,6 +28,19 @@ def test_counts_group_by_company_city_and_status():
     assert result["statuses"] == {"new": 3}
 
 
+def test_counts_group_by_years_required():
+    """Real bug this locks in: the years dimension's own query never
+    aliased a label column, so _ranked()'s sort key crashed with a
+    KeyError the moment a real years_required value reached it - every
+    test fixture up to this one happened to leave years_required unset, so
+    _ranked() always sorted an empty list and the bug never fired."""
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [{"id": "j4", "title": "Junior Engineer", "url": "u4", "years_required": 2}], NOW)
+    jobs.upsert_scraped(conn, "beta", [{"id": "j5", "title": "Staff Engineer", "url": "u5", "years_required": 8}], NOW)
+    result = {y["years"]: y["n"] for y in facets.counts(conn)["years"]}
+    assert result == {2: 1, 8: 1}
+
+
 def test_counts_respect_the_current_filter():
     """The point of a facet: "how many would each of these narrow me to"."""
     result = facets.counts(_conn(), city="Tel Aviv")
@@ -87,22 +100,6 @@ def test_companies_with_no_jobs_still_appear():
     assert listing["dormant"]["total_jobs"] == 0 and listing["dormant"]["open_jobs"] == 0
 
 
-# --- the shape that keeps it fast -------------------------------------------
-
-def test_every_dimension_comes_from_one_pass_over_the_rows():
-    """Six separate GROUP BYs over the same filtered set cost six scans
-    (measured: 1.09s on 13,448 rows, against 0.23s for one materialized
-    pass). If this ever becomes several statements again, the search gets
-    slow in a way no functional test would notice.
-
-    Status is not one of the six: it is multi-select, so it needs its own
-    filter set with status excluded (see _status_counts) and cannot share
-    this CTE's clause - that is its own, separate, cheap query."""
-    assert facets._FACET_SQL.count("SELECT") == 7  # the CTE plus six dimensions
-    assert "MATERIALIZED" in facets._FACET_SQL, "without this SQLite re-runs the CTE per branch"
-    assert facets._FACET_SQL.count(";") == 0, "one statement, one scan"
-
-
 def test_a_dimension_is_capped_so_the_response_stays_small():
     """1,492 companies was 85KB of a 104KB response, for a list that shows
     eight. The cut falls on the smallest counts, which is why it is ordered."""
@@ -157,6 +154,67 @@ def test_status_counts_survive_selecting_one_status():
 def test_status_counts_still_respect_every_other_filter():
     conn = _conn()
     assert facets.counts(conn, city="Tel Aviv")["statuses"] == {"new": 2}
+
+
+# --- the same multi-select bug, for every other sidebar dimension ----------
+#
+# Real bug: _status_counts fixed this for status alone; city/company/
+# department/industry/language shared the exact same flaw (each dimension's
+# counts were computed from a filtered set that already applied that same
+# dimension's own filter), so picking one city made every other city vanish
+# from the sidebar before a second one could be added. One test per
+# dimension, each proving the OTHER values of that same dimension survive
+# selecting one.
+
+def test_city_counts_survive_selecting_one_city():
+    conn = _conn()
+    result = {c["city"]: c["n"] for c in facets.counts(conn, city="Tel Aviv")["cities"]}
+    assert result == {"Tel Aviv": 2, "Haifa": 1}
+
+
+def test_company_counts_survive_selecting_one_company():
+    conn = _conn()
+    result = {c["name"]: c["n"] for c in facets.counts(conn, company_id="acme")["companies"]}
+    assert result == {"Acme": 2, "Beta": 1}
+
+
+def test_department_counts_survive_selecting_one_department():
+    """department_for() folds the title into a canonical name (see
+    departments.py) - "Backend Engineer" -> Software Engineering,
+    "Account Executive" -> Sales. A fresh connection, not _conn()'s jobs,
+    whose titles ("Platform Engineer" -> DevOps & Infrastructure, "Data
+    Scientist" -> Data & AI) would otherwise add departments beside the
+    two this test means to isolate."""
+    conn = db.connect(":memory:")
+    db.migrate(conn)
+    companies.upsert_company(conn, "acme", "Acme")
+    companies.upsert_company(conn, "beta", "Beta")
+    jobs.upsert_scraped(conn, "acme", [{"id": "j1", "title": "Backend Engineer", "url": "u1"}], NOW)
+    jobs.upsert_scraped(conn, "beta", [{"id": "j2", "title": "Account Executive", "url": "u2"}], NOW)
+    result = {d["department"]: d["n"] for d in facets.counts(conn, department="Software Engineering")["departments"]}
+    assert result == {"Software Engineering": 1, "Sales": 1}
+
+
+def test_industry_counts_survive_selecting_one_industry():
+    conn = db.connect(":memory:")
+    db.migrate(conn)
+    companies.upsert_company(conn, "acme", "Acme", industry="Software")
+    companies.upsert_company(conn, "beta", "Beta", industry="Security")
+    jobs.upsert_scraped(conn, "acme", [{"id": "j1", "title": "Backend Engineer", "url": "u1"}], NOW)
+    jobs.upsert_scraped(conn, "beta", [{"id": "j2", "title": "Security Researcher", "url": "u2"}], NOW)
+    result = {i["industry"]: i["n"] for i in facets.counts(conn, industry="Software")["industries"]}
+    assert result == {"Software": 1, "Security": 1}
+
+
+def test_language_counts_survive_selecting_one_language():
+    """source_language is only ever set on first insert, not a re-scrape
+    (see jobs.py's _FILL_IF_EMPTY) - fresh job ids, not ones _conn() already
+    seeded, or the field would silently stay unset."""
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [{"id": "j4", "title": "מהנדס תוכנה", "url": "u4", "source_language": "he"}], NOW)
+    jobs.upsert_scraped(conn, "beta", [{"id": "j5", "title": "Backend Engineer", "url": "u5", "source_language": "en"}], NOW)
+    result = {lang["language"]: lang["n"] for lang in facets.counts(conn, language="he")["languages"]}
+    assert result == {"he": 1, "en": 1}
 
 
 def test_totals_are_present_even_when_nothing_matches():
