@@ -10,10 +10,12 @@ import { CardSkeleton } from "./components/Skeleton";
 import { toggleInSet, useFilters } from "./useFilters";
 import { useLegacyFlags } from "./useLegacyFlags";
 
-// 50, not 200. The list is virtualized so a bigger page renders no faster,
-// and 200 rows is four screens nobody scrolls before changing the filter -
-// it only makes every keystroke build and ship four times the JSON.
-const PAGE_SIZE = 50;
+// 200 per page, Dan's call over the 50 this used to be: he scrolls a long
+// list rather than paging through it. The list is virtualized, so the rows
+// cost nothing to render; what a bigger page does cost is payload, and
+// measured against the real store that is 228KB against 51KB for 40ms more
+// (224ms -> 264ms on localhost, where the search is debounced anyway).
+const PAGE_SIZE = 200;
 
 export function App() {
   const { filters, update, reset, apply } = useFilters();
