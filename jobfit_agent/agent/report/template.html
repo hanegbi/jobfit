@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Fit Briefs</title>
+<style>
+/* ── tokens ────────────────────────────────────────────────────────────── */
+:root{
+  --ink:#f4f5f7; --ink-2:#a9b0bd; --ink-3:#6c7482;
+  --void:#050505; --shell:rgba(255,255,255,.035); --core:#0d0f13;
+  --hair:rgba(255,255,255,.085); --hair-2:rgba(255,255,255,.14);
+  --inset:inset 0 1px 0 rgba(255,255,255,.07);
+  --glow-a:rgba(124,110,255,.20); --glow-b:rgba(32,201,151,.14); --glow-c:rgba(255,138,76,.10);
+  --mint:#5de4b4; --amber:#f2c572; --rose:#ff8f84; --iris:#a99cff;
+  --mint-bg:rgba(93,228,180,.10); --amber-bg:rgba(242,197,114,.10);
+  --rose-bg:rgba(255,143,132,.10); --iris-bg:rgba(169,156,255,.12);
+  --r-out:2rem; --r-in:calc(2rem - .4rem);
+  --ease:cubic-bezier(.32,.72,0,1);
+  --font:"Geist","PP Editorial New","Segoe UI Variable Display","SF Pro Display",system-ui,sans-serif;
+  --mono:"Geist Mono","Cascadia Code",ui-monospace,monospace;
+}
+:root[data-theme=light]{
+  --ink:#14161a; --ink-2:#555e6d; --ink-3:#8b93a1;
+  --void:#f7f5f1; --shell:rgba(16,18,24,.035); --core:#fffefb;
+  --hair:rgba(16,18,24,.07); --hair-2:rgba(16,18,24,.12);
+  --inset:inset 0 1px 0 rgba(255,255,255,.9);
+  --glow-a:rgba(124,110,255,.14); --glow-b:rgba(32,201,151,.10); --glow-c:rgba(255,138,76,.09);
+  --mint:#0f7a55; --amber:#8a6412; --rose:#b4382c; --iris:#5546c4;
+  --mint-bg:rgba(15,122,85,.08); --amber-bg:rgba(138,100,18,.08);
+  --rose-bg:rgba(180,56,44,.08); --iris-bg:rgba(85,70,196,.08);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; min-height:100dvh; background:var(--void); color:var(--ink);
+  font-family:var(--font); font-size:15px; line-height:1.6;
+  font-feature-settings:"ss01","cv05"; letter-spacing:-.002em;
+  -webkit-font-smoothing:antialiased;
+}
+/* fixed aurora + grain, never on scrolling content */
+.aurora,.grain{position:fixed; inset:0; pointer-events:none}
+.aurora{z-index:0;
+  background:
+    radial-gradient(42rem 30rem at 12% -6%, var(--glow-a), transparent 65%),
+    radial-gradient(38rem 28rem at 96% 8%, var(--glow-b), transparent 62%),
+    radial-gradient(34rem 26rem at 48% 108%, var(--glow-c), transparent 60%);
+}
+.grain{z-index:1; opacity:.035; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{position:relative; z-index:2; max-width:1180px; margin:0 auto; padding:0 28px}
+
+/* ── shell / core: the double bezel ────────────────────────────────────── */
+.shell{background:var(--shell); border:1px solid var(--hair); border-radius:var(--r-out); padding:.4rem}
+.core{background:var(--core); border-radius:var(--r-in); box-shadow:var(--inset); padding:28px 30px}
+.core.tight{padding:20px 22px}
+
+/* ── type ──────────────────────────────────────────────────────────────── */
+h1{margin:0; font-size:clamp(2.4rem,5.4vw,3.9rem); line-height:.98; letter-spacing:-.035em; font-weight:600}
+h2{margin:0 0 14px; font-size:1.0625rem; letter-spacing:-.012em; font-weight:600}
+h3{margin:0 0 8px; font-size:.78rem; text-transform:uppercase; letter-spacing:.18em; color:var(--ink-3); font-weight:600}
+p{margin:0 0 .65em}
+p:last-child{margin-bottom:0}
+.eyebrow{display:inline-flex; align-items:center; gap:.5rem; border:1px solid var(--hair);
+  border-radius:999px; padding:5px 13px; font-size:10px; text-transform:uppercase;
+  letter-spacing:.2em; color:var(--ink-2); font-weight:500}
+.dot{width:5px; height:5px; border-radius:50%; background:var(--mint); box-shadow:0 0 10px var(--mint)}
+.lede{color:var(--ink-2); font-size:1.0625rem; max-width:50ch}
+.muted{color:var(--ink-3)}
+.nodata{color:var(--ink-3); font-style:italic; font-size:.9rem}
+
+/* ── header ────────────────────────────────────────────────────────────── */
+header.top{padding:76px 0 30px}
+.headrow{display:flex; gap:28px; align-items:flex-end; justify-content:space-between; flex-wrap:wrap}
+.ghost{appearance:none; cursor:pointer; font:inherit; font-size:.8rem; color:var(--ink-2);
+  background:var(--shell); border:1px solid var(--hair); border-radius:999px; padding:9px 17px;
+  transition:transform .5s var(--ease), color .5s var(--ease), border-color .5s var(--ease)}
+.ghost:hover{color:var(--ink); border-color:var(--hair-2)}
+.ghost:active{transform:scale(.97)}
+
+/* ── tab island ────────────────────────────────────────────────────────── */
+.island{position:sticky; top:16px; z-index:30; margin:26px 0 34px; width:max-content; max-width:100%;
+  background:rgba(13,15,19,.62); border:1px solid var(--hair); border-radius:999px; padding:.35rem;
+  backdrop-filter:blur(26px) saturate(170%); -webkit-backdrop-filter:blur(26px) saturate(170%)}
+:root[data-theme=light] .island{background:rgba(255,254,251,.72)}
+.island .rail{display:flex; gap:3px; overflow-x:auto; scrollbar-width:none}
+.island .rail::-webkit-scrollbar{display:none}
+[role=tab]{appearance:none; cursor:pointer; font:inherit; font-size:.86rem; white-space:nowrap;
+  display:inline-flex; align-items:center; gap:.55rem; color:var(--ink-2);
+  background:transparent; border:0; border-radius:999px; padding:9px 17px;
+  transition:color .55s var(--ease), background .55s var(--ease)}
+[role=tab]:hover{color:var(--ink)}
+[role=tab][aria-selected=true]{color:var(--ink); background:var(--shell); box-shadow:var(--inset)}
+[role=tab] .badge{font-size:10px; font-variant-numeric:tabular-nums; color:var(--ink-3);
+  background:var(--shell); border:1px solid var(--hair); border-radius:999px; padding:1px 7px}
+[role=tab][aria-selected=true] .badge{color:var(--ink-2)}
+
+/* ── bento ─────────────────────────────────────────────────────────────── */
+.bento{display:grid; grid-template-columns:repeat(12,1fr); gap:16px; margin-bottom:16px}
+.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}
+.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}
+
+/* ── bits ──────────────────────────────────────────────────────────────── */
+.pill{display:inline-flex; align-items:center; gap:.4rem; border-radius:999px;
+  padding:3px 11px; font-size:11px; font-weight:600; letter-spacing:.02em}
+.pill.strong{background:var(--mint-bg); color:var(--mint)}
+.pill.possible,.pill.uncertain{background:var(--amber-bg); color:var(--amber)}
+.pill.weak{background:var(--rose-bg); color:var(--rose)}
+.pill.flag{background:var(--iris-bg); color:var(--iris)}
+.pill.neutral{background:var(--shell); color:var(--ink-3)}
+/* company mark: remote logo on top of a monogram that is always there */
+.mark{position:relative; flex:none; display:grid; place-items:center; overflow:hidden;
+  width:var(--s,44px); height:var(--s,44px); border-radius:calc(var(--s,44px)/3.4);
+  background:var(--shell); border:1px solid var(--hair); box-shadow:var(--inset)}
+.mark .mono{font-size:calc(var(--s,44px)/2.4); font-weight:600; letter-spacing:-.02em; color:var(--ink-2)}
+.mark img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:14%;
+  background:var(--core); opacity:0; transition:opacity .7s var(--ease)}
+.mark img.ok{opacity:1}
+[role=tab] .mark{--s:19px; border-radius:6px}
+[role=tab] .mark img{padding:8%}
+.idrow{display:flex; gap:16px; align-items:center}
+.idrow .name{font-size:1.5rem; font-weight:600; letter-spacing:-.028em}
+.score{display:inline-grid; place-items:center; width:62px; height:62px; border-radius:1.1rem;
+  background:var(--shell); border:1px solid var(--hair); box-shadow:var(--inset);
+  font-size:1.35rem; font-weight:600; font-variant-numeric:tabular-nums; letter-spacing:-.03em}
+.score small{display:block; font-size:9px; font-weight:500; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-3); margin-top:-2px}
+dl.kv{margin:0; display:grid; grid-template-columns:auto 1fr; gap:9px 20px; font-size:.92rem}
+dl.kv dt{color:var(--ink-3)}
+dl.kv dd{margin:0; font-variant-numeric:tabular-nums}
+ul.plain{list-style:none; margin:0; padding:0}
+ul.plain li{position:relative; padding-left:1.1rem; margin:.42rem 0; font-size:.93rem}
+ul.plain li::before{content:""; position:absolute; left:0; top:.62em; width:5px; height:5px;
+  border-radius:50%; background:var(--ink-3)}
+ul.plain.good li::before{background:var(--mint)}
+ul.plain.bad li::before{background:var(--rose)}
+.srcline{margin-top:16px; padding-top:13px; border-top:1px solid var(--hair);
+  font-size:11px; color:var(--ink-3); letter-spacing:.02em}
+.srcline a{color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--hair-2)}
+.srcline a:hover{color:var(--ink)}
+.money{font-size:1.85rem; font-weight:600; letter-spacing:-.03em; font-variant-numeric:tabular-nums}
+
+/* ── job card ──────────────────────────────────────────────────────────── */
+.jobhead{display:flex; gap:22px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
+.jobtitle{font-size:1.4rem; font-weight:600; letter-spacing:-.025em; line-height:1.18; margin:0 0 7px}
+.meta{font-size:.8rem; color:var(--ink-3); display:flex; gap:.5rem; flex-wrap:wrap}
+.meta span+span::before{content:"·"; margin-right:.5rem; color:var(--hair-2)}
+.cta{display:inline-flex; align-items:center; gap:.7rem; text-decoration:none; font-size:.86rem;
+  font-weight:500; color:var(--ink); background:var(--shell); border:1px solid var(--hair);
+  border-radius:999px; padding:7px 9px 7px 19px; box-shadow:var(--inset);
+  transition:transform .6s var(--ease), border-color .6s var(--ease)}
+.cta:hover{border-color:var(--hair-2)}
+.cta:active{transform:scale(.98)}
+.cta .nest{width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
+  background:var(--shell); border:1px solid var(--hair); font-size:.8rem;
+  transition:transform .6s var(--ease)}
+.cta:hover .nest{transform:translate(3px,-2px) scale(1.06)}
+table{width:100%; border-collapse:collapse; font-size:.9rem}
+th{text-align:left; font-size:10px; text-transform:uppercase; letter-spacing:.16em;
+  color:var(--ink-3); font-weight:600; padding:0 14px 10px 0}
+td{padding:11px 14px 11px 0; border-top:1px solid var(--hair); vertical-align:top}
+tr.row{cursor:pointer; transition:opacity .4s var(--ease)}
+tr.row:hover{opacity:.62}
+.filter{width:100%; max-width:380px; font:inherit; font-size:.9rem; color:var(--ink);
+  background:var(--shell); border:1px solid var(--hair); border-radius:999px;
+  padding:10px 18px; margin-bottom:20px; transition:border-color .5s var(--ease)}
+.filter:focus{outline:0; border-color:var(--hair-2)}
+.filter::placeholder{color:var(--ink-3)}
+details{margin-top:18px}
+summary{cursor:pointer; font-size:.8rem; color:var(--ink-3); list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"＋ "; font-size:.9em}
+details[open] summary::before{content:"－ "}
+summary:hover{color:var(--ink-2)}
+pre.jd{white-space:pre-wrap; word-break:break-word; font-family:var(--mono); font-size:.8rem;
+  line-height:1.7; color:var(--ink-2); margin:14px 0 0; max-height:30rem; overflow:auto}
+footer.foot{padding:56px 0 80px; font-size:11px; color:var(--ink-3); font-family:var(--mono)}
+.stack{display:flex; flex-direction:column; gap:16px}
+.row-wrap{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+
+/* ── motion ────────────────────────────────────────────────────────────── */
+.rise{opacity:0; transform:translate3d(0,42px,0); filter:blur(7px);
+  transition:opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease)}
+.rise.in{opacity:1; transform:translate3d(0,0,0); filter:blur(0)}
+@media(prefers-reduced-motion:reduce){.rise{opacity:1; transform:none; filter:none; transition:none}}
+
+/* ── responsive ────────────────────────────────────────────────────────── */
+@media(max-width:860px){
+  .c4,.c5,.c6,.c7,.c8{grid-column:span 12}
+  .wrap{padding:0 16px}
+  header.top{padding:48px 0 22px}
+  .core{padding:22px 20px}
+  .island{position:static; margin:20px 0 26px; width:100%}
+}
+@media print{
+  .island,.ghost,.filter,.aurora,.grain{display:none!important}
+  body{background:#fff; color:#000}
+  .shell{border-color:#ddd}.core{background:#fff; box-shadow:none}
+  .rise{opacity:1; transform:none; filter:none}
+  [hidden]{display:block!important}
+}
+</style>
+</head>
+<body>
+<div class="aurora"></div><div class="grain"></div>
+
+<div class="wrap">
+  <header class="top">
+    <div class="headrow">
+      <div>
+        <span class="eyebrow"><i class="dot"></i><span id="eyebrow">brief</span></span>
+        <h1 style="margin-top:18px">Job&nbsp;Fit<br>Briefs</h1>
+        <p class="lede" style="margin-top:18px" id="lede"></p>
+      </div>
+      <button class="ghost" id="theme" type="button">Light / dark</button>
+    </div>
+  </header>
+
+  <nav class="island" aria-label="Companies"><div class="rail" role="tablist" id="tabs"></div></nav>
+  <main id="main"></main>
+  <footer class="foot" id="foot"></footer>
+</div>
+
+<script id="data" type="application/json">__REPORT_JSON__</script>
+<script>
+"use strict";
+const R = JSON.parse(document.getElementById("data").textContent);
+
+/* ── helpers: every string lands as a text node, never as markup ───────── */
+const httpOnly = u => /^https?:\/\//i.test(u || "");
+const safeUrl = u => httpOnly(u) ? u : null;
+const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return u; } };
+const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "x";
+const day = s => (s || "").slice(0, 10);
+const num = n => Number(n).toLocaleString("en-US");
+
+function h(tag, props, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(props || {})) {
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v;
+    else if (k === "href") { const u = safeUrl(v); if (!u) continue; el.setAttribute("href", u); el.target = "_blank"; el.rel = "noopener noreferrer"; }
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const kid of kids.flat(Infinity)) {
+    if (kid == null || kid === false) continue;
+    el.append(kid instanceof Node ? kid : document.createTextNode(String(kid)));
+  }
+  return el;
+}
+const bezel = (cls, ...kids) => h("div", {class: "shell rise " + (cls || "")}, h("div", {class: "core"}, ...kids));
+
+/* A company mark is a monogram with the real logo laid over it. The logo is
+   fetched from a public favicon service, so an offline reader, a blocked
+   request or a company we have no domain for still sees a clean tile. */
+const LOGO = d => `https://www.google.com/s2/favicons?sz=128&domain=${encodeURIComponent(d)}`;
+function mark(company, size) {
+  const letter = (company.name || "?").replace(/[^A-Za-z0-9]/g, "").charAt(0).toUpperCase() || "?";
+  const tile = h("span", {class: "mark", style: size ? `--s:${size}px` : null, "aria-hidden": "true"},
+    h("span", {class: "mono"}, letter));
+  if (company.domain) {
+    const img = h("img", {alt: "", loading: "lazy", referrerpolicy: "no-referrer"});
+    img.addEventListener("load", () => { if (img.naturalWidth > 1) img.classList.add("ok"); });
+    img.src = LOGO(company.domain);
+    tile.append(img);
+  }
+  return tile;
+}
+const scoreTile = n => h("div", {class: "score", title: "deterministic ATS score"}, String(Math.round(n)), h("small", {}, "ats"));
+const verdict = v => ({strong: "strong", possible: "possible", weak: "weak"}[v] || "neutral");
+
+/* ── research topics ──────────────────────────────────────────────────── */
+function sourceLine(t) {
+  if (!t || !t.sources || !t.sources.length) return null;
+  const links = t.sources.filter(httpOnly);
+  if (!links.length) return null;
+  return h("div", {class: "srcline"}, "Sources · ", day(t.retrieved_at), " · ",
+    links.map((u, i) => [i ? ", " : "", h("a", {href: u}, host(u))]));
+}
+function topicBody(name, t) {
+  if (!t || !t.data) return h("p", {class: "nodata"}, t && t.error ? "No data — " + t.error : "No data");
+  const d = t.data;
+  if (name === "facts") {
+    const rows = [["Headcount", d.employees], ["Based in", d.location], ["Founded", d.founded],
+                  ["Stage", d.stage], ["Raised", d.funding_total], ["Last round", d.last_round]].filter(r => r[1]);
+    return rows.length ? h("dl", {class: "kv"}, rows.map(([k, v]) => [h("dt", {}, k), h("dd", {}, v)]))
+                       : h("p", {class: "nodata"}, "No fields filled");
+  }
+  if (name === "funding_exit") return h("div", {},
+    h("span", {class: "pill " + (d.outlook === "no_data" ? "neutral" : "uncertain")}, String(d.outlook).replace(/_/g, " ")),
+    d.reasoning ? h("p", {style: "margin-top:12px"}, d.reasoning) : null,
+    d.signals && d.signals.length ? h("ul", {class: "plain"}, d.signals.map(s => h("li", {}, s))) : null);
+  if (name === "reviews") {
+    const col = (title, items, cls) => h("div", {}, h("h3", {}, title),
+      items && items.length ? h("ul", {class: "plain " + cls}, items.map(t2 => h("li", {}, t2.text, t2.mentions > 1 ? h("span", {class: "muted"}, ` ×${t2.mentions}`) : null)))
+                            : h("p", {class: "nodata"}, "nothing recurring"));
+    return h("div", {style: "display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))"},
+      col("Pros", d.pros, "good"), col("Cons", d.cons, "bad"));
+  }
+  if (name === "salary") {
+    const has = d.low != null || d.high != null;
+    return h("div", {},
+      has ? h("div", {class: "money"}, [d.currency, num(d.low ?? d.high)].filter(Boolean).join(" "),
+              d.low != null && d.high != null ? " – " + num(d.high) : "")
+          : h("p", {class: "nodata"}, "no range stated"),
+      h("div", {class: "meta", style: "margin-top:8px"},
+        d.basis && d.basis !== "unknown" ? h("span", {}, d.basis) : null,
+        d.role ? h("span", {}, d.role) : null));
+  }
+  if (name === "interview_questions")
+    return d.stages && d.stages.length
+      ? h("div", {class: "stack"}, d.stages.map((s, i) => h("div", {},
+          h("h3", {}, `${String(i + 1).padStart(2, "0")} · ${s.stage}`),
+          h("ul", {class: "plain"}, (s.questions || []).map(q => h("li", {}, q))))))
+      : h("p", {class: "nodata"}, "no stages reported");
+  return null;
+}
+const TOPIC = {facts: ["Company", "c4"], salary: ["Compensation", "c4"], funding_exit: ["Exit outlook", "c4"],
+               reviews: ["What people say", "c7"], interview_questions: ["Interview process", "c5"]};
+
+function companyPanels(c) {
+  const topics = (c.research && c.research.topics) || {};
+  const panel = key => { const [title, span] = TOPIC[key];
+    return bezel(span, h("h2", {}, title), topicBody(key, topics[key]), sourceLine(topics[key])); };
+  const contacts = bezel("c12", h("h2", {}, "Your way in"),
+    c.contacts && c.contacts.length
+      ? h("div", {class: "row-wrap"}, c.contacts.map(p => h("a", {class: "cta", href: p.url},
+          h("span", {}, p.name, p.position ? h("span", {class: "muted"}, " · " + p.position) : null),
+          h("span", {class: "nest"}, "↗"))))
+      : h("p", {class: "nodata"}, "No first-degree contact here yet."));
+  const head = h("div", {class: "shell rise c12"}, h("div", {class: "core tight"},
+    h("div", {class: "idrow"}, mark(c, 52),
+      h("div", {},
+        h("div", {class: "name"}, c.name),
+        h("div", {class: "meta"},
+          h("span", {}, `${c.jobs.length} open role${c.jobs.length === 1 ? "" : "s"} here`),
+          c.domain ? h("span", {}, c.domain) : null)))));
+  return [
+    h("div", {class: "bento"}, head),
+    h("div", {class: "bento"}, panel("facts"), panel("salary"), panel("funding_exit")),
+    h("div", {class: "bento"}, panel("reviews"), panel("interview_questions")),
+    h("div", {class: "bento"}, contacts),
+  ];
+}
+
+/* ── job card ─────────────────────────────────────────────────────────── */
+function jobCard(e) {
+  const j = e.job, f = e.fit || {}, p = e.plan || {}, cr = e.critique || {};
+  const score = Math.max(...Object.values(e.scores || {}).map(s => s.score || 0), 0);
+  const metaBits = [j.location, j.department, j.posted_at ? "posted " + day(j.posted_at) : null,
+                    j.years_required ? j.years_required + "+ yrs" : null,
+                    j.is_remote ? "remote" : null].filter(Boolean);
+  const edits = (p.edits || []).length
+    ? h("table", {},
+        h("thead", {}, h("tr", {}, ["Line", "Change", "Why"].map(t => h("th", {}, t)))),
+        h("tbody", {}, p.edits.map(ed => h("tr", {},
+          h("td", {}, ed.target === "new" ? h("span", {class: "pill neutral"}, "new line") : ed.target),
+          h("td", {}, ed.change, ed.only_if_true ? [" ", h("span", {class: "pill flag"}, "verify first")] : null),
+          h("td", {class: "muted"}, ed.reason)))))
+    : h("p", {class: "nodata"}, "No edits suggested.");
+
+  return h("div", {class: "shell rise c12"}, h("div", {class: "core"},
+    h("div", {class: "jobhead"},
+      h("div", {style: "min-width:min(100%,22rem)"},
+        h("h2", {class: "jobtitle"}, j.title),
+        h("div", {class: "meta"}, metaBits.map(b => h("span", {}, b)))),
+      h("div", {class: "row-wrap"},
+        e.referrals && e.referrals.is_referral ? h("span", {class: "pill flag"}, "referral") : null,
+        f.verdict ? h("span", {class: "pill " + verdict(f.verdict)}, f.verdict + " fit") : null,
+        scoreTile(score),
+        j.url ? h("a", {class: "cta", href: j.url}, "Open", h("span", {class: "nest"}, "↗")) : null)),
+
+    f.rationale ? h("p", {class: "lede", style: "margin-top:20px;max-width:68ch"}, f.rationale) : null,
+    f.score_agreement ? h("div", {class: "meta", style: "margin-top:6px"},
+      h("span", {}, "model " + f.score_agreement + " with the ATS score")) : null,
+
+    h("div", {style: "display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:26px"},
+      h("div", {}, h("h3", {}, "Strengths"),
+        (f.strengths || []).length ? h("ul", {class: "plain good"}, f.strengths.map(s => h("li", {}, s)))
+                                   : h("p", {class: "nodata"}, "none listed")),
+      h("div", {}, h("h3", {}, "Gaps"),
+        (f.gaps || []).length ? h("ul", {class: "plain bad"}, f.gaps.map(s => h("li", {}, s)))
+                              : h("p", {class: "nodata"}, "none listed")),
+      (f.deal_breakers || []).length
+        ? h("div", {}, h("h3", {}, "Deal-breakers"), h("ul", {class: "plain bad"}, f.deal_breakers.map(s => h("li", {}, s))))
+        : null),
+
+    h("div", {style: "margin-top:30px;padding-top:24px;border-top:1px solid var(--hair)"},
+      h("h3", {}, "CV plan"),
+      p.summary ? h("p", {style: "margin-bottom:16px"}, p.summary) : null,
+      edits,
+      h("div", {class: "srcline"},
+        h("span", {class: "pill " + (cr.ok ? "strong" : "possible")}, cr.ok ? "reviewer approved" : "reviewer unsatisfied"),
+        `  after ${e.iterations} pass${e.iterations === 1 ? "" : "es"}`,
+        (cr.fabricated_claims || []).length ? " · flagged: " + cr.fabricated_claims.join("; ") : "")),
+
+    j.description ? h("details", {}, h("summary", {}, "Job description"), h("pre", {class: "jd"}, j.description)) : null));
+}
+
+/* ── overview ─────────────────────────────────────────────────────────── */
+function overview() {
+  const rows = [];
+  for (const c of R.companies) for (const e of c.jobs)
+    rows.push({c, e, score: Math.max(...Object.values(e.scores || {}).map(s => s.score || 0), 0)});
+  if (!rows.length)
+    return [bezel("c12", h("h2", {}, "Nothing to show"),
+      h("p", {class: "nodata"}, "No jobs were selected for this run."))];
+
+  const tbody = h("tbody", {});
+  const draw = q => {
+    const hit = rows.filter(r => (r.c.name + " " + r.e.job.title).toLowerCase().includes(q.toLowerCase()));
+    tbody.replaceChildren(...hit.map(r => h("tr", {class: "row", onclick: () => select(slug(r.c.name))},
+      h("td", {}, h("span", {class: "idrow", style: "gap:10px"}, mark(r.c, 22), h("span", {}, r.c.name))),
+      h("td", {}, r.e.job.title),
+      h("td", {}, String(Math.round(r.score))),
+      h("td", {}, h("span", {class: "pill " + verdict(r.e.fit && r.e.fit.verdict)}, (r.e.fit && r.e.fit.verdict) || "—")),
+      h("td", {class: "muted"}, r.c.contacts && r.c.contacts.length ? String(r.c.contacts.length) : "—"))));
+  };
+  draw("");
+  const stat = (k, v) => bezel("c4", h("h3", {}, k), h("div", {class: "money"}, v));
+  return [
+    h("div", {class: "bento"},
+      stat("Jobs", String(rows.length)), stat("Companies", String(R.companies.length)),
+      stat("Best score", String(Math.round(Math.max(...rows.map(r => r.score)))))),
+    h("div", {class: "bento"}, bezel("c12", h("h2", {}, "Every job in this run"),
+      h("input", {class: "filter", type: "search", placeholder: "Filter by company or title",
+                  oninput: ev => draw(ev.target.value)}),
+      h("table", {}, h("thead", {}, h("tr", {}, ["Company", "Role", "ATS", "Verdict", "Contacts"].map(t => h("th", {}, t)))), tbody))),
+  ];
+}
+
+/* ── tabs ─────────────────────────────────────────────────────────────── */
+const tabs = [{id: "overview", label: "Overview", count: null, render: overview}].concat(
+  R.companies.map(c => ({
+    id: slug(c.name), label: c.name, count: c.jobs.length, company: c,
+    render: () => [...companyPanels(c),
+      h("div", {class: "bento"}, ...c.jobs.map(jobCard))],
+  })));
+
+const rail = document.getElementById("tabs"), main = document.getElementById("main");
+let io = null, settle = null;
+const showAll = () => main.querySelectorAll(".rise").forEach(el => el.classList.add("in"));
+function reveal() {
+  if (io) io.disconnect();
+  clearTimeout(settle);
+  io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }),
+                                {rootMargin: "0px 0px 12% 0px"});
+  main.querySelectorAll(".rise").forEach((el, i) => { el.style.transitionDelay = Math.min(i, 7) * 55 + "ms"; io.observe(el); });
+  // The reveal is decoration, never a gate on reading: anything still hidden a
+  // moment later is shown anyway, so print, screenshots and a page the reader
+  // never scrolls can't swallow a job card.
+  settle = setTimeout(showAll, 2200);
+}
+window.addEventListener("beforeprint", showAll);
+function select(id, push = true) {
+  const tab = tabs.find(t => t.id === id) || tabs[0];
+  for (const b of rail.children) b.setAttribute("aria-selected", String(b.dataset.id === tab.id));
+  main.replaceChildren(...[tab.render()].flat(Infinity));
+  if (push) history.replaceState(null, "", "#" + tab.id);
+  reveal();
+  window.scrollTo({top: 0, behavior: "instant"});
+}
+tabs.forEach(t => rail.append(h("button", {role: "tab", type: "button", "data-id": t.id,
+  "aria-selected": "false", onclick: () => select(t.id)},
+  t.company ? mark(t.company, 19) : null,
+  t.label, t.count != null ? h("span", {class: "badge"}, String(t.count)) : null)));
+rail.addEventListener("keydown", ev => {
+  if (!["ArrowRight", "ArrowLeft"].includes(ev.key)) return;
+  const i = tabs.findIndex(t => t.id === document.activeElement.dataset.id);
+  if (i < 0) return;
+  ev.preventDefault();
+  const next = rail.children[(i + (ev.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+  next.focus(); select(next.dataset.id);
+});
+window.addEventListener("hashchange", () => select(location.hash.slice(1), false));
+
+/* ── chrome ───────────────────────────────────────────────────────────── */
+const jobCount = R.companies.reduce((n, c) => n + c.jobs.length, 0);
+document.getElementById("eyebrow").textContent = `${jobCount} role${jobCount === 1 ? "" : "s"} · ${R.companies.length} compan${R.companies.length === 1 ? "y" : "ies"}`;
+document.getElementById("lede").textContent =
+  `Deterministic scores from jobfit, reasoning and company research on top. CV profile “${R.profile}”, generated ${day(R.generated_at)}.`;
+document.getElementById("theme").addEventListener("click", () => {
+  const root = document.documentElement;
+  root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+});
+const cost = R.costs || {by_node: [], total_seconds: 0, total_input_tokens: 0, total_output_tokens: 0};
+document.getElementById("foot").textContent =
+  (cost.by_node.map(n => `${n.node}·${n.model}×${n.calls}`).join("   ") || "no model calls") +
+  `\n${num(cost.total_input_tokens)} in / ${num(cost.total_output_tokens)} out tokens · ${cost.total_seconds}s total`;
+document.getElementById("foot").style.whiteSpace = "pre-line";
+
+select(location.hash.slice(1), false);
+</script>
+</body>
+</html>

@@ -10,7 +10,7 @@ from jobfit_agent.agent.schemas import Critique, CvPlan, FitAnalysis
 from jobfit_agent.agent.tools import jobfit_store
 
 JOB_FIELDS = ("id", "company_id", "company", "title", "url", "location", "city", "is_remote",
-              "department", "description", "posted_at", "years_required")
+              "department", "description", "posted_at", "years_required", "career_url")
 _JD_CHARS = 6000
 _CV_CHARS = 6000
 
