@@ -23,7 +23,7 @@ REASONING = False
 # run spent 20 minutes emitting 3,000 tokens at 2.5 tok/s for an answer that needs
 # about 300. Nothing here legitimately needs more, and an answer that overruns the
 # cap is caught as a parse failure rather than running until the context fills.
-MAX_OUTPUT_TOKENS = 900
+MAX_OUTPUT_TOKENS = 600
 # Reading the prompt is the other half of the wall time on a CPU.
 JD_CHARS = 4000
 CV_CHARS = 4000
