@@ -77,12 +77,7 @@ def _select_context(pages: dict[str, str], topic: Topic, company: str = "") -> d
     return {url: text[:config.PAGE_CHARS] for url, text in pages.items()}
 
 
-def run_topic(topic: Topic, company: str, *, now: str, domain: str | None = None,
-              extra_pages: dict[str, str] | None = None) -> tuple[dict, list[dict]]:
-    # A company name alone is ambiguous: "Conifers Ltd." returned Conifer Health
-    # Solutions and Conifer Realty. Its own domain is the one token that is not.
-    label = f"{company} {domain}" if domain else company
-    pages: dict[str, str] = dict(extra_pages or {})
+def _gather(topic: Topic, label: str, pages: dict[str, str]) -> None:
     for query in topic.queries(label):
         for hit in search(query)[:config.FETCHES_PER_QUERY]:
             if hit.url in pages:
@@ -90,6 +85,20 @@ def run_topic(topic: Topic, company: str, *, now: str, domain: str | None = None
             text = fetch_url(hit.url) or hit.snippet     # blocked pages (Glassdoor) still give a snippet
             if text:
                 pages[hit.url] = text
+
+
+def run_topic(topic: Topic, company: str, *, now: str, domain: str | None = None,
+              extra_pages: dict[str, str] | None = None) -> tuple[dict, list[dict]]:
+    # A company name alone is ambiguous - "Conifers Ltd." returned Conifer Health
+    # Solutions and Conifer Realty - so the domain leads, being the one name that
+    # belongs to exactly one company. But a domain-qualified query can also match
+    # nothing at all, and no results is worse than loose ones, so the plain name is
+    # the fallback rather than the default.
+    pages: dict[str, str] = dict(extra_pages or {})
+    if domain:
+        _gather(topic, domain, pages)
+    if not pages:
+        _gather(topic, company, pages)
     if not pages:
         return {"data": None, "retrieved_at": now, "sources": [], "error": "no search results"}, []
 

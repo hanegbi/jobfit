@@ -73,3 +73,16 @@ def test_output_is_capped_so_a_rambling_model_cannot_run_forever():
     from jobfit_agent.agent.schemas import CvPlan as P
     assert cfg.MAX_OUTPUT_TOKENS <= 2000
     assert P.model_fields["edits"].metadata  # the list is bounded in the schema too
+
+
+def test_a_plan_is_not_rejected_for_gaps_that_do_not_exist(store, monkeypatch):
+    """With no gaps the critic cannot answer addresses_gaps truthfully, and a real
+    run looped three times over a plan nobody faulted."""
+    no_gaps = FitAnalysis(verdict="strong", strengths=["python"], gaps=[], deal_breakers=[],
+                          score_agreement="higher", rationale="r")
+    picky = Critique(grounded=True, addresses_gaps=False, fabricated_claims=[], feedback="")
+    fake = FakeLLM({"FitAnalysis": no_gaps, "CvPlan": PLAN, "Critique": picky})
+    monkeypatch.setattr(jobfit_store, "load_cv_text", lambda p: "Built services in Python")
+    monkeypatch.setattr(models, "get_llm", lambda node: fake)
+    brief = run()
+    assert brief["iterations"] == 1 and brief["critique"]["ok"] is True

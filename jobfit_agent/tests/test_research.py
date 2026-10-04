@@ -131,3 +131,27 @@ def test_a_salary_with_a_number_survives(monkeypatch):
     _wire(monkeypatch, {"SalaryOut": SalaryOut(low=120000, basis="base", evidence_urls=[URL])})
     result, _ = research.run_topic(research.TOPICS["salary"], "Acme", now=NOW)
     assert result["data"]["low"] == 120000
+
+
+def test_the_plain_name_is_the_fallback_when_the_domain_query_finds_nothing(monkeypatch):
+    seen = []
+
+    def picky(q):
+        seen.append(q)
+        return [] if "conifers.ai" in q else [SearchHit("t", URL, "snip")]
+
+    monkeypatch.setattr(research, "search", picky)
+    monkeypatch.setattr(research, "fetch_url", lambda u: "text")
+    monkeypatch.setattr(models, "get_llm", lambda node: FakeLLM(_responses()))
+    result, _ = research.run_topic(research.TOPICS["facts"], "Conifers Ltd.", now=NOW, domain="conifers.ai")
+    assert any("conifers.ai" in q for q in seen) and any("Conifers Ltd." in q for q in seen)
+    assert result["data"] is not None       # the fallback rescued the topic
+
+
+def test_the_domain_alone_is_enough_when_it_finds_pages(monkeypatch):
+    seen = []
+    monkeypatch.setattr(research, "search", lambda q: seen.append(q) or [SearchHit("t", URL, "snip")])
+    monkeypatch.setattr(research, "fetch_url", lambda u: "text")
+    monkeypatch.setattr(models, "get_llm", lambda node: FakeLLM(_responses()))
+    research.run_topic(research.TOPICS["facts"], "Conifers Ltd.", now=NOW, domain="conifers.ai")
+    assert all("conifers.ai" in q for q in seen)        # no fallback needed, name never searched
