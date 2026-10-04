@@ -168,6 +168,60 @@ def test_a_job_with_no_evidence_reads_back_as_none():
     assert next(iter(jobs.iter_all(conn)))["job_evidence"] is None
 
 
+def test_reopen_by_url_reverses_close_by_url():
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1")], NOW)
+    jobs.close_by_url(conn, {"https://acme.com/jobs/1": "url: http 404"}, LATER)
+    stats = jobs.reopen_by_url(conn, ["https://acme.com/jobs/1"], LATER)
+    row = jobs.get_job(conn, "1")
+    assert stats["jobs_reopened"] == 1
+    assert row["status"] == "seen" and row["closed_at"] is None and row["closed_reason"] is None
+
+
+def test_reopen_by_url_counts_an_already_open_job_separately():
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1")], NOW)
+    stats = jobs.reopen_by_url(conn, ["https://acme.com/jobs/1"], LATER)
+    assert stats == {"jobs_reopened": 0, "already_open": 1}
+
+
+def test_duplicate_closed_jobs_finds_the_tikalk_case():
+    """The real bug: the same posting scraped under two URLs (here, the
+    same host with two different volatile query-param values
+    normalize_job_url strips), where one copy closed - e.g. the scrape
+    that produced it stopped running - while the other stayed open."""
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [
+        {"id": "unrelated", "title": "Office Manager", "url": "https://acme.com/career/office-manager"},
+    ], NOW)
+    jobs.upsert_scraped(conn, "acme", [
+        {"id": "new", "title": "Senior Data Engineer", "url": "https://acme.com/career/senior-data-engineer?t=12345"},
+        {"id": "dup", "title": "Senior Data Engineer", "url": "https://acme.com/career/senior-data-engineer?t=99999"},
+    ], NOW)
+    conn.execute("UPDATE jobs SET status = 'closed', closed_at = ?, closed_reason = ? WHERE id = 'dup'",
+                 (LATER, "not on the listing"))
+    dupes = jobs.duplicate_closed_jobs(conn)
+    assert {d["id"] for d in dupes} == {"dup"}
+    assert dupes[0]["open_sibling_id"] == "new"
+
+
+def test_closed_with_url_lists_only_closed_jobs_that_have_a_url():
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1"), _job("https://acme.com/jobs/2")], NOW)
+    jobs.close_by_url(conn, {"https://acme.com/jobs/1": "gone"}, LATER)
+    assert [r["id"] for r in jobs.closed_with_url(conn)] == ["1"]
+
+
+def test_iter_open_skips_closed_jobs():
+    """recompute_stage scores iter_open, not iter_all - a closed job is
+    dead, the app never shows it, and scoring it every run bought nothing."""
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1"), _job("https://acme.com/jobs/2")], NOW)
+    jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1")], LATER)  # "2" wasn't seen again - closes
+    assert {j["id"] for j in jobs.iter_all(conn)} == {"1", "2"}
+    assert {j["id"] for j in jobs.iter_open(conn)} == {"1"}
+
+
 def test_every_stored_job_can_be_scored(store_conn):
     """The end-to-end shape check: whatever the store hands back must be
     acceptable to the scorer, which is where the evidence bug surfaced."""

@@ -416,7 +416,9 @@ def recompute_stage(force: bool = False) -> None:
         pending: list[dict] = []
         wanted_keys: dict[str, dict[str, str]] = {}
         total = 0
-        for job in store_jobs.iter_all(conn):
+        # Closed is dead: the app never shows it, so there is nothing to
+        # gain by scoring it - iter_open, not iter_all.
+        for job in store_jobs.iter_open(conn):
             total += 1
             keys = {name: scoring.score_cache_key(job, profile, profile_id=name) for name, profile in profiles.items()}
             stored = store_scores.scores_for_job(conn, job["id"])
@@ -461,6 +463,16 @@ def close_jobs_by_url(closed_urls: dict[str, str]) -> dict[str, int]:
     with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="close-stale",
                                    scope=f"{len(closed_urls)} urls"):
         return store_jobs.close_by_url(db.shared(), closed_urls, _now_iso())
+
+
+def reopen_jobs_by_url(urls: list[str]) -> dict[str, int]:
+    """The other half of close_jobs_by_url: a closed job whose URL audit
+    (check_urls.py) found still live. Same lock, same "nothing is deleted"
+    rule - reopening just clears the closed_at/closed_reason a false
+    closure set."""
+    with pipeline_lock.PipelineLock(config.PIPELINE_LOCK_PATH, stage="reopen-live",
+                                   scope=f"{len(urls)} urls"):
+        return store_jobs.reopen_by_url(db.shared(), urls, _now_iso())
 
 
 def merge_referral_jobs(profiles: dict, path: "Path | None" = None) -> dict[str, int]:

@@ -57,6 +57,15 @@ def iter_all(conn: sqlite3.Connection):
         yield row_to_job(row)
 
 
+def iter_open(conn: sqlite3.Connection):
+    """Every job that is not closed, in id order, as a decoded dict. What
+    recompute_stage scores: a closed job is dead, the app never shows it,
+    and spending CPU re-scoring it on every run bought nothing - roughly
+    half the real corpus is closed jobs."""
+    for row in conn.execute("SELECT * FROM jobs WHERE status != 'closed' ORDER BY id"):
+        yield row_to_job(row)
+
+
 def all_with_company(conn: sqlite3.Connection) -> list[dict]:
     """Every job with its company's display name, industry and size - what
     the page needs on each row."""
@@ -207,6 +216,66 @@ def upsert_scraped(conn: sqlite3.Connection, company_id: str, scraped: list[dict
             )
         closed_count = len(gone)
     return new_count, closed_count
+
+
+def closed_with_url(conn: sqlite3.Connection) -> list[dict]:
+    """Closed jobs that still have a URL - the reopen audit's worklist. A
+    closed job with no URL can never be re-verified, so it is not here."""
+    return [dict(row) for row in conn.execute(
+        "SELECT id, url, title, company_id, closed_reason FROM jobs "
+        "WHERE url IS NOT NULL AND status = 'closed' ORDER BY id"
+    )]
+
+
+def reopen_by_url(conn: sqlite3.Connection, urls: list[str], now: str) -> dict[str, int]:
+    """The other half of close_by_url: a closed job whose URL turns out to
+    still be live. Reopens as "seen", not "new" - the posting isn't new, we
+    were just wrong that it was gone."""
+    stats = {"jobs_reopened": 0, "already_open": 0}
+    wanted = {normalize_job_url(url) for url in urls if normalize_job_url(url)}
+    if not wanted:
+        return stats
+    for row in conn.execute("SELECT id, url, status FROM jobs WHERE url IS NOT NULL").fetchall():
+        if normalize_job_url(row["url"]) not in wanted:
+            continue
+        if row["status"] != "closed":
+            stats["already_open"] += 1
+            continue
+        conn.execute(
+            "UPDATE jobs SET status = 'seen', closed_at = NULL, closed_reason = NULL, last_seen = ? WHERE id = ?",
+            (now, row["id"]),
+        )
+        stats["jobs_reopened"] += 1
+    return stats
+
+
+def duplicate_closed_jobs(conn: sqlite3.Connection) -> list[dict]:
+    """Closed jobs that are, by normalized URL, the exact same posting as an
+    OPEN job at the same company - the Tikalk bug: a company switches ATS
+    host (or appends a volatile query parameter normalize_job_url now
+    strips) mid-scrape, so the same real posting gets two different stored
+    URLs and two different ids, and the one the next scrape no longer
+    revisits closes while its twin stays open. Proven to be the same
+    posting by URL identity, not a liveness guess - safe to reopen."""
+    by_company: dict[str, dict[str, list[dict]]] = {}
+    for row in conn.execute("SELECT id, company_id, url, status, title FROM jobs WHERE url IS NOT NULL"):
+        normalized = normalize_job_url(row["url"])
+        if not normalized:
+            continue
+        by_company.setdefault(row["company_id"], {}).setdefault(normalized, []).append(dict(row))
+
+    duplicates = []
+    for groups in by_company.values():
+        for group in groups.values():
+            if len(group) < 2:
+                continue
+            open_rows = [r for r in group if r["status"] != "closed"]
+            closed_rows = [r for r in group if r["status"] == "closed"]
+            if not open_rows or not closed_rows:
+                continue
+            for closed in closed_rows:
+                duplicates.append({**closed, "open_sibling_id": open_rows[0]["id"], "open_sibling_url": open_rows[0]["url"]})
+    return duplicates
 
 
 def close_by_url(conn: sqlite3.Connection, closed_urls: dict[str, str], now: str) -> dict[str, int]:
