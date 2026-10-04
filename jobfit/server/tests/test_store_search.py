@@ -205,6 +205,18 @@ def test_terms_can_be_excluded():
     assert {j["id"] for j in search.search_jobs(conn, q="engineer", exclude="senior")["jobs"]} == set()
 
 
+def test_exclusion_reads_the_title_only():
+    """A word in a description is usually incidental; the title is where the role
+    is named. "engineering" appears in b1's description and in no title, so it
+    must exclude nothing - and "python", which only a description mentions,
+    must not take a1 away either."""
+    conn = _rich()
+    assert {j["id"] for j in search.search_jobs(conn, exclude="engineering")["jobs"]} == {"a1", "a2", "b1"}
+    assert "a1" in {j["id"] for j in search.search_jobs(conn, exclude="python")["jobs"]}
+    # a title match still excludes, with the search itself scoped to descriptions
+    assert {j["id"] for j in search.search_jobs(conn, exclude="researcher")["jobs"]} == {"a1", "a2"}
+
+
 def test_filtering_by_department_industry_and_language():
     """Both fixtures say department="R&D", and the store does not store that.
     "Senior Backend Engineer" becomes Software Engineering; "Security

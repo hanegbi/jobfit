@@ -92,7 +92,11 @@ def build_filter(*, q: str | None = None, scope: str = "all", exclude: str | Non
         where.append("j.rowid IN (SELECT rowid FROM jobs_fts WHERE jobs_fts MATCH :match)")
         params["match"] = match
     if exclude:
-        excluded = _fts_query(exclude, scope="all").replace(" AND ", " OR ")
+        # Titles only, whatever the search scope is. A word in a description is
+        # usually incidental - "no agencies", "reporting to the recruiter" - and
+        # matching it threw away jobs whose own title never said it. What you
+        # exclude is a kind of role, and the title is where the role is named.
+        excluded = _fts_query(exclude, scope="title").replace(" AND ", " OR ")
         if excluded:
             where.append("j.rowid NOT IN (SELECT rowid FROM jobs_fts WHERE jobs_fts MATCH :excluded)")
             params["excluded"] = excluded

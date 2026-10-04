@@ -110,7 +110,7 @@ export function SearchBar({ filters, total, loading, update }: Props) {
         <input
           className="search exclude"
           type="text"
-          placeholder="without these words…"
+          placeholder="titles without these words…"
           autoFocus
           defaultValue={filters.exclude}
           onBlur={(event) => event.target.value !== filters.exclude && update({ exclude: event.target.value })}

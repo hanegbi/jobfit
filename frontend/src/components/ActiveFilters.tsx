@@ -28,7 +28,7 @@ const LABELS: Partial<Record<keyof Filters, string>> = {
   sent: "CV sent",
   reachedOut: "Reached out",
   profile: "CV",
-  exclude: "Without",
+  exclude: "Title without",
 };
 
 /** Everything currently narrowing the results, as chips you can take off.
