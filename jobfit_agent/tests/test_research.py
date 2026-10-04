@@ -105,3 +105,29 @@ def test_cache_round_trip_and_ttl():
     assert cache.load("acme", now="2026-10-10T10:00:00+00:00") is not None
     assert cache.load("acme", now="2026-10-20T10:00:00+00:00") is None      # older than 14 days
     assert cache.load("unknown", now=NOW) is None
+
+
+def test_the_company_domain_disambiguates_the_search(monkeypatch):
+    seen = []
+    monkeypatch.setattr(research, "search", lambda q: seen.append(q) or [SearchHit("t", URL, "s")])
+    monkeypatch.setattr(research, "fetch_url", lambda u: "text")
+    _wire(monkeypatch, _responses(), hits=None)
+    monkeypatch.setattr(research, "search", lambda q: seen.append(q) or [SearchHit("t", URL, "s")])
+    fake = FakeLLM(_responses())
+    monkeypatch.setattr(models, "get_llm", lambda node: fake)
+    research.run_topic(research.TOPICS["facts"], "Conifers Ltd.", now=NOW, domain="conifers.ai")
+    assert all("conifers.ai" in q for q in seen)
+    assert "conifers.ai" in fake.calls[0][1]
+
+
+def test_a_shell_record_with_no_numbers_is_not_a_salary(monkeypatch):
+    # every field null but basis at its schema default: a result only in shape
+    _wire(monkeypatch, {"SalaryOut": SalaryOut(basis="base", evidence_urls=[URL])})
+    result, _ = research.run_topic(research.TOPICS["salary"], "Acme", now=NOW)
+    assert result["data"] is None and result["error"] == "pages said nothing"
+
+
+def test_a_salary_with_a_number_survives(monkeypatch):
+    _wire(monkeypatch, {"SalaryOut": SalaryOut(low=120000, basis="base", evidence_urls=[URL])})
+    result, _ = research.run_topic(research.TOPICS["salary"], "Acme", now=NOW)
+    assert result["data"]["low"] == 120000

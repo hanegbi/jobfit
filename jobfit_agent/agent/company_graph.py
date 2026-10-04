@@ -16,6 +16,7 @@ def merge_dicts(left: dict, right: dict) -> dict:
 class CompanyState(TypedDict, total=False):
     company_id: str
     company_name: str
+    domain: str
     now: str
     topics: Annotated[dict, merge_dicts]
     costs: Annotated[list, operator.add]
@@ -30,7 +31,7 @@ def _topic_node(name: str):
             except Exception:       # no store wired (e.g. benchmark): the topic still works from the web
                 extra = None
         result, costs = research.run_topic(research.TOPICS[name], state["company_name"],
-                                           now=state["now"], extra_pages=extra)
+                                           now=state["now"], domain=state.get("domain"), extra_pages=extra)
         return {"topics": {name: result}, "costs": costs}
     node.__name__ = name
     return node

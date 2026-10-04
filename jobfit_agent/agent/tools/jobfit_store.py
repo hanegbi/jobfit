@@ -4,6 +4,7 @@ import base64
 import re
 import sqlite3
 import threading
+from urllib.parse import urlparse
 
 from jobfit import config as jobfit_config
 from jobfit import cv
@@ -77,6 +78,16 @@ def job_with_context(conn, job_id: str) -> dict:
             raise KeyError(job_id)
         job["contacts"] = companies.contacts_for(conn, [job["company_id"]]).get(job["company_id"], [])
     return job
+
+
+def company_domain(conn, company_id: str) -> str | None:
+    """The company's own domain, from its careers page. The one token that tells
+    conifers.ai apart from Conifer Realty when searching the web for either."""
+    with _LOCK:
+        row = companies.get_company(conn, company_id)
+    host = urlparse((row["career_url"] if row else None) or "").netloc.lower()
+    host = host.split("@")[-1].split(":")[0]
+    return host[4:] if host.startswith("www.") else (host or None)
 
 
 def load_cv_text(profile: str) -> str:

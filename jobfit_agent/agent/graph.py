@@ -49,6 +49,7 @@ def after_select(state: RunState):
         return [Send("dispatch", state)]
     companies = {j["company_id"]: j["company"] for j in state["selected"]}
     return [Send("research_company", {"company_id": cid, "company_name": name, "now": state["now"],
+                                      "domain": jobfit_store.company_domain(jobfit_store.get_conn(), cid),
                                       "refresh": state.get("refresh", False)})
             for cid, name in companies.items()]
 
@@ -60,9 +61,10 @@ def research_company(payload: dict) -> dict:
         if cached:
             return {"research": {company_id: cached}}
     result = build_company_graph().invoke(
-        {"company_id": company_id, "company_name": payload["company_name"], "now": payload["now"]})
+        {"company_id": company_id, "company_name": payload["company_name"],
+         "domain": payload.get("domain") or "", "now": payload["now"]})
     research = {"company_id": company_id, "company_name": payload["company_name"],
-                "fetched_at": payload["now"], "topics": result["topics"]}
+                "domain": payload.get("domain"), "fetched_at": payload["now"], "topics": result["topics"]}
     cache.save(company_id, research)
     return {"research": {company_id: research}, "costs": result["costs"]}
 
