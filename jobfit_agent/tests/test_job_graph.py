@@ -50,3 +50,26 @@ def test_the_loop_is_bounded_when_the_critic_never_approves(wired):
     wired([WEAK])
     brief = run()
     assert brief["iterations"] == config.MAX_PLAN_PASSES and brief["critique"]["ok"] is False
+
+
+def test_a_model_that_will_not_produce_the_schema_costs_one_section_not_the_run(store, monkeypatch):
+    from jobfit_agent.agent import models as models_mod
+
+    class Broken:
+        def run(self, schema, system, user):
+            raise models_mod.LLMParseError("qwen3:4b did not return valid " + schema.__name__)
+
+    monkeypatch.setattr(jobfit_store, "load_cv_text", lambda p: "cv")
+    monkeypatch.setattr(models, "get_llm", lambda node: Broken())
+    brief = run()
+    assert "did not return valid" in brief["fit"]["error"]
+    assert brief["plan"]["edits"] == [] and brief["costs"] == []
+    # an unwritten review must never read as an approval
+    assert brief["critique"]["ok"] is False
+
+
+def test_output_is_capped_so_a_rambling_model_cannot_run_forever():
+    from jobfit_agent.agent import config as cfg
+    from jobfit_agent.agent.schemas import CvPlan as P
+    assert cfg.MAX_OUTPUT_TOKENS <= 2000
+    assert P.model_fields["edits"].metadata  # the list is bounded in the schema too

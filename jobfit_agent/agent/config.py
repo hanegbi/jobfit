@@ -19,6 +19,14 @@ NUM_CTX = 8192             # Ollama's default window (4096) would silently cut t
 # short, schema-bound tasks (76s vs 20s measured on one fit call). Off by default;
 # turn it on when you care more about the judgement than the wait.
 REASONING = False
+# A 4B model asked for a list of edits will happily write edits forever. One real
+# run spent 20 minutes emitting 3,000 tokens at 2.5 tok/s for an answer that needs
+# about 300. Nothing here legitimately needs more, and an answer that overruns the
+# cap is caught as a parse failure rather than running until the context fills.
+MAX_OUTPUT_TOKENS = 900
+# Reading the prompt is the other half of the wall time on a CPU.
+JD_CHARS = 4000
+CV_CHARS = 4000
 
 # node -> "provider:model". ollama = local and free; anthropic = paid, needs ANTHROPIC_API_KEY.
 # One small model everywhere: this machine has no GPU.

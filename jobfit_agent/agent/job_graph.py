@@ -11,8 +11,16 @@ from jobfit_agent.agent.tools import jobfit_store
 
 JOB_FIELDS = ("id", "company_id", "company", "title", "url", "location", "city", "is_remote",
               "department", "description", "posted_at", "years_required", "career_url")
-_JD_CHARS = 6000
-_CV_CHARS = 6000
+
+
+def _ask(node: str, schema, system: str, user: str, fallback: dict) -> tuple[dict, list[dict]]:
+    """Run one node's model call. A local model that will not produce the schema
+    costs that section of the brief, not the whole run."""
+    try:
+        out, usage = models.get_llm(node).run(schema, system, user)
+    except Exception as error:
+        return {**fallback, "error": str(error)[:300]}, []
+    return out.model_dump(), [models.cost_entry(node, usage)]
 
 
 class JobState(TypedDict, total=False):
@@ -54,10 +62,12 @@ def fit_analysis(state: JobState) -> dict:
               "job description given. Never invent experience. The ATS score is a deterministic baseline: say "
               "whether your own view agrees, is higher or is lower.")
     user = (f"ATS score: {score}\nMatched skills: {matched}\n\n"
-            f"<job_description>\n{state['job']['description'][:_JD_CHARS]}\n</job_description>\n\n"
-            f"<cv>\n{state['cv_text'][:_CV_CHARS]}\n</cv>")
-    fit, usage = models.get_llm("fit_analysis").run(FitAnalysis, system, user)
-    return {"fit": fit.model_dump(), "costs": [models.cost_entry("fit_analysis", usage)]}
+            f"<job_description>\n{state['job']['description'][:config.JD_CHARS]}\n</job_description>\n\n"
+            f"<cv>\n{state['cv_text'][:config.CV_CHARS]}\n</cv>")
+    blank = {"verdict": "possible", "strengths": [], "gaps": [], "deal_breakers": [],
+             "score_agreement": "agrees", "rationale": ""}
+    fit, costs = _ask("fit_analysis", FitAnalysis, system, user, blank)
+    return {"fit": fit, "costs": costs}
 
 
 def cv_planner(state: JobState) -> dict:
@@ -67,21 +77,23 @@ def cv_planner(state: JobState) -> dict:
     feedback = state.get("critique", {}).get("feedback", "")
     user = (f"Gaps to address: {state['fit']['gaps']}\n"
             + (f"Reviewer feedback on your previous plan: {feedback}\n" if feedback else "")
-            + f"\n<job_description>\n{state['job']['description'][:_JD_CHARS]}\n</job_description>\n\n"
-              f"<cv>\n{state['cv_text'][:_CV_CHARS]}\n</cv>")
-    plan, usage = models.get_llm("cv_planner").run(CvPlan, system, user)
-    return {"plan": plan.model_dump(), "iterations": state["iterations"] + 1,
-            "costs": [models.cost_entry("cv_planner", usage)]}
+            + f"\n<job_description>\n{state['job']['description'][:config.JD_CHARS]}\n</job_description>\n\n"
+              f"<cv>\n{state['cv_text'][:config.CV_CHARS]}\n</cv>")
+    plan, costs = _ask("cv_planner", CvPlan, system, user, {"summary": "", "edits": []})
+    return {"plan": plan, "iterations": state["iterations"] + 1, "costs": costs}
 
 
 def critic(state: JobState) -> dict:
     system = ("You review a CV edit plan. grounded=true only if every edit quotes real CV text or is flagged "
               "only_if_true. List any fabricated claims. Give short, actionable feedback.")
-    user = f"<cv>\n{state['cv_text'][:_CV_CHARS]}\n</cv>\n\nPlan: {state['plan']}\nGaps: {state['fit']['gaps']}"
-    critique, usage = models.get_llm("critic").run(Critique, system, user)
-    data = critique.model_dump()
-    data["ok"] = critique.grounded and critique.addresses_gaps and not critique.fabricated_claims
-    return {"critique": data, "costs": [models.cost_entry("critic", usage)]}
+    user = (f"<cv>\n{state['cv_text'][:config.CV_CHARS]}\n</cv>\n\n"
+            f"Plan: {state['plan']}\nGaps: {state['fit']['gaps']}")
+    blank = {"grounded": False, "addresses_gaps": False, "fabricated_claims": [], "feedback": ""}
+    data, costs = _ask("critic", Critique, system, user, blank)
+    # A review that did not happen is not an approval.
+    data["ok"] = bool(data["grounded"] and data["addresses_gaps"] and not data["fabricated_claims"]
+                      and not data.get("error"))
+    return {"critique": data, "costs": costs}
 
 
 def route_after_critic(state: JobState) -> str:
