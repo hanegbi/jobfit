@@ -59,20 +59,27 @@ def family_affinity(roles: list[Role], now: date, decay_years: float) -> dict[st
         decay_years: Recency decay window - see _role_weight.
 
     Returns:
-        {family: affinity in [0, 1]}, summing to 1.0 across every role
-        that has both a family and a weight, or all zeros when no role
-        does (no work history, or everything beyond the decay window).
+        {family: affinity in [0, 1]}, scaled so the strongest family is
+        1.0, or all zeros when no role has both a family and a weight (no
+        work history, or everything beyond the decay window).
+
+        Scaled by the max, NOT by the sum. scorer.score() multiplies
+        job_fit by family_fit, which is itself at most the largest weight
+        in here (family_fit.family_fit takes max(weight x adjacency)), so a
+        sum-normalized vector silently caps every score at that share:
+        a CV spread evenly over four families could not score above 25/100
+        no matter how well it matched, while a single-family CV with
+        identical evidence could reach 100. "Share of my career" and "how
+        suited am I" are different quantities, and this one is the latter.
     """
     affinity = {family: 0.0 for family in load_role_families().families}
-    weights = {}
-    for i, role in enumerate(roles):
+    for role in roles:
         w = _role_weight(role, now.year, decay_years)
         if w > 0 and role.family:
-            weights[i] = w
             affinity[role.family] = affinity.get(role.family, 0.0) + w
-    total = sum(weights.values())
-    if total > 0:
-        affinity = {family: round(value / total, 4) for family, value in affinity.items()}
+    ceiling = max(affinity.values(), default=0.0)
+    if ceiling > 0:
+        affinity = {family: round(value / ceiling, 4) for family, value in affinity.items()}
     return affinity
 
 
@@ -115,9 +122,16 @@ def build_profile(
 def apply_family_overrides(profile: CandidateProfile, overrides: dict[str, str]) -> CandidateProfile:
     """Apply manual {family: "boost"|"block"} overrides on top of a
     computed profile - strictly the last step, per the spec. A blocked
-    family's affinity is zeroed (and the remaining weight renormalized); a
-    boosted family is set to the highest affinity of any family plus a
-    fixed margin, then the vector is renormalized so it still sums to 1.0.
+    family's affinity is zeroed; a boosted family is set to the highest
+    affinity of any family plus a fixed margin, then the vector is
+    rescaled so the strongest family is 1.0.
+
+    Rescaled by the max, NOT by the sum, for the reason family_affinity()
+    gives: family_fit multiplies job_fit, so a sum-normalized vector caps
+    every score at one family's share of the whole. Boosting four
+    families used to leave each at exactly 0.25, which capped a perfect
+    match at 25/100 and let an *unclassified* job (a flat 0.5) outrank it
+    two to one.
 
     Args:
         profile: An already-built CandidateProfile.
@@ -141,7 +155,7 @@ def apply_family_overrides(profile: CandidateProfile, overrides: dict[str, str])
         for family in boosted:
             affinity[family] = ceiling + 0.25
 
-    total = sum(affinity.values())
-    if total > 0:
-        affinity = {family: round(value / total, 4) for family, value in affinity.items()}
+    ceiling = max(affinity.values(), default=0.0)
+    if ceiling > 0:
+        affinity = {family: round(value / ceiling, 4) for family, value in affinity.items()}
     return profile.model_copy(update={"family_affinity": affinity})

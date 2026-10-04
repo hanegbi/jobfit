@@ -32,7 +32,11 @@ def test_two_families_split_affinity_by_weighted_duration():
     ]
     affinity = family_affinity(roles, NOW, decay_years=6.0)
     assert affinity["backend"] > affinity["frontend"] > 0
-    assert round(sum(affinity.values()), 4) == 1.0
+    # Scaled by the max, not the sum: scorer multiplies job_fit by
+    # family_fit, which is at most the largest weight here, so a vector
+    # summing to 1.0 capped every score at one family's share of the whole
+    # (four families -> nothing could score above 25/100).
+    assert max(affinity.values()) == 1.0
 
 
 def test_an_unclassified_role_contributes_no_weight_and_is_not_an_error():
@@ -104,7 +108,24 @@ def test_boost_raises_a_family_above_the_current_ceiling():
     profile = CandidateProfile(family_affinity={"backend": 0.6, "frontend": 0.4})
     result = apply_family_overrides(profile, {"frontend": "boost"})
     assert result.family_affinity["frontend"] > result.family_affinity["backend"]
-    assert round(sum(result.family_affinity.values()), 4) == 1.0
+    assert max(result.family_affinity.values()) == 1.0
+
+
+def test_boosting_several_families_does_not_cap_the_score_they_can_reach():
+    """The real bug this locks out: the vector used to be normalized to sum
+    to 1.0, so boosting four families left each at exactly 0.25. Since
+    scorer multiplies job_fit by family_fit (itself at most the largest
+    weight), a perfect match in any of those four families could not score
+    above 25/100 - and an *unclassified* job, which takes a flat
+    UNKNOWN_FAMILY_FIT of 0.5, outranked it two to one. Measured live
+    against the real corpus: max score 42, mean 3.45, top hit a
+    semiconductor role with family=None."""
+    profile = CandidateProfile(family_affinity=dict.fromkeys(
+        ["backend", "infrastructure_platform", "ml_engineering", "ml_infra", "frontend"], 0.0))
+    result = apply_family_overrides(profile, dict.fromkeys(
+        ["backend", "infrastructure_platform", "ml_engineering", "ml_infra"], "boost"))
+    for family in ("backend", "infrastructure_platform", "ml_engineering", "ml_infra"):
+        assert result.family_affinity[family] == 1.0, family
 
 
 def test_an_unknown_family_name_in_overrides_is_ignored_not_an_error():
