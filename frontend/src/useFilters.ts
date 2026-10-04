@@ -12,7 +12,6 @@ export const EMPTY_FILTERS: Filters = {
   department: null,
   industry: null,
   language: null,
-  status: "open",
   remote: null,
   minScore: null,
   maxYears: null,
@@ -42,7 +41,6 @@ const PARAMS: Record<string, keyof Filters> = {
   department: "department",
   industry: "industry",
   language: "language",
-  status: "status",
   remote: "remote",
   min_score: "minScore",
   max_years: "maxYears",
@@ -65,7 +63,7 @@ const BOOLEANS: (keyof Filters)[] = [
 const NUMBERS: (keyof Filters)[] = ["minScore", "maxYears", "page"];
 // Filters the API takes as a comma-separated set.
 export const MULTI: (keyof Filters)[] = [
-  "company", "excludeCompany", "city", "department", "industry", "language", "status",
+  "company", "excludeCompany", "city", "department", "industry", "language",
 ];
 
 /** The filters as a query string, omitting anything at its default so the URL
@@ -95,8 +93,6 @@ export function filtersToQuery(filters: Partial<Filters>, forRequest = false): s
 export function queryToFilters(query: string): Filters {
   const params = new URLSearchParams(query.startsWith("?") ? query.slice(1) : query);
   const filters: Filters = { ...EMPTY_FILTERS };
-  // An explicit status=all means "including closed"; absent means the default.
-  if (params.get("status") === "all") filters.status = null;
   for (const [param, key] of Object.entries(PARAMS)) {
     const raw = params.get(param);
     if (raw === null) continue;
@@ -107,8 +103,6 @@ export function queryToFilters(query: string): Filters {
       (filters[key] as number | null) = Number.isFinite(parsed) ? parsed : null;
     } else if (key === "sort") {
       filters.sort = (["score", "date", "company", "title"].includes(raw) ? raw : "score") as SortKey;
-    } else if (key === "status" && raw === "all") {
-      filters.status = null;
     } else {
       (filters[key] as string) = raw;
     }

@@ -11,7 +11,6 @@ export interface Filters {
   department: string | null;
   industry: string | null;
   language: string | null;
-  status: string | null;
   remote: boolean | null;
   minScore: number | null;
   maxYears: number | null;
@@ -113,7 +112,6 @@ export interface Facets {
   };
   companies: { id: string; name: string; n: number }[];
   cities: { city: string; n: number }[];
-  statuses: Record<string, number>;
   departments: { department: string; n: number }[];
   industries: { industry: string; n: number }[];
   languages: { language: string; n: number }[];

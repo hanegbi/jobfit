@@ -56,19 +56,11 @@ describe("multi-value filters", () => {
   it("round-trips excluded companies through the URL", () => {
     expect(queryToFilters(filtersToQuery({ excludeCompany: "acme,beta" })).excludeCompany).toBe("acme,beta");
   });
-
-  it("round-trips a multi-value status through the URL", () => {
-    expect(queryToFilters(filtersToQuery({ status: "new,seen" })).status).toBe("new,seen");
-  });
 });
 
 describe("what the request sends", () => {
   it("drops grouping, which is a UI concern the server has no opinion about", () => {
     expect(filtersToQuery({ group: true, q: "x" }, true)).toBe("?q=x");
     expect(filtersToQuery({ group: true, q: "x" })).toContain("group=true");
-  });
-
-  it("keeps status=open, which is a real filter and not a default to drop", () => {
-    expect(filtersToQuery({ status: "open" }, true)).toBe("?status=open");
   });
 });

@@ -21,11 +21,10 @@ def _conn():
     return conn
 
 
-def test_counts_group_by_company_city_and_status():
+def test_counts_group_by_company_and_city():
     result = facets.counts(_conn())
     assert {c["name"]: c["n"] for c in result["companies"]} == {"Acme": 2, "Beta": 1}
     assert {c["city"]: c["n"] for c in result["cities"]} == {"Tel Aviv": 2, "Haifa": 1}
-    assert result["statuses"] == {"new": 3}
 
 
 def test_counts_group_by_years_required():
@@ -57,12 +56,13 @@ def test_counts_respect_the_users_flags():
 
     conn = _conn()
     state.set_state(conn, "j1", liked=True)
-    assert facets.counts(conn, liked=True)["statuses"] == {"new": 1}
+    result = {c["name"]: c["n"] for c in facets.counts(conn, liked=True)["companies"]}
+    assert result == {"Acme": 1}
 
 
 def test_a_query_with_no_searchable_terms_counts_nothing():
     result = facets.counts(_conn(), q="***")
-    assert result["companies"] == [] and result["statuses"] == {}
+    assert result["companies"] == [] and result["cities"] == []
 
 
 def test_cities_omit_jobs_with_no_city():
@@ -72,13 +72,16 @@ def test_cities_omit_jobs_with_no_city():
 
 
 def test_counts_agree_with_the_search_they_annotate():
-    """The invariant the shared filter exists for."""
+    """The invariant the shared filter exists for. Summed over "departments",
+    never over the dimension a given filter set itself selects on - that
+    dimension self-excludes its own filter by design (see _dimension_counts),
+    so its sum is deliberately the UNfiltered total, not this invariant."""
     from jobfit.store import search
 
     conn = _conn()
     for filters in ({}, {"city": "Tel Aviv"}, {"q": "engineer"}, {"company_id": "acme"}):
         listed = search.search_jobs(conn, size=500, **filters)["total"]
-        counted = sum(facets.counts(conn, **filters)["statuses"].values())
+        counted = sum(d["n"] for d in facets.counts(conn, **filters)["departments"])
         assert listed == counted, filters
 
 
@@ -136,24 +139,6 @@ def test_a_capped_dimension_still_reports_its_true_total():
     # _conn() seeds its own companies, so the total is at least what we added.
     assert result["totals"]["companies"] >= wanted
     assert result["totals"]["companies"] > len(result["companies"])
-
-
-def test_status_counts_survive_selecting_one_status():
-    """Multi-select: picking "new" must not make "seen" vanish from the
-    sidebar, or there would be no way to add it - the facet has to show
-    every status regardless of which one is currently selected."""
-    from jobfit.store import search
-
-    conn = _conn()
-    jobs.upsert_scraped(conn, "beta", [{"id": "j3", "title": "Platform Engineer", "url": "u3"}], NOW)  # now "seen"
-    assert facets.counts(conn, status="new")["statuses"] == {"new": 2, "seen": 1}
-    # And the list itself (not the facet) is narrowed, same as any other filter.
-    assert {j["id"] for j in search.search_jobs(conn, status="new")["jobs"]} == {"j1", "j2"}
-
-
-def test_status_counts_still_respect_every_other_filter():
-    conn = _conn()
-    assert facets.counts(conn, city="Tel Aviv")["statuses"] == {"new": 2}
 
 
 # --- the same multi-select bug, for every other sidebar dimension ----------

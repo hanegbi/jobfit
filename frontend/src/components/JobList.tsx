@@ -145,7 +145,6 @@ function Card({
             {job.employment_type && <span>{job.employment_type}</span>}
             {job.years_required != null && <span>{job.years_required}+ yrs</span>}
             {job.status === "new" && <span className="tag new">new</span>}
-            {job.status === "closed" && <span className="tag closed">closed</span>}
             {job.is_referral && <span className="tag referral">referral</span>}
             {job.source_language === "he" && (
               <span className="tag translated" title="Machine-translated from Hebrew">

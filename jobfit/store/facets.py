@@ -1,5 +1,5 @@
-"""Counts beside a filtered search: how many jobs each company, city and
-status would contribute.
+"""Counts beside a filtered search: how many jobs each company and city
+would contribute.
 
 Built from the same WHERE clause as the search itself (search.build_filter),
 because a count that disagreed with the list it annotates would be worse
@@ -12,7 +12,7 @@ import sqlite3
 
 from jobfit.store.search import JOINS, NO_MATCH, build_filter
 
-_EMPTY = {"companies": [], "cities": [], "statuses": {}, "departments": [], "industries": [],
+_EMPTY = {"companies": [], "cities": [], "departments": [], "industries": [],
           "languages": [], "years": [], "totals": {}}
 
 # The sidebar shows eight of a list and expands to a few hundred. Shipping
@@ -58,16 +58,6 @@ def _dimension_counts(
     ).fetchall()
 
 
-def _status_counts(conn: sqlite3.Connection, filters: dict) -> dict[str, int]:
-    """Status is multi-select too (see search.build_filter), but it has no
-    label/cap/rank to carry - a flat {value: n} is all it ever needed."""
-    clause, params = build_filter(**{**filters, "status": None})
-    if clause is NO_MATCH:
-        return {}
-    rows = conn.execute(f"SELECT j.status AS value, count(*) AS n {JOINS} {clause} GROUP BY j.status", params).fetchall()
-    return {row["value"]: row["n"] for row in rows}
-
-
 def counts(conn: sqlite3.Connection, **filters) -> dict:
     # years has no picker of its own (Max years is a number input, not a
     # tickable list), so it stays computed from the full, unmodified filter
@@ -82,7 +72,6 @@ def counts(conn: sqlite3.Connection, **filters) -> dict:
     department_rows = _dimension_counts(conn, filters, filter_key="department", column="j.department")
     industry_rows = _dimension_counts(conn, filters, filter_key="industry", column="c.industry")
     language_rows = _dimension_counts(conn, filters, filter_key="language", column="j.source_language")
-    status_counts = _status_counts(conn, filters)
 
     years_clause = f"{full_clause} AND j.years_required IS NOT NULL" if full_clause else "WHERE j.years_required IS NOT NULL"
     years_rows = conn.execute(
@@ -102,7 +91,6 @@ def counts(conn: sqlite3.Connection, **filters) -> dict:
         },
         "companies": [{"id": r["value"], "name": r["label"], "n": r["n"]} for r in _ranked(company_rows)],
         "cities": [{"city": r["value"], "n": r["n"]} for r in _ranked(city_rows)],
-        "statuses": status_counts,
         "departments": [{"department": r["value"], "n": r["n"]} for r in _ranked(department_rows)],
         "industries": [{"industry": r["value"], "n": r["n"]} for r in _ranked(industry_rows)],
         "languages": [{"language": r["value"], "n": r["n"]} for r in _ranked(language_rows)],

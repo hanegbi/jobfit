@@ -183,7 +183,7 @@ def api_set_company_career_url(company: str, payload: dict) -> dict:
 def api_jobs(
     q: str | None = None, scope: str = "all", exclude: str | None = None,
     company: str | None = None, exclude_company: str | None = None,
-    city: str | None = None, status: str | None = None,
+    city: str | None = None,
     remote: bool | None = None, min_score: float | None = None, profile: str = "best",
     liked: bool | None = None, hidden: bool | None = None, sent: bool | None = None,
     reached_out: bool | None = None, has_connection: bool | None = None,
@@ -194,11 +194,16 @@ def api_jobs(
 ) -> dict:
     """One page of matching jobs plus the full total. List rows carry no
     description, and size is capped: an unbounded page would let one request
-    pull the whole dataset, which is what this API exists to avoid."""
+    pull the whole dataset, which is what this API exists to avoid.
+
+    A closed job never appears here - not a client-settable filter,
+    status="open" always. A closed posting is dead: nobody asks to see it,
+    and search.build_filter's own status param stays available to internal
+    callers (audit scripts, store.search directly) that genuinely need it."""
     return search.search_jobs(
         db.shared(), q=q, scope=scope, exclude=exclude, company_id=company,
         exclude_company_id=exclude_company, city=city,
-        status=status, is_remote=remote, min_score=min_score, profile=profile,
+        status="open", is_remote=remote, min_score=min_score, profile=profile,
         liked=liked, hidden=hidden, sent=sent, reached_out=reached_out,
         has_connection=has_connection, department=department, industry=industry,
         language=language, max_years=max_years, posted_after=posted_after,
@@ -244,7 +249,7 @@ def api_import_browser_state(payload: dict) -> dict:
 def api_facets(
     q: str | None = None, scope: str = "all", exclude: str | None = None,
     company: str | None = None, exclude_company: str | None = None,
-    city: str | None = None, status: str | None = None,
+    city: str | None = None,
     remote: bool | None = None, min_score: float | None = None, profile: str = "best",
     liked: bool | None = None, hidden: bool | None = None, sent: bool | None = None,
     reached_out: bool | None = None, has_connection: bool | None = None,
@@ -252,12 +257,13 @@ def api_facets(
     max_years: int | None = None, posted_after: str | None = None,
     referral: bool | None = None, has_description: bool | None = None,
 ) -> dict:
-    """Counts per company, city and status for the current filter - built from
-    the same WHERE clause as /api/jobs, so they cannot disagree."""
+    """Counts per company and city for the current filter - built from the
+    same WHERE clause as /api/jobs (including the same always-open status),
+    so they cannot disagree."""
     return facets.counts(
         db.shared(), q=q, scope=scope, exclude=exclude, company_id=company,
         exclude_company_id=exclude_company, city=city,
-        status=status, is_remote=remote, min_score=min_score, profile=profile,
+        status="open", is_remote=remote, min_score=min_score, profile=profile,
         liked=liked, hidden=hidden, sent=sent, reached_out=reached_out,
         has_connection=has_connection, department=department, industry=industry,
         language=language, max_years=max_years, posted_after=posted_after,

@@ -12,14 +12,6 @@ interface Props {
   apply: (filters: FilterState) => void;
 }
 
-/** The real status values currently picked ("new", "seen", "closed", ...) -
- * empty for both "open only" and "everything", which are presets rather
- * than values of their own. */
-function statusValues(status: string | null): string[] {
-  if (!status || status === "open") return [];
-  return status.split(",").filter(Boolean);
-}
-
 /** unset / yes / no. The old page could only say "on" and "off", which left
  * "show me jobs I have NOT hidden" unaskable. */
 function Tri({
@@ -223,50 +215,6 @@ export function FiltersPanel({ filters, facets, profiles, update, apply }: Props
       <Tri label="CV sent" value={filters.sent} onChange={(sent) => update({ sent })} />
       <Tri label="Reached out" value={filters.reachedOut} onChange={(v) => update({ reachedOut: v })} />
       <Tri label="Hidden" value={filters.hidden} onChange={(hidden) => update({ hidden })} />
-
-      <div className="group">
-        <h3>Status</h3>
-        <div className="facet-pills">
-          <button
-            type="button"
-            aria-pressed={filters.status === "open"}
-            className={`facet${filters.status === "open" ? " on" : ""}`}
-            onClick={() => update({ status: "open" })}
-          >
-            <span>open only</span>
-          </button>
-          <button
-            type="button"
-            aria-pressed={filters.status === null}
-            className={`facet${filters.status === null ? " on" : ""}`}
-            onClick={() => update({ status: null })}
-          >
-            <span>everything</span>
-          </button>
-          {Object.entries(facets?.statuses ?? {}).map(([status, count]) => {
-            const selected = statusValues(filters.status).includes(status);
-            return (
-              <button
-                key={status}
-                type="button"
-                aria-pressed={selected}
-                className={`facet${selected ? " on" : ""}`}
-                onClick={() => {
-                  const current = statusValues(filters.status);
-                  const next = selected ? current.filter((v) => v !== status) : [...current, status];
-                  // An empty set falls back to "open only", not "everything" -
-                  // unchecking your last specific status shouldn't suddenly
-                  // bring closed jobs back.
-                  update({ status: next.length ? next.join(",") : "open" });
-                }}
-              >
-                <span>{status}</span>
-                <span className="count">{count.toLocaleString()}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
 
       <FacetGroup
         title="City"

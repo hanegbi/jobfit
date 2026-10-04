@@ -95,10 +95,9 @@ def test_patching_an_unknown_job_is_404_and_an_unknown_flag_is_400(client, seede
     assert client.patch("/api/jobs/j1/state", json={"favourite": True}).status_code == 400
 
 
-def test_facets_count_by_company_city_and_status(client, seeded):
+def test_facets_count_by_company_and_city(client, seeded):
     body = client.get("/api/facets").json()
     assert {c["name"]: c["n"] for c in body["companies"]} == {"Acme": 2, "Beta": 1}
-    assert body["statuses"] == {"new": 3}
 
 
 def test_facets_follow_the_filter(client, seeded):
@@ -137,7 +136,7 @@ def test_every_old_page_filter_is_reachable_over_http(client, seeded):
                   "industry=Software", "language=he", "max_years=5", "posted_after=2026-01-01",
                   "referral=false", "has_description=true", "reached_out=false",
                   "company=acme,beta", "city=Tel+Aviv,Haifa", "sort=title",
-                  "exclude_company=acme", "status=new,seen"):
+                  "exclude_company=acme"):
         res = client.get(f"/api/jobs?{query}")
         assert res.status_code == 200, query
 
@@ -154,7 +153,7 @@ def test_facets_also_take_exclude_company(client, seeded):
 
 def test_facets_cover_every_sidebar_dimension(client, seeded):
     body = client.get("/api/facets").json()
-    assert set(body) == {"companies", "cities", "statuses", "departments", "industries",
+    assert set(body) == {"companies", "cities", "departments", "industries",
                          "languages", "years", "totals"}
 
 

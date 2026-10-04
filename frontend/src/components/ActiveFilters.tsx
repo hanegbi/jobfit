@@ -19,7 +19,6 @@ const LABELS: Partial<Record<keyof Filters, string>> = {
   minScore: "Score ≥",
   maxYears: "Years ≤",
   postedAfter: "Since",
-  status: "Status",
   remote: "Remote",
   hasConnection: "I know someone",
   hasDescription: "Has description",
@@ -63,17 +62,13 @@ export function ActiveFilters({
 
     if (MULTI.includes(key)) {
       // One chip per ticked value, so removing a city does not drop the rest.
-      // status falls back to "open only" when its last value is removed,
-      // not "everything" - unchecking your last specific status shouldn't
-      // suddenly bring closed jobs back (see Filters.tsx's own toggle).
-      const emptyValue = key === "status" ? "open" : null;
       for (const item of String(value).split(",").filter(Boolean)) {
         const shown = key === "company" || key === "excludeCompany" ? (companyNames.get(item) ?? item) : item;
         chips.push({
           key: `${key}:${item}`,
           label: `${label}: ${shown}`,
           clear: {
-            [key]: String(value).split(",").filter((v) => v && v !== item).join(",") || emptyValue,
+            [key]: String(value).split(",").filter((v) => v && v !== item).join(",") || null,
           } as Partial<Filters>,
         });
       }
