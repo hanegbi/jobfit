@@ -1,0 +1,23 @@
+[project]
+name = "jobfit-agent"
+version = "0.1.0"
+description = "LangGraph reasoning agent on top of jobfit"
+requires-python = ">=3.13"
+dependencies = [
+    "langgraph",
+    "langgraph-checkpoint-sqlite",
+    "langchain-core",
+    "langchain-ollama",
+    "langchain-anthropic",
+    "ddgs",
+    "pydantic>=2.8",
+    "rank-bm25",
+    "requests>=2.34.2",
+    "beautifulsoup4>=4.15.0",
+    "pypdf>=5.0.0",
+    "python-docx>=1.2.0",
+    "pytest>=8.3.0",
+]
+
+[tool.uv]
+package = false
