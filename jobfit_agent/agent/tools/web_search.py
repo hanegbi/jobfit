@@ -1,9 +1,15 @@
 """Free web search through ddgs. Never raises: a failed search is just no results."""
 
 import logging
+import threading
 from dataclasses import dataclass
 
 log = logging.getLogger(__name__)
+
+# Five research topics fan out on separate threads and each runs two queries.
+# Ten at once is what gets an IP rate-limited, and a rate-limited search is a
+# topic reported as "no data", so they go one at a time.
+_LOCK = threading.Lock()
 
 
 @dataclass(frozen=True)
@@ -20,7 +26,8 @@ def _ddgs_backend(query: str, max_results: int) -> list[dict]:
 
 def search(query: str, max_results: int = 5, backend=None) -> list[SearchHit]:
     try:
-        rows = (backend or _ddgs_backend)(query, max_results)
+        with _LOCK:
+            rows = (backend or _ddgs_backend)(query, max_results)
     except Exception as error:  # rate limits, network, library changes: degrade to "no data"
         log.warning("search failed for %r: %s", query, error)
         return []

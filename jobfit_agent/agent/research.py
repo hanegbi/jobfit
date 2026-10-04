@@ -91,9 +91,30 @@ def run_topic(topic: Topic, company: str, *, now: str,
         return {"data": None, "retrieved_at": now, "sources": [], "error": str(error)[:300]}, []
 
     cost = [models.cost_entry(topic.name, usage)]
-    sources = [url for url in out.evidence_urls if url in context]
-    if not sources:
-        return {"data": None, "retrieved_at": now, "sources": [], "error": "no sourced evidence"}, cost
+    if _is_empty(out):
+        return {"data": None, "retrieved_at": now, "sources": [], "error": "pages said nothing"}, cost
+
+    # Precise attribution when the model names pages we really fetched. A small
+    # model often will not echo urls at all; dropping a good extraction for that
+    # would report "no data" about pages we did read. So fall back to crediting
+    # every page consulted, and say which of the two the reader is looking at -
+    # what must never happen is a source we did not fetch.
+    cited = [url for url in out.evidence_urls if url in context]
+    sources = cited or list(context)
     data = out.model_dump()
     data["evidence_urls"] = sources
-    return {"data": data, "retrieved_at": now, "sources": sources, "error": None}, cost
+    return {"data": data, "retrieved_at": now, "sources": sources,
+            "attribution": "cited" if cited else "consulted", "error": None}, cost
+
+
+def _is_empty(out: BaseModel) -> bool:
+    """True when the model filled nothing: every field null, empty, or an explicit no_data."""
+    for name, value in out.model_dump().items():
+        if name == "evidence_urls":
+            continue
+        if name == "outlook":
+            if value not in (None, "no_data"):
+                return False
+        elif value not in (None, "", [], {}, "unknown"):
+            return False
+    return True

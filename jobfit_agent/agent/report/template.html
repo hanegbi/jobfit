@@ -276,7 +276,10 @@ function sourceLine(t) {
   if (!t || !t.sources || !t.sources.length) return null;
   const links = t.sources.filter(httpOnly);
   if (!links.length) return null;
-  return h("div", {class: "srcline"}, "Sources · ", day(t.retrieved_at), " · ",
+  // "cited" = the model named these pages; "consulted" = these are the pages it was
+  // given. Never let the weaker one read like the stronger one.
+  const how = t.attribution === "consulted" ? "Read from" : "Cited";
+  return h("div", {class: "srcline"}, how, " · ", day(t.retrieved_at), " · ",
     links.map((u, i) => [i ? ", " : "", h("a", {href: u}, host(u))]));
 }
 function topicBody(name, t) {

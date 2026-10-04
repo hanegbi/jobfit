@@ -33,10 +33,24 @@ def test_a_topic_with_sourced_evidence_returns_data(monkeypatch):
     assert costs[0]["node"] == "facts"
 
 
-def test_evidence_urls_the_model_invented_make_the_topic_no_data(monkeypatch):
+def test_invented_evidence_urls_are_replaced_by_the_pages_we_really_fetched(monkeypatch):
     _wire(monkeypatch, _responses(url="https://made-up.test/x"))
     result, _ = research.run_topic(research.TOPICS["facts"], "Acme", now=NOW)
-    assert result["data"] is None and "evidence" in result["error"]
+    # the extraction survives, but it is never credited to a page we did not fetch
+    assert result["sources"] == [URL] and result["attribution"] == "consulted"
+    assert "https://made-up.test/x" not in result["data"]["evidence_urls"]
+
+
+def test_cited_pages_are_marked_as_cited(monkeypatch):
+    _wire(monkeypatch, _responses())
+    result, _ = research.run_topic(research.TOPICS["facts"], "Acme", now=NOW)
+    assert result["attribution"] == "cited" and result["sources"] == [URL]
+
+
+def test_an_extraction_that_filled_nothing_is_no_data(monkeypatch):
+    _wire(monkeypatch, {"FactsOut": FactsOut(evidence_urls=[URL])})
+    result, costs = research.run_topic(research.TOPICS["facts"], "Acme", now=NOW)
+    assert result["data"] is None and result["error"] == "pages said nothing" and len(costs) == 1
 
 
 def test_no_search_results_means_no_data_and_no_llm_call(monkeypatch):
