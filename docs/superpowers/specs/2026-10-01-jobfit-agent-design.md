@@ -168,3 +168,32 @@ companies ask?") over a large corpus; that is out of scope and can be revisited.
 
 No live UI or server (the report is a static file), no vector DB, no auto-applying, no writing to the jobfit store, no scraping behind logins,
 no LinkedIn data beyond what jobfit already holds.
+
+## What changed during implementation (2026-10-04)
+
+The build is in `jobfit_agent/`; these decisions differ from the design above and the code is the
+source of truth.
+
+- **The report comes first; approval is opt-in.** The spec paused at `interrupt()` before rendering.
+  In practice the decision is easier to make *after* reading the briefs, so the default run writes the
+  report and `--ask` opts into the pause. The `interrupt()` node is still there, still checkpointed.
+- **`--url` runs one job.** Selecting by posting url (base64url of the normalized url, the id scheme in
+  `scrape/ids.py`) is the normal way to try the agent on something specific.
+- **`--skip-research`** runs fit and CV plan only, for when the web round-trip is not worth the wait.
+- **Research runs once per company before the job fan-out**, as planned, so two jobs at one company
+  never research it twice.
+- **Thread safety is not optional.** `Send` fan-out runs nodes on several threads. One sqlite
+  connection shared across them raises `bad parameter or other API misuse`; one `requests.Session`
+  shared across them *hung a real run for twelve minutes with the model idle*. Store reads, page
+  fetches and searches are each serialised, and a response body is capped so a trickling server
+  cannot stall the run.
+- **Source attribution has two levels.** Requiring the model to echo `evidence_urls` threw away good
+  extractions, because a 4B model rarely echoes them. A topic is now `cited` when the model names
+  pages we fetched, and `consulted` when we credit the pages it was given; the report prints "Cited"
+  or "Read from" accordingly. A page we never fetched is still never shown as a source, and an
+  extraction that filled nothing is still "no data".
+- **Thinking is off by default.** qwen3 reasons before answering, which costs about 4x the wall time
+  on CPU for these schema-bound tasks (76s vs 20s measured on one fit call). `config.REASONING`
+  turns it back on.
+- **Company logos** come from a favicon service keyed on the company's own careers domain, drawn over
+  a monogram so an offline reader still sees a clean tile.
