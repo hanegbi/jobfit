@@ -5,6 +5,7 @@ instruction differ. Every extracted fact must cite a page we actually
 fetched, otherwise the topic is reported as "no data".
 """
 
+import re
 from dataclasses import dataclass
 from typing import Callable
 
@@ -77,6 +78,23 @@ def _select_context(pages: dict[str, str], topic: Topic, company: str = "") -> d
     return {url: text[:config.PAGE_CHARS] for url, text in pages.items()}
 
 
+_LEGAL_SUFFIX = re.compile(r"\b(ltd|ltd\.|inc|inc\.|llc|plc|gmbh|co|corp|corporation|limited)\b\.?", re.I)
+
+
+def _mentions(url: str, text: str, domain: str, company: str) -> bool:
+    """Does this page identify itself with the company we asked about?
+
+    The domain is decisive - exactly one company owns conifers.ai. Failing that,
+    the full registered name, minus its legal suffix, has to appear as a whole
+    phrase: "Conifer Health Solutions" does not contain "Conifers".
+    """
+    haystack = f"{url}\n{text}".lower()
+    if domain and domain.lower() in haystack:
+        return True
+    name = _LEGAL_SUFFIX.sub("", company).strip(" ,.-").lower()
+    return len(name) > 2 and re.search(rf"\b{re.escape(name)}\b", haystack) is not None
+
+
 def _gather(topic: Topic, label: str, pages: dict[str, str]) -> None:
     for query in topic.queries(label):
         for hit in search(query)[:config.FETCHES_PER_QUERY]:
@@ -101,6 +119,15 @@ def run_topic(topic: Topic, company: str, *, now: str, domain: str | None = None
         _gather(topic, company, pages)
     if not pages:
         return {"data": None, "retrieved_at": now, "sources": [], "error": "no search results"}, []
+    if domain:
+        # The name fallback is what let Conifer Health Solutions' Glassdoor reviews
+        # be reported as Conifers Ltd.'s - twice. A page that never names this
+        # company is not weak evidence about it, it is evidence about someone else,
+        # so it is dropped even when that leaves the topic with nothing. "No data"
+        # is a true answer; a different company's ratings is not.
+        pages = {url: text for url, text in pages.items() if _mentions(url, text, domain, company)}
+    if not pages:
+        return {"data": None, "retrieved_at": now, "sources": [], "error": "no page named this company"}, []
 
     context = _select_context(pages, topic, company)
     body = "\n".join(f'<page url="{url}">\n{text}\n</page>' for url, text in context.items())

@@ -110,9 +110,10 @@ def test_cache_round_trip_and_ttl():
 def test_the_company_domain_disambiguates_the_search(monkeypatch):
     seen = []
     monkeypatch.setattr(research, "search", lambda q: seen.append(q) or [SearchHit("t", URL, "s")])
-    monkeypatch.setattr(research, "fetch_url", lambda u: "text")
+    monkeypatch.setattr(research, "fetch_url", lambda u: "conifers.ai facts")
     _wire(monkeypatch, _responses(), hits=None)
     monkeypatch.setattr(research, "search", lambda q: seen.append(q) or [SearchHit("t", URL, "s")])
+    monkeypatch.setattr(research, "fetch_url", lambda u: "conifers.ai facts")
     fake = FakeLLM(_responses())
     monkeypatch.setattr(models, "get_llm", lambda node: fake)
     research.run_topic(research.TOPICS["facts"], "Conifers Ltd.", now=NOW, domain="conifers.ai")
@@ -141,7 +142,7 @@ def test_the_plain_name_is_the_fallback_when_the_domain_query_finds_nothing(monk
         return [] if "conifers.ai" in q else [SearchHit("t", URL, "snip")]
 
     monkeypatch.setattr(research, "search", picky)
-    monkeypatch.setattr(research, "fetch_url", lambda u: "text")
+    monkeypatch.setattr(research, "fetch_url", lambda u: "Conifers Ltd. builds an AI SOC platform")
     monkeypatch.setattr(models, "get_llm", lambda node: FakeLLM(_responses()))
     result, _ = research.run_topic(research.TOPICS["facts"], "Conifers Ltd.", now=NOW, domain="conifers.ai")
     assert any("conifers.ai" in q for q in seen) and any("Conifers Ltd." in q for q in seen)
@@ -151,7 +152,40 @@ def test_the_plain_name_is_the_fallback_when_the_domain_query_finds_nothing(monk
 def test_the_domain_alone_is_enough_when_it_finds_pages(monkeypatch):
     seen = []
     monkeypatch.setattr(research, "search", lambda q: seen.append(q) or [SearchHit("t", URL, "snip")])
-    monkeypatch.setattr(research, "fetch_url", lambda u: "text")
+    monkeypatch.setattr(research, "fetch_url", lambda u: "conifers.ai employs 40 people")
     monkeypatch.setattr(models, "get_llm", lambda node: FakeLLM(_responses()))
     research.run_topic(research.TOPICS["facts"], "Conifers Ltd.", now=NOW, domain="conifers.ai")
     assert all("conifers.ai" in q for q in seen)        # no fallback needed, name never searched
+
+
+def test_a_page_about_a_similarly_named_company_is_dropped(monkeypatch):
+    """The real failure: Conifer Health Solutions' Glassdoor page reported as
+    Conifers Ltd.'s reviews, twice, in two different runs."""
+    other = "https://www.glassdoor.com/Reviews/Conifer-Health-Solutions-Reviews-E306449.htm"
+    monkeypatch.setattr(research, "search", lambda q: [SearchHit("t", other, "snip")])
+    monkeypatch.setattr(research, "fetch_url",
+                        lambda u: "Conifer Health Solutions employees rate culture 2.6 out of 5")
+    monkeypatch.setattr(models, "get_llm", lambda node: FakeLLM(_responses(url=other)))
+    result, costs = research.run_topic(research.TOPICS["reviews"], "Conifers Ltd.",
+                                       now=NOW, domain="conifers.ai")
+    assert result["data"] is None and result["error"] == "no page named this company"
+    assert costs == []          # not even worth a model call
+
+
+def test_a_page_that_names_the_company_is_kept(monkeypatch):
+    ours = "https://www.gartner.com/reviews/vendor/conifers"
+    monkeypatch.setattr(research, "search", lambda q: [SearchHit("t", ours, "snip")])
+    monkeypatch.setattr(research, "fetch_url", lambda u: "Conifers.ai is an agentic AI SOC platform")
+    monkeypatch.setattr(models, "get_llm", lambda node: FakeLLM(_responses(url=ours)))
+    result, _ = research.run_topic(research.TOPICS["reviews"], "Conifers Ltd.", now=NOW, domain="conifers.ai")
+    assert result["data"] is not None
+
+
+def test_the_full_name_also_identifies_a_page_when_the_domain_is_absent(monkeypatch):
+    url = "https://pitchbook.com/profiles/acme-robotics"
+    monkeypatch.setattr(research, "search", lambda q: [SearchHit("t", url, "s")])
+    monkeypatch.setattr(research, "fetch_url", lambda u: "Acme Robotics raised a Series B")
+    monkeypatch.setattr(models, "get_llm", lambda node: FakeLLM(_responses(url=url)))
+    result, _ = research.run_topic(research.TOPICS["facts"], "Acme Robotics Ltd.",
+                                   now=NOW, domain="acme-robotics.com")
+    assert result["data"] is not None       # domain missing from the page, but the name is there
