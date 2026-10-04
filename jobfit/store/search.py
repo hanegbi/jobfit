@@ -164,6 +164,30 @@ def build_filter(*, q: str | None = None, scope: str = "all", exclude: str | Non
     return (f"WHERE {' AND '.join(where)}" if where else ""), params
 
 
+def export_rows(conn: sqlite3.Connection, *, sort: str = "score", profile: str = "best",
+                **filters) -> list[sqlite3.Row]:
+    """Every job matching the filter, unpaginated - (company, title, url)
+    and nothing else.
+
+    Deliberately not search_jobs(size=...): the export is the whole result
+    set, and size is clamped to 500 at the API precisely so one request
+    cannot pull the dataset down as list rows. These three columns carry
+    no description and no per-job score lookup, so the whole 12,825-job
+    corpus is a couple of megabytes rather than the hundreds search_jobs
+    would cost at the same row count.
+    """
+    clause, params = build_filter(profile=profile, **filters)
+    if clause is NO_MATCH:
+        return []
+    # best_score is selected because _SORTS["score"] orders by that alias,
+    # not because the export carries it - the caller reads company/title/url.
+    return conn.execute(
+        f"SELECT c.display_name AS company, j.title, j.url, {score_sql(profile)} AS best_score "
+        f"{JOINS} {clause} ORDER BY {_SORTS.get(sort, _SORTS['score'])}",
+        params,
+    ).fetchall()
+
+
 def search_jobs(conn: sqlite3.Connection, *, sort: str = "score", page: int = 1, size: int = 50,
                 profile: str = "best", **filters) -> dict:
     clause, params = build_filter(profile=profile, **filters)

@@ -151,6 +151,53 @@ def test_facets_also_take_exclude_company(client, seeded):
     assert {c["name"]: c["n"] for c in body["companies"]} == {"Acme": 2}
 
 
+def test_export_groups_every_matching_job_by_company(client, seeded):
+    res = client.get("/api/jobs/export")
+    assert res.status_code == 200
+    assert res.json() == {
+        "Acme": [{"Senior Backend Engineer": "u1"}, {"Data Scientist": "u2"}],
+        "Beta": [{"Platform Engineer": "u3"}],
+    }
+
+
+def test_export_respects_the_filter_it_was_asked_for(client, seeded):
+    body = client.get("/api/jobs/export?city=Haifa").json()
+    assert body == {"Acme": [{"Data Scientist": "u2"}]}
+
+
+def test_export_is_the_whole_result_set_not_one_page(client, seeded):
+    """The point of the export: size caps /api/jobs at 500 a page, and the
+    export deliberately takes no page parameter at all - "export what I
+    searched for", not "export what is on screen"."""
+    page = client.get("/api/jobs?size=1").json()
+    exported = client.get("/api/jobs/export?size=1&page=2").json()
+    assert len(page["jobs"]) == 1
+    assert sum(len(jobs) for jobs in exported.values()) == 3
+
+
+def test_export_downloads_as_a_file(client, seeded):
+    res = client.get("/api/jobs/export")
+    assert res.headers["content-type"].startswith("application/json")
+    assert res.headers["content-disposition"].startswith('attachment; filename="jobfit-')
+
+
+def test_export_never_carries_a_closed_job(client, seeded):
+    store_jobs.close_by_url(seeded, {"u2": "gone"}, NOW)
+    body = client.get("/api/jobs/export").json()
+    assert body["Acme"] == [{"Senior Backend Engineer": "u1"}]
+
+
+def test_export_of_a_filter_that_matches_nothing_is_an_empty_object(client, seeded):
+    assert client.get("/api/jobs/export?q=***").json() == {}
+
+
+def test_export_is_not_mistaken_for_a_job_id(client, seeded):
+    """/api/jobs/{job_id} would match "export" as an id and 404 if the
+    export route were declared after it."""
+    assert client.get("/api/jobs/export").status_code == 200
+    assert client.get("/api/jobs/nope").status_code == 404
+
+
 def test_facets_cover_every_sidebar_dimension(client, seeded):
     body = client.get("/api/facets").json()
     assert set(body) == {"companies", "cities", "departments", "industries",

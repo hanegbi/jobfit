@@ -1,7 +1,7 @@
 import { keepPreviousData, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef } from "react";
 
-import { fetchFacets, fetchJobs, fetchScoredProfiles } from "./api";
+import { exportUrl, fetchFacets, fetchJobs, fetchScoredProfiles } from "./api";
 import { ActiveFilters } from "./components/ActiveFilters";
 import { FiltersPanel } from "./components/Filters";
 import { JobList } from "./components/JobList";
@@ -111,14 +111,24 @@ export function App() {
           {page && (
             <div className={`results${jobsQuery.isPlaceholderData ? " stale" : ""}`}>
               <p className="stats">
-                across <strong>{companyCount.toLocaleString()}</strong> companies
-                {total > page.jobs.length && (
-                  <>
-                    {" "}
-                    · showing {((filters.page - 1) * PAGE_SIZE + 1).toLocaleString()} to{" "}
-                    {((filters.page - 1) * PAGE_SIZE + page.jobs.length).toLocaleString()}
-                  </>
-                )}
+                <span>
+                  across <strong>{companyCount.toLocaleString()}</strong> companies
+                  {total > page.jobs.length && (
+                    <>
+                      {" "}
+                      · showing {((filters.page - 1) * PAGE_SIZE + 1).toLocaleString()} to{" "}
+                      {((filters.page - 1) * PAGE_SIZE + page.jobs.length).toLocaleString()}
+                    </>
+                  )}
+                </span>
+                <a
+                  className="export-link"
+                  href={exportUrl(filters)}
+                  download
+                  title={`Download all ${total.toLocaleString()} matching jobs as JSON, not just this page`}
+                >
+                  export {total.toLocaleString()} as JSON
+                </a>
               </p>
               <JobList
                 jobs={page.jobs}

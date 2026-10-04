@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Response, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -209,6 +209,51 @@ def api_jobs(
         language=language, max_years=max_years, posted_after=posted_after,
         is_referral=referral, has_description=has_description,
         sort=sort, page=page, size=min(max(1, size), 500),
+    )
+
+
+@app.get("/api/jobs/export")
+def api_export_jobs(
+    q: str | None = None, scope: str = "all", exclude: str | None = None,
+    company: str | None = None, exclude_company: str | None = None,
+    city: str | None = None,
+    remote: bool | None = None, min_score: float | None = None, profile: str = "best",
+    liked: bool | None = None, hidden: bool | None = None, sent: bool | None = None,
+    reached_out: bool | None = None, has_connection: bool | None = None,
+    department: str | None = None, industry: str | None = None, language: str | None = None,
+    max_years: int | None = None, posted_after: str | None = None,
+    referral: bool | None = None, has_description: bool | None = None,
+    sort: str = "score",
+) -> Response:
+    """Every job matching the current filter as {company: [{title: url}]},
+    downloaded as a file.
+
+    Declared above /api/jobs/{job_id} on purpose - that route's path
+    parameter would otherwise match "export" and look up a job by that id.
+
+    Takes the same query parameters as /api/jobs and deliberately none of
+    its paging: the point is the whole result set, not the page on screen,
+    so there is no size to clamp here. What keeps that affordable is the
+    row shape (search.export_rows selects three columns, no description),
+    not a row limit.
+    """
+    rows = search.export_rows(
+        db.shared(), q=q, scope=scope, exclude=exclude, company_id=company,
+        exclude_company_id=exclude_company, city=city,
+        status="open", is_remote=remote, min_score=min_score, profile=profile,
+        liked=liked, hidden=hidden, sent=sent, reached_out=reached_out,
+        has_connection=has_connection, department=department, industry=industry,
+        language=language, max_years=max_years, posted_after=posted_after,
+        is_referral=referral, has_description=has_description, sort=sort,
+    )
+    grouped: dict[str, list[dict[str, str | None]]] = {}
+    for row in rows:
+        grouped.setdefault(row["company"], []).append({row["title"]: row["url"]})
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    return Response(
+        content=json.dumps(grouped, ensure_ascii=False, indent=2),
+        media_type="application/json",
+        headers={"Content-Disposition": f'attachment; filename="jobfit-{stamp}.json"'},
     )
 
 

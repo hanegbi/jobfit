@@ -9,6 +9,17 @@ async function get<T>(path: string): Promise<T> {
   return (await res.json()) as T;
 }
 
+/** Where to download the current result set as {company: [{title: url}]}.
+ *
+ * A URL rather than a fetch: the server sets Content-Disposition and the
+ * browser writes the file straight to disk, so nothing has to hold the
+ * whole export (1.5MB unfiltered) in memory to hand it back again. Same
+ * filters as the list and deliberately no page - "export what I searched
+ * for", not "export what is on screen". */
+export function exportUrl(filters: Filters): string {
+  return `/api/jobs/export${filtersToQuery(filters, true)}`;
+}
+
 export function fetchJobs(filters: Filters, size = 50): Promise<JobPage> {
   const query = filtersToQuery(filters, true);
   const page = filters.page > 1 ? `&page=${filters.page}` : "";
