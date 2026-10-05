@@ -1,27 +1,247 @@
 {
-  "ml_infra": ["ml infrastructure", "ml infra", "mlops engineer", "ml platform engineer", "ai infrastructure", "ai infrastructure engineer", "llm infrastructure", "inference engineer", "ml systems engineer", "model serving", "distributed inference"],
-  "security_research": ["security researcher", "security research", "vulnerability researcher", "vulnerability research", "penetration tester", "pentester", "red team", "red teamer", "threat researcher", "malware researcher", "malware analyst", "exploit development", "reverse engineer"],
-  "security_engineering": ["security engineer", "application security engineer", "appsec engineer", "product security engineer", "cloud security engineer", "security architect", "soc analyst", "cybersecurity analyst", "detection engineer", "security operations engineer", "security operations", "devsecops"],
-  "backend": ["backend", "back-end", "back end", "server-side", "server side", "api development", "microservices", "distributed systems engineer"],
-  "frontend": ["frontend", "front-end", "front end", "ui engineer", "web developer", "react developer", "angular developer"],
-  "fullstack": ["full stack", "fullstack", "full-stack"],
-  "mobile": ["ios developer", "android developer", "mobile engineer", "mobile developer", "app developer"],
-  "data_engineering": ["data engineer", "data engineering", "etl developer", "data platform engineer", "data pipeline engineer"],
-  "data_science": ["data scientist", "data science", "applied scientist", "research scientist", "statistician"],
-  "data_analytics": ["data analyst", "business analyst", "business intelligence analyst", "bi analyst", "analytics engineer"],
-  "ml_engineering": ["machine learning engineer", "ml engineer", "deep learning engineer", "ai engineer", "applied ml engineer"],
-  "devops_sre": ["devops engineer", "devops team", "site reliability engineer", "sre", "build engineer", "release engineer", "production engineer"],
-  "infrastructure_platform": ["platform engineer", "infrastructure engineer", "cloud engineer", "cloud architect", "cloud infrastructure", "infrastructure architect"],
-  "qa_automation": ["qa engineer", "quality assurance engineer", "test engineer", "sdet", "automation engineer", "qa analyst"],
-  "embedded_firmware": ["embedded engineer", "firmware engineer", "embedded software engineer", "hardware engineer"],
-  "product": ["product manager", "product owner", "technical product manager", "associate product manager", "senior product manager", "group product manager"],
-  "design": ["ux designer", "ui designer", "product designer", "ux researcher", "graphic designer", "visual designer"],
-  "management": ["engineering manager", "team lead", "tech lead", "technical lead", "head of engineering", "director of engineering", "vp of engineering", "cto"],
-  "sales": ["account executive", "sales engineer", "solutions engineer", "business development", "sales representative", "sales manager", "account manager"],
-  "support": ["customer support", "technical support", "support engineer", "customer success"],
-  "marketing": ["marketing manager", "digital marketing", "content marketing", "growth marketing", "performance marketing", "marketing specialist", "brand marketing", "social media marketing", "marketing analyst", "product marketing", "demand generation", "marketing coordinator", "seo specialist", "content strategist", "marketing director", "cmo"],
-  "finance": ["financial analyst", "accountant", "controller", "finance manager", "fp&a", "bookkeeper", "auditor"],
-  "hr": ["hr manager", "human resources", "talent acquisition", "recruiter", "people operations", "hr business partner"],
-  "legal": ["legal counsel", "attorney", "paralegal", "compliance officer", "contracts manager"],
-  "operations": ["operations manager", "business operations", "supply chain", "logistics manager", "program manager", "project manager"]
+  "ml_infra": [
+    "ml infrastructure",
+    "ml infra",
+    "mlops engineer",
+    "ml platform engineer",
+    "ai infrastructure",
+    "ai infrastructure engineer",
+    "llm infrastructure",
+    "inference engineer",
+    "ml systems engineer",
+    "model serving",
+    "distributed inference"
+  ],
+  "security_research": [
+    "security researcher",
+    "security research",
+    "vulnerability researcher",
+    "vulnerability research",
+    "penetration tester",
+    "pentester",
+    "red team",
+    "red teamer",
+    "threat researcher",
+    "malware researcher",
+    "malware analyst",
+    "exploit development",
+    "reverse engineer"
+  ],
+  "security_engineering": [
+    "security engineer",
+    "application security engineer",
+    "appsec engineer",
+    "product security engineer",
+    "cloud security engineer",
+    "security architect",
+    "soc analyst",
+    "cybersecurity analyst",
+    "detection engineer",
+    "security operations engineer",
+    "security operations",
+    "devsecops"
+  ],
+  "backend": [
+    "backend",
+    "back-end",
+    "back end",
+    "server-side",
+    "server side",
+    "api development",
+    "microservices",
+    "distributed systems engineer",
+    "software architect"
+  ],
+  "frontend": [
+    "frontend",
+    "front-end",
+    "front end",
+    "ui engineer",
+    "web developer",
+    "react developer",
+    "angular developer"
+  ],
+  "fullstack": [
+    "full stack",
+    "fullstack",
+    "full-stack"
+  ],
+  "mobile": [
+    "ios developer",
+    "android developer",
+    "mobile engineer",
+    "mobile developer",
+    "app developer",
+    "sdk engineer"
+  ],
+  "data_engineering": [
+    "data engineer",
+    "data engineering",
+    "etl developer",
+    "data platform engineer",
+    "data pipeline engineer"
+  ],
+  "data_science": [
+    "data scientist",
+    "data science",
+    "applied scientist",
+    "research scientist",
+    "statistician"
+  ],
+  "data_analytics": [
+    "data analyst",
+    "business analyst",
+    "business intelligence analyst",
+    "bi analyst",
+    "analytics engineer"
+  ],
+  "ml_engineering": [
+    "machine learning engineer",
+    "ml engineer",
+    "deep learning engineer",
+    "ai engineer",
+    "applied ml engineer",
+    "computer vision",
+    "algorithm engineer",
+    "algorithms engineer"
+  ],
+  "devops_sre": [
+    "devops engineer",
+    "devops team",
+    "site reliability engineer",
+    "sre",
+    "build engineer",
+    "release engineer",
+    "production engineer"
+  ],
+  "infrastructure_platform": [
+    "platform engineer",
+    "infrastructure engineer",
+    "cloud engineer",
+    "cloud architect",
+    "cloud infrastructure",
+    "infrastructure architect"
+  ],
+  "qa_automation": [
+    "qa engineer",
+    "quality assurance engineer",
+    "test engineer",
+    "sdet",
+    "automation engineer",
+    "qa analyst",
+    "quality engineer",
+    "qa automation",
+    "test automation",
+    "automation developer"
+  ],
+  "embedded_firmware": [
+    "embedded engineer",
+    "firmware engineer",
+    "embedded software engineer",
+    "hardware engineer",
+    "verification engineer",
+    "fpga",
+    "asic",
+    "physical design",
+    "kernel engineer",
+    "analog layout",
+    "board design engineer"
+  ],
+  "product": [
+    "product manager",
+    "product owner",
+    "technical product manager",
+    "associate product manager",
+    "senior product manager",
+    "group product manager"
+  ],
+  "design": [
+    "ux designer",
+    "ui designer",
+    "product designer",
+    "ux researcher",
+    "graphic designer",
+    "visual designer"
+  ],
+  "management": [
+    "engineering manager",
+    "team lead",
+    "tech lead",
+    "technical lead",
+    "head of engineering",
+    "director of engineering",
+    "vp of engineering",
+    "cto",
+    "team leader",
+    "group leader",
+    "r&d manager"
+  ],
+  "sales": [
+    "account executive",
+    "sales engineer",
+    "solutions engineer",
+    "business development",
+    "sales representative",
+    "sales manager",
+    "account manager",
+    "sales development representative",
+    "sdr"
+  ],
+  "support": [
+    "customer support",
+    "technical support",
+    "support engineer",
+    "customer success"
+  ],
+  "marketing": [
+    "marketing manager",
+    "digital marketing",
+    "content marketing",
+    "growth marketing",
+    "performance marketing",
+    "marketing specialist",
+    "brand marketing",
+    "social media marketing",
+    "marketing analyst",
+    "product marketing",
+    "demand generation",
+    "marketing coordinator",
+    "seo specialist",
+    "content strategist",
+    "marketing director",
+    "cmo",
+    "marketing"
+  ],
+  "finance": [
+    "financial analyst",
+    "accountant",
+    "controller",
+    "finance manager",
+    "fp&a",
+    "bookkeeper",
+    "auditor"
+  ],
+  "hr": [
+    "hr manager",
+    "human resources",
+    "talent acquisition",
+    "recruiter",
+    "people operations",
+    "hr business partner"
+  ],
+  "legal": [
+    "legal counsel",
+    "attorney",
+    "paralegal",
+    "compliance officer",
+    "contracts manager"
+  ],
+  "operations": [
+    "operations manager",
+    "business operations",
+    "supply chain",
+    "logistics manager",
+    "program manager",
+    "project manager"
+  ]
 }
