@@ -16,7 +16,8 @@ from pydantic import ValidationError
 
 from jobfit.scrape.errors import ClassifierFailed
 from jobfit.scrape.filters import (
-    CategoryPrefixFilter, DenylistFilter, EvidenceThresholdFilter, FilterChain, HrefMarkerFilter, UrlShapeClusterFilter,
+    CategoryPrefixFilter, CtaLabelFilter, DenylistFilter, EvidenceThresholdFilter, FilterChain, HrefMarkerFilter,
+    UrlShapeClusterFilter,
 )
 from jobfit.scrape.models import Candidate, CandidateLabel, Labels, Page
 
@@ -34,7 +35,7 @@ def rules_chain() -> FilterChain:
     """Evidence-based accept: hard rejects, then the batch-mode shape
     filter, then >= 2 positive signals outside nav/header/footer."""
     return FilterChain([
-        DenylistFilter(), HrefMarkerFilter(), CategoryPrefixFilter(),
+        DenylistFilter(), CtaLabelFilter(), HrefMarkerFilter(), CategoryPrefixFilter(),
         UrlShapeClusterFilter(None), EvidenceThresholdFilter(min_signals=2, reject_chrome=True),
     ])
 

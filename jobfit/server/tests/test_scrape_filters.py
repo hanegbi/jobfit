@@ -57,6 +57,61 @@ def test_href_marker_filter_rejects_maps_docs_blog_resources():
     assert f.accept(_cand(href="https://acme.com/careers/backend-engineer"), []) is None
 
 
+def test_href_marker_filter_is_not_fooled_by_a_missing_trailing_slash():
+    """Real bug, counted in the store: the markers were substrings, so
+    "/partners/" rejected accelario.com/partners/ while almtoolbox.com
+    /partners - the same kind of page without the trailing slash - was
+    stored as a job. Matching a whole path segment catches both."""
+    f = filters.HrefMarkerFilter()
+    for href in ("https://accelario.com/partners/", "https://www.almtoolbox.com/partners",
+                 "https://www.anzu.io/webinars", "https://accelario.com/glossary/"):
+        assert f.accept(_cand(href=href), []).accept is False, href
+    assert f.accept(_cand(href="https://acme.com/careers/partner-manager"), []) is None
+
+
+# --- CtaLabelFilter --------------------------------------------------------
+
+def test_a_cta_label_is_junk_only_when_its_destination_is_not_job_shaped():
+    """The whole point of judging the href too: wematch.live labels every
+    real posting "View Job" and the title is recovered from the job's own
+    page later, so rejecting on the text alone threw away that company's
+    entire listing - the replay suite caught it by name."""
+    f = filters.CtaLabelFilter()
+    real = _cand(text="View Job", href="https://wematch.live/job-postings/senior-full-stack-developer/",
+                 has_job_url_hint=True, under_career_path=False)
+    assert f.accept(real, []) is None
+    junk = _cand(text="Book a demo", href="https://www.actionai.co/contact",
+                 has_job_url_hint=False, under_career_path=False)
+    assert f.accept(junk, []).accept is False
+
+
+def test_a_cta_sentence_is_rejected_when_nothing_about_the_link_is_a_job():
+    """The row that started this: stored as a job and scored 86, because
+    the report's own subject matter reads like a job description."""
+    f = filters.CtaLabelFilter()
+    clearml = _cand(
+        text="Download ClearML's 4th Annual State of AI Infrastructure at Scale 2025-2026 report.",
+        href="https://go.clear.ml/state-of-ai-infrastructure-report-25-26",
+        has_job_url_hint=False, under_career_path=False)
+    assert f.accept(clearml, []).accept is False
+
+
+def test_a_real_title_that_merely_starts_with_a_cta_word_under_careers_is_kept():
+    f = filters.CtaLabelFilter()
+    assert f.accept(_cand(text="Read More : Senior Frontend Developer",
+                          href="https://redaccess.io/careers/frontend"), []) is None
+
+
+def test_the_new_section_names_never_eat_a_real_role():
+    """NAV_DENYLIST is anchored, so the bare section label goes and the role
+    that merely contains the word stays."""
+    for junk in ("Partners", "Platform", "Solutions", "Glossary", "Security", "Webinars"):
+        assert filters.DenylistFilter.text_ok(junk) is False, junk
+    for real in ("Platform Engineer", "Solutions Engineer", "Security Researcher",
+                 "Partner, Corporate Law"):
+        assert filters.DenylistFilter.text_ok(real) is True, real
+
+
 # --- RejectListFilter ------------------------------------------------------
 
 def test_reject_list_filter_uses_regexes():

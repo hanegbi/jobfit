@@ -12,7 +12,7 @@ from jobfit.scrape.enrich import DetailEnricher
 from jobfit.scrape.errors import PlanInvalid
 from jobfit.scrape.fetchers import PageFetcherFactory
 from jobfit.scrape.filters import (
-    CategoryPrefixFilter, DenylistFilter, EvidenceThresholdFilter, FilterChain, HrefMarkerFilter,
+    CategoryPrefixFilter, CtaLabelFilter, DenylistFilter, EvidenceThresholdFilter, FilterChain, HrefMarkerFilter,
     PlanPatternFilter, RejectListFilter, UrlShapeClusterFilter,
 )
 from jobfit.scrape.health import HealthPolicy
@@ -43,7 +43,7 @@ class StrategyFactory:
 
     def chain_for(self, strategy: HtmlListingStrategy) -> FilterChain:
         return FilterChain([
-            DenylistFilter(), HrefMarkerFilter(), RejectListFilter(self.reject_patterns), CategoryPrefixFilter(),
+            DenylistFilter(), CtaLabelFilter(), HrefMarkerFilter(), RejectListFilter(self.reject_patterns), CategoryPrefixFilter(),
             PlanPatternFilter(strategy.include_url, strategy.exclude_url, strategy.explicit_accept),
             UrlShapeClusterFilter(strategy.url_shape), EvidenceThresholdFilter(min_signals=2, reject_chrome=True),
         ])

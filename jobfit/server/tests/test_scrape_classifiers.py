@@ -29,7 +29,7 @@ def _page(html=HTML, url=CAREER):
 
 
 def test_rules_chain_order():
-    assert [f.name for f in classifiers.rules_chain().filters] == ["denylist", "href_marker", "category_prefix", "url_shape", "evidence"]
+    assert [f.name for f in classifiers.rules_chain().filters] == ["denylist", "cta_label", "href_marker", "category_prefix", "url_shape", "evidence"]
 
 
 def test_rules_classifier_labels_every_candidate_in_index_order():

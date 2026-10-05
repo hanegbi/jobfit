@@ -68,7 +68,9 @@ def test_playwright_fallback_is_skipped_when_the_primary_already_renders_with_pl
 def test_chain_for_a_plan_has_the_documented_order_and_carries_the_plan_patterns():
     strategy = models.HtmlListingStrategy(include_url=r"^https://acme\.com/careers/[a-z-]+$", url_shape="acme.com|careers|2")
     chain = _factory().chain_for(strategy)
-    assert [f.name for f in chain.filters] == ["denylist", "href_marker", "reject_list", "category_prefix", "plan_pattern", "url_shape", "evidence"]
-    assert chain.filters[4].include.pattern == strategy.include_url
-    assert chain.filters[5].expected_shape == "acme.com|careers|2"
-    assert chain.filters[2].patterns[0].pattern == r"^https://acme\.com/legal"
+    assert [f.name for f in chain.filters] == ["denylist", "cta_label", "href_marker", "reject_list", "category_prefix", "plan_pattern", "url_shape",
+            "evidence"]
+    by_name = {f.name: f for f in chain.filters}
+    assert by_name["plan_pattern"].include.pattern == strategy.include_url
+    assert by_name["url_shape"].expected_shape == "acme.com|careers|2"
+    assert by_name["reject_list"].patterns[0].pattern == r"^https://acme\.com/legal"

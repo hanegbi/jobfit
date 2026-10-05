@@ -19,7 +19,7 @@ class _FakeHtmlResponse:
 
 def test_legacy_chain_accepts_everything_not_explicitly_rejected():
     names = [f.name for f in filters.legacy_listing_chain().filters]
-    assert names == ["denylist", "href_marker", "category_prefix", "evidence"]
+    assert names == ["denylist", "cta_label", "href_marker", "category_prefix", "evidence"]
     evidence = filters.legacy_listing_chain().filters[-1]
     assert evidence.min_signals == 0 and evidence.reject_chrome is False
 

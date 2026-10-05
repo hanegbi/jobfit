@@ -29,9 +29,38 @@ NAV_DENYLIST = re.compile(
     r"apply( now| today)?|view all|see all|view (open )?positions?|view listing|browse all|"
     r"\+? ?view more positions?|learn more|read more( ?>)?|back to|skip to|menu|toggle|close|"
     r"let'?s talk|follow (us|gett .*)|submit (cv|resume)|eeo is the law|job search|"
-    r"linkedin|facebook|twitter|instagram|youtube)$",
+    r"linkedin|facebook|twitter|instagram|youtube|"
+    # A second batch, counted in the store the same way as the first: the
+    # site's OWN SECTION NAMES, scraped off career pages that list no
+    # postings. 49 x "Partners", 45 x "Platform", 31 x "Solutions".
+    # Anchored like the rest, so "Platform Engineer", "Solutions Engineer"
+    # and "Security Researcher" are untouched - only the bare section label
+    # is denied. Demo/CTA labels are deliberately NOT here: see _CTA_LABEL_RE.
+    r"partners|platform|solutions|integrations|webinars?|glossary|services|technology|"
+    r"customers|customer stories|healthcare|industries|manufacturing|security|marketing|"
+    r"documentation|use cases|trust center|help center|accessibility|how it works)$",
     re.I,
 )
+
+# A CTA that a site uses as the LABEL of every link in a list. On its own
+# this says nothing: wematch.live labels each real posting "View Job" and
+# the title is recovered from the job's own page later (enrich.py), so
+# rejecting on the text alone threw away that company's entire listing -
+# the replay suite caught it by name. The href decides instead: these are
+# only junk when the destination carries no job hint either (actionai's
+# "Book a demo" goes to /contact, wematch's "View Job" to /job-postings/...).
+_CTA_LABEL_RE = re.compile(
+    r"^(book|get|request|schedule) a demo$|^get started$|^get in touch$|^tell me more$|"
+    r"^more info(rmation)?$|^view (role|job|details|latest roles)$|^aplicar para vaga$",
+    re.I,
+)
+# The same CTA idea where the label runs on into a whole sentence rather
+# than stopping at the button's words: "Download ClearML's 4th Annual State
+# of AI Infrastructure at Scale 2025-2026 report." was stored as a job and
+# scored 86, because the report's own subject matter reads like a job
+# description. A prefix is only safe behind the same href guard - no real
+# posting is titled "Download ..." but plenty live under a /careers path.
+_CTA_PREFIX_RE = re.compile(r"^(download|read|watch|subscribe|explore|discover|register for)\b", re.I)
 # A nav link whose label carries the page's tagline: "Careers Join the team
 # building the operating system for working dogs.", "About Us Discover the
 # DogBase story", "Career Opportunities". NAV_DENYLIST is anchored and so only
@@ -89,10 +118,21 @@ _URL_TEXT_RE = re.compile(r"^(https?://|www\.)", re.I)
 # Governance & Compliance" - both caught live) reads like a plausible title.
 NON_JOB_LINK_HREF_MARKERS = (
     "google.com/maps", "maps.google.com", "goo.gl/maps",
-    "/docs/", "/documentation/", "/blog/", "/resources/", "/resource-library/",
-    "/legal/", "/trust-center/", "/security-center/", "/press/", "/newsroom/",
-    "/case-studies/", "/case-study/", "/webinars/", "/community/", "/partners/",
 )
+
+# The same idea as the markers above, but matched as a whole path SEGMENT
+# rather than as a substring. Substring matching made these trailing-slash
+# sensitive, and the store proves how much that cost: "/partners/" rejected
+# accelario.com/partners/ while almtoolbox.com/partners - the same kind of
+# page, no trailing slash - was stored as a job. A segment match catches
+# both, and still catches the marker mid-path ("/docs/foo").
+NON_JOB_PATH_SEGMENTS = frozenset({
+    "docs", "documentation", "blog", "resources", "resource-library",
+    "legal", "trust-center", "security-center", "press", "newsroom",
+    "case-studies", "case-study", "webinar", "webinars", "community",
+    "partners", "glossary", "pricing", "integrations", "use-cases",
+    "customer-stories", "help-center", "accessibility",
+})
 
 
 class Verdict(BaseModel):
@@ -112,6 +152,21 @@ class LinkFilter(ABC):
 
     def _accept(self, reason: str) -> Verdict:
         return Verdict(accept=True, filter_name=self.name, reason=reason)
+
+
+class CtaLabelFilter(LinkFilter):
+    """A list whose every link is labelled with the same CTA, rejected only
+    when the destination is not job-shaped either - see _CTA_LABEL_RE."""
+
+    name = "cta_label"
+
+    def accept(self, candidate: Candidate, batch: list[Candidate]) -> Verdict | None:
+        text = " ".join((candidate.text or "").split())
+        if not (_CTA_LABEL_RE.match(text) or _CTA_PREFIX_RE.match(text)):
+            return None
+        if candidate.has_job_url_hint or candidate.under_career_path:
+            return None
+        return self._reject(f"{text!r} with no job-shaped destination")
 
 
 class DenylistFilter(LinkFilter):
@@ -146,6 +201,9 @@ class HrefMarkerFilter(LinkFilter):
         for marker in NON_JOB_LINK_HREF_MARKERS:
             if marker in href:
                 return self._reject(f"href contains {marker!r}")
+        for segment in urlsplit(href).path.split("/"):
+            if segment in NON_JOB_PATH_SEGMENTS:
+                return self._reject(f"href path segment {segment!r} is not a posting")
         return None
 
 
@@ -272,6 +330,6 @@ def legacy_listing_chain() -> FilterChain:
     else. Used by the two legacy listing entry points until Group B wires
     the plan-driven chain, and by RulesPlanClassifier as its base."""
     return FilterChain([
-        DenylistFilter(), HrefMarkerFilter(), CategoryPrefixFilter(),
+        DenylistFilter(), CtaLabelFilter(), HrefMarkerFilter(), CategoryPrefixFilter(),
         EvidenceThresholdFilter(min_signals=0, reject_chrome=False),
     ])
