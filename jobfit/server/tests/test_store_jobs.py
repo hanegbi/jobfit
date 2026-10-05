@@ -168,6 +168,34 @@ def test_a_job_with_no_evidence_reads_back_as_none():
     assert next(iter(jobs.iter_all(conn)))["job_evidence"] is None
 
 
+def test_delete_jobs_takes_the_scores_and_the_search_index_with_it():
+    """The one exception to "closed, never deleted" - a row that was never
+    a posting. job_scores carries a REFERENCES jobs(id), and the FTS index
+    would keep answering for a job that no longer exists."""
+    from jobfit.store import scores as store_scores
+
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [
+        _job("https://acme.com/jobs/1", title="Senior Backend Engineer"),
+        _job("https://acme.com/glossary", title="Glossary"),
+    ], NOW)
+    store_scores.write_scores(conn, "glossary", {"default": {"score": 70, "cache_key": "k"}})
+
+    stats = jobs.delete_jobs(conn, ["glossary"])
+    assert stats["jobs"] == 1 and stats["scores"] == 1
+    assert jobs.get_job(conn, "glossary") is None
+    assert jobs.get_job(conn, "1") is not None
+    assert conn.execute("SELECT count(*) FROM job_scores WHERE job_id = 'glossary'").fetchone()[0] == 0
+    assert conn.execute("SELECT rowid FROM jobs_fts WHERE jobs_fts MATCH 'Glossary'").fetchall() == []
+
+
+def test_delete_jobs_on_an_empty_list_touches_nothing():
+    conn = _conn()
+    jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1")], NOW)
+    assert jobs.delete_jobs(conn, []) == {"jobs": 0, "scores": 0, "state": 0}
+    assert jobs.get_job(conn, "1") is not None
+
+
 def test_reopen_by_url_reverses_close_by_url():
     conn = _conn()
     jobs.upsert_scraped(conn, "acme", [_job("https://acme.com/jobs/1")], NOW)

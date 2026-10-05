@@ -14,6 +14,7 @@ from urllib.parse import urlsplit
 
 from pydantic import BaseModel
 
+from jobfit.scrape.candidates import _has_job_url_hint
 from jobfit.scrape.models import Candidate
 
 NAV_DENYLIST = re.compile(
@@ -133,6 +134,44 @@ NON_JOB_PATH_SEGMENTS = frozenset({
     "partners", "glossary", "pricing", "integrations", "use-cases",
     "customer-stories", "help-center", "accessibility",
 })
+
+
+def non_job_reason(title: str | None, url: str | None) -> str | None:
+    """Why this (title, url) is not a job posting at all, or None if it
+    might be one.
+
+    The same vocabulary the link filters use, applied to a STORED row
+    rather than to a Candidate - the filters need a Candidate's page
+    context (siblings, chrome, career path) and a stored job no longer has
+    it. Kept here, beside the patterns, so the scrape-time rule and the
+    purge can never drift apart.
+
+    The last clause is the loose one: no word naming a person who does
+    something, and nothing job-shaped in the URL either. On the real store
+    that bucket is product and legal pages - "Service Level Agreement
+    (SLA)", "Database Virtualization Tool", "Monolith to Microservices" -
+    and its highest-scoring members are all marketing, not misjudged jobs.
+    """
+    text = " ".join((title or "").split())
+    if not text or not url:
+        return None
+    lowered = url.lower()
+    if NAV_DENYLIST.match(text):
+        return "nav label"
+    for marker in NON_JOB_LINK_HREF_MARKERS:
+        if marker in lowered:
+            return f"href marker {marker!r}"
+    for segment in urlsplit(lowered).path.split("/"):
+        if segment in NON_JOB_PATH_SEGMENTS:
+            return f"path segment {segment!r}"
+    hint = _has_job_url_hint(urlsplit(url).path, url)
+    if hint:
+        return None
+    if _CTA_LABEL_RE.match(text) or _CTA_PREFIX_RE.match(text):
+        return "call to action, no job-shaped url"
+    if not _ROLE_WORD_RE.search(text):
+        return "no role word, no job-shaped url"
+    return None
 
 
 class Verdict(BaseModel):

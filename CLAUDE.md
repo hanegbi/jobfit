@@ -124,8 +124,14 @@ looks like dozens of real failures and is not.
 
 - Do not call a model, or add an import of `anthropic` / `claude-agent-sdk`, anywhere on the runtime path.
   Discovery (`scrape/planner.py`, via `bootstrap.build_discovery_planner`) is the only exception.
-- Do not delete jobs to "clean up". Jobs are closed, never removed; a company that should stop being
-  scraped gets its `career_url` cleared plus a `skip` review decision on its row.
+- Do not delete jobs to "clean up". A *posting* is closed, never removed; a company that should stop
+  being scraped gets its `career_url` cleared plus a `skip` review decision on its row. The one
+  exception is a row that was never a posting at all — a company's own glossary/partners/pricing page
+  scraped off a careers URL. Those are deleted, by `scripts/purge_non_jobs.py` and only through it:
+  it judges with `scrape.filters.non_job_reason` (the same vocabulary the scrape-time link filters
+  use, so the two cannot drift), writes every row to `cache/purged/` first, and refuses to touch a
+  row carrying your own liked/hidden/sent flags. Closing those instead would leave 16,562 glossary
+  pages in every company's total forever.
 - Do not write SQL outside `jobfit/store/`, and do not hand-edit `jobfit.db` or `jobfit.html`. Scrape
   plans are hand-editable; company career URLs and review decisions are edited through the control
   panel or the store, not the legacy JSON files.

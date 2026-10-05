@@ -21,6 +21,9 @@ jobfit/data/.server.lock
 # like data/scrape_plans/ and cache/listing_snapshots/ are.
 jobfit/cache/pages/
 # URL-audit progress (resumable check_urls run) - transient.
+# What purge_non_jobs deleted, kept as a local undo. Not committed for the
+# same reason jobfit.db is not: it is a dump of store rows, not source.
+jobfit/cache/purged/
 jobfit/cache/url_check_progress.json
 jobfit/cache/url_check_report.json
 jobfit/cache/url_reopen_progress.json

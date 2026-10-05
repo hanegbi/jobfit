@@ -112,6 +112,40 @@ def test_the_new_section_names_never_eat_a_real_role():
         assert filters.DenylistFilter.text_ok(real) is True, real
 
 
+# --- non_job_reason (the stored-row rule purge_non_jobs deletes by) --------
+
+def test_non_job_reason_names_why_a_stored_row_was_never_a_posting():
+    cases = {
+        # The title is checked first, so a label that is itself a section
+        # name reports as one however junk-shaped its URL also is.
+        ("Glossary", "https://accelario.com/glossary/"): "nav label",
+        ("About us", "https://www.ad-maven.com/about-us"): "nav label",
+        # A plausible-sounding title saved only by where it points.
+        ("Threat Research", "https://imper.ai/blog/threat-research"): "path segment",
+        ("Quantum Phase Estimation", "https://classiq.io/resources/qpe"): "path segment",
+        ("Book a demo", "https://www.actionai.co/contact"): "call to action",
+        ("Accessibility Statement", "https://www.citrusx.ai/accessibility-statement"): "no role word",
+        ("Products", "https://billrun.com/products"): "no role word",
+        ("email us", "mailto:info@biocatch.com"): "no role word",
+    }
+    for (title, url), expected in cases.items():
+        reason = filters.non_job_reason(title, url)
+        assert reason and reason.startswith(expected), (title, reason)
+
+
+def test_non_job_reason_keeps_a_real_posting():
+    for title, url in (
+        ("Senior Backend Engineer", "https://acme.com/careers/senior-backend-engineer"),
+        ("Platform Engineer", "https://acme.com/jobs/platform-engineer"),
+        # No role word in the title, but the URL is job-shaped - the loose
+        # clause must not fire on its own.
+        ("NOC", "https://au10tix.com/careers/noc-2231"),
+        # A role word carries it even when the URL says nothing.
+        ("Mechanical Engineer", "https://acme.com/open/mech"),
+    ):
+        assert filters.non_job_reason(title, url) is None, title
+
+
 # --- RejectListFilter ------------------------------------------------------
 
 def test_reject_list_filter_uses_regexes():

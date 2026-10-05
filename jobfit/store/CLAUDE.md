@@ -14,7 +14,13 @@ until phase 4 as a rollback path. Design: @docs/superpowers/specs/2026-09-30-job
   keys on `PRAGMA user_version` and will not run it again. `executescript()` commits whatever is
   pending before it runs, so the transaction lives *inside* the script, not around it.
 - **Jobs are closed, never deleted.** A listing that used to exist is still evidence. `closed_at`
-  and `closed_reason` say when and why.
+  and `closed_reason` say when and why. `delete_jobs` is the single exception and exists for one
+  case: a row that was never a posting, where there is no evidence to protect — a glossary page is
+  not evidence of a company that hires, and closing it would keep it in that company's totals
+  forever. It deletes the `job_scores` and `job_state` rows first (both carry a `REFERENCES
+  jobs(id)`) and leaves the FTS index to the `jobs_fts_delete` trigger. Callers decide with
+  `scrape.filters.non_job_reason`; `scripts/purge_non_jobs.py` is the only one, and it backs up and
+  skips anything the user has flagged.
 - **A job's id is base64url of its normalized URL** (`scrape/ids.py`), unchanged by the migration,
   which is why the browser's saved likes still match.
 - **`db.shared()` is the process connection**, opened and migrated on first use. Tests swap it

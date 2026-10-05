@@ -218,6 +218,33 @@ def upsert_scraped(conn: sqlite3.Connection, company_id: str, scraped: list[dict
     return new_count, closed_count
 
 
+def delete_jobs(conn: sqlite3.Connection, job_ids: list[str]) -> dict[str, int]:
+    """Remove rows that were never job postings - and only those.
+
+    The exception to "jobs are closed, never deleted" (see the store's
+    CLAUDE.md). That rule protects evidence: a posting that existed and
+    closed is still evidence of a company that hires. A glossary page
+    scraped off a careers URL is not evidence of anything, and closing it
+    would leave it in every company's total forever.
+
+    Deletes the score rows and user flags first: both carry a REFERENCES
+    jobs(id), and a job_state row is the user's own work, so a caller that
+    hands over a job the user has flagged destroys it - purge_non_jobs
+    refuses to pass one. The FTS index needs no help, the jobs_fts_delete
+    trigger follows the delete.
+    """
+    stats = {"jobs": 0, "scores": 0, "state": 0}
+    if not job_ids:
+        return stats
+    for chunk_start in range(0, len(job_ids), 500):
+        chunk = job_ids[chunk_start:chunk_start + 500]
+        marks = ", ".join("?" * len(chunk))
+        stats["scores"] += conn.execute(f"DELETE FROM job_scores WHERE job_id IN ({marks})", chunk).rowcount
+        stats["state"] += conn.execute(f"DELETE FROM job_state WHERE job_id IN ({marks})", chunk).rowcount
+        stats["jobs"] += conn.execute(f"DELETE FROM jobs WHERE id IN ({marks})", chunk).rowcount
+    return stats
+
+
 def closed_with_url(conn: sqlite3.Connection) -> list[dict]:
     """Closed jobs that still have a URL - the reopen audit's worklist. A
     closed job with no URL can never be re-verified, so it is not here."""
