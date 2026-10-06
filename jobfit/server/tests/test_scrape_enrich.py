@@ -124,3 +124,74 @@ def test_enricher_splits_the_card_text_when_the_job_page_cannot_be_read():
     assert posting.title == "Senior MLOps Engineer"
     assert posting.location == "Tel Aviv"
     assert posting.employment_type == "Full-time"
+
+
+# --- a posting that is still listed but no longer live ---------------------
+
+def test_posting_is_gone_recognises_the_four_ways_a_job_dies():
+    """All four taken from one real export of 89 links: a 404, Greenhouse
+    bouncing /zscaler/jobs/123 to /zscaler?error=true, Comeet bouncing a job
+    back to its board, and a 200 whose body says the position is filled."""
+    from jobfit.scrape.enrich import posting_is_gone
+
+    assert posting_is_gone("https://x/job/1", "https://x/job/1", 404, "<html>x</html>") == "http 404"
+    assert posting_is_gone(
+        "https://job-boards.greenhouse.io/zscaler/jobs/123",
+        "https://job-boards.greenhouse.io/zscaler?error=true", 200, "<html>x</html>")
+    assert posting_is_gone(
+        "https://www.comeet.com/jobs/rapyd/73.00E/data-analyst/44.A11",
+        "https://www.comeet.com/jobs/rapyd/73.00E", 200, "<html>x</html>")
+    assert posting_is_gone("https://x/j/1", "https://x/j/1", 200,
+                           "<html><body>Sorry, this position is no longer available</body></html>")
+
+
+def test_a_live_posting_and_a_deeper_redirect_are_not_gone():
+    """The redirect rule must read direction, not movement: AppsFlyer
+    rewrites /jobs/position/8732730002 to the same job with its slug
+    appended, and that job is alive. Only a bounce UP to an ancestor path
+    means the item itself is gone."""
+    from jobfit.scrape.enrich import posting_is_gone
+
+    assert posting_is_gone("https://x/j/1", "https://x/j/1", 200,
+                           "<html><body>Senior Backend Engineer. Requirements: Python</body></html>") is None
+    assert posting_is_gone(
+        "https://careers.appsflyer.com/jobs/position/8732730002",
+        "https://careers.appsflyer.com/jobs/position/8732730002/software-team-leader",
+        200, "<html>job</html>") is None
+
+
+def test_a_challenge_page_is_blocked_not_a_dead_job():
+    """Cloudflare answers 200 with a page that has no job on it. Closing the
+    job would be wrong - the posting may be perfectly alive behind the wall -
+    so the fetch is reported as blocked and the job is left alone."""
+    from jobfit.scrape.enrich import fetch_outcome, posting_is_gone
+
+    wall = "<html><body>Attention Required! | Cloudflare</body></html>"
+    assert fetch_outcome(200, wall) == "blocked"
+    assert posting_is_gone("https://x/j/1", "https://x/j/1", 200, wall) is None
+    assert fetch_outcome(403, "x") == "blocked"
+    assert fetch_outcome(200, "   ") == "empty"
+    assert fetch_outcome(200, "<html>job</html>") == "ok"
+
+
+def test_work_mode_prefers_hybrid_over_the_remote_it_also_mentions():
+    from jobfit.scrape.enrich import work_mode_of
+
+    assert work_mode_of("Hybrid - 2 days remote from home") == "hybrid"
+    assert work_mode_of("This is a fully remote position") == "remote"
+    assert work_mode_of("On-site in Tel Aviv") == "onsite"
+    assert work_mode_of("Senior Backend Engineer") is None
+
+
+def test_a_whole_listing_looking_gone_is_a_site_redirect_not_a_mass_closure():
+    """A site that answers its careers page for any sub-path makes every
+    posting look bounced. One job bouncing is a withdrawal; all of them is
+    the site's routing, and closing a company's entire roster on that is the
+    one mistake here a later run cannot undo."""
+    from jobfit.scrape.enrich import posting_is_gone
+
+    # Each individually reads as gone...
+    for slug in ("backend-1", "frontend-2", "devops-3"):
+        assert posting_is_gone(f"https://acme.com/careers/{slug}", "https://acme.com/careers/", 200, "<html>x</html>")
+    # ...and service.scrape is what refuses to act on all of them at once;
+    # test_scrape_no_llm_at_runtime exercises that path end to end.

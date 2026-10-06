@@ -110,9 +110,29 @@ class CompanyScrapeService:
             strategy = self.factory.build(plan, known_job_urls)
         postings = strategy.fetch(company, career_url)  # FetchFailed propagates: nothing below runs, plan untouched
         postings = [p if p.evidence is not None else self._noop.enrich(p) for p in postings]
+        # A posting whose own page says it is gone (404, bounced back to the
+        # board, "no open positions") is not a job this run found - it is one
+        # the listing has not caught up with. Dropping it here means
+        # upsert_scraped stops seeing it and closes it, which is the path
+        # every other disappearance already takes. Reported, never silent:
+        # the caller writes them to the run's closed list.
+        gone = [p for p in postings if p.gone_reason]
+        # Never let this rule empty a whole listing. One posting bouncing to
+        # the board is a withdrawn job; EVERY posting bouncing is the site
+        # answering its careers page for any sub-path, and closing a
+        # company's entire roster on that evidence is the one mistake here
+        # that cannot be walked back by the next run.
+        if gone and len(gone) == len(postings) and len(postings) > 1:
+            logger.warning("%s: every posting looked gone (%s) - treating as a site-level redirect, keeping all",
+                           company, gone[0].gone_reason)
+            gone = []
+        postings = [p for p in postings if p not in gone]
+        if gone:
+            logger.info("%s: %d posting(s) still listed but gone: %s", company, len(gone),
+                        "; ".join(f"{p.title[:40]} ({p.gone_reason})" for p in gone[:3]))
         postings = [_classify_posting(p) for p in postings]
         plan = self.health.update(plan, postings, self.now(), fingerprint=strategy.last_fingerprint)
         self.store.put(plan)
         used = getattr(strategy, "strategy_used", strategy.kind)
         logger.info("%s: %d postings via %s (plan %s/%s)", company, len(postings), used, plan.derived_by, plan.status)
-        return ScrapeResult(company_id=company_id, postings=postings, plan=plan, strategy_used=used)
+        return ScrapeResult(company_id=company_id, postings=postings, plan=plan, strategy_used=used, gone=gone)

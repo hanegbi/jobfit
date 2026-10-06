@@ -17,7 +17,7 @@ from jobfit.scrape.ids import normalize_job_url
 _INSERT_FIELDS = (
     "title", "url", "description", "location", "city", "is_remote", "department", "employment_type",
     "posted_at", "years_required", "is_referral", "referral_contact", "source_language",
-    "title_original", "description_original", "scrape_source",
+    "title_original", "description_original", "scrape_source", "fetch_status", "work_mode",
     "family", "canonical_title", "family_confidence", "taxonomy_version",
 )
 # Filled from a re-scrape only when the stored value is empty: a later scrape
@@ -25,7 +25,11 @@ _INSERT_FIELDS = (
 _FILL_IF_EMPTY = ("location", "city", "description", "department", "employment_type", "url")
 # Classification is re-derived every scrape, not just once - a taxonomy edit
 # should reclassify a seen-again job without waiting for a dedicated backfill.
-_ALWAYS_REFRESH = ("family", "canonical_title", "family_confidence", "taxonomy_version")
+_ALWAYS_REFRESH = ("family", "canonical_title", "family_confidence", "taxonomy_version",
+                   # What this run actually saw when it opened the page: a job
+                   # that was blocked last time and fetched cleanly now must stop
+                   # reading "blocked", or the run report never clears.
+                   "fetch_status", "work_mode")
 
 
 def get_job(conn: sqlite3.Connection, job_id: str) -> sqlite3.Row | None:

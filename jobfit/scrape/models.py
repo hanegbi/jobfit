@@ -77,6 +77,15 @@ class JobPosting(BaseModel):
     canonical_title: str | None = None
     family_confidence: str | None = None  # "title" | "jd_fallback" | "unknown"
     taxonomy_version: str | None = None
+    # What opening the job's own page actually produced - see
+    # enrich.fetch_outcome. "blocked" separates "no description because the
+    # posting is thin" from "because Cloudflare answered instead".
+    fetch_status: str | None = None       # "ok" | "blocked" | "empty"
+    work_mode: str | None = None          # "onsite" | "hybrid" | "remote"
+    # Why the job's own page says it is no longer live (enrich.posting_is_gone).
+    # Set means "do not store this as open": the scrape drops it, and
+    # upsert_scraped closes whatever it stops seeing.
+    gone_reason: str | None = None
 
 
 class AtsApiStrategy(BaseModel):
@@ -183,3 +192,7 @@ class ScrapeResult(BaseModel):
     plan: ScrapePlan
     strategy_used: str
     notes: list[str] = Field(default_factory=list)
+    # Still on the listing, but their own page says otherwise - dropped from
+    # postings so upsert_scraped closes them, kept here so a run can report
+    # what it dropped and why rather than closing things silently.
+    gone: list[JobPosting] = Field(default_factory=list)
