@@ -40,6 +40,26 @@ _SENIORITY = r"senior|junior|jr\.?|sr\.?|mid[\s-]level|mid|intermediate|entry[\s
 _TRAILING_SENIORITY = r"senior|junior|jr\.?|sr\.?|mid[\s-]level|mid|entry[\s-]level|intermediate"
 _CTA = r"apply(\s+(now|today|here))?|(read|learn|view|see)\s+more|view\s+(job|role|position|details)|more\s+details"
 
+# A card whose WHOLE text is one of these names no role - the job's own page
+# is then the only source of a title (see authoritative_title). Each was
+# found as a stored job title in a real export: "More Details" (xpander.ai),
+# "Job Details" (Lusha), "Open page" (TA 9), "Tell Me More" (ControlMonkey),
+# "External Post" (Ashby boards), "Apply for this position" (Prisma).
+# A page heading that announces itself before naming the role - Lusha's
+# h1 reads "Job opportunity: Data Scientist".
+_PAGE_TITLE_PREFIX_RE = re.compile(
+    r"^\s*(job\s+(opportunity|opening|posting|description)|career\s+opportunity|vacancy|position|job|role)\s*[:\-–—]\s*",
+    re.I,
+)
+
+_GENERIC_CARD_RE = re.compile(
+    r"(?:apply(?:\s+(?:now|today|here|for\s+this\s+(?:position|job|role)))?|"
+    r"(?:read|learn|view|see|find\s+out)\s+more|more\s+(?:details|info(?:rmation)?)|"
+    r"(?:view|open|show)\s+(?:job|role|position|details|page)|job\s+details|open\s+page|"
+    r"tell\s+me\s+more|external\s+post|details|view|register)",
+    re.I,
+)
+
 # Countries and territories seen as a trailing location in card text. Cities
 # are not listed (there is no bounded list of them) - a foreign city only
 # gets trimmed when the job page states the title itself.
@@ -289,6 +309,18 @@ def _normalized(text: str) -> str:
     return " ".join(re.sub(r"[^0-9a-z֐-׿]+", " ", (text or "").lower()).split())
 
 
+def is_generic_card_text(listing_title: str) -> bool:
+    """True when a card's whole text is a button, naming no role at all -
+    "More Details", "Open page", "Job Details", "Tell Me More", "External
+    Post", "Apply for this position".
+
+    Some boards label every posting this way, so the card carries no title
+    to protect and the job's own page is the only place one exists.
+    """
+    normalized = _normalized(listing_title)
+    return bool(normalized) and bool(_GENERIC_CARD_RE.fullmatch(normalized))
+
+
 def authoritative_title(candidates: list[str], listing_title: str) -> str | None:
     """The longest candidate the card text contains - i.e. the card text with
     its metadata trimmed off. None when no candidate is contained in it, so a
@@ -297,9 +329,26 @@ def authoritative_title(candidates: list[str], listing_title: str) -> str | None
     Whatever the candidate cuts from the FRONT must be recognized metadata (a
     card that leads with its city), never plain words: a page heading reading
     "Backend Engineer" must not turn the card's "Senior Backend Engineer" into
-    a different, more junior role."""
+    a different, more junior role.
+
+    The containment rule is skipped for a card that is only a button (see
+    is_generic_card_text): there is no role in "More Details" to rename, so
+    the page's own heading is adopted outright. Without that, xpander.ai's
+    postings were stored titled "More Details" and Lusha's "Job Details" -
+    nine of 89 in one export.
+    """
     listing = _normalized(listing_title)
     if not listing:
+        return None
+    if is_generic_card_text(listing_title):
+        # FIRST usable, not longest: detail_title_candidates is ordered by
+        # authority (schema.org JobPosting, then h1, then og:title, then the
+        # document title), and the document title is the one carrying
+        # " | Company - tagline".
+        for candidate in candidates:
+            cleaned = _clean(_PAGE_TITLE_PREFIX_RE.sub("", candidate))
+            if len(_normalized(cleaned)) >= 8 and len(_normalized(cleaned).split()) >= 2:
+                return cleaned
         return None
     best = None
     for candidate in candidates:

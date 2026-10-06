@@ -87,6 +87,35 @@ def test_authoritative_title_only_ever_trims_the_listing_title():
     assert authoritative_title(["Senior MLOps Engineer Full-time Senior Tel Aviv"], listing) is None
 
 
+def test_a_card_that_is_only_a_button_takes_the_pages_own_heading():
+    """Real export, 9 of 89 rows: xpander.ai labels every posting "More
+    Details", Lusha "Job Details", TA 9 "Open page", ControlMonkey "Tell Me
+    More", Prisma "Apply for this position". Those were stored AS the title.
+    A button names no role, so there is nothing for the containment rule to
+    protect and the page's own heading is adopted outright."""
+    from jobfit.scrape.titles import is_generic_card_text
+
+    for button in ("More Details", "Job Details", "Open page", "Tell Me More",
+                   "External Post", "Apply for this position", "Read more", "Learn More"):
+        assert is_generic_card_text(button), button
+    assert authoritative_title(["Senior Backend Engineer"], "More Details") == "Senior Backend Engineer"
+    # First candidate wins, not longest: the document title is the one
+    # carrying " | Company - tagline".
+    assert authoritative_title(
+        ["Senior Backend Engineer", "Senior Backend Engineer | xpander.ai - AI Agent Platform"],
+        "More Details") == "Senior Backend Engineer"
+    # A heading that announces itself before naming the role (Lusha).
+    assert authoritative_title(["Job opportunity: Data Scientist"], "Job Details") == "Data Scientist"
+
+
+def test_a_real_card_title_is_still_never_renamed_by_the_page():
+    """The protection the button case steps around must stay intact for a
+    card that does name a role: a page h1 of "Backend Engineer" may not turn
+    "Senior Backend Engineer" into a more junior one."""
+    assert authoritative_title(["Backend Engineer"], "Senior Backend Engineer Tel Aviv Full-time") is None
+    assert not __import__("jobfit.scrape.titles", fromlist=["x"]).is_generic_card_text("Senior Backend Engineer")
+
+
 def test_authoritative_title_ignores_a_too_short_fragment():
     assert authoritative_title(["Senior"], "Senior MLOps Engineer Full-time Senior Tel Aviv") is None
 
