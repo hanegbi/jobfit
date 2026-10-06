@@ -61,6 +61,10 @@ export interface JobRow {
   industry: string | null;
   source_language: string | null;
   best_score: number | null;
+  /** Every profile's score for this job, {profile_id: score} - the card
+   * shows them all; best_score is just whichever won. Distinct from
+   * JobDetail.scores, which carries the full ScoreDetail behind each. */
+  profile_scores: Record<string, number | null>;
   liked: boolean;
   hidden: boolean;
   sent: boolean;

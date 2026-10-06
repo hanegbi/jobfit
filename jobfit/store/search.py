@@ -213,6 +213,12 @@ def search_jobs(conn: sqlite3.Connection, *, sort: str = "score", page: int = 1,
 
     # One query for the whole page's companies, not one per job.
     contacts = companies_store.contacts_for(conn, sorted({job["company_id"] for job in jobs}))
+    # Same, for every profile's score - the card shows all of them, not just
+    # the best_score the sort ran on.
+    from jobfit.store import scores as scores_store
+
+    per_profile = scores_store.scores_by_job(conn, [job["id"] for job in jobs])
     for job in jobs:
         job["contacts"] = contacts.get(job["company_id"], [])
+        job["profile_scores"] = per_profile.get(job["id"], {})
     return {"total": total, "page": page, "size": size, "jobs": jobs}

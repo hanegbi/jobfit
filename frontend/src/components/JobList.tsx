@@ -105,7 +105,23 @@ function Card({
   return (
     <article className={`card${job.hidden ? " is-hidden" : ""}${job.liked ? " is-liked" : ""}`}>
       <div className="card-head">
-        <span className={scoreClass(job.best_score)}>{job.best_score ?? "--"}</span>
+        <div className="score-stack">
+          <span className={scoreClass(job.best_score)}>{job.best_score ?? "--"}</span>
+          {/* Every CV's score, not just the winning one: with more than one
+              profile the headline number alone does not say which CV it
+              came from, or how far apart they are. */}
+          {Object.keys(job.profile_scores ?? {}).length > 1 && (
+            <span className="score-profiles">
+              {Object.entries(job.profile_scores)
+                .sort(([a], [b]) => a.localeCompare(b))
+                .map(([profile, score]) => (
+                  <span key={profile} title={`scored against the "${profile}" CV`}>
+                    {profile} <b>{score ?? "--"}</b>
+                  </span>
+                ))}
+            </span>
+          )}
+        </div>
         <div className="card-heading">
           {/* The title is the link out. There is no in-app detail view: the
               posting itself is the thing you actually want to read. */}

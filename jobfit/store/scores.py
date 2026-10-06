@@ -40,6 +40,29 @@ def scores_for_job(conn: sqlite3.Connection, job_id: str) -> dict[str, dict]:
     return out
 
 
+def scores_by_job(conn: sqlite3.Connection, job_ids: list[str]) -> dict[str, dict[str, float]]:
+    """{job_id: {profile_id: score}} for a page of jobs, in one query.
+
+    The list shows every profile's number, not just the best, so the card
+    can say which CV the score belongs to. One query for the whole page
+    rather than one per job - the same reason companies.contacts_for
+    exists. Only the score: the matched skills and coverage behind it are
+    the detail read's job, and shipping them per row is what the list
+    columns exist to avoid.
+    """
+    out: dict[str, dict[str, float]] = {}
+    if not job_ids:
+        return out
+    for start in range(0, len(job_ids), 500):
+        chunk = job_ids[start:start + 500]
+        marks = ", ".join("?" * len(chunk))
+        for row in conn.execute(
+            f"SELECT job_id, profile_id, score FROM job_scores WHERE job_id IN ({marks})", chunk
+        ):
+            out.setdefault(row["job_id"], {})[row["profile_id"]] = row["score"]
+    return out
+
+
 def drop_scores_for_missing_profiles(conn: sqlite3.Connection, profile_ids: set[str]) -> int:
     """Scores for a profile that no longer exists are not just stale, they
     are wrong - a deleted CV must stop influencing what ranks highest.
