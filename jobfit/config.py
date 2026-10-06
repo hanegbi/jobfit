@@ -178,3 +178,39 @@ SKILLS_VOCAB: list[str] = [
     "infrastructure automation", "site reliability", "reliability engineering",
     "ml infrastructure", "scalable infrastructure",
 ]
+
+# --- export filters -------------------------------------------------------
+# Which jobs reach the exported JSON. Relevance, not correctness: the store
+# keeps every real posting it finds and the scorer ranks them, so narrowing
+# here changes what one export contains and never what is scraped or kept.
+# That is the whole reason these are config and not scraper code - widening
+# the list tomorrow re-exports jobs that are already in the store, rather
+# than needing a re-scrape to get them back.
+#
+# Matched case-insensitively against the title as whole words, so "staff"
+# does not fire on "staffing" and "architect" does not fire on
+# "architecture". DROP wins over KEEP.
+EXPORT_TITLE_KEEP: list[str] = [
+    "backend", "back-end", "software engineer", "software developer", "platform",
+    "mlops", "ml engineer", "machine learning engineer", "ai engineer",
+    "infrastructure", "sre", "site reliability", "data engineer", "full stack",
+    "fullstack", "staff", "tech lead", "architect", "devops",
+]
+EXPORT_TITLE_DROP: list[str] = [
+    "legal", "counsel", "attorney", "sales", "finance", "commission", "animator",
+    "designer", "recruiter", "marketing", "fraud", "project manager",
+]
+# "Analyst" is a drop UNLESS the title also names an engineer - "Data Analyst"
+# is out, "Analytics Engineer" is in.
+EXPORT_TITLE_DROP_UNLESS_ENGINEER: list[str] = ["analyst"]
+# Only Israel-based postings are exported; a job whose own page names a
+# foreign country is dropped even when the company is Israeli.
+EXPORT_COUNTRY: str = "israel"
+# Recruiters and consultancies place other companies' roles. Flagged, not
+# dropped - the job may still be real, but the company name is not the
+# employer.
+AGENCY_COMPANY_MARKERS: list[str] = [
+    "medulla", "ness technologies", "pwc", "deloitte", "ey israel", "kpmg",
+    "accenture", "talent", "recruit", "staffing", "hr services", "manpower",
+    "experis", "sqlink", "matrix", "john bryce", "aman group",
+]

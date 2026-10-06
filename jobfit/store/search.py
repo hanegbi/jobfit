@@ -182,7 +182,8 @@ def export_rows(conn: sqlite3.Connection, *, sort: str = "score", profile: str =
     # best_score is selected because _SORTS["score"] orders by that alias,
     # not because the export carries it - the caller reads company/title/url.
     return conn.execute(
-        f"SELECT c.display_name AS company, j.title, j.url, {score_sql(profile)} AS best_score "
+        f"SELECT c.display_name AS company, j.title, j.url, j.city, j.work_mode, j.fetch_status, "
+        f"j.posted_at, j.location, {score_sql(profile)} AS best_score "
         f"{JOINS} {clause} ORDER BY {_SORTS.get(sort, _SORTS['score'])}",
         params,
     ).fetchall()

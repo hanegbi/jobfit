@@ -151,44 +151,46 @@ def test_facets_also_take_exclude_company(client, seeded):
     assert {c["name"]: c["n"] for c in body["companies"]} == {"Acme": 2}
 
 
-def test_export_groups_every_matching_job_by_company(client, seeded):
-    res = client.get("/api/jobs/export")
-    assert res.status_code == 200
-    assert res.json() == {
-        "Acme": [{"Senior Backend Engineer": "u1"}, {"Data Scientist": "u2"}],
-        "Beta": [{"Platform Engineer": "u3"}],
-    }
+def test_export_returns_a_flat_job_list_and_a_run_report(client, seeded):
+    """The export is one object per job plus the report that explains what
+    did not make it - "kept 2 of 3" is only useful with the reasons."""
+    body = client.get("/api/jobs/export").json()
+    assert set(body) == {"report", "jobs"}
+    assert {j["title"] for j in body["jobs"]} == {"Senior Backend Engineer", "Platform Engineer"}
+    assert body["report"]["found"] == 3 and body["report"]["kept"] == 2
+    # "Data Scientist" is on neither list, so it is simply not engineering.
+    assert body["report"]["dropped_by_title"] == 1
 
 
 def test_export_respects_the_filter_it_was_asked_for(client, seeded):
-    body = client.get("/api/jobs/export?city=Haifa").json()
-    assert body == {"Acme": [{"Data Scientist": "u2"}]}
+    body = client.get("/api/jobs/export?city=Tel+Aviv").json()
+    assert {j["title"] for j in body["jobs"]} == {"Senior Backend Engineer", "Platform Engineer"}
 
 
 def test_export_is_the_whole_result_set_not_one_page(client, seeded):
-    """The point of the export: size caps /api/jobs at 500 a page, and the
-    export deliberately takes no page parameter at all - "export what I
-    searched for", not "export what is on screen"."""
+    """size caps /api/jobs at 500 a page; the export takes no page parameter
+    at all - "export what I searched for", not "what is on screen"."""
     page = client.get("/api/jobs?size=1").json()
     exported = client.get("/api/jobs/export?size=1&page=2").json()
     assert len(page["jobs"]) == 1
-    assert sum(len(jobs) for jobs in exported.values()) == 3
+    assert exported["report"]["found"] == 3
+
+
+def test_export_never_carries_a_closed_job(client, seeded):
+    store_jobs.close_by_url(seeded, {"u1": "gone"}, NOW)
+    body = client.get("/api/jobs/export").json()
+    assert {j["title"] for j in body["jobs"]} == {"Platform Engineer"}
+
+
+def test_export_of_a_filter_that_matches_nothing_is_an_empty_list(client, seeded):
+    body = client.get("/api/jobs/export?q=***").json()
+    assert body["jobs"] == [] and body["report"]["found"] == 0
 
 
 def test_export_downloads_as_a_file(client, seeded):
     res = client.get("/api/jobs/export")
     assert res.headers["content-type"].startswith("application/json")
     assert res.headers["content-disposition"].startswith('attachment; filename="jobfit-')
-
-
-def test_export_never_carries_a_closed_job(client, seeded):
-    store_jobs.close_by_url(seeded, {"u2": "gone"}, NOW)
-    body = client.get("/api/jobs/export").json()
-    assert body["Acme"] == [{"Senior Backend Engineer": "u1"}]
-
-
-def test_export_of_a_filter_that_matches_nothing_is_an_empty_object(client, seeded):
-    assert client.get("/api/jobs/export?q=***").json() == {}
 
 
 def test_export_is_not_mistaken_for_a_job_id(client, seeded):

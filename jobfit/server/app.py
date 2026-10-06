@@ -14,6 +14,7 @@ from jobfit.scripts import update_jobs
 from jobfit.server import dashboard, runner
 from jobfit.store import companies as store_companies
 from jobfit.store import db, facets, search
+from jobfit.store import export as store_export
 from jobfit.store import jobs as store_jobs
 from jobfit.store import state as store_state
 
@@ -246,12 +247,10 @@ def api_export_jobs(
         language=language, max_years=max_years, posted_after=posted_after,
         is_referral=referral, has_description=has_description, sort=sort,
     )
-    grouped: dict[str, list[dict[str, str | None]]] = {}
-    for row in rows:
-        grouped.setdefault(row["company"], []).append({row["title"]: row["url"]})
+    jobs, report = store_export.build(rows)
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     return Response(
-        content=json.dumps(grouped, ensure_ascii=False, indent=2),
+        content=json.dumps({"report": report, "jobs": jobs}, ensure_ascii=False, indent=2),
         media_type="application/json",
         headers={"Content-Disposition": f'attachment; filename="jobfit-{stamp}.json"'},
     )
