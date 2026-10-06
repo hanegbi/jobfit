@@ -40,11 +40,6 @@ _SENIORITY = r"senior|junior|jr\.?|sr\.?|mid[\s-]level|mid|intermediate|entry[\s
 _TRAILING_SENIORITY = r"senior|junior|jr\.?|sr\.?|mid[\s-]level|mid|entry[\s-]level|intermediate"
 _CTA = r"apply(\s+(now|today|here))?|(read|learn|view|see)\s+more|view\s+(job|role|position|details)|more\s+details"
 
-# A card whose WHOLE text is one of these names no role - the job's own page
-# is then the only source of a title (see authoritative_title). Each was
-# found as a stored job title in a real export: "More Details" (xpander.ai),
-# "Job Details" (Lusha), "Open page" (TA 9), "Tell Me More" (ControlMonkey),
-# "External Post" (Ashby boards), "Apply for this position" (Prisma).
 # A page heading that announces itself before naming the role - Lusha's
 # h1 reads "Job opportunity: Data Scientist".
 _PAGE_TITLE_PREFIX_RE = re.compile(
@@ -52,6 +47,20 @@ _PAGE_TITLE_PREFIX_RE = re.compile(
     re.I,
 )
 
+# A heading that belongs to a block/error page rather than to a job. Only
+# consulted for a button-only card, where there is no card title left to
+# protect the job from adopting it.
+_WALL_TITLE_RE = re.compile(
+    r"you have been blocked|attention required|just a moment|access denied|"
+    r"page not found|404|forbidden|error|security check|verify you are human|are you a robot",
+    re.I,
+)
+
+# A card whose WHOLE text is one of these names no role - the job's own page
+# is then the only source of a title (see authoritative_title). Each was
+# found as a stored job title in a real export: "More Details" (xpander.ai),
+# "Job Details" (Lusha), "Open page" (TA 9), "Tell Me More" (ControlMonkey),
+# "External Post" (Ashby boards), "Apply for this position" (Prisma).
 _GENERIC_CARD_RE = re.compile(
     r"(?:apply(?:\s+(?:now|today|here|for\s+this\s+(?:position|job|role)))?|"
     r"(?:read|learn|view|see|find\s+out)\s+more|more\s+(?:details|info(?:rmation)?)|"
@@ -347,6 +356,11 @@ def authoritative_title(candidates: list[str], listing_title: str) -> str | None
         # " | Company - tagline".
         for candidate in candidates:
             cleaned = _clean(_PAGE_TITLE_PREFIX_RE.sub("", candidate))
+            # A challenge page has a heading too ("Sorry, you have been
+            # blocked"), and with no card title to fall back on it would be
+            # stored AS the job. Caught live on ControlMonkey.
+            if _WALL_TITLE_RE.search(cleaned):
+                return None
             if len(_normalized(cleaned)) >= 8 and len(_normalized(cleaned).split()) >= 2:
                 return cleaned
         return None

@@ -36,7 +36,8 @@ _GONE_TEXT_RE = re.compile(
 # posting to close.
 _BLOCKED_TEXT_RE = re.compile(
     r"attention required!|just a moment\.\.\.|checking your browser|cf-browser-verification|"
-    r"enable javascript and cookies|access denied|request unsuccessful|are you a robot",
+    r"enable javascript and cookies|access denied|request unsuccessful|are you a robot|"
+    r"you have been blocked|blocked by|security check|verify you are human|ddos protection",
     re.I,
 )
 def _bounced_up_to_the_board(url: str, final_url: str) -> bool:
