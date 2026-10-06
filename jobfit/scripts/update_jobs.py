@@ -29,6 +29,7 @@ import sys
 import time
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
+from functools import lru_cache
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -192,6 +193,41 @@ def _url_host(url: str | None) -> str:
         return ""
 
 
+@lru_cache(maxsize=1)
+def _ats_registry():
+    """One registry for the whole run - resolve() is called per job URL."""
+    return scrape_bootstrap.default_registry(session=None)
+
+
+def _ats_board_of(url: str | None) -> str | None:
+    """("provider", "board") as one key for a job URL on a known ATS, else
+    None. The registry already knows every board's URL shape - this is the
+    one place that asks it whose board a JOB url is on, rather than which
+    client to fetch a company with."""
+    if not url:
+        return None
+    resolved = _ats_registry().resolve(url)
+    if resolved is None:
+        return None
+    client, board = resolved
+    return f"{client.provider}:{board.lower()}"
+
+
+def _exclusive_ats_boards(conn) -> dict[str, str]:
+    """{provider:board: company_id} for boards claimed by exactly one company.
+
+    Built from the companies' own career URLs, and "exactly one" for the same
+    reason exclusive_career_hosts uses it: if two companies both register the
+    same board, the board cannot settle which of them a job belongs to.
+    """
+    owners: dict[str, set[str]] = {}
+    for company_id, career_url in store_companies.career_urls_by_company(conn).items():
+        board = _ats_board_of(career_url)
+        if board:
+            owners.setdefault(board, set()).add(company_id)
+    return {board: next(iter(ids)) for board, ids in owners.items() if len(ids) == 1}
+
+
 def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles: dict,
                     may_close: bool = True, techmap_index: dict | None = None) -> tuple[int, int]:
     """Apply one company's scrape to the store. Returns (new, closed).
@@ -216,6 +252,12 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
     # Shared ATS hosts are excluded by exclusive_career_hosts, so this never
     # fires on boards.greenhouse.io or jobs.lever.co.
     owned_hosts = store_companies.exclusive_career_hosts(conn)
+    # The same rule one level down. A shared ATS host says nothing about whose
+    # job it is, so exclusive_career_hosts deliberately skips it - but the
+    # BOARD SLUG under that host does: jobs.ashbyhq.com/menlosecurity is Menlo
+    # Security's board whoever fetched it. Real case: three Ashby jobs filed
+    # under "Votiro Cybersec Ltd." in an export, all of them Menlo Security's.
+    owned_boards = _exclusive_ats_boards(conn)
 
     relevant = []
     for job in fetched:
@@ -226,10 +268,24 @@ def diff_and_update(company: str, career_url: str, fetched: list[dict], profiles
         if owner is not None and owner != company_id:
             logger.debug("%s: %r is served from %s's board, not ours", company, title, owner)
             continue
+        board_owner = owned_boards.get(_ats_board_of(job.get("url")))
+        if board_owner is not None and board_owner != company_id:
+            logger.debug("%s: %r is on %s's ATS board, not ours", company, title, board_owner)
+            continue
         # Judged on the recovered title, not on the link's anchor text - see
         # filters.looks_like_site_furniture.
         if scrape_filters.looks_like_site_furniture(title):
             logger.debug("%s: %r is site furniture, not a job", company, title)
+            continue
+        # The same rule purge_non_jobs deletes by, applied before the row is
+        # ever written. Without it the purge was a mop with the tap left on:
+        # "Platform Agreement" (reevol.com/platform-agreement) was scraped
+        # straight back in and exported as a job, because "platform" is a
+        # title keep-word and nothing upstream asked whether the page was a
+        # posting at all.
+        non_job = scrape_filters.non_job_reason(title, job.get("url"))
+        if non_job:
+            logger.debug("%s: %r is not a posting (%s)", company, title, non_job)
             continue
         # A non-Israel, non-remote office ("Texas", "Mexico") is not what this
         # job search targets, and storing it would only add noise to search.

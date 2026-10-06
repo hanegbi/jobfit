@@ -296,3 +296,58 @@ def test_a_shared_ats_host_is_not_treated_as_owned(store_conn):
     update_jobs.diff_and_update("Acme", CAREER_URL, fetched, {})
 
     assert [j["title"] for j in _stored(store_conn)] == ["Backend Engineer"]
+
+
+def test_a_job_on_another_companys_ats_board_is_not_filed_under_this_one(store_conn):
+    """The host rule stops at a shared ATS host, but the BOARD SLUG under it
+    still names an owner: jobs.ashbyhq.com/menlosecurity is Menlo Security's
+    whoever fetched it. Real case: three Ashby jobs filed under "Votiro
+    Cybersec Ltd." in an export, every one of them Menlo Security's."""
+    from jobfit.store import companies as store_companies
+
+    store_companies.upsert_company(store_conn, "menlo_security", "Menlo Security",
+                                   career_url="https://jobs.ashbyhq.com/menlosecurity")
+    fetched = [
+        {"title": "Senior Backend Engineer", "url": "https://jobs.ashbyhq.com/menlosecurity/abc-123",
+         "description": "", "location": "Tel Aviv"},
+        {"title": "Platform Engineer", "url": "https://votiro.com/careers/platform",
+         "description": "", "location": "Tel Aviv"},
+    ]
+    update_jobs.diff_and_update("Votiro Cybersec Ltd.", CAREER_URL, fetched, {})
+
+    assert [j["title"] for j in _stored(store_conn, "votiro_cybersec_ltd")] == ["Platform Engineer"]
+
+
+def test_a_board_two_companies_both_claim_decides_nothing(store_conn):
+    """Same "exactly one" rule the host guard uses: if two companies register
+    the same board, the board cannot settle which of them a job belongs to,
+    and dropping on it would lose a real job."""
+    from jobfit.store import companies as store_companies
+
+    store_companies.upsert_company(store_conn, "a_co", "A Co", career_url="https://jobs.ashbyhq.com/shared")
+    store_companies.upsert_company(store_conn, "b_co", "B Co", career_url="https://jobs.ashbyhq.com/shared")
+
+    fetched = [{"title": "Backend Engineer", "url": "https://jobs.ashbyhq.com/shared/x-1",
+                "description": "", "location": "Tel Aviv"}]
+    update_jobs.diff_and_update("C Co", CAREER_URL, fetched, {})
+
+    assert [j["title"] for j in _stored(store_conn, "c_co")] == ["Backend Engineer"]
+
+
+def test_a_page_that_is_not_a_posting_never_reaches_the_store(store_conn):
+    """The rule purge_non_jobs deletes by, applied before the row is written.
+    Without it the purge was a mop with the tap left on: "Platform Agreement"
+    at reevol.com/platform-agreement was scraped straight back in and
+    exported as a job, because "platform" is a title keep-word and nothing
+    upstream asked whether the page was a posting at all."""
+    fetched = [
+        {"title": "Platform Agreement", "url": "https://www.reevol.com/platform-agreement",
+         "description": "", "location": "Tel Aviv"},
+        {"title": "Acceptable Use Policy", "url": "https://www.reevol.com/acceptable-use-policy",
+         "description": "", "location": "Tel Aviv"},
+        {"title": "Platform Engineer", "url": "https://acme.com/careers/platform-engineer",
+         "description": "", "location": "Tel Aviv"},
+    ]
+    update_jobs.diff_and_update("Acme", CAREER_URL, fetched, {})
+
+    assert [j["title"] for j in _stored(store_conn)] == ["Platform Engineer"]

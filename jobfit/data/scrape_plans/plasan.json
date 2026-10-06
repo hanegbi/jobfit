@@ -1,25 +1,37 @@
 {
   "company_id": "plasan",
   "schema_version": 1,
-  "career_url": null,
-  "derived_by": "probe",
+  "career_url": "https://career.plasan.com/",
+  "derived_by": "rules",
   "model": null,
-  "derived_at": "2026-09-29T13:43:33.839882Z",
-  "verified_at": "2026-09-29T13:43:33.839882Z",
-  "status": "verified",
+  "derived_at": "2026-10-06T08:56:18.057449Z",
+  "verified_at": null,
+  "status": "unverified",
   "strategy": {
-    "kind": "techmap_only",
-    "reason": "no career url"
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ],
+    "listing_url": null
   },
   "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
-    "last_ok_run": "2026-09-29T13:43:33.847471Z",
-    "last_run": "2026-09-29T13:43:33.847471Z",
+    "last_ok_run": "2026-10-06T08:56:28.425334Z",
+    "last_run": "2026-10-06T08:56:28.425334Z",
     "last_yield": 2,
     "baseline_yield": 0
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "career url changed from None; plan re-synthesised"
+  ]
 }

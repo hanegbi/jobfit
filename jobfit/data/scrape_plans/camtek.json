@@ -1,25 +1,37 @@
 {
   "company_id": "camtek",
   "schema_version": 1,
-  "career_url": null,
-  "derived_by": "probe",
+  "career_url": "https://www.camtek.com/careers/open-positions/",
+  "derived_by": "rules",
   "model": null,
-  "derived_at": "2026-09-29T13:43:33.362162Z",
-  "verified_at": "2026-09-29T13:43:33.362162Z",
-  "status": "verified",
+  "derived_at": "2026-10-06T08:32:09.934803Z",
+  "verified_at": null,
+  "status": "unverified",
   "strategy": {
-    "kind": "techmap_only",
-    "reason": "no career url"
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ],
+    "listing_url": null
   },
   "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
-    "last_ok_run": "2026-09-29T13:43:33.403148Z",
-    "last_run": "2026-09-29T13:43:33.403148Z",
-    "last_yield": 10,
+    "last_ok_run": "2026-10-06T08:32:43.369711Z",
+    "last_run": "2026-10-06T08:32:43.369711Z",
+    "last_yield": 31,
     "baseline_yield": 0
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "career url changed from None; plan re-synthesised"
+  ]
 }

@@ -2,55 +2,28 @@
   "company_id": "groundcover_ltd_formerly_prodstack",
   "schema_version": 1,
   "career_url": "https://www.groundcover.com/careers",
-  "derived_by": "llm",
+  "derived_by": "probe",
   "model": null,
-  "derived_at": "2026-09-28T13:53:02.408625Z",
-  "verified_at": null,
-  "status": "unverified",
+  "derived_at": "2026-10-06T08:43:11.915329Z",
+  "verified_at": "2026-10-06T08:43:11.915329Z",
+  "status": "verified",
   "strategy": {
-    "kind": "html_listing",
-    "renderer": "http",
-    "container_selector": null,
-    "include_url": null,
-    "exclude_url": [],
-    "url_shape": null,
-    "explicit_accept": [],
-    "fallbacks": [
-      "playwright",
-      "techmap"
-    ],
-    "listing_url": null
+    "kind": "ats_api",
+    "provider": "comeet",
+    "board": "groundcover/88.008",
+    "board_url": "https://www.comeet.com/jobs/groundcover/88.008"
   },
-  "labels": {
-    "page_verdict": "careers_page",
-    "external_board_url": null,
-    "container_selector": null,
-    "candidates": [
-      {
-        "index": 8,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 48,
-        "is_job": false,
-        "reason": "not a job"
-      },
-      {
-        "index": 58,
-        "is_job": false,
-        "reason": "not a job"
-      }
-    ]
-  },
+  "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
-    "last_ok_run": "2026-09-29T13:27:19.459406Z",
-    "last_run": "2026-09-29T13:27:19.459406Z",
-    "last_yield": 9,
+    "last_ok_run": "2026-10-06T08:43:13.121962Z",
+    "last_run": "2026-10-06T08:43:13.121962Z",
+    "last_yield": 15,
     "baseline_yield": 0
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "board derived from 9 stored job url(s)"
+  ]
 }

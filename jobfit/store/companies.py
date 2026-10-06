@@ -176,3 +176,11 @@ def exclusive_career_hosts(conn: sqlite3.Connection) -> dict[str, str]:
         if host:
             owners.setdefault(host, set()).add(row["id"])
     return {host: next(iter(ids)) for host, ids in owners.items() if len(ids) == 1}
+
+
+def career_urls_by_company(conn: sqlite3.Connection) -> dict[str, str]:
+    """{company_id: career_url}. The caller resolves these to ATS boards -
+    which host a job belongs to is a scrape-package question, and the board
+    vocabulary lives there, not in the store."""
+    return {row["id"]: row["career_url"] for row in conn.execute(
+        "SELECT id, career_url FROM companies WHERE career_url IS NOT NULL AND career_url != ''")}

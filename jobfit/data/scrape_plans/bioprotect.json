@@ -1,25 +1,37 @@
 {
   "company_id": "bioprotect",
   "schema_version": 1,
-  "career_url": null,
-  "derived_by": "probe",
+  "career_url": "https://bioprotect.com/careers/",
+  "derived_by": "rules",
   "model": null,
-  "derived_at": "2026-09-29T13:43:33.362611Z",
-  "verified_at": "2026-09-29T13:43:33.362611Z",
-  "status": "verified",
+  "derived_at": "2026-10-06T08:30:29.107293Z",
+  "verified_at": null,
+  "status": "unverified",
   "strategy": {
-    "kind": "techmap_only",
-    "reason": "no career url"
+    "kind": "html_listing",
+    "renderer": "http",
+    "container_selector": null,
+    "include_url": null,
+    "exclude_url": [],
+    "url_shape": null,
+    "explicit_accept": [],
+    "fallbacks": [
+      "playwright",
+      "techmap"
+    ],
+    "listing_url": null
   },
   "labels": null,
   "page_fingerprint": null,
   "health": {
     "consecutive_empty_runs": 0,
-    "last_ok_run": "2026-09-29T13:43:33.433924Z",
-    "last_run": "2026-09-29T13:43:33.433924Z",
+    "last_ok_run": "2026-10-06T08:30:43.937803Z",
+    "last_run": "2026-10-06T08:30:43.937803Z",
     "last_yield": 3,
     "baseline_yield": 0
   },
   "rediscover_after": null,
-  "notes": []
+  "notes": [
+    "career url changed from None; plan re-synthesised"
+  ]
 }

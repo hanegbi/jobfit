@@ -214,3 +214,13 @@ AGENCY_COMPANY_MARKERS: list[str] = [
     "accenture", "talent", "recruit", "staffing", "hr services", "manpower",
     "experis", "sqlink", "matrix", "john bryce", "aman group",
 ]
+
+
+# Hebrew listings are translated at scrape time (translation.py, MyMemory -
+# a free API, not a model). Off means the job is still MARKED Hebrew, with
+# its originals kept, but no network call is made: MyMemory rate-limits, and
+# the retry backoff (1->2->4->8s per 480-char chunk) made translation the
+# slowest part of a full run by a wide margin - one run sat 65 minutes with
+# its workers asleep in it. With this off, source_language='he' plus the
+# *_original fields are exactly the worklist a later translation pass needs.
+TRANSLATION_ENABLED: bool = False

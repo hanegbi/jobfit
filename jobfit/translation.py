@@ -214,10 +214,26 @@ def poisoned_cache_keys(cache: dict) -> list[str]:
 def translate_job_if_needed(job: dict) -> dict:
     """Mutates job in place: if its title or description contains Hebrew,
     translates both to English and stashes the Hebrew originals under
-    *_original plus a source_language marker the UI can show as a badge."""
+    *_original plus a source_language marker the UI can show as a badge.
+
+    config.TRANSLATION_ENABLED turns the network calls off while still
+    marking the job as Hebrew, so a run is never held up by MyMemory. The
+    marker and the *_original fields are what let a later pass translate
+    exactly the jobs that were skipped - without them a skipped job would
+    be indistinguishable from an English one. A free API that rate-limits
+    had workers sleeping through 1->2->4->8s backoff per 480-char chunk,
+    which is minutes per long Hebrew description and was the slowest thing
+    in a full run by a wide margin.
+    """
     title = job.get("title") or ""
     description = job.get("description") or ""
     if not (contains_hebrew(title) or contains_hebrew(description)):
+        return job
+
+    if not config.TRANSLATION_ENABLED:
+        job["title_original"] = title
+        job["description_original"] = description
+        job["source_language"] = "he"
         return job
 
     job["title_original"] = title

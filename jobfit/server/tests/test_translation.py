@@ -224,6 +224,7 @@ def test_translate_job_if_needed_leaves_english_jobs_untouched():
 def test_translate_job_if_needed_stashes_originals_and_sets_source_language(monkeypatch, tmp_path):
     monkeypatch.setattr(translation, "CACHE_PATH", tmp_path / "translations.json")
     monkeypatch.setattr(translation, "translate_to_english", lambda text: f"[EN] {text}")
+    monkeypatch.setattr(translation.config, "TRANSLATION_ENABLED", True)
 
     job = {"title": "מהנדס תוכנה", "description": "תיאור בעברית"}
     result = translation.translate_job_if_needed(job)
@@ -233,3 +234,34 @@ def test_translate_job_if_needed_stashes_originals_and_sets_source_language(monk
     assert result["title_original"] == "מהנדס תוכנה"
     assert result["description_original"] == "תיאור בעברית"
     assert result["source_language"] == "he"
+
+
+def test_translation_can_be_switched_off_without_losing_the_hebrew_marker(monkeypatch, tmp_path):
+    """config.TRANSLATION_ENABLED=False makes no network call, but the job is
+    still marked Hebrew and keeps its originals - that marker plus
+    *_original IS the worklist a later translation pass needs. Without them
+    a skipped job would be indistinguishable from an English one.
+
+    Why it exists: MyMemory rate-limits, and the retry backoff
+    (1->2->4->8s per 480-char chunk) left a full run's workers asleep for 65
+    minutes in translation alone."""
+    monkeypatch.setattr(translation, "CACHE_PATH", tmp_path / "translations.json")
+    monkeypatch.setattr(translation.config, "TRANSLATION_ENABLED", False)
+
+    def _boom(text):
+        raise AssertionError("translate_to_english must not be called when translation is off")
+
+    monkeypatch.setattr(translation, "translate_to_english", _boom)
+
+    result = translation.translate_job_if_needed({"title": "מהנדס", "description": "תיאור"})
+    assert result["source_language"] == "he"
+    assert result["title"] == result["title_original"] == "מהנדס"
+    assert result["description"] == result["description_original"] == "תיאור"
+
+
+def test_an_english_job_is_untouched_whether_translation_is_on_or_off(monkeypatch, tmp_path):
+    monkeypatch.setattr(translation, "CACHE_PATH", tmp_path / "translations.json")
+    for enabled in (True, False):
+        monkeypatch.setattr(translation.config, "TRANSLATION_ENABLED", enabled)
+        job = {"title": "Backend Engineer", "description": "We need Python."}
+        assert translation.translate_job_if_needed(dict(job)) == job
