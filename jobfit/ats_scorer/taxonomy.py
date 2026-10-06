@@ -84,7 +84,16 @@ class RoleFamilies:
         }
 
     def classify(self, *texts: str) -> str | None:
-        """Return the family with the highest keyword-hit count across texts.
+        """Return the family with the highest keyword-hit count across texts,
+        breaking a tie in favour of whichever matched EARLIEST.
+
+        A title names its role first and qualifies it afterwards, so the
+        earlier match is the head noun and the later one describes what the
+        role works on. Without the tie-break "Product Manager - Connectors
+        and AI Infrastructure" scored 1-1 between product and ml_infra and
+        was decided by whichever family happened to come first in
+        role_families.json - ml_infra, which put a product role in a
+        backend engineer's top band at 86.
 
         Args:
             *texts: One or more text blocks to search (e.g. title, bullets).
@@ -95,13 +104,15 @@ class RoleFamilies:
         joined = " ".join(t.lower() for t in texts if t)
         if not joined:
             return None
+        best_key: tuple[int, int] | None = None
         best_family = None
-        best_count = 0
         for family, patterns in self._patterns.items():
-            count = sum(1 for p in patterns if p.search(joined))
-            if count > best_count:
-                best_count = count
-                best_family = family
+            starts = [match.start() for match in (p.search(joined) for p in patterns) if match]
+            if not starts:
+                continue
+            key = (len(starts), -min(starts))
+            if best_key is None or key > best_key:
+                best_key, best_family = key, family
         return best_family
 
 

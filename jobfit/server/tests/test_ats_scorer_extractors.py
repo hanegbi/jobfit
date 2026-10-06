@@ -67,6 +67,24 @@ Requirements:
     assert result.seniority == Seniority.SENIOR
 
 
+def test_a_title_is_classified_by_its_head_noun_not_a_trailing_qualifier():
+    """Real bug: a title names its role first and says what it works on
+    afterwards, but classify counted hits and broke a tie on whichever
+    family came first in role_families.json. "Product Manager - Connectors
+    and AI Infrastructure" tied 1-1 between product and ml_infra and went
+    to ml_infra, putting a product role at 86 in a backend engineer's top
+    band. The earlier match is the head noun, so it wins the tie."""
+    from jobfit.ats_scorer.taxonomy import load_role_families
+
+    families = load_role_families()
+    assert families.classify("Product Manager - Connectors and AI Infrastructure") == "product"
+    assert families.classify("Director, Product Management - AI Infrastructure") == "product"
+    assert families.classify("Senior Paid Acquisition Manager - AI Infrastructure & Growth") == "marketing"
+    # The qualifier still wins when it IS the role.
+    assert families.classify("Senior AI Infrastructure Engineer") == "ml_infra"
+    assert families.classify("Senior Backend Engineer") == "backend"
+
+
 def test_jd_extractor_infers_role_family_from_title_and_responsibilities():
     jd = """Marketing Manager
 
